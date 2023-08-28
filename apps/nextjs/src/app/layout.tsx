@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
-import "~/styles/globals.css";
-
-import { headers } from "next/headers";
-
-const fontSans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Create T3 Turbo",
@@ -29,9 +21,7 @@ export const metadata: Metadata = {
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={["font-sans", fontSans.variable].join(" ")}>
-          {props.children}
-      </body>
+      <body>{props.children}</body>
     </html>
   );
 }
