@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import "../styles/globals.css";
 
+import { cn } from "@/libs/tailwind";
+
 export const metadata: Metadata = {
   title: "Create T3 Turbo",
   description: "Simple monorepo with shared backend for web & mobile apps",
@@ -20,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>{props.children}</body>
+    <html lang="ko">
+      <body className={cn("font-sans antialiased")}>{props.children}</body>
     </html>
   );
 }
