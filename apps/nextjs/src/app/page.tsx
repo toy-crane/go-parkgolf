@@ -1,5 +1,3 @@
-import { Button } from "@/components/button";
-
 export const runtime = "edge";
 
 export default function HomePage() {
