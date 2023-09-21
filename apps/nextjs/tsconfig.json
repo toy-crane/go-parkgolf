@@ -10,6 +10,7 @@
         "name": "next"
       }
     ],
+    "types": ["kakao.maps.d.ts"],
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "include": [".", ".next/types/**/*.ts"],
