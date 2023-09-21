@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Marker from "@/components/map/marker";
 import type { Location } from "@/types";
-import { CustomOverlayMap, Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
 
@@ -11,24 +11,25 @@ import useSWR from "swr";
 const fetcher: Fetcher<Location[], string> = (url) =>
   fetch(url).then((res) => res.json());
 
+const DEFAULT_POSITION = { lat: 37.564214, lng: 127.001699 };
+
 const Locations = () => {
   const { data: locations } = useSWR("/api/locations", fetcher);
 
-  const [position, setPosition] = useState({
-    // 지도의 초기 위치
-    center: { lat: 37.564214, lng: 127.001699 },
-    // 지도 위치 변경시 panto를 이용할지에 대해서 정의
-    isPanto: true,
-  });
+  const [selectedLocation, setSelectedLocation] = useState<
+    Location | undefined
+  >();
 
-  const handlePosition = (lat: number, lng: number) => {
-    setPosition((p) => ({ ...p, center: { lat, lng } }));
-  };
+  const address = selectedLocation?.address;
 
   return (
     <Map
-      center={position.center}
-      isPanto={position.isPanto}
+      center={
+        address
+          ? { lat: Number(address.y), lng: Number(address.x) }
+          : DEFAULT_POSITION
+      }
+      isPanto={true}
       level={7}
       style={{ width: "100%", height: "100vh" }}
     >
@@ -36,12 +37,8 @@ const Locations = () => {
         <Marker
           location={location}
           key={location.name}
-          onClick={() =>
-            handlePosition(
-              Number(location.address.y),
-              Number(location.address.x),
-            )
-          }
+          onClick={() => setSelectedLocation(location)}
+          showLabel={location === selectedLocation}
         />
       ))}
     </Map>

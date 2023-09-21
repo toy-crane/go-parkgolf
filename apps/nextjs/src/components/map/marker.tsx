@@ -1,12 +1,13 @@
-import { useState } from "react";
 import type { Location } from "@/types";
 import { CustomOverlayMap, MapMarker } from "react-kakao-maps-sdk";
 
 const Marker = ({
   location,
   onClick,
+  showLabel,
 }: {
   location: Location;
+  showLabel: boolean;
   onClick: () => void;
 }) => {
   const { name, address } = location;
@@ -20,11 +21,13 @@ const Marker = ({
           onClick();
         }}
       />
-      <CustomOverlayMap
-        position={{ lat: Number(address.y), lng: Number(address.x) }}
-      >
-        <div>{name}</div>
-      </CustomOverlayMap>
+      {showLabel && (
+        <CustomOverlayMap
+          position={{ lat: Number(address.y), lng: Number(address.x) }}
+        >
+          <div>{name}</div>
+        </CustomOverlayMap>
+      )}
     </>
   );
 };
