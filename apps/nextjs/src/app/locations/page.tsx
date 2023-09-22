@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Marker from "@/components/map/marker";
 import type { Location } from "@/types";
-import { Map } from "react-kakao-maps-sdk";
+import { Map, MarkerClusterer } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
 
@@ -33,14 +33,18 @@ const Locations = () => {
       level={7}
       style={{ width: "100%", height: "100vh" }}
     >
-      {locations?.map((location) => (
-        <Marker
-          location={location}
-          key={location.name}
-          onClick={() => setSelectedLocation(location)}
-          showLabel={location === selectedLocation}
-        />
-      ))}
+      <MarkerClusterer
+        averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+        minLevel={10} // 클러스터 할 최소 지도 레벨
+      >
+        {locations?.map((location) => (
+          <Marker
+            location={location}
+            key={location.name}
+            onClick={() => setSelectedLocation(location)}
+          />
+        ))}
+      </MarkerClusterer>
     </Map>
   );
 };
