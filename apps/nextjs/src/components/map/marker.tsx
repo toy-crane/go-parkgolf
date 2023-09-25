@@ -1,3 +1,4 @@
+import { cn } from "@/libs/tailwind";
 import type { Location } from "@/types";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 
@@ -7,11 +8,13 @@ import { Button } from "../ui/button";
 const Marker = ({
   location,
   onClick,
+  isMarked,
 }: {
   location: Location;
+  isMarked: boolean;
   onClick: () => void;
 }) => {
-  const { name, address } = location;
+  const { address } = location;
 
   return (
     <>
@@ -19,9 +22,14 @@ const Marker = ({
         position={{ lat: Number(address.y), lng: Number(address.x) }}
         zIndex={10}
       >
-        <Button variant="outline" className="bg-white" onClick={onClick}>
-          <LocationFillIcon className="mr-2 h-6 w-6" />
-          {name}
+        <Button
+          variant="ghost"
+          className="relative rounded-full hover:bg-transparent"
+          onClick={onClick}
+        >
+          <LocationFillIcon
+            className={cn(isMarked ? "h-12 w-12 brightness-125" : "h-8 w-8")}
+          />
         </Button>
       </CustomOverlayMap>
       )

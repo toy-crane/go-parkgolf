@@ -53,6 +53,7 @@ const Locations = () => {
             <Marker
               location={location}
               key={location.name}
+              isMarked={selectedLocation?.name === location.name}
               onClick={() => {
                 setSelectedLocation(location);
                 setOpen((open) => !open);
