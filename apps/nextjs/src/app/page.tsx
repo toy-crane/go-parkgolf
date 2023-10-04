@@ -61,7 +61,7 @@ const Locations = () => {
       <Map
         center={position.center}
         isPanto={true}
-        level={7}
+        level={position.level}
         style={{ width: "100%", height: "100vh" }}
         onCenterChanged={(map) =>
           setPosition({
