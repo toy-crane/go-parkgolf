@@ -12,8 +12,8 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import type { Location } from "@/types";
-import { Bookmark, Clock, FlagTriangleRight, Phone } from "lucide-react";
-import { Map, MarkerClusterer } from "react-kakao-maps-sdk";
+import { Clock, FlagTriangleRight, Phone } from "lucide-react";
+import { Map } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
 
