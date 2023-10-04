@@ -12,7 +12,15 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["배경화면 지우기", "배경화면", "누끼따기"],
+  keywords: [
+    "파크골프장 추천",
+    "근처 파크골프장",
+    "파크골프장 예약",
+    "파크골프장 비교",
+    "지역별 파크골프장",
+    "파크골프장 리뷰",
+    "파크골프장 가격",
+  ],
   authors: [
     {
       name: siteConfig.author,
