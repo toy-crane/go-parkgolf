@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Marker from "@/components/map/marker";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -17,8 +16,6 @@ import { Clock, FlagTriangleRight, Phone } from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
-
-import Logo from "../../public/logo/logo.svg";
 
 //Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
 const fetcher: Fetcher<Location[], string> = (url) =>
@@ -49,19 +46,20 @@ const Locations = () => {
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 p-3">
         <Button
-          className="text-xl font-extrabold"
+          className="px-4 text-xl font-extrabold"
           size="lg"
           onClick={() => {
             setPosition(DEFAULT_POSITION);
           }}
         >
-          파크골프 가자
+          <FlagTriangleRight className="mr-1" size={20} />
+          GO PARKGOLF
         </Button>
       </nav>
       <Map
         center={position.center}
         isPanto={true}
-        level={position.level}
+        level={7}
         style={{ width: "100%", height: "100vh" }}
         onCenterChanged={(map) =>
           setPosition({
