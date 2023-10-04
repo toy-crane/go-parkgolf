@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Marker from "@/components/map/marker";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
