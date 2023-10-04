@@ -13,15 +13,13 @@ export const env = createEnv({
    * Specify your server-side environment variables schema here. This way you can ensure the app isn't
    * built with invalid env vars.
    */
-  server: {
-    DATABASE_URL: z.string().url(),
-  },
+  server: {},
   /**
    * Specify your client-side environment variables schema here.
    * For them to be exposed to the client, prefix them with `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_NCP_CLIENT_ID: z.string(),
+    NEXT_PUBLIC_KAKAO_CLIENT_ID: z.string(),
   },
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
@@ -29,8 +27,7 @@ export const env = createEnv({
   runtimeEnv: {
     VERCEL_URL: process.env.VERCEL_URL,
     PORT: process.env.PORT,
-    DATABASE_URL: process.env.DATABASE_URL,
-    NEXT_PUBLIC_NCP_CLIENT_ID: process.env.NEXT_PUBLIC_NCP_CLIENT_ID,
+    NEXT_PUBLIC_KAKAO_CLIENT_ID: process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID,
   },
   skipValidation:
     !!process.env.CI ||
