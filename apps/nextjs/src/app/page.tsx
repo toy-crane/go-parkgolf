@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Marker from "@/components/map/marker";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -16,16 +18,27 @@ import { Map } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
 
+import Logo from "../../public/logo/logo.svg";
+
 //Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
 const fetcher: Fetcher<Location[], string> = (url) =>
   fetch(url).then((res) => res.json());
 
-const DEFAULT_POSITION = { lat: 37.564214, lng: 127.001699 };
+const DEFAULT_POSITION = {
+  level: 7,
+  center: { lat: 37.564214, lng: 127.001699 },
+};
 
 const Locations = () => {
   const { data: locations } = useSWR("/api/locations", fetcher);
   const [open, setOpen] = useState(false);
+  // 지도의 위치
+  const [position, setPosition] = useState<{
+    level: number;
+    center: { lat: number; lng: number };
+  }>(DEFAULT_POSITION);
 
+  // 선택한 파크골프장
   const [selectedLocation, setSelectedLocation] = useState<
     Location | undefined
   >();
@@ -34,15 +47,31 @@ const Locations = () => {
 
   return (
     <>
+      <nav className="fixed left-0 right-0 top-0 z-30 p-3">
+        <Button
+          className="text-xl font-extrabold"
+          size="lg"
+          onClick={() => {
+            setPosition(DEFAULT_POSITION);
+          }}
+        >
+          파크골프 가자
+        </Button>
+      </nav>
       <Map
-        center={
-          address
-            ? { lat: Number(address.y), lng: Number(address.x) }
-            : DEFAULT_POSITION
-        }
+        center={position.center}
         isPanto={true}
         level={7}
         style={{ width: "100%", height: "100vh" }}
+        onCenterChanged={(map) =>
+          setPosition({
+            level: map.getLevel(),
+            center: {
+              lat: map.getCenter().getLat(),
+              lng: map.getCenter().getLng(),
+            },
+          })
+        }
       >
         {locations?.map((location) => (
           <Marker
@@ -51,6 +80,13 @@ const Locations = () => {
             isMarked={selectedLocation?.name === location.name}
             onClick={() => {
               setSelectedLocation(location);
+              setPosition((position) => ({
+                ...position,
+                center: {
+                  lat: Number(location.address.y),
+                  lng: Number(location.address.x),
+                },
+              }));
               setOpen((open) => !open);
             }}
           />

@@ -5,7 +5,7 @@ export interface Location {
     b_code: string;
     h_code: string;
     main_address_no: string;
-    mountain_yn: "Y" | "N";
+    mountain_yn: string;
     region_1depth_name: string;
     region_2depth_name: string;
     region_3depth_h_name: string;
@@ -23,7 +23,7 @@ export interface Location {
     region_3depth_name: string;
     road_name: string;
     sub_building_no: string;
-    underground_yn: "Y" | "N";
+    underground_yn: string;
     x: string;
     y: string;
     zone_no: string;
