@@ -45,22 +45,17 @@ const Locations = () => {
         level={7}
         style={{ width: "100%", height: "100vh" }}
       >
-        <MarkerClusterer
-          averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-          minLevel={10} // 클러스터 할 최소 지도 레벨
-        >
-          {locations?.map((location) => (
-            <Marker
-              location={location}
-              key={location.name}
-              isMarked={selectedLocation?.name === location.name}
-              onClick={() => {
-                setSelectedLocation(location);
-                setOpen((open) => !open);
-              }}
-            />
-          ))}
-        </MarkerClusterer>
+        {locations?.map((location) => (
+          <Marker
+            location={location}
+            key={location.name}
+            isMarked={selectedLocation?.name === location.name}
+            onClick={() => {
+              setSelectedLocation(location);
+              setOpen((open) => !open);
+            }}
+          />
+        ))}
       </Map>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side={"bottom"} className="h-auto">
@@ -81,10 +76,6 @@ const Locations = () => {
             <div className="flex items-center gap-2">
               <Clock size={16} />
               <div className="text-sm">매일 09:00 ~ 15:00</div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Bookmark size={16} />
-              <div className="text-sm">09:00 ~ 15:00</div>
             </div>
           </div>
         </SheetContent>
