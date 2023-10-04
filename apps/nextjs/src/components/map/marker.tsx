@@ -24,7 +24,7 @@ const Marker = ({
       >
         <Button
           variant="ghost"
-          className="relative rounded-full hover:bg-transparent"
+          className="relative rounded-full p-0 hover:bg-transparent"
           onClick={onClick}
         >
           <LocationFillIcon
