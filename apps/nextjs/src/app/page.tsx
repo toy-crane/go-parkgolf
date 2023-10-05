@@ -131,11 +131,13 @@ const Locations = () => {
                   {selectedLocation?.operation.opening_hours ??
                     "등록된 정보가 없습니다"}
                 </div>
-                <div>
-                  정기 휴무일 -{" "}
-                  {selectedLocation?.operation.regular_closed_days ??
-                    "등록된 정보가 없습니다"}
-                </div>
+                {selectedLocation?.operation.regular_closed_days && (
+                  <div>
+                    {" "}
+                    정기 휴무일 -{" "}
+                    {selectedLocation?.operation.regular_closed_days}
+                  </div>
+                )}
               </div>
             </div>
             <Separator className="my-2" />
