@@ -35,5 +35,7 @@ export interface Location {
   operation: {
     opening_hours?: string;
     regular_closed_days?: string;
+    website?: string;
+    registration_method?: string;
   };
 }

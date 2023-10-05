@@ -12,7 +12,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import type { Location } from "@/types";
-import { Clock, FlagTriangleRight, Phone } from "lucide-react";
+import { AlarmClock, Clock, FlagTriangleRight, Phone } from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
@@ -96,31 +96,70 @@ const Locations = () => {
             <SheetTitle>{selectedLocation?.name}</SheetTitle>
             <SheetDescription>{address?.address_name}</SheetDescription>
           </SheetHeader>
-          <Separator className="my-4" />
-          <div className="grid w-full items-center gap-4">
-            <div className="flex items-center gap-2">
-              <FlagTriangleRight size={16} />
-              <div className="text-sm">{selectedLocation?.hole_count} 홀</div>
+          <Separator className="mb-2 mt-4" />
+          <div className="grid w-full items-center">
+            <div className="flex items-center gap-4">
+              <FlagTriangleRight size={20} />
+              <div className="text-base">{selectedLocation?.hole_count} 홀</div>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone size={16} />
-              <div className="text-sm">
-                {selectedLocation?.contact.phone_number ??
-                  "등록된 연락처가 없습니다"}
+            <Separator className="my-2" />
+            <div className="flex items-center gap-4">
+              <Phone size={20} />
+              <div className="text-base">
+                {selectedLocation?.contact.phone_number ? (
+                  <Button
+                    variant="link"
+                    size="sm"
+                    asChild
+                    className="p-0 text-base text-blue-400"
+                  >
+                    <a href={`tel:${selectedLocation?.contact.phone_number}`}>
+                      {selectedLocation?.contact.phone_number}
+                    </a>
+                  </Button>
+                ) : (
+                  "등록된 연락처가 없습니다"
+                )}
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Clock size={16} />
-              <div className="text-sm">
+            <Separator className="my-2" />
+            <div className="flex items-center gap-4">
+              <Clock size={20} />
+              <div className="text-base">
                 <div>
-                  영업 시간 -
+                  영업 시간 -{" "}
                   {selectedLocation?.operation.opening_hours ??
                     "등록된 정보가 없습니다"}
                 </div>
                 <div>
-                  정기 휴무일 -
+                  정기 휴무일 -{" "}
                   {selectedLocation?.operation.regular_closed_days ??
                     "등록된 정보가 없습니다"}
+                </div>
+              </div>
+            </div>
+            <Separator className="my-2" />
+            <div className="flex items-center gap-4">
+              <AlarmClock size={20} />
+              <div className="text-base">
+                <div>
+                  예약 방법 -{" "}
+                  {selectedLocation?.operation.registration_method ??
+                    "등록된 정보가 없습니다"}
+                </div>
+                <div>
+                  {selectedLocation?.operation.website ? (
+                    <Button
+                      variant="link"
+                      size="sm"
+                      asChild
+                      className="p-0 text-base text-blue-400"
+                    >
+                      <a href={selectedLocation?.operation.website}>
+                        상세 정보 홈페이지
+                      </a>
+                    </Button>
+                  ) : null}
                 </div>
               </div>
             </div>

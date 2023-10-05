@@ -18,7 +18,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "고성군파크골프장",
@@ -39,7 +44,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "녹송파크골프장",
@@ -60,7 +70,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대화파크골프장",
@@ -94,7 +109,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동해시파크골프장",
@@ -128,7 +148,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "둔내파크골프장",
@@ -149,7 +174,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "봉평파크골프장",
@@ -170,7 +200,12 @@
     "road_address": null,
     "hole_count": "12",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "북평파크골프장",
@@ -191,7 +226,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "삼척시미로파크골프장",
@@ -225,7 +265,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "소양강파크골프장",
@@ -246,7 +291,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "속초 경동대 파크골프장",
@@ -280,7 +330,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "속초시파크골프장",
@@ -314,7 +369,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "양양송이조각공원 파크골프장",
@@ -335,7 +395,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영월파크골프장",
@@ -369,7 +434,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "우용파크골프장",
@@ -390,7 +460,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "원주시파크골프장",
@@ -424,7 +499,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "인제군파크골프장",
@@ -458,7 +538,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "주문진 신리파크골프장",
@@ -479,7 +564,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "지경리파크골프장",
@@ -500,7 +590,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "철원군파크골프장",
@@ -521,7 +616,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청일파크골프장",
@@ -542,7 +642,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "춘천파크골프장",
@@ -563,7 +668,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "태백파크골프장",
@@ -597,7 +707,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "평창파크골프장",
@@ -631,7 +746,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "한반도섬 파크골프장",
@@ -652,7 +772,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "행구동파크골프장",
@@ -686,7 +811,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "현리근린공원파크골프장",
@@ -707,7 +837,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "홍천강변파크골프장",
@@ -741,7 +876,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "화천 산천어 파크골프장",
@@ -775,7 +915,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "화천파크골프장",
@@ -809,7 +954,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "횡성파크골프장",
@@ -843,7 +993,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "문막파크골프장",
@@ -864,7 +1019,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "용평파크골프장",
@@ -885,7 +1045,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "가평파크골프장",
@@ -919,7 +1084,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "광주시파크골프장",
@@ -953,7 +1123,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "구리시파크골프장",
@@ -974,7 +1149,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "김포레코파크골프장",
@@ -995,7 +1175,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남양주장애인파크골프장",
@@ -1029,7 +1214,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남양주파크골프장",
@@ -1050,7 +1240,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동두천파크골프장",
@@ -1071,7 +1266,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "미사리파크골프장",
@@ -1092,7 +1292,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서종파크골프장",
@@ -1113,7 +1318,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "성남시파크골프장",
@@ -1134,7 +1344,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "성저파크골프장",
@@ -1168,7 +1383,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "수원시파크골프장",
@@ -1202,7 +1422,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "시흥시청파크골프장",
@@ -1236,7 +1461,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "안산신길파크골프장",
@@ -1270,7 +1500,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "양지파인리조트파크골프장",
@@ -1304,7 +1539,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "양평장애인파크골프장",
@@ -1325,7 +1565,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "양평파크골프장",
@@ -1346,7 +1591,12 @@
     "road_address": null,
     "hole_count": "63",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "여주파크골프장",
@@ -1367,7 +1617,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "연천재인폭포오토캠핑장파크골프장",
@@ -1388,7 +1643,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "연천파크골프장",
@@ -1409,7 +1669,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "용인파크골프장",
@@ -1443,7 +1708,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "운정호수공원파크골프장",
@@ -1477,7 +1747,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "의정부파크골프장",
@@ -1511,7 +1786,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "이천시파크골프장",
@@ -1532,7 +1812,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "일동파크골프장",
@@ -1566,7 +1851,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장애인파크골프장",
@@ -1587,7 +1877,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장호원파크골프장",
@@ -1608,7 +1903,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "정발파크골프장",
@@ -1629,7 +1929,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "죽전파크골프장",
@@ -1650,7 +1955,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "중산파크골프장",
@@ -1684,7 +1994,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청심빌리지파크골프장",
@@ -1718,7 +2033,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "파주파크골프장",
@@ -1752,7 +2072,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "평택파크골프장",
@@ -1773,7 +2098,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "하남시파크골프장",
@@ -1807,7 +2137,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "화정파크골프장",
@@ -1841,7 +2176,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "심학산 파크골프장",
@@ -1875,7 +2215,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "나리공원파크골프장",
@@ -1909,7 +2254,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동탄제2신도시파크골프장",
@@ -1943,7 +2293,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장현파크골프장",
@@ -1964,7 +2319,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "가곡파크골프장",
@@ -1985,7 +2345,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "가산파크골프장",
@@ -2006,7 +2371,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "거창파크골프장(제1구장)",
@@ -2040,7 +2410,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "거창파크골프장(제2구장)",
@@ -2074,7 +2449,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "거창파크골프장(제6구장)",
@@ -2095,7 +2475,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "광석골파크골프장",
@@ -2116,7 +2501,12 @@
     "road_address": null,
     "hole_count": "6",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "군북파크골프장",
@@ -2137,7 +2527,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남강파크골프장",
@@ -2158,7 +2553,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "경남 남해 파크골프장",
@@ -2192,7 +2592,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "산청 덕산 파크골프장",
@@ -2213,7 +2618,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "도동파크골프장",
@@ -2234,7 +2644,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "도천파크골프장",
@@ -2255,7 +2670,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "마사파크골프장",
@@ -2276,7 +2696,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "모고파크골프장",
@@ -2297,7 +2722,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "묵곡파크골프장",
@@ -2318,7 +2748,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "밀양파크골프장",
@@ -2339,7 +2774,12 @@
     "road_address": null,
     "hole_count": "45",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "봉산파크골프장",
@@ -2373,7 +2813,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "사봉파크골프장",
@@ -2407,7 +2852,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "산청파크골프장",
@@ -2428,7 +2878,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "삼량진파크골프장",
@@ -2449,7 +2904,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상락원파크골프장",
@@ -2483,7 +2943,12 @@
     },
     "hole_count": "6",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상평파크골프장",
@@ -2504,7 +2969,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "생비량파크골프장",
@@ -2538,7 +3008,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "생초파크골프장",
@@ -2559,7 +3034,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "섬진강피크닉광장파크골프장",
@@ -2580,7 +3060,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "송백파크골프장",
@@ -2601,7 +3086,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "술뫼파크골프장",
@@ -2622,7 +3112,12 @@
     "road_address": null,
     "hole_count": "72",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "신안파크골프장",
@@ -2656,7 +3151,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "쌍백파크골프장",
@@ -2690,7 +3190,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "오부파크골프장",
@@ -2724,7 +3229,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "용주파크골프장",
@@ -2758,7 +3268,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "우주항공파크골프장",
@@ -2779,7 +3294,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "원동파크골프장",
@@ -2813,7 +3333,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "율곡파크골프장",
@@ -2834,7 +3359,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "이방파크골프장",
@@ -2855,7 +3385,12 @@
     "road_address": null,
     "hole_count": "15",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장천파크골프장",
@@ -2889,7 +3424,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "정촌파크골프장",
@@ -2910,7 +3450,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "조만강파크골프장",
@@ -2944,7 +3489,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "종합경기장파크골프장",
@@ -2978,7 +3528,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "창녕유어파크골프장",
@@ -2999,7 +3554,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "창원시 대산드림파크골프장",
@@ -3020,7 +3580,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "칠서강나루파크골프장",
@@ -3041,7 +3606,12 @@
     "road_address": null,
     "hole_count": "12",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "평거파크골프장",
@@ -3062,7 +3632,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "풍호파크골프장",
@@ -3083,7 +3658,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "하남파크골프장",
@@ -3104,7 +3684,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "하대둔치 파크골프장",
@@ -3125,7 +3710,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "함안샛담파크골프장",
@@ -3159,7 +3749,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "함안파크골프장",
@@ -3180,7 +3775,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "함양파크골프장",
@@ -3214,7 +3814,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "합천군파크골프장",
@@ -3235,7 +3840,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "호계파크골프장",
@@ -3269,7 +3879,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "황산파크골프장",
@@ -3290,7 +3905,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "횡천파크골프장",
@@ -3311,7 +3931,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "거제파크골프장",
@@ -3345,7 +3970,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대원파크골프장",
@@ -3379,7 +4009,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "하동파크골프장",
@@ -3413,7 +4048,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "강남파크골프장",
@@ -3447,7 +4087,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "경산파크골프장",
@@ -3481,7 +4126,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "경주파크골프장",
@@ -3502,7 +4152,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "고아파크골프장",
@@ -3523,7 +4178,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "곡강천파크골프장",
@@ -3544,7 +4204,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "구미파크골프장",
@@ -3578,7 +4243,12 @@
     },
     "hole_count": "54",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "금성파크골프장",
@@ -3612,7 +4282,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "김천파크골프장",
@@ -3633,7 +4308,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남울진파크골프장",
@@ -3654,7 +4334,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "다산파크골프장",
@@ -3675,7 +4360,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "다인문암파크골프장",
@@ -3709,7 +4399,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "단북파크골프장",
@@ -3743,7 +4438,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대가야파크골프장",
@@ -3764,7 +4464,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "칠곡 덕산 파크골프장",
@@ -3785,7 +4490,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "도개파크골프장",
@@ -3806,7 +4516,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동락파크골프장",
@@ -3827,7 +4542,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "문경파크골프장",
@@ -3861,7 +4581,12 @@
     },
     "hole_count": "45",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "벽진면파크골프장",
@@ -3895,7 +4620,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "병곡파크골프장",
@@ -3916,7 +4646,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "봉화파크골프장",
@@ -3937,7 +4672,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "비안파크골프장",
@@ -3958,7 +4698,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상주파크골프장",
@@ -3992,7 +4737,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서의성파크골프장",
@@ -4026,7 +4776,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "석적파크골프장",
@@ -4047,7 +4802,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "선남면파크골프장",
@@ -4068,7 +4828,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "선산파크골프장",
@@ -4102,7 +4867,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "성조천파크골프장",
@@ -4136,7 +4906,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "성주읍파크골프장",
@@ -4157,7 +4932,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "알천파크골프장",
@@ -4178,7 +4958,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "양포파크구미교육원",
@@ -4212,7 +4997,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "어울림파크골프장",
@@ -4246,7 +5036,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영양군파크골프장",
@@ -4267,7 +5062,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영주파크골프장(1구장)",
@@ -4288,7 +5088,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영주파크골프장(2구장)",
@@ -4309,7 +5114,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영천조교파크골프장",
@@ -4330,7 +5140,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영해파크골프장",
@@ -4364,7 +5179,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "예천파크골프장",
@@ -4398,7 +5218,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "오수파크골프장",
@@ -4432,7 +5257,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "왜관파크골프장",
@@ -4453,7 +5283,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "용상파크골프장",
@@ -4487,7 +5322,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "울진파크골프장",
@@ -4508,7 +5348,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "의성군파크골프장",
@@ -4529,7 +5374,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "지곡파크골프장",
@@ -4550,7 +5400,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청도파크골프장",
@@ -4584,7 +5439,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청송파크골프장",
@@ -4605,7 +5465,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "풍기파크골프장",
@@ -4639,7 +5504,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "하양파크골프장",
@@ -4660,7 +5530,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "해평파크골프장",
@@ -4694,7 +5569,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "형산장애인전용파크골프장",
@@ -4728,7 +5608,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "형산파크골프장",
@@ -4749,7 +5634,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "금소파크골프장",
@@ -4770,7 +5660,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "광산구 서봉파크골프장",
@@ -4791,7 +5686,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대상파크골프장",
@@ -4825,7 +5725,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "덕흥파크골프장",
@@ -4846,7 +5751,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "무등산파크골프장",
@@ -4880,7 +5790,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "승촌파크골프장",
@@ -4901,7 +5816,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "염주파크골프장",
@@ -4935,7 +5855,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "첨단체육공원 파크골프장",
@@ -4969,7 +5894,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "광주 효령 파크골프장",
@@ -5003,7 +5933,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "가창파크골프장",
@@ -5037,7 +5972,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "강변파크골프장",
@@ -5058,7 +5998,12 @@
     "road_address": null,
     "hole_count": "45",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "강창파크골프장",
@@ -5079,7 +6024,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "고로파크골프장",
@@ -5100,7 +6050,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "과학관공원파크골프장",
@@ -5121,7 +6076,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "구지1호근린공원 파크골프장",
@@ -5155,7 +6115,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "군위파크골프장",
@@ -5189,7 +6154,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남구파크골프장",
@@ -5210,7 +6180,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "논공 위천파크골프장",
@@ -5231,7 +6206,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "다사파크골프장",
@@ -5252,7 +6232,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "달서 강창파크골프장",
@@ -5273,7 +6258,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "달성보파크골프장",
@@ -5294,7 +6284,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동구 봉무동 파크골프장",
@@ -5315,7 +6310,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동구숙천파크골프장",
@@ -5336,7 +6336,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "북구검단파크골프장",
@@ -5357,7 +6362,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "불로파크골프장",
@@ -5391,7 +6401,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "비산파크골프장A-B",
@@ -5412,7 +6427,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "비산파크골프장C-D",
@@ -5433,7 +6453,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서재파크골프장",
@@ -5467,7 +6492,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "세천공단파크골프장",
@@ -5488,7 +6518,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "소보파크골프장",
@@ -5509,7 +6544,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "수림지파크골프장",
@@ -5543,7 +6583,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "수성파크골프장",
@@ -5564,7 +6609,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "수성팔현파크골프장",
@@ -5585,7 +6635,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "우보파크골프장",
@@ -5606,7 +6661,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "원오교파크골프장",
@@ -5627,7 +6687,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "유가한정파크골프장",
@@ -5648,7 +6713,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대구 진천 파크골프장",
@@ -5669,7 +6739,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "테크노폴리스파크골프장",
@@ -5703,7 +6778,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "하빈파크골프장",
@@ -5724,7 +6804,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대구 화원 파크골프장",
@@ -5745,7 +6830,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대구 효령 파크골프장",
@@ -5766,7 +6856,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "무태파크골프장",
@@ -5800,7 +6895,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "버드내-태평파크골프장",
@@ -5821,7 +6921,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "유등파크골프장",
@@ -5842,7 +6947,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "을미기파크골프장",
@@ -5876,7 +6986,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "유성구 갑천파크골프장",
@@ -5897,7 +7012,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "기장파크골프장",
@@ -5931,7 +7051,12 @@
     },
     "hole_count": "6",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대저생태공원파크골프장",
@@ -5952,7 +7077,12 @@
     "road_address": null,
     "hole_count": "45",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "사암파크골프장",
@@ -5986,7 +7116,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장림파크골프장",
@@ -6007,7 +7142,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "화명파크골프장",
@@ -6028,7 +7168,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "삼락파크골프장",
@@ -6049,7 +7194,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "강동파크골프장",
@@ -6083,7 +7233,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "구로 안양천 18홀 파크골프장",
@@ -6104,7 +7259,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "구로 안양천 9홀 파크골프장",
@@ -6125,7 +7285,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "금천구 한내천파크골프장",
@@ -6146,7 +7311,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동대문구중량천 파크골프장",
@@ -6167,7 +7337,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "안양천파크골프장",
@@ -6201,7 +7376,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "양평누리파크골프장",
@@ -6222,7 +7402,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "월드컵파크골프장",
@@ -6256,7 +7441,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "잠실파크골프장",
@@ -6290,7 +7480,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "중랑천 파크골프장",
@@ -6311,7 +7506,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "한강파크골프장",
@@ -6345,7 +7545,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서남물재생센터공원파크골프장",
@@ -6379,7 +7584,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "부강파크골프장",
@@ -6400,7 +7610,12 @@
     "road_address": null,
     "hole_count": "16",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "오가낭파크골프장",
@@ -6434,7 +7649,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "조천파크골프장",
@@ -6455,7 +7675,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "중앙공원파크골프장",
@@ -6476,7 +7701,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "한솔파크골프장",
@@ -6497,7 +7727,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남구 대공원 파크골프장",
@@ -6518,7 +7753,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남구 태화강 파크골프장",
@@ -6539,7 +7779,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "동천 파크골프장",
@@ -6560,7 +7805,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "쇠평파크골프장",
@@ -6581,7 +7831,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "울주군 범서파크골프장",
@@ -6602,7 +7857,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "울주군 청량 파크골프장",
@@ -6623,7 +7883,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "진장 파크골프장",
@@ -6644,7 +7909,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "공촌유수지파크골프장",
@@ -6678,7 +7948,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "선학파크골프장",
@@ -6712,10 +7987,15 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
-    "name": "영종파크골프장",
+    "name": "영종도 파크골프장",
     "address": {
       "address_name": "인천 중구 중산동 1878-2",
       "b_code": "2811014500",
@@ -6732,11 +8012,16 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "contact": { "phone_number": "032-760-7778" },
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
-    "name": "인천송도파크골프장",
+    "name": "인천 송도 파크골프장",
     "address": {
       "address_name": "인천 연수구 송도동 1",
       "b_code": "2818510600",
@@ -6766,8 +8051,13 @@
       "zone_no": "21994"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "contact": { "phone_number": "032-456-5501~2" },
+    "operation": {
+      "opening_hours": "4월,10월~12월 09:00~18:00 \n 5월~9월 09:00~19:00",
+      "regular_closed_days": "매주 월요일, 설날, 추석, 동절기(1월~3월)",
+      "website": "https://www.insiseol.or.kr/park/songdo/rental/golf.jsp",
+      "registration_method": "당일 현장 및 온라인 접수"
+    }
   },
   {
     "name": "장수파크골프장",
@@ -6801,7 +8091,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "고금파크골프장",
@@ -6822,7 +8117,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "곡성동악파크골프장",
@@ -6843,7 +8143,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "광양시파크골프장",
@@ -6877,7 +8182,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "구례군파크골프장",
@@ -6911,7 +8221,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남악파크골프장",
@@ -6945,7 +8260,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "목포 남해 파크골프장",
@@ -6966,7 +8286,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "담양 제1파크골프장",
@@ -6987,7 +8312,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "담양 제2파크골프장",
@@ -7008,7 +8338,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "무안파크골프장",
@@ -7029,7 +8364,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "보성미니파크골프장",
@@ -7063,7 +8403,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "복내파크골프장",
@@ -7084,7 +8429,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "부주산국제파크골프장",
@@ -7118,7 +8468,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "불갑파크골프장",
@@ -7139,7 +8494,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "산이파크골프장",
@@ -7173,7 +8533,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "삼학도파크골프장",
@@ -7207,7 +8572,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "삼호대불파크골프장",
@@ -7241,7 +8611,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상동파크골프장",
@@ -7262,7 +8637,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상사파크골프장",
@@ -7283,7 +8663,12 @@
     "road_address": null,
     "hole_count": "13",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서면파크골프장",
@@ -7304,7 +8689,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서해파크골프장",
@@ -7325,7 +8715,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "송월동파크골프장",
@@ -7346,7 +8741,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "시종마한파크골프장",
@@ -7380,7 +8780,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "실내체육관파크골프장",
@@ -7414,7 +8819,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영산포체육공원파크골프장",
@@ -7435,7 +8845,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "영암파크골프장",
@@ -7469,7 +8884,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "오곡파크골프장",
@@ -7490,7 +8910,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "운림삼별초파크골프장",
@@ -7524,7 +8949,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장성군 A파크골프장",
@@ -7545,7 +8975,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장성군 B파크골프장",
@@ -7566,7 +9001,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "장흥파크골프장",
@@ -7587,7 +9027,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "한빛원자력파크골프장",
@@ -7608,7 +9053,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "함평군파크골프장",
@@ -7642,7 +9092,12 @@
     },
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "해남파크골프장",
@@ -7663,7 +9118,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "혁신도시파크골프장",
@@ -7697,7 +9157,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "북항파크골프장",
@@ -7731,7 +9196,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "고산파크골프장",
@@ -7752,7 +9222,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "고창스포츠타운파크골프장",
@@ -7773,7 +9248,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "군산파크골프장",
@@ -7794,7 +9274,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "둔산파크골프장",
@@ -7828,7 +9313,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "마전교파크골프장",
@@ -7849,7 +9339,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "무주파크골프장",
@@ -7883,7 +9378,12 @@
     },
     "hole_count": "6",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "비봉파크골프장",
@@ -7917,7 +9417,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "비비정파크골프장",
@@ -7938,7 +9443,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상관파크골프장",
@@ -7959,7 +9469,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "생강골파크골프장",
@@ -7980,7 +9495,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "순창군파크골프장",
@@ -8001,7 +9521,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "신태인파크골프장",
@@ -8022,7 +9547,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "온고을파크골프장",
@@ -8056,7 +9586,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "이서파크골프장",
@@ -8077,7 +9612,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "익산파크골프장",
@@ -8111,7 +9651,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "임실파크골프장",
@@ -8132,7 +9677,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "줄포파크골프장",
@@ -8166,7 +9716,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "진안파크골프장",
@@ -8187,7 +9742,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청하파크골프장",
@@ -8221,7 +9781,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "남원파크골프장",
@@ -8255,7 +9820,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "강창학파크골프장",
@@ -8276,7 +9846,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "렛츠런파크골프장",
@@ -8310,7 +9885,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "수망리파크골프장",
@@ -8344,7 +9924,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "월라봉파크골프장",
@@ -8365,7 +9950,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "칠십리파크골프장",
@@ -8386,7 +9976,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "회천파크골프장",
@@ -8420,7 +10015,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "계룡시파크골프장",
@@ -8454,7 +10054,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "곡교천파크골프장",
@@ -8475,7 +10080,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "곰나루파크골프장",
@@ -8496,7 +10106,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "금산군파크골프장",
@@ -8517,7 +10132,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "논산시파크골프장",
@@ -8538,7 +10158,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "당진해나루파크골프장",
@@ -8559,7 +10184,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "도고파크골프장",
@@ -8580,7 +10210,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "둔포파크골프장",
@@ -8601,7 +10236,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "무한천파크골프장",
@@ -8622,7 +10262,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "백세파크골프장",
@@ -8656,7 +10301,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "보령파크골프구장",
@@ -8677,7 +10327,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "부여파크골프장",
@@ -8698,7 +10353,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "삽교파크골프구장",
@@ -8719,7 +10379,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "상록파크골프구장",
@@ -8753,7 +10418,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서산나이스파크골프장",
@@ -8787,7 +10457,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서산시파크골프장",
@@ -8808,7 +10483,12 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "서천군노인복지관파크골프장",
@@ -8842,7 +10522,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "전원파크골프구장",
@@ -8863,7 +10548,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "천안도솔파크골프장",
@@ -8897,7 +10587,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "천안풍세파크골프장",
@@ -8918,7 +10613,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "천안한들파크골프장",
@@ -8952,7 +10652,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청양군파크골프장",
@@ -8986,7 +10691,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "태안파크골프장",
@@ -9020,7 +10730,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "홍성군파크골프장",
@@ -9054,7 +10769,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "괴산파크골프장",
@@ -9088,7 +10808,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "단양파크골프장",
@@ -9109,7 +10834,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "대소원파크골프장",
@@ -9143,7 +10873,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "수안보온천파크골프장",
@@ -9164,7 +10899,12 @@
     "road_address": null,
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "음성생극파크골프장",
@@ -9185,7 +10925,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "제천중전리파크골프장",
@@ -9219,7 +10964,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "증평파크골프장",
@@ -9253,7 +11003,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "진천 파크골프장",
@@ -9274,7 +11029,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청주오송파크골프장",
@@ -9308,7 +11068,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청주장애인파크골프장",
@@ -9342,7 +11107,12 @@
     },
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청주파크골프장",
@@ -9376,7 +11146,12 @@
     },
     "hole_count": "27",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "청주호미골파크골프장",
@@ -9397,7 +11172,12 @@
     "road_address": null,
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "충주단월파크골프장",
@@ -9418,7 +11198,12 @@
     "road_address": null,
     "hole_count": "18",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "충주장애인파크골프장",
@@ -9452,7 +11237,12 @@
     },
     "hole_count": "9",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   },
   {
     "name": "충주호파크골프장",
@@ -9473,6 +11263,11 @@
     "road_address": null,
     "hole_count": "36",
     "contact": { "phone_number": null },
-    "operation": { "opening_hour": null, "regular_closed_days": null }
+    "operation": {
+      "opening_hours": null,
+      "regular_closed_days": null,
+      "website": null,
+      "registration_method": null
+    }
   }
 ]
