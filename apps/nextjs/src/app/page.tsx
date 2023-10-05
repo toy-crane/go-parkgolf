@@ -111,7 +111,18 @@ const Locations = () => {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={16} />
-              <div className="text-sm">매일 09:00 ~ 15:00</div>
+              <div className="text-sm">
+                <div>
+                  영업 시간 -
+                  {selectedLocation?.operation.opening_hours ??
+                    "등록된 정보가 없습니다"}
+                </div>
+                <div>
+                  정기 휴무일 -
+                  {selectedLocation?.operation.regular_closed_days ??
+                    "등록된 정보가 없습니다"}
+                </div>
+              </div>
             </div>
           </div>
         </SheetContent>

@@ -32,4 +32,8 @@ export interface Location {
   contact: {
     phone_number?: string;
   };
+  operation: {
+    opening_hours?: string;
+    regular_closed_days?: string;
+  };
 }
