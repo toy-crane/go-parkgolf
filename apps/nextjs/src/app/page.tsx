@@ -104,7 +104,10 @@ const Locations = () => {
             </div>
             <div className="flex items-center gap-2">
               <Phone size={16} />
-              <div className="text-sm">010-7150-0543</div>
+              <div className="text-sm">
+                {selectedLocation?.contact.phone_number ??
+                  "등록된 연락처가 없습니다"}
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <Clock size={16} />

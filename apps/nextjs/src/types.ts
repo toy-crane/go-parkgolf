@@ -29,4 +29,7 @@ export interface Location {
     zone_no: string;
   };
   hole_count: string;
+  contact: {
+    phone_number?: string;
+  };
 }
