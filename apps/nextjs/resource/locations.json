@@ -7140,17 +7140,17 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-6469-2727" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "05:00 ~ 19:00",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "회원만 사용 가능",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EB%8C%80%EC%A0%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9C%84%EC%B9%98-%EC%95%88%EB%82%B4"
     }
   },
   {
-    "name": "유등파크골프장",
+    "name": "유등천 파크골프장",
     "address": {
       "address_name": "대전 서구 만년동 424",
       "b_code": "3017012800",
@@ -7167,17 +7167,17 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "042-724-3231" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 17:00 (11월~3월) / 05:00 ~ 19:00 (그외)",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.djsiseol.or.kr/portal/sub020716_02.asp",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://www.djsiseol.or.kr/portal/sub020716_02.asp"
     }
   },
   {
-    "name": "을미기파크골프장",
+    "name": "을미기 파크골프장",
     "address": {
       "address_name": "대전 대덕구 신일동 1682-8",
       "b_code": "3023011400",
@@ -7207,17 +7207,17 @@
       "zone_no": "34324"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "042-724-3231" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 17:00 (11월~3월) / 05:00 ~ 19:00 (그외)",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.djsiseol.or.kr/portal/sub020716_02.asp",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EB%8C%80%EC%A0%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9C%84%EC%B9%98-%EC%95%88%EB%82%B4"
     }
   },
   {
-    "name": "유성구 갑천파크골프장",
+    "name": "유성구 갑천 파크골프장",
     "address": {
       "address_name": "대전 유성구 탑립동 226",
       "b_code": "3020014300",
@@ -7234,13 +7234,13 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "042-724-3231" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 17:00 (11월~3월) / 05:00 ~ 19:00 (그외)",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.djsiseol.or.kr/portal/sub020716_02.asp",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://www.djsiseol.or.kr/portal/sub020716_02.asp"
     }
   },
   {
@@ -7834,7 +7834,7 @@
     }
   },
   {
-    "name": "부강파크골프장",
+    "name": "부강 파크골프장",
     "address": {
       "address_name": "세종특별자치시 부강면 금호리 82",
       "b_code": "3611033028",
@@ -7861,7 +7861,7 @@
     }
   },
   {
-    "name": "오가낭파크골프장",
+    "name": "오가낭 파크골프장",
     "address": {
       "address_name": "세종특별자치시 아름동 804",
       "b_code": "3611011300",
@@ -7901,7 +7901,7 @@
     }
   },
   {
-    "name": "조천파크골프장",
+    "name": "세종 조천 파크골프장",
     "address": {
       "address_name": "세종특별자치시 조치원읍 평리 120",
       "b_code": "3611025023",
@@ -7928,7 +7928,7 @@
     }
   },
   {
-    "name": "중앙공원파크골프장",
+    "name": "세종 중앙공원 파크골프장",
     "address": {
       "address_name": "세종특별자치시 세종동 1204",
       "b_code": "3611011900",
@@ -7945,17 +7945,17 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "044-301-3937" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "06:00 ~ 21:00",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://onestop.sejong.go.kr/Usr/resve/instDetail.do",
+      "registration_method": "인터넷 예약",
+      "reference": "https://onestop.sejong.go.kr/Usr/resve/instDetail.do"
     }
   },
   {
-    "name": "한솔파크골프장",
+    "name": "한솔파크 골프장",
     "address": {
       "address_name": "세종특별자치시 가람동 762-3",
       "b_code": "3611010500",
