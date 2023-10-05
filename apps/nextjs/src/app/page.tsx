@@ -104,7 +104,7 @@ const Locations = () => {
           <div className="grid w-full items-center">
             <div className="flex items-center gap-4">
               <FlagTriangleRight size={20} />
-              <div className="text-base">{selectedLocation?.hole_count} 홀</div>
+              <div className="text-base">{selectedLocation?.hole_count}홀</div>
             </div>
             <Separator className="my-2" />
             <div className="flex items-center gap-4">
