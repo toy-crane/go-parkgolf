@@ -8244,7 +8244,7 @@
     "contact": { "phone_number": "032-821-5721" },
     "operation": {
       "opening_hours": "08:00 ~ 19:00",
-      "regular_closed_days": "매주 월요일 및 명절",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%9D%B8%EC%B2%9C-%EC%84%A0%ED%95%99%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EC%95%88%EB%82%B4-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%A0%95%EB%B3%B4"
@@ -10142,7 +10142,7 @@
     }
   },
   {
-    "name": "강창학파크골프장",
+    "name": "강창학 파크골프장",
     "address": {
       "address_name": "제주특별자치도 서귀포시 강정동 1353",
       "b_code": "5013011600",
@@ -10159,17 +10159,17 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "064-760-3637" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "07:00 ~ 18:00 (3월~10월) / 08:00 ~ 17:00 (그외)",
+      "regular_closed_days": "매주 금요일 및 명절 연휴",
+      "website": "https://www.seogwipo.go.kr/field/living/sportsfacilities/facilities/parkgolf.htm?act=view&idx=28",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     }
   },
   {
-    "name": "렛츠런파크골프장",
+    "name": "렛츠런 파크골프장",
     "address": {
       "address_name": "제주특별자치도 제주시 애월읍 유수암리 1206",
       "b_code": "5011025342",
@@ -10199,17 +10199,17 @@
       "zone_no": "63066"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "064-741-9190" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "10:30 ~ 17:00",
+      "regular_closed_days": "매주 월요일, 화요일 및 공휴일",
+      "website": "https://park.kra.co.kr/parkuserjeju/faciliInfoShow.do",
+      "registration_method": "선착순 등록",
+      "reference": "http://www.koreatriptips.com/leisure-sports/637398.html"
     }
   },
   {
-    "name": "수망리파크골프장",
+    "name": "수망리(남원) 파크골프장",
     "address": {
       "address_name": "제주특별자치도 서귀포시 남원읍 수망리 산 158-1",
       "b_code": "5013025324",
@@ -10239,13 +10239,13 @@
       "zone_no": "63615"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "064-733-0355" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 18:00 (3월~10월) / 08:00 ~ 17:00 (그외)",
+      "regular_closed_days": " 연휴",
+      "website": "http://www.seogwiposports.org/bbs/board.php?bo_table=sub0301&sca=%EB%82%A8%EC%9B%90%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     }
   },
   {
@@ -10266,13 +10266,13 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "064-760-4626" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "07:00 ~ 18:00 (3월~10월) / 08:00 ~ 17:00 (그외)",
+      "regular_closed_days": "매월 둘째와 넷째 일요일, 명절 연휴",
+      "website": "https://www.seogwipo.go.kr/field/living/sportsfacilities/facilities/parkgolf.htm?act=view&idx=30",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     }
   },
   {
@@ -10293,17 +10293,17 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "064-760-3637" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "07:00 ~ 18:00 (3월~10월) / 08:00 ~ 17:00 (그외)",
+      "regular_closed_days": "매주 일요일 및 명절 연휴",
+      "website": "https://www.seogwipo.go.kr/field/living/sportsfacilities/facilities/parkgolf.htm?act=view&idx=29",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     }
   },
   {
-    "name": "회천파크골프장",
+    "name": "회천 파크골프장",
     "address": {
       "address_name": "제주특별자치도 제주시 회천동 3-21",
       "b_code": "5011013300",
@@ -10333,13 +10333,13 @@
       "zone_no": "63330"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "064-752-3391" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 18:00",
+      "regular_closed_days": "매월 첫째와 셋째 목요일, 명절 연휴",
+      "website": "https://www.jejusi.go.kr/sports/view/fac.do?mode=detail&sports_fac_id=10000023",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://cklee88.tistory.com/943"
     }
   },
   {
