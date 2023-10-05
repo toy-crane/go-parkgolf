@@ -7982,7 +7982,7 @@
     }
   },
   {
-    "name": "남구 대공원 파크골프장",
+    "name": "울산 남구 대공원 파크골프장",
     "address": {
       "address_name": "울산 남구 옥동 산 138",
       "b_code": "3114010200",
@@ -7999,13 +7999,13 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "226-0390" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:30~17:30",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
+      "website": "https://www.uic.or.kr/ulsanpark/institution/institution07.do",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://www.uic.or.kr/ulsanpark/institution/institution07.do"
     }
   },
   {
@@ -8032,11 +8032,11 @@
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "정보 없음"
     }
   },
   {
-    "name": "동천 파크골프장",
+    "name": "울산 동천 파크골프장",
     "address": {
       "address_name": "울산 중구 남외동 692-6",
       "b_code": "3111011500",
@@ -8053,17 +8053,17 @@
     },
     "road_address": null,
     "hole_count": "27",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "052-229-3811" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "정보 없음"
     }
   },
   {
-    "name": "쇠평파크골프장",
+    "name": "쇠평 파크골프장",
     "address": {
       "address_name": "울산 동구 동부동 산 153",
       "b_code": "3117010700",
@@ -8080,17 +8080,17 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "052-209-3334" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "평일 08:00~20:00 / 주말 09:00~20:00",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "http://yeyak.iwillsoft.co.kr/etc/facility_info17.jsp",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "http://yeyak.iwillsoft.co.kr/etc/facility_info17.jsp"
     }
   },
   {
-    "name": "울주군 범서파크골프장",
+    "name": "울주군 범서 파크골프장",
     "address": {
       "address_name": "울산 울주군 범서읍 천상리 1041-77",
       "b_code": "3171025922",
@@ -8107,13 +8107,13 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-2678-4032" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000090",
+      "registration_method": "인터넷 예약",
+      "reference": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000090"
     }
   },
   {
@@ -8134,13 +8134,13 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-2678-4032" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=info&currentPage=1&pagePerCount=10&searchFacUnqId=FACL_000000000000044&searchFacUnqId=FACL_000000000000043&orderByFieldId=&searchKey=&detlUnqId=FADT_000000000000089",
+      "registration_method": "인터넷 예약",
+      "reference": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&searchFacUnqId=FACL_000000000000043&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000089"
     }
   },
   {
@@ -8161,13 +8161,13 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "052-241-7344" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "정보 없음"
     }
   },
   {
