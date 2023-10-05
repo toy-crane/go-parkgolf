@@ -1,3 +1,4 @@
+import { useAmplitude } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
 import type { Location } from "@/types";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";

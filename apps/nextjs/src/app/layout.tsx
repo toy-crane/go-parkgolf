@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
+import { AmplitudeProvider } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
 
 export const metadata: Metadata = {
@@ -66,15 +67,17 @@ export const metadata: Metadata = {
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body className={cn("font-sans antialiased")}>
-        <Script
-          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
-          strategy="beforeInteractive"
-        />
-        <main className="container mx-auto contents h-full w-full px-4 sm:px-6 lg:px-8">
-          {props.children}
-        </main>
-      </body>
+      <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>
+        <body className={cn("font-sans antialiased")}>
+          <Script
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
+            strategy="beforeInteractive"
+          />
+          <main className="container mx-auto contents h-full w-full px-4 sm:px-6 lg:px-8">
+            {props.children}
+          </main>
+        </body>
+      </AmplitudeProvider>
     </html>
   );
 }

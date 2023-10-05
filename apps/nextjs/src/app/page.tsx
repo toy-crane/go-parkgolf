@@ -11,6 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useAmplitude } from "@/libs/amplitude";
 import type { Location } from "@/types";
 import { AlarmClock, Clock, FlagTriangleRight, Phone } from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
@@ -27,6 +28,7 @@ const DEFAULT_POSITION = {
 };
 
 const Locations = () => {
+  const { track } = useAmplitude();
   const { data: locations } = useSWR("/api/locations", fetcher);
   const [open, setOpen] = useState(false);
   // 지도의 위치
@@ -49,6 +51,7 @@ const Locations = () => {
           className="px-4 text-xl font-extrabold"
           size="lg"
           onClick={() => {
+            track("logo clicked");
             setPosition(DEFAULT_POSITION);
           }}
         >
@@ -86,6 +89,7 @@ const Locations = () => {
                 },
               }));
               setOpen((open) => !open);
+              track("location clicked", { ...location });
             }}
           />
         ))}
@@ -112,6 +116,9 @@ const Locations = () => {
                     size="sm"
                     asChild
                     className="p-0 text-base text-blue-400"
+                    onClick={() => {
+                      track("phone number clicked", { ...selectedLocation });
+                    }}
                   >
                     <a href={`tel:${selectedLocation?.contact.phone_number}`}>
                       {selectedLocation?.contact.phone_number}
