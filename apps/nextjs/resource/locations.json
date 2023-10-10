@@ -24,7 +24,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 1
   },
   {
     "name": "고성군파크골프장",
@@ -51,7 +52,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 2
   },
   {
     "name": "녹송파크골프장",
@@ -78,7 +80,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 3
   },
   {
     "name": "대화파크골프장",
@@ -118,7 +121,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 4
   },
   {
     "name": "동해시파크골프장",
@@ -158,7 +162,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 5
   },
   {
     "name": "둔내파크골프장",
@@ -185,7 +190,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 6
   },
   {
     "name": "봉평파크골프장",
@@ -212,7 +218,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 7
   },
   {
     "name": "북평파크골프장",
@@ -239,7 +246,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 8
   },
   {
     "name": "삼척시미로파크골프장",
@@ -279,7 +287,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 9
   },
   {
     "name": "소양강파크골프장",
@@ -306,7 +315,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 10
   },
   {
     "name": "속초 경동대 파크골프장",
@@ -346,7 +356,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 11
   },
   {
     "name": "속초시파크골프장",
@@ -386,7 +397,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 12
   },
   {
     "name": "양양송이조각공원 파크골프장",
@@ -413,7 +425,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 13
   },
   {
     "name": "영월파크골프장",
@@ -453,7 +466,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 14
   },
   {
     "name": "우용파크골프장",
@@ -480,7 +494,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 15
   },
   {
     "name": "원주시파크골프장",
@@ -520,7 +535,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 16
   },
   {
     "name": "인제군파크골프장",
@@ -560,7 +576,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 17
   },
   {
     "name": "주문진 신리파크골프장",
@@ -587,7 +604,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 18
   },
   {
     "name": "지경리파크골프장",
@@ -614,7 +632,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 19
   },
   {
     "name": "철원군파크골프장",
@@ -641,7 +660,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 20
   },
   {
     "name": "청일파크골프장",
@@ -668,7 +688,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 21
   },
   {
     "name": "춘천파크골프장",
@@ -695,7 +716,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 22
   },
   {
     "name": "태백파크골프장",
@@ -735,7 +757,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 23
   },
   {
     "name": "평창파크골프장",
@@ -775,7 +798,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 24
   },
   {
     "name": "한반도섬 파크골프장",
@@ -802,7 +826,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 25
   },
   {
     "name": "행구동파크골프장",
@@ -842,7 +867,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 26
   },
   {
     "name": "현리근린공원파크골프장",
@@ -869,7 +895,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 27
   },
   {
     "name": "홍천강변파크골프장",
@@ -909,7 +936,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 28
   },
   {
     "name": "화천 산천어 파크골프장",
@@ -949,7 +977,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 29
   },
   {
     "name": "화천파크골프장",
@@ -989,7 +1018,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 30
   },
   {
     "name": "횡성파크골프장",
@@ -1029,7 +1059,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 31
   },
   {
     "name": "문막파크골프장",
@@ -1056,7 +1087,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 32
   },
   {
     "name": "용평파크골프장",
@@ -1083,7 +1115,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 33
   },
   {
     "name": "가평파크골프장",
@@ -1123,7 +1156,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 34
   },
   {
     "name": "광주시파크골프장",
@@ -1163,7 +1197,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 35
   },
   {
     "name": "구리시파크골프장",
@@ -1190,7 +1225,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 36
   },
   {
     "name": "김포레코파크골프장",
@@ -1217,7 +1253,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 37
   },
   {
     "name": "남양주장애인파크골프장",
@@ -1257,7 +1294,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 38
   },
   {
     "name": "남양주파크골프장",
@@ -1284,7 +1322,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 39
   },
   {
     "name": "동두천파크골프장",
@@ -1311,7 +1350,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 40
   },
   {
     "name": "미사리파크골프장",
@@ -1338,7 +1378,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 41
   },
   {
     "name": "서종파크골프장",
@@ -1365,7 +1406,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 42
   },
   {
     "name": "성남시파크골프장",
@@ -1392,7 +1434,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 43
   },
   {
     "name": "성저파크골프장",
@@ -1432,7 +1475,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 44
   },
   {
     "name": "수원시파크골프장",
@@ -1472,7 +1516,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 45
   },
   {
     "name": "시흥시청파크골프장",
@@ -1512,7 +1557,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 46
   },
   {
     "name": "안산신길파크골프장",
@@ -1552,7 +1598,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 47
   },
   {
     "name": "양지파인리조트파크골프장",
@@ -1592,7 +1639,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 48
   },
   {
     "name": "양평장애인파크골프장",
@@ -1619,7 +1667,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 49
   },
   {
     "name": "양평파크골프장",
@@ -1646,7 +1695,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 50
   },
   {
     "name": "여주파크골프장",
@@ -1673,7 +1723,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 51
   },
   {
     "name": "연천재인폭포오토캠핑장파크골프장",
@@ -1700,7 +1751,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 52
   },
   {
     "name": "연천파크골프장",
@@ -1727,7 +1779,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 53
   },
   {
     "name": "용인파크골프장",
@@ -1767,7 +1820,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 54
   },
   {
     "name": "운정호수공원파크골프장",
@@ -1807,7 +1861,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 55
   },
   {
     "name": "의정부파크골프장",
@@ -1847,7 +1902,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 56
   },
   {
     "name": "이천시파크골프장",
@@ -1874,7 +1930,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 57
   },
   {
     "name": "일동파크골프장",
@@ -1914,7 +1971,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 58
   },
   {
     "name": "장애인파크골프장",
@@ -1941,7 +1999,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 59
   },
   {
     "name": "장호원파크골프장",
@@ -1968,7 +2027,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 60
   },
   {
     "name": "정발파크골프장",
@@ -1995,7 +2055,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 61
   },
   {
     "name": "죽전파크골프장",
@@ -2022,7 +2083,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 62
   },
   {
     "name": "중산파크골프장",
@@ -2062,7 +2124,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 63
   },
   {
     "name": "청심빌리지파크골프장",
@@ -2102,7 +2165,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 64
   },
   {
     "name": "파주파크골프장",
@@ -2142,7 +2206,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 65
   },
   {
     "name": "평택파크골프장",
@@ -2169,7 +2234,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 66
   },
   {
     "name": "하남시파크골프장",
@@ -2209,7 +2275,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 67
   },
   {
     "name": "화정파크골프장",
@@ -2249,7 +2316,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 68
   },
   {
     "name": "심학산 파크골프장",
@@ -2289,7 +2357,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 69
   },
   {
     "name": "나리공원파크골프장",
@@ -2329,7 +2398,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 70
   },
   {
     "name": "동탄제2신도시파크골프장",
@@ -2369,7 +2439,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 71
   },
   {
     "name": "장현파크골프장",
@@ -2396,7 +2467,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 72
   },
   {
     "name": "가곡파크골프장",
@@ -2423,7 +2495,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 73
   },
   {
     "name": "가산파크골프장",
@@ -2450,7 +2523,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 74
   },
   {
     "name": "거창파크골프장(제1구장)",
@@ -2490,7 +2564,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 75
   },
   {
     "name": "거창파크골프장(제2구장)",
@@ -2530,7 +2605,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 76
   },
   {
     "name": "거창파크골프장(제6구장)",
@@ -2557,7 +2633,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 77
   },
   {
     "name": "광석골파크골프장",
@@ -2584,7 +2661,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 78
   },
   {
     "name": "군북파크골프장",
@@ -2611,7 +2689,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 79
   },
   {
     "name": "남강파크골프장",
@@ -2638,7 +2717,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 80
   },
   {
     "name": "경남 남해 파크골프장",
@@ -2678,7 +2758,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 81
   },
   {
     "name": "산청 덕산 파크골프장",
@@ -2705,7 +2786,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 82
   },
   {
     "name": "도동파크골프장",
@@ -2732,7 +2814,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 83
   },
   {
     "name": "도천파크골프장",
@@ -2759,7 +2842,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 84
   },
   {
     "name": "마사파크골프장",
@@ -2786,7 +2870,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 85
   },
   {
     "name": "모고파크골프장",
@@ -2813,7 +2898,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 86
   },
   {
     "name": "묵곡파크골프장",
@@ -2840,7 +2926,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 87
   },
   {
     "name": "밀양파크골프장",
@@ -2867,7 +2954,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 88
   },
   {
     "name": "봉산파크골프장",
@@ -2907,7 +2995,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 89
   },
   {
     "name": "사봉파크골프장",
@@ -2947,7 +3036,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 90
   },
   {
     "name": "산청파크골프장",
@@ -2974,7 +3064,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 91
   },
   {
     "name": "삼량진파크골프장",
@@ -3001,7 +3092,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 92
   },
   {
     "name": "상락원파크골프장",
@@ -3041,7 +3133,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 93
   },
   {
     "name": "상평파크골프장",
@@ -3068,7 +3161,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 94
   },
   {
     "name": "생비량파크골프장",
@@ -3108,7 +3202,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 95
   },
   {
     "name": "생초파크골프장",
@@ -3135,7 +3230,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 96
   },
   {
     "name": "섬진강피크닉광장파크골프장",
@@ -3162,7 +3258,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 97
   },
   {
     "name": "송백파크골프장",
@@ -3189,7 +3286,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 98
   },
   {
     "name": "술뫼파크골프장",
@@ -3216,7 +3314,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 99
   },
   {
     "name": "신안파크골프장",
@@ -3256,7 +3355,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 100
   },
   {
     "name": "쌍백파크골프장",
@@ -3296,7 +3396,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 101
   },
   {
     "name": "오부파크골프장",
@@ -3336,7 +3437,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 102
   },
   {
     "name": "용주파크골프장",
@@ -3376,7 +3478,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 103
   },
   {
     "name": "우주항공파크골프장",
@@ -3403,7 +3506,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 104
   },
   {
     "name": "원동파크골프장",
@@ -3443,7 +3547,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 105
   },
   {
     "name": "율곡파크골프장",
@@ -3470,7 +3575,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 106
   },
   {
     "name": "이방파크골프장",
@@ -3497,7 +3603,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 107
   },
   {
     "name": "장천파크골프장",
@@ -3537,7 +3644,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 108
   },
   {
     "name": "정촌파크골프장",
@@ -3564,7 +3672,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 109
   },
   {
     "name": "조만강파크골프장",
@@ -3604,7 +3713,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 110
   },
   {
     "name": "종합경기장파크골프장",
@@ -3644,7 +3754,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 111
   },
   {
     "name": "창녕유어파크골프장",
@@ -3671,7 +3782,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 112
   },
   {
     "name": "창원시 대산드림파크골프장",
@@ -3698,7 +3810,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 113
   },
   {
     "name": "칠서강나루파크골프장",
@@ -3725,7 +3838,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 114
   },
   {
     "name": "평거파크골프장",
@@ -3752,7 +3866,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 115
   },
   {
     "name": "풍호파크골프장",
@@ -3779,7 +3894,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 116
   },
   {
     "name": "하남파크골프장",
@@ -3806,7 +3922,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 117
   },
   {
     "name": "하대둔치 파크골프장",
@@ -3833,7 +3950,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 118
   },
   {
     "name": "함안샛담파크골프장",
@@ -3873,7 +3991,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 119
   },
   {
     "name": "함안파크골프장",
@@ -3900,7 +4019,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 120
   },
   {
     "name": "함양파크골프장",
@@ -3940,7 +4060,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 121
   },
   {
     "name": "합천군파크골프장",
@@ -3967,7 +4088,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 122
   },
   {
     "name": "호계파크골프장",
@@ -4007,7 +4129,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 123
   },
   {
     "name": "황산파크골프장",
@@ -4034,7 +4157,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 124
   },
   {
     "name": "횡천파크골프장",
@@ -4061,7 +4185,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 125
   },
   {
     "name": "거제파크골프장",
@@ -4101,7 +4226,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 126
   },
   {
     "name": "대원파크골프장",
@@ -4141,7 +4267,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 127
   },
   {
     "name": "하동파크골프장",
@@ -4181,7 +4308,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 128
   },
   {
     "name": "강남파크골프장",
@@ -4221,7 +4349,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 129
   },
   {
     "name": "경산파크골프장",
@@ -4261,7 +4390,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 130
   },
   {
     "name": "경주파크골프장",
@@ -4288,7 +4418,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 131
   },
   {
     "name": "고아파크골프장",
@@ -4315,7 +4446,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 132
   },
   {
     "name": "곡강천파크골프장",
@@ -4342,7 +4474,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 133
   },
   {
     "name": "구미파크골프장",
@@ -4382,7 +4515,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 134
   },
   {
     "name": "금성파크골프장",
@@ -4422,7 +4556,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 135
   },
   {
     "name": "김천파크골프장",
@@ -4449,7 +4584,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 136
   },
   {
     "name": "남울진파크골프장",
@@ -4476,7 +4612,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 137
   },
   {
     "name": "다산파크골프장",
@@ -4503,7 +4640,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 138
   },
   {
     "name": "다인문암파크골프장",
@@ -4543,7 +4681,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 139
   },
   {
     "name": "단북파크골프장",
@@ -4583,7 +4722,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 140
   },
   {
     "name": "대가야파크골프장",
@@ -4610,7 +4750,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 141
   },
   {
     "name": "칠곡 덕산 파크골프장",
@@ -4637,7 +4778,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 142
   },
   {
     "name": "도개파크골프장",
@@ -4664,7 +4806,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 143
   },
   {
     "name": "동락파크골프장",
@@ -4691,7 +4834,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 144
   },
   {
     "name": "문경파크골프장",
@@ -4731,7 +4875,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 145
   },
   {
     "name": "벽진면파크골프장",
@@ -4771,7 +4916,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 146
   },
   {
     "name": "병곡파크골프장",
@@ -4798,7 +4944,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 147
   },
   {
     "name": "봉화파크골프장",
@@ -4825,7 +4972,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 148
   },
   {
     "name": "비안파크골프장",
@@ -4852,7 +5000,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 149
   },
   {
     "name": "상주파크골프장",
@@ -4892,7 +5041,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 150
   },
   {
     "name": "서의성파크골프장",
@@ -4932,7 +5082,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 151
   },
   {
     "name": "석적파크골프장",
@@ -4959,7 +5110,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 152
   },
   {
     "name": "선남면파크골프장",
@@ -4986,7 +5138,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 153
   },
   {
     "name": "선산파크골프장",
@@ -5026,7 +5179,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 154
   },
   {
     "name": "성조천파크골프장",
@@ -5066,7 +5220,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 155
   },
   {
     "name": "성주읍파크골프장",
@@ -5093,7 +5248,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 156
   },
   {
     "name": "알천파크골프장",
@@ -5120,7 +5276,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 157
   },
   {
     "name": "양포파크구미교육원",
@@ -5160,7 +5317,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 158
   },
   {
     "name": "어울림파크골프장",
@@ -5200,7 +5358,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 159
   },
   {
     "name": "영양군파크골프장",
@@ -5227,7 +5386,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 160
   },
   {
     "name": "영주파크골프장(1구장)",
@@ -5254,7 +5414,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 161
   },
   {
     "name": "영주파크골프장(2구장)",
@@ -5281,7 +5442,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 162
   },
   {
     "name": "영천조교파크골프장",
@@ -5308,7 +5470,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 163
   },
   {
     "name": "영해파크골프장",
@@ -5348,7 +5511,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 164
   },
   {
     "name": "예천파크골프장",
@@ -5388,7 +5552,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 165
   },
   {
     "name": "오수파크골프장",
@@ -5428,7 +5593,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 166
   },
   {
     "name": "왜관파크골프장",
@@ -5455,7 +5621,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 167
   },
   {
     "name": "용상파크골프장",
@@ -5495,7 +5662,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 168
   },
   {
     "name": "울진파크골프장",
@@ -5522,7 +5690,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 169
   },
   {
     "name": "의성군파크골프장",
@@ -5549,7 +5718,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 170
   },
   {
     "name": "지곡파크골프장",
@@ -5576,7 +5746,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 171
   },
   {
     "name": "청도파크골프장",
@@ -5616,7 +5787,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 172
   },
   {
     "name": "청송파크골프장",
@@ -5643,7 +5815,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 173
   },
   {
     "name": "풍기파크골프장",
@@ -5683,7 +5856,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 174
   },
   {
     "name": "하양파크골프장",
@@ -5710,7 +5884,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 175
   },
   {
     "name": "해평파크골프장",
@@ -5750,7 +5925,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 176
   },
   {
     "name": "형산장애인전용파크골프장",
@@ -5790,7 +5966,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 177
   },
   {
     "name": "형산파크골프장",
@@ -5817,7 +5994,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 178
   },
   {
     "name": "금소파크골프장",
@@ -5844,7 +6022,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 179
   },
   {
     "name": "광산구 서봉파크골프장",
@@ -5871,7 +6050,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 180
   },
   {
     "name": "대상파크골프장",
@@ -5911,7 +6091,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 181
   },
   {
     "name": "덕흥파크골프장",
@@ -5938,7 +6119,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 182
   },
   {
     "name": "무등산파크골프장",
@@ -5978,7 +6160,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 183
   },
   {
     "name": "승촌파크골프장",
@@ -6005,7 +6188,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 184
   },
   {
     "name": "염주파크골프장",
@@ -6045,7 +6229,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 185
   },
   {
     "name": "첨단체육공원 파크골프장",
@@ -6085,7 +6270,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 186
   },
   {
     "name": "광주 효령 파크골프장",
@@ -6125,7 +6311,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 187
   },
   {
     "name": "가창파크골프장",
@@ -6165,7 +6352,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 188
   },
   {
     "name": "강변파크골프장",
@@ -6192,7 +6380,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 189
   },
   {
     "name": "강창파크골프장",
@@ -6219,7 +6408,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 190
   },
   {
     "name": "고로파크골프장",
@@ -6246,7 +6436,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 191
   },
   {
     "name": "과학관공원파크골프장",
@@ -6273,7 +6464,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 192
   },
   {
     "name": "구지1호근린공원 파크골프장",
@@ -6313,7 +6505,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 193
   },
   {
     "name": "군위파크골프장",
@@ -6353,7 +6546,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 194
   },
   {
     "name": "남구파크골프장",
@@ -6380,7 +6574,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 195
   },
   {
     "name": "논공 위천파크골프장",
@@ -6407,7 +6602,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 196
   },
   {
     "name": "다사파크골프장",
@@ -6434,7 +6630,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 197
   },
   {
     "name": "달서 강창파크골프장",
@@ -6461,7 +6658,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 198
   },
   {
     "name": "달성보파크골프장",
@@ -6488,7 +6686,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 199
   },
   {
     "name": "동구 봉무동 파크골프장",
@@ -6515,7 +6714,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 200
   },
   {
     "name": "동구숙천파크골프장",
@@ -6542,7 +6742,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 201
   },
   {
     "name": "북구검단파크골프장",
@@ -6569,7 +6770,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 202
   },
   {
     "name": "불로파크골프장",
@@ -6609,7 +6811,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 203
   },
   {
     "name": "비산파크골프장A-B",
@@ -6636,7 +6839,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 204
   },
   {
     "name": "비산파크골프장C-D",
@@ -6663,7 +6867,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 205
   },
   {
     "name": "서재파크골프장",
@@ -6703,7 +6908,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 206
   },
   {
     "name": "세천공단파크골프장",
@@ -6730,7 +6936,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 207
   },
   {
     "name": "소보파크골프장",
@@ -6757,7 +6964,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 208
   },
   {
     "name": "수림지파크골프장",
@@ -6797,7 +7005,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 209
   },
   {
     "name": "수성파크골프장",
@@ -6824,7 +7033,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 210
   },
   {
     "name": "수성팔현파크골프장",
@@ -6851,7 +7061,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 211
   },
   {
     "name": "우보파크골프장",
@@ -6878,7 +7089,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 212
   },
   {
     "name": "원오교파크골프장",
@@ -6905,7 +7117,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 213
   },
   {
     "name": "유가한정파크골프장",
@@ -6932,7 +7145,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 214
   },
   {
     "name": "대구 진천 파크골프장",
@@ -6959,7 +7173,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 215
   },
   {
     "name": "테크노폴리스파크골프장",
@@ -6999,7 +7214,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 216
   },
   {
     "name": "하빈파크골프장",
@@ -7026,7 +7242,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 217
   },
   {
     "name": "대구 화원 파크골프장",
@@ -7053,7 +7270,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 218
   },
   {
     "name": "대구 효령 파크골프장",
@@ -7080,7 +7298,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 219
   },
   {
     "name": "무태파크골프장",
@@ -7120,7 +7339,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 220
   },
   {
     "name": "버드내-태평파크골프장",
@@ -7147,7 +7367,8 @@
       "website": null,
       "registration_method": "회원만 사용 가능",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%8C%80%EC%A0%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9C%84%EC%B9%98-%EC%95%88%EB%82%B4"
-    }
+    },
+    "id": 221
   },
   {
     "name": "유등천 파크골프장",
@@ -7174,7 +7395,8 @@
       "website": "https://www.djsiseol.or.kr/portal/sub020716_02.asp",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.djsiseol.or.kr/portal/sub020716_02.asp"
-    }
+    },
+    "id": 222
   },
   {
     "name": "을미기 파크골프장",
@@ -7214,7 +7436,8 @@
       "website": "https://www.djsiseol.or.kr/portal/sub020716_02.asp",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%8C%80%EC%A0%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9C%84%EC%B9%98-%EC%95%88%EB%82%B4"
-    }
+    },
+    "id": 223
   },
   {
     "name": "유성구 갑천 파크골프장",
@@ -7241,7 +7464,8 @@
       "website": "https://www.djsiseol.or.kr/portal/sub020716_02.asp",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.djsiseol.or.kr/portal/sub020716_02.asp"
-    }
+    },
+    "id": 224
   },
   {
     "name": "기장 파크골프장",
@@ -7281,7 +7505,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 225
   },
   {
     "name": "대저 생태공원 파크골프장",
@@ -7308,7 +7533,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EC%95%88%EB%82%B4#google_vignette"
-    }
+    },
+    "id": 226
   },
   {
     "name": "사암 파크골프장",
@@ -7348,7 +7574,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://blog.naver.com/bsgangseogu/223172635153"
-    }
+    },
+    "id": 227
   },
   {
     "name": "장림 파크골프장",
@@ -7375,7 +7602,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 228
   },
   {
     "name": "화명 파크골프장",
@@ -7402,7 +7630,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%ED%9C%B4%EC%9E%A5-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95#google_vignette"
-    }
+    },
+    "id": 229
   },
   {
     "name": "삼락 파크골프장",
@@ -7429,7 +7658,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%ED%9C%B4%EC%9E%A5-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95#google_vignette"
-    }
+    },
+    "id": 230
   },
   {
     "name": "강동 파크골프장",
@@ -7469,7 +7699,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 231
   },
   {
     "name": "구로 안양천 18홀 파크골프장",
@@ -7496,7 +7727,8 @@
       "website": null,
       "registration_method": "전화 접수",
       "reference": "https://kogitube.tistory.com/entry/%EA%B5%AC%EB%A1%9C%EC%95%88%EC%96%91%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%BD%94%EC%8A%A4%EC%84%A4%EB%AA%85#google_vignette"
-    }
+    },
+    "id": 232
   },
   {
     "name": "구로 안양천 9홀 파크골프장",
@@ -7523,7 +7755,8 @@
       "website": null,
       "registration_method": "전화 접수",
       "reference": "https://kogitube.tistory.com/entry/%EA%B5%AC%EB%A1%9C%EC%95%88%EC%96%91%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%BD%94%EC%8A%A4%EC%84%A4%EB%AA%85#google_vignette"
-    }
+    },
+    "id": 233
   },
   {
     "name": "금천구 한내천 파크골프장",
@@ -7550,7 +7783,8 @@
       "website": null,
       "registration_method": "금천구민, 금천구 소재 직장인만 이용 가능",
       "reference": null
-    }
+    },
+    "id": 234
   },
   {
     "name": "동대문구 중량천 파크골프장",
@@ -7577,7 +7811,8 @@
       "website": "https://www.dfmc.kr:8443/course/sports/fmcs/181",
       "registration_method": "인터넷 예약",
       "reference": "https://www.dfmc.kr:8443/course/sports/fmcs/181"
-    }
+    },
+    "id": 235
   },
   {
     "name": "양천구 안양천 파크골프장",
@@ -7617,7 +7852,8 @@
       "website": "https://www.yangcheon.go.kr/reservation/reservation/main.do",
       "registration_method": "인터넷 예약 (월수목 양천구민만 사용 가능)",
       "reference": "https://www.yangcheon.go.kr/site/yangcheon/ex/bbs/View.do?cbIdx=254&bcIdx=280794&parentSeq=280794"
-    }
+    },
+    "id": 236
   },
   {
     "name": "양평누리 파크골프장",
@@ -7644,7 +7880,8 @@
       "website": "https://srent.y-sisul.or.kr/page/rent/s03.info.asp",
       "registration_method": "인터넷 예약",
       "reference": "https://srent.y-sisul.or.kr/page/rent/s03.info.asp"
-    }
+    },
+    "id": 237
   },
   {
     "name": "월드컵 파크골프장",
@@ -7684,7 +7921,8 @@
       "website": "https://tickets.interpark.com/goods/22002654",
       "registration_method": "인터넷 예약",
       "reference": "https://m.blog.naver.com/puritism81/222904929301"
-    }
+    },
+    "id": 238
   },
   {
     "name": "잠실 파크골프장",
@@ -7724,7 +7962,8 @@
       "website": "https://yeyak.seoul.go.kr/web/main.do",
       "registration_method": "매월 15일 오후 1:30에 선착순으로 다음달 이용 예약",
       "reference": "https://blog.naver.com/avarava/223054689125"
-    }
+    },
+    "id": 239
   },
   {
     "name": "노원 중랑천 파크골프장",
@@ -7751,7 +7990,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": null
-    }
+    },
+    "id": 240
   },
   {
     "name": "여의도 한강공원 파크골프장",
@@ -7791,7 +8031,8 @@
       "website": "https://sports.seoul.go.kr/main/facilities/facilities_view.do?&ft_idx=1260#n",
       "registration_method": "당일 현장 접수",
       "reference": "http://www.seniortimes.kr/news/articleView.html?idxno=3003789"
-    }
+    },
+    "id": 241
   },
   {
     "name": "서남 물재생센터 파크골프장",
@@ -7831,7 +8072,8 @@
       "website": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S210416165517480978&tr_code=yeyak",
       "registration_method": "인터넷 예약",
       "reference": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S210416165517480978&tr_code=yeyak"
-    }
+    },
+    "id": 242
   },
   {
     "name": "부강 파크골프장",
@@ -7858,7 +8100,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 243
   },
   {
     "name": "오가낭 파크골프장",
@@ -7898,7 +8141,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 244
   },
   {
     "name": "세종 조천 파크골프장",
@@ -7925,7 +8169,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 245
   },
   {
     "name": "세종 중앙공원 파크골프장",
@@ -7952,7 +8197,8 @@
       "website": "https://onestop.sejong.go.kr/Usr/resve/instDetail.do",
       "registration_method": "인터넷 예약",
       "reference": "https://onestop.sejong.go.kr/Usr/resve/instDetail.do"
-    }
+    },
+    "id": 246
   },
   {
     "name": "한솔파크 골프장",
@@ -7979,7 +8225,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 247
   },
   {
     "name": "울산 남구 대공원 파크골프장",
@@ -8006,7 +8253,8 @@
       "website": "https://www.uic.or.kr/ulsanpark/institution/institution07.do",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.uic.or.kr/ulsanpark/institution/institution07.do"
-    }
+    },
+    "id": 248
   },
   {
     "name": "남구 태화강 파크골프장",
@@ -8033,7 +8281,8 @@
       "website": null,
       "registration_method": null,
       "reference": "정보 없음"
-    }
+    },
+    "id": 249
   },
   {
     "name": "울산 동천 파크골프장",
@@ -8060,7 +8309,8 @@
       "website": null,
       "registration_method": null,
       "reference": "정보 없음"
-    }
+    },
+    "id": 250
   },
   {
     "name": "쇠평 파크골프장",
@@ -8087,7 +8337,8 @@
       "website": "http://yeyak.iwillsoft.co.kr/etc/facility_info17.jsp",
       "registration_method": "전화 및 방문 접수",
       "reference": "http://yeyak.iwillsoft.co.kr/etc/facility_info17.jsp"
-    }
+    },
+    "id": 251
   },
   {
     "name": "울주군 범서 파크골프장",
@@ -8114,7 +8365,8 @@
       "website": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000090",
       "registration_method": "인터넷 예약",
       "reference": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000090"
-    }
+    },
+    "id": 252
   },
   {
     "name": "울주군 청량 파크골프장",
@@ -8141,7 +8393,8 @@
       "website": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=info&currentPage=1&pagePerCount=10&searchFacUnqId=FACL_000000000000044&searchFacUnqId=FACL_000000000000043&orderByFieldId=&searchKey=&detlUnqId=FADT_000000000000089",
       "registration_method": "인터넷 예약",
       "reference": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&searchFacUnqId=FACL_000000000000043&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000089"
-    }
+    },
+    "id": 253
   },
   {
     "name": "진장 파크골프장",
@@ -8168,7 +8421,8 @@
       "website": null,
       "registration_method": null,
       "reference": "정보 없음"
-    }
+    },
+    "id": 254
   },
   {
     "name": "공촌 유수지 파크골프장",
@@ -8208,7 +8462,8 @@
       "website": "https://reserve.insiseol.or.kr/rent/info_gongchon.jsp",
       "registration_method": "현장 접수",
       "reference": "https://reserve.insiseol.or.kr/rent/info_gongchon.jsp"
-    }
+    },
+    "id": 255
   },
   {
     "name": "선학파크골프장",
@@ -8248,7 +8503,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%9D%B8%EC%B2%9C-%EC%84%A0%ED%95%99%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EC%95%88%EB%82%B4-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%A0%95%EB%B3%B4"
-    }
+    },
+    "id": 256
   },
   {
     "name": "영종도 파크골프장",
@@ -8275,7 +8531,8 @@
       "website": null,
       "registration_method": "당일 현장 접수",
       "reference": "https://m.blog.naver.com/golf5764/221971667595"
-    }
+    },
+    "id": 257
   },
   {
     "name": "인천 송도 파크골프장",
@@ -8315,7 +8572,8 @@
       "website": "https://www.insiseol.or.kr/park/songdo/rental/golf.jsp",
       "registration_method": "당일 현장 및 온라인 접수",
       "reference": "https://www.insiseol.or.kr/park/songdo/rental/golf.jsp"
-    }
+    },
+    "id": 258
   },
   {
     "name": "장수파크골프장",
@@ -8355,7 +8613,8 @@
       "website": null,
       "registration_method": null,
       "reference": "정보 없음"
-    }
+    },
+    "id": 259
   },
   {
     "name": "고금파크골프장",
@@ -8382,7 +8641,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 260
   },
   {
     "name": "곡성동악파크골프장",
@@ -8409,7 +8669,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 261
   },
   {
     "name": "광양시파크골프장",
@@ -8449,7 +8710,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 262
   },
   {
     "name": "구례군파크골프장",
@@ -8489,7 +8751,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 263
   },
   {
     "name": "남악파크골프장",
@@ -8529,7 +8792,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 264
   },
   {
     "name": "목포 남해 파크골프장",
@@ -8556,7 +8820,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 265
   },
   {
     "name": "담양 제1파크골프장",
@@ -8583,7 +8848,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 266
   },
   {
     "name": "담양 제2파크골프장",
@@ -8610,7 +8876,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 267
   },
   {
     "name": "무안파크골프장",
@@ -8637,7 +8904,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 268
   },
   {
     "name": "보성미니파크골프장",
@@ -8677,7 +8945,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 269
   },
   {
     "name": "복내파크골프장",
@@ -8704,7 +8973,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 270
   },
   {
     "name": "부주산국제파크골프장",
@@ -8744,7 +9014,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 271
   },
   {
     "name": "불갑파크골프장",
@@ -8771,7 +9042,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 272
   },
   {
     "name": "산이파크골프장",
@@ -8811,7 +9083,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 273
   },
   {
     "name": "삼학도파크골프장",
@@ -8851,7 +9124,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 274
   },
   {
     "name": "삼호대불파크골프장",
@@ -8891,7 +9165,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 275
   },
   {
     "name": "상동파크골프장",
@@ -8918,7 +9193,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 276
   },
   {
     "name": "상사파크골프장",
@@ -8945,7 +9221,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 277
   },
   {
     "name": "서면파크골프장",
@@ -8972,7 +9249,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 278
   },
   {
     "name": "서해파크골프장",
@@ -8999,7 +9277,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 279
   },
   {
     "name": "송월동파크골프장",
@@ -9026,7 +9305,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 280
   },
   {
     "name": "시종마한파크골프장",
@@ -9066,7 +9346,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 281
   },
   {
     "name": "실내체육관파크골프장",
@@ -9106,7 +9387,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 282
   },
   {
     "name": "영산포체육공원파크골프장",
@@ -9133,7 +9415,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 283
   },
   {
     "name": "영암파크골프장",
@@ -9173,7 +9456,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 284
   },
   {
     "name": "오곡파크골프장",
@@ -9200,7 +9484,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 285
   },
   {
     "name": "운림삼별초파크골프장",
@@ -9240,7 +9525,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 286
   },
   {
     "name": "장성군 A파크골프장",
@@ -9267,7 +9553,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 287
   },
   {
     "name": "장성군 B파크골프장",
@@ -9294,7 +9581,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 288
   },
   {
     "name": "장흥파크골프장",
@@ -9321,7 +9609,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 289
   },
   {
     "name": "한빛원자력파크골프장",
@@ -9348,7 +9637,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 290
   },
   {
     "name": "함평군파크골프장",
@@ -9388,7 +9678,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 291
   },
   {
     "name": "해남파크골프장",
@@ -9415,7 +9706,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 292
   },
   {
     "name": "혁신도시파크골프장",
@@ -9455,7 +9747,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 293
   },
   {
     "name": "북항파크골프장",
@@ -9495,7 +9788,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 294
   },
   {
     "name": "고산파크골프장",
@@ -9522,7 +9816,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 295
   },
   {
     "name": "고창스포츠타운파크골프장",
@@ -9549,7 +9844,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 296
   },
   {
     "name": "군산파크골프장",
@@ -9576,7 +9872,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 297
   },
   {
     "name": "둔산파크골프장",
@@ -9616,7 +9913,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 298
   },
   {
     "name": "마전교파크골프장",
@@ -9643,7 +9941,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 299
   },
   {
     "name": "무주파크골프장",
@@ -9683,7 +9982,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 300
   },
   {
     "name": "비봉파크골프장",
@@ -9723,7 +10023,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 301
   },
   {
     "name": "비비정파크골프장",
@@ -9750,7 +10051,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 302
   },
   {
     "name": "상관파크골프장",
@@ -9777,7 +10079,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 303
   },
   {
     "name": "생강골파크골프장",
@@ -9804,7 +10107,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 304
   },
   {
     "name": "순창군파크골프장",
@@ -9831,7 +10135,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 305
   },
   {
     "name": "신태인파크골프장",
@@ -9858,7 +10163,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 306
   },
   {
     "name": "온고을파크골프장",
@@ -9898,7 +10204,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 307
   },
   {
     "name": "이서파크골프장",
@@ -9925,7 +10232,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 308
   },
   {
     "name": "익산파크골프장",
@@ -9965,7 +10273,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 309
   },
   {
     "name": "임실파크골프장",
@@ -9992,7 +10301,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 310
   },
   {
     "name": "줄포파크골프장",
@@ -10032,7 +10342,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 311
   },
   {
     "name": "진안파크골프장",
@@ -10059,7 +10370,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 312
   },
   {
     "name": "청하파크골프장",
@@ -10099,7 +10411,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 313
   },
   {
     "name": "남원파크골프장",
@@ -10139,7 +10452,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 314
   },
   {
     "name": "강창학 파크골프장",
@@ -10166,7 +10480,8 @@
       "website": "https://www.seogwipo.go.kr/field/living/sportsfacilities/facilities/parkgolf.htm?act=view&idx=28",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
-    }
+    },
+    "id": 315
   },
   {
     "name": "렛츠런 파크골프장",
@@ -10206,7 +10521,8 @@
       "website": "https://park.kra.co.kr/parkuserjeju/faciliInfoShow.do",
       "registration_method": "선착순 등록",
       "reference": "http://www.koreatriptips.com/leisure-sports/637398.html"
-    }
+    },
+    "id": 316
   },
   {
     "name": "수망리(남원) 파크골프장",
@@ -10246,7 +10562,8 @@
       "website": "http://www.seogwiposports.org/bbs/board.php?bo_table=sub0301&sca=%EB%82%A8%EC%9B%90%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
-    }
+    },
+    "id": 317
   },
   {
     "name": "월라봉파크골프장",
@@ -10273,7 +10590,8 @@
       "website": "https://www.seogwipo.go.kr/field/living/sportsfacilities/facilities/parkgolf.htm?act=view&idx=30",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
-    }
+    },
+    "id": 318
   },
   {
     "name": "칠십리파크골프장",
@@ -10300,7 +10618,8 @@
       "website": "https://www.seogwipo.go.kr/field/living/sportsfacilities/facilities/parkgolf.htm?act=view&idx=29",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
-    }
+    },
+    "id": 319
   },
   {
     "name": "회천 파크골프장",
@@ -10340,7 +10659,8 @@
       "website": "https://www.jejusi.go.kr/sports/view/fac.do?mode=detail&sports_fac_id=10000023",
       "registration_method": "전화 및 방문 접수",
       "reference": "https://cklee88.tistory.com/943"
-    }
+    },
+    "id": 320
   },
   {
     "name": "계룡시파크골프장",
@@ -10380,7 +10700,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 321
   },
   {
     "name": "곡교천파크골프장",
@@ -10407,7 +10728,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 322
   },
   {
     "name": "곰나루파크골프장",
@@ -10434,7 +10756,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 323
   },
   {
     "name": "금산군파크골프장",
@@ -10461,7 +10784,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 324
   },
   {
     "name": "논산시파크골프장",
@@ -10488,7 +10812,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 325
   },
   {
     "name": "당진해나루파크골프장",
@@ -10515,7 +10840,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 326
   },
   {
     "name": "도고파크골프장",
@@ -10542,7 +10868,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 327
   },
   {
     "name": "둔포파크골프장",
@@ -10569,7 +10896,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 328
   },
   {
     "name": "무한천파크골프장",
@@ -10596,7 +10924,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 329
   },
   {
     "name": "백세파크골프장",
@@ -10636,7 +10965,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 330
   },
   {
     "name": "보령파크골프구장",
@@ -10663,7 +10993,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 331
   },
   {
     "name": "부여파크골프장",
@@ -10690,7 +11021,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 332
   },
   {
     "name": "삽교파크골프구장",
@@ -10717,7 +11049,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 333
   },
   {
     "name": "상록파크골프구장",
@@ -10757,7 +11090,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 334
   },
   {
     "name": "서산나이스파크골프장",
@@ -10797,7 +11131,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 335
   },
   {
     "name": "서산시파크골프장",
@@ -10824,7 +11159,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 336
   },
   {
     "name": "서천군노인복지관파크골프장",
@@ -10864,7 +11200,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 337
   },
   {
     "name": "전원파크골프구장",
@@ -10891,7 +11228,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 338
   },
   {
     "name": "천안도솔파크골프장",
@@ -10931,7 +11269,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 339
   },
   {
     "name": "천안풍세파크골프장",
@@ -10958,7 +11297,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 340
   },
   {
     "name": "천안한들파크골프장",
@@ -10998,7 +11338,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 341
   },
   {
     "name": "청양군파크골프장",
@@ -11038,7 +11379,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 342
   },
   {
     "name": "태안파크골프장",
@@ -11078,7 +11420,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 343
   },
   {
     "name": "홍성군파크골프장",
@@ -11118,7 +11461,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 344
   },
   {
     "name": "괴산파크골프장",
@@ -11158,7 +11502,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 345
   },
   {
     "name": "단양파크골프장",
@@ -11185,7 +11530,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 346
   },
   {
     "name": "대소원파크골프장",
@@ -11225,7 +11571,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 347
   },
   {
     "name": "수안보온천파크골프장",
@@ -11252,7 +11599,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 348
   },
   {
     "name": "음성생극파크골프장",
@@ -11279,7 +11627,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 349
   },
   {
     "name": "제천중전리파크골프장",
@@ -11319,7 +11668,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 350
   },
   {
     "name": "증평파크골프장",
@@ -11359,7 +11709,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 351
   },
   {
     "name": "진천 파크골프장",
@@ -11386,7 +11737,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 352
   },
   {
     "name": "청주오송파크골프장",
@@ -11426,7 +11778,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 353
   },
   {
     "name": "청주장애인파크골프장",
@@ -11466,7 +11819,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 354
   },
   {
     "name": "청주파크골프장",
@@ -11506,7 +11860,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 355
   },
   {
     "name": "청주호미골파크골프장",
@@ -11533,7 +11888,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 356
   },
   {
     "name": "충주단월파크골프장",
@@ -11560,7 +11916,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 357
   },
   {
     "name": "충주장애인파크골프장",
@@ -11600,7 +11957,8 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 358
   },
   {
     "name": "충주호파크골프장",
@@ -11627,6 +11985,7 @@
       "website": null,
       "registration_method": null,
       "reference": null
-    }
+    },
+    "id": 359
   }
 ]
