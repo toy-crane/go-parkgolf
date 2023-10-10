@@ -7,7 +7,7 @@ export async function GET() {
   const jsonDirectory = path.join(process.cwd(), "resource");
   //Read the json data file data.json
   const fileContents = await fs.readFile(
-    jsonDirectory + "/locations.json",
+    jsonDirectory + "/courses.json",
     "utf-8",
   );
 
