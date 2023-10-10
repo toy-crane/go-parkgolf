@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Marker from "@/components/map/marker";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -88,7 +89,11 @@ const Main = ({ courses }: { courses: Course[] }) => {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
-            <SheetTitle>{selectedcourse?.name}</SheetTitle>
+            <SheetTitle>
+              <Link href={`/courses/${selectedcourse?.id}`}>
+                {selectedcourse?.name}
+              </Link>
+            </SheetTitle>
             <SheetDescription>{address?.address_name}</SheetDescription>
           </SheetHeader>
           <Separator className="mb-2 mt-4" />
