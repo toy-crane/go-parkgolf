@@ -1,4 +1,4 @@
-export interface Location {
+export interface Course {
   id: number;
   name: string;
   address: {

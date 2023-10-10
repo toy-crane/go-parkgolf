@@ -12,14 +12,14 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { useAmplitude } from "@/libs/amplitude";
-import type { Location } from "@/types";
+import type { Course } from "@/types";
 import { AlarmClock, Clock, FlagTriangleRight, Phone } from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
 import type { Fetcher } from "swr";
 import useSWR from "swr";
 
 //Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
-const fetcher: Fetcher<Location[], string> = (url) =>
+const fetcher: Fetcher<Course[], string> = (url) =>
   fetch(url).then((res) => res.json());
 
 const DEFAULT_POSITION = {
@@ -27,9 +27,9 @@ const DEFAULT_POSITION = {
   center: { lat: 37.564214, lng: 127.001699 },
 };
 
-const Locations = () => {
+const Courses = () => {
   const { track } = useAmplitude();
-  const { data: locations } = useSWR("/api/locations", fetcher);
+  const { data: courses } = useSWR("/api/courses", fetcher);
   const [open, setOpen] = useState(false);
   // 지도의 위치
   const [position, setPosition] = useState<{
@@ -38,11 +38,9 @@ const Locations = () => {
   }>(DEFAULT_POSITION);
 
   // 선택한 파크골프장
-  const [selectedLocation, setSelectedLocation] = useState<
-    Location | undefined
-  >();
+  const [selectedcourse, setSelectedcourse] = useState<Course | undefined>();
 
-  const address = selectedLocation?.address;
+  const address = selectedcourse?.address;
 
   return (
     <>
@@ -74,22 +72,22 @@ const Locations = () => {
           })
         }
       >
-        {locations?.map((location) => (
+        {courses?.map((course) => (
           <Marker
-            location={location}
-            key={location.name}
-            isMarked={selectedLocation?.name === location.name}
+            course={course}
+            key={course.name}
+            isMarked={selectedcourse?.name === course.name}
             onClick={() => {
-              setSelectedLocation(location);
+              setSelectedcourse(course);
               setPosition((position) => ({
                 ...position,
                 center: {
-                  lat: Number(location.address.y),
-                  lng: Number(location.address.x),
+                  lat: Number(course.address.y),
+                  lng: Number(course.address.x),
                 },
               }));
               setOpen((open) => !open);
-              track("location clicked", { ...location });
+              track("course clicked", { ...course });
             }}
           />
         ))}
@@ -97,31 +95,31 @@ const Locations = () => {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
-            <SheetTitle>{selectedLocation?.name}</SheetTitle>
+            <SheetTitle>{selectedcourse?.name}</SheetTitle>
             <SheetDescription>{address?.address_name}</SheetDescription>
           </SheetHeader>
           <Separator className="mb-2 mt-4" />
           <div className="grid w-full items-center">
             <div className="flex items-center gap-4">
               <FlagTriangleRight size={20} />
-              <div className="text-base">{selectedLocation?.hole_count}홀</div>
+              <div className="text-base">{selectedcourse?.hole_count}홀</div>
             </div>
             <Separator className="my-2" />
             <div className="flex items-center gap-4">
               <Phone size={20} />
               <div className="text-base">
-                {selectedLocation?.contact.phone_number ? (
+                {selectedcourse?.contact.phone_number ? (
                   <Button
                     variant="link"
                     size="sm"
                     asChild
                     className="p-0 text-base text-blue-400"
                     onClick={() => {
-                      track("phone number clicked", { ...selectedLocation });
+                      track("phone number clicked", { ...selectedcourse });
                     }}
                   >
-                    <a href={`tel:${selectedLocation?.contact.phone_number}`}>
-                      {selectedLocation?.contact.phone_number}
+                    <a href={`tel:${selectedcourse?.contact.phone_number}`}>
+                      {selectedcourse?.contact.phone_number}
                     </a>
                   </Button>
                 ) : (
@@ -135,14 +133,14 @@ const Locations = () => {
               <div className="text-base">
                 <div>
                   영업 시간 -{" "}
-                  {selectedLocation?.operation.opening_hours ??
+                  {selectedcourse?.operation.opening_hours ??
                     "등록된 정보가 없습니다"}
                 </div>
-                {selectedLocation?.operation.regular_closed_days && (
+                {selectedcourse?.operation.regular_closed_days && (
                   <div>
                     {" "}
                     정기 휴무일 -{" "}
-                    {selectedLocation?.operation.regular_closed_days}
+                    {selectedcourse?.operation.regular_closed_days}
                   </div>
                 )}
               </div>
@@ -153,18 +151,18 @@ const Locations = () => {
               <div className="text-base">
                 <div>
                   예약 방법 -{" "}
-                  {selectedLocation?.operation.registration_method ??
+                  {selectedcourse?.operation.registration_method ??
                     "등록된 정보가 없습니다"}
                 </div>
                 <div>
-                  {selectedLocation?.operation.website ? (
+                  {selectedcourse?.operation.website ? (
                     <Button
                       variant="link"
                       size="sm"
                       asChild
                       className="p-0 text-base text-blue-400"
                     >
-                      <a href={selectedLocation?.operation.website}>
+                      <a href={selectedcourse?.operation.website}>
                         상세 정보 홈페이지
                       </a>
                     </Button>
@@ -179,4 +177,4 @@ const Locations = () => {
   );
 };
 
-export default Locations;
+export default Courses;

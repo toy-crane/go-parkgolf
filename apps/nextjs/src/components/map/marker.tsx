@@ -1,21 +1,20 @@
-import { useAmplitude } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
-import type { Location } from "@/types";
+import type { Course } from "@/types";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 
-import LocationFillIcon from "../../../public/icons/location-fill.svg";
+import CourseFillIcon from "../../../public/icons/course-fill.svg";
 import { Button } from "../ui/button";
 
 const Marker = ({
-  location,
+  course,
   onClick,
   isMarked,
 }: {
-  location: Location;
+  course: Course;
   isMarked: boolean;
   onClick: () => void;
 }) => {
-  const { address } = location;
+  const { address } = course;
 
   return (
     <>
@@ -28,7 +27,7 @@ const Marker = ({
           className="relative rounded-full p-0 hover:bg-transparent"
           onClick={onClick}
         >
-          <LocationFillIcon
+          <CourseFillIcon
             className={cn(isMarked ? "h-12 w-12 brightness-125" : "h-8 w-8")}
           />
         </Button>

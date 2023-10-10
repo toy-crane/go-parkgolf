@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { NextApiRequest } from "next";
-import type { Location } from "@/types";
+import type { Course } from "@/types";
 
 export async function GET(
   req: NextApiRequest,
@@ -11,17 +11,15 @@ export async function GET(
   const jsonDirectory = path.join(process.cwd(), "resource");
   //Read the json data file data.json
   const fileContents = await fs.readFile(
-    jsonDirectory + "/locations.json",
+    jsonDirectory + "/courses.json",
     "utf-8",
   );
 
-  const locations = JSON.parse(fileContents) as Location[];
-  const location = locations.find(
-    (location) => location.id === Number(params.id),
-  );
+  const courses = JSON.parse(fileContents) as Course[];
+  const course = courses.find((course) => course.id === Number(params.id));
 
-  if (location) {
-    return Response.json({ location });
+  if (course) {
+    return Response.json({ course });
   } else {
     return new Response("Not Found", { status: 404 });
   }
