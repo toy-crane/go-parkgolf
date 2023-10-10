@@ -7432,7 +7432,7 @@
     }
   },
   {
-    "name": "강동파크골프장",
+    "name": "강동 파크골프장",
     "address": {
       "address_name": "서울 강동구 천호동 481-6",
       "b_code": "1174010900",
@@ -7489,13 +7489,13 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-4230-4501" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00 (4월 ~ 11월)",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://kogitube.tistory.com/entry/%EA%B5%AC%EB%A1%9C%EC%95%88%EC%96%91%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%BD%94%EC%8A%A4%EC%84%A4%EB%AA%85#google_vignette"
     }
   },
   {
@@ -7516,17 +7516,17 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010 - 4382 - 5350" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00 (4월 ~ 11월)",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://kogitube.tistory.com/entry/%EA%B5%AC%EB%A1%9C%EC%95%88%EC%96%91%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%BD%94%EC%8A%A4%EC%84%A4%EB%AA%85#google_vignette"
     }
   },
   {
-    "name": "금천구 한내천파크골프장",
+    "name": "금천구 한내천 파크골프장",
     "address": {
       "address_name": "서울 금천구 가산동 557-2",
       "b_code": "1154510100",
@@ -7543,17 +7543,17 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-2627-1428" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "금천구민, 금천구 소재 직장인만 이용 가능",
       "reference": null
     }
   },
   {
-    "name": "동대문구중량천 파크골프장",
+    "name": "동대문구 중량천 파크골프장",
     "address": {
       "address_name": "서울 동대문구 장안동",
       "b_code": "1123010600",
@@ -7570,17 +7570,17 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-3408-4919" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 18:00 (4월 ~ 11월)",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
+      "website": "https://www.dfmc.kr:8443/course/sports/fmcs/181",
+      "registration_method": "인터넷 예약",
+      "reference": "https://www.dfmc.kr:8443/course/sports/fmcs/181"
     }
   },
   {
-    "name": "안양천파크골프장",
+    "name": "양천구 안양천 파크골프장",
     "address": {
       "address_name": "서울 양천구 목동 900-10",
       "b_code": "1147010200",
@@ -7610,17 +7610,17 @@
       "zone_no": "07978"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-2620-3416" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 17:00",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
+      "website": "https://www.yangcheon.go.kr/reservation/reservation/main.do",
+      "registration_method": "인터넷 예약 (월수목 양천구민만 사용 가능)",
+      "reference": "https://www.yangcheon.go.kr/site/yangcheon/ex/bbs/View.do?cbIdx=254&bcIdx=280794&parentSeq=280794"
     }
   },
   {
-    "name": "양평누리파크골프장",
+    "name": "양평누리 파크골프장",
     "address": {
       "address_name": "서울 영등포구 양화동 4-1",
       "b_code": "1156013100",
@@ -7637,17 +7637,17 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-7389-2988" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "07:00 ~ 19:00 (4월~9월) / 08:00 ~ 18:00 (그외)",
+      "regular_closed_days": "명절 연휴 및 신정",
+      "website": "https://srent.y-sisul.or.kr/page/rent/s03.info.asp",
+      "registration_method": "인터넷 예약",
+      "reference": "https://srent.y-sisul.or.kr/page/rent/s03.info.asp"
     }
   },
   {
-    "name": "월드컵파크골프장",
+    "name": "월드컵 파크골프장",
     "address": {
       "address_name": "서울 마포구 상암동 481-6",
       "b_code": "1144012700",
@@ -7677,17 +7677,17 @@
       "zone_no": "03900"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-304-3212" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:10 ~ 17:00(4월 ~ 11월)",
+      "regular_closed_days": "매주 월요일 (월요일이 공휴일인 경우 익일 휴장)",
+      "website": "https://tickets.interpark.com/goods/22002654",
+      "registration_method": "인터넷 예약",
+      "reference": "https://m.blog.naver.com/puritism81/222904929301"
     }
   },
   {
-    "name": "잠실파크골프장",
+    "name": "잠실 파크골프장",
     "address": {
       "address_name": "서울 송파구 잠실동 10",
       "b_code": "1171010100",
@@ -7717,17 +7717,17 @@
       "zone_no": "05500"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-2240-8800" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 17:00 (4월~11월)",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://yeyak.seoul.go.kr/web/main.do",
+      "registration_method": "매월 15일 오후 1:30에 선착순으로 다음달 이용 예약",
+      "reference": "https://blog.naver.com/avarava/223054689125"
     }
   },
   {
-    "name": "중랑천 파크골프장",
+    "name": "노원 중랑천 파크골프장",
     "address": {
       "address_name": "서울 노원구 월계동 230-10",
       "b_code": "1135010200",
@@ -7744,17 +7744,17 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-2116-4168" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "09:00 ~ 18:00",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "당일 현장 접수",
       "reference": null
     }
   },
   {
-    "name": "한강파크골프장",
+    "name": "여의도 한강공원 파크골프장",
     "address": {
       "address_name": "서울 영등포구 여의도동 86",
       "b_code": "1156011000",
@@ -7784,17 +7784,17 @@
       "zone_no": "07346"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-3780-0561" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 17:00",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://sports.seoul.go.kr/main/facilities/facilities_view.do?&ft_idx=1260#n",
+      "registration_method": "당일 현장 접수",
+      "reference": "http://www.seniortimes.kr/news/articleView.html?idxno=3003789"
     }
   },
   {
-    "name": "서남물재생센터공원파크골프장",
+    "name": "서남 물재생센터 파크골프장",
     "address": {
       "address_name": "서울 강서구 마곡동 202",
       "b_code": "1150010500",
@@ -7824,13 +7824,13 @@
       "zone_no": "07520"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "02-3660-2257" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 17:00 (4월~12월)",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S210416165517480978&tr_code=yeyak",
+      "registration_method": "인터넷 예약",
+      "reference": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S210416165517480978&tr_code=yeyak"
     }
   },
   {
