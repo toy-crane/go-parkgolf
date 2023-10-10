@@ -7244,7 +7244,7 @@
     }
   },
   {
-    "name": "기장파크골프장",
+    "name": "기장 파크골프장",
     "address": {
       "address_name": "부산 기장군 정관읍 모전리 677",
       "b_code": "2671025627",
@@ -7284,7 +7284,7 @@
     }
   },
   {
-    "name": "대저생태공원파크골프장",
+    "name": "대저 생태공원 파크골프장",
     "address": {
       "address_name": "부산 강서구 대저1동 1-5",
       "b_code": "2644010100",
@@ -7301,17 +7301,17 @@
     },
     "road_address": null,
     "hole_count": "45",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "051-971-6011" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00 (오후 부산지역민만 사용가능)",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EC%95%88%EB%82%B4#google_vignette"
     }
   },
   {
-    "name": "사암파크골프장",
+    "name": "사암 파크골프장",
     "address": {
       "address_name": "부산 강서구 신호동 194",
       "b_code": "2644011700",
@@ -7343,15 +7343,15 @@
     "hole_count": "9",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00 (오후 부산지역민만 사용가능)",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://blog.naver.com/bsgangseogu/223172635153"
     }
   },
   {
-    "name": "장림파크골프장",
+    "name": "장림 파크골프장",
     "address": {
       "address_name": "부산 사하구",
       "b_code": "2638000000",
@@ -7378,7 +7378,7 @@
     }
   },
   {
-    "name": "화명파크골프장",
+    "name": "화명 파크골프장",
     "address": {
       "address_name": "부산 북구 화명동 1718-14",
       "b_code": "2632010200",
@@ -7397,15 +7397,15 @@
     "hole_count": "36",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00 (오후 부산지역민만 사용가능)",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%ED%9C%B4%EC%9E%A5-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95#google_vignette"
     }
   },
   {
-    "name": "삼락파크골프장",
+    "name": "삼락 파크골프장",
     "address": {
       "address_name": "부산 사상구 삼락동 29-42",
       "b_code": "2653010100",
@@ -7424,11 +7424,11 @@
     "hole_count": "36",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00 (오후 부산지역민만 사용가능)",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%ED%9C%B4%EC%9E%A5-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95#google_vignette"
     }
   },
   {
