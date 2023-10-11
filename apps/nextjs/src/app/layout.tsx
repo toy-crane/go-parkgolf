@@ -30,10 +30,7 @@ export const metadata: Metadata = {
     },
   ],
   creator: siteConfig.author,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+  themeColor: "#ffffff",
   openGraph: {
     type: "website",
     locale: "ko_KR",
