@@ -69,7 +69,9 @@ export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>
-        <body className={cn("font-sans antialiased")}>
+        <body
+          className={cn("bg-background min-h-screen font-sans antialiased")}
+        >
           <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
