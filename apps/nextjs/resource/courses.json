@@ -1438,7 +1438,7 @@
     "id": 43
   },
   {
-    "name": "성저파크골프장",
+    "name": "고양 성저 파크골프장",
     "address": {
       "address_name": "경기 고양시 일산서구 대화동 2325",
       "b_code": "4128710400",
@@ -1468,12 +1468,12 @@
       "zone_no": "10223"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-929-4868" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
+      "opening_hours": "09:00 ~ 17:00 (4월 ~ 12월 초)",
+      "regular_closed_days": "매주 화요일",
+      "website": "https://daehwa.gys.or.kr:451/rent/golf_guide.php",
+      "registration_method": "당일 현장 접수",
       "reference": null
     },
     "id": 44
@@ -1824,7 +1824,7 @@
     "id": 54
   },
   {
-    "name": "운정호수공원파크골프장",
+    "name": "파주 운정 파크골프장",
     "address": {
       "address_name": "경기 파주시 와동동 1418",
       "b_code": "4148012200",
@@ -1854,13 +1854,13 @@
       "zone_no": "10896"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-940-5241" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00 (4월 ~ 11월)",
+      "regular_closed_days": "매월 둘째주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "http://pajunet.kr/bigdata3/25"
     },
     "id": 55
   },
@@ -2031,7 +2031,7 @@
     "id": 60
   },
   {
-    "name": "정발파크골프장",
+    "name": "정발산 파크골프장",
     "address": {
       "address_name": "경기 고양시 일산동구 마두동 819",
       "b_code": "4128510500",
@@ -2048,13 +2048,13 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-970-2175" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 13:00",
+      "regular_closed_days": "매주 일요일",
+      "website": "https://m.gys.or.kr/page/facilities/s_sports/dw_page01.php",
+      "registration_method": "당일 현장 접수",
+      "reference": "https://blog.naver.com/dayee0/222887716433"
     },
     "id": 61
   },
@@ -2087,7 +2087,7 @@
     "id": 62
   },
   {
-    "name": "중산파크골프장",
+    "name": "중산 파크골프장",
     "address": {
       "address_name": "경기 고양시 일산동구 중산동 1565",
       "b_code": "4128510200",
@@ -2169,47 +2169,6 @@
     "id": 64
   },
   {
-    "name": "파주파크골프장",
-    "address": {
-      "address_name": "경기 파주시 동패동 643-18",
-      "b_code": "4148011300",
-      "h_code": "4148054000",
-      "main_address_no": "643",
-      "mountain_yn": "N",
-      "region_1depth_name": "경기",
-      "region_2depth_name": "파주시",
-      "region_3depth_h_name": "교하동",
-      "region_3depth_name": "동패동",
-      "sub_address_no": "18",
-      "x": "126.715136381818",
-      "y": "37.7071434640385"
-    },
-    "road_address": {
-      "address_name": "경기 파주시 교하로 577",
-      "building_name": "",
-      "main_building_no": "577",
-      "region_1depth_name": "경기",
-      "region_2depth_name": "파주시",
-      "region_3depth_name": "동패동",
-      "road_name": "교하로",
-      "sub_building_no": "",
-      "underground_yn": "N",
-      "x": "126.715136381818",
-      "y": "37.7071434640385",
-      "zone_no": "10883"
-    },
-    "hole_count": "18",
-    "contact": { "phone_number": null },
-    "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
-    },
-    "id": 65
-  },
-  {
     "name": "평택파크골프장",
     "address": {
       "address_name": "경기 평택시 비전동 1005-1",
@@ -2279,7 +2238,7 @@
     "id": 67
   },
   {
-    "name": "화정파크골프장",
+    "name": "화정 파크골프장",
     "address": {
       "address_name": "경기 고양시 덕양구 화정동 872",
       "b_code": "4128112300",
@@ -2309,13 +2268,13 @@
       "zone_no": "10474"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-970-2175" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "09:00 ~ 18:00 (4월 ~ 11월)",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://m.gys.or.kr/page/facilities/s_sports/hwajeong.php",
+      "registration_method": "당일 현장 접수",
+      "reference": "https://m.gys.or.kr/page/facilities/s_sports/hwajeong.php"
     },
     "id": 68
   },
@@ -2350,13 +2309,13 @@
       "zone_no": "10887"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-941-6010" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00 (4월~11월)",
+      "regular_closed_days": "2, 4째 월요일, 명절, 시설점검일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%8B%AC%ED%95%99%EC%82%B0%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95"
     },
     "id": 69
   },
@@ -8460,7 +8419,7 @@
       "opening_hours": "08:00 ~ 19:00 (6월~9월) / 09:00 ~ 18:00 (그외)",
       "regular_closed_days": "매주 월요일, 1월 1일(신정), 설날연휴(전일,당일), 추석연휴(전일,당일), 동절기(1월~3월)",
       "website": "https://reserve.insiseol.or.kr/rent/info_gongchon.jsp",
-      "registration_method": "현장 접수",
+      "registration_method": "당일 현장 접수",
       "reference": "https://reserve.insiseol.or.kr/rent/info_gongchon.jsp"
     },
     "id": 255
