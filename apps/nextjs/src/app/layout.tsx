@@ -77,7 +77,9 @@ export default function Layout(props: { children: React.ReactNode }) {
             strategy="beforeInteractive"
           />
           <main className="container mx-auto contents h-full w-full px-4 sm:px-6 lg:px-8">
-            {props.children}
+            <div className="relative flex min-h-screen flex-col">
+              {props.children}
+            </div>
           </main>
           <Toaster />
         </body>
