@@ -57,11 +57,6 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     creator: "@alwaysfun2183",
   },
-  icons: {
-    icon: "/logo/favicon.ico",
-    shortcut: "/logo/favicon-16x16.png",
-    apple: "/logo/apple-touch-icon.png",
-  },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
