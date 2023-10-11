@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: addPathToBaseURL(`/courses/${course.id}`),
     lastModified: new Date(),
     priority: 0.5,
-    changeFrequency: "weekly",
+    changeFrequency: "weekly" as const,
   }));
 
   return [
