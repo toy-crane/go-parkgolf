@@ -30,6 +30,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: course.name,
       description: course.address.address_name,
+      openGraph: {
+        title: course.name,
+        description: course.address.address_name,
+      },
+      twitter: {
+        title: course.name,
+        description: course.address.address_name,
+      },
     };
   } else {
     return {};
