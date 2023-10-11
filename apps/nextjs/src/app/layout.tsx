@@ -2,6 +2,7 @@ import "../styles/globals.css";
 
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
@@ -76,6 +77,7 @@ export default function Layout(props: { children: React.ReactNode }) {
           <main className="container mx-auto contents h-full w-full px-4 sm:px-6 lg:px-8">
             {props.children}
           </main>
+          <Toaster />
         </body>
       </AmplitudeProvider>
     </html>

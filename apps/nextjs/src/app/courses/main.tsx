@@ -12,9 +12,17 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
+import { cn } from "@/libs/tailwind";
 import type { Course } from "@/types";
-import { AlarmClock, Clock, FlagTriangleRight, Phone } from "lucide-react";
+import {
+  AlarmClock,
+  Clock,
+  FlagTriangleRight,
+  Phone,
+  Share2,
+} from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
 
 const DEFAULT_POSITION = {
@@ -30,6 +38,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
     level: number;
     center: { lat: number; lng: number };
   }>(DEFAULT_POSITION);
+  const { toast } = useToast();
 
   // 선택한 파크골프장
   const [selectedcourse, setSelectedcourse] = useState<Course | undefined>();
@@ -90,9 +99,30 @@ const Main = ({ courses }: { courses: Course[] }) => {
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
             <SheetTitle>
-              <Link href={`/courses/${selectedcourse?.id}`}>
-                {selectedcourse?.name}
-              </Link>
+              <div className="flex items-center gap-1">
+                <Link href={`/courses/${selectedcourse?.id}`}>
+                  {selectedcourse?.name}
+                </Link>
+                <Button
+                  variant={"ghost"}
+                  size="icon"
+                  onClick={async () => {
+                    await navigator.clipboard.writeText(
+                      `${window.location.href}/courses/${selectedcourse?.id}`,
+                    );
+                    toast({
+                      className: cn(
+                        "top-0 right-0 flex fixed md:max-w-[256px] md:top-4 md:right-4",
+                      ),
+                      title: "주소가 복사되었습니다",
+                      description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+                      duration: 1000,
+                    });
+                  }}
+                >
+                  <Share2 size={20} />
+                </Button>
+              </div>
             </SheetTitle>
             <SheetDescription>{address?.address_name}</SheetDescription>
           </SheetHeader>
