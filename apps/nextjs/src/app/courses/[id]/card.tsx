@@ -34,7 +34,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
         </div>
       </div>
       <StaticMap // 지도를 표시할 Container
-        className="mb-3"
+        className="mb-6"
         marker={[
           {
             position: {
@@ -56,7 +56,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
         }}
         level={6} // 지도의 확대 레벨
       />
-      <div className="grid w-full items-center">
+      <div className="mb-20 grid w-full items-center">
         <div className="flex items-center gap-4">
           <FlagTriangleRight size={20} />
           <div className="text-base">{course?.hole_count}홀</div>
