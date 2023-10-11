@@ -1,7 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import type { Metadata } from "next";
-import type { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { fetchCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
@@ -24,8 +23,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const course = await fetchCourse(params.id);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images ?? [];
+
   if (course) {
     return {
       title: course.name,
@@ -33,10 +39,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: course.name,
         description: course.address.address_name,
+        images: [...previousImages],
       },
       twitter: {
         title: course.name,
         description: course.address.address_name,
+        images: [...previousImages],
       },
     };
   } else {
