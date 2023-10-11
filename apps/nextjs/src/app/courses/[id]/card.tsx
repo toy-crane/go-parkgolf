@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import type { Course } from "@/types";
 import {
@@ -11,27 +12,47 @@ import {
   Clock,
   FlagTriangleRight,
   Phone,
+  Share2,
 } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 const CourseDetail = ({ course }: { course: Course }) => {
   const { track } = useAmplitude();
   const router = useRouter();
+  const { toast } = useToast();
 
   return (
     <div>
-      <div className="my-4 flex flex-row items-center gap-2">
-        <Button variant="ghost" size="icon" onClick={() => router.back()}>
-          <ArrowLeft size={24} />
-        </Button>
-        <div className="flex-col gap-4">
-          <h2 className="text-foreground text-lg font-semibold">
-            {course.name}
-          </h2>
-          <p className="text-muted-foreground text-sm">
-            {course.address.address_name}
-          </p>
+      <div className="flex items-center justify-between">
+        <div className="my-4 flex flex-row items-center gap-2">
+          <Button variant="ghost" size="icon" onClick={() => router.back()}>
+            <ArrowLeft size={24} />
+          </Button>
+          <div className="flex-col gap-4">
+            <h2 className="text-foreground text-lg font-semibold">
+              {course.name}
+            </h2>
+            <p className="text-muted-foreground text-sm">
+              {course.address.address_name}
+            </p>
+          </div>
         </div>
+        <Button
+          variant={"ghost"}
+          size="icon"
+          onClick={async () => {
+            await navigator.clipboard.writeText(
+              `${window.location.href}courses/${course?.id}`,
+            );
+            toast({
+              title: "주소가 복사되었습니다",
+              description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+              duration: 1000,
+            });
+          }}
+        >
+          <Share2 size={24} />
+        </Button>
       </div>
       <StaticMap // 지도를 표시할 Container
         className="mb-6"
