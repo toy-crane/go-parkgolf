@@ -108,7 +108,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
                   size="icon"
                   onClick={async () => {
                     await navigator.clipboard.writeText(
-                      `${window.location.href}/courses/${selectedcourse?.id}`,
+                      `${window.location.href}courses/${selectedcourse?.id}`,
                     );
                     toast({
                       className: cn(
