@@ -1119,7 +1119,7 @@
     "id": 33
   },
   {
-    "name": "가평파크골프장",
+    "name": "가평 파크골프장",
     "address": {
       "address_name": "경기 가평군 청평면 대성리 388-13",
       "b_code": "4182032524",
@@ -1149,13 +1149,13 @@
       "zone_no": "12457"
     },
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-8078-8075" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 18:00 (4월 ~ 11월)",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://www.gpfmc.or.kr/sub3/sub3_12-4.php",
+      "registration_method": "전화 접수",
+      "reference": "https://www.gpfmc.or.kr/sub3/sub3_12-4.php"
     },
     "id": 34
   },
@@ -1190,18 +1190,18 @@
       "zone_no": "12757"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-762-1039" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00 (4월 ~ 11월)",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "광주 시민만 사용 가능",
+      "reference": "https://blog.naver.com/qkekdkwl12/222573913694"
     },
     "id": 35
   },
   {
-    "name": "구리시파크골프장",
+    "name": "구리 파크골프장",
     "address": {
       "address_name": "경기 구리시 수택동 120-3",
       "b_code": "4131010500",
@@ -1257,7 +1257,7 @@
     "id": 37
   },
   {
-    "name": "남양주장애인파크골프장",
+    "name": "남양주 별내 파크골프장",
     "address": {
       "address_name": "경기 남양주시 별내동 910",
       "b_code": "4136011100",
@@ -1298,7 +1298,7 @@
     "id": 38
   },
   {
-    "name": "남양주파크골프장",
+    "name": "남양주 다산 파크골프장",
     "address": {
       "address_name": "경기 남양주시 다산동 739",
       "b_code": "4136011200",
@@ -1354,7 +1354,7 @@
     "id": 40
   },
   {
-    "name": "미사리파크골프장",
+    "name": "미사리 파크골프장",
     "address": {
       "address_name": "경기 하남시 미사동 608",
       "b_code": "4145011100",
@@ -1382,7 +1382,7 @@
     "id": 41
   },
   {
-    "name": "서종파크골프장",
+    "name": "서종 파크골프장",
     "address": {
       "address_name": "경기 양평군 서종면 문호리 922-4",
       "b_code": "4183035021",
@@ -1399,13 +1399,13 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-770-3164" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%96%91%ED%8F%89-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
     "id": 42
   },
@@ -1643,35 +1643,7 @@
     "id": 48
   },
   {
-    "name": "양평장애인파크골프장",
-    "address": {
-      "address_name": "경기 양평군 강상면 교평리 419",
-      "b_code": "4183031023",
-      "h_code": "4183031000",
-      "main_address_no": "419",
-      "mountain_yn": "N",
-      "region_1depth_name": "경기",
-      "region_2depth_name": "양평군",
-      "region_3depth_h_name": "강상면",
-      "region_3depth_name": "강상면 교평리",
-      "sub_address_no": "",
-      "x": "127.485013574456",
-      "y": "37.4855816794112"
-    },
-    "road_address": null,
-    "hole_count": "18",
-    "contact": { "phone_number": null },
-    "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
-    },
-    "id": 49
-  },
-  {
-    "name": "양평파크골프장",
+    "name": "양평 파크골프장",
     "address": {
       "address_name": "경기 양평군 강상면 교평리 419",
       "b_code": "4183031023",
@@ -1688,18 +1660,18 @@
     },
     "road_address": null,
     "hole_count": "63",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-773-3052" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "09:00 ~ 18:00",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.yp21.go.kr/www/contents.do?key=3879",
+      "registration_method": "당일 현장 접수",
+      "reference": "https://www.yp21.go.kr/www/contents.do?key=3879"
     },
     "id": 50
   },
   {
-    "name": "여주파크골프장",
+    "name": "여주 파크골프장",
     "address": {
       "address_name": "경기 여주시 현암동 616-3",
       "b_code": "4167012200",
@@ -1718,11 +1690,11 @@
     "hole_count": "36",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "07:00 ~ 19:00(5월~9월) / 09:00 ~ 18:00(10월~3월)",
+      "regular_closed_days": "매주 화요일",
+      "website": "https://golf.yjcmc.or.kr/",
+      "registration_method": "7일 전 예약시스템(온라인) 선착순 예약",
+      "reference": "https://golf.yjcmc.or.kr/"
     },
     "id": 51
   },
@@ -1906,7 +1878,7 @@
     "id": 56
   },
   {
-    "name": "이천시파크골프장",
+    "name": "이천시 파크골프장",
     "address": {
       "address_name": "경기 이천시 안흥동 33",
       "b_code": "4150010700",
@@ -1923,18 +1895,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": " 031-644-4316" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 19:00 (6월~9월) / 09:00 ~ 18:00 (그외)",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/hkpark2617/223217146391"
     },
     "id": 57
   },
   {
-    "name": "일동파크골프장",
+    "name": "일동 파크골프장",
     "address": {
       "address_name": "경기 포천시 일동면 사직리 1507",
       "b_code": "4165037025",
@@ -1975,7 +1947,7 @@
     "id": 58
   },
   {
-    "name": "장애인파크골프장",
+    "name": "남양주 장애인 파크골프장",
     "address": {
       "address_name": "경기 남양주시 진건읍 송능리 2",
       "b_code": "4136025926",
@@ -2003,7 +1975,7 @@
     "id": 59
   },
   {
-    "name": "장호원파크골프장",
+    "name": "장호원 파크골프장",
     "address": {
       "address_name": "경기 이천시 장호원읍 오남리 304-5",
       "b_code": "4150025022",
@@ -2128,7 +2100,7 @@
     "id": 63
   },
   {
-    "name": "청심빌리지파크골프장",
+    "name": "청심빌리지 파크골프장",
     "address": {
       "address_name": "경기 가평군 설악면 송산리 711",
       "b_code": "4182031025",
@@ -2158,13 +2130,13 @@
       "zone_no": "12461"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-589-5300" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://m.blog.naver.com/yjhedc/221228126571"
     },
     "id": 64
   },
@@ -2197,7 +2169,7 @@
     "id": 66
   },
   {
-    "name": "하남시파크골프장",
+    "name": "하남 파크골프장",
     "address": {
       "address_name": "경기 하남시 신장동 281",
       "b_code": "4145010600",
@@ -11986,6 +11958,6 @@
       "registration_method": "온라인 접수",
       "reference": "http://www.gimposports.or.kr/bbs/orderFoot.php"
     },
-    "id": 360
+    "id": 49
   }
 ]
