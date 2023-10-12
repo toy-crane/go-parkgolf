@@ -1229,7 +1229,7 @@
     "id": 36
   },
   {
-    "name": "김포레코파크골프장",
+    "name": "김포 레코 파크골프장",
     "address": {
       "address_name": "경기 김포시 걸포동 2-81",
       "b_code": "4157010200",
@@ -1326,7 +1326,7 @@
     "id": 39
   },
   {
-    "name": "동두천파크골프장",
+    "name": "동두천 파크골프장",
     "address": {
       "address_name": "경기 동두천시 송내동 696",
       "b_code": "4125010100",
@@ -1727,7 +1727,7 @@
     "id": 51
   },
   {
-    "name": "연천재인폭포오토캠핑장파크골프장",
+    "name": "연천 재인폭포 오토캠핑장 파크골프장",
     "address": {
       "address_name": "경기 연천군 연천읍 고문리 130-1",
       "b_code": "4180025029",
@@ -1755,7 +1755,7 @@
     "id": 52
   },
   {
-    "name": "연천파크골프장",
+    "name": "연천 파크골프장",
     "address": {
       "address_name": "경기 연천군 군남면 진상리 610",
       "b_code": "4180031021",
@@ -1772,13 +1772,13 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-833-7337" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "07:00 ~ 19:00 (7월~9월) / 09:00 ~ 18:00 (그외)",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
+      "website": "https://www.yeoncheon.go.kr/www/contents.do?key=4874",
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://www.yeoncheon.go.kr/www/contents.do?key=4874"
     },
     "id": 53
   },
@@ -1865,7 +1865,7 @@
     "id": 55
   },
   {
-    "name": "의정부파크골프장",
+    "name": "의정부 파크골프장",
     "address": {
       "address_name": "경기 의정부시 장암동 146-10",
       "b_code": "4115010300",
@@ -2320,7 +2320,7 @@
     "id": 69
   },
   {
-    "name": "나리공원파크골프장",
+    "name": "나리공원 파크골프장",
     "address": {
       "address_name": "경기 양주시 광사동 731",
       "b_code": "4163010600",
@@ -2350,13 +2350,13 @@
       "zone_no": "11494"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-8082-5638" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 18:00",
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "https://blog.naver.com/bononco/223205155881"
     },
     "id": 70
   },
@@ -11946,5 +11946,46 @@
       "reference": null
     },
     "id": 359
+  },
+  {
+    "name": "김포 양촌 파크골프장",
+    "address": {
+      "address_name": "경기 김포시 양촌읍 학운리 3084-4",
+      "b_code": "4157025626",
+      "h_code": "4157025600",
+      "main_address_no": "3084",
+      "mountain_yn": "N",
+      "region_1depth_name": "경기",
+      "region_2depth_name": "김포시",
+      "region_3depth_h_name": "양촌읍",
+      "region_3depth_name": "양촌읍 학운리",
+      "sub_address_no": "4",
+      "x": "126.625459780978",
+      "y": "37.6095964728922"
+    },
+    "road_address": {
+      "address_name": "경기 김포시 양촌읍 황금로127번길 215-1",
+      "building_name": "",
+      "main_building_no": "215",
+      "region_1depth_name": "경기",
+      "region_2depth_name": "김포시",
+      "region_3depth_name": "양촌읍 학운리",
+      "road_name": "황금로127번길",
+      "sub_building_no": "1",
+      "underground_yn": "N",
+      "x": "126.625459780978",
+      "y": "37.6095964728922",
+      "zone_no": "10048"
+    },
+    "hole_count": "9",
+    "contact": { "phone_number": "031-996-7761" },
+    "operation": {
+      "opening_hours": "09:00 ~ 18:00 (4월 ~ 12월)",
+      "regular_closed_days": "매월 둘째와 넷째 수요일",
+      "website": "http://www.gimposports.or.kr/bbs/orderFoot.php",
+      "registration_method": "온라인 접수",
+      "reference": "http://www.gimposports.or.kr/bbs/orderFoot.php"
+    },
+    "id": 360
   }
 ]
