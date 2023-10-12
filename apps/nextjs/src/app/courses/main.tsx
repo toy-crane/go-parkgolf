@@ -127,7 +127,10 @@ const Main = ({ courses }: { courses: Course[] }) => {
           <SheetHeader className="mb-2">
             <SheetTitle>
               <div className="flex items-center gap-1">
-                <Link href={`/courses/${selectedcourse?.id}`}>
+                <Link
+                  href={`/courses/${selectedcourse?.id}`}
+                  onClick={() => track("detail page link clicked")}
+                >
                   {selectedcourse?.name}
                 </Link>
                 <div className="flex items-center">
@@ -136,6 +139,9 @@ const Main = ({ courses }: { courses: Course[] }) => {
                     size="icon"
                     asChild
                     className="h-7 w-7"
+                    onClick={() => {
+                      track("sheet modify button clicked");
+                    }}
                   >
                     <a
                       href={generateFormUrl(selectedcourse?.name)}
@@ -161,6 +167,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
                         description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
                         duration: 1000,
                       });
+                      track("sheet share button clicked");
                     }}
                   >
                     <Share2 size={20} />
@@ -233,6 +240,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
                       size="sm"
                       asChild
                       className="p-0 text-base text-blue-400"
+                      onClick={() => track("website detail clicked")}
                     >
                       <a href={selectedcourse?.operation.website}>
                         상세 정보 홈페이지

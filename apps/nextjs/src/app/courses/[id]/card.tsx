@@ -40,7 +40,12 @@ const CourseDetail = ({ course }: { course: Course }) => {
           </div>
         </div>
         <div>
-          <Button variant={"ghost"} size="icon" asChild>
+          <Button
+            variant={"ghost"}
+            size="icon"
+            asChild
+            onClick={() => track("modify button clicked")}
+          >
             <a
               href={generateFormUrl(course.name)}
               target="_blank"
@@ -61,6 +66,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
                 description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
                 duration: 1000,
               });
+              track("share button clicked");
             }}
           >
             <Share2 size={24} />
