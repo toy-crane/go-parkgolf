@@ -5,12 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
+import { generateFormUrl } from "@/libs/google-form";
 import type { Course } from "@/types";
 import {
   AlarmClock,
   ArrowLeft,
   Clock,
   FlagTriangleRight,
+  Pencil,
   Phone,
   Share2,
 } from "lucide-react";
@@ -37,22 +39,33 @@ const CourseDetail = ({ course }: { course: Course }) => {
             </p>
           </div>
         </div>
-        <Button
-          variant={"ghost"}
-          size="icon"
-          onClick={async () => {
-            await navigator.clipboard.writeText(
-              `${window.location.href}courses/${course?.id}`,
-            );
-            toast({
-              title: "주소가 복사되었습니다",
-              description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
-              duration: 1000,
-            });
-          }}
-        >
-          <Share2 size={24} />
-        </Button>
+        <div>
+          <Button variant={"ghost"} size="icon" asChild>
+            <a
+              href={generateFormUrl(course.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Pencil size={24} />
+            </a>
+          </Button>
+          <Button
+            variant={"ghost"}
+            size="icon"
+            onClick={async () => {
+              await navigator.clipboard.writeText(
+                `${window.location.href}courses/${course?.id}`,
+              );
+              toast({
+                title: "주소가 복사되었습니다",
+                description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+                duration: 1000,
+              });
+            }}
+          >
+            <Share2 size={24} />
+          </Button>
+        </div>
       </div>
       <StaticMap // 지도를 표시할 Container
         className="mb-6"

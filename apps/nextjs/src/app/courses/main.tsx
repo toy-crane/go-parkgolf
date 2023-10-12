@@ -14,12 +14,14 @@ import {
 } from "@/components/ui/sheet";
 import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
+import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
 import type { Course } from "@/types";
 import {
   AlarmClock,
   Clock,
   FlagTriangleRight,
+  Pencil,
   Phone,
   Share2,
 } from "lucide-react";
@@ -99,29 +101,46 @@ const Main = ({ courses }: { courses: Course[] }) => {
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
             <SheetTitle>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-2">
                 <Link href={`/courses/${selectedcourse?.id}`}>
                   {selectedcourse?.name}
                 </Link>
-                <Button
-                  variant={"ghost"}
-                  size="icon"
-                  onClick={async () => {
-                    await navigator.clipboard.writeText(
-                      `${window.location.href}courses/${selectedcourse?.id}`,
-                    );
-                    toast({
-                      className: cn(
-                        "top-0 right-0 flex fixed md:max-w-[256px] md:top-4 md:right-4",
-                      ),
-                      title: "주소가 복사되었습니다",
-                      description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
-                      duration: 1000,
-                    });
-                  }}
-                >
-                  <Share2 size={20} />
-                </Button>
+                <div>
+                  <Button
+                    variant={"ghost"}
+                    size="icon"
+                    asChild
+                    className="h-6 w-6"
+                  >
+                    <a
+                      href={generateFormUrl(selectedcourse?.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Pencil size={16} />
+                    </a>
+                  </Button>
+                  <Button
+                    variant={"ghost"}
+                    className="h-6 w-6"
+                    size="icon"
+                    onClick={async () => {
+                      await navigator.clipboard.writeText(
+                        `${window.location.href}courses/${selectedcourse?.id}`,
+                      );
+                      toast({
+                        className: cn(
+                          "top-0 right-0 flex fixed md:max-w-[256px] md:top-4 md:right-4",
+                        ),
+                        title: "주소가 복사되었습니다",
+                        description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+                        duration: 1000,
+                      });
+                    }}
+                  >
+                    <Share2 size={16} />
+                  </Button>
+                </div>
               </div>
             </SheetTitle>
             <SheetDescription>{address?.address_name}</SheetDescription>
