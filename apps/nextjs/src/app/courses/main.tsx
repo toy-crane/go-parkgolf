@@ -21,6 +21,7 @@ import {
   AlarmClock,
   Clock,
   FlagTriangleRight,
+  LocateFixed,
   Pencil,
   Phone,
   Share2,
@@ -50,17 +51,40 @@ const Main = ({ courses }: { courses: Course[] }) => {
   return (
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 p-3">
-        <Button
-          className="px-4 text-xl font-extrabold"
-          size="lg"
-          onClick={() => {
-            track("logo clicked");
-            setPosition(DEFAULT_POSITION);
-          }}
-        >
-          <FlagTriangleRight className="mr-1" size={20} />
-          GO PARKGOLF
-        </Button>
+        <div className="flex justify-between">
+          <Button
+            className="px-4 text-xl font-extrabold"
+            size="lg"
+            onClick={() => {
+              track("logo clicked");
+              setPosition(DEFAULT_POSITION);
+            }}
+          >
+            <FlagTriangleRight className="mr-1" size={20} />
+            GO PARKGOLF
+          </Button>
+          <Button
+            variant="secondary"
+            size="icon"
+            onClick={() => {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  setPosition((p) => ({
+                    ...p,
+                    center: {
+                      lat: position.coords.latitude,
+                      lng: position.coords.longitude,
+                    },
+                  }));
+                },
+                () => alert("위치 정보를 가져오는데 실패했습니다."),
+                { enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 },
+              );
+            }}
+          >
+            <LocateFixed size={24} />
+          </Button>
+        </div>
       </nav>
       <Map
         center={position.center}
