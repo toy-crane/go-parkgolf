@@ -1160,7 +1160,7 @@
     "id": 34
   },
   {
-    "name": "광주시파크골프장",
+    "name": "광주시 파크골프장",
     "address": {
       "address_name": "경기 광주시 쌍령동 480-1",
       "b_code": "4161010200",
@@ -1410,7 +1410,7 @@
     "id": 42
   },
   {
-    "name": "성남시파크골프장",
+    "name": "성남 파크골프장",
     "address": {
       "address_name": "경기 성남시 분당구 수내동 47",
       "b_code": "4113510200",
@@ -1429,11 +1429,11 @@
     "hole_count": "9",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "매주 월요일 및 공휴일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "성남 시민만 사용 가능",
+      "reference": "https://biz.heraldcorp.com/view.php?ud=20231012000521"
     },
     "id": 43
   },
@@ -1479,7 +1479,7 @@
     "id": 44
   },
   {
-    "name": "수원시파크골프장",
+    "name": "서수원 칠보 파크골프장",
     "address": {
       "address_name": "경기 수원시 권선구 금곡동 1071",
       "b_code": "4111313400",
@@ -1511,16 +1511,16 @@
     "hole_count": "9",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
+      "opening_hours": "08:00 ~ 17:00 (평일) / 09:00 ~ 17:00 (주말)",
+      "regular_closed_days": "매월 둘째와 넷째 일요일 및 공휴일",
+      "website": "https://www.suwonudc.co.kr/suwonsc2/PageLink.do",
       "registration_method": null,
-      "reference": null
+      "reference": "https://www.suwonudc.co.kr/suwonsc2/PageLink.do"
     },
     "id": 45
   },
   {
-    "name": "시흥시청파크골프장",
+    "name": "시흥 시청 파크골프장",
     "address": {
       "address_name": "경기 시흥시 장현동 300",
       "b_code": "4139012900",
@@ -1561,7 +1561,7 @@
     "id": 46
   },
   {
-    "name": "안산신길파크골프장",
+    "name": "안산 신길 파크골프장",
     "address": {
       "address_name": "경기 안산시 단원구 신길동 1748",
       "b_code": "4127310300",
@@ -1591,56 +1591,15 @@
       "zone_no": "15405"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-3302-2454" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "00:00 ~ 24:00",
+      "regular_closed_days": "연중 무휴",
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "https://blog.naver.com/avarava/221615539435"
     },
     "id": 47
-  },
-  {
-    "name": "양지파인리조트파크골프장",
-    "address": {
-      "address_name": "경기 용인시 처인구 양지면 남곡리 34-1",
-      "b_code": "4146136022",
-      "h_code": "4146136000",
-      "main_address_no": "34",
-      "mountain_yn": "N",
-      "region_1depth_name": "경기",
-      "region_2depth_name": "용인시 처인구",
-      "region_3depth_h_name": "양지면",
-      "region_3depth_name": "양지면 남곡리",
-      "sub_address_no": "1",
-      "x": "127.293645136918",
-      "y": "37.2106916656642"
-    },
-    "road_address": {
-      "address_name": "경기 용인시 처인구 양지면 남평로 112",
-      "building_name": "양지파인리조트",
-      "main_building_no": "112",
-      "region_1depth_name": "경기",
-      "region_2depth_name": "용인시 처인구",
-      "region_3depth_name": "양지면 남곡리",
-      "road_name": "남평로",
-      "sub_building_no": "",
-      "underground_yn": "N",
-      "x": "127.293645136918",
-      "y": "37.2106916656642",
-      "zone_no": "17164"
-    },
-    "hole_count": "9",
-    "contact": { "phone_number": null },
-    "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
-    },
-    "id": 48
   },
   {
     "name": "양평 파크골프장",
@@ -1755,7 +1714,7 @@
     "id": 53
   },
   {
-    "name": "용인파크골프장",
+    "name": "포곡 파크골프장",
     "address": {
       "address_name": "경기 용인시 처인구 포곡읍 삼계리 671",
       "b_code": "4146125021",
@@ -2031,7 +1990,7 @@
     "id": 61
   },
   {
-    "name": "죽전파크골프장",
+    "name": "아르피아 파크골프장",
     "address": {
       "address_name": "경기 용인시 수지구 죽전동 555-4",
       "b_code": "4146510200",
@@ -2050,11 +2009,11 @@
     "hole_count": "9",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "09:00 ~ 18:00",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "용인 시민만 이용가능",
+      "reference": "https://www.yuc.co.kr/www/brd/m_128/view.do?seq=11457&srchFr=&srchTo=&srchWord=&srchTp=&multi_itm_seq=0&itm_seq_1=0&itm_seq_2=0&company_cd=&company_nm=&page=19"
     },
     "id": 62
   },
@@ -2141,7 +2100,7 @@
     "id": 64
   },
   {
-    "name": "평택파크골프장",
+    "name": "평택 파크골프장",
     "address": {
       "address_name": "경기 평택시 비전동 1005-1",
       "b_code": "4122011800",
@@ -2158,13 +2117,13 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-655-1635" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "매주 월요일 및 공휴일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://blog.naver.com/midst99/223051587280"
     },
     "id": 66
   },
@@ -2333,7 +2292,7 @@
     "id": 70
   },
   {
-    "name": "동탄제2신도시파크골프장",
+    "name": "동탄 수질복원센터 파크골프장",
     "address": {
       "address_name": "경기 화성시 방교동 795",
       "b_code": "4159013800",
@@ -2363,18 +2322,18 @@
       "zone_no": "18487"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "031-378-0194" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "08:00 ~ 18:00 (11월~2월) / 06:00 ~ 20:00 (그외)",
+      "regular_closed_days": "매주 월요일 및 명절 연휴",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 및 방문 접수",
+      "reference": "https://blog.naver.com/skj0228/222863977916"
     },
     "id": 71
   },
   {
-    "name": "장현파크골프장",
+    "name": "장현 파크골프장",
     "address": {
       "address_name": "경기 시흥시 장현동 702-1",
       "b_code": "4139012900",
