@@ -101,28 +101,28 @@ const Main = ({ courses }: { courses: Course[] }) => {
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
             <SheetTitle>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 <Link href={`/courses/${selectedcourse?.id}`}>
                   {selectedcourse?.name}
                 </Link>
-                <div>
+                <div className="flex items-center">
                   <Button
                     variant={"ghost"}
                     size="icon"
                     asChild
-                    className="h-6 w-6"
+                    className="h-7 w-7"
                   >
                     <a
                       href={generateFormUrl(selectedcourse?.name)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Pencil size={16} />
+                      <Pencil size={20} />
                     </a>
                   </Button>
                   <Button
                     variant={"ghost"}
-                    className="h-6 w-6"
+                    className="h-7 w-7"
                     size="icon"
                     onClick={async () => {
                       await navigator.clipboard.writeText(
@@ -138,7 +138,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
                       });
                     }}
                   >
-                    <Share2 size={16} />
+                    <Share2 size={20} />
                   </Button>
                 </div>
               </div>
