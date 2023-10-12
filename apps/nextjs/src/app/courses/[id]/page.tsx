@@ -33,17 +33,19 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (course) {
+    const title = `${course.name} | 파크골프가자`;
+    const description = `위치 - ${course.address.address_name} \n 영업시간 - ${course.operation.opening_hours} \n 정기 휴무일 - ${course.operation.regular_closed_days} \n 예약방법 - ${course.operation.registration_method} 연락처 - ${course.contact.phone_number}`;
     return {
-      title: course.name,
-      description: course.address.address_name,
+      title,
+      description,
       openGraph: {
-        title: course.name,
-        description: course.address.address_name,
+        title,
+        description,
         images: [...previousImages],
       },
       twitter: {
-        title: course.name,
-        description: course.address.address_name,
+        title,
+        description,
         images: [...previousImages],
       },
     };
