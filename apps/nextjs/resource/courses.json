@@ -1,6 +1,6 @@
 [
   {
-    "name": "강릉파크골프장",
+    "name": "강릉 파크골프장",
     "address": {
       "address_name": "강원특별자치도 강릉시 입암동 572-3",
       "b_code": "5115012500",
@@ -21,7 +21,7 @@
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
+      "website": "https://www.gn.go.kr/gaf/sub02_04_05.do",
       "registration_method": null,
       "reference": null
     },
@@ -56,7 +56,7 @@
     "id": 2
   },
   {
-    "name": "녹송파크골프장",
+    "name": "녹송 파크골프장",
     "address": {
       "address_name": "강원특별자치도 정선군 정선읍 봉양리 37-3",
       "b_code": "5177025021",
@@ -84,7 +84,7 @@
     "id": 3
   },
   {
-    "name": "대화파크골프장",
+    "name": "대화 파크골프장",
     "address": {
       "address_name": "강원특별자치도 평창군 대화면 대화리 734-14",
       "b_code": "5176033021",
@@ -125,7 +125,7 @@
     "id": 4
   },
   {
-    "name": "동해시파크골프장",
+    "name": "동해 파크골프장",
     "address": {
       "address_name": "강원특별자치도 동해시 망상동 393-11",
       "b_code": "5117012900",
@@ -166,7 +166,7 @@
     "id": 5
   },
   {
-    "name": "둔내파크골프장",
+    "name": "둔내 파크골프장",
     "address": {
       "address_name": "강원특별자치도 횡성군 둔내면 둔방내리 563-3",
       "b_code": "5173033022",
@@ -194,7 +194,7 @@
     "id": 6
   },
   {
-    "name": "봉평파크골프장",
+    "name": "봉평 파크골프장",
     "address": {
       "address_name": "강원특별자치도 평창군 봉평면 덕거리 369-2",
       "b_code": "5176034029",
@@ -222,7 +222,7 @@
     "id": 7
   },
   {
-    "name": "북평파크골프장",
+    "name": "북평 파크골프장",
     "address": {
       "address_name": "강원특별자치도 정선군 북평면 북평리 149-1",
       "b_code": "5177034022",
@@ -250,7 +250,7 @@
     "id": 8
   },
   {
-    "name": "삼척시미로파크골프장",
+    "name": "삼척 미로 파크골프장",
     "address": {
       "address_name": "강원특별자치도 삼척시 미로면 내미로리 167",
       "b_code": "5123034034",
@@ -291,7 +291,7 @@
     "id": 9
   },
   {
-    "name": "소양강파크골프장",
+    "name": "소양강 파크골프장",
     "address": {
       "address_name": "강원특별자치도 춘천시 동면 장학리 459-11",
       "b_code": "5111031023",
@@ -308,13 +308,13 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-240-7150" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 18:00 / 동절기 휴장",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://www.cuc.or.kr/soyanggangParkGolf.do",
+      "registration_method": "전화 접수",
+      "reference": "https://www.cuc.or.kr/soyanggangParkGolf.do"
     },
     "id": 10
   },
@@ -360,7 +360,7 @@
     "id": 11
   },
   {
-    "name": "속초시파크골프장",
+    "name": "속초 파크골프장",
     "address": {
       "address_name": "강원특별자치도 속초시 노학동 1000-332",
       "b_code": "5121010700",
@@ -390,10 +390,10 @@
       "zone_no": "24867"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-639-2103" },
     "operation": {
       "opening_hours": null,
-      "regular_closed_days": null,
+      "regular_closed_days": "매주 월요일 휴장",
       "website": null,
       "registration_method": null,
       "reference": null
@@ -401,7 +401,7 @@
     "id": 12
   },
   {
-    "name": "양양송이조각공원 파크골프장",
+    "name": "양양 송이조각공원 파크골프장",
     "address": {
       "address_name": "강원특별자치도 양양군 양양읍 송암리 540",
       "b_code": "5183025027",
@@ -418,18 +418,18 @@
     },
     "road_address": null,
     "hole_count": "27",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-672-0796" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "06:00 ~ 18:00 (하계) / 07:00 ~ 17:00 (동계)",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/skj0228/222713836167"
     },
     "id": 13
   },
   {
-    "name": "영월파크골프장",
+    "name": "영월 파크골프장",
     "address": {
       "address_name": "강원특별자치도 영월군 영월읍 하송리 81-74",
       "b_code": "5175025022",
@@ -470,7 +470,7 @@
     "id": 14
   },
   {
-    "name": "우용파크골프장",
+    "name": "우용 파크골프장",
     "address": {
       "address_name": "강원특별자치도 횡성군 둔내면 우용리 395-1",
       "b_code": "5173033025",
@@ -498,7 +498,7 @@
     "id": 15
   },
   {
-    "name": "원주시파크골프장",
+    "name": "원주 파크골프장",
     "address": {
       "address_name": "강원특별자치도 원주시 태장동 1346-16",
       "b_code": "5113011200",
@@ -539,7 +539,7 @@
     "id": 16
   },
   {
-    "name": "인제군파크골프장",
+    "name": "인제군 파크골프장",
     "address": {
       "address_name": "강원특별자치도 인제군 인제읍 남북리 435-11",
       "b_code": "5181025022",
@@ -597,18 +597,18 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-660-3426" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
+      "website": "https://www.gn.go.kr/gaf/sub02_05_07.do",
       "registration_method": null,
       "reference": null
     },
     "id": 18
   },
   {
-    "name": "지경리파크골프장",
+    "name": "지경리 파크골프장",
     "address": {
       "address_name": "강원특별자치도 양양군 현남면 지경리",
       "b_code": "5183034036",
@@ -636,7 +636,7 @@
     "id": 19
   },
   {
-    "name": "철원군파크골프장",
+    "name": "철원 파크골프장",
     "address": {
       "address_name": "강원특별자치도 철원군 갈말읍 군탄리 869",
       "b_code": "5178025624",
@@ -664,7 +664,7 @@
     "id": 20
   },
   {
-    "name": "청일파크골프장",
+    "name": "청일 파크골프장",
     "address": {
       "address_name": "강원특별자치도 횡성군 청일면 유평리 613-1",
       "b_code": "5173035026",
@@ -692,7 +692,7 @@
     "id": 21
   },
   {
-    "name": "춘천파크골프장",
+    "name": "춘천 파크골프장",
     "address": {
       "address_name": "강원특별자치도 춘천시 서면 현암리 889",
       "b_code": "5111035021",
@@ -709,18 +709,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-240-1759" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 18:00 / 동절기 휴장",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://www.cuc.or.kr/parkGolf.do",
+      "registration_method": "전화 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%B6%98%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9A%94%EA%B8%88-%EC%95%88%EB%82%B4"
     },
     "id": 22
   },
   {
-    "name": "태백파크골프장",
+    "name": "태백 파크골프장",
     "address": {
       "address_name": "강원특별자치도 태백시 황지동 336-1",
       "b_code": "5119010100",
@@ -750,7 +750,7 @@
       "zone_no": "26024"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-550-2754" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
@@ -761,7 +761,7 @@
     "id": 23
   },
   {
-    "name": "평창파크골프장",
+    "name": "평창 파크골프장",
     "address": {
       "address_name": "강원특별자치도 평창군 평창읍 종부리 969-1",
       "b_code": "5176025025",
@@ -819,18 +819,18 @@
     },
     "road_address": null,
     "hole_count": "27",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-5076-7962" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/seobawi/223176348514"
     },
     "id": 25
   },
   {
-    "name": "행구동파크골프장",
+    "name": "행구동 파크골프장",
     "address": {
       "address_name": "강원특별자치도 원주시 행구동 1029",
       "b_code": "5113011400",
@@ -860,18 +860,18 @@
       "zone_no": "26456"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-734-8151" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00",
+      "regular_closed_days": "매주 월요일 휴무",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://blog.naver.com/sgrlove0825/222902610895"
     },
     "id": 26
   },
   {
-    "name": "현리근린공원파크골프장",
+    "name": "현리근린공원 파크골프장",
     "address": {
       "address_name": "강원특별자치도 인제군 기린면 현리 785",
       "b_code": "5181033021",
@@ -970,18 +970,18 @@
       "zone_no": "24142"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-441-0797" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "06:00 ~ 21:00",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://hspg.ihc.go.kr/parkgolf/reservation",
+      "registration_method": "인터넷 예약",
+      "reference": "https://hspg.ihc.go.kr/parkgolf/reservation"
     },
     "id": 29
   },
   {
-    "name": "화천파크골프장",
+    "name": "화천 생활체육공원 파크골프장",
     "address": {
       "address_name": "강원특별자치도 화천군 하남면 용암리 1115",
       "b_code": "5179032026",
@@ -1011,18 +1011,18 @@
       "zone_no": "24140"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "033-441-0790" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 18:00",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%ED%99%94%EC%B2%9C-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EC%95%88%EB%82%B4"
     },
     "id": 30
   },
   {
-    "name": "횡성파크골프장",
+    "name": "횡성 파크골프장",
     "address": {
       "address_name": "강원특별자치도 횡성군 횡성읍 읍상리 210-11",
       "b_code": "5173025021",
@@ -1063,7 +1063,7 @@
     "id": 31
   },
   {
-    "name": "문막파크골프장",
+    "name": "문막 파크골프장",
     "address": {
       "address_name": "강원특별자치도 원주시 문막읍 문막리 1071-18",
       "b_code": "5113025021",
@@ -1091,7 +1091,7 @@
     "id": 32
   },
   {
-    "name": "용평파크골프장",
+    "name": "용평 파크골프장",
     "address": {
       "address_name": "강원특별자치도 평창군 용평면 장평리 산 266-3",
       "b_code": "5176035027",
