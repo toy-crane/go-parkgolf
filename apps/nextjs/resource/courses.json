@@ -11355,7 +11355,7 @@
     "id": 344
   },
   {
-    "name": "괴산파크골프장",
+    "name": "괴산 파크골프장",
     "address": {
       "address_name": "충북 괴산군 괴산읍 서부리 844",
       "b_code": "4376025022",
@@ -11385,13 +11385,13 @@
       "zone_no": "28027"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "043-830-2696" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 17:00",
+      "regular_closed_days": "주말 및 공휴일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/goesan-gun/223179875246"
     },
     "id": 345
   },
@@ -11424,7 +11424,7 @@
     "id": 346
   },
   {
-    "name": "대소원파크골프장",
+    "name": "서충주 파크골프장",
     "address": {
       "address_name": "충북 충주시 대소원면 대소리 393-12",
       "b_code": "4313033521",
@@ -11454,18 +11454,18 @@
       "zone_no": "27472"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-8996-8361" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
+      "website": "https://www.chungju.go.kr/rev/reserve/188",
+      "registration_method": "전화 접수",
       "reference": null
     },
     "id": 347
   },
   {
-    "name": "수안보온천파크골프장",
+    "name": "수안보 온천 파크골프장",
     "address": {
       "address_name": "충북 충주시 수안보면 안보리 425-4",
       "b_code": "4313032522",
@@ -11482,18 +11482,18 @@
     },
     "road_address": null,
     "hole_count": "27",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-9486-6080" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.chungju.go.kr/rev/reserve/188",
+      "registration_method": "전화 접수",
+      "reference": "https://www.chungju.go.kr/rev/reserve/188"
     },
     "id": 348
   },
   {
-    "name": "음성생극파크골프장",
+    "name": "음성 생극 파크골프장",
     "address": {
       "address_name": "충북 음성군 생극면 신양리 793-2",
       "b_code": "4377036021",
@@ -11521,7 +11521,7 @@
     "id": 349
   },
   {
-    "name": "제천중전리파크골프장",
+    "name": "제천 중전 파크골프장",
     "address": {
       "address_name": "충북 제천시 금성면 중전리 211",
       "b_code": "4315031024",
@@ -11551,18 +11551,18 @@
       "zone_no": "27210"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "043-645-2177" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "전화 접수",
       "reference": null
     },
     "id": 350
   },
   {
-    "name": "증평파크골프장",
+    "name": "증평 파크골프장",
     "address": {
       "address_name": "충북 증평군 증평읍 연탄리 307",
       "b_code": "4374525031",
@@ -11631,7 +11631,7 @@
     "id": 352
   },
   {
-    "name": "청주오송파크골프장",
+    "name": "청주 오송 파크골프장",
     "address": {
       "address_name": "충북 청주시 흥덕구 오송읍 연제리 643",
       "b_code": "4311325026",
@@ -11672,7 +11672,7 @@
     "id": 353
   },
   {
-    "name": "청주장애인파크골프장",
+    "name": "청주 장애인 파크골프장",
     "address": {
       "address_name": "충북 청주시 흥덕구 원평동 262-9",
       "b_code": "4311313200",
@@ -11713,7 +11713,7 @@
     "id": 354
   },
   {
-    "name": "청주파크골프장",
+    "name": "청주 파크골프장",
     "address": {
       "address_name": "충북 청주시 흥덕구 원평동 262-9",
       "b_code": "4311313200",
@@ -11754,7 +11754,7 @@
     "id": 355
   },
   {
-    "name": "청주호미골파크골프장",
+    "name": "청주호 미골 파크골프장",
     "address": {
       "address_name": "충북 청주시 상당구 용정동 25",
       "b_code": "4311112500",
@@ -11782,7 +11782,7 @@
     "id": 356
   },
   {
-    "name": "충주단월파크골프장",
+    "name": "충주 단월 파크골프장",
     "address": {
       "address_name": "충북 충주시 단월동 635-4",
       "b_code": "4313010900",
@@ -11799,18 +11799,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-8836-4576" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://www.chungju.go.kr/rev/reserve/188"
     },
     "id": 357
   },
   {
-    "name": "충주장애인파크골프장",
+    "name": "충주 장애인 파크골프장",
     "address": {
       "address_name": "충북 충주시 용관동 54-2",
       "b_code": "4313011200",
@@ -11851,7 +11851,7 @@
     "id": 358
   },
   {
-    "name": "충주호파크골프장",
+    "name": "충주 목행 파크골프장",
     "address": {
       "address_name": "충북 충주시 목행동 749-3",
       "b_code": "4313011900",
@@ -11868,13 +11868,13 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "043-856-7330" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.chungju.go.kr/rev/reserve/188",
+      "registration_method": "전화 접수",
+      "reference": "https://www.chungju.go.kr/rev/reserve/188"
     },
     "id": 359
   },
