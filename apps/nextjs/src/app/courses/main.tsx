@@ -142,7 +142,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
             <SheetTitle>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-3 text-2xl">
                 <Link
                   href={`/courses/${selectedcourse?.id}`}
                   onClick={() => track("detail page link clicked")}
@@ -191,9 +191,11 @@ const Main = ({ courses }: { courses: Course[] }) => {
                 </div>
               </div>
             </SheetTitle>
-            <SheetDescription>{address?.address_name}</SheetDescription>
+            <SheetDescription className="text-lg">
+              {address?.address_name}
+            </SheetDescription>
           </SheetHeader>
-          <Separator className="mb-2 mt-4" />
+          <Separator className="mb-4 mt-6" />
           <div className="grid w-full items-center">
             <div className="flex items-center gap-4">
               <FlagTriangleRight size={20} />
@@ -241,7 +243,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
               </div>
             </div>
             <Separator className="my-2" />
-            <div className="flex items-center gap-4">
+            <div className="mb-3 flex items-center gap-4">
               <AlarmClock size={20} />
               <div className="text-base">
                 <div>
