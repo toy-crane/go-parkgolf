@@ -5933,18 +5933,18 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "062-960-9927" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://www.gsfmc.or.kr/etc/reservationTotal?gsfmcintro=true",
+      "registration_method": "인터넷 예약 및 현장 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
     "id": 180
   },
   {
-    "name": "대상파크골프장",
+    "name": "대상 파크골프장",
     "address": {
       "address_name": "광주 북구 월출동 968",
       "b_code": "2917013900",
@@ -5974,18 +5974,18 @@
       "zone_no": "61002"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "062-954-7330" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "08:00 ~ 19:00 (4월~9월) / 09:00 ~ 18:00 (그외)",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "인터넷 예약",
+      "reference": "https://www.gwangjusportsinfo.org/space/space_view/20"
     },
     "id": 181
   },
   {
-    "name": "덕흥파크골프장",
+    "name": "덕흥 파크골프장",
     "address": {
       "address_name": "광주 서구 덕흥동 157",
       "b_code": "2914011700",
@@ -6004,16 +6004,16 @@
     "hole_count": "9",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 19:00",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "당일 현장 접수",
       "reference": null
     },
     "id": 182
   },
   {
-    "name": "무등산파크골프장",
+    "name": "무등산 파크골프장",
     "address": {
       "address_name": "광주 동구 소태동 166-2",
       "b_code": "2911011900",
@@ -6048,13 +6048,13 @@
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "현장 무인기 발권",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
     "id": 183
   },
   {
-    "name": "승촌파크골프장",
+    "name": "승촌 파크골프장",
     "address": {
       "address_name": "광주 남구 승촌동 588-47",
       "b_code": "2915511900",
@@ -6071,18 +6071,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "070-4454-2352" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 17:00",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://www.namgu.gwangju.kr/sports/reserveView.es?mid=a10202000000&eap_seq=11&eas_code=EACD005&search_yn=Y&eap_code=C02",
+      "registration_method": "인터넷 예약",
+      "reference": "https://www.namgu.gwangju.kr/sports/reserveView.es?mid=a10202000000&eap_seq=11&eas_code=EACD005&search_yn=Y&eap_code=C02"
     },
     "id": 184
   },
   {
-    "name": "염주파크골프장",
+    "name": "염주 파크골프장",
     "address": {
       "address_name": "광주 서구 풍암동 423-2",
       "b_code": "2914012800",
@@ -6112,18 +6112,18 @@
       "zone_no": "62048"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "062-384-4994" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:00 ~ 17:00 (평일 / 10월 ~ 4월) / 08:00 ~ :18:00 (평일 / 5월, 9월) / 08:00 ~ 19:00 (6월 ~ 8월) / 08:00 ~ 17:00 (주말)",
+      "regular_closed_days": "없음",
+      "website": "http://www.gjsad.or.kr/page/guide6.php",
+      "registration_method": "당일 현장 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
     "id": 185
   },
   {
-    "name": "첨단체육공원 파크골프장",
+    "name": "첨단 체육공원 파크골프장",
     "address": {
       "address_name": "광주 광산구 쌍암동 695-3",
       "b_code": "2920011600",
@@ -6153,13 +6153,13 @@
       "zone_no": "62280"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "062-604-9900" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "매주 화요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "현장 무인기 발권",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
     "id": 186
   },
@@ -6196,11 +6196,11 @@
     "hole_count": "9",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "09:00 ~ 16:00",
+      "regular_closed_days": "주말 및 공휴일",
+      "website": "https://www.hyotown.or.kr/web/business/specialization/parkgolf.do",
+      "registration_method": "현장 접수 (광주시민만 사용가능)",
+      "reference": "https://www.hyotown.or.kr/web/business/specialization/parkgolf.do"
     },
     "id": 187
   },
@@ -8507,7 +8507,7 @@
     "id": 259
   },
   {
-    "name": "고금파크골프장",
+    "name": "고금 파크골프장",
     "address": {
       "address_name": "전남 완도군 고금면 농상리 759-1",
       "b_code": "4689033021",
@@ -8645,7 +8645,7 @@
     "id": 263
   },
   {
-    "name": "남악파크골프장",
+    "name": "남악 파크골프장",
     "address": {
       "address_name": "전남 무안군 삼향읍 남악리 2597",
       "b_code": "4684025622",
@@ -8675,13 +8675,13 @@
       "zone_no": "58568"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-282-7893" },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "08:00 ~ 18:00 (하절기) / 09:00 ~ 18:00 (동절기)",
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://m.blog.naver.com/4199sunny/222951934706",
+      "registration_method": "현장 접수 (무안군민만 사용가능)",
+      "reference": "https://m.blog.naver.com/4199sunny/222951934706"
     },
     "id": 264
   },
@@ -8731,13 +8731,13 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-9234-4534" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "둘째, 넷째주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/seo2274/223223366462"
     },
     "id": 266
   },
@@ -8759,18 +8759,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-9234-4534" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "둘째, 넷째주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/seo2274/223223366462"
     },
     "id": 267
   },
   {
-    "name": "무안파크골프장",
+    "name": "무안 파크골프장",
     "address": {
       "address_name": "전남 무안군 무안읍 성동리 1086-5",
       "b_code": "4684025022",
@@ -8798,7 +8798,7 @@
     "id": 268
   },
   {
-    "name": "보성미니파크골프장",
+    "name": "보성 미니 파크골프장",
     "address": {
       "address_name": "전남 보성군 보성읍 용문리 174",
       "b_code": "4678025030",
@@ -8839,7 +8839,7 @@
     "id": 269
   },
   {
-    "name": "복내파크골프장",
+    "name": "복내 파크골프장",
     "address": {
       "address_name": "전남 보성군 복내면 복내리 536-13",
       "b_code": "4678035021",
@@ -8867,7 +8867,7 @@
     "id": 270
   },
   {
-    "name": "부주산국제파크골프장",
+    "name": "목포 국제 파크골프장",
     "address": {
       "address_name": "전남 목포시 옥암동 285-3",
       "b_code": "4611016400",
@@ -8899,16 +8899,16 @@
     "hole_count": "27",
     "contact": { "phone_number": null },
     "operation": {
-      "opening_hours": null,
+      "opening_hours": "07:00 ~ 19:00 (5월~9월) / 08:00 ~ 18:00 (그외)",
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "당일 현장 접수",
+      "reference": "https://blog.naver.com/ges830/221735107687"
     },
     "id": 271
   },
   {
-    "name": "불갑파크골프장",
+    "name": "불갑 파크골프장",
     "address": {
       "address_name": "전남 영광군 불갑면 방마리",
       "b_code": "4687033024",
@@ -8928,15 +8928,15 @@
     "contact": { "phone_number": null },
     "operation": {
       "opening_hours": null,
-      "regular_closed_days": null,
+      "regular_closed_days": "없음",
       "website": null,
-      "registration_method": null,
+      "registration_method": "당일 현장 접수",
       "reference": null
     },
     "id": 272
   },
   {
-    "name": "산이파크골프장",
+    "name": "산이 파크골프장",
     "address": {
       "address_name": "전남 해남군 산이면 초송리 527-29",
       "b_code": "4682041026",
@@ -8977,7 +8977,7 @@
     "id": 273
   },
   {
-    "name": "삼학도파크골프장",
+    "name": "삼학도 파크골프장",
     "address": {
       "address_name": "전남 목포시 산정동 1481",
       "b_code": "4611010200",
@@ -9018,7 +9018,7 @@
     "id": 274
   },
   {
-    "name": "삼호대불파크골프장",
+    "name": "삼호 대불 파크골프장",
     "address": {
       "address_name": "전남 영암군 삼호읍 용앙리 1636",
       "b_code": "4683025326",
@@ -9059,7 +9059,7 @@
     "id": 275
   },
   {
-    "name": "상동파크골프장",
+    "name": "상동 파크골프장",
     "address": {
       "address_name": "전남 목포시 상동 1045",
       "b_code": "4611015800",
@@ -9143,7 +9143,7 @@
     "id": 278
   },
   {
-    "name": "서해파크골프장",
+    "name": "서해 파크골프장",
     "address": {
       "address_name": "전남 목포시 연산동 825-2",
       "b_code": "4611010300",
@@ -9171,7 +9171,7 @@
     "id": 279
   },
   {
-    "name": "송월동파크골프장",
+    "name": "송월 파크골프장",
     "address": {
       "address_name": "전남 나주시 과원동 100",
       "b_code": "4617011300",
@@ -9199,7 +9199,7 @@
     "id": 280
   },
   {
-    "name": "시종마한파크골프장",
+    "name": "시종 마한 파크골프장",
     "address": {
       "address_name": "전남 영암군 시종면 옥야리 549",
       "b_code": "4683034034",
@@ -9240,7 +9240,7 @@
     "id": 281
   },
   {
-    "name": "실내체육관파크골프장",
+    "name": "목포 실내체육관 파크골프장",
     "address": {
       "address_name": "전남 목포시 상동 349-1",
       "b_code": "4611015800",
@@ -9270,18 +9270,18 @@
       "zone_no": "58608"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-270-4090" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "09:00 ~ 18:00",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
+      "registration_method": "전화 접수",
       "reference": null
     },
     "id": 282
   },
   {
-    "name": "영산포체육공원파크골프장",
+    "name": "영산포 체육공원 파크골프장",
     "address": {
       "address_name": "전남 나주시 삼영동 131-1",
       "b_code": "4617010400",
@@ -9309,7 +9309,7 @@
     "id": 283
   },
   {
-    "name": "영암파크골프장",
+    "name": "영암 파크골프장",
     "address": {
       "address_name": "전남 영암군 영암읍 대신리 5-1",
       "b_code": "4683025032",
@@ -9339,13 +9339,13 @@
       "zone_no": "58410"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-472-6464" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "https://blog.naver.com/snow4you1/223191867222"
     },
     "id": 284
   },
@@ -9378,7 +9378,7 @@
     "id": 285
   },
   {
-    "name": "운림삼별초파크골프장",
+    "name": "운림 삼별초 파크골프장",
     "address": {
       "address_name": "전남 진도군 의신면 사천리 426",
       "b_code": "4690033021",
@@ -9436,12 +9436,12 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-390-8480" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "전화 접수",
       "reference": null
     },
     "id": 287
@@ -9464,18 +9464,18 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-390-8480" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "전화 접수",
       "reference": null
     },
     "id": 288
   },
   {
-    "name": "장흥파크골프장",
+    "name": "장흥 파크골프장",
     "address": {
       "address_name": "전남 장흥군 관산읍 옥당리 535-16",
       "b_code": "4680025326",
@@ -9503,7 +9503,7 @@
     "id": 289
   },
   {
-    "name": "한빛원자력파크골프장",
+    "name": "한빛 원자력 파크골프장",
     "address": {
       "address_name": "전남 영광군 홍농읍 성산리 494",
       "b_code": "4687025624",
@@ -9520,18 +9520,18 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-357-7068" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "opening_hours": "08:30 ~ 17:00",
+      "regular_closed_days": "매주 월요일",
+      "website": "https://www.khnp.co.kr/hanbit/contents.do?key=2848",
+      "registration_method": "인터넷 예약",
+      "reference": "https://www.khnp.co.kr/hanbit/contents.do?key=2848"
     },
     "id": 290
   },
   {
-    "name": "함평군파크골프장",
+    "name": "함평 파크골프장",
     "address": {
       "address_name": "전남 함평군 함평읍 수호리 1162-1",
       "b_code": "4686025024",
@@ -9561,13 +9561,13 @@
       "zone_no": "57157"
     },
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "061-322-1887" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
-      "website": null,
-      "registration_method": null,
-      "reference": null
+      "website": "https://www.hampyeong.go.kr/contentsView.do?pageId=www127",
+      "registration_method": "전화 접수",
+      "reference": "https://www.hampyeong.go.kr/contentsView.do?pageId=www127"
     },
     "id": 291
   },
@@ -9589,18 +9589,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-2880-8104" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "https://m.blog.naver.com/lf_sports_meditech/222936150374?view=img_1"
     },
     "id": 292
   },
   {
-    "name": "혁신도시파크골프장",
+    "name": "혁신도시 파크골프장",
     "address": {
       "address_name": "전남 나주시 빛가람동 346-1",
       "b_code": "4617013400",
@@ -9641,7 +9641,7 @@
     "id": 293
   },
   {
-    "name": "북항파크골프장",
+    "name": "북항 파크골프장",
     "address": {
       "address_name": "전남 목포시 산정동 1414-1",
       "b_code": "4611010200",
@@ -9682,7 +9682,7 @@
     "id": 294
   },
   {
-    "name": "고산파크골프장",
+    "name": "고산 파크골프장",
     "address": {
       "address_name": "전북 완주군 고산면 읍내리 902",
       "b_code": "4571036021",
@@ -9704,13 +9704,13 @@
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
+      "registration_method": "당일 현장 접수",
       "reference": null
     },
     "id": 295
   },
   {
-    "name": "고창스포츠타운파크골프장",
+    "name": "고창 스포츠타운 파크골프장",
     "address": {
       "address_name": "전북 고창군 고창읍 월암리 407-2",
       "b_code": "4579025024",
@@ -9738,7 +9738,7 @@
     "id": 296
   },
   {
-    "name": "군산파크골프장",
+    "name": "군산 파크골프장",
     "address": {
       "address_name": "전북 군산시 수송동 851",
       "b_code": "4513014100",
@@ -9807,7 +9807,7 @@
     "id": 298
   },
   {
-    "name": "마전교파크골프장",
+    "name": "마전교 파크골프장",
     "address": {
       "address_name": "전북 전주시 완산구 서신동 738-7",
       "b_code": "4511112900",
@@ -9835,7 +9835,7 @@
     "id": 299
   },
   {
-    "name": "무주파크골프장",
+    "name": "무주 파크골프장",
     "address": {
       "address_name": "전북 무주군 설천면 소천리 883-1",
       "b_code": "4573032024",
@@ -9906,18 +9906,18 @@
       "zone_no": "55306"
     },
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-4588-7485" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/seo2274/223227173876"
     },
     "id": 301
   },
   {
-    "name": "비비정파크골프장",
+    "name": "비비정 파크골프장",
     "address": {
       "address_name": "전북 완주군 삼례읍 후정리 142-1",
       "b_code": "4571025022",
@@ -9945,7 +9945,7 @@
     "id": 302
   },
   {
-    "name": "상관파크골프장",
+    "name": "상관 파크골프장",
     "address": {
       "address_name": "전북 완주군 상관면 신리 916",
       "b_code": "4571032021",
@@ -9973,7 +9973,7 @@
     "id": 303
   },
   {
-    "name": "생강골파크골프장",
+    "name": "생강골 파크골프장",
     "address": {
       "address_name": "전북 완주군 봉동읍 낙평리 795",
       "b_code": "4571025329",
@@ -10001,7 +10001,7 @@
     "id": 304
   },
   {
-    "name": "순창군파크골프장",
+    "name": "순창 파크골프장",
     "address": {
       "address_name": "전북 순창군 유등면 외이리 555-2",
       "b_code": "4577039023",
@@ -10018,7 +10018,7 @@
     },
     "road_address": null,
     "hole_count": "9",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-2625-1088" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
@@ -10029,7 +10029,7 @@
     "id": 305
   },
   {
-    "name": "신태인파크골프장",
+    "name": "신태인 파크골프장",
     "address": {
       "address_name": "전북 정읍시 신태인읍 신용리 881",
       "b_code": "4518025028",
@@ -10046,18 +10046,18 @@
     },
     "road_address": null,
     "hole_count": "27",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "063-571-3575" },
     "operation": {
-      "opening_hours": null,
-      "regular_closed_days": null,
+      "opening_hours": "08:00 ~ 17:00",
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://blog.naver.com/oh41232/223088107915"
     },
     "id": 306
   },
   {
-    "name": "온고을파크골프장",
+    "name": "온고을 파크골프장",
     "address": {
       "address_name": "전북 전주시 덕진구 화전동 969-6",
       "b_code": "4511312400",
@@ -10098,7 +10098,7 @@
     "id": 307
   },
   {
-    "name": "이서파크골프장",
+    "name": "이서 파크골프장",
     "address": {
       "address_name": "전북 완주군 이서면 용서리 777-2",
       "b_code": "4571033027",
@@ -10126,7 +10126,7 @@
     "id": 308
   },
   {
-    "name": "익산파크골프장",
+    "name": "익산 파크골프장",
     "address": {
       "address_name": "전북 익산시 오산면 목천리 967-1",
       "b_code": "4514031027",
@@ -10167,7 +10167,7 @@
     "id": 309
   },
   {
-    "name": "임실파크골프장",
+    "name": "임실 파크골프장",
     "address": {
       "address_name": "전북 임실군 오수면 오수리 3",
       "b_code": "4575035521",
@@ -10184,7 +10184,7 @@
     },
     "road_address": null,
     "hole_count": "27",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-5642-8340" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
@@ -10195,7 +10195,7 @@
     "id": 310
   },
   {
-    "name": "줄포파크골프장",
+    "name": "줄포 파크골프장",
     "address": {
       "address_name": "전북 부안군 줄포면 우포리 516-1",
       "b_code": "4580041023",
@@ -10225,18 +10225,18 @@
       "zone_no": "56325"
     },
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "063-580-3171-9" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "선착순 등록",
+      "reference": "https://blog.naver.com/meowi0525/221385076458"
     },
     "id": 311
   },
   {
-    "name": "진안파크골프장",
+    "name": "진안 파크골프장",
     "address": {
       "address_name": "전북 진안군 진안읍 운산리 76",
       "b_code": "4572025033",
@@ -10253,18 +10253,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "010-5299-4342" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "전화 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A7%84%EC%95%88%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     },
     "id": 312
   },
   {
-    "name": "청하파크골프장",
+    "name": "청하 파크골프장",
     "address": {
       "address_name": "전북 김제시 청하면 동지산리 320",
       "b_code": "4521039021",
@@ -10305,7 +10305,7 @@
     "id": 313
   },
   {
-    "name": "남원파크골프장",
+    "name": "남원 파크골프장",
     "address": {
       "address_name": "전북 남원시 월락동 248",
       "b_code": "4519011700",
