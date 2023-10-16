@@ -63,28 +63,44 @@ const Main = ({ courses }: { courses: Course[] }) => {
             <FlagTriangleRight className="mr-1" size={20} />
             GO PARKGOLF
           </Button>
-          <Button
-            variant="secondary"
-            size="icon"
-            onClick={() => {
-              navigator.geolocation.getCurrentPosition(
-                (position) => {
-                  setPosition((p) => ({
-                    ...p,
-                    center: {
-                      lat: position.coords.latitude,
-                      lng: position.coords.longitude,
-                    },
-                  }));
-                },
-                () => alert("위치 정보를 가져오는데 실패했습니다."),
-                { enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 },
-              );
-              track("current position clicked");
-            }}
-          >
-            <LocateFixed size={24} />
-          </Button>
+          <div className="flex flex-col gap-2">
+            <Button size="lg" className="font-bold" asChild>
+              <a
+                href="https://forms.gle/KJynLwmB1UoJt2qXA"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                오류 제보 및 기능 건의
+              </a>
+            </Button>
+            <Button
+              variant="secondary"
+              size="icon"
+              className="self-end"
+              onClick={() => {
+                navigator.geolocation.getCurrentPosition(
+                  (position) => {
+                    setPosition((p) => ({
+                      ...p,
+                      center: {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                      },
+                    }));
+                  },
+                  () => alert("위치 정보를 가져오는데 실패했습니다."),
+                  {
+                    enableHighAccuracy: true,
+                    maximumAge: 30000,
+                    timeout: 27000,
+                  },
+                );
+                track("current position clicked");
+              }}
+            >
+              <LocateFixed size={24} />
+            </Button>
+          </div>
         </div>
       </nav>
       <Map
