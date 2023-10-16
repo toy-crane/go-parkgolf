@@ -10594,7 +10594,7 @@
     "id": 321
   },
   {
-    "name": "곡교천파크골프장",
+    "name": "곡교천 파크골프장",
     "address": {
       "address_name": "충남 아산시 권곡동 331-1",
       "b_code": "4420011400",
@@ -10611,18 +10611,18 @@
     },
     "road_address": null,
     "hole_count": "18",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "041-548-2600" },
     "operation": {
       "opening_hours": null,
       "regular_closed_days": null,
       "website": null,
       "registration_method": null,
-      "reference": null
+      "reference": "https://blog.naver.com/avarava/221612349787"
     },
     "id": 322
   },
   {
-    "name": "곰나루파크골프장",
+    "name": "곰나루 파크골프장",
     "address": {
       "address_name": "충남 공주시 웅진동 722",
       "b_code": "4415010700",
@@ -10650,7 +10650,7 @@
     "id": 323
   },
   {
-    "name": "금산군파크골프장",
+    "name": "금산군 파크골프장",
     "address": {
       "address_name": "충남 금산군 제원면 수당리 986-1",
       "b_code": "4471032023",
@@ -10678,7 +10678,7 @@
     "id": 324
   },
   {
-    "name": "논산시파크골프장",
+    "name": "논산 파크골프장",
     "address": {
       "address_name": "충남 논산시 대교동 319-39",
       "b_code": "4423010300",
@@ -10706,7 +10706,7 @@
     "id": 325
   },
   {
-    "name": "당진해나루파크골프장",
+    "name": "당진 해나루 파크골프장",
     "address": {
       "address_name": "충남 당진시 석문면 통정리 1349",
       "b_code": "4427032021",
@@ -10734,7 +10734,7 @@
     "id": 326
   },
   {
-    "name": "도고파크골프장",
+    "name": "도고 파크골프장",
     "address": {
       "address_name": "충남 아산시 도고면 신언리 826",
       "b_code": "4420040021",
@@ -10790,7 +10790,7 @@
     "id": 328
   },
   {
-    "name": "무한천파크골프장",
+    "name": "무한천 파크골프장",
     "address": {
       "address_name": "충남 예산군 예산읍 주교리 460",
       "b_code": "4481025024",
@@ -10807,13 +10807,13 @@
     },
     "road_address": null,
     "hole_count": "36",
-    "contact": { "phone_number": null },
+    "contact": { "phone_number": "041-339-8267-9" },
     "operation": {
       "opening_hours": null,
-      "regular_closed_days": null,
+      "regular_closed_days": "매주 월요일",
       "website": null,
-      "registration_method": null,
-      "reference": null
+      "registration_method": "이틀 전 사전 전화 접수",
+      "reference": "https://parkgolf-tip.tistory.com/entry/%EC%98%88%EC%82%B0-%EB%AC%B4%ED%95%9C%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9D%B4%EC%9A%A9-%EC%A0%95%EB%B3%B4"
     },
     "id": 329
   },
@@ -10859,7 +10859,7 @@
     "id": 330
   },
   {
-    "name": "보령파크골프구장",
+    "name": "보령 파크골프구장",
     "address": {
       "address_name": "충남 보령시 웅천읍 노천리 534-1",
       "b_code": "4418025033",
@@ -10887,7 +10887,7 @@
     "id": 331
   },
   {
-    "name": "부여파크골프장",
+    "name": "부여 파크골프장",
     "address": {
       "address_name": "충남 부여군 부여읍 군수리 268-3",
       "b_code": "4476025040",
@@ -10915,7 +10915,7 @@
     "id": 332
   },
   {
-    "name": "삽교파크골프구장",
+    "name": "삽교 파크골프구장",
     "address": {
       "address_name": "충남 당진시 신평면 운정리 822",
       "b_code": "4427038028",
@@ -10943,7 +10943,7 @@
     "id": 333
   },
   {
-    "name": "상록파크골프구장",
+    "name": "상록 파크골프구장",
     "address": {
       "address_name": "충남 당진시 송악읍 부곡리 566",
       "b_code": "4427025336",
@@ -10984,7 +10984,7 @@
     "id": 334
   },
   {
-    "name": "서산나이스파크골프장",
+    "name": "서산 나이스 파크골프장",
     "address": {
       "address_name": "충남 서산시 음암면 부장리 193-8",
       "b_code": "4421037030",
@@ -11025,7 +11025,7 @@
     "id": 335
   },
   {
-    "name": "서산시파크골프장",
+    "name": "서산 파크골프장",
     "address": {
       "address_name": "충남 서산시 양대동 753-4",
       "b_code": "4421011100",
@@ -11053,7 +11053,7 @@
     "id": 336
   },
   {
-    "name": "서천군노인복지관파크골프장",
+    "name": "서천군 노인복지관 파크골프장",
     "address": {
       "address_name": "충남 서천군 종천면 종천리 37-3",
       "b_code": "4477039023",
@@ -11094,7 +11094,7 @@
     "id": 337
   },
   {
-    "name": "전원파크골프구장",
+    "name": "전원 파크골프구장",
     "address": {
       "address_name": "충남 서산시 대산읍 운산리",
       "b_code": "4421025029",
@@ -11122,7 +11122,7 @@
     "id": 338
   },
   {
-    "name": "천안도솔파크골프장",
+    "name": "천안 도솔 파크골프장",
     "address": {
       "address_name": "충남 천안시 동남구 신부동 124",
       "b_code": "4413111800",
@@ -11163,7 +11163,7 @@
     "id": 339
   },
   {
-    "name": "천안풍세파크골프장",
+    "name": "천안 풍세 파크골프장",
     "address": {
       "address_name": "충남 천안시 동남구 풍세면 용정리 971",
       "b_code": "4413131027",
@@ -11191,7 +11191,7 @@
     "id": 340
   },
   {
-    "name": "천안한들파크골프장",
+    "name": "천안 한들 파크골프장",
     "address": {
       "address_name": "충남 천안시 서북구 백석동 1186",
       "b_code": "4413310300",
@@ -11273,7 +11273,7 @@
     "id": 342
   },
   {
-    "name": "태안파크골프장",
+    "name": "태안 파크골프장",
     "address": {
       "address_name": "충남 태안군 태안읍 반곡리 1160-5",
       "b_code": "4482525026",
@@ -11314,7 +11314,7 @@
     "id": 343
   },
   {
-    "name": "홍성군파크골프장",
+    "name": "홍성 파크골프장",
     "address": {
       "address_name": "충남 홍성군 홍성읍 내법리 34-2",
       "b_code": "4480025031",
