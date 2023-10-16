@@ -53,7 +53,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
       <nav className="fixed left-0 right-0 top-0 z-30 p-3">
         <div className="flex justify-between">
           <Button
-            className="px-4 text-xl font-extrabold"
+            className="px-3 text-xl font-extrabold"
             size="lg"
             onClick={() => {
               track("logo clicked");
@@ -64,13 +64,13 @@ const Main = ({ courses }: { courses: Course[] }) => {
             GO PARKGOLF
           </Button>
           <div className="flex flex-col gap-2">
-            <Button size="lg" className="font-bold" asChild>
+            <Button className="font-bold" asChild size="sm">
               <a
                 href="https://forms.gle/KJynLwmB1UoJt2qXA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                오류 제보 및 기능 건의
+                제작자에게 문의하기
               </a>
             </Button>
             <Button
