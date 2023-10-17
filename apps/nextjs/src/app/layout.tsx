@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: siteConfig.author,
-  themeColor: "#ffffff",
   openGraph: {
     type: "website",
     locale: "ko_KR",
@@ -55,11 +54,21 @@ export const metadata: Metadata = {
     creator: "@alwaysfun2183",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: [
+      { url: "/favicon-16x16.png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: {
+      rel: "mask-icon",
+      url: "/safari-pinned-tab.svg",
+      color: "#5bbad5",
+    },
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
+  themeColor: "#ffffff",
 };
 
 export default function Layout(props: { children: React.ReactNode }) {
