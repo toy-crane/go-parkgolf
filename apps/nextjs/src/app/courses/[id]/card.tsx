@@ -7,15 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import type { Course } from "@/types";
-import {
-  AlarmClock,
-  ArrowLeft,
-  Clock,
-  FlagTriangleRight,
-  Pencil,
-  Phone,
-  Share2,
-} from "lucide-react";
+import { ArrowLeft, Pencil, Share2 } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 interface CardProps {
