@@ -16,7 +16,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
-import type { Course } from "@/types";
+import type { Course, Position } from "@/types";
 import {
   AlarmClock,
   Clock,
@@ -44,14 +44,32 @@ const InfoNeeded = ({ href }: { href: string }) => {
   );
 };
 
-const Main = ({ courses }: { courses: Course[] }) => {
+function toNumber(value: string | undefined, defaultValue: number): number {
+  const number = Number(value);
+  return isNaN(number) ? defaultValue : number;
+}
+
+const Main = ({
+  courses,
+  level,
+  lat,
+  lng,
+}: {
+  courses: Course[];
+  level?: string;
+  lat?: string;
+  lng?: string;
+}) => {
   const { track } = useAmplitude();
   const [open, setOpen] = useState(false);
   // 지도의 위치
-  const [position, setPosition] = useState<{
-    level: number;
-    center: { lat: number; lng: number };
-  }>(DEFAULT_POSITION);
+  const [position, setPosition] = useState<Position>({
+    level: toNumber(level, DEFAULT_POSITION.level),
+    center: {
+      lat: toNumber(lat, DEFAULT_POSITION.center.lat),
+      lng: toNumber(lng, DEFAULT_POSITION.center.lng),
+    },
+  });
   const { toast } = useToast();
 
   // 선택한 파크골프장
@@ -117,7 +135,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
       <Map
         center={position.center}
         isPanto={true}
-        level={7}
+        level={position.level}
         style={{ width: "100%", height: "100vh" }}
         onCenterChanged={(map) =>
           setPosition({

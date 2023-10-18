@@ -40,3 +40,8 @@ export interface Course {
     registration_method?: string;
   };
 }
+
+export interface Position {
+  level: number;
+  center: { lat: number; lng: number };
+}
