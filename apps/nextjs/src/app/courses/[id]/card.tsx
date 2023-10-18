@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -14,6 +15,25 @@ interface CardProps {
   title: string;
   content: string | React.ReactNode;
 }
+
+const MAJOR_REGIONS = [
+  { name: "서울", level: 9, lat: "37.540705", lng: "126.956764" },
+  { name: "인천", level: 8, lat: "37.469221", lng: "126.573234" },
+  { name: "광주", level: 7, lat: "35.126033", lng: "126.831302" },
+  { name: "대구", level: 8, lat: "35.798838", lng: "128.583052" },
+  { name: "울산", level: 8, lat: "35.519301", lng: "129.239078" },
+  { name: "대전", level: 8, lat: "36.321655", lng: "127.378953" },
+  { name: "부산", level: 8, lat: "35.198362", lng: "129.053922" },
+  { name: "경기", level: 10, lat: "37.567167", lng: "127.190292" },
+  { name: "강원", level: 10, lat: "37.555837", lng: "128.209315" },
+  { name: "충남", level: 10, lat: "36.557229", lng: "126.779757" },
+  { name: "충북", level: 10, lat: "36.628503", lng: "127.929344" },
+  { name: "경북", level: 10, lat: "36.248647", lng: "128.664734" },
+  { name: "경남", level: 10, lat: "35.259787", lng: "128.664734" },
+  { name: "전북", level: 10, lat: "35.716705", lng: "127.144185" },
+  { name: "전남", level: 10, lat: "34.819400", lng: "126.893113" },
+  { name: "제주", level: 9, lat: "33.364805", lng: "126.542671" },
+];
 
 const Label = ({ title, content }: CardProps) => {
   return (
@@ -182,6 +202,20 @@ const CourseDetail = ({ course }: { course: Course }) => {
               )
             }
           />
+        </div>
+        <Separator className="mb-14 mt-5" />
+        <h2 className="text-foreground mb-6 text-xl font-bold">
+          전국의 다른 파크골프장 살펴보기
+        </h2>
+        <div className="grid grid-cols-3 gap-y-3">
+          {MAJOR_REGIONS.map((region) => (
+            <Link
+              href={`/?level=${region.level}&lng=${region.lng}&lat=${region.lat}`}
+              key={region.name}
+            >
+              {region.name} 지역
+            </Link>
+          ))}
         </div>
       </div>
     </div>
