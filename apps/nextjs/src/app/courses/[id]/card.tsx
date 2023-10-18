@@ -19,7 +19,7 @@ const Label = ({ title, content }: CardProps) => {
   return (
     <div className="flex items-center">
       <h3 className="mr-4 text-lg font-semibold">{title}</h3>
-      <p className="text-muted-foreground text-lg">{content}</p>
+      <div className="text-muted-foreground text-lg">{content}</div>
     </div>
   );
 };
