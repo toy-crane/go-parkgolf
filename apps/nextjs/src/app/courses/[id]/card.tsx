@@ -18,7 +18,7 @@ interface CardProps {
 const Label = ({ title, content }: CardProps) => {
   return (
     <div className="flex items-center">
-      <h2 className="mr-4 text-lg font-semibold">{title}</h2>
+      <h3 className="mr-4 text-lg font-semibold">{title}</h3>
       <p className="text-muted-foreground text-lg">{content}</p>
     </div>
   );
@@ -101,7 +101,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
         style={{
           // 지도의 크기
           width: "100%",
-          height: "450px",
+          height: "320px",
         }}
         level={6} // 지도의 확대 레벨
       />
