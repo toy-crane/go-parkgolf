@@ -33,6 +33,17 @@ const DEFAULT_POSITION = {
   center: { lat: 37.5161996814031, lng: 127.075939572603 },
 };
 
+const InfoNeeded = ({ href }: { href: string }) => {
+  return (
+    <div className="flex items-center">
+      <div className="mr-2">정보를 입력해 주세요</div>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <Pencil size={16} />
+      </a>
+    </div>
+  );
+};
+
 const Main = ({ courses }: { courses: Course[] }) => {
   const { track } = useAmplitude();
   const [open, setOpen] = useState(false);
@@ -220,7 +231,7 @@ const Main = ({ courses }: { courses: Course[] }) => {
                     </a>
                   </Button>
                 ) : (
-                  "등록된 연락처가 없습니다"
+                  InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })
                 )}
               </div>
             </div>
@@ -228,15 +239,14 @@ const Main = ({ courses }: { courses: Course[] }) => {
             <div className="flex items-center gap-4">
               <Clock size={20} />
               <div className="text-base">
-                <div>
-                  영업 시간 -{" "}
+                <div className="flex">
+                  <div className="mr-2">영업 시간 -</div>
                   {selectedcourse?.operation.opening_hours ??
-                    "등록된 정보가 없습니다"}
+                    InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })}
                 </div>
                 {selectedcourse?.operation.regular_closed_days && (
-                  <div>
-                    {" "}
-                    정기 휴무일 -{" "}
+                  <div className="flex">
+                    <div className="mr-2">정기 휴무일 - </div>
                     {selectedcourse?.operation.regular_closed_days}
                   </div>
                 )}
@@ -246,10 +256,10 @@ const Main = ({ courses }: { courses: Course[] }) => {
             <div className="mb-3 flex items-center gap-4">
               <AlarmClock size={20} />
               <div className="text-base">
-                <div>
-                  예약 방법 -{" "}
+                <div className="flex">
+                  <div className="mr-2">예약 방법 - </div>
                   {selectedcourse?.operation.registration_method ??
-                    "등록된 정보가 없습니다"}
+                    InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })}
                 </div>
                 <div>
                   {selectedcourse?.operation.website ? (
