@@ -10,7 +10,7 @@ import { cn } from "@/libs/tailwind";
 
 export const metadata: Metadata = {
   title: {
-    default: "전국의 파크골프 정보를 한 곳에서! | 파크골프가자",
+    default: "전국 파크골프장 정보를 한 곳에서! | 파크골프가자",
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
