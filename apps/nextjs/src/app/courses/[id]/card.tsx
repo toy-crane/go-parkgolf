@@ -33,7 +33,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
     <div>
       <div className="flex items-center justify-between">
         <div className="my-4 flex flex-row items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={() => router.back()}>
+          <Button variant="ghost" size="icon" onClick={() => router.push("/")}>
             <ArrowLeft size={24} />
           </Button>
         </div>
