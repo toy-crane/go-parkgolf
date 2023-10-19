@@ -54,6 +54,9 @@ export async function generateMetadata(
         description,
         images: [...previousImages],
       },
+      alternates: {
+        canonical: `/courses/${course.id}`,
+      },
     };
   } else {
     return {};

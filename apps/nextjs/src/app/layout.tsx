@@ -69,6 +69,10 @@ export const metadata: Metadata = {
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
   themeColor: "#ffffff",
+  metadataBase: new URL("https://goparkgolf.app"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Layout(props: { children: React.ReactNode }) {
