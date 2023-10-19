@@ -33,7 +33,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (course) {
-    const title = `${course.name} 예약 정보 | 파크골프가자`;
+    const title = `${course.name} 예약 정보`;
     const description = `위치 - ${course.address.address_name} \n 영업시간 - ${
       course.operation.opening_hours ?? "정보 없음"
     } \n 정기 휴무일 - ${
