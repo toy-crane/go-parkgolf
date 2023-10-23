@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { Linking } from "react-native";
 import { WebView } from "react-native-webview";
 
+import { originAllowList, serviceAllowList } from "~/configs/origin-allow-list";
+
 export default function Home() {
   const webViewRef = useRef<WebView>(null);
 
@@ -11,17 +13,17 @@ export default function Home() {
       ref={webViewRef}
       allowsBackForwardNavigationGestures
       geolocationEnabled
-      originWhitelist={["https://*", "http://*", "tel:*"]}
+      originWhitelist={originAllowList}
       onShouldStartLoadWithRequest={(request) => {
         // Only allow navigating within this website
-        if (request.url.startsWith("http://localhost:3000/")) {
+        if (serviceAllowList.some((url) => request.url.startsWith(url))) {
           return true;
         } else {
           void Linking.openURL(request.url);
           return false;
         }
       }}
-      source={{ uri: "http://localhost:3000/" }}
+      source={{ uri: process.env.EXPO_PUBLIC_WEB_URL! }}
     />
   );
 }
