@@ -9,6 +9,12 @@ import { AmplitudeProvider } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
 
 export const metadata: Metadata = {
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    viewportFit: "cover",
+  },
   title: {
     default: "전국 파크골프장 정보를 한 곳에서! | 파크골프가자",
     template: `%s | ${siteConfig.name}`,
