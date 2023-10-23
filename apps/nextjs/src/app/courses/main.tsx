@@ -98,7 +98,7 @@ const Main = ({
             <h2>
               <Button className="font-bold" asChild size="sm">
                 <a
-                  href="https://forms.gle/KJynLwmB1UoJt2qXA"
+                  href="https://forms.gle/41DvTTg1Z3SrQpNQ8"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
