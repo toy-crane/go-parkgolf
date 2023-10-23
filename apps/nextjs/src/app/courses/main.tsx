@@ -81,27 +81,31 @@ const Main = ({
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 p-3">
         <div className="flex justify-between">
-          <Button
-            className="px-3 text-xl font-extrabold"
-            size="lg"
-            onClick={() => {
-              track("logo clicked");
-              setPosition(DEFAULT_POSITION);
-            }}
-          >
-            <FlagTriangleRight className="mr-1" size={20} />
-            GO PARKGOLF
-          </Button>
-          <div className="flex flex-col gap-2">
-            <Button className="font-bold" asChild size="sm">
-              <a
-                href="https://forms.gle/KJynLwmB1UoJt2qXA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                제작자에게 문의하기
-              </a>
+          <h1>
+            <Button
+              className="px-3 text-xl font-extrabold"
+              size="lg"
+              onClick={() => {
+                track("logo clicked");
+                setPosition(DEFAULT_POSITION);
+              }}
+            >
+              <FlagTriangleRight className="mr-1" size={20} />
+              GO PARKGOLF
             </Button>
+          </h1>
+          <div className="flex flex-col gap-2">
+            <h2>
+              <Button className="font-bold" asChild size="sm">
+                <a
+                  href="https://forms.gle/KJynLwmB1UoJt2qXA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  제작자에게 문의하기
+                </a>
+              </Button>
+            </h2>
             <Button
               variant="secondary"
               size="icon"
