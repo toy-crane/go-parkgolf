@@ -79,7 +79,7 @@ const Main = ({
 
   return (
     <>
-      <nav className="fixed left-0 right-0 top-0 z-30 p-3">
+      <nav className="pt-safe-offset-1 fixed left-0 right-0 top-0 z-30 px-3">
         <div className="flex justify-between">
           <h1>
             <Button

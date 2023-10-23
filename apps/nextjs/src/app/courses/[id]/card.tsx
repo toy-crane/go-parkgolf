@@ -62,8 +62,8 @@ const CourseDetail = ({ course }: { course: Course }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <div className="my-4 flex flex-row items-center gap-2">
+      <nav className="pt-safe-offset-1 mb-4 flex items-center justify-between">
+        <div className="flex flex-row items-center gap-2">
           <Button variant="ghost" size="icon" onClick={() => router.push("/")}>
             <ArrowLeft size={24} />
           </Button>
@@ -101,7 +101,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
             <Share2 size={24} />
           </Button>
         </div>
-      </div>
+      </nav>
       <StaticMap // 지도를 표시할 Container
         className="mb-12"
         marker={[
