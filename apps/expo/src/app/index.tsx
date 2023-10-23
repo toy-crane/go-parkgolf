@@ -1,10 +1,16 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React, { useRef } from "react";
+import { WebView } from "react-native-webview";
 
 export default function Home() {
+  const webViewRef = useRef<WebView>(null);
+
   return (
-    <View className="flex flex-row rounded-lg bg-white/10 p-4">
-      <Text className="text-xl font-semibold text-pink-400">hello</Text>
-    </View>
+    <WebView
+      webviewDebuggingEnabled
+      ref={webViewRef}
+      allowsBackForwardNavigationGestures
+      geolocationEnabled
+      source={{ uri: "http://localhost:3000/" }}
+    />
   );
 }
