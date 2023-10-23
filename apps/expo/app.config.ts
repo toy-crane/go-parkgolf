@@ -1,17 +1,17 @@
 import type { ExpoConfig } from "@expo/config";
 
 const defineConfig = (): ExpoConfig => ({
-  name: "expo",
-  slug: "expo",
-  scheme: "expo",
+  name: "파크골프 가자",
+  slug: "goparkgolf",
+  scheme: "goparkgolf",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "./assets/icon.png",
+  icon: "./assets/images/icon.png",
   userInterfaceStyle: "light",
   splash: {
-    image: "./assets/icon.png",
+    image: "./assets/images/splash.png",
     resizeMode: "contain",
-    backgroundColor: "#1F104A",
+    backgroundColor: "#27D51A",
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -24,7 +24,7 @@ const defineConfig = (): ExpoConfig => ({
   android: {
     package: "your.bundle.identifier",
     adaptiveIcon: {
-      foregroundImage: "./assets/icon.png",
+      foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#1F104A",
     },
   },
