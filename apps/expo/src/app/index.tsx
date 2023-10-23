@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Linking } from "react-native";
 import { WebView } from "react-native-webview";
 
 export default function Home() {
@@ -10,6 +11,16 @@ export default function Home() {
       ref={webViewRef}
       allowsBackForwardNavigationGestures
       geolocationEnabled
+      originWhitelist={["https://*", "http://*", "tel:*"]}
+      onShouldStartLoadWithRequest={(request) => {
+        // Only allow navigating within this website
+        if (request.url.startsWith("http://localhost:3000/")) {
+          return true;
+        } else {
+          void Linking.openURL(request.url);
+          return false;
+        }
+      }}
       source={{ uri: "http://localhost:3000/" }}
     />
   );

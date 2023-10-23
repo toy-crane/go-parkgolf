@@ -292,7 +292,11 @@ const Main = ({
                       className="p-0 text-base text-blue-400"
                       onClick={() => track("website detail clicked")}
                     >
-                      <a href={selectedcourse?.operation.website}>
+                      <a
+                        href={selectedcourse?.operation.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         상세 정보 홈페이지
                       </a>
                     </Button>
