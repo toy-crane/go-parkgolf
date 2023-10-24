@@ -8084,9 +8084,9 @@
     "operation": {
       "opening_hours": "06:00 ~ 21:00",
       "regular_closed_days": null,
-      "website": "https://onestop.sejong.go.kr/Usr/resve/instDetail.do",
+      "website": "https://onestop.sejong.go.kr/Usr/main/main.do",
       "registration_method": "인터넷 예약",
-      "reference": "https://onestop.sejong.go.kr/Usr/resve/instDetail.do"
+      "reference": "https://onestop.sejong.go.kr/Usr/main/main.do"
     },
     "id": 246
   },
