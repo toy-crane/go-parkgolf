@@ -60,8 +60,11 @@
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
+    /* webview에서 버튼을 클릭 했을 때 생기는 음영 제거 */
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    /* webview를 위한 long touch callout 제거 */
+    -webkit-touch-callout: none;
   }
-
   html,
   body {
     padding: 0;
