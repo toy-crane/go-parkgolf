@@ -102,30 +102,32 @@ const CourseDetail = ({ course }: { course: Course }) => {
           </Button>
         </div>
       </nav>
-      <StaticMap // 지도를 표시할 Container
-        className="mb-12"
-        marker={[
-          {
-            position: {
-              lat: Number(course.address.y),
-              lng: Number(course.address.x),
+      <section>
+        <StaticMap // 지도를 표시할 Container
+          className="mb-12"
+          marker={[
+            {
+              position: {
+                lat: Number(course.address.y),
+                lng: Number(course.address.x),
+              },
+              text: course.name,
             },
-            text: course.name,
-          },
-        ]}
-        center={{
-          // 지도의 중심좌표
-          lat: Number(course.address.y),
-          lng: Number(course.address.x),
-        }}
-        style={{
-          // 지도의 크기
-          width: "100%",
-          height: "280px",
-        }}
-        level={6} // 지도의 확대 레벨
-      />
-      <div className="mb-20 flex w-full flex-col">
+          ]}
+          center={{
+            // 지도의 중심좌표
+            lat: Number(course.address.y),
+            lng: Number(course.address.x),
+          }}
+          style={{
+            // 지도의 크기
+            width: "100%",
+            height: "280px",
+          }}
+          level={6} // 지도의 확대 레벨
+        />
+      </section>
+      <section className="mb-20 flex w-full flex-col">
         <h1 className="text-foreground mb-4 text-4xl font-bold">
           {course.name}
         </h1>
@@ -219,7 +221,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
             </Link>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };
