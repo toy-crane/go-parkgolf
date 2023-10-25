@@ -62,7 +62,7 @@ const CourseDetail = ({ course }: { course: Course }) => {
 
   return (
     <div>
-      <nav className="pt-safe-offset-1 mb-4 flex items-center justify-between">
+      <nav className="mb-4 flex items-center justify-between pt-3">
         <div className="flex flex-row items-center gap-2">
           <Button variant="ghost" size="icon" onClick={() => router.push("/")}>
             <ArrowLeft size={24} />

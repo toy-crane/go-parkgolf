@@ -79,7 +79,7 @@ const Main = ({
 
   return (
     <>
-      <nav className="pt-safe-offset-1 fixed left-0 right-0 top-0 z-30 px-3">
+      <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
         <div className="flex justify-between">
           <h1>
             <Button
@@ -137,43 +137,43 @@ const Main = ({
         </div>
       </nav>
       <section>
-      <Map
-        center={position.center}
-        isPanto={true}
-        level={position.level}
-        style={{ width: "100%", height: "100vh" }}
-        onCenterChanged={(map) =>
-          setPosition({
-            level: map.getLevel(),
-            center: {
-              lat: map.getCenter().getLat(),
-              lng: map.getCenter().getLng(),
-            },
-          })
-        }
-      >
-        {courses?.map((course) => (
-          <Marker
-            course={course}
-            key={course.name}
-            isMarked={selectedcourse?.name === course.name}
-            onClick={() => {
-              setSelectedcourse(course);
-              setPosition((position) => ({
-                ...position,
-                center: {
-                  lat: Number(course.address.y),
-                  lng: Number(course.address.x),
-                },
-              }));
-              setOpen((open) => !open);
-              track("course clicked", { ...course });
-            }}
-          />
-        ))}
-      </Map>
+        <Map
+          center={position.center}
+          isPanto={true}
+          level={position.level}
+          style={{ width: "100%", height: "100vh" }}
+          onCenterChanged={(map) =>
+            setPosition({
+              level: map.getLevel(),
+              center: {
+                lat: map.getCenter().getLat(),
+                lng: map.getCenter().getLng(),
+              },
+            })
+          }
+        >
+          {courses?.map((course) => (
+            <Marker
+              course={course}
+              key={course.name}
+              isMarked={selectedcourse?.name === course.name}
+              onClick={() => {
+                setSelectedcourse(course);
+                setPosition((position) => ({
+                  ...position,
+                  center: {
+                    lat: Number(course.address.y),
+                    lng: Number(course.address.x),
+                  },
+                }));
+                setOpen((open) => !open);
+                track("course clicked", { ...course });
+              }}
+            />
+          ))}
+        </Map>
       </section>
-      
+
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
