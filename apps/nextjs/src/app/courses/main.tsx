@@ -136,6 +136,7 @@ const Main = ({
           </div>
         </div>
       </nav>
+      <section>
       <Map
         center={position.center}
         isPanto={true}
@@ -171,6 +172,8 @@ const Main = ({
           />
         ))}
       </Map>
+      </section>
+      
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
