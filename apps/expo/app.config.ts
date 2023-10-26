@@ -18,7 +18,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    bundleIdentifier: "your.bundle.identifier",
+    bundleIdentifier: "app.goparkgolf.www",
     supportsTablet: true,
   },
   android: {
