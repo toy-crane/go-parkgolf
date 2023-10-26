@@ -21,7 +21,10 @@ export default function Home() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView className="flex-1 bg-transparent">
+      <SafeAreaView
+        className="flex-1 bg-white"
+        edges={["top", "left", "right"]}
+      >
         <WebView
           webviewDebuggingEnabled
           ref={webViewRef}
