@@ -8,7 +8,6 @@ import { originAllowList, serviceAllowList } from "~/configs/origin-allow-list";
 
 export default function Home() {
   const webViewRef = useRef<WebView>(null);
-  const [location, setLocation] = useState<Location.LocationObject>();
 
   useEffect(() => {
     const requestPermission = async () => {
@@ -16,8 +15,6 @@ export default function Home() {
       if (status !== Location.PermissionStatus.GRANTED) {
         return;
       }
-      const location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
     };
     void requestPermission();
   }, []);
