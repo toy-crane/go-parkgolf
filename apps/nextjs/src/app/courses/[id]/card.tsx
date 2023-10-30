@@ -214,8 +214,6 @@ const CourseDetail = ({ course }: { course: Course }) => {
             <Link
               href={`/?level=${region.level}&lng=${region.lng}&lat=${region.lat}`}
               key={region.name}
-              target="_black"
-              rel="noopener noreferrer"
             >
               {region.name} 지역
             </Link>
