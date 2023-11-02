@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { fetchCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
 
-import CourseDetail from "./card";
+import CourseDetail from "./course-detail";
 
 interface Props {
   params: { id: string };
