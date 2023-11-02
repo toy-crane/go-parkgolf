@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { fetchCourse, fetchCourseBySlug } from "@/libs/fetch";
+import { fetchCourse, fetchCourseBySlug, fetchNearCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
 
 import CourseDetail from "./course-detail";
@@ -66,8 +66,12 @@ export async function generateMetadata(
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = decodeURIComponent(params.slug);
   const course = await fetchCourseBySlug(slug);
+  if (!course) {
+    notFound();
+  }
+  const nearCourses = await fetchNearCourse(course?.id, 20);
   if (course) {
-    return <CourseDetail course={course} />;
+    return <CourseDetail course={course} nearCourses={nearCourses} />;
   }
   notFound();
 }

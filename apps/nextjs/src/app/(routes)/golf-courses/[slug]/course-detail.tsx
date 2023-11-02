@@ -55,7 +55,13 @@ const InfoNeeded = ({ href }: { href: string }) => {
   );
 };
 
-const CourseDetail = ({ course }: { course: Course }) => {
+const CourseDetail = ({
+  course,
+  nearCourses,
+}: {
+  course: Course;
+  nearCourses: Course[];
+}) => {
   const { track } = useAmplitude();
   const router = useRouter();
   const { toast } = useToast();
@@ -205,7 +211,22 @@ const CourseDetail = ({ course }: { course: Course }) => {
             }
           />
         </div>
-        <Separator className="mb-14 mt-5" />
+        {nearCourses.length > 0 && (
+          <>
+            <Separator className="mb-14 mt-5" />
+            <h2 className="text-foreground mb-6 text-xl font-bold">
+              주변 파크 골프장 둘러보기
+            </h2>
+            <div className="grid grid-cols-3 gap-y-3">
+              {nearCourses.map((course) => (
+                <Link href={`/golf-courses/${course.slug}`} key={course.name}>
+                  {course.name}
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+        <Separator className="my-14" />
         <h2 className="text-foreground mb-6 text-xl font-bold">
           전국의 다른 파크골프장 살펴보기
         </h2>
