@@ -1,6 +1,7 @@
 export interface Course {
   id: number;
   name: string;
+  slug: string;
   address: {
     address_name: string;
     b_code: string;

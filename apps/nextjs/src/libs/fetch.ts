@@ -20,4 +20,10 @@ async function fetchCourse(id: string) {
   return course;
 }
 
-export { fetchCourses, fetchCourse };
+async function fetchCourseBySlug(slug: string) {
+  const courses = await fetchCourses();
+  const course = courses.find((course) => course.slug === slug);
+  return course;
+}
+
+export { fetchCourses, fetchCourse, fetchCourseBySlug };
