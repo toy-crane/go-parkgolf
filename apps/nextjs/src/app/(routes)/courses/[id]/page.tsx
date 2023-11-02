@@ -1,11 +1,9 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { fetchCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
-
-import CourseDetail from "./course-detail";
 
 interface Props {
   params: { id: string };
@@ -55,7 +53,7 @@ export async function generateMetadata(
         images: [...previousImages],
       },
       alternates: {
-        canonical: `/courses/${course.id}`,
+        canonical: `/golf-courses/${course.slug}`,
       },
     };
   } else {
@@ -64,10 +62,9 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
-  console.log(params.id, decodeURIComponent(params.id));
   const course = await fetchCourse(params.id);
-  if (course) {
-    return <CourseDetail course={course} />;
+  if (!course) {
+    notFound();
   }
-  notFound();
+  permanentRedirect(`/golf-courses/${encodeURIComponent(course.slug)}`);
 }
