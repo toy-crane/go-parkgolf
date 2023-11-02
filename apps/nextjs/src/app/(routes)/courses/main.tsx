@@ -180,7 +180,7 @@ const Main = ({
             <SheetTitle>
               <div className="flex items-center gap-3 text-2xl">
                 <Link
-                  href={`/courses/${selectedcourse?.id}`}
+                  href={`/golf-courses/${selectedcourse?.slug}`}
                   onClick={() => track("detail page link clicked")}
                 >
                   {selectedcourse?.name}
