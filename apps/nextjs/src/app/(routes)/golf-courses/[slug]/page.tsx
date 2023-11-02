@@ -19,7 +19,7 @@ export async function generateStaticParams() {
   );
   const courses = JSON.parse(fileContents) as Course[];
   return courses.map((course) => ({
-    id: String(course.id),
+    slug: String(course.slug),
   }));
 }
 
