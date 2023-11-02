@@ -2,13 +2,13 @@ import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { fetchCourse, fetchCourseBySlug, fetchNearCourse } from "@/libs/fetch";
+import { fetchCourseBySlug, fetchNearCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
 
 import CourseDetail from "./course-detail";
 
 interface Props {
-  params: { id: string };
+  params: { slug: string };
 }
 
 export async function generateStaticParams() {
@@ -27,14 +27,15 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const course = await fetchCourse(params.id);
+  const course = await fetchCourseBySlug(decodeURIComponent(params.slug));
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (course) {
     const title = `${course.name} 예약 정보`;
-    const description = `위치 - ${course.address.address_name} \n 영업시간 - ${
+    const description = `${course.name} \n
+    위치 - ${course.address.address_name} \n 영업시간 - ${
       course.operation.opening_hours ?? "정보 없음"
     } \n 정기 휴무일 - ${
       course.operation.regular_closed_days ?? "정보 없음"
