@@ -25,10 +25,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 1
+    "id": 1,
+    "slug": "강릉-파크골프장"
   },
   {
-    "name": "고성군파크골프장",
+    "name": "고성 파크골프장",
     "address": {
       "address_name": "강원특별자치도 고성군 토성면 도원리 115-27",
       "b_code": "5182033028",
@@ -53,7 +54,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 2
+    "id": 2,
+    "slug": "고성-파크골프장"
   },
   {
     "name": "녹송 파크골프장",
@@ -81,7 +83,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 3
+    "id": 3,
+    "slug": "녹송-파크골프장"
   },
   {
     "name": "대화 파크골프장",
@@ -122,7 +125,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 4
+    "id": 4,
+    "slug": "대화-파크골프장"
   },
   {
     "name": "동해 파크골프장",
@@ -163,7 +167,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 5
+    "id": 5,
+    "slug": "동해-파크골프장"
   },
   {
     "name": "둔내 파크골프장",
@@ -191,7 +196,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 6
+    "id": 6,
+    "slug": "둔내-파크골프장"
   },
   {
     "name": "봉평 파크골프장",
@@ -219,7 +225,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 7
+    "id": 7,
+    "slug": "봉평-파크골프장"
   },
   {
     "name": "북평 파크골프장",
@@ -247,7 +254,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 8
+    "id": 8,
+    "slug": "북평-파크골프장"
   },
   {
     "name": "삼척 미로 파크골프장",
@@ -288,7 +296,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 9
+    "id": 9,
+    "slug": "삼척-미로-파크골프장"
   },
   {
     "name": "소양강 파크골프장",
@@ -316,7 +325,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.cuc.or.kr/soyanggangParkGolf.do"
     },
-    "id": 10
+    "id": 10,
+    "slug": "소양강-파크골프장"
   },
   {
     "name": "속초 경동대 파크골프장",
@@ -357,7 +367,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 11
+    "id": 11,
+    "slug": "속초-경동대-파크골프장"
   },
   {
     "name": "속초 파크골프장",
@@ -398,7 +409,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 12
+    "id": 12,
+    "slug": "속초-파크골프장"
   },
   {
     "name": "양양 송이조각공원 파크골프장",
@@ -426,7 +438,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/skj0228/222713836167"
     },
-    "id": 13
+    "id": 13,
+    "slug": "양양-송이조각공원-파크골프장"
   },
   {
     "name": "영월 파크골프장",
@@ -467,7 +480,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 14
+    "id": 14,
+    "slug": "영월-파크골프장"
   },
   {
     "name": "우용 파크골프장",
@@ -495,7 +509,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 15
+    "id": 15,
+    "slug": "우용-파크골프장"
   },
   {
     "name": "원주 파크골프장",
@@ -536,7 +551,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 16
+    "id": 16,
+    "slug": "원주-파크골프장"
   },
   {
     "name": "인제군 파크골프장",
@@ -577,7 +593,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 17
+    "id": 17,
+    "slug": "인제군-파크골프장"
   },
   {
     "name": "주문진 신리파크골프장",
@@ -605,7 +622,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 18
+    "id": 18,
+    "slug": "주문진-신리파크골프장"
   },
   {
     "name": "지경리 파크골프장",
@@ -633,7 +651,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 19
+    "id": 19,
+    "slug": "지경리-파크골프장"
   },
   {
     "name": "철원 파크골프장",
@@ -661,7 +680,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 20
+    "id": 20,
+    "slug": "철원-파크골프장"
   },
   {
     "name": "청일 파크골프장",
@@ -689,7 +709,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 21
+    "id": 21,
+    "slug": "청일-파크골프장"
   },
   {
     "name": "춘천 파크골프장",
@@ -717,7 +738,8 @@
       "registration_method": "전화 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%B6%98%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9A%94%EA%B8%88-%EC%95%88%EB%82%B4"
     },
-    "id": 22
+    "id": 22,
+    "slug": "춘천-파크골프장"
   },
   {
     "name": "태백 파크골프장",
@@ -758,7 +780,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 23
+    "id": 23,
+    "slug": "태백-파크골프장"
   },
   {
     "name": "평창 파크골프장",
@@ -799,7 +822,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 24
+    "id": 24,
+    "slug": "평창-파크골프장"
   },
   {
     "name": "한반도섬 파크골프장",
@@ -827,7 +851,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/seobawi/223176348514"
     },
-    "id": 25
+    "id": 25,
+    "slug": "한반도섬-파크골프장"
   },
   {
     "name": "행구동 파크골프장",
@@ -868,7 +893,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://blog.naver.com/sgrlove0825/222902610895"
     },
-    "id": 26
+    "id": 26,
+    "slug": "행구동-파크골프장"
   },
   {
     "name": "현리근린공원 파크골프장",
@@ -896,10 +922,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 27
+    "id": 27,
+    "slug": "현리근린공원-파크골프장"
   },
   {
-    "name": "홍천강변파크골프장",
+    "name": "홍천 강변 파크골프장",
     "address": {
       "address_name": "강원특별자치도 홍천군 홍천읍 갈마곡리 267-10",
       "b_code": "5172025024",
@@ -937,7 +964,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 28
+    "id": 28,
+    "slug": "홍천-강변-파크골프장"
   },
   {
     "name": "화천 산천어 파크골프장",
@@ -978,7 +1006,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://hspg.ihc.go.kr/parkgolf/reservation"
     },
-    "id": 29
+    "id": 29,
+    "slug": "화천-산천어-파크골프장"
   },
   {
     "name": "화천 생활체육공원 파크골프장",
@@ -1019,7 +1048,8 @@
       "registration_method": "전화 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%ED%99%94%EC%B2%9C-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EC%95%88%EB%82%B4"
     },
-    "id": 30
+    "id": 30,
+    "slug": "화천-생활체육공원-파크골프장"
   },
   {
     "name": "횡성 파크골프장",
@@ -1060,7 +1090,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 31
+    "id": 31,
+    "slug": "횡성-파크골프장"
   },
   {
     "name": "문막 파크골프장",
@@ -1088,7 +1119,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 32
+    "id": 32,
+    "slug": "문막-파크골프장"
   },
   {
     "name": "용평 파크골프장",
@@ -1116,7 +1148,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 33
+    "id": 33,
+    "slug": "용평-파크골프장"
   },
   {
     "name": "가평 파크골프장",
@@ -1157,7 +1190,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.gpfmc.or.kr/sub3/sub3_12-4.php"
     },
-    "id": 34
+    "id": 34,
+    "slug": "가평-파크골프장"
   },
   {
     "name": "광주시 파크골프장",
@@ -1198,7 +1232,8 @@
       "registration_method": "광주 시민만 사용 가능",
       "reference": "https://blog.naver.com/qkekdkwl12/222573913694"
     },
-    "id": 35
+    "id": 35,
+    "slug": "광주시-파크골프장"
   },
   {
     "name": "구리 파크골프장",
@@ -1226,7 +1261,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 36
+    "id": 36,
+    "slug": "구리-파크골프장"
   },
   {
     "name": "김포 레코 파크골프장",
@@ -1254,7 +1290,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 37
+    "id": 37,
+    "slug": "김포-레코-파크골프장"
   },
   {
     "name": "남양주 별내 파크골프장",
@@ -1295,7 +1332,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 38
+    "id": 38,
+    "slug": "남양주-별내-파크골프장"
   },
   {
     "name": "남양주 다산 파크골프장",
@@ -1323,7 +1361,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 39
+    "id": 39,
+    "slug": "남양주-다산-파크골프장"
   },
   {
     "name": "동두천 파크골프장",
@@ -1351,7 +1390,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 40
+    "id": 40,
+    "slug": "동두천-파크골프장"
   },
   {
     "name": "미사리 파크골프장",
@@ -1379,7 +1419,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 41
+    "id": 41,
+    "slug": "미사리-파크골프장"
   },
   {
     "name": "서종 파크골프장",
@@ -1407,7 +1448,8 @@
       "registration_method": null,
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%96%91%ED%8F%89-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 42
+    "id": 42,
+    "slug": "서종-파크골프장"
   },
   {
     "name": "성남 파크골프장",
@@ -1435,7 +1477,8 @@
       "registration_method": "성남 시민만 사용 가능",
       "reference": "https://biz.heraldcorp.com/view.php?ud=20231012000521"
     },
-    "id": 43
+    "id": 43,
+    "slug": "성남-파크골프장"
   },
   {
     "name": "고양 성저 파크골프장",
@@ -1476,7 +1519,8 @@
       "registration_method": "당일 현장 접수",
       "reference": null
     },
-    "id": 44
+    "id": 44,
+    "slug": "고양-성저-파크골프장"
   },
   {
     "name": "서수원 칠보 파크골프장",
@@ -1517,7 +1561,8 @@
       "registration_method": null,
       "reference": "https://www.suwonudc.co.kr/suwonsc2/PageLink.do"
     },
-    "id": 45
+    "id": 45,
+    "slug": "서수원-칠보-파크골프장"
   },
   {
     "name": "시흥 시청 파크골프장",
@@ -1558,7 +1603,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 46
+    "id": 46,
+    "slug": "시흥-시청-파크골프장"
   },
   {
     "name": "안산 신길 파크골프장",
@@ -1599,7 +1645,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/avarava/221615539435"
     },
-    "id": 47
+    "id": 47,
+    "slug": "안산-신길-파크골프장"
   },
   {
     "name": "양평 파크골프장",
@@ -1627,7 +1674,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://www.yp21.go.kr/www/contents.do?key=3879"
     },
-    "id": 50
+    "id": 50,
+    "slug": "양평-파크골프장"
   },
   {
     "name": "여주 파크골프장",
@@ -1655,7 +1703,8 @@
       "registration_method": "7일 전 예약시스템(온라인) 선착순 예약",
       "reference": "https://golf.yjcmc.or.kr/"
     },
-    "id": 51
+    "id": 51,
+    "slug": "여주-파크골프장"
   },
   {
     "name": "연천 재인폭포 오토캠핑장 파크골프장",
@@ -1683,7 +1732,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 52
+    "id": 52,
+    "slug": "연천-재인폭포-오토캠핑장-파크골프장"
   },
   {
     "name": "연천 파크골프장",
@@ -1711,7 +1761,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.yeoncheon.go.kr/www/contents.do?key=4874"
     },
-    "id": 53
+    "id": 53,
+    "slug": "연천-파크골프장"
   },
   {
     "name": "포곡 파크골프장",
@@ -1752,7 +1803,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 54
+    "id": 54,
+    "slug": "포곡-파크골프장"
   },
   {
     "name": "파주 운정 파크골프장",
@@ -1793,7 +1845,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "http://pajunet.kr/bigdata3/25"
     },
-    "id": 55
+    "id": 55,
+    "slug": "파주-운정-파크골프장"
   },
   {
     "name": "의정부 파크골프장",
@@ -1834,7 +1887,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 56
+    "id": 56,
+    "slug": "의정부-파크골프장"
   },
   {
     "name": "이천시 파크골프장",
@@ -1862,7 +1916,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/hkpark2617/223217146391"
     },
-    "id": 57
+    "id": 57,
+    "slug": "이천시-파크골프장"
   },
   {
     "name": "일동 파크골프장",
@@ -1903,7 +1958,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 58
+    "id": 58,
+    "slug": "일동-파크골프장"
   },
   {
     "name": "남양주 장애인 파크골프장",
@@ -1931,7 +1987,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 59
+    "id": 59,
+    "slug": "남양주-장애인-파크골프장"
   },
   {
     "name": "장호원 파크골프장",
@@ -1959,7 +2016,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 60
+    "id": 60,
+    "slug": "장호원-파크골프장"
   },
   {
     "name": "정발산 파크골프장",
@@ -1987,7 +2045,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://blog.naver.com/dayee0/222887716433"
     },
-    "id": 61
+    "id": 61,
+    "slug": "정발산-파크골프장"
   },
   {
     "name": "아르피아 파크골프장",
@@ -2015,7 +2074,8 @@
       "registration_method": "용인 시민만 이용가능",
       "reference": "https://www.yuc.co.kr/www/brd/m_128/view.do?seq=11457&srchFr=&srchTo=&srchWord=&srchTp=&multi_itm_seq=0&itm_seq_1=0&itm_seq_2=0&company_cd=&company_nm=&page=19"
     },
-    "id": 62
+    "id": 62,
+    "slug": "아르피아-파크골프장"
   },
   {
     "name": "중산 파크골프장",
@@ -2056,7 +2116,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 63
+    "id": 63,
+    "slug": "중산-파크골프장"
   },
   {
     "name": "청심빌리지 파크골프장",
@@ -2097,7 +2158,8 @@
       "registration_method": "전화 접수",
       "reference": "https://m.blog.naver.com/yjhedc/221228126571"
     },
-    "id": 64
+    "id": 64,
+    "slug": "청심빌리지-파크골프장"
   },
   {
     "name": "평택 파크골프장",
@@ -2125,7 +2187,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://blog.naver.com/midst99/223051587280"
     },
-    "id": 66
+    "id": 66,
+    "slug": "평택-파크골프장"
   },
   {
     "name": "하남 파크골프장",
@@ -2166,7 +2229,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 67
+    "id": 67,
+    "slug": "하남-파크골프장"
   },
   {
     "name": "화정 파크골프장",
@@ -2207,7 +2271,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://m.gys.or.kr/page/facilities/s_sports/hwajeong.php"
     },
-    "id": 68
+    "id": 68,
+    "slug": "화정-파크골프장"
   },
   {
     "name": "심학산 파크골프장",
@@ -2248,7 +2313,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%8B%AC%ED%95%99%EC%82%B0%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95"
     },
-    "id": 69
+    "id": 69,
+    "slug": "심학산-파크골프장"
   },
   {
     "name": "나리공원 파크골프장",
@@ -2289,7 +2355,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/bononco/223205155881"
     },
-    "id": 70
+    "id": 70,
+    "slug": "나리공원-파크골프장"
   },
   {
     "name": "동탄 수질복원센터 파크골프장",
@@ -2330,7 +2397,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://blog.naver.com/skj0228/222863977916"
     },
-    "id": 71
+    "id": 71,
+    "slug": "동탄-수질복원센터-파크골프장"
   },
   {
     "name": "장현 파크골프장",
@@ -2358,7 +2426,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 72
+    "id": 72,
+    "slug": "장현-파크골프장"
   },
   {
     "name": "가곡 파크골프장",
@@ -2386,7 +2455,8 @@
       "registration_method": "전화 예약",
       "reference": "https://blog.naver.com/8603pth/223086391643"
     },
-    "id": 73
+    "id": 73,
+    "slug": "가곡-파크골프장"
   },
   {
     "name": "가산 파크골프장",
@@ -2414,7 +2484,8 @@
       "registration_method": "인터넷 접수",
       "reference": "https://www.yssisul.or.kr/rent/#/81/rent/step1"
     },
-    "id": 74
+    "id": 74,
+    "slug": "가산-파크골프장"
   },
   {
     "name": "거창 파크골프장(제1구장)",
@@ -2455,7 +2526,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 75
+    "id": 75,
+    "slug": "거창-파크골프장-제1구장"
   },
   {
     "name": "거창 파크골프장(제2구장)",
@@ -2496,7 +2568,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 76
+    "id": 76,
+    "slug": "거창-파크골프장-제2구장"
   },
   {
     "name": "거창 파크골프장(제6구장)",
@@ -2524,7 +2597,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 77
+    "id": 77,
+    "slug": "거창-파크골프장-제6구장"
   },
   {
     "name": "광석골 파크골프장",
@@ -2552,7 +2626,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 78
+    "id": 78,
+    "slug": "광석골-파크골프장"
   },
   {
     "name": "군북 파크골프장",
@@ -2580,7 +2655,8 @@
       "registration_method": "인터넷 예약",
       "reference": "http://hamanpga.com/menu_1_2"
     },
-    "id": 79
+    "id": 79,
+    "slug": "군북-파크골프장"
   },
   {
     "name": "남강 파크골프장",
@@ -2608,7 +2684,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 80
+    "id": 80,
+    "slug": "남강-파크골프장"
   },
   {
     "name": "경남 남해 파크골프장",
@@ -2649,7 +2726,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 81
+    "id": 81,
+    "slug": "경남-남해-파크골프장"
   },
   {
     "name": "산청 덕산 파크골프장",
@@ -2677,7 +2755,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 82
+    "id": 82,
+    "slug": "산청-덕산-파크골프장"
   },
   {
     "name": "도동 파크골프장",
@@ -2705,10 +2784,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 83
+    "id": 83,
+    "slug": "도동-파크골프장"
   },
   {
-    "name": "도천파크골프장",
+    "name": "도천 파크골프장",
     "address": {
       "address_name": "경남 창녕군 도천면 도천리 770",
       "b_code": "4874040021",
@@ -2733,7 +2813,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 84
+    "id": 84,
+    "slug": "도천-파크골프장"
   },
   {
     "name": "마사 파크골프장",
@@ -2761,7 +2842,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 85
+    "id": 85,
+    "slug": "마사-파크골프장"
   },
   {
     "name": "모고 파크골프장",
@@ -2789,7 +2871,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 86
+    "id": 86,
+    "slug": "모고-파크골프장"
   },
   {
     "name": "묵곡 파크골프장",
@@ -2817,7 +2900,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 87
+    "id": 87,
+    "slug": "묵곡-파크골프장"
   },
   {
     "name": "밀양 파크골프장",
@@ -2845,7 +2929,8 @@
       "registration_method": "전화 예약",
       "reference": "https://blog.naver.com/jkh5314/223231134898"
     },
-    "id": 88
+    "id": 88,
+    "slug": "밀양-파크골프장"
   },
   {
     "name": "봉산 파크골프장",
@@ -2886,10 +2971,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 89
+    "id": 89,
+    "slug": "봉산-파크골프장"
   },
   {
-    "name": "사봉파크골프장",
+    "name": "사봉-파크골프장",
     "address": {
       "address_name": "경남 진주시 사봉면 부계리 1114-9",
       "b_code": "4817038026",
@@ -2927,7 +3013,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 90
+    "id": 90,
+    "slug": "사봉 파크골프장"
   },
   {
     "name": "산청 파크골프장",
@@ -2955,7 +3042,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 91
+    "id": 91,
+    "slug": "산청-파크골프장"
   },
   {
     "name": "삼량진 파크골프장",
@@ -2983,7 +3071,8 @@
       "registration_method": "전화 접수",
       "reference": "https://kogitube.tistory.com/entry/%EC%82%BC%EB%9E%91%EC%A7%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%98%88%EC%95%BD%ED%95%98%EB%8A%94%EB%B2%95?category=1185156"
     },
-    "id": 92
+    "id": 92,
+    "slug": "삼량진-파크골프장"
   },
   {
     "name": "상락원 파크골프장",
@@ -3024,7 +3113,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 93
+    "id": 93,
+    "slug": "상락원-파크골프장"
   },
   {
     "name": "상평 파크골프장",
@@ -3052,10 +3142,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 94
+    "id": 94,
+    "slug": "상평-파크골프장"
   },
   {
-    "name": "생비량파크골프장",
+    "name": "생비량 파크골프장",
     "address": {
       "address_name": "경남 산청군 생비량면 가계리 939-2",
       "b_code": "4886039024",
@@ -3093,7 +3184,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 95
+    "id": 95,
+    "slug": "생비량-파크골프장"
   },
   {
     "name": "생초 파크골프장",
@@ -3121,7 +3213,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 96
+    "id": 96,
+    "slug": "생초-파크골프장"
   },
   {
     "name": "섬진강 피크닉광장 파크골프장",
@@ -3149,7 +3242,8 @@
       "registration_method": "전화 예약",
       "reference": "https://blog.naver.com/jinmokts/222989999223"
     },
-    "id": 97
+    "id": 97,
+    "slug": "섬진강-피크닉광장-파크골프장"
   },
   {
     "name": "송백리 파크골프장",
@@ -3177,7 +3271,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 98
+    "id": 98,
+    "slug": "송백리-파크골프장"
   },
   {
     "name": "한림 술뫼 파크골프장",
@@ -3205,7 +3300,8 @@
       "registration_method": "김해시민 매주 월요일 오후2시, 타 시·군주민 매주 화요일 오후2시 인터넷 접수",
       "reference": "https://www.gimhae.go.kr/yes/05561/05633/05688.web?amode=view&idx=672&fcd=L002"
     },
-    "id": 99
+    "id": 99,
+    "slug": "한림-술뫼-파크골프장"
   },
   {
     "name": "신안 파크골프장",
@@ -3246,7 +3342,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 100
+    "id": 100,
+    "slug": "신안-파크골프장"
   },
   {
     "name": "쌍백 파크골프장",
@@ -3287,7 +3384,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 101
+    "id": 101,
+    "slug": "쌍백-파크골프장"
   },
   {
     "name": "오부 파크골프장",
@@ -3328,7 +3426,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 102
+    "id": 102,
+    "slug": "오부-파크골프장"
   },
   {
     "name": "용주 파크골프장",
@@ -3369,7 +3468,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 103
+    "id": 103,
+    "slug": "용주-파크골프장"
   },
   {
     "name": "우주항공 파크골프장",
@@ -3397,7 +3497,8 @@
       "registration_method": "인터넷 예약 (사천시민만 가능)",
       "reference": "http://sports.sacheon.go.kr/info/pds_view.asp?BGNO=1000&amp;idx=1"
     },
-    "id": 104
+    "id": 104,
+    "slug": "우주항공-파크골프장"
   },
   {
     "name": "원동 파크골프장",
@@ -3438,7 +3539,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 105
+    "id": 105,
+    "slug": "원동-파크골프장"
   },
   {
     "name": "율곡 파크골프장",
@@ -3466,7 +3568,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 106
+    "id": 106,
+    "slug": "율곡-파크골프장"
   },
   {
     "name": "이방 파크골프장",
@@ -3494,7 +3597,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 107
+    "id": 107,
+    "slug": "이방-파크골프장"
   },
   {
     "name": "장천 파크골프장",
@@ -3535,7 +3639,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 108
+    "id": 108,
+    "slug": "장천-파크골프장"
   },
   {
     "name": "정촌 파크골프장",
@@ -3563,7 +3668,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 109
+    "id": 109,
+    "slug": "정촌-파크골프장"
   },
   {
     "name": "조만강 파크골프장",
@@ -3604,7 +3710,8 @@
       "registration_method": "김해 시민만 사용 가능",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B9%80%ED%95%B4-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EC%95%88%EB%82%B4"
     },
-    "id": 110
+    "id": 110,
+    "slug": "조만강-파크골프장"
   },
   {
     "name": "종합경기장 파크골프장",
@@ -3645,7 +3752,8 @@
       "registration_method": "현장 접수",
       "reference": null
     },
-    "id": 111
+    "id": 111,
+    "slug": "종합경기장-파크골프장"
   },
   {
     "name": "창녕 유어 파크골프장",
@@ -3673,7 +3781,8 @@
       "registration_method": "창녕군민만 사용가능",
       "reference": null
     },
-    "id": 112
+    "id": 112,
+    "slug": "창녕-유어-파크골프장"
   },
   {
     "name": "창원 대산 드림 파크골프장",
@@ -3701,7 +3810,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 113
+    "id": 113,
+    "slug": "창원-대산-드림-파크골프장"
   },
   {
     "name": "칠서강나루 파크골프장",
@@ -3729,7 +3839,8 @@
       "registration_method": "전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%ED%95%A8%EC%95%88-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc2"
     },
-    "id": 114
+    "id": 114,
+    "slug": "칠서강나루-파크골프장"
   },
   {
     "name": "평거 파크골프장",
@@ -3757,7 +3868,8 @@
       "registration_method": "현장 접수",
       "reference": null
     },
-    "id": 115
+    "id": 115,
+    "slug": "평거-파크골프장"
   },
   {
     "name": "풍호 파크골프장",
@@ -3785,7 +3897,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 116
+    "id": 116,
+    "slug": "풍호-파크골프장"
   },
   {
     "name": "밀양 하남 파크골프장",
@@ -3813,7 +3926,8 @@
       "registration_method": "전화 예약",
       "reference": "https://blog.naver.com/8603pth/223086391643"
     },
-    "id": 117
+    "id": 117,
+    "slug": "밀양-하남-파크골프장"
   },
   {
     "name": "하대둔치 파크골프장",
@@ -3841,7 +3955,8 @@
       "registration_method": "현장 접수",
       "reference": null
     },
-    "id": 118
+    "id": 118,
+    "slug": "하대둔치-파크골프장"
   },
   {
     "name": "함안 샛담 파크골프장",
@@ -3882,7 +3997,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 119
+    "id": 119,
+    "slug": "함안-샛담-파크골프장"
   },
   {
     "name": "함안 파크골프장",
@@ -3910,7 +4026,8 @@
       "registration_method": "전화 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%ED%95%A8%EC%95%88-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc2"
     },
-    "id": 120
+    "id": 120,
+    "slug": "함안-파크골프장"
   },
   {
     "name": "함양 파크골프장",
@@ -3951,7 +4068,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 121
+    "id": 121,
+    "slug": "함양-파크골프장"
   },
   {
     "name": "합천 파크골프장",
@@ -3979,7 +4097,8 @@
       "registration_method": "전화 예약",
       "reference": "https://openclick.tistory.com/2069"
     },
-    "id": 122
+    "id": 122,
+    "slug": "합천-파크골프장"
   },
   {
     "name": "호계 파크골프장",
@@ -4020,7 +4139,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 123
+    "id": 123,
+    "slug": "호계-파크골프장"
   },
   {
     "name": "황산 파크골프장",
@@ -4048,7 +4168,8 @@
       "registration_method": "인터넷 접수",
       "reference": "https://www.yssisul.or.kr/rent/#/80/rent/step1"
     },
-    "id": 124
+    "id": 124,
+    "slug": "황산-파크골프장"
   },
   {
     "name": "횡천 파크골프장",
@@ -4076,7 +4197,8 @@
       "registration_method": "선착순 등록",
       "reference": "https://blog.naver.com/hadongblog/223142277764"
     },
-    "id": 125
+    "id": 125,
+    "slug": "횡천-파크골프장"
   },
   {
     "name": "거제 파크골프장",
@@ -4117,7 +4239,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 126
+    "id": 126,
+    "slug": "거제-파크골프장"
   },
   {
     "name": "대원 파크골프장",
@@ -4158,7 +4281,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 127
+    "id": 127,
+    "slug": "대원-파크골프장"
   },
   {
     "name": "하동 파크골프장",
@@ -4199,7 +4323,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 128
+    "id": 128,
+    "slug": "하동-파크골프장"
   },
   {
     "name": "안동 2지구공원파크 파크골프장",
@@ -4240,7 +4365,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 129
+    "id": 129,
+    "slug": "안동-2지구공원파크-파크골프장"
   },
   {
     "name": "경산 파크골프장",
@@ -4281,7 +4407,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 130
+    "id": 130,
+    "slug": "경산-파크골프장"
   },
   {
     "name": "경주 파크골프장",
@@ -4309,7 +4436,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.gjfmc.or.kr/gjsiseol/facility/facilityTab1.do?menuNo=141&classId=HEALTH&itemId=T0000043"
     },
-    "id": 131
+    "id": 131,
+    "slug": "경주-파크골프장"
   },
   {
     "name": "고아 파크골프장",
@@ -4337,7 +4465,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 132
+    "id": 132,
+    "slug": "고아-파크골프장"
   },
   {
     "name": "곡강천 파크골프장",
@@ -4365,7 +4494,8 @@
       "registration_method": "7일전 사전 전화 접수",
       "reference": "https://blog.naver.com/naeda28/223226044665"
     },
-    "id": 133
+    "id": 133,
+    "slug": "곡강천-파크골프장"
   },
   {
     "name": "구미 파크골프장",
@@ -4406,7 +4536,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 134
+    "id": 134,
+    "slug": "구미-파크골프장"
   },
   {
     "name": "금성 파크골프장",
@@ -4447,7 +4578,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 135
+    "id": 135,
+    "slug": "금성-파크골프장"
   },
   {
     "name": "김천 파크골프장",
@@ -4475,7 +4607,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 136
+    "id": 136,
+    "slug": "김천-파크골프장"
   },
   {
     "name": "남울진 파크골프장",
@@ -4503,7 +4636,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 137
+    "id": 137,
+    "slug": "남울진-파크골프장"
   },
   {
     "name": "다산 파크골프장",
@@ -4531,7 +4665,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 138
+    "id": 138,
+    "slug": "다산-파크골프장"
   },
   {
     "name": "다인 문암 파크골프장",
@@ -4572,7 +4707,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 139
+    "id": 139,
+    "slug": "다인-문암-파크골프장"
   },
   {
     "name": "단북 파크골프장",
@@ -4613,7 +4749,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 140
+    "id": 140,
+    "slug": "단북-파크골프장"
   },
   {
     "name": "대가야 파크골프장",
@@ -4641,7 +4778,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/gokory/223233657464"
     },
-    "id": 141
+    "id": 141,
+    "slug": "대가야-파크골프장"
   },
   {
     "name": "칠곡 덕산 파크골프장",
@@ -4669,7 +4807,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/nuvida_life/222790796497"
     },
-    "id": 142
+    "id": 142,
+    "slug": "칠곡-덕산-파크골프장"
   },
   {
     "name": "도개 파크골프장",
@@ -4697,7 +4836,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 143
+    "id": 143,
+    "slug": "도개-파크골프장"
   },
   {
     "name": "동락 파크골프장",
@@ -4725,7 +4865,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 144
+    "id": 144,
+    "slug": "동락-파크골프장"
   },
   {
     "name": "문경 파크골프장",
@@ -4766,7 +4907,8 @@
       "registration_method": "전화 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%AC%B8%EA%B2%BD%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9D%B4%EC%9A%A9-%EC%A0%95%EB%B3%B4-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 145
+    "id": 145,
+    "slug": "문경-파크골프장"
   },
   {
     "name": "벽진 파크골프장",
@@ -4807,7 +4949,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 146
+    "id": 146,
+    "slug": "벽진-파크골프장"
   },
   {
     "name": "병곡 파크골프장",
@@ -4835,7 +4978,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 147
+    "id": 147,
+    "slug": "병곡-파크골프장"
   },
   {
     "name": "봉화 파크골프장",
@@ -4863,7 +5007,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 148
+    "id": 148,
+    "slug": "봉화-파크골프장"
   },
   {
     "name": "비안 파크골프장",
@@ -4891,7 +5036,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 149
+    "id": 149,
+    "slug": "비안-파크골프장"
   },
   {
     "name": "상주 파크골프장",
@@ -4932,7 +5078,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 150
+    "id": 150,
+    "slug": "상주-파크골프장"
   },
   {
     "name": "서의성 파크골프장",
@@ -4973,7 +5120,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 151
+    "id": 151,
+    "slug": "서의성-파크골프장"
   },
   {
     "name": "석적 파크골프장",
@@ -5001,7 +5149,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 152
+    "id": 152,
+    "slug": "석적-파크골프장"
   },
   {
     "name": "선남면 파크골프장",
@@ -5029,7 +5178,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 153
+    "id": 153,
+    "slug": "선남면-파크골프장"
   },
   {
     "name": "선산 파크골프장",
@@ -5070,7 +5220,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 154
+    "id": 154,
+    "slug": "선산-파크골프장"
   },
   {
     "name": "성조천 파크골프장",
@@ -5111,7 +5262,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 155
+    "id": 155,
+    "slug": "성조천-파크골프장"
   },
   {
     "name": "성주 파크골프장",
@@ -5139,7 +5291,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 156
+    "id": 156,
+    "slug": "성주-파크골프장"
   },
   {
     "name": "알천 파크골프장",
@@ -5167,7 +5320,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.gjfmc.or.kr/gjsiseol/facility/facilityTab1.do?classId=HEALTH&itemId=T0000032"
     },
-    "id": 157
+    "id": 157,
+    "slug": "알천-파크골프장"
   },
   {
     "name": "양포 파크골프장",
@@ -5208,7 +5362,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 158
+    "id": 158,
+    "slug": "양포-파크골프장"
   },
   {
     "name": "어울림 파크골프장",
@@ -5249,7 +5404,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 159
+    "id": 159,
+    "slug": "어울림-파크골프장"
   },
   {
     "name": "영양 파크골프장",
@@ -5277,7 +5433,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 160
+    "id": 160,
+    "slug": "영양-파크골프장"
   },
   {
     "name": "영주 파크골프장(1구장)",
@@ -5305,7 +5462,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 161
+    "id": 161,
+    "slug": "영주-파크골프장-1구장"
   },
   {
     "name": "영주 파크골프장(2구장)",
@@ -5333,7 +5491,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 162
+    "id": 162,
+    "slug": "영주-파크골프장-2구장"
   },
   {
     "name": "영천 조교 파크골프장",
@@ -5361,7 +5520,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/consl/222930814209"
     },
-    "id": 163
+    "id": 163,
+    "slug": "영천-조교-파크골프장"
   },
   {
     "name": "영해 파크골프장",
@@ -5402,7 +5562,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 164
+    "id": 164,
+    "slug": "영해-파크골프장"
   },
   {
     "name": "예천 파크골프장",
@@ -5443,7 +5604,8 @@
       "registration_method": "전화 접수",
       "reference": "https://openclick.tistory.com/2221"
     },
-    "id": 165
+    "id": 165,
+    "slug": "예천-파크골프장"
   },
   {
     "name": "오수 파크골프장",
@@ -5484,7 +5646,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 166
+    "id": 166,
+    "slug": "오수-파크골프장"
   },
   {
     "name": "왜관 파크골프장",
@@ -5512,7 +5675,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 167
+    "id": 167,
+    "slug": "왜관-파크골프장"
   },
   {
     "name": "용상 파크골프장",
@@ -5553,7 +5717,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 168
+    "id": 168,
+    "slug": "용상-파크골프장"
   },
   {
     "name": "울진 파크골프장",
@@ -5581,7 +5746,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 169
+    "id": 169,
+    "slug": "울진-파크골프장"
   },
   {
     "name": "의성 파크골프장",
@@ -5609,7 +5775,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 170
+    "id": 170,
+    "slug": "의성-파크골프장"
   },
   {
     "name": "지곡 파크골프장",
@@ -5637,7 +5804,8 @@
       "registration_method": "비회원 사용 불가",
       "reference": null
     },
-    "id": 171
+    "id": 171,
+    "slug": "지곡-파크골프장"
   },
   {
     "name": "청도 파크골프장",
@@ -5678,7 +5846,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/chul70688/222887987899"
     },
-    "id": 172
+    "id": 172,
+    "slug": "청도-파크골프장"
   },
   {
     "name": "청송 파크골프장",
@@ -5706,7 +5875,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 173
+    "id": 173,
+    "slug": "청송-파크골프장"
   },
   {
     "name": "풍기 파크골프장",
@@ -5747,7 +5917,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 174
+    "id": 174,
+    "slug": "풍기-파크골프장"
   },
   {
     "name": "하양 파크골프장",
@@ -5775,7 +5946,8 @@
       "registration_method": "선착순 등록",
       "reference": "https://blog.naver.com/onefineday_30/222596161601"
     },
-    "id": 175
+    "id": 175,
+    "slug": "하양-파크골프장"
   },
   {
     "name": "해평 파크골프장",
@@ -5816,7 +5988,8 @@
       "registration_method": "타지역 주민 1주일전 월요일 전화 예약",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B5%AC%EB%AF%B8-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95"
     },
-    "id": 176
+    "id": 176,
+    "slug": "해평-파크골프장"
   },
   {
     "name": "형산 장애인전용 파크골프장",
@@ -5857,7 +6030,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 177
+    "id": 177,
+    "slug": "형산-장애인전용-파크골프장"
   },
   {
     "name": "형산 파크골프장",
@@ -5885,7 +6059,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/jusj/222093281904"
     },
-    "id": 178
+    "id": 178,
+    "slug": "형산-파크골프장"
   },
   {
     "name": "금소 파크골프장",
@@ -5913,7 +6088,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 179
+    "id": 179,
+    "slug": "금소-파크골프장"
   },
   {
     "name": "광산구 서봉파크골프장",
@@ -5941,7 +6117,8 @@
       "registration_method": "인터넷 예약 및 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
-    "id": 180
+    "id": 180,
+    "slug": "광산구-서봉파크골프장"
   },
   {
     "name": "대상 파크골프장",
@@ -5982,7 +6159,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://www.gwangjusportsinfo.org/space/space_view/20"
     },
-    "id": 181
+    "id": 181,
+    "slug": "대상-파크골프장"
   },
   {
     "name": "덕흥 파크골프장",
@@ -6010,7 +6188,8 @@
       "registration_method": "당일 현장 접수",
       "reference": null
     },
-    "id": 182
+    "id": 182,
+    "slug": "덕흥-파크골프장"
   },
   {
     "name": "무등산 파크골프장",
@@ -6051,7 +6230,8 @@
       "registration_method": "현장 무인기 발권",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
-    "id": 183
+    "id": 183,
+    "slug": "무등산-파크골프장"
   },
   {
     "name": "승촌 파크골프장",
@@ -6079,7 +6259,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://www.namgu.gwangju.kr/sports/reserveView.es?mid=a10202000000&eap_seq=11&eas_code=EACD005&search_yn=Y&eap_code=C02"
     },
-    "id": 184
+    "id": 184,
+    "slug": "승촌-파크골프장"
   },
   {
     "name": "염주 파크골프장",
@@ -6120,7 +6301,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
-    "id": 185
+    "id": 185,
+    "slug": "염주-파크골프장"
   },
   {
     "name": "첨단 체육공원 파크골프장",
@@ -6161,7 +6343,8 @@
       "registration_method": "현장 무인기 발권",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EA%B4%91%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95#toc7"
     },
-    "id": 186
+    "id": 186,
+    "slug": "첨단-체육공원-파크골프장"
   },
   {
     "name": "광주 효령 파크골프장",
@@ -6202,10 +6385,11 @@
       "registration_method": "현장 접수 (광주시민만 사용가능)",
       "reference": "https://www.hyotown.or.kr/web/business/specialization/parkgolf.do"
     },
-    "id": 187
+    "id": 187,
+    "slug": "광주-효령-파크골프장"
   },
   {
-    "name": "가창파크골프장",
+    "name": "가창 파크골프장",
     "address": {
       "address_name": "대구 달성군 가창면 대일리 342",
       "b_code": "2771031028",
@@ -6243,7 +6427,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 188
+    "id": 188,
+    "slug": "가창-파크골프장"
   },
   {
     "name": "강변 파크골프장",
@@ -6271,7 +6456,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/chul70688/222937282718"
     },
-    "id": 189
+    "id": 189,
+    "slug": "강변-파크골프장"
   },
   {
     "name": "강창 파크골프장",
@@ -6299,7 +6485,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 190
+    "id": 190,
+    "slug": "강창-파크골프장"
   },
   {
     "name": "고로 파크골프장",
@@ -6327,7 +6514,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 191
+    "id": 191,
+    "slug": "고로-파크골프장"
   },
   {
     "name": "과학관 공원 파크골프장",
@@ -6355,7 +6543,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 192
+    "id": 192,
+    "slug": "과학관-공원-파크골프장"
   },
   {
     "name": "구지 1호 근린공원 파크골프장",
@@ -6396,7 +6585,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 193
+    "id": 193,
+    "slug": "구지-1호-근린공원-파크골프장"
   },
   {
     "name": "군위 파크골프장",
@@ -6437,7 +6627,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 194
+    "id": 194,
+    "slug": "군위-파크골프장"
   },
   {
     "name": "남구 파크골프장",
@@ -6465,7 +6656,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/nuvida_life/222728938616"
     },
-    "id": 195
+    "id": 195,
+    "slug": "남구-파크골프장"
   },
   {
     "name": "논공 위천 파크골프장",
@@ -6493,7 +6685,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 196
+    "id": 196,
+    "slug": "논공-위천-파크골프장"
   },
   {
     "name": "다사 파크골프장",
@@ -6521,7 +6714,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/nuvida_life/222729613377"
     },
-    "id": 197
+    "id": 197,
+    "slug": "다사-파크골프장"
   },
   {
     "name": "달서 강창 파크골프장",
@@ -6549,7 +6743,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 198
+    "id": 198,
+    "slug": "달서-강창-파크골프장"
   },
   {
     "name": "달성보 파크골프장",
@@ -6577,7 +6772,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 199
+    "id": 199,
+    "slug": "달성보-파크골프장"
   },
   {
     "name": "동구 봉무동 파크골프장",
@@ -6605,7 +6801,8 @@
       "registration_method": null,
       "reference": "https://openclick.tistory.com/2078"
     },
-    "id": 200
+    "id": 200,
+    "slug": "동구-봉무동-파크골프장"
   },
   {
     "name": "동구 숙천 파크골프장",
@@ -6633,7 +6830,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 201
+    "id": 201,
+    "slug": "동구-숙천-파크골프장"
   },
   {
     "name": "북구 검단 파크골프장",
@@ -6661,7 +6859,8 @@
       "registration_method": "회원만 사용 가능",
       "reference": "https://openclick.tistory.com/2058"
     },
-    "id": 202
+    "id": 202,
+    "slug": "북구-검단-파크골프장"
   },
   {
     "name": "불로 파크골프장",
@@ -6702,7 +6901,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://dgpg.daegu.go.kr/parkgolf/main"
     },
-    "id": 203
+    "id": 203,
+    "slug": "불로-파크골프장"
   },
   {
     "name": "비산 A-B 파크골프장",
@@ -6730,7 +6930,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/nuvida_life/222756538904"
     },
-    "id": 204
+    "id": 204,
+    "slug": "비산-A-B-파크골프장"
   },
   {
     "name": "비산 C-D 파크골프장",
@@ -6758,7 +6959,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/nuvida_life/222756538904"
     },
-    "id": 205
+    "id": 205,
+    "slug": "비산-C-D-파크골프장"
   },
   {
     "name": "서재 파크골프장",
@@ -6799,7 +7001,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 206
+    "id": 206,
+    "slug": "서재-파크골프장"
   },
   {
     "name": "세천공단 파크골프장",
@@ -6827,7 +7030,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/basegirl81/223027075200"
     },
-    "id": 207
+    "id": 207,
+    "slug": "세천공단-파크골프장"
   },
   {
     "name": "소보 파크골프장",
@@ -6855,7 +7059,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 208
+    "id": 208,
+    "slug": "소보-파크골프장"
   },
   {
     "name": "수림지 파크골프장",
@@ -6896,7 +7101,8 @@
       "registration_method": "선착순 현장 접수",
       "reference": "https://blog.naver.com/parkgolfworld/223045475031"
     },
-    "id": 209
+    "id": 209,
+    "slug": "수림지-파크골프장"
   },
   {
     "name": "수성 파크골프장",
@@ -6924,7 +7130,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/parzero8777/223098612111"
     },
-    "id": 210
+    "id": 210,
+    "slug": "수성-파크골프장"
   },
   {
     "name": "수성 팔현 파크골프장",
@@ -6952,7 +7159,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/parzero8777/223097616150"
     },
-    "id": 211
+    "id": 211,
+    "slug": "수성-팔현-파크골프장"
   },
   {
     "name": "우보 파크골프장",
@@ -6980,7 +7188,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 212
+    "id": 212,
+    "slug": "우보-파크골프장"
   },
   {
     "name": "원오교 파크골프장",
@@ -7008,7 +7217,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 213
+    "id": 213,
+    "slug": "원오교-파크골프장"
   },
   {
     "name": "유가 한정 파크골프장",
@@ -7036,7 +7246,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/nuvida_life/222765749778"
     },
-    "id": 214
+    "id": 214,
+    "slug": "유가-한정-파크골프장"
   },
   {
     "name": "대구 진천 파크골프장",
@@ -7064,7 +7275,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 215
+    "id": 215,
+    "slug": "대구-진천-파크골프장"
   },
   {
     "name": "테크노폴리스 파크골프장",
@@ -7105,7 +7317,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 216
+    "id": 216,
+    "slug": "테크노폴리스-파크골프장"
   },
   {
     "name": "하빈 파크골프장",
@@ -7133,7 +7346,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 217
+    "id": 217,
+    "slug": "하빈-파크골프장"
   },
   {
     "name": "대구 화원 파크골프장",
@@ -7161,7 +7375,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 218
+    "id": 218,
+    "slug": "대구-화원-파크골프장"
   },
   {
     "name": "대구 효령 파크골프장",
@@ -7189,7 +7404,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 219
+    "id": 219,
+    "slug": "대구-효령-파크골프장"
   },
   {
     "name": "무태 파크골프장",
@@ -7230,7 +7446,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 220
+    "id": 220,
+    "slug": "무태-파크골프장"
   },
   {
     "name": "버드내-태평파크골프장",
@@ -7258,7 +7475,8 @@
       "registration_method": "회원만 사용 가능",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%8C%80%EC%A0%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9C%84%EC%B9%98-%EC%95%88%EB%82%B4"
     },
-    "id": 221
+    "id": 221,
+    "slug": "버드내-태평파크골프장"
   },
   {
     "name": "유등천 파크골프장",
@@ -7286,7 +7504,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.djsiseol.or.kr/portal/sub020716_02.asp"
     },
-    "id": 222
+    "id": 222,
+    "slug": "유등천-파크골프장"
   },
   {
     "name": "을미기 파크골프장",
@@ -7327,7 +7546,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%8C%80%EC%A0%84-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9C%84%EC%B9%98-%EC%95%88%EB%82%B4"
     },
-    "id": 223
+    "id": 223,
+    "slug": "을미기-파크골프장"
   },
   {
     "name": "유성구 갑천 파크골프장",
@@ -7355,7 +7575,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.djsiseol.or.kr/portal/sub020716_02.asp"
     },
-    "id": 224
+    "id": 224,
+    "slug": "유성구-갑천-파크골프장"
   },
   {
     "name": "기장 파크골프장",
@@ -7396,7 +7617,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 225
+    "id": 225,
+    "slug": "기장-파크골프장"
   },
   {
     "name": "대저 생태공원 파크골프장",
@@ -7424,7 +7646,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EC%95%88%EB%82%B4#google_vignette"
     },
-    "id": 226
+    "id": 226,
+    "slug": "대저-생태공원-파크골프장"
   },
   {
     "name": "사암 파크골프장",
@@ -7465,7 +7688,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://blog.naver.com/bsgangseogu/223172635153"
     },
-    "id": 227
+    "id": 227,
+    "slug": "사암-파크골프장"
   },
   {
     "name": "장림 파크골프장",
@@ -7493,7 +7717,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 228
+    "id": 228,
+    "slug": "장림-파크골프장"
   },
   {
     "name": "화명 파크골프장",
@@ -7521,7 +7746,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%ED%9C%B4%EC%9E%A5-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95#google_vignette"
     },
-    "id": 229
+    "id": 229,
+    "slug": "화명-파크골프장"
   },
   {
     "name": "삼락 파크골프장",
@@ -7549,7 +7775,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EB%B6%80%EC%82%B0-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%ED%9C%B4%EC%9E%A5-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95#google_vignette"
     },
-    "id": 230
+    "id": 230,
+    "slug": "삼락-파크골프장"
   },
   {
     "name": "강동 파크골프장",
@@ -7590,7 +7817,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 231
+    "id": 231,
+    "slug": "강동-파크골프장"
   },
   {
     "name": "구로 안양천 18홀 파크골프장",
@@ -7618,7 +7846,8 @@
       "registration_method": "전화 접수",
       "reference": "https://kogitube.tistory.com/entry/%EA%B5%AC%EB%A1%9C%EC%95%88%EC%96%91%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%BD%94%EC%8A%A4%EC%84%A4%EB%AA%85#google_vignette"
     },
-    "id": 232
+    "id": 232,
+    "slug": "구로-안양천-18홀-파크골프장"
   },
   {
     "name": "구로 안양천 9홀 파크골프장",
@@ -7646,7 +7875,8 @@
       "registration_method": "전화 접수",
       "reference": "https://kogitube.tistory.com/entry/%EA%B5%AC%EB%A1%9C%EC%95%88%EC%96%91%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95-%EC%9D%B4%EC%9A%A9%EC%9A%94%EA%B8%88-%EC%BD%94%EC%8A%A4%EC%84%A4%EB%AA%85#google_vignette"
     },
-    "id": 233
+    "id": 233,
+    "slug": "구로-안양천-9홀-파크골프장"
   },
   {
     "name": "금천구 한내천 파크골프장",
@@ -7674,7 +7904,8 @@
       "registration_method": "금천구민, 금천구 소재 직장인만 이용 가능",
       "reference": null
     },
-    "id": 234
+    "id": 234,
+    "slug": "금천구-한내천-파크골프장"
   },
   {
     "name": "동대문구 중량천 파크골프장",
@@ -7702,7 +7933,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://www.dfmc.kr:8443/course/sports/fmcs/181"
     },
-    "id": 235
+    "id": 235,
+    "slug": "동대문구-중량천-파크골프장"
   },
   {
     "name": "양천구 안양천 파크골프장",
@@ -7743,7 +7975,8 @@
       "registration_method": "인터넷 예약 (월수목 양천구민만 사용 가능)",
       "reference": "https://www.yangcheon.go.kr/site/yangcheon/ex/bbs/View.do?cbIdx=254&bcIdx=280794&parentSeq=280794"
     },
-    "id": 236
+    "id": 236,
+    "slug": "양천구-안양천-파크골프장"
   },
   {
     "name": "양평누리 파크골프장",
@@ -7771,7 +8004,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://srent.y-sisul.or.kr/page/rent/s03.info.asp"
     },
-    "id": 237
+    "id": 237,
+    "slug": "양평누리-파크골프장"
   },
   {
     "name": "월드컵 파크골프장",
@@ -7812,7 +8046,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://m.blog.naver.com/puritism81/222904929301"
     },
-    "id": 238
+    "id": 238,
+    "slug": "월드컵-파크골프장"
   },
   {
     "name": "잠실 파크골프장",
@@ -7853,7 +8088,8 @@
       "registration_method": "매월 15일 오후 1:30에 선착순으로 다음달 이용 예약",
       "reference": "https://blog.naver.com/avarava/223054689125"
     },
-    "id": 239
+    "id": 239,
+    "slug": "잠실-파크골프장"
   },
   {
     "name": "노원 중랑천 파크골프장",
@@ -7881,7 +8117,8 @@
       "registration_method": "당일 현장 접수",
       "reference": null
     },
-    "id": 240
+    "id": 240,
+    "slug": "노원-중랑천-파크골프장"
   },
   {
     "name": "여의도 한강공원 파크골프장",
@@ -7922,7 +8159,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "http://www.seniortimes.kr/news/articleView.html?idxno=3003789"
     },
-    "id": 241
+    "id": 241,
+    "slug": "여의도-한강공원-파크골프장"
   },
   {
     "name": "서남 물재생센터 파크골프장",
@@ -7963,7 +8201,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S210416165517480978&tr_code=yeyak"
     },
-    "id": 242
+    "id": 242,
+    "slug": "서남-물재생센터-파크골프장"
   },
   {
     "name": "부강 파크골프장",
@@ -7991,7 +8230,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 243
+    "id": 243,
+    "slug": "부강-파크골프장"
   },
   {
     "name": "오가낭 파크골프장",
@@ -8032,7 +8272,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 244
+    "id": 244,
+    "slug": "오가낭-파크골프장"
   },
   {
     "name": "세종 조천 파크골프장",
@@ -8060,7 +8301,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 245
+    "id": 245,
+    "slug": "세종-조천-파크골프장"
   },
   {
     "name": "세종 중앙공원 파크골프장",
@@ -8088,7 +8330,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://onestop.sejong.go.kr/Usr/main/main.do"
     },
-    "id": 246
+    "id": 246,
+    "slug": "세종-중앙공원-파크골프장"
   },
   {
     "name": "한솔파크 골프장",
@@ -8116,7 +8359,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 247
+    "id": 247,
+    "slug": "한솔파크-골프장"
   },
   {
     "name": "울산 남구 대공원 파크골프장",
@@ -8144,7 +8388,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://www.uic.or.kr/ulsanpark/institution/institution07.do"
     },
-    "id": 248
+    "id": 248,
+    "slug": "울산-남구-대공원-파크골프장"
   },
   {
     "name": "남구 태화강 파크골프장",
@@ -8172,7 +8417,8 @@
       "registration_method": null,
       "reference": "정보 없음"
     },
-    "id": 249
+    "id": 249,
+    "slug": "남구-태화강-파크골프장"
   },
   {
     "name": "울산 동천 파크골프장",
@@ -8200,7 +8446,8 @@
       "registration_method": null,
       "reference": "정보 없음"
     },
-    "id": 250
+    "id": 250,
+    "slug": "울산-동천-파크골프장"
   },
   {
     "name": "쇠평 파크골프장",
@@ -8228,7 +8475,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "http://yeyak.iwillsoft.co.kr/etc/facility_info17.jsp"
     },
-    "id": 251
+    "id": 251,
+    "slug": "쇠평-파크골프장"
   },
   {
     "name": "울주군 범서 파크골프장",
@@ -8256,7 +8504,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000090"
     },
-    "id": 252
+    "id": 252,
+    "slug": "울주군-범서-파크골프장"
   },
   {
     "name": "울주군 청량 파크골프장",
@@ -8284,7 +8533,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://www.uljusports.or.kr/uljusports/reserve/reserve.do?exec=caution&searchFacUnqId=FACL_000000000000044&searchFacUnqId=FACL_000000000000043&orderByFieldId=&searchKey=&searchYear=&searchMonth=&detlUnqId=FADT_000000000000089"
     },
-    "id": 253
+    "id": 253,
+    "slug": "울주군-청량-파크골프장"
   },
   {
     "name": "진장 파크골프장",
@@ -8312,7 +8562,8 @@
       "registration_method": null,
       "reference": "정보 없음"
     },
-    "id": 254
+    "id": 254,
+    "slug": "진장-파크골프장"
   },
   {
     "name": "공촌 유수지 파크골프장",
@@ -8353,7 +8604,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://reserve.insiseol.or.kr/rent/info_gongchon.jsp"
     },
-    "id": 255
+    "id": 255,
+    "slug": "공촌-유수지-파크골프장"
   },
   {
     "name": "선학파크골프장",
@@ -8394,7 +8646,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%9D%B8%EC%B2%9C-%EC%84%A0%ED%95%99%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%98%88%EC%95%BD-%EC%95%88%EB%82%B4-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%A0%95%EB%B3%B4"
     },
-    "id": 256
+    "id": 256,
+    "slug": "선학파크골프장"
   },
   {
     "name": "영종도 파크골프장",
@@ -8422,7 +8675,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://m.blog.naver.com/golf5764/221971667595"
     },
-    "id": 257
+    "id": 257,
+    "slug": "영종도-파크골프장"
   },
   {
     "name": "인천 송도 파크골프장",
@@ -8463,7 +8717,8 @@
       "registration_method": "당일 현장 및 온라인 접수",
       "reference": "https://www.insiseol.or.kr/park/songdo/rental/golf.jsp"
     },
-    "id": 258
+    "id": 258,
+    "slug": "인천-송도-파크골프장"
   },
   {
     "name": "장수 배수지 파크골프장",
@@ -8504,7 +8759,8 @@
       "registration_method": null,
       "reference": "정보 없음"
     },
-    "id": 259
+    "id": 259,
+    "slug": "장수-배수지-파크골프장"
   },
   {
     "name": "고금 파크골프장",
@@ -8532,7 +8788,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 260
+    "id": 260,
+    "slug": "고금-파크골프장"
   },
   {
     "name": "곡성 동악 파크골프장",
@@ -8560,7 +8817,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 261
+    "id": 261,
+    "slug": "곡성-동악-파크골프장"
   },
   {
     "name": "광양 파크골프장",
@@ -8601,7 +8859,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 262
+    "id": 262,
+    "slug": "광양-파크골프장"
   },
   {
     "name": "구례 파크골프장",
@@ -8642,7 +8901,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 263
+    "id": 263,
+    "slug": "구례-파크골프장"
   },
   {
     "name": "남악 파크골프장",
@@ -8683,7 +8943,8 @@
       "registration_method": "현장 접수 (무안군민만 사용가능)",
       "reference": "https://m.blog.naver.com/4199sunny/222951934706"
     },
-    "id": 264
+    "id": 264,
+    "slug": "남악-파크골프장"
   },
   {
     "name": "목포 남해 파크골프장",
@@ -8711,7 +8972,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 265
+    "id": 265,
+    "slug": "목포-남해-파크골프장"
   },
   {
     "name": "담양 제1파크골프장",
@@ -8739,7 +9001,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/seo2274/223223366462"
     },
-    "id": 266
+    "id": 266,
+    "slug": "담양-제1파크골프장"
   },
   {
     "name": "담양 제2파크골프장",
@@ -8767,7 +9030,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/seo2274/223223366462"
     },
-    "id": 267
+    "id": 267,
+    "slug": "담양-제2파크골프장"
   },
   {
     "name": "무안 파크골프장",
@@ -8795,7 +9059,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 268
+    "id": 268,
+    "slug": "무안-파크골프장"
   },
   {
     "name": "보성 미니 파크골프장",
@@ -8836,7 +9101,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 269
+    "id": 269,
+    "slug": "보성-미니-파크골프장"
   },
   {
     "name": "복내 파크골프장",
@@ -8864,7 +9130,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 270
+    "id": 270,
+    "slug": "복내-파크골프장"
   },
   {
     "name": "목포 국제 파크골프장",
@@ -8905,7 +9172,8 @@
       "registration_method": "당일 현장 접수",
       "reference": "https://blog.naver.com/ges830/221735107687"
     },
-    "id": 271
+    "id": 271,
+    "slug": "목포-국제-파크골프장"
   },
   {
     "name": "불갑 파크골프장",
@@ -8933,7 +9201,8 @@
       "registration_method": "당일 현장 접수",
       "reference": null
     },
-    "id": 272
+    "id": 272,
+    "slug": "불갑-파크골프장"
   },
   {
     "name": "산이 파크골프장",
@@ -8974,7 +9243,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 273
+    "id": 273,
+    "slug": "산이-파크골프장"
   },
   {
     "name": "삼학도 파크골프장",
@@ -9015,7 +9285,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 274
+    "id": 274,
+    "slug": "삼학도-파크골프장"
   },
   {
     "name": "삼호 대불 파크골프장",
@@ -9056,7 +9327,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 275
+    "id": 275,
+    "slug": "삼호-대불-파크골프장"
   },
   {
     "name": "상동 파크골프장",
@@ -9084,7 +9356,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 276
+    "id": 276,
+    "slug": "상동-파크골프장"
   },
   {
     "name": "상사 파크골프장",
@@ -9112,7 +9385,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 277
+    "id": 277,
+    "slug": "상사-파크골프장"
   },
   {
     "name": "서면 파크골프장",
@@ -9140,7 +9414,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 278
+    "id": 278,
+    "slug": "서면-파크골프장"
   },
   {
     "name": "서해 파크골프장",
@@ -9168,7 +9443,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 279
+    "id": 279,
+    "slug": "서해-파크골프장"
   },
   {
     "name": "송월 파크골프장",
@@ -9196,7 +9472,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 280
+    "id": 280,
+    "slug": "송월-파크골프장"
   },
   {
     "name": "시종 마한 파크골프장",
@@ -9237,7 +9514,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 281
+    "id": 281,
+    "slug": "시종-마한-파크골프장"
   },
   {
     "name": "목포 실내체육관 파크골프장",
@@ -9278,7 +9556,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 282
+    "id": 282,
+    "slug": "목포-실내체육관-파크골프장"
   },
   {
     "name": "영산포 체육공원 파크골프장",
@@ -9306,7 +9585,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 283
+    "id": 283,
+    "slug": "영산포-체육공원-파크골프장"
   },
   {
     "name": "영암 파크골프장",
@@ -9347,7 +9627,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/snow4you1/223191867222"
     },
-    "id": 284
+    "id": 284,
+    "slug": "영암-파크골프장"
   },
   {
     "name": "오곡 파크골프장",
@@ -9375,7 +9656,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 285
+    "id": 285,
+    "slug": "오곡-파크골프장"
   },
   {
     "name": "운림 삼별초 파크골프장",
@@ -9416,7 +9698,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 286
+    "id": 286,
+    "slug": "운림-삼별초-파크골프장"
   },
   {
     "name": "장성군 A파크골프장",
@@ -9444,7 +9727,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 287
+    "id": 287,
+    "slug": "장성군-A파크골프장"
   },
   {
     "name": "장성군 B파크골프장",
@@ -9472,7 +9756,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 288
+    "id": 288,
+    "slug": "장성군-B파크골프장"
   },
   {
     "name": "장흥 파크골프장",
@@ -9500,7 +9785,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 289
+    "id": 289,
+    "slug": "장흥-파크골프장"
   },
   {
     "name": "한빛 원자력 파크골프장",
@@ -9528,7 +9814,8 @@
       "registration_method": "인터넷 예약",
       "reference": "https://www.khnp.co.kr/hanbit/contents.do?key=2848"
     },
-    "id": 290
+    "id": 290,
+    "slug": "한빛-원자력-파크골프장"
   },
   {
     "name": "함평 파크골프장",
@@ -9569,7 +9856,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.hampyeong.go.kr/contentsView.do?pageId=www127"
     },
-    "id": 291
+    "id": 291,
+    "slug": "함평-파크골프장"
   },
   {
     "name": "해남파크골프장",
@@ -9597,7 +9885,8 @@
       "registration_method": null,
       "reference": "https://m.blog.naver.com/lf_sports_meditech/222936150374?view=img_1"
     },
-    "id": 292
+    "id": 292,
+    "slug": "해남파크골프장"
   },
   {
     "name": "혁신도시 파크골프장",
@@ -9638,7 +9927,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 293
+    "id": 293,
+    "slug": "혁신도시-파크골프장"
   },
   {
     "name": "북항 파크골프장",
@@ -9679,7 +9969,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 294
+    "id": 294,
+    "slug": "북항-파크골프장"
   },
   {
     "name": "고산 파크골프장",
@@ -9707,7 +9998,8 @@
       "registration_method": "당일 현장 접수",
       "reference": null
     },
-    "id": 295
+    "id": 295,
+    "slug": "고산-파크골프장"
   },
   {
     "name": "고창 스포츠타운 파크골프장",
@@ -9735,7 +10027,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 296
+    "id": 296,
+    "slug": "고창-스포츠타운-파크골프장"
   },
   {
     "name": "군산 파크골프장",
@@ -9763,7 +10056,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 297
+    "id": 297,
+    "slug": "군산-파크골프장"
   },
   {
     "name": "둔산파크골프장",
@@ -9804,7 +10098,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 298
+    "id": 298,
+    "slug": "둔산파크골프장"
   },
   {
     "name": "마전교 파크골프장",
@@ -9832,7 +10127,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 299
+    "id": 299,
+    "slug": "마전교-파크골프장"
   },
   {
     "name": "무주 파크골프장",
@@ -9873,10 +10169,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 300
+    "id": 300,
+    "slug": "무주-파크골프장"
   },
   {
-    "name": "비봉파크골프장",
+    "name": "비봉 파크골프장",
     "address": {
       "address_name": "전북 완주군 비봉면 소농리 454",
       "b_code": "4571037022",
@@ -9914,7 +10211,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/seo2274/223227173876"
     },
-    "id": 301
+    "id": 301,
+    "slug": "비봉-파크골프장"
   },
   {
     "name": "비비정 파크골프장",
@@ -9942,7 +10240,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 302
+    "id": 302,
+    "slug": "비비정-파크골프장"
   },
   {
     "name": "상관 파크골프장",
@@ -9970,7 +10269,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 303
+    "id": 303,
+    "slug": "상관-파크골프장"
   },
   {
     "name": "생강골 파크골프장",
@@ -9998,7 +10298,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 304
+    "id": 304,
+    "slug": "생강골-파크골프장"
   },
   {
     "name": "순창 파크골프장",
@@ -10026,7 +10327,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 305
+    "id": 305,
+    "slug": "순창-파크골프장"
   },
   {
     "name": "신태인 파크골프장",
@@ -10054,7 +10356,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/oh41232/223088107915"
     },
-    "id": 306
+    "id": 306,
+    "slug": "신태인-파크골프장"
   },
   {
     "name": "온고을 파크골프장",
@@ -10095,7 +10398,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 307
+    "id": 307,
+    "slug": "온고을-파크골프장"
   },
   {
     "name": "이서 파크골프장",
@@ -10123,7 +10427,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 308
+    "id": 308,
+    "slug": "이서-파크골프장"
   },
   {
     "name": "익산 파크골프장",
@@ -10164,7 +10469,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 309
+    "id": 309,
+    "slug": "익산-파크골프장"
   },
   {
     "name": "임실 파크골프장",
@@ -10192,7 +10498,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 310
+    "id": 310,
+    "slug": "임실-파크골프장"
   },
   {
     "name": "줄포 파크골프장",
@@ -10233,7 +10540,8 @@
       "registration_method": "선착순 등록",
       "reference": "https://blog.naver.com/meowi0525/221385076458"
     },
-    "id": 311
+    "id": 311,
+    "slug": "줄포-파크골프장"
   },
   {
     "name": "진안 파크골프장",
@@ -10261,7 +10569,8 @@
       "registration_method": "전화 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A7%84%EC%95%88%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     },
-    "id": 312
+    "id": 312,
+    "slug": "진안-파크골프장"
   },
   {
     "name": "청하 파크골프장",
@@ -10302,7 +10611,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 313
+    "id": 313,
+    "slug": "청하-파크골프장"
   },
   {
     "name": "남원 파크골프장",
@@ -10343,7 +10653,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 314
+    "id": 314,
+    "slug": "남원-파크골프장"
   },
   {
     "name": "강창학 파크골프장",
@@ -10371,7 +10682,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     },
-    "id": 315
+    "id": 315,
+    "slug": "강창학-파크골프장"
   },
   {
     "name": "렛츠런 파크골프장",
@@ -10412,7 +10724,8 @@
       "registration_method": "선착순 등록",
       "reference": "http://www.koreatriptips.com/leisure-sports/637398.html"
     },
-    "id": 316
+    "id": 316,
+    "slug": "렛츠런-파크골프장"
   },
   {
     "name": "수망리(남원) 파크골프장",
@@ -10453,10 +10766,11 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     },
-    "id": 317
+    "id": 317,
+    "slug": "수망리(남원)-파크골프장"
   },
   {
-    "name": "월라봉파크골프장",
+    "name": "월라봉 파크골프장",
     "address": {
       "address_name": "제주특별자치도 서귀포시 신효동 1188-5",
       "b_code": "5013010900",
@@ -10481,10 +10795,11 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     },
-    "id": 318
+    "id": 318,
+    "slug": "월라봉-파크골프장"
   },
   {
-    "name": "칠십리파크골프장",
+    "name": "칠십리 파크골프장",
     "address": {
       "address_name": "제주특별자치도 서귀포시 서홍동 663-2",
       "b_code": "5013010600",
@@ -10509,7 +10824,8 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%A0%9C%EC%A3%BC-%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9C%84%EC%B9%98-%EB%B0%8F-%EC%9D%B4%EC%9A%A9-%EC%95%88%EB%82%B4"
     },
-    "id": 319
+    "id": 319,
+    "slug": "칠십리-파크골프장"
   },
   {
     "name": "회천 파크골프장",
@@ -10550,10 +10866,11 @@
       "registration_method": "전화 및 방문 접수",
       "reference": "https://cklee88.tistory.com/943"
     },
-    "id": 320
+    "id": 320,
+    "slug": "회천-파크골프장"
   },
   {
-    "name": "계룡시파크골프장",
+    "name": "계룡시 파크골프장",
     "address": {
       "address_name": "충남 계룡시 신도안면 정장리 6",
       "b_code": "4425033022",
@@ -10591,7 +10908,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 321
+    "id": 321,
+    "slug": "계룡시-파크골프장"
   },
   {
     "name": "곡교천 파크골프장",
@@ -10619,7 +10937,8 @@
       "registration_method": null,
       "reference": "https://blog.naver.com/avarava/221612349787"
     },
-    "id": 322
+    "id": 322,
+    "slug": "곡교천-파크골프장"
   },
   {
     "name": "곰나루 파크골프장",
@@ -10647,7 +10966,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 323
+    "id": 323,
+    "slug": "곰나루-파크골프장"
   },
   {
     "name": "금산군 파크골프장",
@@ -10675,7 +10995,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 324
+    "id": 324,
+    "slug": "금산군-파크골프장"
   },
   {
     "name": "논산 파크골프장",
@@ -10703,7 +11024,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 325
+    "id": 325,
+    "slug": "논산-파크골프장"
   },
   {
     "name": "당진 해나루 파크골프장",
@@ -10731,7 +11053,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 326
+    "id": 326,
+    "slug": "당진-해나루-파크골프장"
   },
   {
     "name": "도고 파크골프장",
@@ -10759,10 +11082,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 327
+    "id": 327,
+    "slug": "도고-파크골프장"
   },
   {
-    "name": "둔포파크골프장",
+    "name": "둔포-파크골프장",
     "address": {
       "address_name": "충남 아산시 둔포면 석곡리 1480",
       "b_code": "4420036032",
@@ -10787,7 +11111,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 328
+    "id": 328,
+    "slug": "둔포-파크골프장"
   },
   {
     "name": "무한천 파크골프장",
@@ -10815,10 +11140,11 @@
       "registration_method": "이틀 전 사전 전화 접수",
       "reference": "https://parkgolf-tip.tistory.com/entry/%EC%98%88%EC%82%B0-%EB%AC%B4%ED%95%9C%EC%B2%9C%ED%8C%8C%ED%81%AC%EA%B3%A8%ED%94%84%EC%9E%A5-%EC%9D%B4%EC%9A%A9-%EC%A0%95%EB%B3%B4"
     },
-    "id": 329
+    "id": 329,
+    "slug": "무한천-파크골프장"
   },
   {
-    "name": "백세파크골프장",
+    "name": "백세-파크골프장",
     "address": {
       "address_name": "충남 청양군 청양읍 벽천리 222-1",
       "b_code": "4479025024",
@@ -10856,7 +11182,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 330
+    "id": 330,
+    "slug": "백세-파크골프장"
   },
   {
     "name": "보령 파크골프구장",
@@ -10884,7 +11211,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 331
+    "id": 331,
+    "slug": "보령-파크골프구장"
   },
   {
     "name": "부여 파크골프장",
@@ -10912,7 +11240,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 332
+    "id": 332,
+    "slug": "부여-파크골프장"
   },
   {
     "name": "삽교 파크골프구장",
@@ -10940,7 +11269,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 333
+    "id": 333,
+    "slug": "삽교-파크골프구장"
   },
   {
     "name": "상록 파크골프구장",
@@ -10981,7 +11311,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 334
+    "id": 334,
+    "slug": "상록-파크골프구장"
   },
   {
     "name": "서산 나이스 파크골프장",
@@ -11022,7 +11353,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 335
+    "id": 335,
+    "slug": "서산-나이스-파크골프장"
   },
   {
     "name": "서산 파크골프장",
@@ -11050,7 +11382,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 336
+    "id": 336,
+    "slug": "서산-파크골프장"
   },
   {
     "name": "서천군 노인복지관 파크골프장",
@@ -11091,7 +11424,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 337
+    "id": 337,
+    "slug": "서천군-노인복지관-파크골프장"
   },
   {
     "name": "전원 파크골프구장",
@@ -11119,7 +11453,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 338
+    "id": 338,
+    "slug": "전원-파크골프구장"
   },
   {
     "name": "천안 도솔 파크골프장",
@@ -11160,7 +11495,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 339
+    "id": 339,
+    "slug": "천안-도솔-파크골프장"
   },
   {
     "name": "천안 풍세 파크골프장",
@@ -11188,7 +11524,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 340
+    "id": 340,
+    "slug": "천안-풍세-파크골프장"
   },
   {
     "name": "천안 한들 파크골프장",
@@ -11229,10 +11566,11 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 341
+    "id": 341,
+    "slug": "천안-한들-파크골프장"
   },
   {
-    "name": "청양군파크골프장",
+    "name": "청양군-파크골프장",
     "address": {
       "address_name": "충남 청양군 청양읍 벽천리 222-1",
       "b_code": "4479025024",
@@ -11270,7 +11608,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 342
+    "id": 342,
+    "slug": "청양군-파크골프장"
   },
   {
     "name": "태안 파크골프장",
@@ -11311,7 +11650,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 343
+    "id": 343,
+    "slug": "태안-파크골프장"
   },
   {
     "name": "홍성 파크골프장",
@@ -11352,7 +11692,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 344
+    "id": 344,
+    "slug": "홍성-파크골프장"
   },
   {
     "name": "괴산 파크골프장",
@@ -11393,7 +11734,8 @@
       "registration_method": "전화 접수",
       "reference": "https://blog.naver.com/goesan-gun/223179875246"
     },
-    "id": 345
+    "id": 345,
+    "slug": "괴산-파크골프장"
   },
   {
     "name": "단양 파크골프장",
@@ -11421,7 +11763,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 346
+    "id": 346,
+    "slug": "단양-파크골프장"
   },
   {
     "name": "서충주 파크골프장",
@@ -11462,7 +11805,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 347
+    "id": 347,
+    "slug": "서충주-파크골프장"
   },
   {
     "name": "수안보 온천 파크골프장",
@@ -11490,7 +11834,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.chungju.go.kr/rev/reserve/188"
     },
-    "id": 348
+    "id": 348,
+    "slug": "수안보-온천-파크골프장"
   },
   {
     "name": "음성 생극 파크골프장",
@@ -11518,7 +11863,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 349
+    "id": 349,
+    "slug": "음성-생극-파크골프장"
   },
   {
     "name": "제천 중전 파크골프장",
@@ -11559,7 +11905,8 @@
       "registration_method": "전화 접수",
       "reference": null
     },
-    "id": 350
+    "id": 350,
+    "slug": "제천-중전-파크골프장"
   },
   {
     "name": "증평 파크골프장",
@@ -11600,7 +11947,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 351
+    "id": 351,
+    "slug": "증평-파크골프장"
   },
   {
     "name": "진천 파크골프장",
@@ -11628,7 +11976,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 352
+    "id": 352,
+    "slug": "진천-파크골프장"
   },
   {
     "name": "청주 오송 파크골프장",
@@ -11669,7 +12018,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 353
+    "id": 353,
+    "slug": "청주-오송-파크골프장"
   },
   {
     "name": "청주 장애인 파크골프장",
@@ -11710,7 +12060,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 354
+    "id": 354,
+    "slug": "청주-장애인-파크골프장"
   },
   {
     "name": "청주 파크골프장",
@@ -11751,7 +12102,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 355
+    "id": 355,
+    "slug": "청주-파크골프장"
   },
   {
     "name": "청주호 미골 파크골프장",
@@ -11779,7 +12131,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 356
+    "id": 356,
+    "slug": "청주호-미골-파크골프장"
   },
   {
     "name": "충주 단월 파크골프장",
@@ -11807,7 +12160,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.chungju.go.kr/rev/reserve/188"
     },
-    "id": 357
+    "id": 357,
+    "slug": "충주-단월-파크골프장"
   },
   {
     "name": "충주 장애인 파크골프장",
@@ -11848,7 +12202,8 @@
       "registration_method": null,
       "reference": null
     },
-    "id": 358
+    "id": 358,
+    "slug": "충주-장애인-파크골프장"
   },
   {
     "name": "충주 목행 파크골프장",
@@ -11876,7 +12231,8 @@
       "registration_method": "전화 접수",
       "reference": "https://www.chungju.go.kr/rev/reserve/188"
     },
-    "id": 359
+    "id": 359,
+    "slug": "충주-목행-파크골프장"
   },
   {
     "name": "김포 양촌 파크골프장",
@@ -11917,6 +12273,7 @@
       "registration_method": "온라인 접수",
       "reference": "http://www.gimposports.or.kr/bbs/orderFoot.php"
     },
-    "id": 49
+    "id": 49,
+    "slug": "김포-양촌-파크골프장"
   }
 ]
