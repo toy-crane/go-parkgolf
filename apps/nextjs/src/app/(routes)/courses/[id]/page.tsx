@@ -64,6 +64,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
+  console.log(params.id, decodeURIComponent(params.id));
   const course = await fetchCourse(params.id);
   if (course) {
     return <CourseDetail course={course} />;

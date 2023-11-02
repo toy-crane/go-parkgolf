@@ -1,4 +1,4 @@
-import Main from "@/app/courses/main";
+import Main from "@/app/(routes)/courses/main";
 import { fetchCourses } from "@/libs/fetch";
 
 const Home = async ({
