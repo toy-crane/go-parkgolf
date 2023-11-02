@@ -7,10 +7,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allCourses = await fetchCourses();
 
   const courses = allCourses.map((course) => ({
-    url: addPathToBaseURL(`/courses/${course.id}`),
+    url: addPathToBaseURL(`/golf-courses/${encodeURIComponent(course.slug)}`),
     lastModified: new Date(),
     priority: 0.8,
-    changeFrequency: "weekly" as const,
+    changeFrequency: "daily" as const,
   }));
 
   return [
