@@ -22,7 +22,8 @@ const defineConfig = (): ExpoConfig => ({
     supportsTablet: true,
   },
   android: {
-    package: "your.bundle.identifier",
+    package: "app.goparkgolf.www",
+    versionCode: 1,
     adaptiveIcon: {
       foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#1F104A",
