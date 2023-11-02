@@ -217,7 +217,7 @@ const CourseDetail = ({
             <h2 className="text-foreground mb-6 text-xl font-bold">
               주변 파크 골프장 둘러보기
             </h2>
-            <div className="grid grid-cols-3 gap-y-3">
+            <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
               {nearCourses.map((course) => (
                 <Link href={`/golf-courses/${course.slug}`} key={course.name}>
                   {course.name}
