@@ -27,6 +27,8 @@ const defineConfig = (): ExpoConfig => ({
         "사용자의 위치를 기반으로 파크골프장 정보를 제공하기 위해 권한이 필요합니다.",
       NSLocationWhenInUseUsageDescription:
         "사용자의 위치를 기반으로 파크골프장 정보를 제공하기 위해 권한이 필요합니다.",
+      NSUserTrackingUsageDescription:
+        "사용자에게 최적화된 광고를 제공하기 위해 사용자의 광고 활동 정보를 수집합니다",
     },
   },
   android: {
@@ -54,6 +56,13 @@ const defineConfig = (): ExpoConfig => ({
       {
         locationAlwaysAndWhenInUsePermission:
           "$(PRODUCT_NAME)가 사용자의 위치 정보를 사용하는데, 동의하시겠습니까?",
+      },
+    ],
+    [
+      "expo-tracking-transparency",
+      {
+        userTrackingPermission:
+          "사용자에게 최적화된 광고를 제공하기 위해 사용자의 광고 활동 정보를 수집합니다",
       },
     ],
   ],
