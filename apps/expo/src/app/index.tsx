@@ -53,6 +53,7 @@ export default function Home() {
           ref={webViewRef}
           allowsBackForwardNavigationGestures
           geolocationEnabled
+          pullToRefreshEnabled
           originWhitelist={originAllowList}
           onShouldStartLoadWithRequest={(request) => {
             // Only allow navigating within this website
