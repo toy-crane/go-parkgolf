@@ -10,6 +10,8 @@ export default function Home() {
   const webViewRef = useRef<WebView>(null);
   const [isCanGoBack, setIsCanGoBack] = useState(false);
 
+  const reloadWebView = () => webViewRef.current?.reload();
+
   const onPressHardwareBackButton = useCallback(() => {
     if (webViewRef.current && isCanGoBack) {
       webViewRef.current.goBack();
@@ -54,6 +56,7 @@ export default function Home() {
           allowsBackForwardNavigationGestures
           geolocationEnabled
           pullToRefreshEnabled
+          onContentProcessDidTerminate={reloadWebView}
           originWhitelist={originAllowList}
           onShouldStartLoadWithRequest={(request) => {
             // Only allow navigating within this website

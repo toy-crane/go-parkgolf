@@ -21,6 +21,8 @@ const defineConfig = (): ExpoConfig => ({
     bundleIdentifier: "app.goparkgolf.www",
     supportsTablet: true,
     infoPlist: {
+      NSLocationAlwaysAndWhenInUseUsageDescription:
+        "사용자의 위치를 기반으로 파크골프장 정보를 제공하기 위해 권한이 필요합니다.",
       NSLocationAlwaysUsageDescription:
         "사용자의 위치를 기반으로 파크골프장 정보를 제공하기 위해 권한이 필요합니다.",
       NSLocationUsageDescription:
