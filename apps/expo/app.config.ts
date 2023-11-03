@@ -58,6 +58,10 @@ const defineConfig = (): ExpoConfig => ({
       {
         locationAlwaysAndWhenInUsePermission:
           "$(PRODUCT_NAME)가 사용자의 위치 정보를 사용하는데, 동의하시겠습니까?",
+        locationAlwaysPermission:
+          "$(PRODUCT_NAME)가 사용자의 위치 정보를 사용하는데, 동의하시겠습니까?",
+        locationWhenInUsePermission:
+          "$(PRODUCT_NAME)가 사용자의 위치 정보를 사용하는데, 동의하시겠습니까?",
       },
     ],
     [
