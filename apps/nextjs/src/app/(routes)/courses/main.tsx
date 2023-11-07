@@ -109,10 +109,15 @@ const Main = ({
       lng: toNumber(lng, DEFAULT_POSITION.center.lng),
     },
   });
+
+  const OPTIONS = courses.map((course) => ({
+    value: course.searchable_address,
+    label: course.name,
+  }));
+
   const { toast } = useToast();
   const [isLoading, setLoading] = useState(false);
   const [isDisabled, setDisbled] = useState(false);
-  const [items, setItems] = useState<Option[]>([]);
   const [value, setValue] = useState<Option>();
 
   // 선택한 파크골프장
@@ -125,7 +130,7 @@ const Main = ({
       <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
         <div className="flex justify-between">
           <AutoComplete
-            options={items}
+            options={OPTIONS}
             emptyMessage="해당하는 검색 결과가 없습니다."
             placeholder="주소 또는 이름을 입력해주세요."
             isLoading={isLoading}

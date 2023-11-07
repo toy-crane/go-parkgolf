@@ -99,21 +99,21 @@ export interface Database {
           hole_count: number
           id: number
           name: string
-          searchable_address: string | null
+          searchable_address: string
           slug: string
         }
         Insert: {
           hole_count: number
           id?: number
           name: string
-          searchable_address?: string | null
+          searchable_address: string
           slug: string
         }
         Update: {
           hole_count?: number
           id?: number
           name?: string
-          searchable_address?: string | null
+          searchable_address?: string
           slug?: string
         }
         Relationships: []
