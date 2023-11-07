@@ -19,6 +19,7 @@ import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
 import type { Course, Position } from "@/types";
+import type { Tables } from "@/types/supabase-helper";
 import {
   AlarmClock,
   Clock,
@@ -99,6 +100,7 @@ const Main = ({
 }) => {
   const { track } = useAmplitude();
   const [open, setOpen] = useState(false);
+
   // 지도의 위치
   const [position, setPosition] = useState<Position>({
     level: toNumber(level, DEFAULT_POSITION.level),
@@ -110,19 +112,20 @@ const Main = ({
   const { toast } = useToast();
   const [isLoading, setLoading] = useState(false);
   const [isDisabled, setDisbled] = useState(false);
+  const [items, setItems] = useState<Option[]>([]);
   const [value, setValue] = useState<Option>();
 
   // 선택한 파크골프장
   const [selectedcourse, setSelectedcourse] = useState<Course | undefined>();
-
-  const address = selectedcourse?.address;
+  const address = selectedcourse?.address[0];
+  const operation = selectedcourse?.operation[0];
 
   return (
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
         <div className="flex justify-between">
           <AutoComplete
-            options={FRAMEWORKS}
+            options={items}
             emptyMessage="해당하는 검색 결과가 없습니다."
             placeholder="주소 또는 이름을 입력해주세요."
             isLoading={isLoading}
@@ -199,8 +202,8 @@ const Main = ({
                 setPosition((position) => ({
                   ...position,
                   center: {
-                    lat: Number(course.address.y),
-                    lng: Number(course.address.x),
+                    lat: Number(course.address[0]?.y),
+                    lng: Number(course.address[0]?.x),
                   },
                 }));
                 setOpen((open) => !open);
@@ -278,7 +281,7 @@ const Main = ({
             <div className="flex items-center gap-4">
               <Phone size={20} />
               <div className="text-base">
-                {selectedcourse?.contact.phone_number ? (
+                {selectedcourse?.contact[0]?.phone_number ? (
                   <Button
                     variant="link"
                     size="sm"
@@ -288,8 +291,8 @@ const Main = ({
                       track("phone number clicked", { ...selectedcourse });
                     }}
                   >
-                    <a href={`tel:${selectedcourse?.contact.phone_number}`}>
-                      {selectedcourse?.contact.phone_number}
+                    <a href={`tel:${selectedcourse?.contact[0]?.phone_number}`}>
+                      {selectedcourse?.contact[0]?.phone_number}
                     </a>
                   </Button>
                 ) : (
@@ -303,13 +306,13 @@ const Main = ({
               <div className="text-base">
                 <div className="flex">
                   <div className="mr-2">영업 시간 -</div>
-                  {selectedcourse?.operation.opening_hours ??
+                  {selectedcourse?.operation[0]?.opening_hours ??
                     InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })}
                 </div>
-                {selectedcourse?.operation.regular_closed_days && (
+                {selectedcourse?.operation[0]?.regular_closed_days && (
                   <div className="flex">
                     <div className="mr-2">정기 휴무일 - </div>
-                    {selectedcourse?.operation.regular_closed_days}
+                    {selectedcourse?.operation[0]?.regular_closed_days}
                   </div>
                 )}
               </div>
@@ -320,11 +323,11 @@ const Main = ({
               <div className="text-base">
                 <div className="flex">
                   <div className="mr-2">예약 방법 - </div>
-                  {selectedcourse?.operation.registration_method ??
+                  {operation?.registration_method ??
                     InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })}
                 </div>
                 <div>
-                  {selectedcourse?.operation.website ? (
+                  {operation?.website ? (
                     <Button
                       variant="link"
                       size="sm"
@@ -333,7 +336,7 @@ const Main = ({
                       onClick={() => track("website detail clicked")}
                     >
                       <a
-                        href={selectedcourse?.operation.website}
+                        href={operation?.website}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

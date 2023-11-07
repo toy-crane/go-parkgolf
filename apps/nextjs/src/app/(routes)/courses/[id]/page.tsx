@@ -1,9 +1,12 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
+import { cookies } from "next/headers";
 import { notFound, permanentRedirect } from "next/navigation";
-import { fetchCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
+import type { Database } from "@/types/generated";
+import type { DbResult, DbResultOk } from "@/types/supabase-helper";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 interface Props {
   params: { id: string };
@@ -25,20 +28,36 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const course = await fetchCourse(params.id);
+  const cookieStore = cookies();
+  const supabase = createRouteHandlerClient<Database>({
+    cookies: () => cookieStore,
+  });
+  const query = supabase
+    .from("golf_course")
+    .select(`*, address(*), road_address(*), contact(*), operation(*)`)
+    .eq("id", params.id);
+  const result: DbResult<typeof query> = await query;
+  if (result.error) {
+    throw Error("golf_course fetch에 실패하였습니다.");
+  }
+  const courses: DbResultOk<typeof query> = result.data;
+  const course = courses[0] as Course;
+  const address = course.address[0];
+  const operation = course.operation[0];
+  const contact = course.contact[0];
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (course) {
     const title = `${course.name} 예약 정보`;
-    const description = `위치 - ${course.address.address_name} \n 영업시간 - ${
-      course.operation.opening_hours ?? "정보 없음"
+    const description = `위치 - ${address?.address_name} \n 영업시간 - ${
+      operation?.opening_hours ?? "정보 없음"
     } \n 정기 휴무일 - ${
-      course.operation.regular_closed_days ?? "정보 없음"
-    } \n 예약방법 - ${
-      course.operation.registration_method ?? "정보 없음"
-    } 연락처 - ${course.contact.phone_number ?? "정보 없음"}`;
+      operation?.regular_closed_days ?? "정보 없음"
+    } \n 예약방법 - ${operation?.registration_method ?? "정보 없음"} 연락처 - ${
+      contact?.phone_number ?? "정보 없음"
+    }`;
     return {
       title,
       description,
@@ -62,9 +81,21 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const course = await fetchCourse(params.id);
-  if (!course) {
-    notFound();
+  const cookieStore = cookies();
+  const supabase = createRouteHandlerClient<Database>({
+    cookies: () => cookieStore,
+  });
+  const query = supabase.from("golf_course").select(`slug`).eq("id", params.id);
+
+  const result: DbResult<typeof query> = await query;
+  if (result.error) {
+    throw Error("golf_course fetch에 실패하였습니다.");
   }
-  permanentRedirect(`/golf-courses/${encodeURIComponent(course.slug)}`);
+  const courses: DbResultOk<typeof query> = result.data;
+
+  if (!courses[0]) {
+    notFound();
+  } else {
+    permanentRedirect(`/golf-courses/${encodeURIComponent(courses[0].slug)}`);
+  }
 }

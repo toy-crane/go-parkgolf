@@ -1,14 +1,36 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
-import { fetchCourseBySlug, fetchNearCourse } from "@/libs/fetch";
 import type { Course } from "@/types";
+import type { Database } from "@/types/generated";
+import type { DbResult, DbResultOk } from "@/types/supabase-helper";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 import CourseDetail from "./course-detail";
 
 interface Props {
   params: { slug: string };
+}
+
+function haversineDistance(
+  lat1: number,
+  lng1: number,
+  lat2: number,
+  lng2: number,
+): number {
+  const R = 6371; // 지구의 반경 (km)
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dlng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dlng / 2) *
+      Math.sin(dlng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
 }
 
 export async function generateStaticParams() {
@@ -27,7 +49,24 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const course = await fetchCourseBySlug(decodeURIComponent(params.slug));
+  const slug = decodeURIComponent(params.slug);
+  const cookieStore = cookies();
+  const supabase = createRouteHandlerClient<Database>({
+    cookies: () => cookieStore,
+  });
+  const query = supabase
+    .from("golf_course")
+    .select(`*, address(*), road_address(*), contact(*), operation(*)`)
+    .eq("slug", slug);
+  const result: DbResult<typeof query> = await query;
+  if (result.error ?? result.data?.length === 0) {
+    notFound();
+  }
+  const courses: DbResultOk<typeof query> = result.data;
+  const course = courses?.[0] as Course;
+  const address = course.address[0];
+  const contact = course.contact[0];
+  const operation = course.operation[0];
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
@@ -35,13 +74,13 @@ export async function generateMetadata(
   if (course) {
     const title = `${course.name} 예약 정보`;
     const description = `${course.name} \n
-    위치 - ${course.address.address_name} \n 영업시간 - ${
-      course.operation.opening_hours ?? "정보 없음"
+    위치 - ${address?.address_name} \n 영업시간 - ${
+      operation?.opening_hours ?? "정보 없음"
     } \n 정기 휴무일 - ${
-      course.operation.regular_closed_days ?? "정보 없음"
-    } \n 예약방법 - ${
-      course.operation.registration_method ?? "정보 없음"
-    } 연락처 - ${course.contact.phone_number ?? "정보 없음"}`;
+      operation?.regular_closed_days ?? "정보 없음"
+    } \n 예약방법 - ${operation?.registration_method ?? "정보 없음"} 연락처 - ${
+      contact?.phone_number ?? "정보 없음"
+    }`;
     return {
       title,
       description,
@@ -66,13 +105,35 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = decodeURIComponent(params.slug);
-  const course = await fetchCourseBySlug(slug);
-  if (!course) {
+  const cookieStore = cookies();
+  const supabase = createRouteHandlerClient<Database>({
+    cookies: () => cookieStore,
+  });
+  const query = supabase
+    .from("golf_course")
+    .select(`*, address(*), road_address(*), contact(*), operation(*)`);
+  const result: DbResult<typeof query> = await query;
+  if (result.error) {
     notFound();
   }
-  const nearCourses = await fetchNearCourse(course?.id, 20);
-  if (course) {
-    return <CourseDetail course={course} nearCourses={nearCourses} />;
-  }
-  notFound();
+  const courses: DbResultOk<typeof query> = result.data;
+  const currentCourse = courses.filter(
+    (course) => course.slug === slug,
+  )[0] as Course;
+  const allCoursesExcludeMe = courses.filter((course) => course.slug !== slug);
+
+  const nearCourses = allCoursesExcludeMe.filter((course) => {
+    const courseLat = course.address[0]?.y;
+    const courseLng = course.address[0]?.x;
+    return (
+      haversineDistance(
+        currentCourse.address[0]?.y!,
+        currentCourse.address[0]?.x!,
+        courseLat!,
+        courseLng!,
+      ) <= 20
+    );
+  });
+
+  return <CourseDetail course={currentCourse} nearCourses={nearCourses} />;
 }

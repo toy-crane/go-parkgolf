@@ -66,6 +66,10 @@ const CourseDetail = ({
   const router = useRouter();
   const { toast } = useToast();
 
+  const address = course.address[0];
+  const operation = course.operation[0];
+  const contact = course.contact[0];
+
   return (
     <div>
       <nav className="mb-4 flex items-center justify-between pt-3">
@@ -114,16 +118,16 @@ const CourseDetail = ({
           marker={[
             {
               position: {
-                lat: Number(course.address.y),
-                lng: Number(course.address.x),
+                lat: Number(address?.y),
+                lng: Number(address?.x),
               },
               text: course.name,
             },
           ]}
           center={{
             // 지도의 중심좌표
-            lat: Number(course.address.y),
-            lng: Number(course.address.x),
+            lat: Number(address?.y),
+            lng: Number(address?.x),
           }}
           style={{
             // 지도의 크기
@@ -138,7 +142,7 @@ const CourseDetail = ({
           {course.name}
         </h1>
         <div className="flex flex-col gap-1">
-          <Label title="위치" content={course.address.address_name} />
+          <Label title="위치" content={address?.address_name} />
           <Label title="규모" content={`${course?.hole_count} 홀`} />
         </div>
         <Separator className="my-5" />
@@ -147,7 +151,7 @@ const CourseDetail = ({
           <Label
             title="영업시간"
             content={
-              course?.operation.opening_hours ??
+              operation?.opening_hours ??
               InfoNeeded({
                 href: generateFormUrl(course.name),
               })
@@ -156,7 +160,7 @@ const CourseDetail = ({
           <Label
             title="정기 휴무일"
             content={
-              course?.operation.regular_closed_days ??
+              operation?.regular_closed_days ??
               InfoNeeded({
                 href: generateFormUrl(course.name),
               })
@@ -169,12 +173,12 @@ const CourseDetail = ({
           <Label
             title="담당자 전화번호"
             content={
-              course?.contact.phone_number ? (
+              contact?.phone_number ? (
                 <a
-                  href={`tel:${course?.contact.phone_number}`}
+                  href={`tel:${contact?.phone_number}`}
                   className="text-blue-400"
                 >
-                  {course?.contact.phone_number}
+                  {contact?.phone_number}
                 </a>
               ) : (
                 InfoNeeded({
@@ -190,7 +194,7 @@ const CourseDetail = ({
           <Label
             title="예약 방법"
             content={
-              course?.operation.registration_method ??
+              operation?.registration_method ??
               InfoNeeded({
                 href: generateFormUrl(course.name),
               })
@@ -199,8 +203,8 @@ const CourseDetail = ({
           <Label
             title="홈페이지"
             content={
-              course?.operation.website ? (
-                <a href={course?.operation.website} className="text-blue-400">
+              operation?.website ? (
+                <a href={operation?.website} className="text-blue-400">
                   상세 페이지 바로가기
                 </a>
               ) : (

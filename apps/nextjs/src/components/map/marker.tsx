@@ -19,7 +19,7 @@ const Marker = ({
   return (
     <>
       <CustomOverlayMap
-        position={{ lat: Number(address.y), lng: Number(address.x) }}
+        position={{ lat: Number(address[0]?.y), lng: Number(address[0]?.x) }}
         zIndex={10}
       >
         <Button
