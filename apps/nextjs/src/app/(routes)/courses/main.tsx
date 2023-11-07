@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Marker from "@/components/map/marker";
+import type { Option } from "@/components/ui/auto-complete";
+import { AutoComplete } from "@/components/ui/auto-complete";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -32,6 +34,41 @@ const DEFAULT_POSITION = {
   level: 7,
   center: { lat: 37.5161996814031, lng: 127.075939572603 },
 };
+
+const FRAMEWORKS = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+  {
+    value: "wordpress",
+    label: "WordPress",
+  },
+  {
+    value: "express.js",
+    label: "Express.js",
+  },
+  {
+    value: "nest.js",
+    label: "Nest.js",
+  },
+];
 
 const InfoNeeded = ({ href }: { href: string }) => {
   return (
@@ -71,6 +108,9 @@ const Main = ({
     },
   });
   const { toast } = useToast();
+  const [isLoading, setLoading] = useState(false);
+  const [isDisabled, setDisbled] = useState(false);
+  const [value, setValue] = useState<Option>();
 
   // 선택한 파크골프장
   const [selectedcourse, setSelectedcourse] = useState<Course | undefined>();
@@ -81,19 +121,16 @@ const Main = ({
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
         <div className="flex justify-between">
-          <h1>
-            <Button
-              className="px-3 text-xl font-extrabold"
-              size="lg"
-              onClick={() => {
-                track("logo clicked");
-                setPosition(DEFAULT_POSITION);
-              }}
-            >
-              <FlagTriangleRight className="mr-1" size={20} />
-              GO PARKGOLF
-            </Button>
-          </h1>
+          <AutoComplete
+            options={FRAMEWORKS}
+            emptyMessage="해당하는 검색 결과가 없습니다."
+            placeholder="주소 또는 이름을 입력해주세요."
+            isLoading={isLoading}
+            onValueChange={setValue}
+            value={value}
+            disabled={isDisabled}
+            className="sm:w-1/2 lg:w-[320px]"
+          />
           <div className="flex flex-col gap-2">
             <h2>
               <Button className="font-bold" asChild size="sm">
