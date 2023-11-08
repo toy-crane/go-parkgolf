@@ -204,7 +204,7 @@ const Main = ({
           </Button>
         </div>
       </nav>
-      <section className="px-2">
+      <section>
         <Map
           center={position.center}
           isPanto={true}
