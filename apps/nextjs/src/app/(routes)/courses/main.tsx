@@ -204,12 +204,12 @@ const Main = ({
           </Button>
         </div>
       </nav>
-      <section>
+      <section className="px-2">
         <Map
           center={position.center}
           isPanto={true}
           level={position.level}
-          style={{ width: "100vw", height: "100vh" }}
+          style={{ width: "100%", height: "100vh" }}
           onCenterChanged={(map) =>
             setPosition({
               level: map.getLevel(),
