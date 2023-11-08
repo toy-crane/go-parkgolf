@@ -32,7 +32,6 @@ const Marker = ({
           />
         </Button>
       </CustomOverlayMap>
-      )
     </>
   );
 };
