@@ -27,6 +27,8 @@ const Home = async ({
         level={searchParams.level as string}
         lat={searchParams.lat as string}
         lng={searchParams.lng as string}
+        courseId={Number(searchParams.courseId)}
+        modalOpen={searchParams.modal === "true"}
       />
     );
   }

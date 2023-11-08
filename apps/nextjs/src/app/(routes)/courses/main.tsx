@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import Marker from "@/components/map/marker";
 import type { Option } from "@/components/ui/auto-complete";
 import { AutoComplete } from "@/components/ui/auto-complete";
@@ -57,14 +58,19 @@ const Main = ({
   level,
   lat,
   lng,
+  courseId,
+  modalOpen,
 }: {
   courses: Course[];
   level?: string;
   lat?: string;
   lng?: string;
+  courseId?: number;
+  modalOpen?: boolean;
 }) => {
   const { track } = useAmplitude();
-  const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams()!;
 
   // 지도의 위치
   const [position, setPosition] = useState<Position>({
@@ -87,16 +93,24 @@ const Main = ({
   const { toast } = useToast();
   const [value, setValue] = useState<Option>();
 
-  // 선택한 파크골프장 ID
-  const [selectedCourseId, setSelectedCourseId] = useState<
-    number | undefined
-  >();
-
-  const selectedcourse = courses.find(
-    (course) => course.id === selectedCourseId,
+  const selectedcourse = useMemo(
+    () => courses.find((course) => course.id === courseId),
+    [courses, courseId],
   );
   const address = selectedcourse?.address[0];
   const operation = selectedcourse?.operation[0];
+
+  // Get a new searchParams string by merging the current
+  // searchParams with a provided key/value pair
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams],
+  );
 
   return (
     <>
@@ -174,15 +188,14 @@ const Main = ({
               key={course.name}
               isMarked={selectedcourse?.name === course.name}
               onClick={() => {
-                setSelectedCourseId(course.id);
-                setPosition((position) => ({
-                  ...position,
-                  center: {
-                    lat: Number(course.address[0]?.y),
-                    lng: Number(course.address[0]?.x),
-                  },
-                }));
-                setOpen((open) => !open);
+                router.replace(
+                  `?${new URLSearchParams({
+                    courseId: String(course.id),
+                    lat: String(course.address[0]?.y),
+                    lng: String(course.address[0]?.x),
+                    modal: String(true),
+                  }).toString()}`,
+                );
                 track("course clicked", { ...course });
               }}
             />
@@ -190,7 +203,12 @@ const Main = ({
         </Map>
       </section>
 
-      <Sheet open={open} onOpenChange={setOpen}>
+      <Sheet
+        open={modalOpen}
+        onOpenChange={(open) => {
+          router.replace(`?${createQueryString("modal", String(open))}`);
+        }}
+      >
         <SheetContent side={"bottom"} className="h-auto">
           <SheetHeader className="mb-2">
             <SheetTitle>
