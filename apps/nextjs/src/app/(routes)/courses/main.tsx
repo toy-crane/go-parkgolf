@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import Marker from "@/components/map/marker";
 import type { Option } from "@/components/ui/auto-complete";
@@ -35,41 +35,6 @@ const DEFAULT_POSITION = {
   level: 7,
   center: { lat: 37.5161996814031, lng: 127.075939572603 },
 };
-
-const FRAMEWORKS = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-  {
-    value: "wordpress",
-    label: "WordPress",
-  },
-  {
-    value: "express.js",
-    label: "Express.js",
-  },
-  {
-    value: "nest.js",
-    label: "Nest.js",
-  },
-];
 
 const InfoNeeded = ({ href }: { href: string }) => {
   return (
@@ -110,14 +75,16 @@ const Main = ({
     },
   });
 
-  const OPTIONS = courses.map((course) => ({
-    value: course.searchable_address,
-    label: course.name,
-  }));
+  const OPTIONS = useMemo(
+    () =>
+      courses.map((course) => ({
+        label: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
+        value: String(course.id),
+      })),
+    [courses],
+  );
 
   const { toast } = useToast();
-  const [isLoading, setLoading] = useState(false);
-  const [isDisabled, setDisbled] = useState(false);
   const [value, setValue] = useState<Option>();
 
   // 선택한 파크골프장
@@ -133,10 +100,8 @@ const Main = ({
             options={OPTIONS}
             emptyMessage="해당하는 검색 결과가 없습니다."
             placeholder="주소 또는 이름을 입력해주세요."
-            isLoading={isLoading}
             onValueChange={setValue}
             value={value}
-            disabled={isDisabled}
             className="sm:w-1/2 lg:w-[320px]"
           />
           <div className="flex flex-col gap-2">

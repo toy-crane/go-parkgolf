@@ -18,9 +18,7 @@ const Home = async ({
     .from("golf_course")
     .select(`*, address(*), road_address(*), contact(*), operation(*)`);
   const result: DbResult<typeof query> = await query;
-  if (result.error) {
-    /*...*/
-  }
+
   if (result.data) {
     const courses: DbResultOk<typeof query> = result.data;
     return (

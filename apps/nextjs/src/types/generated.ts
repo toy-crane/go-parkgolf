@@ -156,6 +156,35 @@ export interface Database {
           }
         ]
       }
+      price: {
+        Row: {
+          golf_course_id: number | null
+          id: number
+          price: number
+          unit: string
+        }
+        Insert: {
+          golf_course_id?: number | null
+          id?: number
+          price: number
+          unit: string
+        }
+        Update: {
+          golf_course_id?: number | null
+          id?: number
+          price?: number
+          unit?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "price_golf_course_id_fkey"
+            columns: ["golf_course_id"]
+            isOneToOne: true
+            referencedRelation: "golf_course"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       road_address: {
         Row: {
           address_name: string | null
