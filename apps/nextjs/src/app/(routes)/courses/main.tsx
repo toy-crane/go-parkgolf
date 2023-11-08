@@ -209,7 +209,7 @@ const Main = ({
           center={position.center}
           isPanto={true}
           level={position.level}
-          style={{ width: "100%", height: "100vh" }}
+          style={{ width: "100vw", height: "100vh" }}
           onCenterChanged={(map) =>
             setPosition({
               level: map.getLevel(),

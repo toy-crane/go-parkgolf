@@ -86,18 +86,12 @@ export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>
-        <body
-          className={cn("bg-background min-h-screen font-sans antialiased")}
-        >
+        <body className={cn("bg-backgroundfont-sans antialiased")}>
           <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
           />
-          <main className="container mx-auto contents h-full w-full px-4 sm:px-6 lg:px-8">
-            <div className="relative flex min-h-screen flex-col">
-              {props.children}
-            </div>
-          </main>
+          <main>{props.children}</main>
           <Toaster />
         </body>
       </AmplitudeProvider>
