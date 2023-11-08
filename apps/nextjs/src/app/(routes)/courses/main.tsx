@@ -20,7 +20,6 @@ import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
 import type { Course, Position } from "@/types";
-import type { Tables } from "@/types/supabase-helper";
 import {
   AlarmClock,
   Clock,
@@ -91,7 +90,7 @@ const Main = ({
   );
 
   const { toast } = useToast();
-  const [value, setValue] = useState<Option>();
+  const [value] = useState<Option>();
 
   const selectedcourse = useMemo(
     () => courses.find((course) => course.id === courseId),
@@ -100,17 +99,44 @@ const Main = ({
   const address = selectedcourse?.address[0];
   const operation = selectedcourse?.operation[0];
 
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
+  useEffect(() => {
+    if (selectedcourse) {
+      const lat = address?.y!;
+      const lng = address?.x!;
+      setPosition((p) => ({
+        ...p,
+        center: {
+          lat,
+          lng,
+        },
+      }));
+    }
+  }, [address?.x, address?.y, selectedcourse]);
 
-      return params.toString();
+  const createQueryString = useCallback(
+    (params: Record<string, string>) => {
+      const currentParams = new URLSearchParams(searchParams);
+      Object.keys(params).forEach((key) => {
+        const value = params[key];
+        if (value !== undefined) {
+          // `undefined`를 체크하여 해당 값을 건너뜁니다.
+          currentParams.set(key, value);
+        }
+      });
+
+      return currentParams.toString();
     },
     [searchParams],
   );
+
+  const handleSearchInput = (option: Option) => {
+    router.replace(
+      `?${createQueryString({
+        modal: String(true),
+        courseId: String(option.value),
+      })}`,
+    );
+  };
 
   return (
     <>
@@ -120,9 +146,9 @@ const Main = ({
             options={OPTIONS}
             emptyMessage="해당하는 검색 결과가 없습니다."
             placeholder="주소 또는 이름을 입력해주세요."
-            onValueChange={setValue}
+            onValueChange={handleSearchInput}
             value={value}
-            className="sm:w-1/2 lg:w-[320px]"
+            className="w-[240px] md:w-[480px]"
           />
           <div className="flex flex-col gap-2">
             <h2>
@@ -191,8 +217,6 @@ const Main = ({
                 router.replace(
                   `?${new URLSearchParams({
                     courseId: String(course.id),
-                    lat: String(course.address[0]?.y),
-                    lng: String(course.address[0]?.x),
                     modal: String(true),
                   }).toString()}`,
                 );
@@ -206,7 +230,7 @@ const Main = ({
       <Sheet
         open={modalOpen}
         onOpenChange={(open) => {
-          router.replace(`?${createQueryString("modal", String(open))}`);
+          router.replace(`?${createQueryString({ modal: String(open) })}`);
         }}
       >
         <SheetContent side={"bottom"} className="h-auto">
