@@ -87,8 +87,14 @@ const Main = ({
   const { toast } = useToast();
   const [value, setValue] = useState<Option>();
 
-  // 선택한 파크골프장
-  const [selectedcourse, setSelectedcourse] = useState<Course | undefined>();
+  // 선택한 파크골프장 ID
+  const [selectedCourseId, setSelectedCourseId] = useState<
+    number | undefined
+  >();
+
+  const selectedcourse = courses.find(
+    (course) => course.id === selectedCourseId,
+  );
   const address = selectedcourse?.address[0];
   const operation = selectedcourse?.operation[0];
 
@@ -168,7 +174,7 @@ const Main = ({
               key={course.name}
               isMarked={selectedcourse?.name === course.name}
               onClick={() => {
-                setSelectedcourse(course);
+                setSelectedCourseId(course.id);
                 setPosition((position) => ({
                   ...position,
                   center: {
