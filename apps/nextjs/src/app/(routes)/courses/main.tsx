@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import Marker from "@/components/map/marker";
@@ -47,11 +48,6 @@ const InfoNeeded = ({ href }: { href: string }) => {
   );
 };
 
-function toNumber(value: string | undefined, defaultValue: number): number {
-  const number = Number(value);
-  return isNaN(number) ? defaultValue : number;
-}
-
 const Main = ({
   courses,
   level,
@@ -73,10 +69,10 @@ const Main = ({
 
   // 지도의 위치
   const [position, setPosition] = useState<Position>({
-    level: toNumber(level, DEFAULT_POSITION.level),
+    level: DEFAULT_POSITION.level,
     center: {
-      lat: toNumber(lat, DEFAULT_POSITION.center.lat),
-      lng: toNumber(lng, DEFAULT_POSITION.center.lng),
+      lat: DEFAULT_POSITION.center.lat,
+      lng: DEFAULT_POSITION.center.lng,
     },
   });
 
@@ -113,6 +109,17 @@ const Main = ({
     }
   }, [address?.x, address?.y, selectedcourse]);
 
+  useEffect(() => {
+    setPosition((p) => ({
+      ...p,
+      level: level ? Number(level) : p.level,
+      center: {
+        lat: lat ? Number(lat) : p.center.lat,
+        lng: lng ? Number(lng) : p.center.lng,
+      },
+    }));
+  }, [lat, lng, level]);
+
   const createQueryString = useCallback(
     (params: Record<string, string>) => {
       const currentParams = new URLSearchParams(searchParams);
@@ -141,55 +148,60 @@ const Main = ({
   return (
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
-        <div className="flex justify-between">
-          <AutoComplete
-            options={OPTIONS}
-            emptyMessage="해당하는 검색 결과가 없습니다."
-            placeholder="주소 또는 이름을 입력해주세요."
-            onValueChange={handleSearchInput}
-            value={value}
-            className="w-[240px] md:w-[480px]"
-          />
-          <div className="flex flex-col gap-2">
-            <h2>
-              <Button className="font-bold" asChild size="sm">
-                <a
-                  href="https://forms.gle/41DvTTg1Z3SrQpNQ8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  제작자에게 문의하기
-                </a>
-              </Button>
-            </h2>
-            <Button
-              variant="secondary"
-              size="icon"
-              className="self-end"
-              onClick={() => {
-                navigator.geolocation.getCurrentPosition(
-                  (position) => {
-                    setPosition((p) => ({
-                      ...p,
-                      center: {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                      },
-                    }));
-                  },
-                  () => alert("위치 정보를 가져오는데 실패했습니다."),
-                  {
-                    enableHighAccuracy: true,
-                    maximumAge: 30000,
-                    timeout: 27000,
-                  },
-                );
-                track("current position clicked");
-              }}
+        <div className="flex flex-col md:flex-row md:justify-between">
+          <div className="flex items-start gap-2">
+            <Link
+              href={`?${new URLSearchParams({
+                lat: String(DEFAULT_POSITION.center.lat),
+                lng: String(DEFAULT_POSITION.center.lng),
+                level: String(DEFAULT_POSITION.level),
+              }).toString()}`}
+              className="flex-shrink-0 self-center"
             >
-              <LocateFixed size={24} />
-            </Button>
+              <Image
+                src="/logo.png"
+                width={36}
+                height={36}
+                alt="Logo"
+                className="align-middle"
+              />
+            </Link>
+            <AutoComplete
+              options={OPTIONS}
+              emptyMessage="해당하는 검색 결과가 없습니다."
+              placeholder="주소나 이름을 입력해주세요."
+              onValueChange={handleSearchInput}
+              value={value}
+              className="w-full self-center md:w-[480px]"
+            />
           </div>
+          <Button
+            variant="secondary"
+            size="icon"
+            className="self-end md:self-center"
+            onClick={() => {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  setPosition((p) => ({
+                    ...p,
+                    center: {
+                      lat: position.coords.latitude,
+                      lng: position.coords.longitude,
+                    },
+                  }));
+                },
+                () => alert("위치 정보를 가져오는데 실패했습니다."),
+                {
+                  enableHighAccuracy: true,
+                  maximumAge: 30000,
+                  timeout: 27000,
+                },
+              );
+              track("current position clicked");
+            }}
+          >
+            <LocateFixed size={24} />
+          </Button>
         </div>
       </nav>
       <section>
@@ -226,11 +238,25 @@ const Main = ({
           ))}
         </Map>
       </section>
-
+      <nav className="fixed bottom-0 left-0 right-0 z-30 flex justify-end px-3 pb-3">
+        <h2>
+          <Button className="font-bold" asChild size="sm">
+            <a
+              href="https://forms.gle/41DvTTg1Z3SrQpNQ8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              제작자에게 문의하기
+            </a>
+          </Button>
+        </h2>
+      </nav>
       <Sheet
         open={modalOpen}
         onOpenChange={(open) => {
-          router.replace(`?${createQueryString({ modal: String(open) })}`);
+          router.replace(
+            `?${new URLSearchParams({ open: String(open) }).toString()}`,
+          );
         }}
       >
         <SheetContent side={"bottom"} className="h-auto">
