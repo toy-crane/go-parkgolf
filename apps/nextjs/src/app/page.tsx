@@ -1,10 +1,14 @@
 import { cookies } from "next/headers";
-import Main from "@/app/(routes)/home/main";
 import { DEFAULT_POSITION } from "@/config/map";
 import { createFetch } from "@/libs/cache";
 import type { Database } from "@/types/generated";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+
+import CourseSheet from "./(routes)/home/course-sheet";
+import Footer from "./(routes)/home/footer";
+import Header from "./(routes)/home/header";
+import MainMap from "./(routes)/home/main-map";
 
 const Home = async ({
   searchParams,
@@ -54,12 +58,18 @@ const Home = async ({
       },
     };
     return (
-      <Main
-        courses={courses}
-        selectedCourse={selectedCourse}
-        modalOpen={modalOpen}
-        position={position}
-      />
+      <div>
+        <Header courses={courses} />
+        <section>
+          <MainMap
+            courses={courses}
+            selectedCourse={selectedCourse}
+            position={position}
+          />
+        </section>
+        <Footer />
+        <CourseSheet selectedCourse={selectedCourse} open={modalOpen} />
+      </div>
     );
   }
 };
