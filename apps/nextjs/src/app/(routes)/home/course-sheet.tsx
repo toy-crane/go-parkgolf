@@ -65,6 +65,7 @@ const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
               <Link
                 href={`/golf-courses/${selectedCourse?.slug}`}
                 onClick={() => track("detail page link clicked")}
+                prefetch
               >
                 {selectedCourse?.name}
               </Link>
