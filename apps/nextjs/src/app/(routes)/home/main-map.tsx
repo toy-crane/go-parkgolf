@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import Marker from "@/components/map/marker";
+import Marker from "@/app/(routes)/home/marker";
 import { useAmplitude } from "@/libs/amplitude";
 import type { Course, Position } from "@/types";
 import { Map } from "react-kakao-maps-sdk";

@@ -2,8 +2,8 @@ import { cn } from "@/libs/tailwind";
 import type { Course } from "@/types";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 
-import CourseFillIcon from "../../../public/icons/course-fill.svg";
-import { Button } from "../ui/button";
+import CourseFillIcon from "../../../../public/icons/course-fill.svg";
+import { Button } from "../../../components/ui/button";
 
 const Marker = ({
   course,
