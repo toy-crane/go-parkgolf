@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -6,15 +6,28 @@ import { CommandMenu } from "@/components/command-menu";
 import { Button } from "@/components/ui/button";
 import { DEFAULT_POSITION } from "@/config/map";
 import { useAmplitude } from "@/libs/amplitude";
+import type { Course } from "@/types";
 import { LocateFixed } from "lucide-react";
 
 interface HeaderProps {
-  options: { title: string; href: string }[];
+  courses: Course[];
 }
 
-const Header = ({ options }: HeaderProps) => {
+const Header = ({ courses }: HeaderProps) => {
   const { track } = useAmplitude();
   const router = useRouter();
+
+  const courses_options = useMemo(
+    () =>
+      courses.map((course) => ({
+        title: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
+        href: `/?${new URLSearchParams({
+          courseId: String(course.id),
+          modal: String(true),
+        }).toString()}`,
+      })),
+    [courses],
+  );
 
   return (
     <header className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
@@ -36,7 +49,7 @@ const Header = ({ options }: HeaderProps) => {
               className="align-middle"
             />
           </Link>
-          <CommandMenu options={options} />
+          <CommandMenu options={courses_options} />
         </div>
 
         <Button

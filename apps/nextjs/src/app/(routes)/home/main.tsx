@@ -56,18 +56,6 @@ const Main = ({
     },
   });
 
-  const courses_options = useMemo(
-    () =>
-      courses.map((course) => ({
-        title: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
-        href: `/?${new URLSearchParams({
-          courseId: String(course.id),
-          modal: String(true),
-        }).toString()}`,
-      })),
-    [courses],
-  );
-
   const address = selectedCourse?.address[0];
 
   useEffect(() => {
@@ -97,7 +85,7 @@ const Main = ({
 
   return (
     <>
-      <Header options={courses_options} />
+      <Header courses={courses} />
       <section>
         <MainMap
           courses={courses}
