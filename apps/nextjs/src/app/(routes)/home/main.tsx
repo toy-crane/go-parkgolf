@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
 
+import Footer from "./footer";
 import Header from "./header";
 
 const InfoNeeded = ({ href }: { href: string }) => {
@@ -152,19 +153,7 @@ const Main = ({
           ))}
         </Map>
       </section>
-      <nav className="fixed bottom-0 left-0 right-0 z-30 flex justify-end px-3 pb-3">
-        <h2>
-          <Button className="font-bold" asChild size="sm">
-            <a
-              href="https://forms.gle/41DvTTg1Z3SrQpNQ8"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              제작자에게 문의하기
-            </a>
-          </Button>
-        </h2>
-      </nav>
+      <Footer />
       <Sheet
         open={modalOpen}
         onOpenChange={(open) => {
