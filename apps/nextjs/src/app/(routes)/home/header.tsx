@@ -17,8 +17,8 @@ const Header = ({ options }: HeaderProps) => {
   const router = useRouter();
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
-      <div className="flex justify-between gap-2">
+    <header className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
+      <nav className="flex justify-between gap-2">
         <div className="flex flex-grow gap-2 md:flex-grow-0">
           <Link
             href={`?${new URLSearchParams({
@@ -65,8 +65,8 @@ const Header = ({ options }: HeaderProps) => {
         >
           <LocateFixed size={24} />
         </Button>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
