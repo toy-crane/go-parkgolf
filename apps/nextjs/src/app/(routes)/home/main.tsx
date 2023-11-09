@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Marker from "@/components/map/marker";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -27,7 +26,6 @@ import {
   Phone,
   Share2,
 } from "lucide-react";
-import { Map } from "react-kakao-maps-sdk";
 
 import Footer from "./footer";
 import Header from "./header";
@@ -49,14 +47,14 @@ const Main = ({
   level,
   lat,
   lng,
-  courseId,
   modalOpen,
+  selectedCourse,
 }: {
   courses: Course[];
+  selectedCourse?: Course;
   level?: string;
   lat?: string;
   lng?: string;
-  courseId?: number;
   modalOpen?: boolean;
 }) => {
   const { track } = useAmplitude();
@@ -85,15 +83,11 @@ const Main = ({
 
   const { toast } = useToast();
 
-  const selectedcourse = useMemo(
-    () => courses.find((course) => course.id === courseId),
-    [courses, courseId],
-  );
-  const address = selectedcourse?.address[0];
-  const operation = selectedcourse?.operation[0];
+  const address = selectedCourse?.address[0];
+  const operation = selectedCourse?.operation[0];
 
   useEffect(() => {
-    if (selectedcourse) {
+    if (selectedCourse) {
       const lat = address?.y!;
       const lng = address?.x!;
       setPosition((p) => ({
@@ -104,7 +98,7 @@ const Main = ({
         },
       }));
     }
-  }, [address?.x, address?.y, selectedcourse]);
+  }, [address?.x, address?.y, selectedCourse]);
 
   useEffect(() => {
     setPosition((p) => ({
@@ -123,43 +117,9 @@ const Main = ({
       <section>
         <MainMap
           courses={courses}
-          selectedCourse={selectedcourse}
+          selectedCourse={selectedCourse}
           position={position}
         />
-      </section>
-      <section>
-        <Map
-          center={position.center}
-          isPanto={true}
-          level={position.level}
-          style={{ width: "100%", height: "100vh" }}
-          onCenterChanged={(map) =>
-            setPosition({
-              level: map.getLevel(),
-              center: {
-                lat: map.getCenter().getLat(),
-                lng: map.getCenter().getLng(),
-              },
-            })
-          }
-        >
-          {courses?.map((course) => (
-            <Marker
-              course={course}
-              key={course.name}
-              isMarked={selectedcourse?.name === course.name}
-              onClick={() => {
-                router.replace(
-                  `?${new URLSearchParams({
-                    courseId: String(course.id),
-                    modal: String(true),
-                  }).toString()}`,
-                );
-                track("course clicked", { ...course });
-              }}
-            />
-          ))}
-        </Map>
       </section>
       <Footer />
       <Sheet
@@ -175,10 +135,10 @@ const Main = ({
             <SheetTitle>
               <div className="flex items-center gap-3 text-2xl">
                 <Link
-                  href={`/golf-courses/${selectedcourse?.slug}`}
+                  href={`/golf-courses/${selectedCourse?.slug}`}
                   onClick={() => track("detail page link clicked")}
                 >
-                  {selectedcourse?.name}
+                  {selectedCourse?.name}
                 </Link>
                 <div className="flex items-center">
                   <Button
@@ -191,7 +151,7 @@ const Main = ({
                     }}
                   >
                     <a
-                      href={generateFormUrl(selectedcourse?.name)}
+                      href={generateFormUrl(selectedCourse?.name)}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -204,7 +164,7 @@ const Main = ({
                     size="icon"
                     onClick={async () => {
                       await navigator.clipboard.writeText(
-                        `${window.location.href}courses/${selectedcourse?.id}`,
+                        `${window.location.href}courses/${selectedCourse?.id}`,
                       );
                       toast({
                         className: cn(
@@ -230,28 +190,28 @@ const Main = ({
           <div className="grid w-full items-center">
             <div className="flex items-center gap-4">
               <FlagTriangleRight size={20} />
-              <div className="text-base">{selectedcourse?.hole_count}홀</div>
+              <div className="text-base">{selectedCourse?.hole_count}홀</div>
             </div>
             <Separator className="my-2" />
             <div className="flex items-center gap-4">
               <Phone size={20} />
               <div className="text-base">
-                {selectedcourse?.contact[0]?.phone_number ? (
+                {selectedCourse?.contact[0]?.phone_number ? (
                   <Button
                     variant="link"
                     size="sm"
                     asChild
                     className="p-0 text-base text-blue-400"
                     onClick={() => {
-                      track("phone number clicked", { ...selectedcourse });
+                      track("phone number clicked", { ...selectedCourse });
                     }}
                   >
-                    <a href={`tel:${selectedcourse?.contact[0]?.phone_number}`}>
-                      {selectedcourse?.contact[0]?.phone_number}
+                    <a href={`tel:${selectedCourse?.contact[0]?.phone_number}`}>
+                      {selectedCourse?.contact[0]?.phone_number}
                     </a>
                   </Button>
                 ) : (
-                  InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })
+                  InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })
                 )}
               </div>
             </div>
@@ -261,13 +221,13 @@ const Main = ({
               <div className="text-base">
                 <div className="flex">
                   <div className="mr-2">영업 시간 -</div>
-                  {selectedcourse?.operation[0]?.opening_hours ??
-                    InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })}
+                  {selectedCourse?.operation[0]?.opening_hours ??
+                    InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
                 </div>
-                {selectedcourse?.operation[0]?.regular_closed_days && (
+                {selectedCourse?.operation[0]?.regular_closed_days && (
                   <div className="flex">
                     <div className="mr-2">정기 휴무일 - </div>
-                    {selectedcourse?.operation[0]?.regular_closed_days}
+                    {selectedCourse?.operation[0]?.regular_closed_days}
                   </div>
                 )}
               </div>
@@ -279,7 +239,7 @@ const Main = ({
                 <div className="flex">
                   <div className="mr-2">예약 방법 - </div>
                   {operation?.registration_method ??
-                    InfoNeeded({ href: generateFormUrl(selectedcourse?.name) })}
+                    InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
                 </div>
                 <div>
                   {operation?.website ? (

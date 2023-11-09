@@ -8,9 +8,17 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 const Home = async ({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: {
+    courseId?: string;
+    level?: string;
+    lat?: string;
+    lng?: string;
+    modal?: string;
+  };
 }) => {
   const cookieStore = cookies();
+  const selectedCourseId = Number(searchParams?.courseId) || undefined;
+
   const supabase = createRouteHandlerClient<Database>(
     {
       cookies: () => cookieStore,
@@ -25,13 +33,16 @@ const Home = async ({
 
   if (result.data) {
     const courses: DbResultOk<typeof query> = result.data;
+    const selectedCourse = courses.find(
+      (course) => course.id === selectedCourseId,
+    );
     return (
       <Main
         courses={courses}
-        level={searchParams.level as string}
-        lat={searchParams.lat as string}
-        lng={searchParams.lng as string}
-        courseId={Number(searchParams.courseId)}
+        selectedCourse={selectedCourse}
+        level={searchParams.level}
+        lat={searchParams.lat}
+        lng={searchParams.lng}
         modalOpen={searchParams.modal === "true"}
       />
     );
