@@ -15,6 +15,9 @@ const config = {
     });
     return config;
   },
+  experimental: {
+    logging: { level: "verbose" },
+  },
 };
 
 export default config;
