@@ -1,10 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { CommandMenu } from "@/components/command-menu";
+import { useRouter } from "next/navigation";
 import Marker from "@/components/map/marker";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -16,6 +14,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { useToast } from "@/components/ui/use-toast";
+import { DEFAULT_POSITION } from "@/config/map";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
@@ -24,17 +23,13 @@ import {
   AlarmClock,
   Clock,
   FlagTriangleRight,
-  LocateFixed,
   Pencil,
   Phone,
   Share2,
 } from "lucide-react";
 import { Map } from "react-kakao-maps-sdk";
 
-const DEFAULT_POSITION = {
-  level: 7,
-  center: { lat: 37.5161996814031, lng: 127.075939572603 },
-};
+import Header from "./header";
 
 const InfoNeeded = ({ href }: { href: string }) => {
   return (
@@ -122,54 +117,7 @@ const Main = ({
 
   return (
     <>
-      <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
-        <div className="flex gap-2">
-          <Link
-            href={`?${new URLSearchParams({
-              lat: String(DEFAULT_POSITION.center.lat),
-              lng: String(DEFAULT_POSITION.center.lng),
-              level: String(DEFAULT_POSITION.level),
-            }).toString()}`}
-            className="flex-shrink-0 self-center"
-          >
-            <Image
-              src="/logo.png"
-              width={32}
-              height={32}
-              alt="Logo"
-              className="align-middle"
-            />
-          </Link>
-          <CommandMenu options={courses_options} />
-          <Button
-            variant="secondary"
-            size="icon"
-            className="flex-shrink-0"
-            onClick={() => {
-              navigator.geolocation.getCurrentPosition(
-                (position) => {
-                  setPosition((p) => ({
-                    ...p,
-                    center: {
-                      lat: position.coords.latitude,
-                      lng: position.coords.longitude,
-                    },
-                  }));
-                },
-                () => alert("위치 정보를 가져오는데 실패했습니다."),
-                {
-                  enableHighAccuracy: true,
-                  maximumAge: 30000,
-                  timeout: 27000,
-                },
-              );
-              track("current position clicked");
-            }}
-          >
-            <LocateFixed size={24} />
-          </Button>
-        </div>
-      </nav>
+      <Header options={courses_options} />
       <section>
         <Map
           center={position.center}

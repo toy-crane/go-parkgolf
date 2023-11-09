@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import Main from "@/app/(routes)/courses/main";
+import Main from "@/app/(routes)/home/main";
 import { createFetch } from "@/libs/cache";
 import type { Database } from "@/types/generated";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
