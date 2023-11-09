@@ -18,6 +18,7 @@ const Home = async ({
 }) => {
   const cookieStore = cookies();
   const selectedCourseId = Number(searchParams?.courseId) || undefined;
+  const modalOpen = searchParams?.modal === "true";
 
   const supabase = createRouteHandlerClient<Database>(
     {
@@ -43,7 +44,7 @@ const Home = async ({
         level={searchParams.level}
         lat={searchParams.lat}
         lng={searchParams.lng}
-        modalOpen={searchParams.modal === "true"}
+        modalOpen={modalOpen}
       />
     );
   }
