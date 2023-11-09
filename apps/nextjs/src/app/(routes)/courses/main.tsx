@@ -4,9 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { CommandMenu } from "@/components/command-menu";
 import Marker from "@/components/map/marker";
-import type { Option } from "@/components/ui/auto-complete";
-import { AutoComplete } from "@/components/ui/auto-complete";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -65,7 +64,6 @@ const Main = ({
 }) => {
   const { track } = useAmplitude();
   const router = useRouter();
-  const searchParams = useSearchParams()!;
 
   // 지도의 위치
   const [position, setPosition] = useState<Position>({
@@ -76,17 +74,19 @@ const Main = ({
     },
   });
 
-  const OPTIONS = useMemo(
+  const courses_options = useMemo(
     () =>
       courses.map((course) => ({
-        label: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
-        value: String(course.id),
+        title: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
+        href: `/?${new URLSearchParams({
+          courseId: String(course.id),
+          modal: String(true),
+        }).toString()}`,
       })),
     [courses],
   );
 
   const { toast } = useToast();
-  const [value] = useState<Option>();
 
   const selectedcourse = useMemo(
     () => courses.find((course) => course.id === courseId),
@@ -120,65 +120,31 @@ const Main = ({
     }));
   }, [lat, lng, level]);
 
-  const createQueryString = useCallback(
-    (params: Record<string, string>) => {
-      const currentParams = new URLSearchParams(searchParams);
-      Object.keys(params).forEach((key) => {
-        const value = params[key];
-        if (value !== undefined) {
-          // `undefined`를 체크하여 해당 값을 건너뜁니다.
-          currentParams.set(key, value);
-        }
-      });
-
-      return currentParams.toString();
-    },
-    [searchParams],
-  );
-
-  const handleSearchInput = (option: Option) => {
-    router.replace(
-      `?${createQueryString({
-        modal: String(true),
-        courseId: String(option.value),
-      })}`,
-    );
-  };
-
   return (
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 px-3 pt-3">
-        <div className="flex flex-col md:flex-row md:justify-between">
-          <div className="flex items-start gap-2">
-            <Link
-              href={`?${new URLSearchParams({
-                lat: String(DEFAULT_POSITION.center.lat),
-                lng: String(DEFAULT_POSITION.center.lng),
-                level: String(DEFAULT_POSITION.level),
-              }).toString()}`}
-              className="flex-shrink-0 self-center"
-            >
-              <Image
-                src="/logo.png"
-                width={36}
-                height={36}
-                alt="Logo"
-                className="align-middle"
-              />
-            </Link>
-            <AutoComplete
-              options={OPTIONS}
-              emptyMessage="해당하는 검색 결과가 없습니다."
-              placeholder="주소나 이름을 입력해주세요."
-              onValueChange={handleSearchInput}
-              value={value}
-              className="w-full self-center md:w-[480px]"
+        <div className="flex gap-2">
+          <Link
+            href={`?${new URLSearchParams({
+              lat: String(DEFAULT_POSITION.center.lat),
+              lng: String(DEFAULT_POSITION.center.lng),
+              level: String(DEFAULT_POSITION.level),
+            }).toString()}`}
+            className="flex-shrink-0 self-center"
+          >
+            <Image
+              src="/logo.png"
+              width={32}
+              height={32}
+              alt="Logo"
+              className="align-middle"
             />
-          </div>
+          </Link>
+          <CommandMenu options={courses_options} />
           <Button
             variant="secondary"
             size="icon"
-            className="self-end md:self-center"
+            className="flex-shrink-0"
             onClick={() => {
               navigator.geolocation.getCurrentPosition(
                 (position) => {
