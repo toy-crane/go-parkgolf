@@ -31,6 +31,7 @@ import { Map } from "react-kakao-maps-sdk";
 
 import Footer from "./footer";
 import Header from "./header";
+import MainMap from "./main-map";
 
 const InfoNeeded = ({ href }: { href: string }) => {
   return (
@@ -119,6 +120,13 @@ const Main = ({
   return (
     <>
       <Header options={courses_options} />
+      <section>
+        <MainMap
+          courses={courses}
+          selectedCourse={selectedcourse}
+          position={position}
+        />
+      </section>
       <section>
         <Map
           center={position.center}
