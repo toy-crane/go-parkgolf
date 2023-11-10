@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -45,6 +45,7 @@ const InfoNeeded = ({ href }: { href: string }) => {
 const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
   const router = useRouter();
   const { track } = useAmplitude();
+  const searchParams = useSearchParams();
   const { toast } = useToast();
 
   const address = selectedCourse?.address[0];
@@ -53,9 +54,9 @@ const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
     <Sheet
       open={open}
       onOpenChange={(open) => {
-        router.replace(
-          `?${new URLSearchParams({ open: String(open) }).toString()}`,
-        );
+        const params = new URLSearchParams(searchParams);
+        params.set("modal", String(open));
+        router.replace(`?${params.toString()}`);
       }}
     >
       <SheetContent side={"bottom"} className="h-auto">
