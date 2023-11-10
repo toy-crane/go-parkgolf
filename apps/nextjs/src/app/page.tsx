@@ -51,7 +51,7 @@ const Home = async ({
     const selectedCourseLng = selectedCourse?.address[0]?.x;
 
     const position = {
-      level,
+      level: level,
       center: {
         lat: selectedCourseLat ?? lat ?? DEFAULT_POSITION.center.lat,
         lng: selectedCourseLng ?? lng ?? DEFAULT_POSITION.center.lng,
