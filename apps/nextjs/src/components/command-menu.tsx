@@ -35,8 +35,12 @@ export function CommandMenu({ options }: Props) {
         )}
         onClick={() => setOpen(true)}
       >
-        <span className="hidden lg:inline-flex">주소 또는 이름으로 검색</span>
-        <span className="inline-flex lg:hidden">골프장 검색</span>
+        <span className="hidden lg:inline-flex">
+          파크골프장 이름 또는 주소로 검색
+        </span>
+        <span className="inline-flex lg:hidden">
+          파크골프장 이름 또는 주소로 검색
+        </span>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="주소 또는 이름을 입력해주세요." />
