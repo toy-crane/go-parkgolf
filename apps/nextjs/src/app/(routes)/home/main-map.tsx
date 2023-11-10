@@ -43,12 +43,10 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
           key={course.name}
           isMarked={selectedCourse?.name === course.name}
           onClick={() => {
-            router.replace(
-              `?${new URLSearchParams({
-                courseId: String(course.id),
-                modal: String(true),
-              }).toString()}`,
-            );
+            const params = new URLSearchParams(searchParams);
+            params.set("courseId", String(course.id));
+            params.set("modal", String(true));
+            router.replace(`?${params.toString()}`);
             track("course clicked", { ...course });
           }}
         />
