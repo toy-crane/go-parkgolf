@@ -237,7 +237,11 @@ const CourseDetail = ({
         <div className="grid grid-cols-3 gap-y-3">
           {MAJOR_REGIONS.map((region) => (
             <Link
-              href={`/?level=${region.level}&lng=${region.lng}&lat=${region.lat}`}
+              href={`?${new URLSearchParams({
+                level: String(region.level),
+                lng: region.lng,
+                lat: region.lat,
+              }).toString()}`}
               key={region.name}
             >
               {region.name} 지역
