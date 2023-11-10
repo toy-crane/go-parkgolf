@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { DEFAULT_POSITION } from "@/config/map";
 import { useAmplitude } from "@/libs/amplitude";
 import type { Course } from "@/types";
-import { LocateFixed } from "lucide-react";
+import { Loader2, LocateFixed } from "lucide-react";
 
 interface HeaderProps {
   courses: Course[];
@@ -18,6 +18,7 @@ interface HeaderProps {
 const Header = ({ courses }: HeaderProps) => {
   const { track } = useAmplitude();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const courses_options = useMemo(
     () =>
@@ -53,14 +54,15 @@ const Header = ({ courses }: HeaderProps) => {
           </Link>
           <CommandMenu options={courses_options} />
         </div>
-
         <Button
           variant="secondary"
           size="icon"
-          className="flex-shrink-0 "
+          className="flex-shrink-0"
           onClick={() => {
+            setLoading(true);
             navigator.geolocation.getCurrentPosition(
               (position) => {
+                setLoading(false);
                 router.replace(
                   `/?${new URLSearchParams({
                     lat: String(position.coords.latitude),
@@ -78,7 +80,11 @@ const Header = ({ courses }: HeaderProps) => {
             track("current position clicked");
           }}
         >
-          <LocateFixed size={24} />
+          {loading ? (
+            <Loader2 className="h-5 w-5 animate-spin" size={24} />
+          ) : (
+            <LocateFixed size={24} />
+          )}
         </Button>
       </nav>
     </header>
