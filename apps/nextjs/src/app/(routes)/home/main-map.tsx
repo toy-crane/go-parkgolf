@@ -29,6 +29,13 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
     router.replace(`${pathname}?${params.toString()}`);
   }, 300);
 
+  const handleZoom = (map: kakao.maps.Map) => {
+    const level = map.getLevel();
+    const params = new URLSearchParams(searchParams);
+    params.set("level", String(level));
+    router.replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <Map
       center={position.center}
@@ -36,6 +43,7 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
       level={position.level}
       style={{ width: "100%", height: "100vh" }}
       onDrag={handlePosition}
+      onZoomChanged={handleZoom}
     >
       {courses?.map((course) => (
         <Marker
