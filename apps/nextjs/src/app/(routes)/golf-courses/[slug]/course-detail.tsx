@@ -74,7 +74,7 @@ const CourseDetail = ({
     <div>
       <nav className="mb-4 flex items-center justify-between pt-3">
         <div className="flex flex-row items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={() => router.push("/")}>
+          <Button variant="ghost" size="icon" onClick={() => router.back()}>
             <ArrowLeft size={24} />
           </Button>
         </div>
