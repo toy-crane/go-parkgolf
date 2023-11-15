@@ -27,7 +27,7 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
     params.set("lng", String(lng));
     params.set("lat", String(lat));
     router.replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  }, 100);
 
   const handleZoom = (map: kakao.maps.Map) => {
     const level = map.getLevel();
