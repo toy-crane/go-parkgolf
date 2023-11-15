@@ -237,7 +237,7 @@ const CourseDetail = ({
         <div className="grid grid-cols-3 gap-y-3">
           {MAJOR_REGIONS.map((region) => (
             <Link
-              href={`?${new URLSearchParams({
+              href={`/?${new URLSearchParams({
                 level: String(region.level),
                 lng: region.lng,
                 lat: region.lat,
