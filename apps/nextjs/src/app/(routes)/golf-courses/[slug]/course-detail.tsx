@@ -53,7 +53,7 @@ const Label = ({ title, content }: CardProps) => {
 const InfoNeeded = ({ href }: { href: string }) => {
   return (
     <div className="flex items-center">
-      <div className="mr-2">정보를 입력해 주세요</div>
+      <div className="mr-2">정보를 알려주세요.</div>
       <a href={href} target="_blank" rel="noopener noreferrer">
         <Pencil size={16} />
       </a>
@@ -229,7 +229,11 @@ const CourseDetail = ({
             </h2>
             <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
               {nearCourses.map((course) => (
-                <Link href={`/golf-courses/${course.slug}`} key={course.name}>
+                <Link
+                  href={`/golf-courses/${course.slug}`}
+                  key={course.name}
+                  onClick={() => track("near link clicked")}
+                >
                   {course.name}
                 </Link>
               ))}
@@ -240,7 +244,7 @@ const CourseDetail = ({
         <h2 className="text-foreground mb-6 text-xl font-bold">
           전국의 다른 파크골프장 살펴보기
         </h2>
-        <div className="grid grid-cols-3 gap-y-3">
+        <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
           {MAJOR_REGIONS.map((region) => (
             <Link
               href={`/?${new URLSearchParams({
@@ -249,8 +253,10 @@ const CourseDetail = ({
                 lat: region.lat,
               }).toString()}`}
               key={region.name}
+              onClick={() => track("region link clicked")}
             >
-              {region.name === "전국" ? region.name : `${region.name} 지역`} 파크 골프장
+              {region.name === "전국" ? region.name : `${region.name} 지역`}{" "}
+              파크 골프장
             </Link>
           ))}
         </div>
