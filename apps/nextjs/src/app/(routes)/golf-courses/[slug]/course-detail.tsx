@@ -17,6 +17,12 @@ interface CardProps {
 }
 
 const MAJOR_REGIONS = [
+  {
+    name: "전국",
+    level: 12,
+    lat: "36.567969210790785",
+    lng: "127.2127070214483",
+  },
   { name: "서울", level: 10, lat: "37.540705", lng: "126.956764" },
   { name: "인천", level: 9, lat: "37.469221", lng: "126.573234" },
   { name: "광주", level: 8, lat: "35.126033", lng: "126.831302" },
@@ -244,7 +250,7 @@ const CourseDetail = ({
               }).toString()}`}
               key={region.name}
             >
-              {region.name} 지역
+              {region.name === "전국" ? region.name : `${region.name} 지역`} 파크 골프장
             </Link>
           ))}
         </div>
