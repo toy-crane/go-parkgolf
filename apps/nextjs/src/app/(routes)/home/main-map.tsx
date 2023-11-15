@@ -42,7 +42,7 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
       isPanto={true}
       level={position.level}
       style={{ width: "100%", height: "100vh" }}
-      onDrag={handlePosition}
+      onDragEnd={handlePosition}
       onZoomChanged={handleZoom}
     >
       {courses?.map((course) => (
