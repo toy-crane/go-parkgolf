@@ -7,11 +7,7 @@ import AppCTA from "./app-cta";
 const Footer = () => {
   const headersList = headers();
   const userAgent = headersList.get("user-agent")!;
-  const rules = [
-    "WebView",
-    "(iPhone|iPod|iPad)(?!.*Safari/)",
-    "Android.*(wv|.0.0.0)",
-  ];
+  const rules = ["(iPhone|iPod|iPad)(?!.*Safari/)", "Android.*(wv|.0.0.0)"];
   const regex = new RegExp(`(${rules.join("|")})`, "ig");
   const isInApp = Boolean(userAgent.match(regex));
 
