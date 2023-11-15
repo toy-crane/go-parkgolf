@@ -20,7 +20,12 @@ const Footer = () => {
       <nav className="fixed bottom-0 left-0 right-0 z-30 flex justify-end px-3 pb-3">
         <div className="flex flex-col gap-2">
           {!isInApp && <AppCTA />}
-          <Button className="font-bold" asChild size="default">
+          <Button
+            className="font-bold"
+            asChild
+            size="default"
+            variant="secondary"
+          >
             <a
               href="https://forms.gle/41DvTTg1Z3SrQpNQ8"
               target="_blank"

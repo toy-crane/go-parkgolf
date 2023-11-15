@@ -8,7 +8,7 @@ import { useAmplitude } from "@/libs/amplitude";
 const AppCTA = () => {
   const { track } = useAmplitude();
   return (
-    <Button className="font-bold" asChild size="default">
+    <Button className="font-bold" asChild size="default" variant="secondary">
       <a
         href="https://play.google.com/store/apps/details?id=app.goparkgolf.www"
         target="_blank"
