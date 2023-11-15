@@ -150,13 +150,13 @@ const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
             <Clock size={20} />
             <div className="text-base">
               <div className="flex">
-                <div className="mr-2">영업 시간 -</div>
+                <div className="mr-2 flex-shrink-0">영업 시간 -</div>
                 {selectedCourse?.operation[0]?.opening_hours ??
                   InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
               </div>
               {selectedCourse?.operation[0]?.regular_closed_days && (
                 <div className="flex">
-                  <div className="mr-2">정기 휴무일 - </div>
+                  <div className="mr-2 flex-shrink-0">정기 휴무일 - </div>
                   {selectedCourse?.operation[0]?.regular_closed_days}
                 </div>
               )}
@@ -167,7 +167,7 @@ const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
             <AlarmClock size={20} />
             <div className="text-base">
               <div className="flex">
-                <div className="mr-2">예약 방법 - </div>
+                <div className="mr-2 flex-shrink-0">예약 방법 - </div>
                 {operation?.registration_method ??
                   InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
               </div>
