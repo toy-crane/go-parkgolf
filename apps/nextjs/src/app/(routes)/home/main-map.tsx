@@ -6,7 +6,6 @@ import Marker from "@/app/(routes)/home/marker";
 import { useAmplitude } from "@/libs/amplitude";
 import type { Course, Position } from "@/types";
 import { Map } from "react-kakao-maps-sdk";
-import { useDebouncedCallback } from "use-debounce";
 
 interface Props {
   courses: Course[];
@@ -20,14 +19,14 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handlePosition = useDebouncedCallback((map: kakao.maps.Map) => {
+  const handlePosition = (map: kakao.maps.Map) => {
     const lng = map.getCenter().getLng();
     const lat = map.getCenter().getLat();
     const params = new URLSearchParams(searchParams);
     params.set("lng", String(lng));
     params.set("lat", String(lat));
     router.replace(`${pathname}?${params.toString()}`);
-  }, 100);
+  };
 
   const handleZoom = (map: kakao.maps.Map) => {
     const level = map.getLevel();
