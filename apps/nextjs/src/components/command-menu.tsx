@@ -11,6 +11,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { useAmplitude } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
 
 interface Props {
@@ -19,6 +20,7 @@ interface Props {
 
 export function CommandMenu({ options }: Props) {
   const router = useRouter();
+  const { track } = useAmplitude();
   const [open, setOpen] = React.useState(false);
 
   const runCommand = React.useCallback((command: () => unknown) => {
@@ -33,7 +35,10 @@ export function CommandMenu({ options }: Props) {
         className={cn(
           "text-muted-foreground relative w-full justify-start bg-white text-sm sm:pr-12 md:w-40 lg:w-64",
         )}
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          track("search button clicked");
+          setOpen(true);
+        }}
       >
         <span className="hidden lg:inline-flex">
           파크골프장 이름 또는 주소로 검색
@@ -52,6 +57,7 @@ export function CommandMenu({ options }: Props) {
                 key={href}
                 value={title}
                 onSelect={() => {
+                  track("search result clicked");
                   runCommand(() => router.push(href));
                 }}
               >
