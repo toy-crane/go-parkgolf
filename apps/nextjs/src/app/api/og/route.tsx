@@ -3,9 +3,6 @@ import { ImageResponse } from "next/server";
 export const runtime = "edge";
 
 export async function GET() {
-  const fontData = await fetch(
-    new URL("../../../assets/EliceDXNeolli-Medium.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
   return new ImageResponse(
     (
       <div
@@ -51,13 +48,6 @@ export async function GET() {
     {
       width: 1200,
       emoji: "twemoji",
-      fonts: [
-        {
-          name: "elice-bold",
-          data: fontData,
-          style: "normal",
-        },
-      ],
     },
   );
 }
