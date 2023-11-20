@@ -54,6 +54,7 @@ const CreateForm = ({ courses }: CreateFormProps) => {
   });
 
   const [openSearch, setOpenSearch] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     command();
@@ -82,7 +83,7 @@ const CreateForm = ({ courses }: CreateFormProps) => {
           render={({ field }) => (
             <FormItem className="flex flex-col">
               <FormLabel>게임 날짜</FormLabel>
-              <Popover>
+              <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
@@ -106,7 +107,10 @@ const CreateForm = ({ courses }: CreateFormProps) => {
                     mode="single"
                     locale={ko}
                     selected={field.value}
-                    onSelect={field.onChange}
+                    onSelect={(e) => {
+                      field.onChange(e);
+                      setIsCalendarOpen(false);
+                    }}
                     disabled={(date) =>
                       date > new Date() || date < new Date("1900-01-01")
                     }
