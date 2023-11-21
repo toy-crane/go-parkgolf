@@ -289,7 +289,7 @@ const CreateForm = ({ courses }: CreateFormProps) => {
           </Button>
           <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
         </div>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">게임 생성하기</Button>
       </form>
     </Form>
   );
