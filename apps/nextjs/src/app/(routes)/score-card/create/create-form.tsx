@@ -259,7 +259,12 @@ const CreateForm = ({ courses }: CreateFormProps) => {
                     render={({ field }) => (
                       <FormItem className="flex-1">
                         <FormControl>
-                          <Input {...field} type="number" />
+                          <Input
+                            {...field}
+                            type="number"
+                            pattern="[0-9]*"
+                            inputMode="numeric"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
