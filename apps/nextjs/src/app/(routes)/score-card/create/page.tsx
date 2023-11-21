@@ -24,8 +24,8 @@ const Page = async () => {
     const courses: DbResultOk<typeof query> = result.data;
 
     return (
-      <main className="mt-12">
-        <h1 className="mb-4 text-4xl font-medium">신규 게임 생성하기</h1>
+      <main>
+        <h1 className="my-8 text-4xl font-medium">신규 게임 생성하기</h1>
         <CreateForm courses={courses} />
       </main>
     );
