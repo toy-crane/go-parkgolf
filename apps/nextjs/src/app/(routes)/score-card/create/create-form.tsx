@@ -29,7 +29,7 @@ import {
 import { TagInput } from "@/components/ui/tag-input";
 import type { Tag } from "@/components/ui/tag-input";
 import { cn } from "@/libs/tailwind";
-import type { Course } from "@/types";
+import type { Tables } from "@/types/supabase-helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CalendarIcon,
@@ -69,7 +69,7 @@ const formSchema = z.object({
 });
 
 interface CreateFormProps {
-  courses: Course[];
+  courses: Tables<"golf_course">[];
 }
 
 const CreateForm = ({ courses }: CreateFormProps) => {
