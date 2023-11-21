@@ -14,6 +14,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -24,6 +25,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { TagInput } from "@/components/ui/tag-input";
+import type { Tag } from "@/components/ui/tag-input";
 import { cn } from "@/libs/tailwind";
 import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,10 +38,19 @@ import * as z from "zod";
 
 const formSchema = z.object({
   startDate: z.date(),
-  name: z.string(),
   courseId: z.string({
     required_error: "파크 골프장을 선택해 주세요.",
   }),
+  members: z
+    .array(
+      z.object({
+        id: z.string(),
+        text: z.string(),
+      }),
+      { required_error: "게임 참여자를 입력해주세요." },
+    )
+    .min(1, { message: "게임 참여자 이름을 1명 이상 입력해주세요." })
+    .max(4, { message: "게임 참여자는 최대 4명까지 입력 가능합니다." }),
 });
 
 interface CreateFormProps {
@@ -53,8 +65,11 @@ const CreateForm = ({ courses }: CreateFormProps) => {
     },
   });
 
+  const { setValue } = form;
+
   const [openSearch, setOpenSearch] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [tags, setTags] = React.useState<Tag[]>([]);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     command();
@@ -164,6 +179,32 @@ const CreateForm = ({ courses }: CreateFormProps) => {
                   </CommandGroup>
                 </CommandList>
               </CommandDialog>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="members"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel className="text-left">게임 참여자 이름</FormLabel>
+              <FormControl>
+                <TagInput
+                  {...field}
+                  placeholder="참여자의 이름을 추가해주세요"
+                  tags={tags}
+                  borderStyle={"none"}
+                  truncate={5}
+                  maxTags={4}
+                  minTags={1}
+                  setTags={(newTags) => {
+                    setTags(newTags);
+                    setValue("members", newTags as [Tag, ...Tag[]]);
+                  }}
+                />
+              </FormControl>
+              <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
               <FormMessage />
             </FormItem>
           )}
