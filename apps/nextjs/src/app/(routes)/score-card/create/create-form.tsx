@@ -233,6 +233,7 @@ const CreateForm = ({ courses }: CreateFormProps) => {
           <div className="flex gap-x-3">
             <FormLabel className="flex-1">코스 이름</FormLabel>
             <FormLabel className="flex-1">홀 수</FormLabel>
+            <div className="w-4"></div>
           </div>
           {fields.map((_, index) => {
             return (
@@ -265,7 +266,7 @@ const CreateForm = ({ courses }: CreateFormProps) => {
                     )}
                   />
                   <button onClick={() => remove(index)} type="button">
-                    <MinusCircledIcon />
+                    <MinusCircledIcon className="h-4 w-4" />
                   </button>
                 </div>
               </div>
@@ -284,10 +285,11 @@ const CreateForm = ({ courses }: CreateFormProps) => {
               })
             }
           >
-            <PlusCircledIcon className="mr-1" />
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
             코스 추가하기
           </Button>
           <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
+          <FormMessage />
         </div>
         <Button type="submit">게임 생성하기</Button>
       </form>
