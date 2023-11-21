@@ -20,6 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
@@ -30,10 +31,15 @@ import type { Tag } from "@/components/ui/tag-input";
 import { cn } from "@/libs/tailwind";
 import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CalendarIcon, CaretSortIcon } from "@radix-ui/react-icons";
+import {
+  CalendarIcon,
+  CaretSortIcon,
+  MinusCircledIcon,
+  PlusCircledIcon,
+} from "@radix-ui/react-icons";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -51,6 +57,25 @@ const formSchema = z.object({
     )
     .min(1, { message: "게임 참여자 이름을 1명 이상 입력해주세요." })
     .max(4, { message: "게임 참여자는 최대 4명까지 입력 가능합니다." }),
+  games: z
+    .array(
+      z.object({
+        name: z.string(),
+        hole_count: z.string(),
+      }),
+    )
+    .nonempty({ message: "게임을 하나 이상 등록해 주세요." }),
+  products: z
+    .array(
+      z.object({
+        name: z.string().min(1, { message: "Product Name is required" }),
+        description: z.string().min(1, {
+          message: "Product Description is required",
+        }),
+        price: z.coerce.number(),
+      }),
+    )
+    .nonempty({ message: "Product is required" }),
 });
 
 interface CreateFormProps {
@@ -70,6 +95,11 @@ const CreateForm = ({ courses }: CreateFormProps) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [tags, setTags] = React.useState<Tag[]>([]);
+
+  const { fields, append, remove } = useFieldArray({
+    name: "games",
+    control: form.control,
+  });
 
   const runCommand = React.useCallback((command: () => unknown) => {
     command();
@@ -209,6 +239,65 @@ const CreateForm = ({ courses }: CreateFormProps) => {
             </FormItem>
           )}
         />
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-x-3">
+            <FormLabel className="flex-1">코스 이름</FormLabel>
+            <FormLabel className="flex-1">홀 수</FormLabel>
+          </div>
+          {fields.map((_, index) => {
+            return (
+              <div key={index}>
+                <div className="flex gap-x-3">
+                  <FormField
+                    control={form.control}
+                    key={index}
+                    name={`games.${index}.name`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    key={index + 1}
+                    name={`games.${index}.hole_count`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <button onClick={() => remove(index)} type="button">
+                    <MinusCircledIcon />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={() =>
+              append({
+                name: "",
+                hole_count: "",
+              })
+            }
+          >
+            <PlusCircledIcon className="mr-1" />
+            코스 추가하기
+          </Button>
+          <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
+        </div>
         <Button type="submit">Submit</Button>
       </form>
     </Form>
