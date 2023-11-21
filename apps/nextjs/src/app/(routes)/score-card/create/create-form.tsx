@@ -61,21 +61,11 @@ const formSchema = z.object({
     .array(
       z.object({
         name: z.string(),
-        hole_count: z.string(),
+        hole_count: z.coerce.number(),
       }),
     )
+    .max(4, { message: "코스는 최대 4개까지 입력 가능합니다." })
     .nonempty({ message: "게임을 하나 이상 등록해 주세요." }),
-  products: z
-    .array(
-      z.object({
-        name: z.string().min(1, { message: "Product Name is required" }),
-        description: z.string().min(1, {
-          message: "Product Description is required",
-        }),
-        price: z.coerce.number(),
-      }),
-    )
-    .nonempty({ message: "Product is required" }),
 });
 
 interface CreateFormProps {
@@ -268,7 +258,7 @@ const CreateForm = ({ courses }: CreateFormProps) => {
                     render={({ field }) => (
                       <FormItem className="flex-1">
                         <FormControl>
-                          <Input {...field} />
+                          <Input {...field} type="number" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -286,10 +276,11 @@ const CreateForm = ({ courses }: CreateFormProps) => {
             variant="outline"
             size="sm"
             className="mt-2"
+            disabled={fields.length >= 4}
             onClick={() =>
               append({
-                name: "",
-                hole_count: "",
+                name: ["A", "B", "C", "D"][fields.length]!,
+                hole_count: 9,
               })
             }
           >
