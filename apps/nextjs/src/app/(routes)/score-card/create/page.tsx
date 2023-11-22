@@ -1,6 +1,5 @@
 import React from "react";
 import { cookies } from "next/headers";
-import { Separator } from "@/components/ui/separator";
 import { createFetch } from "@/libs/cache";
 import type { Database } from "@/types/generated";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
@@ -27,7 +26,6 @@ const Page = async () => {
     return (
       <main>
         <Funnel courses={courses} />
-        {/* <CreateForm courses={courses} /> */}
       </main>
     );
   }
