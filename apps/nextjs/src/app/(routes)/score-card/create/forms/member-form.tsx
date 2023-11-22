@@ -9,6 +9,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { TagInput } from "@/components/ui/tag-input";
 import type { Tag } from "@/components/ui/tag-input";
 import { useFormContext } from "react-hook-form";
@@ -46,6 +47,7 @@ const MemberForm = () => {
               }}
             />
           </FormControl>
+          <Input />
           <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
           <FormMessage />
         </FormItem>
