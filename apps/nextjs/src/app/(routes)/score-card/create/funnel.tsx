@@ -23,17 +23,17 @@ import { formSchema, gameSchema, memberSchema } from "./forms/schema";
 const steps = [
   {
     label: "신규 게임 생성하기",
-    description: "골프장과 게임 시작 날짜를 입력해 주세요.",
+    description: "골프장과 게임 시작 날짜를 입력해 주세요",
     fields: Object.keys(gameSchema.shape),
   },
   {
     label: "신규 게임 생성하기",
-    description: "같이 게임을 하는 플레이어들의 이름을 입력해 주세요.",
+    description: "플레이어들의 이름을 입력해 주세요",
     fields: Object.keys(memberSchema.shape),
   },
   {
     label: "신규 게임 생성하기",
-    description: "코스를 설정해 주세요.",
+    description: "코스를 설정해 주세요",
     fields: Object.keys(memberSchema.shape),
   },
 ];
