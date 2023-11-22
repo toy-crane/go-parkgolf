@@ -231,6 +231,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      headless-stepper:
+        specifier: ^1.9.1
+        version: 1.9.1(react@18.2.0)
       lucide-react:
         specifier: ^0.279.0
         version: 0.279.0(react@18.2.0)
@@ -7778,6 +7781,14 @@ packages:
     dependencies:
       no-case: 2.3.2
       upper-case: 1.1.3
+    dev: false
+
+  /headless-stepper@1.9.1(react@18.2.0):
+    resolution: {integrity: sha512-ns66zFZHyGaqrKL9Up+TvyUjn84rDV/0r0M/jXjdcEdJsaYpPglDfosIH0s+FwZlpEOpNqXHRq0CttUMY/EpbQ==}
+    peerDependencies:
+      react: '>=16.8.0 || >=17.0.0 || >= 18.0.0'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /hermes-estree@0.12.0:

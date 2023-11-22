@@ -12,6 +12,7 @@ import {
   PageHeaderHeading,
 } from "../../_components/page-header";
 import CreateForm from "./create-form";
+import Funnel from "./funnel";
 
 const Page = async () => {
   const cookieStore = cookies();
@@ -31,14 +32,8 @@ const Page = async () => {
 
     return (
       <main>
-        <PageHeader className="relative pb-4 md:pb-8">
-          <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
-          <PageHeaderDescription>
-            스코어 기록을 쉽게 기록해보세요.
-          </PageHeaderDescription>
-        </PageHeader>
-        <Separator className="mb-4 md:mb-8" />
-        <CreateForm courses={courses} />
+        <Funnel courses={courses} />
+        {/* <CreateForm courses={courses} /> */}
       </main>
     );
   }
