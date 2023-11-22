@@ -47,7 +47,6 @@ const MemberForm = () => {
               }}
             />
           </FormControl>
-          <Input />
           <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
           <FormMessage />
         </FormItem>

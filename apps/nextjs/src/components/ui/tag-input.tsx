@@ -185,7 +185,6 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
           ? delimiterList.includes(e.key)
           : e.key === delimiter || e.key === Delimiter.Enter
       ) {
-        e.preventDefault();
         const newTagText = inputValue.trim();
 
         if (validateTag && !validateTag(newTagText)) {
