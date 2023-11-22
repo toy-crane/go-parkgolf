@@ -57,6 +57,13 @@ const Funnel = ({ courses }: CreateFormProps) => {
   });
   const { trigger } = form;
 
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
+
   const handleNextClick = async () => {
     const fields = steps[currentStep]?.fields;
     const isValid = await trigger(fields as FieldName[], {
@@ -64,15 +71,12 @@ const Funnel = ({ courses }: CreateFormProps) => {
     });
 
     if (!isValid) return;
-    nextStep();
+    if (state.hasNextStep) {
+      nextStep();
+    } else {
+      await form.handleSubmit(onSubmit)();
+    }
   };
-
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
 
   return (
     <div>
