@@ -35,6 +35,7 @@ const MemberForm = () => {
             <TagInput
               {...field}
               placeholder="참여자의 이름을 추가해주세요"
+              placeholderWhenFull="더 이상 참여자를 추가할 수 없습니다"
               tags={tags}
               borderStyle={"none"}
               truncate={5}
