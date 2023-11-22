@@ -44,8 +44,8 @@ const MAJOR_REGIONS = [
 const Label = ({ title, content }: CardProps) => {
   return (
     <div className="flex items-center">
-      <h3 className="mr-4 text-lg font-semibold">{title}</h3>
-      <div className="text-muted-foreground text-lg">{content}</div>
+      <h3 className="mr-4 text-base font-semibold">{title}</h3>
+      <div className="text-muted-foreground text-base">{content}</div>
     </div>
   );
 };
@@ -144,7 +144,7 @@ const CourseDetail = ({
         />
       </section>
       <section className="mb-20 flex w-full flex-col">
-        <h1 className="text-foreground mb-4 text-4xl font-bold">
+        <h1 className="text-foreground mb-4 text-3xl font-bold">
           {course.name}
         </h1>
         <div className="flex flex-col gap-1">
@@ -255,8 +255,8 @@ const CourseDetail = ({
               key={region.name}
               onClick={() => track("region link clicked")}
             >
-              {region.name === "전국" ? region.name : `${region.name} 지역`}{" "}
-              파크 골프장
+              {region.name === "전국" ? region.name : `${region.name}`} 파크
+              골프장
             </Link>
           ))}
         </div>

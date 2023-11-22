@@ -46,8 +46,8 @@ const Header = ({ courses }: HeaderProps) => {
           >
             <Image
               src="/logo.png"
-              width={32}
-              height={32}
+              width={40}
+              height={40}
               alt="Logo"
               className="align-middle"
             />
