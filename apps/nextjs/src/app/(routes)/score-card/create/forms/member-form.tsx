@@ -19,7 +19,6 @@ import type { formSchema } from "./schema";
 const MemberForm = () => {
   const form = useFormContext<z.infer<typeof formSchema>>();
   const { setValue, watch } = form;
-  console.log("hello", watch("members"));
   const tags = watch("members")?.map((member) => ({
     id: member.id,
     text: member.text,
