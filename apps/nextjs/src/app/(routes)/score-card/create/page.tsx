@@ -5,6 +5,11 @@ import type { Database } from "@/types/generated";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "../../_components/page-header";
 import CreateForm from "./create-form";
 
 const Page = async () => {
@@ -25,7 +30,12 @@ const Page = async () => {
 
     return (
       <main>
-        <h1 className="my-8 text-4xl font-medium">신규 게임 생성하기</h1>
+        <PageHeader className="relative pb-4 md:pb-8">
+          <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
+          <PageHeaderDescription>
+            스코어 기록을 쉽게 기록해보세요.
+          </PageHeaderDescription>
+        </PageHeader>
         <CreateForm courses={courses} />
       </main>
     );
