@@ -6,12 +6,6 @@ import type { Database } from "@/types/generated";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
-import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "../../_components/page-header";
-import CreateForm from "./create-form";
 import Funnel from "./funnel";
 
 const Page = async () => {

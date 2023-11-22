@@ -88,9 +88,9 @@ const Funnel = ({ courses }: CreateFormProps) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 pb-12"
         >
-          {currentStep === 0 && <GameForm courses={courses} />}
+          {currentStep === 0 && <CourseForm courses={courses} />}
           {currentStep === 1 && <MemberForm />}
-          {currentStep === 2 && <CourseForm />}
+          {currentStep === 2 && <GameForm />}
         </form>
       </Form>
       <div className="flex flex-col gap-4 md:flex-row">
