@@ -86,7 +86,7 @@ const Funnel = ({ courses }: CreateFormProps) => {
           {steps[state.currentStep]?.description}
         </PageHeaderDescription>
       </PageHeader>
-      <Separator className="mb-4 md:mb-8" />
+      <Separator className="mb-8 md:mb-10" />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
