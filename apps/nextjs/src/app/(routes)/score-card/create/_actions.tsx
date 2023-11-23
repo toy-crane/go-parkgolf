@@ -47,8 +47,7 @@ export async function createGame(data: Inputs) {
         text: participant.text,
       })),
     )
-    .select()
-    .single();
+    .select();
   const participantResponse = await participantMutation;
   if (participantResponse.error) {
     throw new Error(participantResponse.error.message);

@@ -1,6 +1,6 @@
 
 > @acme/nextjs@0.1.0 with-env /Users/toycrane/projects/effortless-earning/go-parkgolf/apps/nextjs
-> dotenv -e ../../.env -- "npx" "supabase" "gen" "types" "typescript" "--project-id" "nlclqihmkqqmdmflexer" "--schema" "public" "--debug"
+> dotenv -e ../../.env -- "npx" "supabase" "gen" "types" "typescript" "--project-id" "nlclqihmkqqmdmflexer" "--schema" "public"
 
 export type Json =
   | string
@@ -124,6 +124,35 @@ export interface Database {
           }
         ]
       }
+      game_course: {
+        Row: {
+          game_id: number | null
+          hole_count: number | null
+          id: number
+          name: string | null
+        }
+        Insert: {
+          game_id?: number | null
+          hole_count?: number | null
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          game_id?: number | null
+          hole_count?: number | null
+          id?: number
+          name?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_course_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "game"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       golf_course: {
         Row: {
           hole_count: number
@@ -189,18 +218,21 @@ export interface Database {
       participant: {
         Row: {
           game_id: number | null
-          id: string | null
+          id: number
           text: string | null
+          user_id: number | null
         }
         Insert: {
           game_id?: number | null
-          id?: string | null
+          id?: number
           text?: string | null
+          user_id?: number | null
         }
         Update: {
           game_id?: number | null
-          id?: string | null
+          id?: number
           text?: string | null
+          user_id?: number | null
         }
         Relationships: [
           {
