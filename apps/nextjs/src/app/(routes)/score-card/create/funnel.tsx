@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
@@ -49,6 +50,7 @@ type FieldName = keyof Inputs;
 const Funnel = ({ courses }: CreateFormProps) => {
   const { state, nextStep, prevStep } = useStepper({ steps });
   const currentStep = state.currentStep;
+  const router = useRouter();
 
   const form = useForm<Inputs>({
     shouldUnregister: false,
@@ -63,7 +65,10 @@ const Funnel = ({ courses }: CreateFormProps) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     const result = await createGame(values);
-    console.log(result);
+    if (result.success) {
+      form.reset();
+      router.push(`/score-card/${result.data.id}`);
+    }
   }
 
   const handleNextClick = async () => {

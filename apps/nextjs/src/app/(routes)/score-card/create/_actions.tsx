@@ -25,6 +25,8 @@ export async function createGame(data: Inputs) {
     throw new Error("Validation failed");
   }
 
+  console.log(result.data.startDate);
+
   const gameMutation = supabase
     .from("game")
     .insert({
@@ -55,5 +57,22 @@ export async function createGame(data: Inputs) {
   const participants: DbResultOk<typeof participantMutation> =
     participantResponse.data;
 
-  return { success: true, data: { ...game, participants } };
+  const gameCourseMutation = supabase
+    .from("game_course")
+    .insert(
+      result.data.game_courses.map((c) => ({
+        game_id: game.id,
+        name: c.name,
+        hole_count: c.hole_count,
+      })),
+    )
+    .select();
+  const gameCourseResponse = await gameCourseMutation;
+  if (gameCourseResponse.error) {
+    throw new Error(gameCourseResponse.error.message);
+  }
+  const game_courses: DbResultOk<typeof gameCourseMutation> =
+    gameCourseResponse.data;
+
+  return { success: true, data: { ...game, participants, game_courses } };
 }
