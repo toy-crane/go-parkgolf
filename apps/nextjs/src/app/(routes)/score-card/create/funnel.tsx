@@ -17,7 +17,7 @@ import {
 } from "../../_components/page-header";
 import CourseForm from "./forms/course-form";
 import GameForm from "./forms/game-form";
-import ParticipantForm from "./forms/member-form";
+import ParticipantForm from "./forms/participant-form";
 import { formSchema, gameSchema, participantSchema } from "./forms/schema";
 
 const steps = [
