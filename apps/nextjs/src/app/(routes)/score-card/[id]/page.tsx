@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       <div>{game.start_date}</div>
       <div>
         {participant.map((p) => (
-          <div key={p.id}>{p.text}</div>
+          <div key={p.id}>{p.nickname}</div>
         ))}
       </div>
       <div>

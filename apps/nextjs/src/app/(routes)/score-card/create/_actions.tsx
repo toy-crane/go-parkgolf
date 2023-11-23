@@ -46,7 +46,7 @@ export async function createGame(data: Inputs) {
     .insert(
       result.data.participants.map((participant) => ({
         game_id: game.id,
-        text: participant.text,
+        nickname: participant.text,
       })),
     )
     .select();

@@ -219,19 +219,19 @@ export interface Database {
         Row: {
           game_id: number | null
           id: number
-          text: string | null
+          nickname: string | null
           user_id: number | null
         }
         Insert: {
           game_id?: number | null
           id?: number
-          text?: string | null
+          nickname?: string | null
           user_id?: number | null
         }
         Update: {
           game_id?: number | null
           id?: number
-          text?: string | null
+          nickname?: string | null
           user_id?: number | null
         }
         Relationships: [
