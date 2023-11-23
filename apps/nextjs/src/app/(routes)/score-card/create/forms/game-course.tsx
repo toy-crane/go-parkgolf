@@ -17,11 +17,11 @@ import type * as z from "zod";
 
 import type { formSchema } from "./schema";
 
-const GameForm = () => {
+const GameCourseForm = () => {
   const form = useFormContext<z.infer<typeof formSchema>>();
 
   const { fields, append, remove } = useFieldArray({
-    name: "games",
+    name: "game_courses",
     control: form.control,
   });
 
@@ -39,7 +39,7 @@ const GameForm = () => {
               <FormField
                 control={form.control}
                 key={index}
-                name={`games.${index}.name`}
+                name={`game_courses.${index}.name`}
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <FormControl>
@@ -52,7 +52,7 @@ const GameForm = () => {
               <FormField
                 control={form.control}
                 key={index + 1}
-                name={`games.${index}.hole_count`}
+                name={`game_courses.${index}.hole_count`}
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <FormControl>
@@ -96,4 +96,4 @@ const GameForm = () => {
   );
 };
 
-export default GameForm;
+export default GameCourseForm;

@@ -37,7 +37,7 @@ interface CreateFormProps {
   courses: Tables<"golf_course">[];
 }
 
-const CourseForm = ({ courses }: CreateFormProps) => {
+const GolfCourseForm = ({ courses }: CreateFormProps) => {
   const form = useFormContext<z.infer<typeof formSchema>>();
 
   const [openSearch, setOpenSearch] = useState(false);
@@ -50,7 +50,7 @@ const CourseForm = ({ courses }: CreateFormProps) => {
 
   const courseOptions = courses.map((course) => ({
     title: course.name,
-    value: String(course.id),
+    value: course.id,
   }));
 
   return (
@@ -151,4 +151,4 @@ const CourseForm = ({ courses }: CreateFormProps) => {
   );
 };
 
-export default CourseForm;
+export default GolfCourseForm;

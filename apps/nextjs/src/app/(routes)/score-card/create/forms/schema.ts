@@ -20,8 +20,8 @@ export const participantSchema = z.object({
     .max(4, { message: "게임 참여자는 최대 4명까지 입력 가능합니다." }),
 });
 
-const courseShema = z.object({
-  games: z
+const gameCourseShema = z.object({
+  game_courses: z
     .array(
       z.object({
         name: z.string(),
@@ -34,4 +34,4 @@ const courseShema = z.object({
 
 export const formSchema = gameSchema
   .merge(participantSchema)
-  .merge(courseShema);
+  .merge(gameCourseShema);

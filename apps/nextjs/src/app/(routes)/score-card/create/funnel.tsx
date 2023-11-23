@@ -16,8 +16,8 @@ import {
   PageHeaderHeading,
 } from "../../_components/page-header";
 import { createGame } from "./_actions";
-import CourseForm from "./forms/course-form";
-import GameForm from "./forms/game-form";
+import GameCourseForm from "./forms/game-course";
+import GolfCourseForm from "./forms/golf-course-form";
 import ParticipantForm from "./forms/participant-form";
 import { formSchema, gameSchema, participantSchema } from "./forms/schema";
 
@@ -94,9 +94,9 @@ const Funnel = ({ courses }: CreateFormProps) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 pb-12"
         >
-          {currentStep === 0 && <CourseForm courses={courses} />}
+          {currentStep === 0 && <GolfCourseForm courses={courses} />}
           {currentStep === 1 && <ParticipantForm />}
-          {currentStep === 2 && <GameForm />}
+          {currentStep === 2 && <GameCourseForm />}
         </form>
       </Form>
       <div className="flex flex-col gap-4 md:flex-row">
