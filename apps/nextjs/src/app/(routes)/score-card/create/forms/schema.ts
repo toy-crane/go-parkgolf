@@ -2,7 +2,7 @@ import * as z from "zod";
 
 export const gameSchema = z.object({
   startDate: z.date(),
-  courseId: z.string({
+  courseId: z.coerce.number({
     required_error: "파크 골프장을 선택해 주세요.",
   }),
 });

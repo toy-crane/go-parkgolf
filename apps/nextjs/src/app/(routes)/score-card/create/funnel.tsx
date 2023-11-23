@@ -15,6 +15,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "../../_components/page-header";
+import { createGame } from "./_actions";
 import CourseForm from "./forms/course-form";
 import GameForm from "./forms/game-form";
 import ParticipantForm from "./forms/participant-form";
@@ -58,10 +59,11 @@ const Funnel = ({ courses }: CreateFormProps) => {
   const { trigger } = form;
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    const result = await createGame(values);
+    console.log(result);
   }
 
   const handleNextClick = async () => {

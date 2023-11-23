@@ -17,6 +17,7 @@ const config = {
   },
   experimental: {
     logging: { level: "verbose" },
+    serverActions: true,
   },
 };
 
