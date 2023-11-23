@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { createFetch } from "@/libs/cache";
 import type { Database } from "@/types/generated";
-import type { DbResult, DbResultOk } from "@/types/supabase-helper";
+import type { DbResultOk } from "@/types/supabase-helper";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import type { z } from "zod";
 
