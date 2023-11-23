@@ -1,3 +1,7 @@
+
+> @acme/nextjs@0.1.0 with-env /Users/toycrane/projects/effortless-earning/go-parkgolf/apps/nextjs
+> dotenv -e ../../.env -- "npx" "supabase" "gen" "types" "typescript" "--project-id" "nlclqihmkqqmdmflexer" "--schema" "public" "--debug"
+
 export type Json =
   | string
   | number
@@ -86,9 +90,35 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "contacts_golf_course_id_fkey"
+            foreignKeyName: "contact_golf_course_id_fkey"
             columns: ["golf_course_id"]
-            isOneToOne: true
+            isOneToOne: false
+            referencedRelation: "golf_course"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      game: {
+        Row: {
+          course_id: number | null
+          id: number
+          start_date: string | null
+        }
+        Insert: {
+          course_id?: number | null
+          id?: number
+          start_date?: string | null
+        }
+        Update: {
+          course_id?: number | null
+          id?: number
+          start_date?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }
@@ -148,39 +178,36 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "operations_golf_course_id_fkey"
+            foreignKeyName: "operation_golf_course_id_fkey"
             columns: ["golf_course_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }
         ]
       }
-      price: {
+      participant: {
         Row: {
-          golf_course_id: number | null
-          id: number
-          price: number
-          unit: string
+          game_id: number | null
+          id: string | null
+          text: string | null
         }
         Insert: {
-          golf_course_id?: number | null
-          id?: number
-          price: number
-          unit: string
+          game_id?: number | null
+          id?: string | null
+          text?: string | null
         }
         Update: {
-          golf_course_id?: number | null
-          id?: number
-          price?: number
-          unit?: string
+          game_id?: number | null
+          id?: string | null
+          text?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "price_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: true
-            referencedRelation: "golf_course"
+            foreignKeyName: "participant_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "game"
             referencedColumns: ["id"]
           }
         ]

@@ -11,7 +11,8 @@
     "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json}\"",
     "start": "pnpm with-env next start",
     "typecheck": "tsc --noEmit",
-    "with-env": "dotenv -e ../../.env --"
+    "with-env": "dotenv -e ../../.env --",
+    "gen-types": "pnpm with-env npx supabase gen types typescript --project-id nlclqihmkqqmdmflexer --schema public > src/types/generated.ts"
   },
   "dependencies": {
     "@amplitude/analytics-browser": "^2.3.2",
