@@ -7,8 +7,8 @@ export const gameSchema = z.object({
   }),
 });
 
-export const memberSchema = z.object({
-  members: z
+export const participantSchema = z.object({
+  participants: z
     .array(
       z.object({
         id: z.string(),
@@ -32,4 +32,6 @@ const courseShema = z.object({
     .nonempty({ message: "게임을 하나 이상 등록해 주세요." }),
 });
 
-export const formSchema = gameSchema.merge(memberSchema).merge(courseShema);
+export const formSchema = gameSchema
+  .merge(participantSchema)
+  .merge(courseShema);

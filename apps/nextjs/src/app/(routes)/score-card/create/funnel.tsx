@@ -17,8 +17,8 @@ import {
 } from "../../_components/page-header";
 import CourseForm from "./forms/course-form";
 import GameForm from "./forms/game-form";
-import MemberForm from "./forms/member-form";
-import { formSchema, gameSchema, memberSchema } from "./forms/schema";
+import ParticipantForm from "./forms/member-form";
+import { formSchema, gameSchema, participantSchema } from "./forms/schema";
 
 const steps = [
   {
@@ -29,12 +29,12 @@ const steps = [
   {
     label: "신규 게임 생성하기",
     description: "플레이어들의 이름을 입력해 주세요",
-    fields: Object.keys(memberSchema.shape),
+    fields: Object.keys(participantSchema.shape),
   },
   {
     label: "신규 게임 생성하기",
     description: "코스를 설정해 주세요",
-    fields: Object.keys(memberSchema.shape),
+    fields: Object.keys(participantSchema.shape),
   },
 ];
 
@@ -53,7 +53,7 @@ const Funnel = ({ courses }: CreateFormProps) => {
     shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(formSchema),
-    defaultValues: { startDate: new Date(), members: [] },
+    defaultValues: { startDate: new Date(), participants: [] },
   });
   const { trigger } = form;
 
@@ -93,7 +93,7 @@ const Funnel = ({ courses }: CreateFormProps) => {
           className="space-y-8 pb-12"
         >
           {currentStep === 0 && <CourseForm courses={courses} />}
-          {currentStep === 1 && <MemberForm />}
+          {currentStep === 1 && <ParticipantForm />}
           {currentStep === 2 && <GameForm />}
         </form>
       </Form>

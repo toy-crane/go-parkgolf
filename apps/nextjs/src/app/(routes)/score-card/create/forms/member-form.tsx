@@ -16,18 +16,18 @@ import type * as z from "zod";
 
 import type { formSchema } from "./schema";
 
-const MemberForm = () => {
+const ParticipantForm = () => {
   const form = useFormContext<z.infer<typeof formSchema>>();
   const { setValue, watch } = form;
-  const tags = watch("members")?.map((member) => ({
-    id: member.id,
-    text: member.text,
+  const tags = watch("participants")?.map((p) => ({
+    id: p.id,
+    text: p.text,
   }));
 
   return (
     <FormField
       control={form.control}
-      name="members"
+      name="participants"
       render={({ field }) => (
         <FormItem className="flex flex-col">
           <FormLabel className="text-left">게임 참여자 이름</FormLabel>
@@ -42,7 +42,7 @@ const MemberForm = () => {
               maxTags={4}
               minTags={1}
               setTags={(newTags) => {
-                setValue("members", newTags as [Tag, ...Tag[]]);
+                setValue("participants", newTags as [Tag, ...Tag[]]);
               }}
             />
           </FormControl>
@@ -54,4 +54,4 @@ const MemberForm = () => {
   );
 };
 
-export default MemberForm;
+export default ParticipantForm;
