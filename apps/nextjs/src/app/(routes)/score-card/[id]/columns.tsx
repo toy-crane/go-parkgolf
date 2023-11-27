@@ -12,6 +12,7 @@ import type {
 export interface Score {
   id: number;
   hole: number;
+  par: number;
   player1: number;
   player2: number;
   player3: number;
@@ -36,6 +37,26 @@ export const useGetColumns = (
           return <div>{value}</div>;
         },
         footer: "합계",
+      },
+      {
+        accessorKey: "par",
+        header: "파",
+        cell: (info) => {
+          const value = info.getValue() as string;
+          return <div>{value}</div>;
+        },
+        footer: (info: HeaderContext<Score, unknown>) => {
+          return (
+            <div>
+              {info.table
+                .getFilteredRowModel()
+                .rows.reduce(
+                  (total, row) => total + Number(row.getValue("par")),
+                  0,
+                )}
+            </div>
+          );
+        },
       },
       ...headerNames.map((header) => ({
         accessorKey: header.accessorKey,

@@ -69,7 +69,7 @@ export function DataTable({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
                 key={headerGroup.id}
-                className="align-center grid grid-cols-[80px_repeat(4,minmax(0,1fr))]"
+                className="align-center grid-cols-score-card grid"
               >
                 {headerGroup.headers.map((header) => {
                   return (
@@ -94,7 +94,7 @@ export function DataTable({
               ? table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
-                    className="grid flex-1 grid-cols-[80px_repeat(4,minmax(0,1fr))]"
+                    className="grid-cols-score-card grid flex-1"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
@@ -128,7 +128,7 @@ export function DataTable({
             {table.getFooterGroups().map((footerGroup) => (
               <TableRow
                 key={footerGroup.id}
-                className="align-center grid grid-cols-[80px_repeat(4,minmax(0,1fr))]"
+                className="align-center grid-cols-score-card grid"
               >
                 {footerGroup.headers.map((footer) => {
                   return (

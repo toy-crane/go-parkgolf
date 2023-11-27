@@ -14,6 +14,10 @@ export default {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        "16": "repeat(16, minmax(0, 1fr))",
+        "score-card": "50px 50px repeat(4,minmax(0,1fr))",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
