@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -25,10 +26,18 @@ import type { Score } from "./columns";
 export function DataTable({
   columns: headerNames,
   data,
+  gameCourseName,
+  hasNextPage,
+  hasPreviosPage,
 }: {
   columns: { accessorKey: string; header: string }[];
   data: Score[];
+  gameCourseName: string;
+  hasNextPage?: boolean;
+  hasPreviosPage?: boolean;
 }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [scoreCard, setScoreCard] = useState(data);
   const [selectedCell, setSelectedCell] = useState<{
     row: string;
@@ -64,13 +73,23 @@ export function DataTable({
   return (
     <div className="flex h-[100vh] flex-col py-4">
       <div className="flex items-center justify-between pb-3 pt-2">
-        <h3
-          className={cn(
-            "flex text-2xl font-semibold leading-none tracking-tight",
-          )}
-        >
-          충주 파크 골프장
-        </h3>
+        <div className="flex flex-col gap-1">
+          <h3
+            className={cn(
+              "flex text-xl font-medium leading-none tracking-tight",
+            )}
+          >
+            충주 파크 골프장
+          </h3>
+          <h3
+            className={cn(
+              "flex text-2xl font-semibold leading-none tracking-tight",
+            )}
+          >
+            {gameCourseName} 코스
+          </h3>
+        </div>
+
         <p className={cn("text-muted-foreground flex text-sm")}>
           2021년 10월 10일
         </p>
@@ -122,7 +141,7 @@ export function DataTable({
                         className={cn(
                           selectedCell?.row === cell.row.id &&
                             selectedCell?.colName === cell.column.id &&
-                            "bg-blue-500",
+                            "bg-green-500",
                           cell.column.id !== "hole" && "cursor-pointer",
                           "flex items-center justify-center border p-0",
                         )}
@@ -164,6 +183,21 @@ export function DataTable({
         </Table>
       </div>
       <div className="flex justify-evenly gap-2 pt-4">
+        {hasPreviosPage && (
+          <Button
+            onClick={() => {
+              const params = new URLSearchParams(searchParams);
+              params.set(
+                "page",
+                ((Number(params.get("page")) || 0) - 1).toString(),
+              );
+              router.replace(`?${params.toString()}`);
+            }}
+            variant={"outline"}
+          >
+            이전
+          </Button>
+        )}
         <Button
           className="flex-auto"
           onClick={() => {
@@ -184,6 +218,30 @@ export function DataTable({
         >
           <Minus className="h-4 w-4" />
         </Button>
+        {hasNextPage ? (
+          <Button
+            onClick={() => {
+              const params = new URLSearchParams(searchParams);
+              params.set(
+                "page",
+                ((Number(params.get("page")) || 0) + 1).toString(),
+              );
+              router.replace(`?${params.toString()}`);
+            }}
+            variant={"outline"}
+          >
+            다음
+          </Button>
+        ) : (
+          <Button
+            variant={"outline"}
+            onClick={() => {
+              console.log("저장");
+            }}
+          >
+            저장
+          </Button>
+        )}
       </div>
     </div>
   );
