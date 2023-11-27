@@ -36,11 +36,9 @@ export function DataTable({
     colName: string;
   } | null>(null);
 
-  const columns = useGetColumns(headerNames);
-
   const table = useReactTable({
     data: scoreCard,
-    columns,
+    columns: useGetColumns(headerNames),
     getCoreRowModel: getCoreRowModel(),
   });
 
@@ -72,13 +70,13 @@ export function DataTable({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
                 key={headerGroup.id}
-                className="align-center grid grid-cols-[72px_repeat(4,minmax(0,1fr))]"
+                className="align-center grid grid-cols-[80px_repeat(4,minmax(0,1fr))]"
               >
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead
                       key={header.id}
-                      className="flex items-center justify-center text-center"
+                      className="flex items-center justify-center border text-center"
                     >
                       {header.isPlaceholder
                         ? null
@@ -93,59 +91,51 @@ export function DataTable({
             ))}
           </TableHeader>
           <TableBody className="flex flex-1 flex-col">
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  className="grid flex-1 grid-cols-[72px_repeat(4,minmax(0,1fr))]"
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      onClick={() => {
-                        setSelectedCell({
-                          row: cell.row.id,
-                          colName: cell.column.id,
-                        });
-                      }}
-                      data-state={"selected"}
-                      className={cn(
-                        selectedCell?.row === cell.row.id &&
-                          selectedCell?.colName === cell.column.id &&
-                          "bg-blue-500",
-                        "flex cursor-pointer items-center justify-center p-0",
-                      )}
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
+            {table.getRowModel().rows?.length
+              ? table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    className="grid flex-1 grid-cols-[80px_repeat(4,minmax(0,1fr))]"
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell
+                        key={cell.id}
+                        onClick={() => {
+                          if (cell.column.id === "hole") return;
+                          setSelectedCell({
+                            row: cell.row.id,
+                            colName: cell.column.id,
+                          });
+                        }}
+                        className={cn(
+                          selectedCell?.row === cell.row.id &&
+                            selectedCell?.colName === cell.column.id &&
+                            "bg-blue-500",
+                          cell.column.id !== "hole" && "cursor-pointer",
+                          "flex items-center justify-center border p-0",
+                        )}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              : null}
           </TableBody>
           <TableFooter>
             {table.getFooterGroups().map((footerGroup) => (
               <TableRow
                 key={footerGroup.id}
-                className="align-center grid grid-cols-[72px_repeat(4,minmax(0,1fr))]"
+                className="align-center grid grid-cols-[80px_repeat(4,minmax(0,1fr))]"
               >
                 {footerGroup.headers.map((footer) => {
                   return (
-                    <TableHead
+                    <TableCell
                       key={footer.id}
-                      className="flex items-center justify-center text-center"
+                      className="flex items-center justify-center border text-center"
                     >
                       {footer.isPlaceholder
                         ? null
@@ -153,7 +143,7 @@ export function DataTable({
                             footer.column.columnDef.footer,
                             footer.getContext(),
                           )}
-                    </TableHead>
+                    </TableCell>
                   );
                 })}
               </TableRow>

@@ -2,7 +2,7 @@ import React from "react";
 import { cookies } from "next/headers";
 import { createClient } from "@/libs/supabase/server";
 
-import type { Score, ScoreColumn } from "./columns";
+import type { Score } from "./columns";
 import { DataTable } from "./data-table";
 
 const Page = async ({ params }: { params: { id: string } }) => {
