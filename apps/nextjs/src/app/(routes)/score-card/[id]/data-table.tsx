@@ -193,7 +193,8 @@ export function DataTable({
               );
               router.replace(`?${params.toString()}`);
             }}
-            variant={"outline"}
+            variant={"ghost"}
+            className="px-1 md:px-4"
           >
             이전
           </Button>
@@ -228,13 +229,15 @@ export function DataTable({
               );
               router.replace(`?${params.toString()}`);
             }}
-            variant={"outline"}
+            variant={"ghost"}
+            className="px-1 md:px-4"
           >
             다음
           </Button>
         ) : (
           <Button
             variant={"outline"}
+            className="px-1 md:px-4"
             onClick={() => {
               console.log("저장");
             }}
