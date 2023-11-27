@@ -166,7 +166,7 @@ export function DataTable({
                   return (
                     <TableCell
                       key={footer.id}
-                      className="flex items-center justify-center border text-center"
+                      className="flex items-center justify-center border px-0 text-center md:px-4"
                     >
                       {footer.isPlaceholder
                         ? null
