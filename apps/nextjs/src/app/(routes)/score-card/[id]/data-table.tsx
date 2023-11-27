@@ -63,8 +63,21 @@ export function DataTable({
 
   return (
     <div className="flex h-[100vh] flex-col py-4">
+      <div className="flex items-center justify-between pb-3 pt-2">
+        <h3
+          className={cn(
+            "flex text-2xl font-semibold leading-none tracking-tight",
+          )}
+        >
+          충주 파크 골프장
+        </h3>
+        <p className={cn("text-muted-foreground flex text-sm")}>
+          2021년 10월 10일
+        </p>
+      </div>
+
       <div className="flex flex-1 flex-col rounded-md border">
-        <Table className="flex flex-1 flex-col">
+        <Table className="flex flex-1 flex-col text-xs md:text-sm">
           <TableHeader className="flex-0">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
@@ -75,7 +88,7 @@ export function DataTable({
                   return (
                     <TableHead
                       key={header.id}
-                      className="flex items-center justify-center border text-center"
+                      className="flex items-center justify-center border px-0 text-center md:px-4"
                     >
                       {header.isPlaceholder
                         ? null

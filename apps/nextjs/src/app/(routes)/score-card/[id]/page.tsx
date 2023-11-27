@@ -33,6 +33,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <main>
+     
       <DataTable columns={columns} data={data} />
     </main>
   );
