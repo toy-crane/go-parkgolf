@@ -4,7 +4,6 @@ import { createClient } from "@/libs/supabase/server";
 
 import type { Score, ScoreColumn } from "./columns";
 import { DataTable } from "./data-table";
-import ScoreCard from "./score-card";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const cookieStore = cookies();
@@ -25,7 +24,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   }));
 
   const data = Array.from({ length: hole_count }, (_, rowIndex) => {
-    let row = { id: rowIndex + 1 };
+    let row = { hole: rowIndex + 1, id: rowIndex };
     participant.forEach((p, colIndex) => {
       row = { ...row, [`player${colIndex + 1}`]: 0 };
     });

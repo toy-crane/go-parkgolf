@@ -6,6 +6,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 // You can use a Zod schema here if you want.
 export interface Score {
   id: number;
+  hole: number;
   player1: number;
   player2: number;
   player3: number;

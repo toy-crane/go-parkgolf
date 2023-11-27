@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type { ColumnDef, RowData } from "@tanstack/react-table";
+import type { ColumnDef } from "@tanstack/react-table";
 import {
   flexRender,
   getCoreRowModel,
@@ -21,43 +21,8 @@ import { Minus, Plus } from "lucide-react";
 
 import type { Score } from "./columns";
 
-declare module "@tanstack/react-table" {
-  interface TableMeta<TData extends RowData> {
-    clickCell: (colName: string, row: string) => void;
-  }
-}
-
-// Give our default column cell renderer editing superpowers!
-const defaultColumn: Partial<ColumnDef<Score>> = {
-  cell: ({ getValue, row: { index }, column: { id }, table }) => {
-    const initialValue = getValue();
-    // We need to keep and update the state of the cell normally
-    const [value, setValue] = useState(initialValue);
-
-    // When the input is blurred, we'll call our table meta's updateData function
-    const onClick = () => {
-      table.options.meta?.clickCell(id, String(index));
-    };
-
-    // If the initialValue is changed external, sync it up with our state
-    useEffect(() => {
-      setValue(initialValue);
-    }, [initialValue]);
-
-    return (
-      <div onClick={onClick} className="flex-auto text-center">
-        {value as string}
-      </div>
-      // <input
-      //   value={value as string}
-      //   onChange={(e) => setValue(e.target.value)}
-      // />
-    );
-  },
-};
-
 export function DataTable({
-  columns,
+  columns: originColumns,
   data,
 }: {
   columns: ColumnDef<Score>[];
@@ -68,6 +33,23 @@ export function DataTable({
     row: string;
     colName: string;
   } | null>(null);
+
+  const columns = useMemo<ColumnDef<Score>[]>(
+    () => [
+      {
+        id: "hole",
+        header: "홀",
+        accessorFn: (row) => row.hole,
+        cell: ({ row }) => {
+          return (
+            <div className="flex-auto text-center">{row.getValue("hole")}</div>
+          );
+        },
+      },
+      ...originColumns,
+    ],
+    [originColumns],
+  );
 
   const table = useReactTable({
     data: scoreCard,
@@ -103,7 +85,7 @@ export function DataTable({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
                 key={headerGroup.id}
-                className="align-center grid grid-cols-4"
+                className="align-center grid grid-cols-[50px_repeat(4,minmax(0,1fr))]"
               >
                 {headerGroup.headers.map((header) => {
                   return (
@@ -126,7 +108,10 @@ export function DataTable({
           <TableBody className="flex flex-1 flex-col">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} className="grid flex-1 grid-cols-4">
+                <TableRow
+                  key={row.id}
+                  className="grid flex-1 grid-cols-[50px_repeat(4,minmax(0,1fr))]"
+                >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
