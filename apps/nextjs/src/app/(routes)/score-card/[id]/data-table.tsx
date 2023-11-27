@@ -6,6 +6,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -19,13 +20,14 @@ import {
 } from "@tanstack/react-table";
 import { Minus, Plus } from "lucide-react";
 
+import { useGetColumns } from "./columns";
 import type { Score } from "./columns";
 
 export function DataTable({
-  columns: originColumns,
+  columns: headerNames,
   data,
 }: {
-  columns: ColumnDef<Score>[];
+  columns: { accessorKey: string; header: string }[];
   data: Score[];
 }) {
   const [scoreCard, setScoreCard] = useState(data);
@@ -34,22 +36,7 @@ export function DataTable({
     colName: string;
   } | null>(null);
 
-  const columns = useMemo<ColumnDef<Score>[]>(
-    () => [
-      {
-        id: "hole",
-        header: "홀",
-        accessorFn: (row) => row.hole,
-        cell: ({ row }) => {
-          return (
-            <div className="flex-auto text-center">{row.getValue("hole")}</div>
-          );
-        },
-      },
-      ...originColumns,
-    ],
-    [originColumns],
-  );
+  const columns = useGetColumns(headerNames);
 
   const table = useReactTable({
     data: scoreCard,
@@ -85,7 +72,7 @@ export function DataTable({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
                 key={headerGroup.id}
-                className="align-center grid grid-cols-[50px_repeat(4,minmax(0,1fr))]"
+                className="align-center grid grid-cols-[72px_repeat(4,minmax(0,1fr))]"
               >
                 {headerGroup.headers.map((header) => {
                   return (
@@ -110,7 +97,7 @@ export function DataTable({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  className="grid flex-1 grid-cols-[50px_repeat(4,minmax(0,1fr))]"
+                  className="grid flex-1 grid-cols-[72px_repeat(4,minmax(0,1fr))]"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -148,6 +135,30 @@ export function DataTable({
               </TableRow>
             )}
           </TableBody>
+          <TableFooter>
+            {table.getFooterGroups().map((footerGroup) => (
+              <TableRow
+                key={footerGroup.id}
+                className="align-center grid grid-cols-[72px_repeat(4,minmax(0,1fr))]"
+              >
+                {footerGroup.headers.map((footer) => {
+                  return (
+                    <TableHead
+                      key={footer.id}
+                      className="flex items-center justify-center text-center"
+                    >
+                      {footer.isPlaceholder
+                        ? null
+                        : flexRender(
+                            footer.column.columnDef.footer,
+                            footer.getContext(),
+                          )}
+                    </TableHead>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </TableFooter>
         </Table>
       </div>
       <div className="flex justify-evenly gap-2 pt-4">

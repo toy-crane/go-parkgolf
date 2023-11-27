@@ -18,9 +18,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
   if (error) throw error;
   const { participant, game_course, ...game } = response;
   const hole_count = game_course[0]?.hole_count!;
-  const columns: ScoreColumn[] = participant.map((p, index) => ({
+  const columns = participant.map((p, index) => ({
     accessorKey: `player${index + 1}`,
-    header: p.nickname ?? undefined,
+    header: p.nickname ?? "이름 없음",
   }));
 
   const data = Array.from({ length: hole_count }, (_, rowIndex) => {
