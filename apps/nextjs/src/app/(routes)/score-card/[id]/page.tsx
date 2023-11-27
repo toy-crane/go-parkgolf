@@ -24,7 +24,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   }));
 
   const data = Array.from({ length: hole_count }, (_, rowIndex) => {
-    let row = { hole: rowIndex + 1, id: rowIndex };
+    let row = { hole: rowIndex + 1, id: rowIndex, par: 0 };
     participant.forEach((p, colIndex) => {
       row = { ...row, [`player${colIndex + 1}`]: 0 };
     });
