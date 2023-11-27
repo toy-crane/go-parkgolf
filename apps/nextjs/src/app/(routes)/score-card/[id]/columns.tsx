@@ -12,4 +12,4 @@ export interface Score {
   player4: number;
 }
 
-export type column = ColumnDef<Score>;
+export type ScoreColumn = ColumnDef<Score>;

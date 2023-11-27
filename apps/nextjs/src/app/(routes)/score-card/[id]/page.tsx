@@ -2,7 +2,7 @@ import React from "react";
 import { cookies } from "next/headers";
 import { createClient } from "@/libs/supabase/server";
 
-import type { column, Score } from "./columns";
+import type { Score, ScoreColumn } from "./columns";
 import { DataTable } from "./data-table";
 import ScoreCard from "./score-card";
 
@@ -19,7 +19,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   if (error) throw error;
   const { participant, game_course, ...game } = response;
   const hole_count = game_course[0]?.hole_count!;
-  const columns: column[] = participant.map((p, index) => ({
+  const columns: ScoreColumn[] = participant.map((p, index) => ({
     accessorKey: `player${index + 1}`,
     header: p.nickname ?? undefined,
   }));
