@@ -3,22 +3,10 @@ import { cookies } from "next/headers";
 import { createClient } from "@/libs/supabase/server";
 import type { Tables } from "@/types/supabase-helper";
 
-import type { HeaderName, Player, Score } from "./columns";
+import type { Player, Score } from "./columns";
 import { DataTable } from "./data-table";
 
 type participant = Tables<"participant">;
-
-function createScore(holeIndex: number, participants: participant[]): Score {
-  return {
-    id: holeIndex + 1,
-    hole: holeIndex + 1,
-    par: 0,
-    player1: participants[0] ? createPlayer(participants[0]) : undefined,
-    player2: participants[1] ? createPlayer(participants[1]) : undefined,
-    player3: participants[2] ? createPlayer(participants[2]) : undefined,
-    player4: participants[3] ? createPlayer(participants[3]) : undefined,
-  };
-}
 
 function createPlayer(player: participant): Player {
   return {
@@ -40,14 +28,14 @@ const Page = async ({
 
   const { data: response, error } = await supabase
     .from("game")
-    .select("*, participant(*), game_course(*)")
+    .select("*, participant(*), game_course(*, score(*))")
     .eq("id", params.id)
     .single();
 
   const currentPageNo = searchParams.page ? Number(searchParams.page) : 1;
 
   if (error) throw error;
-  const { participant, game_course, id } = response;
+  const { participant: participants, game_course, id } = response;
   const current_game_course =
     game_course.find((_, idx) => idx === currentPageNo - 1) ?? game_course[0];
   const hasNextPage = game_course.length > currentPageNo;
@@ -55,10 +43,9 @@ const Page = async ({
 
   if (!current_game_course) throw new Error("game course not found");
 
-  const hole_count = current_game_course.hole_count!;
   const game_course_name = current_game_course.name!;
 
-  const columns = participant.map((p, index) => {
+  const columns = participants.map((p, index) => {
     const accessorKey = `player${index + 1}` as
       | "player1"
       | "player2"
@@ -69,9 +56,15 @@ const Page = async ({
       name: p.nickname ?? "이름 없음",
     };
   });
-  const data: Score[] = Array.from({ length: hole_count }, (_, index) =>
-    createScore(index, participant),
-  );
+
+  const data: Score[] = current_game_course.score.map((score) => ({
+    ...score,
+    hole: score.hole_number,
+    player1: participants[0] ? createPlayer(participants[0]) : undefined,
+    player2: participants[1] ? createPlayer(participants[1]) : undefined,
+    player3: participants[2] ? createPlayer(participants[2]) : undefined,
+    player4: participants[3] ? createPlayer(participants[3]) : undefined,
+  }));
 
   return (
     <main>

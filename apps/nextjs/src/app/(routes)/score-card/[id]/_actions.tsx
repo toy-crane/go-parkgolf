@@ -19,9 +19,10 @@ const supabase = createRouteHandlerClient<Database>(
 export async function saveScore(gameId: number, scores: Score[]) {
   const scoreMutation = supabase
     .from("score")
-    .insert(
+    .upsert(
       scores.map((score) => ({
-        game_id: gameId,
+        id: score.id,
+        game_course_id: gameId,
         hole_number: score.hole,
         par: score.par,
       })),
