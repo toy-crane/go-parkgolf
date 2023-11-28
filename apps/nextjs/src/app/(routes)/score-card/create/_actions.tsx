@@ -41,14 +41,14 @@ export async function createGame(data: Inputs) {
     throw new Error(gameResponse.error.message);
   }
   const game: Game = gameResponse.data;
+  const participantsQuery = result.data.participants.map((participant) => ({
+    game_id: game.id,
+    nickname: participant.text,
+  }));
+
   const participantMutation = supabase
     .from("participant")
-    .insert(
-      result.data.participants.map((participant) => ({
-        game_id: game.id,
-        nickname: participant.text,
-      })),
-    )
+    .insert(participantsQuery)
     .select();
   const participantResponse = await participantMutation;
   if (participantResponse.error) {
@@ -73,6 +73,23 @@ export async function createGame(data: Inputs) {
   }
   const game_courses: DbResultOk<typeof gameCourseMutation> =
     gameCourseResponse.data;
+
+  const scores = game_courses.flatMap((course) => {
+    return Array.from({ length: course.hole_count }).map((_, index) => {
+      return {
+        game_course_id: course.id,
+        hole_number: index + 1,
+        par: 0,
+      };
+    });
+  });
+
+  const scoreMutation = supabase.from("score").insert(scores).select();
+  const scoreResponse = await scoreMutation;
+
+  if (scoreResponse.error) {
+    throw new Error(scoreResponse.error.message);
+  }
 
   return { success: true, data: { ...game, participants, game_courses } };
 }

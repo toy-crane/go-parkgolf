@@ -126,22 +126,22 @@ export interface Database {
       }
       game_course: {
         Row: {
-          game_id: number | null
-          hole_count: number | null
+          game_id: number
+          hole_count: number
           id: number
-          name: string | null
+          name: string
         }
         Insert: {
-          game_id?: number | null
-          hole_count?: number | null
+          game_id: number
+          hole_count: number
           id?: number
-          name?: string | null
+          name: string
         }
         Update: {
-          game_id?: number | null
-          hole_count?: number | null
+          game_id?: number
+          hole_count?: number
           id?: number
-          name?: string | null
+          name?: string
         }
         Relationships: [
           {
@@ -267,13 +267,6 @@ export interface Database {
             isOneToOne: false
             referencedRelation: "participant"
             referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "player_score_score_id_fkey"
-            columns: ["score_id"]
-            isOneToOne: false
-            referencedRelation: "score"
-            referencedColumns: ["id"]
           }
         ]
       }
@@ -338,29 +331,29 @@ export interface Database {
       }
       score: {
         Row: {
-          game_id: number
+          game_course_id: number
           hole_number: number
           id: number
           par: number
         }
         Insert: {
-          game_id: number
+          game_course_id: number
           hole_number: number
           id?: number
           par: number
         }
         Update: {
-          game_id?: number
+          game_course_id?: number
           hole_number?: number
           id?: number
           par?: number
         }
         Relationships: [
           {
-            foreignKeyName: "score_game_id_fkey"
-            columns: ["game_id"]
+            foreignKeyName: "score_game_course_id_fkey"
+            columns: ["game_course_id"]
             isOneToOne: false
-            referencedRelation: "game"
+            referencedRelation: "game_course"
             referencedColumns: ["id"]
           }
         ]
