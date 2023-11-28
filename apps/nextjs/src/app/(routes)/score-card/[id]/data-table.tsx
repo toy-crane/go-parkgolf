@@ -231,7 +231,7 @@ export function DataTable({
         {hasNextPage ? (
           <Button
             onClick={async () => {
-              await saveScore(gameId, data);
+              await saveScore(gameId, scoreCard);
               const params = new URLSearchParams(searchParams);
               params.set(
                 "page",

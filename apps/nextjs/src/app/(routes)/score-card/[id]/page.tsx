@@ -10,7 +10,7 @@ type participant = Tables<"participant">;
 
 function createScore(holeIndex: number, participants: participant[]): Score {
   return {
-    id: holeIndex,
+    id: holeIndex + 1,
     hole: holeIndex + 1,
     par: 0,
     player1: participants[0] ? createPlayer(participants[0]) : undefined,

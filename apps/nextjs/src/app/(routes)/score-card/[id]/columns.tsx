@@ -10,15 +10,17 @@ export interface Player {
   score: number;
 }
 
-export interface Score {
+export type PlayerKey = "player1" | "player2" | "player3" | "player4";
+
+export interface ScoreBase {
   id: number;
   hole: number;
   par: number;
-  player1?: Player;
-  player2?: Player;
-  player3?: Player;
-  player4?: Player;
 }
+
+export type Score = ScoreBase & {
+  [key in PlayerKey]?: Player;
+};
 
 export interface HeaderName {
   name: string;

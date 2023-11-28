@@ -217,19 +217,19 @@ export interface Database {
       }
       participant: {
         Row: {
-          game_id: number | null
+          game_id: number
           id: number
           nickname: string | null
           user_id: number | null
         }
         Insert: {
-          game_id?: number | null
+          game_id: number
           id?: number
           nickname?: string | null
           user_id?: number | null
         }
         Update: {
-          game_id?: number | null
+          game_id?: number
           id?: number
           nickname?: string | null
           user_id?: number | null

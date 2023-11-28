@@ -5,7 +5,7 @@ import { createFetch } from "@/libs/cache";
 import type { Database } from "@/types/generated";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
-import type { Score } from "./columns";
+import type { Player, PlayerKey, Score } from "./columns";
 
 const cookieStore = cookies();
 
@@ -33,15 +33,27 @@ export async function saveScore(gameId: number, scores: Score[]) {
     throw new Error(scoreResponse.error.message);
   }
   const scoreRows = scoreResponse.data;
+
+  const playerScoreData = scores.flatMap((score, index) => {
+    return Object.keys(score).flatMap((key) => {
+      if (key.startsWith("player")) {
+        const playerKey = key as PlayerKey;
+        const player = score[playerKey]!;
+        return {
+          score_id: scoreRows[index]?.id!,
+          participant_id: player?.id,
+          score: player.score,
+        };
+      }
+      return [];
+    });
+  });
+
+  console.log(playerScoreData, scores);
+
   const scorePlaymerMutation = supabase
     .from("player_score")
-    .insert(
-      scoreRows.map((scoreRow) => ({
-        score_id: scoreRow.id,
-        participant_id: 1,
-        player_score: 10,
-      })),
-    )
+    .insert(playerScoreData)
     .select();
   const scorePlayerResponse = await scorePlaymerMutation;
   if (scorePlayerResponse.error) {
