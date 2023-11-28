@@ -28,22 +28,20 @@ const Page = async ({
 
   const { data: response, error } = await supabase
     .from("game")
-    .select("*, participant(*), game_course(*, score(*))")
+    .select("*, participant(*), game_course(*, score(*, player_score(*)))")
     .eq("id", params.id)
     .single();
 
   const currentPageNo = searchParams.page ? Number(searchParams.page) : 1;
 
   if (error) throw error;
-  const { participant: participants, game_course, id } = response;
-  const current_game_course =
+  const { participant: participants, game_course } = response;
+  const currentGameCourse =
     game_course.find((_, idx) => idx === currentPageNo - 1) ?? game_course[0];
   const hasNextPage = game_course.length > currentPageNo;
   const hasPreviosPage = currentPageNo > 1;
 
-  if (!current_game_course) throw new Error("game course not found");
-
-  const game_course_name = current_game_course.name!;
+  if (!currentGameCourse) throw new Error("game course not found");
 
   const columns = participants.map((p, index) => {
     const accessorKey = `player${index + 1}` as
@@ -56,8 +54,8 @@ const Page = async ({
       name: p.nickname ?? "이름 없음",
     };
   });
-
-  const data: Score[] = current_game_course.score.map((score) => ({
+  // TODO: partcipant 이미 생성해서 넘어와야 함
+  const data: Score[] = currentGameCourse.score.map((score) => ({
     ...score,
     hole: score.hole_number,
     player1: participants[0] ? createPlayer(participants[0]) : undefined,
@@ -69,10 +67,9 @@ const Page = async ({
   return (
     <main>
       <DataTable
-        gameId={id}
+        gameCourse={currentGameCourse}
         columns={columns}
         data={data}
-        gameCourseName={game_course_name}
         hasNextPage={hasNextPage}
         hasPreviosPage={hasPreviosPage}
       />

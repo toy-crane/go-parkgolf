@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
+import type { Tables } from "@/types/supabase-helper";
 import {
   flexRender,
   getCoreRowModel,
@@ -27,17 +28,15 @@ import type { HeaderName, Player, Score } from "./columns";
 export function DataTable({
   columns: headerNames,
   data,
-  gameCourseName,
+  gameCourse,
   hasNextPage,
   hasPreviosPage,
-  gameId,
 }: {
   columns: HeaderName[];
   data: Score[];
-  gameCourseName: string;
+  gameCourse: Tables<"game_course">;
   hasNextPage?: boolean;
   hasPreviosPage?: boolean;
-  gameId: number;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -95,7 +94,7 @@ export function DataTable({
               "flex text-2xl font-semibold leading-none tracking-tight",
             )}
           >
-            {gameCourseName} 코스
+            {gameCourse.name} 코스
           </h3>
         </div>
 
@@ -231,7 +230,7 @@ export function DataTable({
         {hasNextPage ? (
           <Button
             onClick={async () => {
-              await saveScore(gameId, scoreCard);
+              await saveScore(gameCourse.id, scoreCard);
               const params = new URLSearchParams(searchParams);
               params.set(
                 "page",
@@ -248,7 +247,8 @@ export function DataTable({
           <Button
             variant={"outline"}
             className="px-1 md:px-4"
-            onClick={() => {
+            onClick={async () => {
+              await saveScore(gameCourse.id, scoreCard);
               console.log("저장");
             }}
           >

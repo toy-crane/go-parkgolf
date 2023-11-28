@@ -17,6 +17,14 @@ const supabase = createRouteHandlerClient<Database>(
 );
 
 export async function saveScore(gameId: number, scores: Score[]) {
+  console.log(
+    scores.map((score) => ({
+      id: score.id,
+      game_course_id: gameId,
+      hole_number: score.hole,
+      par: score.par,
+    })),
+  );
   const scoreMutation = supabase
     .from("score")
     .upsert(
@@ -33,32 +41,30 @@ export async function saveScore(gameId: number, scores: Score[]) {
   if (scoreResponse.error) {
     throw new Error(scoreResponse.error.message);
   }
-  const scoreRows = scoreResponse.data;
-
-  const playerScoreData = scores.flatMap((score, index) => {
+  const playerScoreData = scores.flatMap((score) => {
     return Object.keys(score).flatMap((key) => {
       if (key.startsWith("player")) {
         const playerKey = key as PlayerKey;
         const player = score[playerKey]!;
         return {
-          score_id: scoreRows[index]?.id!,
+          score_id: score.id,
           participant_id: player?.id,
-          score: player.score,
+          player_score: player.score,
         };
       }
       return [];
     });
   });
 
-  console.log(playerScoreData, scores);
+  console.log("player score", playerScoreData);
 
   const scorePlaymerMutation = supabase
     .from("player_score")
-    .insert(playerScoreData)
+    .upsert(playerScoreData)
     .select();
+
   const scorePlayerResponse = await scorePlaymerMutation;
   if (scorePlayerResponse.error) {
     throw new Error(scorePlayerResponse.error.message);
   }
-  console.log(scorePlayerResponse.data);
 }
