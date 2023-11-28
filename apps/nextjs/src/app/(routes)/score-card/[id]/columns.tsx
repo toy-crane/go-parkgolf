@@ -1,51 +1,46 @@
 "use client";
 
 import { useMemo } from "react";
-import type {
-  CellContext,
-  ColumnDef,
-  HeaderContext,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
+import type { ColumnDef } from "@tanstack/react-table";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
+export interface Player {
+  id: number;
+  nickname: string;
+  score: number;
+}
+
 export interface Score {
   id: number;
   hole: number;
   par: number;
-  player1: number;
-  player2: number;
-  player3: number;
-  player4: number;
+  player1?: Player;
+  player2?: Player;
+  player3?: Player;
+  player4?: Player;
 }
+
+export interface HeaderName {
+  name: string;
+  accessorKey: "player1" | "player2" | "player3" | "player4";
+}
+
+const columnHelper = createColumnHelper<Score>();
 
 export type ScoreColumn = ColumnDef<Score>;
 
-export const useGetColumns = (
-  headerNames: {
-    accessorKey: string;
-    header: string;
-  }[],
-) => {
-  const columns = useMemo<ColumnDef<Score>[]>(
+export const useGetColumns = (headerNames: HeaderName[]) => {
+  const columns = useMemo(
     () => [
-      {
-        accessorKey: "hole",
+      columnHelper.accessor("hole", {
+        cell: (info) => info.getValue(),
         header: "홀",
-        cell: (info) => {
-          const value = info.getValue() as string;
-          return <div>{value}</div>;
-        },
         footer: "합계",
-      },
-      {
-        accessorKey: "par",
+      }),
+      columnHelper.accessor("par", {
+        cell: (info) => info.getValue(),
         header: "파",
-        cell: (info) => {
-          const value = info.getValue() as string;
-          return <div>{value}</div>;
-        },
-        footer: (info: HeaderContext<Score, unknown>) => {
+        footer: (info) => {
           return (
             <div>
               {info.table
@@ -57,28 +52,30 @@ export const useGetColumns = (
             </div>
           );
         },
-      },
-      ...headerNames.map((header) => ({
-        accessorKey: header.accessorKey,
-        header: header.header,
-        cell: (info: CellContext<Score, unknown>) => {
-          const value = info.getValue() as string;
-          return <div>{value}</div>;
-        },
-        footer: (info: HeaderContext<Score, unknown>) => {
-          return (
-            <div>
-              {info.table
-                .getFilteredRowModel()
-                .rows.reduce(
-                  (total, row) =>
-                    total + Number(row.getValue(header.accessorKey)),
-                  0,
-                )}
-            </div>
-          );
-        },
-      })),
+      }),
+      ...headerNames.map((header) =>
+        columnHelper.accessor(header.accessorKey, {
+          cell: (info) => {
+            const value = info.getValue()!;
+            return <div>{value.score}</div>;
+          },
+          header: () => <div>{header.name}</div>,
+          footer: (info) => {
+            return (
+              <div>
+                {info.table
+                  .getFilteredRowModel()
+                  .rows.reduce(
+                    (total, row) =>
+                      total +
+                      Number(row.getValue<Player>(header.accessorKey).score),
+                    0,
+                  )}
+              </div>
+            );
+          },
+        }),
+      ),
     ],
     [headerNames],
   );

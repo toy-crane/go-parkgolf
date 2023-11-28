@@ -22,7 +22,7 @@ import { Minus, Plus } from "lucide-react";
 
 import { saveScore } from "./_actions";
 import { useGetColumns } from "./columns";
-import type { Score } from "./columns";
+import type { HeaderName, Player, Score } from "./columns";
 
 export function DataTable({
   columns: headerNames,
@@ -32,7 +32,7 @@ export function DataTable({
   hasPreviosPage,
   gameId,
 }: {
-  columns: { accessorKey: string; header: string }[];
+  columns: HeaderName[];
   data: Score[];
   gameCourseName: string;
   hasNextPage?: boolean;
@@ -46,7 +46,6 @@ export function DataTable({
     row: string;
     colName: string;
   } | null>(null);
-
   const table = useReactTable({
     data: scoreCard,
     columns: useGetColumns(headerNames),
@@ -62,10 +61,17 @@ export function DataTable({
       old.map((currentRow, index) => {
         if (index === Number(row)) {
           const key = colName as keyof Score; // colName이 Score의 키임을 보장
+          if (typeof currentRow[key] !== "object") return currentRow;
+          const currentPlayer = currentRow[key] as Player;
           return {
             ...currentRow,
-            [key]:
-              type === "increase" ? currentRow[key] + 1 : currentRow[key] - 1,
+            [key]: {
+              ...currentPlayer,
+              score:
+                type === "increase"
+                  ? currentPlayer.score + 1
+                  : currentPlayer.score - 1,
+            },
           };
         }
         return currentRow;

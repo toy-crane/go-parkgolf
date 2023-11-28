@@ -1,9 +1,32 @@
 import React from "react";
 import { cookies } from "next/headers";
 import { createClient } from "@/libs/supabase/server";
+import type { Tables } from "@/types/supabase-helper";
 
-import type { Score } from "./columns";
+import type { HeaderName, Player, Score } from "./columns";
 import { DataTable } from "./data-table";
+
+type participant = Tables<"participant">;
+
+function createScore(holeIndex: number, participants: participant[]): Score {
+  return {
+    id: holeIndex,
+    hole: holeIndex + 1,
+    par: 0,
+    player1: participants[0] ? createPlayer(participants[0]) : undefined,
+    player2: participants[1] ? createPlayer(participants[1]) : undefined,
+    player3: participants[2] ? createPlayer(participants[2]) : undefined,
+    player4: participants[3] ? createPlayer(participants[3]) : undefined,
+  };
+}
+
+function createPlayer(player: participant): Player {
+  return {
+    id: player.id,
+    nickname: player.nickname ? player.nickname : "이름 없음",
+    score: 0,
+  };
+}
 
 const Page = async ({
   params,
@@ -22,7 +45,6 @@ const Page = async ({
     .single();
 
   const currentPageNo = searchParams.page ? Number(searchParams.page) : 1;
-  console.log(currentPageNo, "hello");
 
   if (error) throw error;
   const { participant, game_course, id } = response;
@@ -36,18 +58,20 @@ const Page = async ({
   const hole_count = current_game_course.hole_count!;
   const game_course_name = current_game_course.name!;
 
-  const columns = participant.map((p, index) => ({
-    accessorKey: `player${index + 1}`,
-    header: p.nickname ?? "이름 없음",
-  }));
-
-  const data = Array.from({ length: hole_count }, (_, rowIndex) => {
-    let row = { hole: rowIndex + 1, id: rowIndex, par: 0 };
-    participant.forEach((p, colIndex) => {
-      row = { ...row, [`player${colIndex + 1}`]: 0 };
-    });
-    return row as Score;
+  const columns = participant.map((p, index) => {
+    const accessorKey = `player${index + 1}` as
+      | "player1"
+      | "player2"
+      | "player3"
+      | "player4";
+    return {
+      accessorKey,
+      name: p.nickname ?? "이름 없음",
+    };
   });
+  const data: Score[] = Array.from({ length: hole_count }, (_, index) =>
+    createScore(index, participant),
+  );
 
   return (
     <main>
