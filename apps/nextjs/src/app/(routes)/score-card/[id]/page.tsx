@@ -21,15 +21,15 @@ const Page = async ({
     .eq("id", params.id)
     .single();
 
-  console.log(Number(searchParams.page));
+  const currentPageNo = searchParams.page ? Number(searchParams.page) : 1;
+  console.log(currentPageNo, "hello");
 
   if (error) throw error;
   const { participant, game_course } = response;
   const current_game_course =
-    game_course.find((game, idx) => idx === Number(searchParams.page) - 1) ??
-    game_course[0];
-  const hasNextPage = game_course.length > Number(searchParams.page);
-  const hasPreviosPage = Number(searchParams.page) > 1;
+    game_course.find((_, idx) => idx === currentPageNo - 1) ?? game_course[0];
+  const hasNextPage = game_course.length > currentPageNo;
+  const hasPreviosPage = currentPageNo > 1;
 
   if (!current_game_course) throw new Error("game course not found");
 

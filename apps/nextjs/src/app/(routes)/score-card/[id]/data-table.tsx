@@ -225,7 +225,7 @@ export function DataTable({
               const params = new URLSearchParams(searchParams);
               params.set(
                 "page",
-                ((Number(params.get("page")) || 0) + 1).toString(),
+                ((Number(params.get("page")) || 1) + 1).toString(),
               );
               router.replace(`?${params.toString()}`);
             }}
