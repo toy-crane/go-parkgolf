@@ -25,7 +25,7 @@ const Page = async ({
   console.log(currentPageNo, "hello");
 
   if (error) throw error;
-  const { participant, game_course } = response;
+  const { participant, game_course, id } = response;
   const current_game_course =
     game_course.find((_, idx) => idx === currentPageNo - 1) ?? game_course[0];
   const hasNextPage = game_course.length > currentPageNo;
@@ -52,6 +52,7 @@ const Page = async ({
   return (
     <main>
       <DataTable
+        gameId={id}
         columns={columns}
         data={data}
         gameCourseName={game_course_name}

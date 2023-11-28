@@ -20,6 +20,7 @@ import {
 } from "@tanstack/react-table";
 import { Minus, Plus } from "lucide-react";
 
+import { saveScore } from "./_actions";
 import { useGetColumns } from "./columns";
 import type { Score } from "./columns";
 
@@ -29,12 +30,14 @@ export function DataTable({
   gameCourseName,
   hasNextPage,
   hasPreviosPage,
+  gameId,
 }: {
   columns: { accessorKey: string; header: string }[];
   data: Score[];
   gameCourseName: string;
   hasNextPage?: boolean;
   hasPreviosPage?: boolean;
+  gameId: number;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -221,7 +224,8 @@ export function DataTable({
         </Button>
         {hasNextPage ? (
           <Button
-            onClick={() => {
+            onClick={async () => {
+              await saveScore(gameId, data);
               const params = new URLSearchParams(searchParams);
               params.set(
                 "page",
