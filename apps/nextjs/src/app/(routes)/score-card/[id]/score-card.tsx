@@ -75,30 +75,7 @@ export function ScoreCard({
   };
 
   return (
-    <div className="flex h-[100vh] flex-col py-4">
-      <div className="flex items-center justify-between pb-3 pt-2">
-        <div className="flex flex-col gap-1">
-          <h3
-            className={cn(
-              "flex text-xl font-medium leading-none tracking-tight",
-            )}
-          >
-            충주 파크 골프장
-          </h3>
-          <h3
-            className={cn(
-              "flex text-2xl font-semibold leading-none tracking-tight",
-            )}
-          >
-            {gameCourse.name} 코스
-          </h3>
-        </div>
-
-        <p className={cn("text-muted-foreground flex text-sm")}>
-          2021년 10월 10일
-        </p>
-      </div>
-
+    <div className="flex h-[85vh] flex-col py-1">
       <div className="flex flex-1 flex-col rounded-md border">
         <Table className="flex flex-1 flex-col text-xs md:text-sm">
           <TableHeader className="flex-0">

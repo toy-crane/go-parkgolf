@@ -5,7 +5,7 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
 
   const { data: response, error } = await supabase
     .from("game")
-    .select("*, game_course(*)")
+    .select("*, game_course(*, score(*, player_score(*, participant(*))))")
     .eq("id", gameId)
     .single();
 
