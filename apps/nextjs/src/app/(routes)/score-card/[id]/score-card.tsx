@@ -118,7 +118,6 @@ export function ScoreCard({
                 className="align-center grid-cols-score-card grid"
               >
                 {headerGroup.headers.map((header) => {
-                  console.log(header.column);
                   return (
                     <TableHead
                       key={header.id}
