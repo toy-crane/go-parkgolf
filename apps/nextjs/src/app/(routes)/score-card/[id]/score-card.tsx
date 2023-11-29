@@ -24,7 +24,7 @@ import { useGetColumns } from "./columns";
 import type { ColumnName } from "./columns";
 import type { Score } from "./type";
 
-export function DataTable({
+export function ScoreCard({
   columns: headerNames,
   data,
   gameCourse,

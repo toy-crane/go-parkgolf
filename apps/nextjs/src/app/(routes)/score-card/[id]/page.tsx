@@ -1,7 +1,7 @@
 import React from "react";
 
 import { getGameCourses, getScores } from "./_fetcher";
-import { DataTable } from "./data-table";
+import { ScoreCard } from "./score-card";
 
 const Page = async ({
   params,
@@ -14,8 +14,6 @@ const Page = async ({
   const currentPageNo = searchParams.page ? Number(searchParams.page) : 1;
   const currentGameCourse =
     gameCourses.find((_, idx) => idx === currentPageNo - 1) ?? gameCourses[0];
-  const hasNextPage = gameCourses.length > currentPageNo;
-  const hasPreviosPage = currentPageNo > 1;
 
   if (!currentGameCourse) throw new Error("game course not found");
 
@@ -49,12 +47,10 @@ const Page = async ({
 
   return (
     <main>
-      <DataTable
+      <ScoreCard
         gameCourse={currentGameCourse}
         columns={dynamicColumnNames}
         data={data}
-        hasNextPage={hasNextPage}
-        hasPreviosPage={hasPreviosPage}
       />
     </main>
   );
