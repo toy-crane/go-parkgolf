@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -39,6 +39,8 @@ export function DataTable({
   hasNextPage?: boolean;
   hasPreviosPage?: boolean;
 }) {
+  const [isPending, startTransiton] = useTransition();
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const [scoreCard, setScoreCard] = useState(data);
@@ -46,6 +48,11 @@ export function DataTable({
     row: string;
     colName: string;
   } | null>(null);
+
+  useEffect(() => {
+    setScoreCard(data);
+  }, [data]);
+
   const table = useReactTable({
     data: scoreCard,
     columns: useGetColumns(headerNames),
@@ -228,17 +235,12 @@ export function DataTable({
         </Button>
         {hasNextPage ? (
           <Button
-            onClick={async () => {
-              await saveScore(gameCourse.id, scoreCard);
-              const params = new URLSearchParams(searchParams);
-              params.set(
-                "page",
-                ((Number(params.get("page")) || 1) + 1).toString(),
-              );
-              router.replace(`?${params.toString()}`);
+            onClick={() => {
+              startTransiton(() => saveScore(gameCourse.id, scoreCard));
             }}
             variant={"ghost"}
             className="px-1 md:px-4"
+            disabled={isPending}
           >
             다음
           </Button>
