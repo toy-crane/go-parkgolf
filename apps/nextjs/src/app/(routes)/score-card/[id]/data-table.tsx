@@ -39,7 +39,7 @@ export function DataTable({
   hasNextPage?: boolean;
   hasPreviosPage?: boolean;
 }) {
-  const [isPending, startTransiton] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -197,22 +197,6 @@ export function DataTable({
         </Table>
       </div>
       <div className="flex justify-evenly gap-2 pt-4">
-        {hasPreviosPage && (
-          <Button
-            onClick={() => {
-              const params = new URLSearchParams(searchParams);
-              params.set(
-                "page",
-                ((Number(params.get("page")) || 0) - 1).toString(),
-              );
-              router.replace(`?${params.toString()}`);
-            }}
-            variant={"ghost"}
-            className="px-1 md:px-4"
-          >
-            이전
-          </Button>
-        )}
         <Button
           className="flex-auto"
           onClick={() => {
@@ -233,29 +217,6 @@ export function DataTable({
         >
           <Minus className="h-4 w-4" />
         </Button>
-        {hasNextPage ? (
-          <Button
-            onClick={() => {
-              startTransiton(() => saveScore(gameCourse.id, scoreCard));
-            }}
-            variant={"ghost"}
-            className="px-1 md:px-4"
-            disabled={isPending}
-          >
-            다음
-          </Button>
-        ) : (
-          <Button
-            variant={"outline"}
-            className="px-1 md:px-4"
-            onClick={async () => {
-              await saveScore(gameCourse.id, scoreCard);
-              console.log("저장");
-            }}
-          >
-            저장
-          </Button>
-        )}
       </div>
     </div>
   );

@@ -47,4 +47,6 @@ export async function saveScore(gameId: number, scores: Score[]) {
   if (scorePlayerResponse.error) {
     throw new Error(scorePlayerResponse.error.message);
   }
+
+  return { success: true };
 }
