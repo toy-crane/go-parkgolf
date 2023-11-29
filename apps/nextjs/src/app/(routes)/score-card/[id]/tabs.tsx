@@ -1,18 +1,23 @@
 "use client";
 
 import React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { z } from "zod";
 
 import { ScoreCard } from "./score-card";
 import type { GameCourse } from "./type";
 
-function createSchema(fields: Record<string, z.ZodType<any>>) {
-  return z.object(fields);
-}
-
-export const ScoreTabs = ({ gameCourses }: { gameCourses: GameCourse[] }) => {
-  const [tab, setTab] = React.useState(gameCourses[0]?.name!);
+export const ScoreTabs = ({
+  gameCourses,
+  selectedTab,
+}: {
+  gameCourses: GameCourse[];
+  selectedTab?: string;
+}) => {
+  const [tab, setTab] = React.useState(selectedTab ?? gameCourses[0]?.name!);
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const scores = gameCourses.find((gc) => gc.name === tab)?.score ?? [];
 
   const participants = scores[0]?.player_score.map((p) => p.participant) ?? [];
@@ -42,8 +47,15 @@ export const ScoreTabs = ({ gameCourses }: { gameCourses: GameCourse[] }) => {
     };
   });
 
+  const handleTabChange = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", String(value));
+    router.push(`?${params.toString()}`);
+    setTab(value);
+  };
+
   return (
-    <Tabs defaultValue={tab} onValueChange={(value) => setTab(value)}>
+    <Tabs defaultValue={tab} onValueChange={handleTabChange}>
       <TabsList className="w-full">
         {gameCourses.map((gc) => (
           <TabsTrigger value={gc.name} key={gc.id} className="flex-1">

@@ -11,7 +11,7 @@ const Page = async ({
   searchParams,
 }: {
   params: { id: string };
-  searchParams: { page?: number };
+  searchParams: { tab?: string };
 }) => {
   const gameCourses = await getGameCourses({ gameId: params.id });
 
@@ -31,28 +31,7 @@ const Page = async ({
           2021년 10월 10일
         </p>
       </div>
-      <ScoreTabs gameCourses={gameCourses} />
-      {/* <Tabs
-        defaultValue={gameCourses[0]?.name}
-        onValueChange={(value) => console.log(value)}
-      >
-        <TabsList className="w-full">
-          {gameCourses.map((gc) => (
-            <TabsTrigger value={gc.name} key={gc.id} className="flex-1">
-              {gc.name} 코스
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        {gameCourses.map((gc) => (
-          <TabsContent value={gc.name} key={gc.id}>
-            <ScoreCard
-              gameCourse={gc}
-              columns={dynamicColumnNames}
-              data={data}
-            />
-          </TabsContent>
-        ))}
-      </Tabs> */}
+      <ScoreTabs gameCourses={gameCourses} selectedTab={searchParams.tab} />
     </main>
   );
 };
