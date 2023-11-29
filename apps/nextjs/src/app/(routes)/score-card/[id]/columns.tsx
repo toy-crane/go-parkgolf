@@ -80,31 +80,6 @@ export const useGetColumns = (dynamicColumns: ColumnName[]) => {
           },
         }),
       ),
-      // ...headerNames.map((header) =>
-      //   columnHelper.accessor(header.accessorKey, {
-      //     cell: (info) => {
-      //       const value = info.getValue()!;
-      //       return <div>{value.playerScore}</div>;
-      //     },
-      //     header: () => <div>{header.name}</div>,
-      //     footer: (info) => {
-      //       return (
-      //         <div>
-      //           {info.table
-      //             .getFilteredRowModel()
-      //             .rows.reduce(
-      //               (total, row) =>
-      //                 total +
-      //                 Number(
-      //                   row.getValue<Player>(header.accessorKey).playerScore,
-      //                 ),
-      //               0,
-      //             )}
-      //         </div>
-      //       );
-      //     },
-      //   }),
-      // ),
     ],
     [dynamicColumns],
   );
