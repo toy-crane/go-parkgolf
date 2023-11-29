@@ -118,10 +118,15 @@ export function ScoreCard({
                 className="align-center grid-cols-score-card grid"
               >
                 {headerGroup.headers.map((header) => {
+                  console.log(header.column);
                   return (
                     <TableHead
                       key={header.id}
-                      className="flex items-center justify-center border px-0 text-center md:px-4"
+                      className={cn(
+                        "flex items-center justify-center border px-0 text-center md:px-4",
+                        header.column.id === "holeNumber" && "bg-lime-200",
+                        header.column.id === "par" && "bg-lime-400",
+                      )}
                     >
                       {header.isPlaceholder
                         ? null
@@ -146,18 +151,20 @@ export function ScoreCard({
                       <TableCell
                         key={cell.id}
                         onClick={() => {
-                          if (cell.column.id === "hole") return;
+                          if (cell.column.id === "holeNumber") return;
                           setSelectedCell({
                             row: cell.row.id,
                             colName: cell.column.id,
                           });
                         }}
                         className={cn(
+                          "flex cursor-pointer items-center justify-center border p-0",
+                          cell.column.id === "holeNumber" &&
+                            "cursor-default bg-lime-200",
+                          cell.column.id === "par" && "bg-lime-400",
                           selectedCell?.row === cell.row.id &&
                             selectedCell?.colName === cell.column.id &&
                             "bg-green-500",
-                          cell.column.id !== "hole" && "cursor-pointer",
-                          "flex items-center justify-center border p-0",
                         )}
                       >
                         {flexRender(
@@ -217,7 +224,7 @@ export function ScoreCard({
         >
           <Minus className="h-4 w-4" />
         </Button>
-        <Button onClick={handleSave} variant="outline">
+        <Button onClick={handleSave} variant="outline" disabled={isPending}>
           저장
         </Button>
       </div>
