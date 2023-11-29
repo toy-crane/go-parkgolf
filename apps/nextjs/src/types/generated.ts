@@ -247,17 +247,17 @@ export interface Database {
       player_score: {
         Row: {
           participant_id: number
-          player_score: number | null
+          player_score: number
           score_id: number
         }
         Insert: {
           participant_id: number
-          player_score?: number | null
+          player_score: number
           score_id: number
         }
         Update: {
           participant_id?: number
-          player_score?: number | null
+          player_score?: number
           score_id?: number
         }
         Relationships: [
