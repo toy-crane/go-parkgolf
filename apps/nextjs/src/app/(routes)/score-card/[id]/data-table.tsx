@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -21,7 +20,6 @@ import {
 } from "@tanstack/react-table";
 import { Minus, Plus } from "lucide-react";
 
-import { saveScore } from "./_actions";
 import { useGetColumns } from "./columns";
 import type { ColumnName } from "./columns";
 import type { Score } from "./type";
@@ -30,19 +28,11 @@ export function DataTable({
   columns: headerNames,
   data,
   gameCourse,
-  hasNextPage,
-  hasPreviosPage,
 }: {
   columns: ColumnName[];
   data: Score[];
   gameCourse: Tables<"game_course">;
-  hasNextPage?: boolean;
-  hasPreviosPage?: boolean;
 }) {
-  const [isPending, startTransition] = useTransition();
-
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const [scoreCard, setScoreCard] = useState(data);
   const [selectedCell, setSelectedCell] = useState<{
     row: string;
