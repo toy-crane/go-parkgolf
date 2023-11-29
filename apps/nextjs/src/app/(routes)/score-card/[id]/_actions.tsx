@@ -49,7 +49,7 @@ export async function saveScore(gameCourseId: number, scores: Score[]) {
     throw new Error(scorePlayerResponse.error.message);
   }
 
-  revalidatePath("/score-card/[id]");
+  revalidatePath("/score-card/[id]", "page");
 
   return { success: true };
 }
