@@ -1,5 +1,4 @@
 import React from "react";
-import type { Tables } from "@/types/supabase-helper";
 
 import { getGameCourses, getScores } from "./_fetcher";
 import { DataTable } from "./data-table";
