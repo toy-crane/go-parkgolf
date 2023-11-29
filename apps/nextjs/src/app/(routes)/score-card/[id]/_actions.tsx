@@ -6,6 +6,7 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 import type { Score } from "./type";
 
 export async function saveScore(gameCourseId: number, scores: Score[]) {
+  console.log("RUNNING SERVER ACTION");
   const supabase = createSupabaseServerClient();
   const scoreMutation = supabase
     .from("score")
@@ -49,9 +50,7 @@ export async function saveScore(gameCourseId: number, scores: Score[]) {
     throw new Error(scorePlayerResponse.error.message);
   }
 
-  console.log("revalidated")
-
   revalidatePath("/score-card/[id]", "page");
-
+  console.log("SERVER ACTION DONE");
   return { success: true };
 }

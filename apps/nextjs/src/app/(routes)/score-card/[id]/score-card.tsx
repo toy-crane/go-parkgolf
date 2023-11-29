@@ -77,7 +77,9 @@ export function ScoreCard({
     const result = scoreSchema.safeParse(scoreCard);
     if (result.success) {
       startTransition(async () => {
-        await saveScore(gameCourseId, result.data as Score[]);
+        console.log("Calling action (client-side)");
+        const response = await saveScore(gameCourseId, result.data as Score[]);
+        console.log("Finish calling action (client-side)", response);
       });
     }
   };
