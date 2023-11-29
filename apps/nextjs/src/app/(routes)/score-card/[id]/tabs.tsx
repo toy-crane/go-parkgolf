@@ -2,9 +2,14 @@
 
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { z } from "zod";
 
 import { ScoreCard } from "./score-card";
 import type { GameCourse } from "./type";
+
+function createSchema(fields: Record<string, z.ZodType<any>>) {
+  return z.object(fields);
+}
 
 export const ScoreTabs = ({ gameCourses }: { gameCourses: GameCourse[] }) => {
   const [tab, setTab] = React.useState(gameCourses[0]?.name!);
@@ -48,7 +53,7 @@ export const ScoreTabs = ({ gameCourses }: { gameCourses: GameCourse[] }) => {
       </TabsList>
       {gameCourses.map((gc) => (
         <TabsContent value={gc.name} key={gc.id}>
-          <ScoreCard columns={columns} data={data} />
+          <ScoreCard columns={columns} data={data} gameCourseId={gc.id} />
         </TabsContent>
       ))}
     </Tabs>

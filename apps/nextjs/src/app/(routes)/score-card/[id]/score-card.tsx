@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -18,18 +18,27 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { Minus, Plus } from "lucide-react";
+import { z } from "zod";
 
+import { saveScore } from "./_actions";
 import { useGetColumns } from "./columns";
 import type { ColumnName } from "./columns";
 import type { Score } from "./type";
 
+function createSchema(fields: Record<string, z.ZodType<any>>) {
+  return z.object(fields);
+}
+
 export function ScoreCard({
   columns: headerNames,
   data,
+  gameCourseId,
 }: {
   columns: ColumnName[];
   data: Score[];
+  gameCourseId: number;
 }) {
+  const [isPending, startTransition] = useTransition();
   const [scoreCard, setScoreCard] = useState(data);
   const [selectedCell, setSelectedCell] = useState<{
     row: string;
@@ -45,6 +54,33 @@ export function ScoreCard({
     columns: useGetColumns(headerNames),
     getCoreRowModel: getCoreRowModel(),
   });
+
+  const participantSchema = headerNames.reduce(
+    (acc: Record<string, z.ZodType<any>>, h) => {
+      acc[h.accessorKey] = z.number();
+      return acc;
+    },
+    {},
+  );
+
+  const scoreSchema = z.array(
+    createSchema({
+      id: z.number(),
+      gameCourseId: z.number(),
+      holeNumber: z.number(),
+      par: z.number(),
+      ...participantSchema,
+    }),
+  );
+
+  const handleSave = () => {
+    const result = scoreSchema.safeParse(scoreCard);
+    if (result.success) {
+      startTransition(async () => {
+        await saveScore(gameCourseId, result.data as Score[]);
+      });
+    }
+  };
 
   const handleScore = (
     row: string,
@@ -180,6 +216,9 @@ export function ScoreCard({
           }}
         >
           <Minus className="h-4 w-4" />
+        </Button>
+        <Button onClick={handleSave} variant="outline">
+          저장
         </Button>
       </div>
     </div>

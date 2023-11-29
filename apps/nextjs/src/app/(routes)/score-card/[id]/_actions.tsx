@@ -1,17 +1,18 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
 
-export async function saveScore(gameId: number, scores: Score[]) {
+export async function saveScore(gameCourseId: number, scores: Score[]) {
   const supabase = createSupabaseServerClient();
   const scoreMutation = supabase
     .from("score")
     .upsert(
       scores.map((score) => ({
         id: score.id,
-        game_course_id: gameId,
+        game_course_id: gameCourseId,
         hole_number: score.holeNumber,
         par: score.par,
       })),
@@ -47,6 +48,8 @@ export async function saveScore(gameId: number, scores: Score[]) {
   if (scorePlayerResponse.error) {
     throw new Error(scorePlayerResponse.error.message);
   }
+
+  revalidatePath("/score-card/[id]");
 
   return { success: true };
 }
