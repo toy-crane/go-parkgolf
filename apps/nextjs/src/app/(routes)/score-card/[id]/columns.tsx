@@ -6,25 +6,6 @@ import type { ColumnDef } from "@tanstack/react-table";
 
 import type { Score } from "./type";
 
-// export interface Player {
-//   participantId: number;
-//   nickname: string;
-//   playerScore: number;
-//   scoreId: number;
-// }
-
-// export type PlayerKey = "player1" | "player2" | "player3" | "player4";
-
-// export interface ScoreBase {
-//   id: number;
-//   hole: number;
-//   par: number;
-// }
-
-// export type Score = ScoreBase & {
-//   [key in PlayerKey]?: Player;
-// };
-
 export interface ColumnName {
   headerName: string;
   accessorKey: string;
