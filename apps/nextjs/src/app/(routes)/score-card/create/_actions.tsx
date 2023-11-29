@@ -1,23 +1,11 @@
 "use server";
 
-import { cookies } from "next/headers";
-import { createFetch } from "@/libs/cache";
-import type { Database } from "@/types/generated";
-import type { DbResultOk } from "@/types/supabase-helper";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 import type { z } from "zod";
 
 import { formSchema } from "./forms/schema";
 
 type Inputs = z.infer<typeof formSchema>;
-const cookieStore = cookies();
-
-const supabase = createRouteHandlerClient<Database>(
-  {
-    cookies: () => cookieStore,
-  },
-  { options: { global: { fetch: createFetch({ cache: "force-cache" }) } } },
-);
 
 export async function createGame(data: Inputs) {
   const result = formSchema.safeParse(data);
@@ -25,7 +13,7 @@ export async function createGame(data: Inputs) {
     throw new Error("Validation failed");
   }
 
-  console.log(result.data.startDate);
+  const supabase = createSupabaseServerClient();
 
   const gameMutation = supabase
     .from("game")
@@ -35,12 +23,11 @@ export async function createGame(data: Inputs) {
     })
     .select()
     .single();
-  type Game = DbResultOk<typeof gameMutation>;
   const gameResponse = await gameMutation;
   if (gameResponse.error) {
     throw new Error(gameResponse.error.message);
   }
-  const game: Game = gameResponse.data;
+  const game = gameResponse.data;
   const participantsQuery = result.data.participants.map((participant) => ({
     game_id: game.id,
     nickname: participant.text,
@@ -54,8 +41,7 @@ export async function createGame(data: Inputs) {
   if (participantResponse.error) {
     throw new Error(participantResponse.error.message);
   }
-  const participants: DbResultOk<typeof participantMutation> =
-    participantResponse.data;
+  const participants = participantResponse.data;
 
   const gameCourseMutation = supabase
     .from("game_course")
@@ -71,8 +57,7 @@ export async function createGame(data: Inputs) {
   if (gameCourseResponse.error) {
     throw new Error(gameCourseResponse.error.message);
   }
-  const game_courses: DbResultOk<typeof gameCourseMutation> =
-    gameCourseResponse.data;
+  const game_courses = gameCourseResponse.data;
 
   const scores = game_courses.flatMap((course) => {
     return Array.from({ length: course.hole_count }).map((_, index) => {

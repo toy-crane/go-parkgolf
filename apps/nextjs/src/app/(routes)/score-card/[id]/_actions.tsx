@@ -1,21 +1,11 @@
 "use server";
 
-import { cookies } from "next/headers";
-import { createFetch } from "@/libs/cache";
-import type { Database } from "@/types/generated";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
 
-const cookieStore = cookies();
-const supabase = createRouteHandlerClient<Database>(
-  {
-    cookies: () => cookieStore,
-  },
-  { options: { global: { fetch: createFetch({ cache: "force-cache" }) } } },
-);
-
 export async function saveScore(gameId: number, scores: Score[]) {
+  const supabase = createSupabaseServerClient();
   const scoreMutation = supabase
     .from("score")
     .upsert(

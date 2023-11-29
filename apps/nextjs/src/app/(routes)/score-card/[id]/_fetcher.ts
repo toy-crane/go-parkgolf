@@ -1,9 +1,7 @@
-import { cookies } from "next/headers";
-import { createClient } from "@/libs/supabase/server";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 export const getGameCourses = async ({ gameId }: { gameId: string }) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createSupabaseServerClient();
 
   const { data: response, error } = await supabase
     .from("game")
@@ -17,8 +15,7 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
 };
 
 export const getScores = async ({ gameCourseId }: { gameCourseId: number }) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createSupabaseServerClient();
   const { data: scores, error } = await supabase
     .from("score")
     .select("*, player_score(*, participant(*))")
