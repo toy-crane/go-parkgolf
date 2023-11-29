@@ -49,6 +49,8 @@ export async function saveScore(gameCourseId: number, scores: Score[]) {
     throw new Error(scorePlayerResponse.error.message);
   }
 
+  console.log("revalidated")
+
   revalidatePath("/score-card/[id]", "page");
 
   return { success: true };

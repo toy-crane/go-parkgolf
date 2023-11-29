@@ -1,9 +1,7 @@
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/libs/tailwind";
 
-import { getGameCourses, getScores } from "./_fetcher";
-import { ScoreCard } from "./score-card";
+import { getGameCourses } from "./_fetcher";
 import { ScoreTabs } from "./tabs";
 
 const Page = async ({

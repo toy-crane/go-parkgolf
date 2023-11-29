@@ -205,6 +205,7 @@ export function ScoreCard({
       <div className="flex justify-evenly gap-2 pt-4">
         <Button
           className="flex-auto"
+          disabled={isPending}
           onClick={() => {
             if (selectedCell) {
               handleScore(selectedCell.row, selectedCell.colName, "increase");
@@ -215,6 +216,7 @@ export function ScoreCard({
         </Button>
         <Button
           className="flex-auto"
+          disabled={isPending}
           onClick={() => {
             if (selectedCell) {
               handleScore(selectedCell.row, selectedCell.colName, "decrease");
