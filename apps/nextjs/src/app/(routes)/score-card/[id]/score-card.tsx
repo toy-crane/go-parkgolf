@@ -12,7 +12,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type { Tables } from "@/types/supabase-helper";
 import {
   flexRender,
   getCoreRowModel,
@@ -27,11 +26,9 @@ import type { Score } from "./type";
 export function ScoreCard({
   columns: headerNames,
   data,
-  gameCourse,
 }: {
   columns: ColumnName[];
   data: Score[];
-  gameCourse: Tables<"game_course">;
 }) {
   const [scoreCard, setScoreCard] = useState(data);
   const [selectedCell, setSelectedCell] = useState<{

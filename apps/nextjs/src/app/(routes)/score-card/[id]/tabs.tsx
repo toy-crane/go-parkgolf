@@ -48,7 +48,7 @@ export const ScoreTabs = ({ gameCourses }: { gameCourses: GameCourse[] }) => {
       </TabsList>
       {gameCourses.map((gc) => (
         <TabsContent value={gc.name} key={gc.id}>
-          <ScoreCard gameCourse={gc} columns={columns} data={data} />
+          <ScoreCard columns={columns} data={data} />
         </TabsContent>
       ))}
     </Tabs>
