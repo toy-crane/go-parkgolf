@@ -7,6 +7,7 @@ import type { DbResultOk } from "@/types/supabase-helper";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import type { z } from "zod";
 
+import type { PlayerKey } from "../[id]/columns";
 import { formSchema } from "./forms/schema";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -89,6 +90,29 @@ export async function createGame(data: Inputs) {
 
   if (scoreResponse.error) {
     throw new Error(scoreResponse.error.message);
+  }
+
+  const scoreData = scoreResponse.data;
+
+  const playerScoreData = scoreData.flatMap((score) => {
+    return participants.map((p) => {
+      return {
+        score_id: score.id,
+        participant_id: p.id,
+        player_score: 0,
+      };
+    });
+  });
+
+  const playerScoreMutation = supabase
+    .from("player_score")
+    .upsert(playerScoreData)
+    .select();
+
+  const playerScoreResponse = await playerScoreMutation;
+
+  if (playerScoreResponse.error) {
+    throw new Error(playerScoreResponse.error.message);
   }
 
   return { success: true, data: { ...game, participants, game_courses } };

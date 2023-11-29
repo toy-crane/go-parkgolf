@@ -8,11 +8,12 @@ import { DataTable } from "./data-table";
 
 type participant = Tables<"participant">;
 
-function createPlayer(player: participant): Player {
+function createPlayer(scoreId: number, player: participant): Player {
   return {
-    id: player.id,
+    participantId: player.id,
     nickname: player.nickname ? player.nickname : "이름 없음",
-    score: 0,
+    playerScore: 0,
+    scoreId,
   };
 }
 
@@ -28,7 +29,7 @@ const Page = async ({
 
   const { data: response, error } = await supabase
     .from("game")
-    .select("*, participant(*), game_course(*, score(*, player_score(*)))")
+    .select("*, participant(*), game_course(*)")
     .eq("id", params.id)
     .single();
 
@@ -43,6 +44,13 @@ const Page = async ({
 
   if (!currentGameCourse) throw new Error("game course not found");
 
+  const { data: scores, error: scoreError } = await supabase
+    .from("score")
+    .select("*, player_score(*, participant(*))")
+    .eq("game_course_id", currentGameCourse.id);
+
+  if (scoreError) throw error;
+
   const columns = participants.map((p, index) => {
     const accessorKey = `player${index + 1}` as
       | "player1"
@@ -55,14 +63,25 @@ const Page = async ({
     };
   });
   // TODO: partcipant 이미 생성해서 넘어와야 함
-  const data: Score[] = currentGameCourse.score.map((score) => ({
-    ...score,
-    hole: score.hole_number,
-    player1: participants[0] ? createPlayer(participants[0]) : undefined,
-    player2: participants[1] ? createPlayer(participants[1]) : undefined,
-    player3: participants[2] ? createPlayer(participants[2]) : undefined,
-    player4: participants[3] ? createPlayer(participants[3]) : undefined,
-  }));
+  const data: Score[] = scores.map((score) => {
+    const playerScore = score.player_score;
+    return {
+      ...score,
+      hole: score.hole_number,
+      player1: playerScore[0]?.participant
+        ? createPlayer(score.id, playerScore[0].participant)
+        : undefined,
+      player2: playerScore[1]?.participant
+        ? createPlayer(score.id, playerScore[1].participant)
+        : undefined,
+      player3: playerScore[2]?.participant
+        ? createPlayer(score.id, playerScore[2].participant)
+        : undefined,
+      player4: playerScore[3]?.participant
+        ? createPlayer(score.id, playerScore[3].participant)
+        : undefined,
+    };
+  });
 
   return (
     <main>

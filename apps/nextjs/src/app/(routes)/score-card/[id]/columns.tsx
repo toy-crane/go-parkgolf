@@ -5,9 +5,10 @@ import { createColumnHelper } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
 
 export interface Player {
-  id: number;
+  participantId: number;
   nickname: string;
-  score: number;
+  playerScore: number;
+  scoreId: number;
 }
 
 export type PlayerKey = "player1" | "player2" | "player3" | "player4";
@@ -59,7 +60,7 @@ export const useGetColumns = (headerNames: HeaderName[]) => {
         columnHelper.accessor(header.accessorKey, {
           cell: (info) => {
             const value = info.getValue()!;
-            return <div>{value.score}</div>;
+            return <div>{value.playerScore}</div>;
           },
           header: () => <div>{header.name}</div>,
           footer: (info) => {
@@ -70,7 +71,9 @@ export const useGetColumns = (headerNames: HeaderName[]) => {
                   .rows.reduce(
                     (total, row) =>
                       total +
-                      Number(row.getValue<Player>(header.accessorKey).score),
+                      Number(
+                        row.getValue<Player>(header.accessorKey).playerScore,
+                      ),
                     0,
                   )}
               </div>

@@ -56,6 +56,7 @@ export function DataTable({
     colName: string,
     type: "increase" | "decrease",
   ) => {
+    console.log("clicked handelr");
     setScoreCard((old) =>
       old.map((currentRow, index) => {
         if (index === Number(row)) {
@@ -66,10 +67,10 @@ export function DataTable({
             ...currentRow,
             [key]: {
               ...currentPlayer,
-              score:
+              playerScore:
                 type === "increase"
-                  ? currentPlayer.score + 1
-                  : currentPlayer.score - 1,
+                  ? currentPlayer.playerScore + 1
+                  : currentPlayer.playerScore - 1,
             },
           };
         }

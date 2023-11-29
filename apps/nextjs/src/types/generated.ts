@@ -267,6 +267,13 @@ export interface Database {
             isOneToOne: false
             referencedRelation: "participant"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "player_score_score_id_fkey"
+            columns: ["score_id"]
+            isOneToOne: false
+            referencedRelation: "score"
+            referencedColumns: ["id"]
           }
         ]
       }
