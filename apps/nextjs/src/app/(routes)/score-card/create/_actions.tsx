@@ -7,7 +7,6 @@ import type { DbResultOk } from "@/types/supabase-helper";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import type { z } from "zod";
 
-import type { PlayerKey } from "../[id]/columns";
 import { formSchema } from "./forms/schema";
 
 type Inputs = z.infer<typeof formSchema>;
