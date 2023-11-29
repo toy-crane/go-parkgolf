@@ -3,9 +3,6 @@ import type { Tables } from "@/types/supabase-helper";
 
 import { getGameCourses, getScores } from "./_fetcher";
 import { DataTable } from "./data-table";
-import type { Score } from "./type";
-
-type participant = Tables<"participant">;
 
 const Page = async ({
   params,
