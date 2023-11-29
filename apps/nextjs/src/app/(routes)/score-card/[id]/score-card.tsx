@@ -17,7 +17,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { Minus, Plus } from "lucide-react";
+import { Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
 import { saveScore } from "./_actions";
@@ -225,7 +225,11 @@ export function ScoreCard({
           <Minus className="h-4 w-4" />
         </Button>
         <Button onClick={handleSave} variant="outline" disabled={isPending}>
-          저장
+          {isPending ? (
+            <Loader2 className="h-5 w-5 animate-spin" size={24} />
+          ) : (
+            "저장"
+          )}
         </Button>
       </div>
     </div>
