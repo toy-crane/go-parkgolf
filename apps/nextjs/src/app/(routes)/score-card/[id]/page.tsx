@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/libs/tailwind";
+import { format } from "date-fns";
 
 import { getGameCourses } from "./_fetcher";
 import { ScoreTabs } from "./tabs";
@@ -11,7 +12,9 @@ const Page = async ({
   params: { id: string };
   searchParams: { tab?: string };
 }) => {
-  const gameCourses = await getGameCourses({ gameId: params.id });
+  const { gameCourses, name, startDate } = await getGameCourses({
+    gameId: params.id,
+  });
 
   return (
     <main>
@@ -22,11 +25,11 @@ const Page = async ({
               "flex text-xl font-medium leading-none tracking-tight",
             )}
           >
-            충주 파크 골프장
+            {name}
           </h3>
         </div>
         <p className={cn("text-muted-foreground flex text-sm")}>
-          2021년 10월 10일
+          {startDate && format(new Date(startDate), "yyyy-MM-dd")}
         </p>
       </div>
       <ScoreTabs gameCourses={gameCourses} selectedTab={searchParams.tab} />

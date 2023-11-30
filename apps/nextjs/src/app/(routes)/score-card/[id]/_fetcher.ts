@@ -5,13 +5,15 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
 
   const { data: response, error } = await supabase
     .from("game")
-    .select("*, game_course(*, score(*, player_score(*, participant(*))))")
+    .select(
+      "start_date, game_course(*, score(*, player_score(*, participant(*)))), golf_course(name)",
+    )
     .eq("id", gameId)
     .single();
 
   if (error) throw error;
-  const { game_course: gameCourses } = response;
-  return gameCourses;
+  const { game_course: gameCourses, golf_course, start_date } = response;
+  return { gameCourses, ...golf_course, startDate: start_date };
 };
 
 export const getScores = async ({ gameCourseId }: { gameCourseId: number }) => {
