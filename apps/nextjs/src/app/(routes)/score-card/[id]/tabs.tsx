@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -14,37 +14,40 @@ export const ScoreTabs = ({
   gameCourses: GameCourse[];
   selectedTab?: string;
 }) => {
-  const [tab, setTab] = React.useState(selectedTab ?? gameCourses[0]?.name!);
+  const [tab, setTab] = useState(selectedTab ?? gameCourses[0]?.name!);
   const searchParams = useSearchParams();
   const router = useRouter();
   const scores = gameCourses.find((gc) => gc.name === tab)?.score ?? [];
-
   const participants = scores[0]?.player_score.map((p) => p.participant) ?? [];
-
   const columns = participants?.map((p) => ({
     accessorKey: String(p?.id),
     headerName: p?.nickname ?? "이름 없음",
   }));
 
-  const data = scores?.map((score) => {
-    const playerScore = score.player_score;
-    const playerScoreMap = playerScore.reduce(
-      (acc: Record<string, number>, curr) => {
-        if (curr.participant?.id) {
-          acc[String(curr.participant?.id)] = curr.player_score;
-        }
-        return acc;
-      },
-      {},
-    );
-    return {
-      id: score.id,
-      gameCourseId: score.game_course_id,
-      holeNumber: score.hole_number,
-      par: score.par,
-      ...playerScoreMap,
-    };
-  });
+  const data = gameCourses
+    .map((gc) =>
+      gc.score.map((score) => {
+        const playerScore = score.player_score;
+        const playerScoreMap = playerScore.reduce(
+          (acc: Record<string, number>, curr) => {
+            const participantId = String(curr.participant?.id);
+            if (participantId) {
+              acc[participantId] = curr.player_score;
+            }
+            return acc;
+          },
+          {},
+        );
+        return {
+          id: score.id,
+          gameCourseId: score.game_course_id,
+          holeNumber: score.hole_number,
+          par: score.par,
+          ...playerScoreMap,
+        };
+      }),
+    )
+    .flat();
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);

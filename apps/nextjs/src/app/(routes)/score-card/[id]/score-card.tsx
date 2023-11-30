@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
+import type { PaginationState } from "@tanstack/react-table";
 import {
   flexRender,
   getCoreRowModel,
@@ -77,8 +78,8 @@ export function ScoreCard({
     const result = scoreSchema.safeParse(scoreCard);
     if (result.success) {
       startTransition(async () => {
-        console.log("Calling action (client-side)");
-        const response = await saveScore(gameCourseId, result.data as Score[]);
+        console.log("Calling action (client-side)", result.data);
+        const response = await saveScore(result.data as Score[]);
         console.log("Finish calling action (client-side)", response);
       });
     }
@@ -93,15 +94,11 @@ export function ScoreCard({
       old.map((currentRow, index) => {
         if (index === Number(row)) {
           const key = colName as keyof Score;
-          const currentScore = currentRow[key];
+          const currentScore = currentRow[key] ?? 0;
+          const increment = type === "increase" ? 1 : -1;
           return {
             ...currentRow,
-            [colName]:
-              currentScore !== undefined
-                ? type === "increase"
-                  ? currentScore + 1
-                  : currentScore - 1
-                : 0,
+            [colName]: currentScore + increment,
           };
         }
         return currentRow;
@@ -143,39 +140,44 @@ export function ScoreCard({
           </TableHeader>
           <TableBody className="flex flex-1 flex-col">
             {table.getRowModel().rows?.length
-              ? table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    className="grid-cols-score-card grid flex-1"
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell
-                        key={cell.id}
-                        onClick={() => {
-                          if (cell.column.id === "holeNumber") return;
-                          setSelectedCell({
-                            row: cell.row.id,
-                            colName: cell.column.id,
-                          });
-                        }}
-                        className={cn(
-                          "flex cursor-pointer items-center justify-center border p-0",
-                          cell.column.id === "holeNumber" &&
-                            "cursor-default bg-lime-200",
-                          cell.column.id === "par" && "bg-lime-400",
-                          selectedCell?.row === cell.row.id &&
-                            selectedCell?.colName === cell.column.id &&
-                            "bg-green-500",
-                        )}
-                      >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))
+              ? table
+                  .getRowModel()
+                  .rows.filter((row) => {
+                    return row.original.gameCourseId === gameCourseId;
+                  })
+                  .map((row) => (
+                    <TableRow
+                      key={row.id}
+                      className="grid-cols-score-card grid flex-1"
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell
+                          key={cell.id}
+                          onClick={() => {
+                            if (cell.column.id === "holeNumber") return;
+                            setSelectedCell({
+                              row: cell.row.id,
+                              colName: cell.column.id,
+                            });
+                          }}
+                          className={cn(
+                            "flex cursor-pointer items-center justify-center border p-0",
+                            cell.column.id === "holeNumber" &&
+                              "cursor-default bg-lime-200",
+                            cell.column.id === "par" && "bg-lime-400",
+                            selectedCell?.row === cell.row.id &&
+                              selectedCell?.colName === cell.column.id &&
+                              "bg-green-500",
+                          )}
+                        >
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext(),
+                          )}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
               : null}
           </TableBody>
           <TableFooter>

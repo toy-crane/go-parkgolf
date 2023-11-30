@@ -5,7 +5,7 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
 
-export async function saveScore(gameCourseId: number, scores: Score[]) {
+export async function saveScore(scores: Score[]) {
   console.log("RUNNING SERVER ACTION");
   const supabase = createSupabaseServerClient();
   const scoreMutation = supabase
@@ -13,7 +13,7 @@ export async function saveScore(gameCourseId: number, scores: Score[]) {
     .upsert(
       scores.map((score) => ({
         id: score.id,
-        game_course_id: gameCourseId,
+        game_course_id: score.gameCourseId,
         hole_number: score.holeNumber,
         par: score.par,
       })),
