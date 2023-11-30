@@ -12,7 +12,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type { PaginationState } from "@tanstack/react-table";
 import {
   flexRender,
   getCoreRowModel,
