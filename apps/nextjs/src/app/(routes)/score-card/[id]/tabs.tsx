@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Table } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Loader2, Minus, Plus } from "lucide-react";
@@ -76,6 +75,11 @@ export const ScoreTabs = ({
     router.push(`?${params.toString()}`);
     setTab(value);
   };
+
+  // 탭이 변경되면, 선택된 셀을 초기화한다.
+  useEffect(() => {
+    setSelectedCell(undefined);
+  }, [tab]);
 
   const scoreSchema = z.array(
     createSchema({
