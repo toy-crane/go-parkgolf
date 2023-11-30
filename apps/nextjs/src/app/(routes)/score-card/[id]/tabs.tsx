@@ -9,6 +9,7 @@ import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
+import { saveScore } from "./_actions";
 import { useGetColumns } from "./columns";
 import type { ColumnName } from "./columns";
 import { createSchema } from "./schema";
@@ -143,14 +144,12 @@ export const ScoreTabs = ({
         </TabsList>
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id}>
-            <Table>
-              <ScoreCard
-                gameCourseId={gc.id}
-                table={table}
-                onSelectedCell={handleSelectedCell}
-                selectedCell={selectedCell}
-              />
-            </Table>
+            <ScoreCard
+              gameCourseId={gc.id}
+              table={table}
+              onSelectedCell={handleSelectedCell}
+              selectedCell={selectedCell}
+            />
           </TabsContent>
         ))}
       </Tabs>
