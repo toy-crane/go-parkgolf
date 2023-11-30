@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import {
   Table,
   TableBody,
@@ -12,6 +13,7 @@ import {
 import { cn } from "@/libs/tailwind";
 import type { Table as TableType } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
+import _ from "lodash";
 
 import type { Cell, Score } from "./type";
 
@@ -26,6 +28,26 @@ export function ScoreCard({
   selectedCell?: Cell;
   onSelectedCell: (cell: Cell) => void;
 }) {
+  const columnOrder = table.getAllColumns().map((col) => col.id);
+  const sumOfCourseValues = table
+    .getRowModel()
+    .rows.filter((row) => row.original.gameCourseId === gameCourseId)
+    .flatMap((row) => {
+      const { id, gameCourseId, holeNumber, ...rest } = row.original;
+      return rest;
+    })
+    .reduce((accumulator: Record<string, number>, currentRow) => {
+      // 각 키에 대해 값을 누적합니다.
+      const keys = Object.keys(currentRow) as (keyof typeof currentRow)[];
+      keys.forEach((key) => {
+        accumulator[key] = (accumulator[key] ?? 0) + Number(currentRow[key]);
+      });
+      return accumulator;
+    }, {});
+
+  console.log(_.orderBy(Object.keys(sumOfCourseValues), "desc"));
+  console.log(columnOrder);
+
   return (
     <Table className="flex flex-1 flex-col text-xs md:text-sm">
       <TableHeader className="flex-0">
@@ -99,6 +121,25 @@ export function ScoreCard({
           : null}
       </TableBody>
       <TableFooter>
+        <TableRow className="align-center grid-cols-score-card grid">
+          {columnOrder.map((key) => {
+            const value = sumOfCourseValues[key];
+            return (
+              <TableCell
+                key={key}
+                className={cn(
+                  "flex items-center justify-center border px-0 text-center md:px-4",
+                )}
+              >
+                {key === "holeNumber"
+                  ? "CT"
+                  : Number(value) > 0 && key !== "par"
+                  ? `+${value}`
+                  : value}
+              </TableCell>
+            );
+          })}
+        </TableRow>
         {table.getFooterGroups().map((footerGroup) => (
           <TableRow
             key={footerGroup.id}
