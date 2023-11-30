@@ -1,6 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
 import {
   Table,
   TableBody,
@@ -13,7 +12,6 @@ import {
 import { cn } from "@/libs/tailwind";
 import type { Table as TableType } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
-import _ from "lodash";
 
 import type { Cell, Score } from "./type";
 
@@ -44,9 +42,6 @@ export function ScoreCard({
       });
       return accumulator;
     }, {});
-
-  console.log(_.orderBy(Object.keys(sumOfCourseValues), "desc"));
-  console.log(columnOrder);
 
   return (
     <Table className="flex flex-1 flex-col text-xs md:text-sm">

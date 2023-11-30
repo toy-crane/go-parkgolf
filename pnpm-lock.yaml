@@ -222,6 +222,9 @@ importers:
       '@trpc/server':
         specifier: ^10.38.0
         version: 10.38.0
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.14.202
       '@types/uuid':
         specifier: ^9.0.7
         version: 9.0.7
@@ -240,6 +243,9 @@ importers:
       headless-stepper:
         specifier: ^1.9.1
         version: 1.9.1(react@18.2.0)
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       lucide-react:
         specifier: ^0.279.0
         version: 0.279.0(react@18.2.0)
@@ -4638,6 +4644,10 @@ packages:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
       '@types/node': 18.17.12
+    dev: false
+
+  /@types/lodash@4.14.202:
+    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
     dev: false
 
   /@types/minimatch@5.1.2:
