@@ -3,7 +3,6 @@
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { z } from "zod";
 
 import { ScoreCard } from "./score-card";
 import type { GameCourse } from "./type";
