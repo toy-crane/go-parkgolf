@@ -15,3 +15,8 @@ export type GameCourse = Tables<"game_course"> & {
     })[];
   })[];
 };
+
+export interface Cell {
+  row: string;
+  colName: string;
+}

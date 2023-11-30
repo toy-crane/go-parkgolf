@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
-import { Button } from "@/components/ui/button";
 import {
-  Table,
   TableBody,
   TableCell,
   TableFooter,
@@ -12,103 +9,26 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-import { Loader2, Minus, Plus } from "lucide-react";
-import { z } from "zod";
+import type { Table } from "@tanstack/react-table";
+import { flexRender } from "@tanstack/react-table";
 
-import { saveScore } from "./_actions";
-import { useGetColumns } from "./columns";
-import type { ColumnName } from "./columns";
-import type { Score } from "./type";
-
-function createSchema(fields: Record<string, z.ZodType<any>>) {
-  return z.object(fields);
-}
+import type { Cell, Score } from "./type";
 
 export function ScoreCard({
-  columns: headerNames,
-  data,
   gameCourseId,
+  table,
+  selectedCell,
+  onSelectedCell,
 }: {
-  columns: ColumnName[];
-  data: Score[];
   gameCourseId: number;
+  table: Table<Score>;
+  selectedCell?: Cell;
+  onSelectedCell: (cell: Cell) => void;
 }) {
-  const [isPending, startTransition] = useTransition();
-  const [scoreCard, setScoreCard] = useState(data);
-  const [selectedCell, setSelectedCell] = useState<{
-    row: string;
-    colName: string;
-  } | null>(null);
-
-  useEffect(() => {
-    setScoreCard(data);
-  }, [data]);
-
-  const table = useReactTable({
-    data: scoreCard,
-    columns: useGetColumns(headerNames),
-    getCoreRowModel: getCoreRowModel(),
-  });
-
-  const participantSchema = headerNames.reduce(
-    (acc: Record<string, z.ZodType<any>>, h) => {
-      acc[h.accessorKey] = z.number();
-      return acc;
-    },
-    {},
-  );
-
-  const scoreSchema = z.array(
-    createSchema({
-      id: z.number(),
-      gameCourseId: z.number(),
-      holeNumber: z.number(),
-      par: z.number(),
-      ...participantSchema,
-    }),
-  );
-
-  const handleSave = () => {
-    const result = scoreSchema.safeParse(scoreCard);
-    if (result.success) {
-      startTransition(async () => {
-        console.log("Calling action (client-side)", result.data);
-        const response = await saveScore(result.data as Score[]);
-        console.log("Finish calling action (client-side)", response);
-      });
-    }
-  };
-
-  const handleScore = (
-    row: string,
-    colName: string,
-    type: "increase" | "decrease",
-  ) => {
-    setScoreCard((old) =>
-      old.map((currentRow, index) => {
-        if (index === Number(row)) {
-          const key = colName as keyof Score;
-          const currentScore = currentRow[key] ?? 0;
-          const increment = type === "increase" ? 1 : -1;
-          return {
-            ...currentRow,
-            [colName]: currentScore + increment,
-          };
-        }
-        return currentRow;
-      }),
-    );
-  };
-
   return (
     <div className="flex h-[85vh] flex-col py-1">
       <div className="flex flex-1 flex-col rounded-md border">
-        <Table className="flex flex-1 flex-col text-xs md:text-sm">
+        <div className="flex flex-1 flex-col text-xs md:text-sm">
           <TableHeader className="flex-0">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
@@ -154,7 +74,7 @@ export function ScoreCard({
                           key={cell.id}
                           onClick={() => {
                             if (cell.column.id === "holeNumber") return;
-                            setSelectedCell({
+                            onSelectedCell({
                               row: cell.row.id,
                               colName: cell.column.id,
                             });
@@ -203,38 +123,7 @@ export function ScoreCard({
               </TableRow>
             ))}
           </TableFooter>
-        </Table>
-      </div>
-      <div className="flex justify-evenly gap-2 pt-4">
-        <Button
-          className="flex-auto"
-          disabled={isPending}
-          onClick={() => {
-            if (selectedCell) {
-              handleScore(selectedCell.row, selectedCell.colName, "increase");
-            }
-          }}
-        >
-          <Plus className="h-4 w-4" />
-        </Button>
-        <Button
-          className="flex-auto"
-          disabled={isPending}
-          onClick={() => {
-            if (selectedCell) {
-              handleScore(selectedCell.row, selectedCell.colName, "decrease");
-            }
-          }}
-        >
-          <Minus className="h-4 w-4" />
-        </Button>
-        <Button onClick={handleSave} variant="outline" disabled={isPending}>
-          {isPending ? (
-            <Loader2 className="h-5 w-5 animate-spin" size={24} />
-          ) : (
-            "저장"
-          )}
-        </Button>
+        </div>
       </div>
     </div>
   );
