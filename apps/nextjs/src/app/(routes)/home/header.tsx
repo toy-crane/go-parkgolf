@@ -27,6 +27,7 @@ const Header = ({ courses }: HeaderProps) => {
         href: `/?${new URLSearchParams({
           courseId: String(course.id),
           modal: String(true),
+          level: String(9),
         }).toString()}`,
       })),
     [courses],
