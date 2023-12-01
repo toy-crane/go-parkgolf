@@ -1,21 +1,11 @@
 import React from "react";
-import { cookies } from "next/headers";
-import { createFetch } from "@/libs/cache";
-import type { Database } from "@/types/generated";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 import Funnel from "./funnel";
 
 const Page = async () => {
-  const cookieStore = cookies();
-
-  const supabase = createRouteHandlerClient<Database>(
-    {
-      cookies: () => cookieStore,
-    },
-    { options: { global: { fetch: createFetch({ cache: "force-cache" }) } } },
-  );
+  const supabase = await createSupabaseServerClient();
 
   const query = supabase.from("golf_course").select(`*`);
   const result: DbResult<typeof query> = await query;
