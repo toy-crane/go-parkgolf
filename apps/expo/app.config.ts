@@ -4,7 +4,7 @@ const defineConfig = (): ExpoConfig => ({
   name: "파크골프 가자",
   slug: "goparkgolf",
   scheme: "goparkgolf",
-  version: "1.0.0",
+  version: "1.0.1",
   orientation: "portrait",
   icon: "./assets/images/icon.png",
   userInterfaceStyle: "light",
