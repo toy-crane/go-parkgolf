@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import { PageHeader, PageHeaderHeading } from "../_components/page-header";
+import KakaoForm from "./components/kakao-form";
 
 const Page = () => {
   return (
@@ -11,9 +12,7 @@ const Page = () => {
         <PageHeaderHeading>로그인</PageHeaderHeading>
       </PageHeader>
       <div className="mb-6 flex flex-col gap-4">
-        <Button className="w-full" size="lg">
-          카카오로 3초만에 시작하기
-        </Button>
+        <KakaoForm />
         <Button className="w-full" size="lg">
           다른 방법으로 로그인하기
         </Button>
