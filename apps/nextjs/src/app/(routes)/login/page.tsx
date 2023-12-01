@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import { PageHeader, PageHeaderHeading } from "../_components/page-header";
-import KakaoForm from "./components/kakao-form";
+import KakaoForm from "../auth/components/kakao-form";
 
 const Page = () => {
   return (
