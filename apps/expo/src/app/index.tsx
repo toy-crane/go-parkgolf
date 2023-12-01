@@ -58,6 +58,7 @@ export default function Home() {
           pullToRefreshEnabled
           onContentProcessDidTerminate={reloadWebView}
           originWhitelist={originAllowList}
+          textZoom={100}
           onShouldStartLoadWithRequest={(request) => {
             // Only allow navigating within this website
             if (serviceAllowList.some((url) => request.url.startsWith(url))) {
