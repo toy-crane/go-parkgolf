@@ -1,9 +1,15 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { readUserSession } from "@/libs/auth";
 
 import { PageHeader, PageHeaderHeading } from "../_components/page-header";
 import KakaoForm from "../auth/components/kakao-form";
 
-const Page = () => {
+const Page = async () => {
+  const { data } = await readUserSession();
+  if (data.session) {
+    return redirect("/");
+  }
   return (
     <div className="flex flex-col">
       <div>로고 위치</div>
