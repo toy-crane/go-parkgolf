@@ -8,14 +8,16 @@ import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: "#ffffff",
+};
+
 export const metadata: Metadata = {
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover",
-  },
   title: {
     default: "전국 파크골프장 정보를 한 곳에서! | 파크골프가자",
     template: `%s | ${siteConfig.name}`,
@@ -75,7 +77,6 @@ export const metadata: Metadata = {
     },
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-  themeColor: "#ffffff",
   metadataBase: new URL("https://goparkgolf.app"),
   alternates: {
     canonical: "/",
