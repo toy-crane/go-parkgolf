@@ -1,10 +1,12 @@
+"use server";
+
 import { cookies } from "next/headers";
 import { env } from "@/env.mjs";
 import type { Database } from "@/types/generated";
 import type { CookieOptions } from "@supabase/ssr";
 import { createServerClient } from "@supabase/ssr";
 
-export function createSupabaseServerClient() {
+export async function createSupabaseServerClient() {
   const cookieStore = cookies();
 
   return createServerClient<Database>(
