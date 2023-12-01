@@ -100,24 +100,30 @@ export interface Database {
       }
       game: {
         Row: {
-          course_id: number | null
-          id: number
-          start_date: string | null
+          created_at: string
+          golf_course_id: number
+          id: string
+          started_at: string
+          user_id: string
         }
         Insert: {
-          course_id?: number | null
-          id?: number
-          start_date?: string | null
+          created_at?: string
+          golf_course_id: number
+          id?: string
+          started_at: string
+          user_id?: string
         }
         Update: {
-          course_id?: number | null
-          id?: number
-          start_date?: string | null
+          created_at?: string
+          golf_course_id?: number
+          id?: string
+          started_at?: string
+          user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "game_course_id_fkey"
-            columns: ["course_id"]
+            foreignKeyName: "game_golf_course_id_fkey"
+            columns: ["golf_course_id"]
             isOneToOne: false
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
@@ -126,21 +132,24 @@ export interface Database {
       }
       game_course: {
         Row: {
-          game_id: number
+          created_at: string
+          game_id: string
           hole_count: number
-          id: number
+          id: string
           name: string
         }
         Insert: {
-          game_id: number
+          created_at?: string
+          game_id: string
           hole_count: number
-          id?: number
+          id?: string
           name: string
         }
         Update: {
-          game_id?: number
+          created_at?: string
+          game_id?: string
           hole_count?: number
-          id?: number
+          id?: string
           name?: string
         }
         Relationships: [
@@ -149,6 +158,116 @@ export interface Database {
             columns: ["game_id"]
             isOneToOne: false
             referencedRelation: "game"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      game_player: {
+        Row: {
+          created_at: string
+          game_id: string
+          id: string
+          nickname: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          game_id: string
+          id?: string
+          nickname?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          game_id?: string
+          id?: string
+          nickname?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_player_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "game"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "game_player_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      game_player_score: {
+        Row: {
+          created_at: string
+          game_player_id: string
+          game_score_id: string
+          id: string
+          score: number
+        }
+        Insert: {
+          created_at?: string
+          game_player_id: string
+          game_score_id: string
+          id?: string
+          score: number
+        }
+        Update: {
+          created_at?: string
+          game_player_id?: string
+          game_score_id?: string
+          id?: string
+          score?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_player_score_game_player_id_fkey"
+            columns: ["game_player_id"]
+            isOneToOne: false
+            referencedRelation: "game_player"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "game_player_score_game_score_id_fkey"
+            columns: ["game_score_id"]
+            isOneToOne: false
+            referencedRelation: "game_score"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      game_score: {
+        Row: {
+          created_at: string
+          game_course_id: string
+          hole_number: number
+          id: string
+          par: number
+        }
+        Insert: {
+          created_at?: string
+          game_course_id: string
+          hole_number: number
+          id?: string
+          par: number
+        }
+        Update: {
+          created_at?: string
+          game_course_id?: string
+          hole_number?: number
+          id?: string
+          par?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_score_game_course_id_fkey"
+            columns: ["game_course_id"]
+            isOneToOne: false
+            referencedRelation: "game_course"
             referencedColumns: ["id"]
           }
         ]
@@ -215,68 +334,6 @@ export interface Database {
           }
         ]
       }
-      participant: {
-        Row: {
-          game_id: number
-          id: number
-          nickname: string | null
-          user_id: number | null
-        }
-        Insert: {
-          game_id: number
-          id?: number
-          nickname?: string | null
-          user_id?: number | null
-        }
-        Update: {
-          game_id?: number
-          id?: number
-          nickname?: string | null
-          user_id?: number | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "participant_game_id_fkey"
-            columns: ["game_id"]
-            isOneToOne: false
-            referencedRelation: "game"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      player_score: {
-        Row: {
-          participant_id: number
-          player_score: number
-          score_id: number
-        }
-        Insert: {
-          participant_id: number
-          player_score: number
-          score_id: number
-        }
-        Update: {
-          participant_id?: number
-          player_score?: number
-          score_id?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "player_score_participant_id_fkey"
-            columns: ["participant_id"]
-            isOneToOne: false
-            referencedRelation: "participant"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "player_score_score_id_fkey"
-            columns: ["score_id"]
-            isOneToOne: false
-            referencedRelation: "score"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       road_address: {
         Row: {
           address_name: string | null
@@ -336,35 +393,6 @@ export interface Database {
           }
         ]
       }
-      score: {
-        Row: {
-          game_course_id: number
-          hole_number: number
-          id: number
-          par: number
-        }
-        Insert: {
-          game_course_id: number
-          hole_number: number
-          id?: number
-          par: number
-        }
-        Update: {
-          game_course_id?: number
-          hole_number?: number
-          id?: number
-          par?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "score_game_course_id_fkey"
-            columns: ["game_course_id"]
-            isOneToOne: false
-            referencedRelation: "game_course"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
     }
     Views: {
       [_ in never]: never
@@ -380,3 +408,83 @@ export interface Database {
     }
   }
 }
+
+export type Tables<
+  PublicTableNameOrOptions extends
+    | keyof (Database["public"]["Tables"] & Database["public"]["Views"])
+    | { schema: keyof Database },
+  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+    ? keyof (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
+        Database[PublicTableNameOrOptions["schema"]]["Views"])
+    : never = never
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+  ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
+      Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R
+    }
+    ? R
+    : never
+  : PublicTableNameOrOptions extends keyof (Database["public"]["Tables"] &
+      Database["public"]["Views"])
+  ? (Database["public"]["Tables"] &
+      Database["public"]["Views"])[PublicTableNameOrOptions] extends {
+      Row: infer R
+    }
+    ? R
+    : never
+  : never
+
+export type TablesInsert<
+  PublicTableNameOrOptions extends
+    | keyof Database["public"]["Tables"]
+    | { schema: keyof Database },
+  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+    : never = never
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I
+    }
+    ? I
+    : never
+  : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
+  ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
+      Insert: infer I
+    }
+    ? I
+    : never
+  : never
+
+export type TablesUpdate<
+  PublicTableNameOrOptions extends
+    | keyof Database["public"]["Tables"]
+    | { schema: keyof Database },
+  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+    : never = never
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U
+    }
+    ? U
+    : never
+  : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
+  ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
+      Update: infer U
+    }
+    ? U
+    : never
+  : never
+
+export type Enums<
+  PublicEnumNameOrOptions extends
+    | keyof Database["public"]["Enums"]
+    | { schema: keyof Database },
+  EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
+    : never = never
+> = PublicEnumNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : PublicEnumNameOrOptions extends keyof Database["public"]["Enums"]
+  ? Database["public"]["Enums"][PublicEnumNameOrOptions]
+  : never

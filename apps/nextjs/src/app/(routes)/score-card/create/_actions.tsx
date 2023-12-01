@@ -13,35 +13,35 @@ export async function createGame(data: Inputs) {
     throw new Error("Validation failed");
   }
 
-  const supabase = createSupabaseServerClient();
-
+  const supabase = await createSupabaseServerClient();
   const gameMutation = supabase
     .from("game")
     .insert({
-      start_date: result.data.startDate.toISOString(),
-      course_id: result.data.courseId,
+      started_at: result.data.startedAt.toISOString(),
+      golf_course_id: result.data.courseId,
     })
     .select()
     .single();
   const gameResponse = await gameMutation;
   if (gameResponse.error) {
+    console.log(gameResponse.error);
     throw new Error(gameResponse.error.message);
   }
   const game = gameResponse.data;
-  const participantsQuery = result.data.participants.map((participant) => ({
+  const participantsQuery = result.data.gamePlayers.map((player) => ({
     game_id: game.id,
-    nickname: participant.text,
+    nickname: player.text,
   }));
 
-  const participantMutation = supabase
-    .from("participant")
+  const playerMutation = supabase
+    .from("game_player")
     .insert(participantsQuery)
     .select();
-  const participantResponse = await participantMutation;
-  if (participantResponse.error) {
-    throw new Error(participantResponse.error.message);
+  const playerResponse = await playerMutation;
+  if (playerResponse.error) {
+    throw new Error(playerResponse.error.message);
   }
-  const participants = participantResponse.data;
+  const players = playerResponse.data;
 
   const gameCourseMutation = supabase
     .from("game_course")
@@ -59,7 +59,7 @@ export async function createGame(data: Inputs) {
   }
   const game_courses = gameCourseResponse.data;
 
-  const scores = game_courses.flatMap((course) => {
+  const game_scores = game_courses.flatMap((course) => {
     return Array.from({ length: course.hole_count }).map((_, index) => {
       return {
         game_course_id: course.id,
@@ -69,7 +69,10 @@ export async function createGame(data: Inputs) {
     });
   });
 
-  const scoreMutation = supabase.from("score").insert(scores).select();
+  const scoreMutation = supabase
+    .from("game_score")
+    .insert(game_scores)
+    .select();
   const scoreResponse = await scoreMutation;
 
   if (scoreResponse.error) {
@@ -78,19 +81,19 @@ export async function createGame(data: Inputs) {
 
   const scoreData = scoreResponse.data;
 
-  const playerScoreData = scoreData.flatMap((score) => {
-    return participants.map((p) => {
+  const gamePlayerScores = scoreData.flatMap((score) => {
+    return players.map((p) => {
       return {
-        score_id: score.id,
-        participant_id: p.id,
-        player_score: 0,
+        game_score_id: score.id,
+        game_player_id: p.id,
+        score: 0,
       };
     });
   });
 
   const playerScoreMutation = supabase
-    .from("player_score")
-    .upsert(playerScoreData)
+    .from("game_player_score")
+    .upsert(gamePlayerScores)
     .select();
 
   const playerScoreResponse = await playerScoreMutation;
@@ -99,5 +102,5 @@ export async function createGame(data: Inputs) {
     throw new Error(playerScoreResponse.error.message);
   }
 
-  return { success: true, data: { ...game, participants, game_courses } };
+  return { success: true, data: { ...game, players, game_courses } };
 }

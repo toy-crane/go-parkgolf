@@ -104,7 +104,7 @@ const GolfCourseForm = ({ courses }: CreateFormProps) => {
       />
       <FormField
         control={form.control}
-        name="startDate"
+        name="startedAt"
         render={({ field }) => (
           <FormItem className="flex flex-col">
             <FormLabel>게임 날짜</FormLabel>
@@ -136,9 +136,7 @@ const GolfCourseForm = ({ courses }: CreateFormProps) => {
                     field.onChange(e);
                     setIsCalendarOpen(false);
                   }}
-                  disabled={(date) =>
-                    date > new Date() || date < new Date("1900-01-01")
-                  }
+                  disabled={(date) => date < new Date("1900-01-01")}
                   initialFocus
                 />
               </PopoverContent>

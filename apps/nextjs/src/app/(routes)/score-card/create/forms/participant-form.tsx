@@ -19,7 +19,7 @@ import type { formSchema } from "./schema";
 const ParticipantForm = () => {
   const form = useFormContext<z.infer<typeof formSchema>>();
   const { setValue, watch } = form;
-  const tags = watch("participants")?.map((p) => ({
+  const tags = watch("gamePlayers")?.map((p) => ({
     id: p.id,
     text: p.text,
   }));
@@ -27,7 +27,7 @@ const ParticipantForm = () => {
   return (
     <FormField
       control={form.control}
-      name="participants"
+      name="gamePlayers"
       render={({ field }) => (
         <FormItem className="flex flex-col">
           <FormLabel className="text-left">게임 참여자 이름</FormLabel>
@@ -42,7 +42,7 @@ const ParticipantForm = () => {
               maxTags={4}
               minTags={1}
               setTags={(newTags) => {
-                setValue("participants", newTags as [Tag, ...Tag[]]);
+                setValue("gamePlayers", newTags as [Tag, ...Tag[]]);
               }}
             />
           </FormControl>

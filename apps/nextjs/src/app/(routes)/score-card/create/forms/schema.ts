@@ -1,14 +1,14 @@
 import * as z from "zod";
 
 export const gameSchema = z.object({
-  startDate: z.coerce.date({
+  startedAt: z.coerce.date({
     required_error: "게임 날짜를 선택해 주세요.",
   }),
   courseId: z.coerce.number({ required_error: "골프장을 선택해 주세요." }),
 });
 
-export const participantSchema = z.object({
-  participants: z
+export const gamePlayerSchema = z.object({
+  gamePlayers: z
     .array(
       z.object({
         id: z.string(),
@@ -33,5 +33,5 @@ const gameCourseShema = z.object({
 });
 
 export const formSchema = gameSchema
-  .merge(participantSchema)
+  .merge(gamePlayerSchema)
   .merge(gameCourseShema);

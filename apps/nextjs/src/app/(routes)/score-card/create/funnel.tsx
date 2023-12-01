@@ -20,7 +20,7 @@ import { createGame } from "./_actions";
 import GameCourseForm from "./forms/game-course";
 import GolfCourseForm from "./forms/golf-course-form";
 import ParticipantForm from "./forms/participant-form";
-import { formSchema, gameSchema, participantSchema } from "./forms/schema";
+import { formSchema, gamePlayerSchema, gameSchema } from "./forms/schema";
 
 const steps = [
   {
@@ -31,12 +31,12 @@ const steps = [
   {
     label: "신규 게임 생성하기",
     description: "플레이어들의 이름을 입력해 주세요",
-    fields: Object.keys(participantSchema.shape),
+    fields: Object.keys(gamePlayerSchema.shape),
   },
   {
     label: "신규 게임 생성하기",
     description: "코스를 설정해 주세요",
-    fields: Object.keys(participantSchema.shape),
+    fields: Object.keys(gamePlayerSchema.shape),
   },
 ];
 
@@ -56,7 +56,7 @@ const Funnel = ({ courses }: CreateFormProps) => {
     shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(formSchema),
-    defaultValues: { startDate: new Date(), participants: [] },
+    defaultValues: { startedAt: new Date(), gamePlayers: [] },
   });
   const { trigger } = form;
 
