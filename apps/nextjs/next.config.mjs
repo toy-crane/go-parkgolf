@@ -7,6 +7,11 @@ const config = {
   /** We already do linting and typechecking as separate tasks in CI */
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -14,10 +19,6 @@ const config = {
       use: ["@svgr/webpack"],
     });
     return config;
-  },
-  experimental: {
-    logging: { level: "verbose" },
-    serverActions: true,
   },
 };
 
