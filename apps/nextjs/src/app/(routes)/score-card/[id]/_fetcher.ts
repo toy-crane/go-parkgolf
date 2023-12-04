@@ -8,6 +8,10 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
     .select(
       "started_at, golf_course(name), game_course(*, game_score(*, game_player_score(*, game_player(*))))",
     )
+    .order("hole_number", {
+      foreignTable: "game_course.game_score",
+      ascending: true,
+    })
     .eq("id", gameId)
     .single();
 

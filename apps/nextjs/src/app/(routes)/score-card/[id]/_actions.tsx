@@ -24,32 +24,32 @@ export async function saveScore(scores: Score[]) {
     throw new Error(scoreResponse.error.message);
   }
 
-  const player_scores = scores
-    .map((score) => {
-      const keys = Object.keys(score) as (keyof typeof score)[];
-      return keys.flatMap((key) => {
-        const commonKeys = ["id", "gameCourseId", "holeNumber", "par"];
-        if (!commonKeys.includes(String(key))) {
-          return {
-            score: Number(score[key]),
-            game_score_id: score.id,
-            game_player_id: String(key),
-          };
-        }
-        return [];
-      });
-    })
-    .flat();
+  // const player_scores = scores
+  //   .map((score) => {
+  //     const keys = Object.keys(score) as (keyof typeof score)[];
+  //     return keys.flatMap((key) => {
+  //       const commonKeys = ["id", "gameCourseId", "holeNumber", "par"];
+  //       if (!commonKeys.includes(String(key))) {
+  //         return {
+  //           score: Number(score[key]),
+  //           game_score_id: score.id,
+  //           game_player_id: String(key),
+  //         };
+  //       }
+  //       return [];
+  //     });
+  //   })
+  //   .flat();
 
-  const scorePlaymerMutation = supabase
-    .from("game_player_score")
-    .upsert(player_scores)
-    .select();
+  // const scorePlaymerMutation = supabase
+  //   .from("game_player_score")
+  //   .upsert(player_scores)
+  //   .select();
 
-  const scorePlayerResponse = await scorePlaymerMutation;
-  if (scorePlayerResponse.error) {
-    throw new Error(scorePlayerResponse.error.message);
-  }
+  // const scorePlayerResponse = await scorePlaymerMutation;
+  // if (scorePlayerResponse.error) {
+  //   throw new Error(scorePlayerResponse.error.message);
+  // }
 
   revalidatePath("/score-card/[id]", "page");
   console.log("SERVER ACTION DONE");
