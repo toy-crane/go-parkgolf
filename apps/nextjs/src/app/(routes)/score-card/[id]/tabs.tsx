@@ -16,11 +16,11 @@ import { ScoreCard } from "./score-card";
 import type { Cell, GameCourse, Score } from "./type";
 
 const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
-  const participants =
+  const players =
     gameCourses[0]?.game_score[0]?.game_player_score.map(
       (p) => p.game_player,
     ) ?? [];
-  const columns = participants?.map((p) => ({
+  const columns = players?.map((p) => ({
     accessorKey: String(p?.id),
     headerName: p?.nickname ?? "이름 없음",
   }));
