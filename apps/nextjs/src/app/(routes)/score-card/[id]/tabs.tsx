@@ -21,7 +21,7 @@ const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
       (p) => p.game_player,
     ) ?? [];
   const columns = players?.map((p) => ({
-    accessorKey: String(p?.id),
+    accessorKey: p?.id ?? "unknown",
     headerName: p?.nickname ?? "이름 없음",
   }));
   return columns;
@@ -63,6 +63,7 @@ export const ScoreTabs = ({
   selectedTab?: string;
 }) => {
   const [isPending, startTransition] = useTransition();
+  // 모든 코스의 데이터
   const [scoreCard, setScoreCard] = useState(getFormattedData(gameCourses));
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(undefined);
 
@@ -83,19 +84,6 @@ export const ScoreTabs = ({
     setSelectedCell(undefined);
   }, [tab]);
 
-  const scoreSchema = z.array(
-    createSchema({
-      id: z.number(),
-      gameCourseId: z.number(),
-      holeNumber: z.number(),
-      par: z.number(),
-      ...columns.reduce((acc: Record<string, z.ZodType<any>>, h) => {
-        acc[h.accessorKey] = z.number();
-        return acc;
-      }, {}),
-    }),
-  );
-
   const table = useReactTable({
     data: scoreCard,
     columns: useGetColumns(columns),
@@ -103,12 +91,27 @@ export const ScoreTabs = ({
   });
 
   const handleSave = () => {
+    const scoreSchema = z.array(
+      createSchema({
+        id: z.string(),
+        gameCourseId: z.string(),
+        holeNumber: z.number(),
+        par: z.number(),
+        ...columns.reduce((acc: Record<string, z.ZodType<any>>, h) => {
+          acc[h.accessorKey] = z.number();
+          return acc;
+        }, {}),
+      }),
+    );
     const result = scoreSchema.safeParse(scoreCard);
+    if (result.success === false) {
+      return;
+    }
     if (result.success) {
       startTransition(async () => {
-        console.log("Calling action (client-side)", result.data);
-        const response = await saveScore(result.data as Score[]);
-        console.log("Finish calling action (client-side)", response);
+        console.log("Calling action (client-side)");
+        await saveScore(result.data as Score[]);
+        console.log("Finish calling action (client-side)");
       });
     }
   };

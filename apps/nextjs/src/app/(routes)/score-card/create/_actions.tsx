@@ -24,7 +24,6 @@ export async function createGame(data: Inputs) {
     .single();
   const gameResponse = await gameMutation;
   if (gameResponse.error) {
-    console.log(gameResponse.error);
     throw new Error(gameResponse.error.message);
   }
   const game = gameResponse.data;

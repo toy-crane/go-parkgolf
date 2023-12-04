@@ -16,14 +16,6 @@ const Page = async ({
     gameId: params.id,
   });
 
-  console.log(
-    gameCourses.map((gc) =>
-      gc.game_score.map((gs) =>
-        gs.game_player_score.map((gps) => gps.game_player_id),
-      ),
-    ),
-  );
-
   return (
     <main>
       <div className="flex items-center justify-between py-4">

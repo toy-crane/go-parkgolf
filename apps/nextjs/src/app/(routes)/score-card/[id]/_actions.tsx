@@ -7,9 +7,9 @@ import type { Score } from "./type";
 
 export async function saveScore(scores: Score[]) {
   console.log("RUNNING SERVER ACTION");
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const scoreMutation = supabase
-    .from("score")
+    .from("game_score")
     .upsert(
       scores.map((score) => ({
         id: score.id,
@@ -25,23 +25,30 @@ export async function saveScore(scores: Score[]) {
   }
 
   const player_scores = scores
-    .map((score) =>
-      Object.keys(score).flatMap((key) => {
-        const keyAsNumber = Number(key);
-        if (!isNaN(keyAsNumber)) {
+    .map((score) => {
+      const keys = Object.keys(score) as (keyof typeof score)[];
+      return keys.flatMap((key) => {
+        const commonKeys = ["id", "gameCourseId", "holeNumber", "par"];
+        if (!commonKeys.includes(String(key))) {
           return {
-            player_score: score[key]!,
-            score_id: score.id,
-            participant_id: Number(key),
+            score: Number(score[key]),
+            game_score_id: score.id,
+            game_player_id: String(key),
           };
         }
         return [];
-      }),
-    )
+      });
+    })
     .flat();
+  console.log(
+    "player_scores",
+    player_scores.filter(
+      (p) => p.game_player_id === "d7740697-e648-4dfd-95ab-7828e11ce5ca",
+    ).length,
+  );
 
   const scorePlaymerMutation = supabase
-    .from("player_score")
+    .from("game_player_score")
     .upsert(player_scores)
     .select();
 
