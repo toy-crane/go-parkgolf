@@ -6,7 +6,7 @@ import type { Database } from "@/types/generated";
 import type { CookieOptions } from "@supabase/ssr";
 import { createServerClient } from "@supabase/ssr";
 
-export function createSupabaseServerClientReadOnly() {
+export async function createSupabaseServerClientReadOnly() {
   const cookieStore = cookies();
 
   return createServerClient<Database>(
@@ -22,7 +22,7 @@ export function createSupabaseServerClientReadOnly() {
   );
 }
 
-export function createSupabaseServerClient() {
+export async function createSupabaseServerClient() {
   const cookieStore = cookies();
 
   return createServerClient<Database>(
