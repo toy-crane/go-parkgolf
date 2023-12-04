@@ -67,6 +67,8 @@ export const ScoreTabs = ({
   const [changedScoresGroup, setChangedScoresGroup] = useState<Score[]>([]);
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(undefined);
 
+  const lastTabName = gameCourses[gameCourses.length - 1]?.name!;
+
   const [tab, setTab] = useState(selectedTab ?? gameCourses[0]?.name!);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -125,6 +127,9 @@ export const ScoreTabs = ({
       startTransition(async () => {
         await saveScore(result.data as Score[]);
       });
+      if (lastTabName === tab) {
+        router.push(`/my-games`);
+      }
     }
   };
 
@@ -203,6 +208,8 @@ export const ScoreTabs = ({
         <Button onClick={handleSave} variant="outline" disabled={isPending}>
           {isPending ? (
             <Loader2 className="h-5 w-5 animate-spin" size={24} />
+          ) : lastTabName === tab ? (
+            "완료"
           ) : (
             "저장"
           )}
