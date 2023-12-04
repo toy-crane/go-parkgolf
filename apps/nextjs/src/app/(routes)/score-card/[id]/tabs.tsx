@@ -90,7 +90,7 @@ export const ScoreTabs = ({
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
-    router.push(`?${params.toString()}`, { replace: true });
+    router.replace(`?${params.toString()}`);
     setTab(value);
   };
 
