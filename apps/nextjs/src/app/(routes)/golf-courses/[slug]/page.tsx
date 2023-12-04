@@ -1,12 +1,9 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
-import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { Course } from "@/types";
-import type { Database } from "@/types/generated";
-import type { DbResult, DbResultOk } from "@/types/supabase-helper";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 import CourseDetail from "./course-detail";
 
@@ -50,19 +47,16 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const slug = decodeURIComponent(params.slug);
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient<Database>({
-    cookies: () => cookieStore,
-  });
+  const supabase = await createSupabaseServerClientReadOnly();
   const query = supabase
     .from("golf_course")
     .select(`*, address(*), road_address(*), contact(*), operation(*)`)
     .eq("slug", slug);
-  const result: DbResult<typeof query> = await query;
+  const result = await query;
   if (result.error ?? result.data?.length === 0) {
     notFound();
   }
-  const courses: DbResultOk<typeof query> = result.data;
+  const courses = result.data;
   const course = courses?.[0] as Course;
   const address = course.address[0];
   const contact = course.contact[0];
@@ -105,32 +99,29 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = decodeURIComponent(params.slug);
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient<Database>({
-    cookies: () => cookieStore,
-  });
+  const supabase = await createSupabaseServerClientReadOnly();
   const query = supabase
     .from("golf_course")
     .select(`*, address(*), road_address(*), contact(*), operation(*)`);
-  const result: DbResult<typeof query> = await query;
+  const result = await query;
   if (result.error) {
     notFound();
   }
-  const courses: DbResultOk<typeof query> = result.data;
+  const courses = result.data;
   const currentCourse = courses.filter(
     (course) => course.slug === slug,
   )[0] as Course;
   const allCoursesExcludeMe = courses.filter((course) => course.slug !== slug);
 
   const nearCourses = allCoursesExcludeMe.filter((course) => {
-    const courseLat = course.address[0]?.y;
-    const courseLng = course.address[0]?.x;
+    const courseLat = course.address[0]?.y ?? 0;
+    const courseLng = course.address[0]?.x ?? 0;
     return (
       haversineDistance(
-        currentCourse.address[0]?.y!,
-        currentCourse.address[0]?.x!,
-        courseLat!,
-        courseLng!,
+        currentCourse.address[0]?.y ?? 0,
+        currentCourse.address[0]?.x ?? 0,
+        courseLat,
+        courseLng,
       ) <= 20
     );
   });

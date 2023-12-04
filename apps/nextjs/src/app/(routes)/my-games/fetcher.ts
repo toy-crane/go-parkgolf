@@ -6,7 +6,7 @@ export const getMyGames = async () => {
 
   const { data: response, error } = await supabase
     .from("game")
-    .select("id, started_at, golf_course(name), game_course(*)")
+    .select("id, started_at, golf_course(name), game_course(*), game_player(*)")
     .order("created_at", {
       ascending: false,
     });

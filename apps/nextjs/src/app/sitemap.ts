@@ -1,16 +1,11 @@
 import type { MetadataRoute } from "next";
-import { cookies } from "next/headers";
-import type { Database } from "@/types/generated";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 const addPathToBaseURL = (path: string) => `https://www.goparkgolf.app${path}`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient<Database>({
-    cookies: () => cookieStore,
-  });
+  const supabase = await createSupabaseServerClientReadOnly();
   const query = supabase
     .from("golf_course")
     .select(`*, address(*), road_address(*), contact(*), operation(*)`);

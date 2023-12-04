@@ -1,12 +1,9 @@
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
-import { cookies } from "next/headers";
 import { notFound, permanentRedirect } from "next/navigation";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { Course } from "@/types";
-import type { Database } from "@/types/generated";
-import type { DbResult, DbResultOk } from "@/types/supabase-helper";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 interface Props {
   params: { id: string };
@@ -28,19 +25,16 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient<Database>({
-    cookies: () => cookieStore,
-  });
+  const supabase = await createSupabaseServerClientReadOnly();
   const query = supabase
     .from("golf_course")
     .select(`*, address(*), road_address(*), contact(*), operation(*)`)
     .eq("id", params.id);
-  const result: DbResult<typeof query> = await query;
+  const result = await query;
   if (result.error) {
     throw Error("golf_course fetch에 실패하였습니다.");
   }
-  const courses: DbResultOk<typeof query> = result.data;
+  const courses = result.data;
   const course = courses[0] as Course;
   const address = course.address[0];
   const operation = course.operation[0];
@@ -81,17 +75,14 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient<Database>({
-    cookies: () => cookieStore,
-  });
+  const supabase = await createSupabaseServerClientReadOnly();
   const query = supabase.from("golf_course").select(`slug`).eq("id", params.id);
 
-  const result: DbResult<typeof query> = await query;
+  const result = await query;
   if (result.error) {
     throw Error("golf_course fetch에 실패하였습니다.");
   }
-  const courses: DbResultOk<typeof query> = result.data;
+  const courses = result.data;
 
   if (!courses[0]) {
     notFound();

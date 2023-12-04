@@ -1,9 +1,6 @@
-import { cookies } from "next/headers";
 import { DEFAULT_POSITION } from "@/config/map";
-import { createFetch } from "@/libs/cache";
-import type { Database } from "@/types/generated";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { DbResult, DbResultOk } from "@/types/supabase-helper";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 import CourseSheet from "./(routes)/home/course-sheet";
 import Footer from "./(routes)/home/footer";
@@ -21,19 +18,13 @@ const Home = async ({
     modal?: string;
   };
 }) => {
-  const cookieStore = cookies();
   const selectedCourseId = Number(searchParams?.courseId) || undefined;
   const level = Number(searchParams?.level) || DEFAULT_POSITION.level;
   const lat = Number(searchParams?.lat) || undefined;
   const lng = Number(searchParams?.lng) || undefined;
   const modalOpen = searchParams?.modal === "true";
 
-  const supabase = createRouteHandlerClient<Database>(
-    {
-      cookies: () => cookieStore,
-    },
-    { options: { global: { fetch: createFetch({ cache: "force-cache" }) } } },
-  );
+  const supabase = await createSupabaseServerClientReadOnly();
 
   const query = supabase
     .from("golf_course")
