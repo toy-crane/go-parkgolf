@@ -7,18 +7,13 @@ import { formSchema } from "./forms/schema";
 
 type Inputs = z.infer<typeof formSchema>;
 
-export async function createGame(data: Inputs) {
-  const result = formSchema.safeParse(data);
-  if (!result.success) {
-    throw new Error("Validation failed");
-  }
-
+export async function makeGame(startedAt: Date, golfCourseId: number) {
   const supabase = await createSupabaseServerClient();
   const gameMutation = supabase
     .from("game")
     .insert({
-      started_at: result.data.startedAt.toISOString(),
-      golf_course_id: result.data.courseId,
+      started_at: startedAt.toISOString(),
+      golf_course_id: golfCourseId,
     })
     .select()
     .single();
@@ -26,7 +21,17 @@ export async function createGame(data: Inputs) {
   if (gameResponse.error) {
     throw new Error(gameResponse.error.message);
   }
-  const game = gameResponse.data;
+  return gameResponse.data;
+}
+
+export async function createGame(data: Inputs) {
+  const result = formSchema.safeParse(data);
+  if (!result.success) {
+    throw new Error("Validation failed");
+  }
+
+  const supabase = await createSupabaseServerClient();
+  const game = await makeGame(result.data.startedAt, result.data.courseId);
   const participantsQuery = result.data.gamePlayers.map((player) => ({
     game_id: game.id,
     nickname: player.text,
