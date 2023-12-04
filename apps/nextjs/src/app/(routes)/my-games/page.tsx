@@ -74,7 +74,7 @@ const Page = async () => {
                         .delete()
                         .match({ id: gameId });
                       if (response.error) throw response.error;
-                      revalidatePath("/my-games", "layout");
+                      revalidatePath("/my-games", "page");
                     }}
                   >
                     <Button size="sm">삭제하기</Button>
