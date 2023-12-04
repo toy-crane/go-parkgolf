@@ -1,12 +1,12 @@
 import React from "react";
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import Funnel from "./funnel";
 
 const Page = async () => {
-  const supabase = await createSupabaseServerClient();
+  const supabase = createSupabaseServerClientReadOnly();
 
   const { data } = await readUserSession();
 

@@ -6,7 +6,7 @@ import type { Database } from "@/types/generated";
 import type { CookieOptions } from "@supabase/ssr";
 import { createServerClient } from "@supabase/ssr";
 
-export async function createSupabaseServerClient() {
+export function createSupabaseServerClientReadOnly() {
   const cookieStore = cookies();
 
   return createServerClient<Database>(
@@ -17,9 +17,25 @@ export async function createSupabaseServerClient() {
         get(name: string) {
           return cookieStore.get(name)?.value;
         },
-        // set(name: string, value: string, options: CookieOptions) {
-        //   cookieStore.set({ name, value, ...options });
-        // },
+      },
+    },
+  );
+}
+
+export function createSupabaseServerClient() {
+  const cookieStore = cookies();
+
+  return createServerClient<Database>(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          cookieStore.set({ name, value, ...options });
+        },
         remove(name: string, options: CookieOptions) {
           cookieStore.delete({ name, ...options });
         },

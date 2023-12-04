@@ -1,7 +1,7 @@
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 export const getGameCourses = async ({ gameId }: { gameId: string }) => {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabaseServerClientReadOnly();
 
   const { data: response, error } = await supabase
     .from("game")
@@ -17,7 +17,7 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
 };
 
 export const getScores = async ({ gameCourseId }: { gameCourseId: number }) => {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabaseServerClientReadOnly();
   const { data: scores, error } = await supabase
     .from("score")
     .select("*, player_score(*, participant(*))")
