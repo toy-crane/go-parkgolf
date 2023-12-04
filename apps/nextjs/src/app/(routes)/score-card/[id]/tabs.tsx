@@ -123,9 +123,7 @@ export const ScoreTabs = ({
     }
     if (result.success) {
       startTransition(async () => {
-        console.log("Calling action (client-side)");
         await saveScore(result.data as Score[]);
-        console.log("Finish calling action (client-side)");
       });
     }
   };
