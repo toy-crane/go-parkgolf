@@ -24,28 +24,37 @@ export async function makeGame(startedAt: Date, golfCourseId: number) {
   return gameResponse.data;
 }
 
-export async function createGame(data: Inputs) {
-  const result = formSchema.safeParse(data);
+export async function createGamePlayer(gameId: string, nicknames: string[]) {
+  const supabase = await createSupabaseServerClient();
+  const response = await supabase
+    .from("game_player")
+    .insert(
+      nicknames.map((nickname) => ({
+        game_id: gameId,
+        nickname,
+      })),
+    )
+    .select();
+
+  if (response.error) {
+    throw new Error(response.error.message);
+  }
+  return response.data;
+}
+
+export async function createGame(input: Inputs) {
+  const result = formSchema.safeParse(input);
   if (!result.success) {
     throw new Error("Validation failed");
   }
+  const { gamePlayers } = result.data;
 
   const supabase = await createSupabaseServerClient();
   const game = await makeGame(result.data.startedAt, result.data.courseId);
-  const participantsQuery = result.data.gamePlayers.map((player) => ({
-    game_id: game.id,
-    nickname: player.text,
-  }));
-
-  const playerMutation = supabase
-    .from("game_player")
-    .insert(participantsQuery)
-    .select();
-  const playerResponse = await playerMutation;
-  if (playerResponse.error) {
-    throw new Error(playerResponse.error.message);
-  }
-  const players = playerResponse.data;
+  const players = await createGamePlayer(
+    game.id,
+    gamePlayers.map((p) => p.text),
+  );
 
   const gameCourseMutation = supabase
     .from("game_course")
