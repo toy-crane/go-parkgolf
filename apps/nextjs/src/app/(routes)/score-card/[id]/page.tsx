@@ -12,9 +12,17 @@ const Page = async ({
   params: { id: string };
   searchParams: { tab?: string };
 }) => {
-  const { gameCourses, name, startDate } = await getGameCourses({
+  const { gameCourses, name, startedAt } = await getGameCourses({
     gameId: params.id,
   });
+
+  console.log(
+    gameCourses.map((gc) =>
+      gc.game_score.map((gs) =>
+        gs.game_player_score.map((gps) => gps.game_player_id),
+      ),
+    ),
+  );
 
   return (
     <main>
@@ -25,11 +33,11 @@ const Page = async ({
               "flex text-xl font-medium leading-none tracking-tight",
             )}
           >
-            {name}
+            {name ? name : null}
           </h3>
         </div>
         <p className={cn("text-muted-foreground flex text-sm")}>
-          {startDate && format(new Date(startDate), "yyyy-MM-dd")}
+          {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
         </p>
       </div>
       <ScoreTabs gameCourses={gameCourses} selectedTab={searchParams.tab} />

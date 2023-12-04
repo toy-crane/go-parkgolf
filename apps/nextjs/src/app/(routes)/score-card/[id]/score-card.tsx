@@ -21,7 +21,7 @@ export function ScoreCard({
   selectedCell,
   onSelectedCell,
 }: {
-  gameCourseId: number;
+  gameCourseId: string;
   table: TableType<Score>;
   selectedCell?: Cell;
   onSelectedCell: (cell: Cell) => void;

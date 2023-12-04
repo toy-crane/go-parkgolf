@@ -17,7 +17,9 @@ import type { Cell, GameCourse, Score } from "./type";
 
 const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
   const participants =
-    gameCourses[0]?.score[0]?.player_score.map((p) => p.participant) || [];
+    gameCourses[0]?.game_score[0]?.game_player_score.map(
+      (p) => p.game_player,
+    ) ?? [];
   const columns = participants?.map((p) => ({
     accessorKey: String(p?.id),
     headerName: p?.nickname ?? "이름 없음",
@@ -28,13 +30,13 @@ const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
 const getFormattedData = (gameCourses: GameCourse[]): Score[] => {
   const data = gameCourses
     .map((gc) =>
-      gc.score.map((score) => {
-        const playerScore = score.player_score;
+      gc.game_score.map((score) => {
+        const playerScore = score.game_player_score;
         const playerScoreMap = playerScore.reduce(
           (acc: Record<string, number>, curr) => {
-            const participantId = String(curr.participant?.id);
+            const participantId = String(curr.game_player?.id);
             if (participantId) {
-              acc[participantId] = curr.player_score;
+              acc[participantId] = curr.score ?? 0;
             }
             return acc;
           },
@@ -120,7 +122,7 @@ export const ScoreTabs = ({
       old.map((currentRow, index) => {
         if (index === Number(row)) {
           const key = colName as keyof Score;
-          const currentScore = currentRow[key] ?? 0;
+          const currentScore = (currentRow[key] ?? 0) as number;
           const increment = type === "increase" ? 1 : -1;
           return {
             ...currentRow,

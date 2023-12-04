@@ -1,23 +1,27 @@
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 export const getGameCourses = async ({ gameId }: { gameId: string }) => {
-  const supabase = createSupabaseServerClientReadOnly();
+  const supabase = await createSupabaseServerClientReadOnly();
 
   const { data: response, error } = await supabase
     .from("game")
     .select(
-      "start_date, game_course(*, score(*, player_score(*, participant(*)))), golf_course(name)",
+      "started_at, golf_course(name), game_course(*, game_score(*, game_player_score(*, game_player(*))))",
     )
     .eq("id", gameId)
     .single();
 
   if (error) throw error;
-  const { game_course: gameCourses, golf_course, start_date } = response;
-  return { gameCourses, ...golf_course, startDate: start_date };
+  const { game_course: gameCourses, started_at, golf_course } = response;
+  return {
+    gameCourses,
+    startedAt: started_at,
+    name: golf_course?.name,
+  };
 };
 
 export const getScores = async ({ gameCourseId }: { gameCourseId: number }) => {
-  const supabase = createSupabaseServerClientReadOnly();
+  const supabase = await createSupabaseServerClientReadOnly();
   const { data: scores, error } = await supabase
     .from("score")
     .select("*, player_score(*, participant(*))")

@@ -6,7 +6,7 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import Funnel from "./funnel";
 
 const Page = async () => {
-  const supabase = createSupabaseServerClientReadOnly();
+  const supabase = await createSupabaseServerClientReadOnly();
 
   const { data } = await readUserSession();
 

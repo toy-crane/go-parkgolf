@@ -1,17 +1,17 @@
 import type { Tables } from "@/types/supabase-helper";
 
 export interface Score {
-  id: number;
-  gameCourseId: number;
+  id: string;
+  gameCourseId: string;
   holeNumber: number;
   par: number;
-  [key: string]: number;
+  [key: string]: number | string;
 }
 
 export type GameCourse = Tables<"game_course"> & {
-  score: (Tables<"score"> & {
-    player_score: (Tables<"player_score"> & {
-      participant: Tables<"participant">;
+  game_score: (Tables<"game_score"> & {
+    game_player_score: (Tables<"game_player_score"> & {
+      game_player: Tables<"game_player"> | null;
     })[];
   })[];
 };
