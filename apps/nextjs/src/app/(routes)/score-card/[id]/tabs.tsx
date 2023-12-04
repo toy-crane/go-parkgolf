@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -63,14 +63,27 @@ export const ScoreTabs = ({
   selectedTab?: string;
 }) => {
   const [isPending, startTransition] = useTransition();
-  // 모든 코스의 데이터
-  const [scoreCard, setScoreCard] = useState(getFormattedData(gameCourses));
+  // 변경된 Row만 기록
+  const [changedScoresGroup, setChangedScoresGroup] = useState<Score[]>([]);
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(undefined);
 
   const [tab, setTab] = useState(selectedTab ?? gameCourses[0]?.name!);
   const searchParams = useSearchParams();
   const router = useRouter();
   const columns = getColumnNames(gameCourses);
+
+  // 변경된 row와 기존 데이터를 합친다.
+  const scoreCard = useMemo(
+    () =>
+      getFormattedData(gameCourses).map((score) => {
+        const changedScore = changedScoresGroup.find((s) => s.id === score.id);
+        if (changedScore) {
+          return changedScore;
+        }
+        return score;
+      }),
+    [changedScoresGroup, gameCourses],
+  );
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -103,7 +116,7 @@ export const ScoreTabs = ({
         }, {}),
       }),
     );
-    const result = scoreSchema.safeParse(scoreCard);
+    const result = scoreSchema.safeParse(changedScoresGroup);
     if (result.success === false) {
       return;
     }
@@ -121,20 +134,23 @@ export const ScoreTabs = ({
     colName: string,
     type: "increase" | "decrease",
   ) => {
-    setScoreCard((old) =>
-      old.map((currentRow, index) => {
-        if (index === Number(row)) {
-          const key = colName as keyof Score;
-          const currentScore = (currentRow[key] ?? 0) as number;
-          const increment = type === "increase" ? 1 : -1;
-          return {
-            ...currentRow,
-            [colName]: currentScore + increment,
-          };
-        }
-        return currentRow;
-      }),
-    );
+    const increment = type === "increase" ? 1 : -1;
+    const currentScores = scoreCard.find((_, index) => index === Number(row));
+    if (!currentScores) return;
+    const currentScore = currentScores[colName] as number;
+    const updatedScores = {
+      ...currentScores,
+      [colName]: currentScore + increment,
+    };
+    setChangedScoresGroup((origin) => {
+      const updated = origin.map((s) =>
+        s.id === updatedScores.id ? updatedScores : s,
+      );
+      if (!updated.find((s) => s === updatedScores)) {
+        updated.push(updatedScores);
+      }
+      return updated;
+    });
   };
 
   const handleSelectedCell = (cell: Cell) => {

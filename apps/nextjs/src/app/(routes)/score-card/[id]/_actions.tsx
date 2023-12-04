@@ -40,12 +40,6 @@ export async function saveScore(scores: Score[]) {
       });
     })
     .flat();
-  console.log(
-    "player_scores",
-    player_scores.filter(
-      (p) => p.game_player_id === "d7740697-e648-4dfd-95ab-7828e11ce5ca",
-    ).length,
-  );
 
   const scorePlaymerMutation = supabase
     .from("game_player_score")
