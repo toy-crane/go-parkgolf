@@ -1,4 +1,3 @@
-import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -12,10 +11,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { readUserSession } from "@/libs/auth";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { format } from "date-fns";
 
 import { PageHeader, PageHeaderHeading } from "../_components/page-header";
+import DeleteAlert from "./delete-alert";
 import { getMyGames } from "./fetcher";
 
 const Page = async () => {
@@ -65,20 +64,7 @@ const Page = async () => {
                   <Button asChild variant="outline" size="sm">
                     <Link href={`/score-card/${gameId}`}>수정하기</Link>
                   </Button>
-                  <form
-                    action={async () => {
-                      "use server";
-                      const supabase = await createSupabaseServerClient();
-                      const response = await supabase
-                        .from("game")
-                        .delete()
-                        .match({ id: gameId });
-                      if (response.error) throw response.error;
-                      revalidatePath("/my-games", "page");
-                    }}
-                  >
-                    <Button size="sm">삭제하기</Button>
-                  </form>
+                  <DeleteAlert gameId={gameId} />
                 </div>
               </CardFooter>
             </Card>
