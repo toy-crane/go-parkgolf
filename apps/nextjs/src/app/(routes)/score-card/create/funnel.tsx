@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import type { Tables } from "@/types/supabase-helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useStepper } from "headless-stepper";
+import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -49,6 +50,7 @@ type FieldName = keyof Inputs;
 
 const Funnel = ({ courses }: CreateFormProps) => {
   const { state, nextStep, prevStep } = useStepper({ steps });
+  const [isPending, startTransition] = useTransition();
   const currentStep = state.currentStep;
   const router = useRouter();
 
@@ -61,14 +63,14 @@ const Funnel = ({ courses }: CreateFormProps) => {
   const { trigger } = form;
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    const result = await createGame(values);
-    if (result.success) {
-      form.reset();
-      router.push(`/score-card/${result.data.id}`);
-    }
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    startTransition(async () => {
+      const result = await createGame(values);
+      if (result.success) {
+        form.reset();
+        router.push(`/score-card/${result.data.id}`);
+      }
+    });
   }
 
   const handleNextClick = async () => {
@@ -110,8 +112,14 @@ const Funnel = ({ courses }: CreateFormProps) => {
             이전 단계로
           </Button>
         )}
-        <Button onClick={handleNextClick} size="lg">
-          {state.hasNextStep ? "다음 단계로" : "게임 생성하기"}
+        <Button onClick={handleNextClick} size="lg" disabled={isPending}>
+          {state.hasNextStep ? (
+            "다음 단계로"
+          ) : isPending ? (
+            <Loader2 className="h-5 w-5 animate-spin" size={24} />
+          ) : (
+            "게임 생성하기"
+          )}
         </Button>
       </div>
     </div>
