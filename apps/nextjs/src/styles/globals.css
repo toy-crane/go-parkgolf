@@ -4,6 +4,20 @@
 
 @layer base {
   :root {
+    /* component height */
+    --header-height: 64px;
+
+    /* z-index */
+    --header-z-index: 100;
+
+    /* layout variables */
+    --gap: clamp(1rem, 6vw, 3rem);
+    --full: minmax(var(--gap), 1fr);
+    --content: min(50ch, 100% - var(--gap) * 2);
+    --popout: minmax(0, 2rem);
+    --feature: minmax(0, 5rem);
+
+    /* shadcn variables */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -70,5 +84,43 @@
     width: 100%;
     height: 100%;
     font-size: 20px;
+  }
+}
+
+@layer components {
+  .content-grid {
+    --padding-inline: 1rem;
+    --content-max-width: 900px;
+    --breakout-max-width: 1200px;
+    --breakout-size: calc(
+      (var(--breakout-max-width) - var(--content-max-width)) / 2
+    );
+
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(var(--padding-inline), 1fr)
+      [breakout-start] minmax(0, var(--breakout-size))
+      [content-start] min(
+        100% - (var(--padding-inline) * 2),
+        var(--content-max-width)
+      )
+      [content-end]
+      minmax(0, var(--breakout-size)) [breakout-end]
+      minmax(var(--padding-inline), 1fr) [full-end];
+  }
+
+  .content-grid > :not(.breakout, .full),
+  .full > :not(.breakout, .full) {
+    grid-column: content;
+  }
+
+  .content-grid > .breakout {
+    grid-column: breakout;
+  }
+
+  .content-grid > .full {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: inherit;
   }
 }

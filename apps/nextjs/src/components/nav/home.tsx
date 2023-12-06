@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 
 const HomeNav = () => {
   return (
-    <header className="content-grid fixed h-[var(--header-height)] w-full border-b bg-white">
+    <header className="content-grid z-header fixed h-[var(--header-height)] w-full border-b bg-white">
       <nav className="breakout flex items-center justify-between">
         <Link href={"/"} className="flex-shrink-0 self-center">
           <Image
