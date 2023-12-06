@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
 
-import { PageHeader, PageHeaderHeading } from "../_components/page-header";
+import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import KakaoForm from "../auth/components/kakao-form";
 
 const Page = async () => {

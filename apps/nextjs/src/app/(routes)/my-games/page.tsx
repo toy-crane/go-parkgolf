@@ -13,7 +13,7 @@ import {
 import { readUserSession } from "@/libs/auth";
 import { format } from "date-fns";
 
-import { PageHeader, PageHeaderHeading } from "../_components/page-header";
+import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import DeleteAlert from "./delete-alert";
 import { getMyGames } from "./fetcher";
 

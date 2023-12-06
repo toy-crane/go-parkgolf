@@ -16,7 +16,7 @@ import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "../../_components/page-header";
+} from "../../../../components/page-header";
 import { createGame } from "./actions";
 import GameCourseForm from "./forms/game-course";
 import GolfCourseForm from "./forms/golf-course-form";
