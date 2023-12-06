@@ -69,8 +69,6 @@ const CourseDetail = ({
   nearCourses: Course[];
 }) => {
   const { track } = useAmplitude();
-  const router = useRouter();
-  const { toast } = useToast();
 
   const address = course.address[0];
   const operation = course.operation[0];
@@ -78,49 +76,9 @@ const CourseDetail = ({
 
   return (
     <div>
-      <nav className="mb-4 flex items-center justify-between pt-3">
-        <div className="flex flex-row items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={() => router.back()}>
-            <ArrowLeft size={24} />
-          </Button>
-        </div>
-        <div>
-          <Button
-            variant={"ghost"}
-            size="icon"
-            asChild
-            onClick={() => track("modify button clicked")}
-          >
-            <a
-              href={generateFormUrl(course.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Pencil size={24} />
-            </a>
-          </Button>
-          <Button
-            variant={"ghost"}
-            size="icon"
-            onClick={async () => {
-              await navigator.clipboard.writeText(
-                `${window.location.href}courses/${course?.id}`,
-              );
-              toast({
-                title: "주소가 복사되었습니다",
-                description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
-                duration: 1000,
-              });
-              track("share button clicked");
-            }}
-          >
-            <Share2 size={24} />
-          </Button>
-        </div>
-      </nav>
-      <section>
+      <section className="mt-2">
         <StaticMap // 지도를 표시할 Container
-          className="mb-12"
+          className="mb-8"
           marker={[
             {
               position: {

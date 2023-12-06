@@ -8,9 +8,7 @@ const Layout = (props: { children: React.ReactNode }) => {
         src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
         strategy="beforeInteractive"
       />
-      <div className="container mx-auto w-full px-4 sm:px-6 lg:px-8">
-        {props.children}
-      </div>
+      <div className="content-grid">{props.children}</div>
     </>
   );
 };

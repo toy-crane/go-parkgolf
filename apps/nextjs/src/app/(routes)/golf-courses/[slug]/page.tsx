@@ -3,6 +3,7 @@ import createSupabaseBrowerClient from "@/libs/supabase/client";
 
 import { GetCourses } from "./action";
 import CourseDetail from "./course-detail";
+import Nav from "./nav";
 
 function haversineDistance(
   lat1: number,
@@ -51,5 +52,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     );
   });
 
-  return <CourseDetail course={currentCourse} nearCourses={nearCourses} />;
+  return (
+    <>
+      <Nav course={currentCourse} />
+      <CourseDetail course={currentCourse} nearCourses={nearCourses} />
+    </>
+  );
 }
