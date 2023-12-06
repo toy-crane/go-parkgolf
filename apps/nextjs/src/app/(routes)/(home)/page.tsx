@@ -1,9 +1,9 @@
+import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
 import { getGolfCourses } from "./components/action";
 import CourseSheet from "./components/course-sheet";
 import Footer from "./components/footer";
-import Header from "./components/header";
 import MainMap from "./components/main-map";
 
 const Home = async ({
@@ -39,9 +39,19 @@ const Home = async ({
       lng: selectedCourseLng ?? lng ?? DEFAULT_POSITION.center.lng,
     },
   };
+
+  const selectOptions = courses.map((course) => ({
+    title: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
+    href: `/?${new URLSearchParams({
+      courseId: String(course.id),
+      modal: String(true),
+      level: String(9),
+    }).toString()}`,
+  }));
+
   return (
-    <div>
-      <Header courses={courses} />
+    <>
+      <HomeNav selectOptions={selectOptions} />
       <section>
         <MainMap
           courses={courses}
@@ -51,7 +61,7 @@ const Home = async ({
       </section>
       <Footer />
       <CourseSheet selectedCourse={selectedCourse} open={modalOpen} />
-    </div>
+    </>
   );
 };
 
