@@ -14,7 +14,7 @@ const CurrentPositionButton = () => {
     <Button
       variant="secondary"
       size="icon"
-      className="flex-shrink-0"
+      className="z-header absolute right-0 top-[calc(var(--header-height)+2px)] flex-shrink-0"
       onClick={() => {
         setLoading(true);
         navigator.geolocation.getCurrentPosition(

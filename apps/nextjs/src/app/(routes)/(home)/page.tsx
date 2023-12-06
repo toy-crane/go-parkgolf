@@ -3,6 +3,7 @@ import { DEFAULT_POSITION } from "@/config/map";
 
 import { getGolfCourses } from "./components/action";
 import CourseSheet from "./components/course-sheet";
+import CurrentPositionButton from "./components/current-position-button";
 import Footer from "./components/footer";
 import MainMap from "./components/main-map";
 

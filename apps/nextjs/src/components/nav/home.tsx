@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CurrentPositionButton from "@/app/(routes)/(home)/components/current-position-button";
 
 import { CommandMenu } from "../command-menu";
 import { Button } from "../ui/button";
@@ -13,7 +14,7 @@ const HomeNav = ({
 }) => {
   return (
     <header className="content-grid z-header h-header fixed w-full">
-      <nav className="breakout flex items-center justify-between gap-2">
+      <nav className="breakout relative flex items-center justify-between gap-2">
         <div className="flex flex-grow gap-2 md:flex-grow-0">
           <Link href={"/"} className="flex-shrink-0 self-center">
             <Image
@@ -33,6 +34,7 @@ const HomeNav = ({
         >
           <Link href={"/register"}>로그인</Link>
         </Button>
+        <CurrentPositionButton />
       </nav>
     </header>
   );
