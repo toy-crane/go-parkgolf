@@ -1,8 +1,13 @@
+import AuthNav from "@/components/nav/auth";
+
 const Layout = (props: { children: React.ReactNode }) => {
   return (
-    <div className="container mx-auto max-w-2xl  px-4 sm:px-6 lg:px-8">
-      {props.children}
-    </div>
+    <>
+      <AuthNav />
+      <main className="content-grid pt-[var(--header-height)]">
+        {props.children}
+      </main>
+    </>
   );
 };
 
