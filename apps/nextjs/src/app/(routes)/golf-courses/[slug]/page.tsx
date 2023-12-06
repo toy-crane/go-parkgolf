@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
-import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import type { Course } from "@/types";
 
 import { GetCourses } from "./action";
 import CourseDetail from "./course-detail";

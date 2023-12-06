@@ -1,19 +1,16 @@
 import type { MetadataRoute } from "next";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import type { DbResult, DbResultOk } from "@/types/supabase-helper";
 
 const addPathToBaseURL = (path: string) => `https://www.goparkgolf.app${path}`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const supabase = await createSupabaseServerClientReadOnly();
-  const query = supabase
-    .from("golf_course")
-    .select(`*, address(*), road_address(*), contact(*), operation(*)`);
-  const result: DbResult<typeof query> = await query;
+  const query = supabase.from("golf_course").select(`slug`);
+  const result = await query;
   if (result.error) {
     throw Error("golf course fetch에 실패하였습니다.");
   }
-  const allCourses: DbResultOk<typeof query> = result.data;
+  const allCourses = result.data;
 
   const courses = allCourses.map((course) => ({
     url: addPathToBaseURL(`/golf-courses/${encodeURIComponent(course.slug)}`),
