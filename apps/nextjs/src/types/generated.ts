@@ -17,7 +17,7 @@ export interface Database {
         Row: {
           address_name: string | null
           b_code: string | null
-          golf_course_id: number | null
+          golf_course_id: number
           h_code: string | null
           id: number
           main_address_no: string | null
@@ -33,7 +33,7 @@ export interface Database {
         Insert: {
           address_name?: string | null
           b_code?: string | null
-          golf_course_id?: number | null
+          golf_course_id: number
           h_code?: string | null
           id?: number
           main_address_no?: string | null
@@ -49,7 +49,7 @@ export interface Database {
         Update: {
           address_name?: string | null
           b_code?: string | null
-          golf_course_id?: number | null
+          golf_course_id?: number
           h_code?: string | null
           id?: number
           main_address_no?: string | null
@@ -64,9 +64,9 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "addresses_golf_course_id_fkey"
+            foreignKeyName: "address_golf_course_id_fkey"
             columns: ["golf_course_id"]
-            isOneToOne: false
+            isOneToOne: true
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }
@@ -338,7 +338,7 @@ export interface Database {
         Row: {
           address_name: string | null
           building_name: string | null
-          golf_course_id: number | null
+          golf_course_id: number
           id: number
           main_building_no: string | null
           region_1depth_name: string | null
@@ -354,7 +354,7 @@ export interface Database {
         Insert: {
           address_name?: string | null
           building_name?: string | null
-          golf_course_id?: number | null
+          golf_course_id: number
           id?: number
           main_building_no?: string | null
           region_1depth_name?: string | null
@@ -370,7 +370,7 @@ export interface Database {
         Update: {
           address_name?: string | null
           building_name?: string | null
-          golf_course_id?: number | null
+          golf_course_id?: number
           id?: number
           main_building_no?: string | null
           region_1depth_name?: string | null
@@ -385,9 +385,9 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "road_addresses_golf_course_id_fkey"
+            foreignKeyName: "road_address_golf_course_id_fkey"
             columns: ["golf_course_id"]
-            isOneToOne: false
+            isOneToOne: true
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }
