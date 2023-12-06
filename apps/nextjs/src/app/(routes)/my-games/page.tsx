@@ -26,7 +26,7 @@ const Page = async () => {
   }
 
   return (
-    <div>
+    <section>
       <PageHeader className="relative pb-4 md:pb-8">
         <PageHeaderHeading>나의 스코어 카드</PageHeaderHeading>
       </PageHeader>
@@ -71,7 +71,7 @@ const Page = async () => {
           ),
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
