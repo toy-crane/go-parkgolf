@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
+import { readUserSession } from "@/libs/auth";
+import { useUserStore } from "@/libs/store/user";
 import { cn } from "@/libs/tailwind";
 
 export const viewport = {
@@ -82,7 +84,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout(props: { children: React.ReactNode }) {
+export default async function Layout(props: { children: React.ReactNode }) {
+  const { data: userSession } = await readUserSession();
+
+  useUserStore.setState({ user: userSession.session?.user });
+
   return (
     <html lang="ko">
       <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>

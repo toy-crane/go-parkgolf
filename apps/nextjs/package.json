@@ -64,7 +64,8 @@
     "tailwindcss-safe-area": "^0.4.1",
     "use-debounce": "^10.0.0",
     "uuid": "^9.0.1",
-    "zod": "^3.22.2"
+    "zod": "^3.22.2",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@acme/eslint-config": "^0.2.0",
