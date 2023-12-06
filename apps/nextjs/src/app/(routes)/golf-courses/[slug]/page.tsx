@@ -35,10 +35,10 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { slug: string } }) {
   const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
-  const currentCourse = courses.filter(
-    (course) => course.slug === slug,
-  )[0] as Course;
+  const currentCourse = courses.find((course) => course.slug === slug);
   const allCoursesExcludeMe = courses.filter((course) => course.slug !== slug);
+
+  if (currentCourse === undefined) return notFound();
 
   const nearCourses = allCoursesExcludeMe.filter((course) => {
     const courseLat = course.address[0]?.y ?? 0;
