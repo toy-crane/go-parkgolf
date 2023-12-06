@@ -94,7 +94,7 @@ const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
                   size="icon"
                   onClick={async () => {
                     await navigator.clipboard.writeText(
-                      `${window.location.href}courses/${selectedCourse?.id}`,
+                      `${window.location.href}`,
                     );
                     toast({
                       className: cn(
