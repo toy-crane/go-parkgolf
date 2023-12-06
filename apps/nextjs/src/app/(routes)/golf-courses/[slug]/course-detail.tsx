@@ -244,7 +244,7 @@ const CourseDetail = ({
         <h2 className="text-foreground mb-6 text-xl font-bold">
           전국의 다른 파크골프장 살펴보기
         </h2>
-        <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
+        <div className="mb-16 grid grid-cols-2 gap-y-3 md:grid-cols-3">
           {MAJOR_REGIONS.map((region) => (
             <Link
               href={`/?${new URLSearchParams({
