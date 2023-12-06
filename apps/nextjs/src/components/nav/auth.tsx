@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const AuthNav = () => {
   return (
-    <header className="content-grid z-header fixed h-[var(--header-height)] w-full border-b bg-white">
+    <header className="content-grid z-header h-header fixed w-full border-b bg-white">
       <nav className="flex items-center justify-between">
         <Link href="/">
           <Image

@@ -75,6 +75,9 @@ export default {
       zIndex: {
         header: "100",
       },
+      height: {
+        header: "64px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("tailwindcss-safe-area")],
