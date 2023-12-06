@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
+import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { Course } from "@/types";
 
@@ -10,15 +11,10 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const jsonDirectory = path.join(process.cwd(), "resource");
-  const fileContents = await fs.readFile(
-    jsonDirectory + "/courses.json",
-    "utf-8",
-  );
-  const courses = JSON.parse(fileContents) as Course[];
-  return courses.map((course) => ({
-    id: String(course.id),
-  }));
+  const supabase = createSupabaseBrowerClient();
+  const response = await supabase.from("golf_course").select(`id`);
+  if (response.error) throw response.error;
+  return response.data.map((c) => String(c.id));
 }
 
 export async function generateMetadata(
