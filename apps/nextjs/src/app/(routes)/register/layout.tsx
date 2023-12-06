@@ -7,7 +7,6 @@ const Layout = (props: { children: React.ReactNode }) => {
       <main className="content-grid pt-[var(--header-height)]">
         {props.children}
       </main>
-      ;
     </>
   );
 };
