@@ -1,8 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
 
-import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "../../../components/page-header";
 import KakaoForm from "../auth/components/kakao-form";
 
 const Page = async () => {
@@ -13,9 +18,19 @@ const Page = async () => {
   }
 
   return (
-    <div className="flex flex-col">
-      <PageHeader className="relative pb-12 pt-6 md:pt-12">
-        <PageHeaderHeading>회원가입</PageHeaderHeading>
+    <div className="flex h-screen flex-col items-center justify-center">
+      <Image
+        src="/logo.png"
+        width={96}
+        height={96}
+        alt="Logo"
+        className="py-4 align-middle"
+      />
+      <PageHeader className="items-center pb-12 pt-8 text-center">
+        <PageHeaderHeading>파크 골프장의 모든 것</PageHeaderHeading>
+        <PageHeaderDescription>
+          전국의 모든 파크골프장의 정보를 손쉽게 찾아보세요
+        </PageHeaderDescription>
       </PageHeader>
       <div className="mb-6 flex flex-col gap-4">
         <KakaoForm />
