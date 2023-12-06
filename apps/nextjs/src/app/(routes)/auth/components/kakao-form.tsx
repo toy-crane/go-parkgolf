@@ -1,5 +1,6 @@
 "use client";
 
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 
@@ -15,8 +16,13 @@ const KakaoForm = () => {
   };
 
   return (
-    <Button className="w-full" size="lg" onClick={kakaoSignUp}>
-      카카오로 3초만에 회원 가입하기
+    <Button
+      className="w-full bg-[#faea05] text-black hover:bg-[#faea05]/80"
+      size="lg"
+      onClick={kakaoSignUp}
+    >
+      <Icons.kakao className="mr-2" />
+      카카오톡으로 시작하기
     </Button>
   );
 };
