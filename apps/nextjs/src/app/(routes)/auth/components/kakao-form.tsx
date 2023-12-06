@@ -16,7 +16,7 @@ const KakaoForm = () => {
 
   return (
     <Button className="w-full" size="lg" onClick={kakaoSignUp}>
-      카카오로 3초만에 시작하기
+      카카오로 3초만에 회원 가입하기
     </Button>
   );
 };
