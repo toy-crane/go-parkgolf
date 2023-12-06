@@ -106,7 +106,7 @@ const Funnel = ({ courses }: CreateFormProps) => {
           {currentStep === 2 && <GameCourseForm />}
         </form>
       </Form>
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="md: flex flex-col justify-end gap-4 md:flex-row">
         {state.hasPreviousStep && (
           <Button onClick={prevStep} variant="secondary" size="lg">
             이전 단계로
