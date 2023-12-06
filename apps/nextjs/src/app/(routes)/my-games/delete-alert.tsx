@@ -34,10 +34,10 @@ const DeleteAlert = ({ gameId }: { gameId: string }) => {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle className="text-lg">
-            게임 기록 제거
+            게임 기록 삭제
           </AlertDialogTitle>
           <AlertDialogDescription>
-            게임을 삭제하면 되돌릴 수 없습니다. 그래도 삭제 하시겠습니까?
+            이 게임을 정말 삭제하시겠어요?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
