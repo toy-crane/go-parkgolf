@@ -66,7 +66,7 @@ export interface Database {
           {
             foreignKeyName: "address_golf_course_id_fkey"
             columns: ["golf_course_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }
@@ -387,7 +387,7 @@ export interface Database {
           {
             foreignKeyName: "road_address_golf_course_id_fkey"
             columns: ["golf_course_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }

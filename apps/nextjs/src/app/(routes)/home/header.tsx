@@ -19,6 +19,7 @@ const Header = ({ courses }: HeaderProps) => {
   const { track } = useAmplitude();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  console.log(courses);
 
   const courses_options = useMemo(
     () =>

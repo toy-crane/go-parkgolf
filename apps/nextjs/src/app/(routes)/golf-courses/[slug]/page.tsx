@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
+import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { Course } from "@/types";
 
-import { GetCourseSlugs } from "./action";
+import { GetCourses } from "./action";
 import CourseDetail from "./course-detail";
 
 function haversineDistance(
@@ -25,20 +26,15 @@ function haversineDistance(
 }
 
 export async function generateStaticParams() {
-  return await GetCourseSlugs();
+  const supabase = createSupabaseBrowerClient();
+  const response = await supabase.from("golf_course").select(`slug`);
+  if (response.error) throw response.error;
+  return response.data;
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
+  const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
-  const supabase = await createSupabaseServerClientReadOnly();
-  const query = supabase
-    .from("golf_course")
-    .select(`*, address(*), road_address(*), contact(*), operation(*)`);
-  const result = await query;
-  if (result.error) {
-    notFound();
-  }
-  const courses = result.data;
   const currentCourse = courses.filter(
     (course) => course.slug === slug,
   )[0] as Course;
