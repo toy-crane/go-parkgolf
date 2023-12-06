@@ -1,13 +1,20 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { readUserSession } from "@/libs/auth";
 
 import { PageHeader, PageHeaderHeading } from "../_components/page-header";
 import KakaoForm from "../auth/components/kakao-form";
 
-const Page = () => {
+const Page = async () => {
+  const { data } = await readUserSession();
+
+  if (data.session) {
+    redirect("/");
+  }
+
   return (
     <div className="flex flex-col">
-      <div>로고 위치</div>
-      <PageHeader className="relative pb-12 pt-28 md:pt-36">
+      <PageHeader className="relative pb-12 pt-6 md:pt-12">
         <PageHeaderHeading>회원가입</PageHeaderHeading>
       </PageHeader>
       <div className="mb-6 flex flex-col gap-4">
