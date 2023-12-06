@@ -11,15 +11,13 @@ import { useAmplitude } from "@/libs/amplitude";
 import type { Course } from "@/types";
 import { Loader2, LocateFixed } from "lucide-react";
 
+import CurrentPositionButton from "./current-position-button";
+
 interface HeaderProps {
   courses: Course[];
 }
 
 const Header = ({ courses }: HeaderProps) => {
-  const { track } = useAmplitude();
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-
   const courses_options = useMemo(
     () =>
       courses.map((course) => ({
@@ -55,38 +53,7 @@ const Header = ({ courses }: HeaderProps) => {
           </Link>
           <CommandMenu options={courses_options} />
         </div>
-        <Button
-          variant="secondary"
-          size="icon"
-          className="flex-shrink-0"
-          onClick={() => {
-            setLoading(true);
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                setLoading(false);
-                router.replace(
-                  `/?${new URLSearchParams({
-                    lat: String(position.coords.latitude),
-                    lng: String(position.coords.longitude),
-                  }).toString()}`,
-                );
-              },
-              () => alert("위치 정보를 가져오는데 실패했습니다."),
-              {
-                enableHighAccuracy: true,
-                maximumAge: 30000,
-                timeout: 27000,
-              },
-            );
-            track("current position clicked");
-          }}
-        >
-          {loading ? (
-            <Loader2 className="h-5 w-5 animate-spin" size={24} />
-          ) : (
-            <LocateFixed size={24} />
-          )}
-        </Button>
+        <CurrentPositionButton />
       </nav>
     </header>
   );
