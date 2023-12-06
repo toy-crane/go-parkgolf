@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
@@ -88,11 +87,7 @@ export default function Layout(props: { children: React.ReactNode }) {
     <html lang="ko">
       <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>
         <body className={cn("bg-backgroundfont-sans antialiased")}>
-          <Script
-            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
-            strategy="beforeInteractive"
-          />
-          <main>{props.children}</main>
+          {props.children}
           <Toaster />
         </body>
       </AmplitudeProvider>
