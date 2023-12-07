@@ -24,7 +24,7 @@ const HomeNav = ({
 
   return (
     <header className="content-grid z-header h-header fixed w-full">
-      <nav className="breakout relative flex items-center justify-between gap-2">
+      <nav className="relative flex items-center justify-between gap-2">
         <div className="flex flex-grow gap-2 md:flex-grow-0">
           <Link href={"/"} className="flex-shrink-0 self-center">
             <Image
