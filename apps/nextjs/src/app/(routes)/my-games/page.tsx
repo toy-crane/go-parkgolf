@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { readUserSession } from "@/libs/auth";
 import { format } from "date-fns";
 
 import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
@@ -18,12 +17,7 @@ import DeleteAlert from "./delete-alert";
 import { getMyGames } from "./fetcher";
 
 const Page = async () => {
-  const { data } = await readUserSession();
   const games = await getMyGames();
-
-  if (!data.session) {
-    return redirect("/login");
-  }
 
   return (
     <section>
