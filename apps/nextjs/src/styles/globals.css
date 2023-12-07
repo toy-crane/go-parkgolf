@@ -9,7 +9,9 @@
     --bottom-nav-height: 64px;
 
     /* z-index */
-    --header-z-index: 100;
+    --header-z-index: 10;
+    --bottom-nav-z-index: 10;
+    --sheet-z-index: 15;
 
     /* shadcn variables */
     --background: 0 0% 100%;

@@ -74,6 +74,8 @@ export default {
       },
       zIndex: {
         header: "var(--header-z-index)",
+        "bottom-nav": "var(--bottom-nav-z-index)",
+        sheet: "var(--sheet-z-index)",
       },
       height: {
         header: "var(--header-height)",
