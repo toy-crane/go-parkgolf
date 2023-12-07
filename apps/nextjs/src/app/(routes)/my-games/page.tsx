@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { format } from "date-fns";
-import { Plus, PlusCircle } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import DeleteAlert from "./delete-alert";
