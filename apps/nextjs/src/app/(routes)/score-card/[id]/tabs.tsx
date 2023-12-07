@@ -163,17 +163,6 @@ export const ScoreTabs = ({
 
   return (
     <>
-      {/* <Tabs defaultValue="account" className="flex flex-col items-center">
-        <TabsList className="flex w-full justify-evenly">
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account" className="flex-1">
-          Make changes to your account here.
-        </TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
-      </Tabs> */}
-
       <Tabs
         defaultValue={tab}
         onValueChange={handleTabChange}
