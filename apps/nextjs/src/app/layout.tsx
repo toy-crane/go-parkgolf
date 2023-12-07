@@ -85,9 +85,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Layout(props: { children: React.ReactNode }) {
-  const { data: userSession } = await readUserSession();
+  const session = await readUserSession();
 
-  useUserStore.setState({ user: userSession.session?.user });
+  useUserStore.setState({ user: session?.user });
 
   return (
     <html lang="ko">

@@ -28,8 +28,8 @@ const ETC_MENU = [
 ];
 
 const Page = async () => {
-  const { data: userSession } = await readUserSession();
-  const user = userSession?.session?.user;
+  const session = await readUserSession();
+  const user = session?.user;
   const metaData = user?.user_metadata;
 
   const logout = async () => {

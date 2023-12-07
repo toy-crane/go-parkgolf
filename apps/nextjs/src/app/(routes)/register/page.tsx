@@ -11,9 +11,9 @@ import {
 import KakaoForm from "../auth/components/kakao-form";
 
 const Page = async () => {
-  const { data } = await readUserSession();
+  const session = await readUserSession();
 
-  if (data.session) {
+  if (session) {
     redirect("/");
   }
 

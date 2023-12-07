@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
-import { useUserStore } from "@/libs/store/user";
+import { readUserSession } from "@/libs/auth";
 
-const Layout = (props: { children: React.ReactNode }) => {
-  const user = useUserStore.getState().user;
+const Layout = async (props: { children: React.ReactNode }) => {
+  const session = await readUserSession();
 
-  if (!user) return redirect("/login");
+  if (!session) return redirect("/login");
 
   return (
     <>

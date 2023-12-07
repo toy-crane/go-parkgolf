@@ -8,9 +8,9 @@ import Funnel from "./funnel";
 const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
 
-  const { data } = await readUserSession();
+  const session = await readUserSession();
 
-  if (!data.session) {
+  if (!session) {
     return redirect("/login");
   }
 

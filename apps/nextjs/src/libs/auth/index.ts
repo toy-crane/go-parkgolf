@@ -4,5 +4,7 @@ import { createSupabaseServerClientReadOnly } from "../supabase/server";
 
 export async function readUserSession() {
   const supabase = await createSupabaseServerClientReadOnly();
-  return await supabase.auth.getSession();
+  const { data } = await supabase.auth.getSession();
+
+  return data.session;
 }
