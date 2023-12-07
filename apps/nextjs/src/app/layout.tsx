@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
@@ -86,7 +87,6 @@ export const metadata: Metadata = {
 
 export default async function Layout(props: { children: React.ReactNode }) {
   const session = await readUserSession();
-
   useUserStore.setState({ user: session?.user });
 
   return (
@@ -95,6 +95,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
         <body className={cn("bg-backgroundfont-sans antialiased")}>
           {props.children}
           <Toaster />
+          <Script
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
+            strategy="beforeInteractive"
+          />
         </body>
       </AmplitudeProvider>
     </html>
