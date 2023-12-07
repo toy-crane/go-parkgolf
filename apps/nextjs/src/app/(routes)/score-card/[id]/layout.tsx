@@ -1,5 +1,5 @@
 const Layout = (props: { children: React.ReactNode }) => {
-  return <>{props.children}</>;
+  return <section>{props.children}</section>;
 };
 
 export default Layout;
