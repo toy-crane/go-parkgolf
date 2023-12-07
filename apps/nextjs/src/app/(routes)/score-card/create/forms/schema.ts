@@ -32,7 +32,7 @@ const gameCourseShema = z.object({
       }),
     )
     .max(4, { message: "코스는 최대 4개까지 입력 가능합니다." })
-    .nonempty({ message: "게임을 하나 이상 등록해 주세요." }),
+    .nonempty({ message: "코스를 최소 하나 이상 등록해 주세요." }),
 });
 
 export const formSchema = gameSchema
