@@ -6,7 +6,7 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
   const { data: response, error } = await supabase
     .from("game")
     .select(
-      "started_at, golf_course(name), game_course(*, game_score(*, game_player_score(*, game_player(*))))",
+      "game_player(id),started_at, golf_course(name), game_course(*, game_score(*, game_player_score(*, game_player(*))))",
     )
     .order("hole_number", {
       foreignTable: "game_course.game_score",
@@ -16,11 +16,17 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
     .single();
 
   if (error) throw error;
-  const { game_course: gameCourses, started_at, golf_course } = response;
+  const {
+    game_course: gameCourses,
+    started_at,
+    golf_course,
+    game_player,
+  } = response;
   return {
     gameCourses,
     startedAt: started_at,
     name: golf_course?.name,
+    playerCount: game_player?.length,
   };
 };
 

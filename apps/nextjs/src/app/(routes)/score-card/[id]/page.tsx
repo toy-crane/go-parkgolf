@@ -12,7 +12,7 @@ const Page = async ({
   params: { id: string };
   searchParams: { tab?: string };
 }) => {
-  const { gameCourses, name, startedAt } = await getGameCourses({
+  const { gameCourses, name, startedAt, playerCount } = await getGameCourses({
     gameId: params.id,
   });
 
@@ -32,7 +32,11 @@ const Page = async ({
           {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
         </p>
       </div>
-      <ScoreTabs gameCourses={gameCourses} selectedTab={searchParams.tab} />
+      <ScoreTabs
+        gameCourses={gameCourses}
+        selectedTab={searchParams.tab}
+        playerCount={playerCount}
+      />
     </>
   );
 };

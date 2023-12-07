@@ -58,9 +58,11 @@ const getFormattedData = (gameCourses: GameCourse[]): Score[] => {
 export const ScoreTabs = ({
   gameCourses,
   selectedTab,
+  playerCount,
 }: {
   gameCourses: GameCourse[];
   selectedTab?: string;
+  playerCount: number;
 }) => {
   const [isPending, startTransition] = useTransition();
   // 변경된 Row만 기록
@@ -182,6 +184,7 @@ export const ScoreTabs = ({
               table={table}
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
+              playerCount={playerCount}
             />
           </TabsContent>
         ))}

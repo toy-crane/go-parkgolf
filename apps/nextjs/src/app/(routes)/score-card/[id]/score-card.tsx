@@ -20,10 +20,12 @@ export function ScoreCard({
   table,
   selectedCell,
   onSelectedCell,
+  playerCount,
 }: {
   gameCourseId: string;
   table: TableType<Score>;
   selectedCell?: Cell;
+  playerCount: number;
   onSelectedCell: (cell: Cell) => void;
 }) {
   const columnOrder = table.getAllColumns().map((col) => col.id);
@@ -49,7 +51,10 @@ export function ScoreCard({
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow
             key={headerGroup.id}
-            className="align-center grid-cols-score-card grid"
+            className={cn(
+              "align-center grid",
+              `grid-cols-score-card-${headerGroup.headers.length - 2}`,
+            )}
           >
             {headerGroup.headers.map((header) => {
               return (
@@ -83,7 +88,10 @@ export function ScoreCard({
               .map((row) => (
                 <TableRow
                   key={row.id}
-                  className="grid-cols-score-card grid flex-1"
+                  className={cn(
+                    "grid flex-1",
+                    `grid-cols-score-card-${playerCount}`,
+                  )}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -116,7 +124,12 @@ export function ScoreCard({
           : null}
       </TableBody>
       <TableFooter>
-        <TableRow className="align-center grid-cols-score-card grid">
+        <TableRow
+          className={cn(
+            "align-center grid",
+            `grid-cols-score-card-${playerCount}`,
+          )}
+        >
           {columnOrder.map((key) => {
             const value = sumOfCourseValues[key];
             return (
@@ -138,7 +151,10 @@ export function ScoreCard({
         {table.getFooterGroups().map((footerGroup) => (
           <TableRow
             key={footerGroup.id}
-            className="align-center grid-cols-score-card grid"
+            className={cn(
+              "align-center grid",
+              `grid-cols-score-card-${playerCount}`,
+            )}
           >
             {footerGroup.headers.map((footer) => {
               return (
