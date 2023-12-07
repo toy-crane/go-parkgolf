@@ -19,7 +19,9 @@ const BottomNav = () => {
           className="flex flex-1 flex-col items-center justify-center gap-1"
         >
           <Home className={cn("opacity-50", isHome && "opacity-100")} />
-          <span className={cn("text-xs", isHome ?? "opacity-50")}>홈</span>
+          <span className={cn("text-xs opacity-50", isHome && "opacity-100")}>
+            홈
+          </span>
         </Link>
         <Link
           href="/my-games"
