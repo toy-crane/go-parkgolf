@@ -17,12 +17,12 @@ const Page = async ({
   });
 
   return (
-    <main>
+    <div>
       <div className="flex items-center justify-between py-4">
         <div className="flex flex-col gap-1">
           <h3
             className={cn(
-              "flex text-xl font-medium leading-none tracking-tight",
+              "flex text-2xl font-semibold leading-none tracking-tight",
             )}
           >
             {name ? name : null}
@@ -33,7 +33,7 @@ const Page = async ({
         </p>
       </div>
       <ScoreTabs gameCourses={gameCourses} selectedTab={searchParams.tab} />
-    </main>
+    </div>
   );
 };
 
