@@ -19,7 +19,12 @@ const BottomNav = () => {
           className="flex flex-1 flex-col items-center justify-center gap-1"
         >
           <Home className={cn("opacity-50", isHome && "opacity-100")} />
-          <span className={cn("text-xs opacity-50", isHome && "opacity-100")}>
+          <span
+            className={cn(
+              "text-xs opacity-50",
+              isHome && "font-bold opacity-100",
+            )}
+          >
             홈
           </span>
         </Link>
@@ -31,7 +36,10 @@ const BottomNav = () => {
             className={cn("opacity-50", isMyGames && "opacity-100")}
           />
           <span
-            className={cn("text-xs opacity-50", isMyGames && "opacity-100")}
+            className={cn(
+              "text-xs opacity-50",
+              isMyGames && "font-bold opacity-100",
+            )}
           >
             스코어 카드
           </span>
@@ -44,7 +52,10 @@ const BottomNav = () => {
             className={cn("opacity-50", isSettings && "opacity-100")}
           />
           <span
-            className={cn("text-xs opacity-50", isSettings && "opacity-100")}
+            className={cn(
+              "text-xs opacity-50",
+              isSettings && "font-bold opacity-100",
+            )}
           >
             설정
           </span>
