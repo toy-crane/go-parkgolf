@@ -6,9 +6,10 @@ import { cn } from "@/libs/tailwind";
 import { ClipboardEdit, Home, MoreHorizontal } from "lucide-react";
 
 const BottomNav = () => {
-  const pathname = headers().get("x-pathname");
+  const pathname = headers().get("x-pathname") ?? "";
   const isHome = pathname === "/";
-  const isMyGames = pathname === "/my-games";
+  const isMyGames =
+    pathname.startsWith("/my-games") || pathname.startsWith("/score-card");
   const isSettings = pathname === "/settings";
 
   return (

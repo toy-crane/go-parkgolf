@@ -1,10 +1,10 @@
-import GameNav from "@/components/nav/game";
+import BottomNav from "@/components/nav/bottom";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (
     <>
-      <GameNav />
       <main className="content-grid">{props.children}</main>;
+      <BottomNav />
     </>
   );
 };
