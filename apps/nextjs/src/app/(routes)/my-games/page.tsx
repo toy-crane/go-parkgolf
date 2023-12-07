@@ -21,8 +21,14 @@ const Page = async () => {
 
   return (
     <section>
-      <PageHeader className="relative pb-4 md:pb-8">
+      <PageHeader className="relative flex flex-row items-center justify-between pb-4 md:pb-8">
         <PageHeaderHeading>나의 스코어 카드</PageHeaderHeading>
+        <Button size="sm" asChild>
+          <Link href="score-card/create">
+            <Plus className="h-5 w-5" size={24} />
+            게임 추가하기
+          </Link>
+        </Button>
       </PageHeader>
       <div className="grid grid-cols-1 gap-3">
         {games && games.length > 0 ? (

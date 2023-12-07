@@ -31,7 +31,9 @@ const DeleteAlert = ({ gameId }: { gameId: string }) => {
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button size="sm">삭제하기</Button>
+        <Button size="sm" variant="secondary">
+          삭제하기
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -45,7 +47,11 @@ const DeleteAlert = ({ gameId }: { gameId: string }) => {
         <AlertDialogFooter>
           <AlertDialogCancel>취소</AlertDialogCancel>
           <form onSubmit={onSubmit}>
-            <Button className="flex items-center gap-2" disabled={isPending}>
+            <Button
+              className="flex items-center gap-2"
+              disabled={isPending}
+              variant="destructive"
+            >
               {isPending ? (
                 <Loader2 className="h-5 w-5 animate-spin" size={24} />
               ) : (
