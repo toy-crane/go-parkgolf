@@ -8,7 +8,7 @@ import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
-import { saveScore } from "./_actions";
+import { saveScore } from "./actions";
 import { useGetColumns } from "./columns";
 import type { ColumnName } from "./columns";
 import { createSchema } from "./schema";

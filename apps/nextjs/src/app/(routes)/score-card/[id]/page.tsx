@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
-import { getGameCourses } from "./_fetcher";
+import { getGameCourses } from "./fetcher";
 import { ScoreTabs } from "./tabs";
 
 const Page = async ({
