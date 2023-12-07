@@ -6,6 +6,7 @@
   :root {
     /* component height */
     --header-height: 64px;
+    --bottom-nav-height: 64px;
 
     /* z-index */
     --header-z-index: 100;
