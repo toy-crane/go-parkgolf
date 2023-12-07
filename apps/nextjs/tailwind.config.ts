@@ -76,7 +76,8 @@ export default {
         header: "100",
       },
       height: {
-        header: "64px",
+        header: "var(--header-height)",
+        "bottom-nav": "var(--bottom-nav-height)",
       },
     },
   },
