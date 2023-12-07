@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import type { ChangeEvent } from "react";
 import {
   AlertDialog,
@@ -18,16 +18,18 @@ import { Loader2 } from "lucide-react";
 import { deleteGame } from "./action";
 
 const DeleteAlert = ({ gameId }: { gameId: string }) => {
+  const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     startTransition(async () => {
       await deleteGame(gameId);
+      setOpen(false);
     });
   };
   return (
-    <AlertDialog>
+    <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
         <Button size="sm">삭제하기</Button>
       </AlertDialogTrigger>
