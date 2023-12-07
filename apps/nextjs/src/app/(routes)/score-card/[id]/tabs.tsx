@@ -162,9 +162,24 @@ export const ScoreTabs = ({
   };
 
   return (
-    <div>
-      <Tabs defaultValue={tab} onValueChange={handleTabChange}>
-        <TabsList className="w-full">
+    <>
+      {/* <Tabs defaultValue="account" className="flex flex-col items-center">
+        <TabsList className="flex w-full justify-evenly">
+          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="password">Password</TabsTrigger>
+        </TabsList>
+        <TabsContent value="account" className="flex-1">
+          Make changes to your account here.
+        </TabsContent>
+        <TabsContent value="password">Change your password here.</TabsContent>
+      </Tabs> */}
+
+      <Tabs
+        defaultValue={tab}
+        onValueChange={handleTabChange}
+        className="flex flex-col"
+      >
+        <TabsList>
           {gameCourses.map((gc) => (
             <TabsTrigger value={gc.name} key={gc.id} className="flex-1">
               {gc.name} 코스
@@ -172,7 +187,7 @@ export const ScoreTabs = ({
           ))}
         </TabsList>
         {gameCourses.map((gc) => (
-          <TabsContent value={gc.name} key={gc.id}>
+          <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <ScoreCard
               gameCourseId={gc.id}
               table={table}
@@ -182,7 +197,7 @@ export const ScoreTabs = ({
           </TabsContent>
         ))}
       </Tabs>
-      <div className="flex justify-evenly gap-2 pt-4">
+      <div className="flex justify-evenly gap-2 pb-2 pt-4">
         <Button
           className="flex-auto"
           disabled={isPending}
@@ -215,6 +230,6 @@ export const ScoreTabs = ({
           )}
         </Button>
       </div>
-    </div>
+    </>
   );
 };

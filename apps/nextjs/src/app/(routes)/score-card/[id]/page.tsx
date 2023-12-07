@@ -17,7 +17,7 @@ const Page = async ({
   });
 
   return (
-    <div>
+    <>
       <div className="flex items-center justify-between py-4">
         <div className="flex flex-col gap-1">
           <h3
@@ -33,7 +33,7 @@ const Page = async ({
         </p>
       </div>
       <ScoreTabs gameCourses={gameCourses} selectedTab={searchParams.tab} />
-    </div>
+    </>
   );
 };
 

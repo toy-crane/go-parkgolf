@@ -44,7 +44,7 @@ export function ScoreCard({
     }, {});
 
   return (
-    <Table className="flex flex-1 flex-col text-xs md:text-sm">
+    <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
       <TableHeader className="flex-0">
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow

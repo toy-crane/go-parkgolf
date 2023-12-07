@@ -14,6 +14,9 @@ export default {
       },
     },
     extend: {
+      gridTemplateRows: {
+        "score-board": "auto 1fr auto var(--bottom-nav-height)",
+      },
       gridTemplateColumns: {
         "16": "repeat(16, minmax(0, 1fr))",
         "score-card": "50px 50px repeat(4,minmax(0,1fr))",
@@ -80,6 +83,7 @@ export default {
       height: {
         header: "var(--header-height)",
         "bottom-nav": "var(--bottom-nav-height)",
+        "dynamic-screen": "100dvh",
       },
     },
   },
