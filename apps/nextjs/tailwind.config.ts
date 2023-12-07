@@ -73,7 +73,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       zIndex: {
-        header: "100",
+        header: "var(--header-z-index)",
       },
       height: {
         header: "var(--header-height)",
