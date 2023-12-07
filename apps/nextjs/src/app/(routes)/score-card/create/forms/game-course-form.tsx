@@ -19,6 +19,7 @@ import type { formSchema } from "./schema";
 
 const GameCourseForm = () => {
   const form = useFormContext<z.infer<typeof formSchema>>();
+  const golfGamesError = form.formState.errors.game_courses;
 
   const { fields, append, remove } = useFieldArray({
     name: "game_courses",
@@ -91,7 +92,7 @@ const GameCourseForm = () => {
         코스 추가하기
       </Button>
       <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
-      <FormMessage />
+      <FormMessage>{golfGamesError?.message}</FormMessage>
     </div>
   );
 };

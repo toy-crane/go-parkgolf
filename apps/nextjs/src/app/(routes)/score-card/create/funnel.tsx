@@ -58,7 +58,11 @@ const Funnel = ({ courses }: CreateFormProps) => {
     shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(formSchema),
-    defaultValues: { startedAt: new Date(), gamePlayers: [] },
+    defaultValues: {
+      startedAt: new Date(),
+      gamePlayers: [],
+      game_courses: [],
+    },
   });
   const { trigger } = form;
 

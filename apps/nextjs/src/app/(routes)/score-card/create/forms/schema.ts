@@ -31,8 +31,8 @@ const gameCourseShema = z.object({
         hole_count: z.coerce.number(),
       }),
     )
-    .max(4, { message: "코스는 최대 4개까지 입력 가능합니다." })
-    .nonempty({ message: "코스를 최소 하나 이상 등록해 주세요." }),
+    .min(1, { message: "코스를 1개 이상 입력해주세요." })
+    .max(4, { message: "코스는 최대 4개까지 입력 가능합니다." }),
 });
 
 export const formSchema = gameSchema
