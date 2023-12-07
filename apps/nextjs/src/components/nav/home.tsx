@@ -18,6 +18,7 @@ const HomeNav = ({
     "use server";
     const supabase = await createSupabaseServerClient();
     await supabase.auth.signOut();
+    useUserStore.setState({ user: null });
     redirect("/");
   };
 
