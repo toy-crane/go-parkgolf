@@ -18,7 +18,7 @@ import {
   PageHeaderHeading,
 } from "../../../../components/page-header";
 import { createGame } from "./actions";
-import GameCourseForm from "./forms/game-course";
+import GameCourseForm from "./forms/game-course-form";
 import GolfCourseForm from "./forms/golf-course-form";
 import ParticipantForm from "./forms/participant-form";
 import { formSchema, gamePlayerSchema, gameSchema } from "./forms/schema";
