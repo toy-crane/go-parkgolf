@@ -54,7 +54,7 @@ const Page = async () => {
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-col gap-2">
-                      <div className="flew-wrap flex gap-1 self-start">
+                      <div className="flex flex-wrap gap-1 gap-y-1 self-start">
                         {gameCourse.map(({ id, name }) => (
                           <Badge key={id} variant="secondary">
                             <Link href={`/score-card/${gameId}?tab=${name}`}>
