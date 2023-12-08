@@ -10,7 +10,7 @@ type Inputs = z.infer<typeof formSchema>;
 export async function makeGame(startedAt: Date, golfCourseId: number) {
   const supabase = await createSupabaseServerClient();
   const gameMutation = supabase
-    .from("game")
+    .from("games")
     .insert({
       started_at: startedAt.toISOString(),
       golf_course_id: golfCourseId,
@@ -27,7 +27,7 @@ export async function makeGame(startedAt: Date, golfCourseId: number) {
 export async function createGamePlayer(gameId: string, nicknames: string[]) {
   const supabase = await createSupabaseServerClient();
   const response = await supabase
-    .from("game_player")
+    .from("game_players")
     .insert(
       nicknames.map((nickname) => ({
         game_id: gameId,
@@ -57,7 +57,7 @@ export async function createGame(input: Inputs) {
   );
 
   const gameCourseMutation = supabase
-    .from("game_course")
+    .from("game_courses")
     .insert(
       result.data.game_courses.map((c) => ({
         game_id: game.id,
@@ -83,7 +83,7 @@ export async function createGame(input: Inputs) {
   });
 
   const scoreMutation = supabase
-    .from("game_score")
+    .from("game_scores")
     .insert(game_scores)
     .select();
   const scoreResponse = await scoreMutation;
@@ -105,7 +105,7 @@ export async function createGame(input: Inputs) {
   });
 
   const playerScoreMutation = supabase
-    .from("game_player_score")
+    .from("game_player_scores")
     .upsert(gamePlayerScores)
     .select();
 

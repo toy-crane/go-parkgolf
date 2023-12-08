@@ -9,6 +9,7 @@ export interface Score {
 }
 
 export type GameCourse = Tables<"game_courses"> & {
+  
   game_scores: (Tables<"game_scores"> & {
     game_player_scores: (Tables<"game_player_scores"> & {
       game_players: Tables<"game_players"> | null;
