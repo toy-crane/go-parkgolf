@@ -41,8 +41,8 @@ const Page = async () => {
                 id: gameId,
                 startedAt,
                 golfCourse,
-                gameCourse,
-                gamePlayer,
+                gameCourses,
+                gamePlayers,
               }) => (
                 <Card key={gameId} className="w-full">
                   <CardHeader>
@@ -58,7 +58,7 @@ const Page = async () => {
                   <CardContent>
                     <div className="flex flex-col gap-2">
                       <div className="flex flex-wrap gap-1 gap-y-1 self-start">
-                        {gameCourse.map(({ id, name }) => (
+                        {gameCourses.map(({ id, name }) => (
                           <Badge key={id} variant="secondary">
                             <Link href={`/score-card/${gameId}?tab=${name}`}>
                               {name} 코스
@@ -67,8 +67,8 @@ const Page = async () => {
                         ))}
                       </div>
                       <div>
-                        {gamePlayer.map((p) => p.nickname).length}인 (
-                        {gamePlayer.map((p) => p.nickname).join(", ")})
+                        {gamePlayers.map((p) => p.nickname).length}인 (
+                        {gamePlayers.map((p) => p.nickname).join(", ")})
                       </div>
                     </div>
                   </CardContent>

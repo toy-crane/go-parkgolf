@@ -5,8 +5,10 @@ export const getMyGames = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
 
   const { data: response, error } = await supabase
-    .from("game")
-    .select("id, started_at, golf_course(name), game_course(*), game_player(*)")
+    .from("games")
+    .select(
+      "id, started_at, golf_course(name), game_courses(*), game_players(*)",
+    )
     .order("created_at", {
       ascending: false,
     });
