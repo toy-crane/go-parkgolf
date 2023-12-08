@@ -162,6 +162,38 @@ export interface Database {
           }
         ]
       }
+      game_courses: {
+        Row: {
+          created_at: string
+          game_id: string
+          hole_count: number
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          game_id: string
+          hole_count: number
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          game_id?: string
+          hole_count?: number
+          id?: string
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_courses_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "games"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       game_player: {
         Row: {
           created_at: string
@@ -240,6 +272,84 @@ export interface Database {
           }
         ]
       }
+      game_player_scores: {
+        Row: {
+          created_at: string
+          game_player_id: string
+          game_score_id: string
+          id: string
+          score: number
+        }
+        Insert: {
+          created_at?: string
+          game_player_id: string
+          game_score_id: string
+          id?: string
+          score: number
+        }
+        Update: {
+          created_at?: string
+          game_player_id?: string
+          game_score_id?: string
+          id?: string
+          score?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_player_scores_game_player_id_fkey"
+            columns: ["game_player_id"]
+            isOneToOne: false
+            referencedRelation: "game_players"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "game_player_scores_game_score_id_fkey"
+            columns: ["game_score_id"]
+            isOneToOne: false
+            referencedRelation: "game_scores"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      game_players: {
+        Row: {
+          created_at: string
+          game_id: string
+          id: string
+          nickname: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          game_id: string
+          id?: string
+          nickname?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          game_id?: string
+          id?: string
+          nickname?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_players_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "games"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "game_players_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       game_score: {
         Row: {
           created_at: string
@@ -268,6 +378,77 @@ export interface Database {
             columns: ["game_course_id"]
             isOneToOne: false
             referencedRelation: "game_course"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      game_scores: {
+        Row: {
+          created_at: string
+          game_course_id: string
+          hole_number: number
+          id: string
+          par: number
+        }
+        Insert: {
+          created_at?: string
+          game_course_id: string
+          hole_number: number
+          id?: string
+          par: number
+        }
+        Update: {
+          created_at?: string
+          game_course_id?: string
+          hole_number?: number
+          id?: string
+          par?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_scores_game_course_id_fkey"
+            columns: ["game_course_id"]
+            isOneToOne: false
+            referencedRelation: "game_courses"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      games: {
+        Row: {
+          created_at: string
+          golf_course_id: number
+          id: string
+          started_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          golf_course_id: number
+          id?: string
+          started_at: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          golf_course_id?: number
+          id?: string
+          started_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "games_golf_course_id_fkey"
+            columns: ["golf_course_id"]
+            isOneToOne: false
+            referencedRelation: "golf_course"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "games_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]
@@ -392,6 +573,33 @@ export interface Database {
             referencedColumns: ["id"]
           }
         ]
+      }
+      users: {
+        Row: {
+          avatar_url: string
+          created_at: string
+          email: string
+          id: string
+          name: string
+          username: string
+        }
+        Insert: {
+          avatar_url: string
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          username: string
+        }
+        Update: {
+          avatar_url?: string
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          username?: string
+        }
+        Relationships: []
       }
     }
     Views: {

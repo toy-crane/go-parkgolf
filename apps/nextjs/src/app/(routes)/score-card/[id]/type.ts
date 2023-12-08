@@ -8,10 +8,10 @@ export interface Score {
   [key: string]: number | string;
 }
 
-export type GameCourse = Tables<"game_course"> & {
-  game_score: (Tables<"game_score"> & {
-    game_player_score: (Tables<"game_player_score"> & {
-      game_player: Tables<"game_player"> | null;
+export type GameCourse = Tables<"game_courses"> & {
+  game_scores: (Tables<"game_scores"> & {
+    game_player_scores: (Tables<"game_player_scores"> & {
+      game_players: Tables<"game_players"> | null;
     })[];
   })[];
 };
