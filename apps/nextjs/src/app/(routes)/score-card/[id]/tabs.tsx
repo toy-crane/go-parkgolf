@@ -17,8 +17,8 @@ import type { Cell, GameCourse, Score } from "./type";
 
 const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
   const players =
-    gameCourses[0]?.game_score[0]?.game_player_score.map(
-      (p) => p.game_player,
+    gameCourses[0]?.game_scores[0]?.game_player_scores.map(
+      (p) => p.game_players,
     ) ?? [];
   const columns = players?.map((p) => ({
     accessorKey: p?.id ?? "unknown",
@@ -30,11 +30,11 @@ const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
 const getFormattedData = (gameCourses: GameCourse[]): Score[] => {
   const data = gameCourses
     .map((gc) =>
-      gc.game_score.map((score) => {
-        const playerScore = score.game_player_score;
+      gc.game_scores.map((score) => {
+        const playerScore = score.game_player_scores;
         const playerScoreMap = playerScore.reduce(
           (acc: Record<string, number>, curr) => {
-            const participantId = String(curr.game_player?.id);
+            const participantId = String(curr.game_players?.id);
             if (participantId) {
               acc[participantId] = curr.score ?? 0;
             }

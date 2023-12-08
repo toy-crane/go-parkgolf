@@ -9,7 +9,7 @@ export async function saveScore(scores: Score[]) {
   console.log("RUNNING SERVER ACTION");
   const supabase = await createSupabaseServerClient();
   const scoreMutation = supabase
-    .from("game_score")
+    .from("game_scores")
     .upsert(
       scores.map((score) => ({
         id: score.id,
@@ -42,7 +42,7 @@ export async function saveScore(scores: Score[]) {
     .flat();
 
   const scorePlaymerMutation = supabase
-    .from("game_player_score")
+    .from("game_player_scores")
     .upsert(player_scores, { onConflict: "game_score_id, game_player_id" })
     .select();
 

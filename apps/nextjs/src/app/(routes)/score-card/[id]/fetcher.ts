@@ -4,12 +4,12 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
   const supabase = await createSupabaseServerClientReadOnly();
 
   const { data: response, error } = await supabase
-    .from("game")
+    .from("games")
     .select(
-      "game_player(id),started_at, golf_course(name), game_course(*, game_score(*, game_player_score(*, game_player(*))))",
+      "game_players(id),started_at, golf_course(name), game_courses(*, game_scores(*, game_player_scores(*, game_players(*))))",
     )
     .order("hole_number", {
-      foreignTable: "game_course.game_score",
+      foreignTable: "game_courses.game_scores",
       ascending: true,
     })
     .eq("id", gameId)
@@ -17,25 +17,15 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
 
   if (error) throw error;
   const {
-    game_course: gameCourses,
+    game_courses: gameCourses,
     started_at,
     golf_course,
-    game_player,
+    game_players,
   } = response;
   return {
     gameCourses,
     startedAt: started_at,
     name: golf_course?.name,
-    playerCount: game_player?.length,
+    playerCount: game_players?.length,
   };
-};
-
-export const getScores = async ({ gameCourseId }: { gameCourseId: number }) => {
-  const supabase = await createSupabaseServerClientReadOnly();
-  const { data: scores, error } = await supabase
-    .from("score")
-    .select("*, player_score(*, participant(*))")
-    .eq("game_course_id", gameCourseId);
-  if (error) throw error;
-  return scores;
 };
