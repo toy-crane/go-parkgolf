@@ -48,7 +48,7 @@ const DeleteAlert = ({ gameId }: { gameId: string }) => {
           <AlertDialogCancel>취소</AlertDialogCancel>
           <form onSubmit={onSubmit}>
             <Button
-              className="flex items-center gap-2"
+              className="flex w-full items-center gap-2"
               disabled={isPending}
               variant="destructive"
             >
