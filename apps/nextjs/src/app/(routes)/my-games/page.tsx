@@ -18,20 +18,23 @@ import { getMyGames } from "./fetcher";
 
 const Page = async () => {
   const games = await getMyGames();
+  const hasGames = games && games?.length > 0;
 
   return (
     <section>
       <PageHeader className="relative flex flex-row items-center justify-between pb-4 md:pb-8">
         <PageHeaderHeading>나의 스코어 카드</PageHeaderHeading>
         <Button size="sm" asChild>
-          <Link href="score-card/create">
-            <Plus className="h-5 w-5" size={24} />
-            게임 추가하기
-          </Link>
+          {hasGames && (
+            <Link href="score-card/create">
+              <Plus className="h-5 w-5" size={24} />
+              게임 추가하기
+            </Link>
+          )}
         </Button>
       </PageHeader>
       <div className="grid grid-cols-1 gap-3">
-        {games && games.length > 0 ? (
+        {hasGames ? (
           <>
             {games?.map(
               ({
@@ -82,8 +85,8 @@ const Page = async () => {
             )}
           </>
         ) : (
-          <div className="flex flex-col items-center gap-4 pt-48">
-            <div className="text-xl font-bold">
+          <div className="flex flex-col items-center gap-4 pt-36 md:pt-48">
+            <div className="text-lg font-bold md:text-xl">
               게임 기록을 위해 신규 게임을 추가해주세요
             </div>
             <Button size="lg" asChild>

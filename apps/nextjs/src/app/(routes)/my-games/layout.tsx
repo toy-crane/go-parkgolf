@@ -12,7 +12,6 @@ const Layout = async (props: { children: React.ReactNode }) => {
       <main className="content-grid pb-[var(--bottom-nav-height)]">
         {props.children}
       </main>
-      ;
       <BottomNav />
     </>
   );
