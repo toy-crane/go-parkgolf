@@ -15,6 +15,13 @@ import { flexRender } from "@tanstack/react-table";
 
 import type { Cell, Score } from "./type";
 
+const gridColumns = {
+  "1": "grid-cols-score-card-1",
+  "2": "grid-cols-score-card-2",
+  "3": "grid-cols-score-card-3",
+  "4": "grid-cols-score-card-4",
+};
+
 export function ScoreCard({
   gameCourseId,
   table,
@@ -53,7 +60,7 @@ export function ScoreCard({
             key={headerGroup.id}
             className={cn(
               "align-center grid",
-              `grid-cols-score-card-${headerGroup.headers.length - 2}`,
+              gridColumns[String(playerCount) as keyof typeof gridColumns],
             )}
           >
             {headerGroup.headers.map((header) => {
@@ -90,7 +97,9 @@ export function ScoreCard({
                   key={row.id}
                   className={cn(
                     "grid flex-1",
-                    `grid-cols-score-card-${playerCount}`,
+                    gridColumns[
+                      String(playerCount) as keyof typeof gridColumns
+                    ],
                   )}
                 >
                   {row.getVisibleCells().map((cell) => (
@@ -127,7 +136,7 @@ export function ScoreCard({
         <TableRow
           className={cn(
             "align-center grid",
-            `grid-cols-score-card-${playerCount}`,
+            gridColumns[String(playerCount) as keyof typeof gridColumns],
           )}
         >
           {columnOrder.map((key) => {
@@ -153,7 +162,7 @@ export function ScoreCard({
             key={footerGroup.id}
             className={cn(
               "align-center grid",
-              `grid-cols-score-card-${playerCount}`,
+              gridColumns[String(playerCount) as keyof typeof gridColumns],
             )}
           >
             {footerGroup.headers.map((footer) => {
