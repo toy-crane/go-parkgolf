@@ -192,7 +192,7 @@ export const ScoreTabs = ({
       <div className="flex justify-evenly gap-2 pb-2 pt-4">
         <Button
           className="flex-auto"
-          disabled={isPending}
+          disabled={isPending || !selectedCell}
           onClick={() => {
             if (selectedCell) {
               handleScore(selectedCell.row, selectedCell.colName, "increase");
@@ -203,7 +203,7 @@ export const ScoreTabs = ({
         </Button>
         <Button
           className="flex-auto"
-          disabled={isPending}
+          disabled={isPending || !selectedCell}
           onClick={() => {
             if (selectedCell) {
               handleScore(selectedCell.row, selectedCell.colName, "decrease");
