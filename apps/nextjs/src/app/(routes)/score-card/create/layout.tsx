@@ -1,10 +1,20 @@
-import BottomNav from "@/components/nav/bottom";
+import { redirect } from "next/navigation";
+import ActionNav from "@/components/nav/action";
+import { readUserSession } from "@/libs/auth";
 
-const Layout = (props: { children: React.ReactNode }) => {
+const Layout = async (props: { children: React.ReactNode }) => {
+  const session = await readUserSession();
+
+  if (!session) {
+    return redirect("/login");
+  }
+
   return (
     <>
-      {props.children}
-      <BottomNav />
+      <ActionNav />
+      <main className="content-grid pt-[var(--header-height)]">
+        {props.children}
+      </main>
     </>
   );
 };

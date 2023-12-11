@@ -76,8 +76,7 @@ const CourseForm = ({ courses }: FormProps) => {
       if (result.success) {
         const params = new URLSearchParams();
         params.set("gameId", String(result.data.id));
-        form.reset();
-        router.replace(`/score/player?${params.toString()}`);
+        router.replace(`/score-card/create/player?${params.toString()}`);
       }
     });
   }

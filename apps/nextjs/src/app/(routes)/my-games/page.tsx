@@ -26,7 +26,7 @@ const Page = async () => {
         <PageHeaderHeading>나의 스코어 카드</PageHeaderHeading>
         <Button size="sm" asChild>
           {hasGames && (
-            <Link href="score-card/create">
+            <Link href="score-card/create/golf-course">
               <Plus className="h-5 w-5" size={24} />
               게임 추가하기
             </Link>
