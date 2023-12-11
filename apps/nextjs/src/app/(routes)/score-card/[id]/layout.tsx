@@ -4,7 +4,6 @@ const Layout = (props: { children: React.ReactNode }) => {
       <main className="content-grid h-short-screen grid-rows-score-board grid">
         {props.children}
       </main>
-      ;
     </>
   );
 };
