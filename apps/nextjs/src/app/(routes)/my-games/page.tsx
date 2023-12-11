@@ -90,7 +90,7 @@ const Page = async () => {
               게임 기록을 위해 신규 게임을 추가해주세요
             </div>
             <Button size="lg" asChild>
-              <Link href="score-card/create">
+              <Link href="score-card/create/golf-course">
                 <Plus className="mr-2 h-5 w-5" size={24} />
                 신규 게임 추가하기
               </Link>
