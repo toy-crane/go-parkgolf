@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useUserStore } from "@/libs/store/user";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
@@ -68,6 +68,8 @@ export const ScoreTabs = ({
   playerCount: number;
   isMyGame: boolean;
 }) => {
+  useLockBodyScroll();
+
   const [isPending, startTransition] = useTransition();
   // 변경된 Row만 기록
   const [changedScoresGroup, setChangedScoresGroup] = useState<Score[]>([]);
