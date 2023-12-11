@@ -1,4 +1,5 @@
 import React from "react";
+import { readUserSession } from "@/libs/auth";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
@@ -13,9 +14,12 @@ const Page = async ({
   params: { id: string };
   searchParams: { tab?: string };
 }) => {
-  const { gameCourses, name, startedAt, playerCount } = await getGameCourses({
-    gameId: params.id,
-  });
+  const session = await readUserSession();
+  const { gameCourses, name, startedAt, playerCount, userId } =
+    await getGameCourses({
+      gameId: params.id,
+    });
+  const isMyGame = session?.user?.id === userId;
 
   return (
     <>
@@ -38,6 +42,7 @@ const Page = async ({
         gameCourses={gameCourses}
         selectedTab={searchParams.tab}
         playerCount={playerCount}
+        isMyGame={isMyGame}
       />
     </>
   );
