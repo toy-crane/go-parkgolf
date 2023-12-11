@@ -1,5 +1,3 @@
-import AuthNav from "@/components/nav/auth";
-
 const Layout = (props: { children: React.ReactNode }) => {
   return (
     <>
