@@ -75,7 +75,7 @@ const Page = async () => {
                   <CardFooter className="flex flex-col gap-2">
                     <div className="flex gap-2 self-end">
                       <Button asChild variant="outline" size="sm">
-                        <Link href={`/score-card/${gameId}`}>수정하기</Link>
+                        <Link href={`/score-card/${gameId}`}>기록보기</Link>
                       </Button>
                       <DeleteAlert gameId={gameId} />
                     </div>
