@@ -87,7 +87,7 @@ export default {
         header: "var(--header-height)",
         "bottom-nav": "var(--bottom-nav-height)",
         "dynamic-screen": "100dvh",
-        "short-screen": "100svh",
+        "short-screen": "98svh",
       },
     },
   },

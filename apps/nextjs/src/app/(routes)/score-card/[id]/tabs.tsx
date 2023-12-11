@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -192,43 +193,55 @@ export const ScoreTabs = ({
           </TabsContent>
         ))}
       </Tabs>
-      {isMyGame ? (
-        <div className="flex justify-evenly gap-2 pb-2 pt-4">
-          <Button
-            className="flex-auto"
-            disabled={isPending || !selectedCell}
-            onClick={() => {
-              if (selectedCell) {
-                handleScore(selectedCell.row, selectedCell.colName, "increase");
-              }
-            }}
-          >
-            <Plus className="h-4 w-4" />
+      <div className="h-bottom-nav">
+        {isMyGame ? (
+          <div className="flex justify-evenly gap-2 pb-2 pt-4">
+            <Button
+              className="flex-auto"
+              disabled={isPending || !selectedCell}
+              onClick={() => {
+                if (selectedCell) {
+                  handleScore(
+                    selectedCell.row,
+                    selectedCell.colName,
+                    "increase",
+                  );
+                }
+              }}
+            >
+              <Plus className="h-4 w-4" />
+            </Button>
+            <Button
+              className="flex-auto"
+              disabled={isPending || !selectedCell}
+              onClick={() => {
+                if (selectedCell) {
+                  handleScore(
+                    selectedCell.row,
+                    selectedCell.colName,
+                    "decrease",
+                  );
+                }
+              }}
+            >
+              <Minus className="h-4 w-4" />
+            </Button>
+            <Button onClick={handleSave} variant="outline" disabled={isPending}>
+              {isPending ? (
+                <Loader2 className="h-5 w-5 animate-spin" size={24} />
+              ) : lastTabName === tab ? (
+                "완료"
+              ) : (
+                "저장"
+              )}
+            </Button>
+          </div>
+        ) : (
+          <Button asChild className="my-2 w-full">
+            <Link href="/">다른 파크골프장 둘러보기</Link>
           </Button>
-          <Button
-            className="flex-auto"
-            disabled={isPending || !selectedCell}
-            onClick={() => {
-              if (selectedCell) {
-                handleScore(selectedCell.row, selectedCell.colName, "decrease");
-              }
-            }}
-          >
-            <Minus className="h-4 w-4" />
-          </Button>
-          <Button onClick={handleSave} variant="outline" disabled={isPending}>
-            {isPending ? (
-              <Loader2 className="h-5 w-5 animate-spin" size={24} />
-            ) : lastTabName === tab ? (
-              "완료"
-            ) : (
-              "저장"
-            )}
-          </Button>
-        </div>
-      ) : (
-        <div className="h-bottom-nav"></div>
-      )}
+        )}
+      </div>
     </>
   );
 };
