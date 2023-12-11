@@ -57,7 +57,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
         const params = new URLSearchParams();
         params.set("gameId", gameId);
         form.reset();
-        router.replace(`/score/course?${params.toString()}`);
+        router.replace(`/score/game-course?${params.toString()}`);
       }
     });
   }

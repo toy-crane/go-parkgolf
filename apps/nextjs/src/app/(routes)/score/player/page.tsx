@@ -5,23 +5,18 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import PlayerForm from "./form";
 
-const Page = async ({
+const Page = ({
   searchParams,
 }: {
   searchParams: {
     gameId: string;
   };
 }) => {
-  const supabase = await createSupabaseServerClientReadOnly();
-  const query = supabase.from("golf_course").select(`*`);
-  const result = await query;
   const gameId = searchParams?.gameId;
-
-  if (!result.data || !gameId) {
+  if (!gameId) {
     notFound();
   }
 
