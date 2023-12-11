@@ -23,6 +23,7 @@ import {
   createGameCourse,
   createGamePlayerScores,
   createGameScores,
+  updateGameStatus,
 } from "./actions";
 import { formSchema } from "./schema";
 
@@ -58,6 +59,7 @@ const GameCourseForm = ({ gameId }: FormProps) => {
       const { data: gameCourses } = await createGameCourse(gameId, values);
       const { data: gameScores } = await createGameScores(gameCourses);
       const { data: _ } = await createGamePlayerScores(gameId, gameScores);
+      await updateGameStatus(gameId);
       router.replace(`/score-card/${gameId}`);
     });
   }

@@ -92,3 +92,17 @@ export const createGamePlayerScores = async (
   }
   return { success: true, data: playerScoreResponse.data };
 };
+
+export const updateGameStatus = async (gameId: string) => {
+  const supabase = await createSupabaseServerClient();
+  const response = await supabase
+    .from("games")
+    .update({ status: "in_progress" })
+    .eq("id", gameId)
+    .select();
+
+  if (response.error) {
+    throw new Error(response.error.message);
+  }
+  return { success: true, data: response.data };
+};

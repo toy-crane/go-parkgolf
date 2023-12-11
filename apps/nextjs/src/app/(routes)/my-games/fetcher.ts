@@ -9,6 +9,7 @@ export const getMyGames = async () => {
     .select(
       "id, started_at, golf_course(name), game_courses(*), game_players(*)",
     )
+    .in("status", ["in_progress", "completed"])
     .order("created_at", {
       ascending: false,
     });

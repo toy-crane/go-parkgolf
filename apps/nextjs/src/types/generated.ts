@@ -98,70 +98,6 @@ export interface Database {
           }
         ]
       }
-      game: {
-        Row: {
-          created_at: string
-          golf_course_id: number
-          id: string
-          started_at: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          golf_course_id: number
-          id?: string
-          started_at: string
-          user_id?: string
-        }
-        Update: {
-          created_at?: string
-          golf_course_id?: number
-          id?: string
-          started_at?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "game_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_course"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      game_course: {
-        Row: {
-          created_at: string
-          game_id: string
-          hole_count: number
-          id: string
-          name: string
-        }
-        Insert: {
-          created_at?: string
-          game_id: string
-          hole_count: number
-          id?: string
-          name: string
-        }
-        Update: {
-          created_at?: string
-          game_id?: string
-          hole_count?: number
-          id?: string
-          name?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "game_course_game_id_fkey"
-            columns: ["game_id"]
-            isOneToOne: false
-            referencedRelation: "game"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       game_courses: {
         Row: {
           created_at: string
@@ -194,45 +130,6 @@ export interface Database {
           }
         ]
       }
-      game_player: {
-        Row: {
-          created_at: string
-          game_id: string
-          id: string
-          nickname: string | null
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string
-          game_id: string
-          id?: string
-          nickname?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string
-          game_id?: string
-          id?: string
-          nickname?: string | null
-          user_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "game_player_game_id_fkey"
-            columns: ["game_id"]
-            isOneToOne: false
-            referencedRelation: "game"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "game_player_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       game_player_score: {
         Row: {
           created_at: string
@@ -255,22 +152,7 @@ export interface Database {
           id?: string
           score?: number
         }
-        Relationships: [
-          {
-            foreignKeyName: "game_player_score_game_player_id_fkey"
-            columns: ["game_player_id"]
-            isOneToOne: false
-            referencedRelation: "game_player"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "game_player_score_game_score_id_fkey"
-            columns: ["game_score_id"]
-            isOneToOne: false
-            referencedRelation: "game_score"
-            referencedColumns: ["id"]
-          }
-        ]
+        Relationships: []
       }
       game_player_scores: {
         Row: {
@@ -350,38 +232,6 @@ export interface Database {
           }
         ]
       }
-      game_score: {
-        Row: {
-          created_at: string
-          game_course_id: string
-          hole_number: number
-          id: string
-          par: number
-        }
-        Insert: {
-          created_at?: string
-          game_course_id: string
-          hole_number: number
-          id?: string
-          par: number
-        }
-        Update: {
-          created_at?: string
-          game_course_id?: string
-          hole_number?: number
-          id?: string
-          par?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "game_score_game_course_id_fkey"
-            columns: ["game_course_id"]
-            isOneToOne: false
-            referencedRelation: "game_course"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       game_scores: {
         Row: {
           created_at: string
@@ -420,6 +270,7 @@ export interface Database {
           golf_course_id: number
           id: string
           started_at: string
+          status: Database["public"]["Enums"]["game_status"]
           user_id: string
         }
         Insert: {
@@ -427,6 +278,7 @@ export interface Database {
           golf_course_id: number
           id?: string
           started_at: string
+          status?: Database["public"]["Enums"]["game_status"]
           user_id?: string
         }
         Update: {
@@ -434,6 +286,7 @@ export interface Database {
           golf_course_id?: number
           id?: string
           started_at?: string
+          status?: Database["public"]["Enums"]["game_status"]
           user_id?: string
         }
         Relationships: [
@@ -609,7 +462,7 @@ export interface Database {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      game_status: "draft" | "in_progress" | "completed" | "deleted"
     }
     CompositeTypes: {
       [_ in never]: never
