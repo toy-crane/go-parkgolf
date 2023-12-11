@@ -19,6 +19,7 @@ const Page = async () => {
 
   if (result.data) {
     const courses = result.data;
+    
 
     return (
       <main>

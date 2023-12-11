@@ -41,12 +41,12 @@ export async function saveScore(scores: Score[]) {
     })
     .flat();
 
-  const scorePlaymerMutation = supabase
+  const scorePlayerMutation = supabase
     .from("game_player_scores")
     .upsert(player_scores, { onConflict: "game_score_id, game_player_id" })
     .select();
 
-  const scorePlayerResponse = await scorePlaymerMutation;
+  const scorePlayerResponse = await scorePlayerMutation;
   if (scorePlayerResponse.error) {
     throw new Error(scorePlayerResponse.error.message);
   }
