@@ -174,13 +174,15 @@ const CourseForm = ({ courses }: FormProps) => {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" disabled={isPending}>
-          {isPending ? (
-            <Loader2 className="h-5 w-5 animate-spin" size={24} />
-          ) : (
-            "다음 단계로"
-          )}
-        </Button>
+        <div className="bottom-cta content-grid">
+          <Button type="submit" size="lg" disabled={isPending}>
+            {isPending ? (
+              <Loader2 className="h-5 w-5 animate-spin" size={24} />
+            ) : (
+              "다음 단계로"
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );

@@ -19,7 +19,7 @@ const Page = async () => {
   }
 
   return (
-    <div>
+    <>
       <PageHeader className="relative pb-4 md:pb-8">
         <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
         <PageHeaderDescription>
@@ -27,7 +27,7 @@ const Page = async () => {
         </PageHeaderDescription>
       </PageHeader>
       <CourseForm courses={result.data} />
-    </div>
+    </>
   );
 };
 
