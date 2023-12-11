@@ -237,7 +237,7 @@ export const ScoreTabs = ({
             </Button>
           </div>
         ) : (
-          <Button asChild className="my-2 w-full">
+          <Button asChild className="mt-4 w-full">
             <Link href="/">다른 파크골프장 둘러보기</Link>
           </Button>
         )}
