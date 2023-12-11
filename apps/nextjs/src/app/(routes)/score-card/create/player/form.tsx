@@ -37,7 +37,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
     mode: "onChange",
     resolver: zodResolver(formSchema),
     defaultValues: {
-      players: [{ nickname: "" }],
+      players: [],
     },
   });
 
