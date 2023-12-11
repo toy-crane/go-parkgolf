@@ -3,6 +3,7 @@ import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
 import { getGameCourses } from "./fetcher";
+import ShareButton from "./share-button";
 import { ScoreTabs } from "./tabs";
 
 const Page = async ({
@@ -27,10 +28,11 @@ const Page = async ({
           >
             {name ? name : null}
           </h3>
+          <p className={cn("text-muted-foreground flex text-sm")}>
+            {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
+          </p>
         </div>
-        <p className={cn("text-muted-foreground flex text-sm")}>
-          {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
-        </p>
+        <ShareButton />
       </div>
       <ScoreTabs
         gameCourses={gameCourses}
