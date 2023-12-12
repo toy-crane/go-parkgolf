@@ -27,7 +27,7 @@ const Page = async () => {
         {hasGames ? (
           <>{games?.map((game) => <GameCard game={game} key={game.id} />)}</>
         ) : (
-          <div className="flex flex-col items-center gap-4 pt-36 md:pt-48">
+          <div className="flex h-[65vh] flex-col items-center justify-center gap-4">
             <div className="text-lg font-bold md:text-xl">
               게임 기록을 위해 신규 게임을 추가해주세요
             </div>
