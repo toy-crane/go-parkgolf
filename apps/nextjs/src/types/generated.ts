@@ -130,30 +130,6 @@ export interface Database {
           }
         ]
       }
-      game_player_score: {
-        Row: {
-          created_at: string
-          game_player_id: string
-          game_score_id: string
-          id: string
-          score: number
-        }
-        Insert: {
-          created_at?: string
-          game_player_id: string
-          game_score_id: string
-          id?: string
-          score: number
-        }
-        Update: {
-          created_at?: string
-          game_player_id?: string
-          game_score_id?: string
-          id?: string
-          score?: number
-        }
-        Relationships: []
-      }
       game_player_scores: {
         Row: {
           created_at: string

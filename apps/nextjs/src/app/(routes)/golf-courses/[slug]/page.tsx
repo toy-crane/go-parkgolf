@@ -50,7 +50,6 @@ export async function generateMetadata(
     .single();
   const result = await query;
   if (result.error) {
-    console.log(result.error);
     throw Error(result.error.message);
   }
   const course = result.data;
