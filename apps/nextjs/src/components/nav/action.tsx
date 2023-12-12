@@ -10,7 +10,7 @@ const ActionNav = () => {
   return (
     <header className="content-grid z-header h-header fixed w-full border-b bg-white">
       <nav className="flex items-center justify-between">
-        <Button onClick={() => router.back()} variant="ghost">
+        <Button onClick={() => router.back()} variant="ghost" className="pl-0">
           <ChevronLeft />
         </Button>
       </nav>
