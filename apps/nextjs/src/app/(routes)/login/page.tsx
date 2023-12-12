@@ -39,6 +39,7 @@ const Page = async () => {
         아직 파크골프가자 회원이 아니신가요?{" "}
         <Link
           href="/register"
+          replace
           className="hover:text-primary text-black underline underline-offset-4"
         >
           회원가입

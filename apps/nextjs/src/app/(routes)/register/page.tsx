@@ -39,6 +39,7 @@ const Page = async () => {
         이미 계정이 있으신가요?{" "}
         <Link
           href="/login"
+          replace
           className="hover:text-primary text-black underline underline-offset-4"
         >
           로그인
