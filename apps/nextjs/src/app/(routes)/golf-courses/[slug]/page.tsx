@@ -1,10 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
-import {
-  createSupabaseServerClient,
-  createSupabaseServerClientReadOnly,
-} from "@/libs/supabase/server";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import { GetCourses } from "./action";
 import CourseDetail from "./course-detail";
