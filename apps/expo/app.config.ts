@@ -71,6 +71,13 @@ const defineConfig = (): ExpoConfig => ({
           "사용자에게 최적화된 광고를 제공하기 위해 사용자의 광고 활동 정보를 수집합니다",
       },
     ],
+    [
+      "@react-native-seoul/kakao-login",
+      {
+        kakaoAppKey: "cbe5c62037f7104f1744ad386f63d6cf", // 필수
+        kotlinVersion: "1.9.0", // Android Only, Optional, Expo 내부 패키지들과의 충돌이 있어 테스트 결과 1.5.10은 문제가 없었습니다. 지정 안하면 1.5.10으로 설정됩니다.
+      },
+    ],
   ],
 });
 
