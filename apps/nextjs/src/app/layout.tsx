@@ -9,8 +9,10 @@ import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
 import { readUserSession } from "@/libs/auth";
 import { useUserStore } from "@/libs/store/user";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { useUserAgentStore } from "@/libs/store/user-agent";
 import { cn } from "@/libs/tailwind";
+
+import UserAgentStoreInitializer from "./user-agent-store-initializer";
 
 export const viewport = {
   width: "device-width",
@@ -89,11 +91,14 @@ export const metadata: Metadata = {
 
 export default async function Layout(props: { children: React.ReactNode }) {
   const session = await readUserSession();
+  const isMobileApp = headers().get("X-Is-Mobile-App") === "true";
   useUserStore.setState({ user: session?.user });
+  useUserAgentStore.setState({ isMobileApp });
 
   return (
     <html lang="ko">
       <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>
+        <UserAgentStoreInitializer isMobileApp={isMobileApp} />
         <body className={cn("bg-backgroundfont-sans antialiased")}>
           {props.children}
           <Toaster />

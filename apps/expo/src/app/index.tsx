@@ -122,6 +122,7 @@ export default function Home() {
             headers: {
               "X-Access-Token": session?.access_token ?? undefined,
               "X-Refresh-Token": session?.refresh_token ?? undefined,
+              "X-Is-Mobile-App": "true",
             },
           }}
           onMessage={async ({ nativeEvent: state }) => {
