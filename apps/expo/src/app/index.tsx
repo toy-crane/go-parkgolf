@@ -19,11 +19,11 @@ const createSessionFromUrl = async (url: string) => {
   if (errorCode) throw new Error(errorCode);
   const { access_token, refresh_token } = params;
 
-  if (!access_token) return;
+  if (!access_token || !refresh_token) return;
 
   const { data, error } = await supabase.auth.setSession({
     access_token,
-    refresh_token: refresh_token ?? "",
+    refresh_token,
   });
   if (error) throw error;
   return data.session;
@@ -43,6 +43,9 @@ export default function Home() {
           skipBrowserRedirect: true,
         },
       });
+
+      if (error) throw error;
+
       const res = await WebBrowser.openAuthSessionAsync(
         data?.url ?? "",
         redirectTo,
@@ -52,7 +55,6 @@ export default function Home() {
         const { url } = res;
         const data = await createSessionFromUrl(url);
         setSession(data);
-        console.log(data);
       }
     } catch (error) {
       console.error("login err", error);
@@ -127,10 +129,8 @@ export default function Home() {
           }}
           onMessage={async ({ nativeEvent: state }) => {
             if (state.data === "navigationStateChange") {
-              // Navigation state updated, can check state.canGoBack, etc.
               setIsCanGoBack(state.canGoBack);
             } else if (state.data === "kakaoSignUp") {
-              console.log("postMessage", state);
               await signInWithKakao();
             }
           }}
