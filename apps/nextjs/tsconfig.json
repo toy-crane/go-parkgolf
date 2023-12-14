@@ -13,6 +13,6 @@
     "types": ["kakao.maps.d.ts"],
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": [".", ".next/types/**/*.ts"],
+  "include": [".", ".next/types/**/*.ts", "./global.d.ts"],
   "exclude": ["node_modules"]
 }

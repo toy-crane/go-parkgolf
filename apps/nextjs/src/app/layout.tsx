@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
@@ -8,6 +9,7 @@ import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
 import { readUserSession } from "@/libs/auth";
 import { useUserStore } from "@/libs/store/user";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
 export const viewport = {
