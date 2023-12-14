@@ -8,10 +8,10 @@ import { env } from "./env.mjs";
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   // 최초 로그인 시, accessToken과 refreshToken을 기록하고 이후에는 쿠키를 사용
-  const accessToken = request.headers.get("AccessToken");
-  const refreshToken = request.headers.get("RefreshToken");
-  request.headers.delete("AccessToken");
-  request.headers.delete("RefreshToken");
+  const accessToken = request.headers.get("X-Access-Token");
+  const refreshToken = request.headers.get("X-Refresh-Token");
+  request.headers.delete("X-Access-Token");
+  request.headers.delete("X-Refresh-Token");
 
   const response = NextResponse.next({
     request: {

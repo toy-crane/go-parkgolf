@@ -120,8 +120,8 @@ export default function Home() {
           source={{
             uri: process.env.EXPO_PUBLIC_WEB_URL!,
             headers: {
-              AccessToken: session?.access_token ?? undefined,
-              RefreshToken: session?.refresh_token ?? undefined,
+              "X-Access-Token": session?.access_token ?? undefined,
+              "X-Refresh-Token": session?.refresh_token ?? undefined,
             },
           }}
           onMessage={async ({ nativeEvent: state }) => {
