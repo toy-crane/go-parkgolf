@@ -55,7 +55,7 @@ export async function middleware(request: NextRequest) {
     },
   );
 
-  // 웹뷰 로그인 페이지에서 로그인 처리
+  // 웹뷰 로그인 이후 token으로 로그인 처리
   if (pathname.startsWith("/")) {
     await supabase.auth.setSession({
       access_token: accessToken ?? "",
