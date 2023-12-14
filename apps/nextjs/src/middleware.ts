@@ -56,10 +56,10 @@ export async function middleware(request: NextRequest) {
   );
 
   // 웹뷰 로그인 이후 token으로 로그인 처리
-  if (pathname.startsWith("/")) {
+  if (pathname.startsWith("/") && accessToken && refreshToken) {
     await supabase.auth.setSession({
-      access_token: accessToken ?? "",
-      refresh_token: refreshToken ?? "",
+      access_token: accessToken,
+      refresh_token: refreshToken,
     });
     return response;
   }
