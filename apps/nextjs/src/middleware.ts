@@ -7,8 +7,13 @@ import { env } from "./env.mjs";
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  // 최초 로그인 시, accessToken과 refreshToken을 기록하고 이후에는 쿠키를 사용
+  const accessToken = request.headers.get("AccessToken");
+  const refreshToken = request.headers.get("RefreshToken");
+  request.headers.delete("AccessToken");
+  request.headers.delete("RefreshToken");
 
-  let response = NextResponse.next({
+  const response = NextResponse.next({
     request: {
       headers: request.headers,
     },
@@ -28,11 +33,6 @@ export async function middleware(request: NextRequest) {
             value,
             ...options,
           });
-          response = NextResponse.next({
-            request: {
-              headers: request.headers,
-            },
-          });
           response.cookies.set({
             name,
             value,
@@ -44,11 +44,6 @@ export async function middleware(request: NextRequest) {
             name,
             value: "",
             ...options,
-          });
-          response = NextResponse.next({
-            request: {
-              headers: request.headers,
-            },
           });
           response.cookies.set({
             name,
@@ -62,16 +57,10 @@ export async function middleware(request: NextRequest) {
 
   // 웹뷰 로그인 페이지에서 로그인 처리
   if (pathname.startsWith("/")) {
-    const accesToken = request.headers.get("AccessToken");
-    const refreshToken = request.headers.get("RefreshToken");
-
     await supabase.auth.setSession({
-      access_token: accesToken ?? "",
+      access_token: accessToken ?? "",
       refresh_token: refreshToken ?? "",
     });
-
-    // header에서 지우면 안되네?
-
     return response;
   }
   await supabase.auth.getSession();
