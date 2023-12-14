@@ -14,6 +14,7 @@ declare global {
 
 const KakaoForm = () => {
   const kakaoSignUp = async () => {
+    console.log("TODO: 기기 구분하기");
     window.ReactNativeWebView?.postMessage("kakaoSignUp");
     // const supabase = createSupabaseBrowerClient();
     // await supabase.auth.signInWithOAuth({
