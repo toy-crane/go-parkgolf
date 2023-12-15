@@ -93,7 +93,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
   const session = await readUserSession();
   useUserStore.setState({ user: session?.user });
 
-  // 모든 request가 webview에서 온 것이 아니기 때문에, webview에서 요청이 한 번이라도 왔을 때 해당 브라우저를 webview로 인식
+  // 모든 최초 webview request에만 custom header가 있기에, 요청이 한 번 왔을 때 해당 브라우저를 webview로 인식
   const isMobileApp = headers().get("X-Is-Mobile-App") === "true";
   if (isMobileApp) {
     useUserAgentStore.setState({ isMobileApp });
