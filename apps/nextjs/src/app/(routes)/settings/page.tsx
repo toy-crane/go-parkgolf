@@ -9,20 +9,13 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { User } from "lucide-react";
 
-const CUSTOMER_CENTER_MENU = [
-  {
-    href: "/inquiry",
-    title: "1:1 문의",
-  },
-];
-
 const ETC_MENU = [
   {
-    href: "/terms",
+    href: "https://toycrane.notion.site/f6000220f9614c4fab076b332d8b6526?pvs=4",
     title: "이용약관",
   },
   {
-    href: "/privacy",
+    href: "https://toycrane.notion.site/5cf165a1957e4c01afb5b2665bb34306?pvs=4",
     title: "개인정보 처리방침",
   },
 ];
@@ -84,6 +77,8 @@ const Page = async () => {
               <Link
                 key={href}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
                   "hover:bg-muted justify-start px-2 hover:underline",
