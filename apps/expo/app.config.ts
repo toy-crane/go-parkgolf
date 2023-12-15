@@ -37,7 +37,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   android: {
     package: IS_DEV ? "app.goparkgolf.www.dev" : "app.goparkgolf.www",
-    versionCode: 2,
+    versionCode: 3,
     adaptiveIcon: {
       foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#1F104A",
