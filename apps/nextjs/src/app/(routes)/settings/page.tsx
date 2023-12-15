@@ -63,20 +63,17 @@ const Page = async () => {
           <h3 className="px-2 text-lg font-medium">고객센터</h3>
           <Separator />
           <div className="flex flex-col">
-            {CUSTOMER_CENTER_MENU.map(({ href, title }) => (
-              <Link
-                key={href}
-                href={"https://forms.gle/NG8xkijGGzjo15979"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "hover:bg-muted justify-start px-2 hover:underline",
-                )}
-              >
-                {title}
-              </Link>
-            ))}
+            <Link
+              href={"https://forms.gle/NG8xkijGGzjo15979"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "hover:bg-muted justify-start px-2 hover:underline",
+              )}
+            >
+              1:1 문의
+            </Link>
           </div>
         </div>
         <div className="space-y-2">
