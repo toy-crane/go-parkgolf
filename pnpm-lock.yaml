@@ -177,6 +177,9 @@ importers:
       '@amplitude/analytics-browser':
         specifier: ^2.3.2
         version: 2.3.2
+      '@amplitude/analytics-node':
+        specifier: ^1.3.4
+        version: 1.3.4
       '@hookform/resolvers':
         specifier: ^3.3.2
         version: 3.3.2(react-hook-form@7.48.2)
@@ -518,11 +521,30 @@ packages:
     resolution: {integrity: sha512-T8mOYzB9RRxckzhL0NTHwdge9xuFxXEOplC8B1Y3UX3NHa3BLh7DlBUZlCOwQgMc2nxDfnSweDL5S3bhC+W90g==}
     dev: false
 
+  /@amplitude/analytics-core@1.2.4:
+    resolution: {integrity: sha512-i4wx7hhjx0vjpudx21UTIM0Uxn+yL7P82Uh4NHxIGVVrTmPG9f9lZvdLQRbYg229CwH9FnmLCAiicRtTTtnq7g==}
+    dependencies:
+      '@amplitude/analytics-types': 1.3.3
+      tslib: 2.5.0
+    dev: false
+
   /@amplitude/analytics-core@2.0.5:
     resolution: {integrity: sha512-ke937QKOHFeUuQxwu5fQ5X9x9KUJoe+5XnJ589Fuz0VStWwqQZl7AkgSe85cX45z0bMUdbG7q8u9y/9uaqf2SQ==}
     dependencies:
       '@amplitude/analytics-types': 2.2.0
       tslib: 2.5.0
+    dev: false
+
+  /@amplitude/analytics-node@1.3.4:
+    resolution: {integrity: sha512-R0H+fYV5KIfl1Q1symBynfTDiylLD7JfvIOFl0oZBynvFwg6v93xh09nG/oDqIQcnvn5fzlSjusXcMGebPjRYw==}
+    dependencies:
+      '@amplitude/analytics-core': 1.2.4
+      '@amplitude/analytics-types': 1.3.3
+      tslib: 2.5.0
+    dev: false
+
+  /@amplitude/analytics-types@1.3.3:
+    resolution: {integrity: sha512-V4/h+izhG7NyVfIva1uhe6bToI/l5n+UnEomL3KEO9DkFoKiOG7KmXo/fmzfU6UmD1bUEWmy//hUFF16BfrEww==}
     dev: false
 
   /@amplitude/analytics-types@2.2.0:

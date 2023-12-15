@@ -11,8 +11,11 @@ import { readUserSession } from "@/libs/auth";
 import { useUserStore } from "@/libs/store/user";
 import { useUserAgentStore } from "@/libs/store/user-agent";
 import { cn } from "@/libs/tailwind";
+import { Identify, identify, init } from "@amplitude/analytics-node";
 
 import UserAgentStoreInitializer from "./user-agent-store-initializer";
+
+init(env.NEXT_PUBLIC_AMPLITUDE_API_KEY);
 
 export const viewport = {
   width: "device-width",
@@ -93,6 +96,13 @@ export default async function Layout(props: { children: React.ReactNode }) {
   const session = await readUserSession();
   useUserStore.setState({ user: session?.user });
 
+  // 로그인 시에 amplitude에 user_id를 전송
+  if (session?.user) {
+    identify(new Identify(), {
+      user_id: session?.user?.id,
+    });
+  }
+
   // 모든 최초 webview request에만 custom header가 있기에, 요청이 한 번 왔을 때 해당 브라우저를 webview로 인식
   const isMobileApp = headers().get("X-Is-Mobile-App") === "true";
   if (isMobileApp) {
@@ -101,7 +111,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="ko">
-      <AmplitudeProvider apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}>
+      <AmplitudeProvider
+        apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}
+        user={session?.user}
+      >
         <UserAgentStoreInitializer isMobileApp={isMobileApp} />
         <body className={cn("bg-backgroundfont-sans antialiased")}>
           {props.children}

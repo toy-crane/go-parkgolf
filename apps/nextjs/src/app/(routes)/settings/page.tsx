@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
+import { Identify, identify } from "@amplitude/analytics-node";
 import { User } from "lucide-react";
 
 const ETC_MENU = [
@@ -29,6 +30,9 @@ const Page = async () => {
     "use server";
     const supabase = await createSupabaseServerClient();
     await supabase.auth.signOut();
+    identify(new Identify(), {
+      user_id: undefined,
+    });
     redirect("/");
   };
 
