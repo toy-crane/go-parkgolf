@@ -1,7 +1,9 @@
 import type { ExpoConfig } from "@expo/config";
 
+const IS_DEV = process.env.APP_VARIANT === "development";
+
 const defineConfig = (): ExpoConfig => ({
-  name: "파크골프 가자",
+  name: IS_DEV ? "파크골프 가자(DEV)" : "파크골프 가자",
   slug: "goparkgolf",
   scheme: "goparkgolf",
   version: "1.0.1",
@@ -34,8 +36,8 @@ const defineConfig = (): ExpoConfig => ({
     },
   },
   android: {
-    package: "app.goparkgolf.www",
-    versionCode: 1,
+    package: IS_DEV ? "app.goparkgolf.www.dev" : "app.goparkgolf.www",
+    versionCode: 2,
     adaptiveIcon: {
       foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#1F104A",

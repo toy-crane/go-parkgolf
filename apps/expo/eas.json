@@ -15,12 +15,18 @@
       "distribution": "internal",
       "ios": {
         "simulator": true
+      },
+      "env": {
+        "APP_VARIANT": "development"
       }
     },
     "development": {
       "extends": "base",
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "APP_VARIANT": "development"
+      }
     },
     "preview": {
       "extends": "base",
