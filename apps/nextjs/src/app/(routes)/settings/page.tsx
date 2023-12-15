@@ -92,15 +92,18 @@ const Page = async () => {
                 {title}
               </Link>
             ))}
-            <form action={logout}>
-              <Button
-                variant="ghost"
-                className="hover:bg-muted block w-full justify-start px-2 text-left hover:underline"
-              >
-                로그아웃
-              </Button>
-            </form>
           </div>
+        </div>
+        <div className="space-y-2">
+          <Separator />
+          <form action={logout}>
+            <Button
+              variant="ghost"
+              className="hover:bg-muted block w-full justify-start px-2 text-left hover:underline"
+            >
+              로그아웃
+            </Button>
+          </form>
         </div>
       </div>
     </section>
