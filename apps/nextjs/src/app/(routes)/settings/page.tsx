@@ -66,7 +66,9 @@ const Page = async () => {
             {CUSTOMER_CENTER_MENU.map(({ href, title }) => (
               <Link
                 key={href}
-                href={href}
+                href={"https://forms.gle/NG8xkijGGzjo15979"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
                   "hover:bg-muted justify-start px-2 hover:underline",
