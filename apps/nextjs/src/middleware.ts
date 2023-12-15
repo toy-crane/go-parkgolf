@@ -10,12 +10,17 @@ export async function middleware(request: NextRequest) {
   // 최초 로그인 시, accessToken과 refreshToken을 기록하고 이후에는 쿠키를 사용
   const accessToken = request.headers.get("X-Access-Token");
   const refreshToken = request.headers.get("X-Refresh-Token");
-  request.headers.delete("X-Access-Token");
-  request.headers.delete("X-Refresh-Token");
+
+  const requestHeaders = new Headers(request.headers);
+  // x-pathname 헤더를 추가하여 요청 URL을 기록
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  // 사용한 accessToken과 refreshToken은 삭제
+  requestHeaders.delete("X-Access-Token");
+  requestHeaders.delete("X-Refresh-Token");
 
   const response = NextResponse.next({
     request: {
-      headers: request.headers,
+      headers: requestHeaders,
     },
   });
 
