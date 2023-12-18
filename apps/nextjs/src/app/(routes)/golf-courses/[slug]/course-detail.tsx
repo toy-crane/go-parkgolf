@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
@@ -101,124 +102,149 @@ const CourseDetail = ({
           level={6} // 지도의 확대 레벨
         />
       </section>
-      <section className="mb-20 flex w-full flex-col">
-        <h1 className="text-foreground mb-4 text-3xl font-bold">
-          {course.name}
-        </h1>
-        <div className="flex flex-col gap-1">
-          <Label title="위치" content={address?.address_name} />
-          <Label title="규모" content={`${course?.hole_count} 홀`} />
-        </div>
-        <Separator className="my-5" />
-        <h2 className="text-foreground mb-2 text-xl font-bold">운영 시간</h2>
-        <div className="flex flex-col gap-1">
-          <Label
-            title="영업시간"
-            content={
-              operation?.opening_hours ??
-              InfoNeeded({
-                href: generateFormUrl(course.name),
-              })
-            }
-          />
-          <Label
-            title="정기 휴무일"
-            content={
-              operation?.regular_closed_days ??
-              InfoNeeded({
-                href: generateFormUrl(course.name),
-              })
-            }
-          />
-        </div>
-        <Separator className="my-5" />
-        <h2 className="text-foreground mb-2 text-xl font-bold">연락처</h2>
-        <div className="flex flex-col gap-1">
-          <Label
-            title="담당자 전화번호"
-            content={
-              contact?.phone_number ? (
-                <a
-                  href={`tel:${contact?.phone_number}`}
-                  className="text-blue-400"
-                >
-                  {contact?.phone_number}
-                </a>
-              ) : (
-                InfoNeeded({
-                  href: generateFormUrl(course.name),
-                })
-              )
-            }
-          />
-        </div>
-        <Separator className="my-5" />
-        <h2 className="text-foreground mb-2 text-xl font-bold">이용 방법</h2>
-        <div className="flex flex-col gap-1">
-          <Label
-            title="예약 방법"
-            content={
-              operation?.registration_method ??
-              InfoNeeded({
-                href: generateFormUrl(course.name),
-              })
-            }
-          />
-          <Label
-            title="홈페이지"
-            content={
-              operation?.website ? (
-                <a href={operation?.website} className="text-blue-400">
-                  상세 페이지 바로가기
-                </a>
-              ) : (
-                InfoNeeded({
-                  href: generateFormUrl(course.name),
-                })
-              )
-            }
-          />
-        </div>
-        {nearCourses.length > 0 && (
-          <>
-            <Separator className="mb-14 mt-5" />
-            <h2 className="text-foreground mb-6 text-xl font-bold">
-              주변 파크 골프장 둘러보기
+      <h1 className="text-foreground mb-4 text-3xl font-bold">{course.name}</h1>
+      <Tabs defaultValue="home" className="mb-20">
+        <TabsList className="flex">
+          <TabsTrigger value="home" className="flex-1">
+            홈
+          </TabsTrigger>
+          <TabsTrigger value="review" className="flex-1">
+            리뷰
+          </TabsTrigger>
+          <TabsTrigger value="near" className="flex-1">
+            주변
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="home" className="space-y-6">
+          <div className="my-6 flex flex-col gap-1">
+            <Label title="위치" content={address?.address_name} />
+            <Label title="규모" content={`${course?.hole_count} 홀`} />
+          </div>
+          <Separator />
+          <div className="space-y-3">
+            <h2 className="text-foreground text-xl font-bold">운영 시간</h2>
+            <div className="flex flex-col gap-1">
+              <Label
+                title="영업시간"
+                content={
+                  operation?.opening_hours ??
+                  InfoNeeded({
+                    href: generateFormUrl(course.name),
+                  })
+                }
+              />
+              <Label
+                title="정기 휴무일"
+                content={
+                  operation?.regular_closed_days ??
+                  InfoNeeded({
+                    href: generateFormUrl(course.name),
+                  })
+                }
+              />
+            </div>
+          </div>
+          <Separator />
+          <div className="space-y-3">
+            <h2 className="text-foreground text-xl font-bold">연락처</h2>
+            <div className="flex flex-col gap-1">
+              <Label
+                title="담당자 전화번호"
+                content={
+                  contact?.phone_number ? (
+                    <a
+                      href={`tel:${contact?.phone_number}`}
+                      className="text-blue-400"
+                    >
+                      {contact?.phone_number}
+                    </a>
+                  ) : (
+                    InfoNeeded({
+                      href: generateFormUrl(course.name),
+                    })
+                  )
+                }
+              />
+            </div>
+          </div>
+          <Separator />
+          <div className="space-y-3">
+            <h2 className="text-foreground mb-2 text-xl font-bold">
+              이용 방법
             </h2>
-            <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
-              {nearCourses.map((course) => (
+            <div className="flex flex-col gap-1">
+              <Label
+                title="예약 방법"
+                content={
+                  operation?.registration_method ??
+                  InfoNeeded({
+                    href: generateFormUrl(course.name),
+                  })
+                }
+              />
+              <Label
+                title="홈페이지"
+                content={
+                  operation?.website ? (
+                    <a href={operation?.website} className="text-blue-400">
+                      상세 페이지 바로가기
+                    </a>
+                  ) : (
+                    InfoNeeded({
+                      href: generateFormUrl(course.name),
+                    })
+                  )
+                }
+              />
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value="review">Change your password here.</TabsContent>
+        <TabsContent value="near" className="space-y-6">
+          <div className="my-6">
+            {nearCourses.length > 0 && (
+              <div className="space-y-3">
+                <h2 className="text-foreground text-xl font-bold">
+                  주변 파크 골프장 둘러보기
+                </h2>
+                <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
+                  {nearCourses.map((course) => (
+                    <Link
+                      href={`/golf-courses/${course.slug}`}
+                      key={course.name}
+                      onClick={() => track("near link clicked")}
+                    >
+                      {course.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <Separator />
+          <div className="space-y-3">
+            <h2 className="text-foreground text-xl font-bold">
+              전국의 다른 파크골프장 살펴보기
+            </h2>
+            <div className="mb-16 grid grid-cols-2 gap-y-3 md:grid-cols-3">
+              {MAJOR_REGIONS.map((region) => (
                 <Link
-                  href={`/golf-courses/${course.slug}`}
-                  key={course.name}
-                  onClick={() => track("near link clicked")}
+                  href={`/?${new URLSearchParams({
+                    level: String(region.level),
+                    lng: region.lng,
+                    lat: region.lat,
+                  }).toString()}`}
+                  key={region.name}
+                  onClick={() => track("region link clicked")}
                 >
-                  {course.name}
+                  {region.name === "전국" ? region.name : `${region.name}`} 파크
+                  골프장
                 </Link>
               ))}
             </div>
-          </>
-        )}
-        <Separator className="my-14" />
-        <h2 className="text-foreground mb-6 text-xl font-bold">
-          전국의 다른 파크골프장 살펴보기
-        </h2>
-        <div className="mb-16 grid grid-cols-2 gap-y-3 md:grid-cols-3">
-          {MAJOR_REGIONS.map((region) => (
-            <Link
-              href={`/?${new URLSearchParams({
-                level: String(region.level),
-                lng: region.lng,
-                lat: region.lat,
-              }).toString()}`}
-              key={region.name}
-              onClick={() => track("region link clicked")}
-            >
-              {region.name === "전국" ? region.name : `${region.name}`} 파크
-              골프장
-            </Link>
-          ))}
-        </div>
-      </section>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
