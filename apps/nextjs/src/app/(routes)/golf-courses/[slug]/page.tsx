@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import BottomNav from "@/components/nav/bottom";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
@@ -116,6 +117,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       <Nav course={currentCourse} />
       <CourseDetail course={currentCourse} nearCourses={nearCourses} />
+      <BottomNav />
     </>
   );
 }
