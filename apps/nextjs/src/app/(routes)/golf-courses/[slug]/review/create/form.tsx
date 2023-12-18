@@ -85,7 +85,10 @@ const ReviewForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 pt-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-10 pb-12 pt-8"
+      >
         <div className="space-y-4">
           {RatingItems.map((item) => (
             <FormField
@@ -149,15 +152,17 @@ const ReviewForm = ({
             관리자에 의해 삭제될 수 있습니다.
           </p>
         </div>
-        <Button type="submit" size="lg" className="w-full" disabled={isPending}>
-          {isPending ? (
-            <Loader2 className="h-5 w-5 animate-spin" size={24} />
-          ) : review ? (
-            "수정"
-          ) : (
-            "등록"
-          )}
-        </Button>
+        <div className="bottom-cta content-grid">
+          <Button type="submit" size="lg" disabled={isPending}>
+            {isPending ? (
+              <Loader2 className="h-5 w-5 animate-spin" size={24} />
+            ) : review ? (
+              "수정"
+            ) : (
+              "등록"
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );
