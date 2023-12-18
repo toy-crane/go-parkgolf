@@ -32,7 +32,7 @@ const AmplitudeProvider = ({
     if (user?.id) {
       amplitude?.setUserId(user?.id);
     } else {
-      amplitude.reset();
+      amplitude?.reset();
     }
   }, [user]);
 
