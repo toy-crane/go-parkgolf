@@ -416,7 +416,7 @@ export interface Database {
           avatar_url: string
           created_at?: string
           email: string
-          id?: string
+          id: string
           name: string
           username: string
         }
@@ -428,14 +428,29 @@ export interface Database {
           name?: string
           username?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "users_id_fkey"
+            columns: ["id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      delete_user: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      deleteUser: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
     }
     Enums: {
       game_status: "draft" | "in_progress" | "completed" | "deleted"

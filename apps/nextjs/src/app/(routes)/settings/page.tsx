@@ -36,6 +36,13 @@ const Page = async () => {
     redirect("/");
   };
 
+  const deleteUser = async () => {
+    "use server";
+    const supabase = await createSupabaseServerClient();
+    await supabase.rpc("delete_user");
+    await supabase.auth.signOut();
+  };
+
   return (
     <section className="space-y-8">
       <PageHeader>
@@ -101,6 +108,14 @@ const Page = async () => {
               className="hover:bg-muted block w-full justify-start px-2 text-left hover:underline"
             >
               로그아웃
+            </Button>
+          </form>
+          <form action={deleteUser}>
+            <Button
+              variant="ghost"
+              className="block w-full justify-start px-2 text-left hover:underline"
+            >
+              회원탈퇴
             </Button>
           </form>
         </div>
