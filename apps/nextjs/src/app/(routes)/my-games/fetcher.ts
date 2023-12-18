@@ -1,7 +1,5 @@
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import { Tables } from "@/types/generated";
 import camelcaseKeys from "camelcase-keys";
-import type camalcaseKeys from "camelcase-keys";
 
 export const getMyGames = async () => {
   const supabase = await createSupabaseServerClientReadOnly();

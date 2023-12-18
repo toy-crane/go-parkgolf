@@ -309,6 +309,9 @@ importers:
       react-wrap-balancer:
         specifier: ^1.1.0
         version: 1.1.0(react@18.2.0)
+      snake-case:
+        specifier: ^4.0.0
+        version: 4.0.0
       snakecase-keys:
         specifier: ^5.5.0
         version: 5.5.0
@@ -10181,6 +10184,11 @@ packages:
       lower-case: 2.0.2
       tslib: 2.5.0
 
+  /no-case@4.0.0:
+    resolution: {integrity: sha512-WmS3EUGw+vXHlTgiUPi3NzbZNwH6+uGX0QLGgqG+aFSJ5rkX/Ee0nuwHBJfZTfQwwR8lGO819NEIwQ7CGhkdEQ==}
+    deprecated: Use `change-case`
+    dev: false
+
   /nocache@3.0.4:
     resolution: {integrity: sha512-WDD0bdg9mbq6F4mRxEYcPWwfA1vxd0mrvKOyxI7Xj/atfRHVeutzuWByG//jfm4uPzp0y4Kj051EORCBSQMycw==}
     engines: {node: '>=12.0.0'}
@@ -12063,6 +12071,13 @@ packages:
     dependencies:
       dot-case: 3.0.4
       tslib: 2.5.0
+
+  /snake-case@4.0.0:
+    resolution: {integrity: sha512-slvG6efKZ3GYUUZdhPOq/lLIqutwQ4TdPViD1VKqsbf0u76U/aPRswPKjOaAS9T7fAPmRmXuN6C/nM0xsMaFLQ==}
+    deprecated: Use `change-case`
+    dependencies:
+      no-case: 4.0.0
+    dev: false
 
   /snakecase-keys@5.5.0:
     resolution: {integrity: sha512-r3kRtnoPu3FxGJ3fny6PKNnU3pteb29o6qAa0ugzhSseKNWRkw1dw8nIjXMyyKaU9vQxxVIE62Mb3bKbdrgpiw==}

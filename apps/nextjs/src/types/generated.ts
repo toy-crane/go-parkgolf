@@ -306,6 +306,54 @@ export interface Database {
         }
         Relationships: []
       }
+      golf_course_reviews: {
+        Row: {
+          course_condition_rating: number
+          course_difficulty_rating: number
+          created_at: string
+          facilities_rating: number
+          golf_course_id: number
+          id: string
+          text: string
+          user_id: string
+        }
+        Insert: {
+          course_condition_rating: number
+          course_difficulty_rating: number
+          created_at?: string
+          facilities_rating: number
+          golf_course_id: number
+          id?: string
+          text: string
+          user_id?: string
+        }
+        Update: {
+          course_condition_rating?: number
+          course_difficulty_rating?: number
+          created_at?: string
+          facilities_rating?: number
+          golf_course_id?: number
+          id?: string
+          text?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "golf_course_reviews_golf_course_id_fkey"
+            columns: ["golf_course_id"]
+            isOneToOne: false
+            referencedRelation: "golf_course"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "golf_course_reviews_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       operation: {
         Row: {
           golf_course_id: number | null
