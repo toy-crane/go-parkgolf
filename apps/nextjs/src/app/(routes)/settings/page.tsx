@@ -10,6 +10,8 @@ import { cn } from "@/libs/tailwind";
 import { Identify, identify } from "@amplitude/analytics-node";
 import { User } from "lucide-react";
 
+import DeleteAlert from "./delete-alert";
+
 const ETC_MENU = [
   {
     href: "https://toycrane.notion.site/f6000220f9614c4fab076b332d8b6526?pvs=4",
@@ -34,13 +36,6 @@ const Page = async () => {
       user_id: undefined,
     });
     redirect("/");
-  };
-
-  const deleteUser = async () => {
-    "use server";
-    const supabase = await createSupabaseServerClient();
-    await supabase.rpc("delete_user");
-    await supabase.auth.signOut();
   };
 
   return (
@@ -110,14 +105,7 @@ const Page = async () => {
               로그아웃
             </Button>
           </form>
-          <form action={deleteUser}>
-            <Button
-              variant="ghost"
-              className="block w-full justify-start px-2 text-left hover:underline"
-            >
-              회원탈퇴
-            </Button>
-          </form>
+          <DeleteAlert />
         </div>
       </div>
     </section>
