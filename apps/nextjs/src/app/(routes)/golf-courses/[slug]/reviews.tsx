@@ -13,6 +13,8 @@ import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import { ChevronRight } from "lucide-react";
 
+import ReviewContent from "./review-content";
+
 const supabase = createSupabaseBrowerClient();
 
 const Reviews = ({
@@ -54,7 +56,7 @@ const Reviews = ({
             리뷰를 등록해 주세요
           </span>
           <Button
-            onClick={() => router.push(`/golf-courses/${slug}/review/create`)}
+            onClick={() => router.push(`/golf-courses/${slug}/reviews/create`)}
           >
             첫 리뷰 등록하기
           </Button>
@@ -110,16 +112,7 @@ const Reviews = ({
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-1">
-              <p className="line-clamp-2 text-sm">{review.text}</p>
-              <div className="flex justify-end">
-                <Button size="sm" variant="ghost" asChild>
-                  <Link href={`/golf-courses/${slug}/reviews/${review.id}`}>
-                    자세히 보기 <ChevronRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
+            <ReviewContent text={review.text} />
           </CardContent>
         </Card>
       ))}
