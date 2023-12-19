@@ -12,7 +12,7 @@ import createSupabaseBrowerClient from "@/libs/supabase/client";
 import type { Tables } from "@/types/generated";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import { ChevronRight } from "lucide-react";
+import { Pencil } from "lucide-react";
 
 import ReviewContent from "./review-content";
 
@@ -28,6 +28,7 @@ const Reviews = ({
   const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState<Tables<"golf_course_reviews">[]>([]);
   const router = useRouter();
+  const user = useUserStore((state) => state.user);
 
   useEffect(() => {
     getReviews();
@@ -75,11 +76,22 @@ const Reviews = ({
                 <p className="text-sm font-medium leading-none">Sofia Davis</p>
               </div>
             </div>
-            <div>
-              {formatDistanceToNow(new Date(review.created_at), {
-                addSuffix: true,
-                locale: ko,
-              })}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-normal">
+                {formatDistanceToNow(new Date(review.created_at), {
+                  addSuffix: true,
+                  locale: ko,
+                })}
+              </span>
+              <div className="flex flex-col gap-2">
+                {user?.id === review.user_id && (
+                  <Button size="sm" asChild>
+                    <Link href={`/golf-courses/${slug}/reviews/create`}>
+                      수정
+                    </Link>
+                  </Button>
+                )}
+              </div>
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
