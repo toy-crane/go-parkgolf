@@ -70,7 +70,7 @@ const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
             <ReviewRating review={review} />
             <ReviewContent text={review.text} />
           </CardContent>
-          <CardFooter className="justify-end gap-1">
+          <CardFooter className="justify-end gap-2">
             {user?.id === review.user_id && (
               <Button size="sm" asChild>
                 <Link href={`/golf-courses/${slug}/reviews/create`}>
