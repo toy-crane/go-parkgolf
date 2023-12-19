@@ -16,6 +16,7 @@ import { ko } from "date-fns/locale";
 import Balancer from "react-wrap-balancer";
 
 import ReviewContent from "./review-content";
+import ReviewDeleteAlert from "./review-delete-alert";
 import ReviewRating from "./review-rating";
 import type { Review } from "./types";
 
@@ -69,7 +70,7 @@ const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
             <ReviewRating review={review} />
             <ReviewContent text={review.text} />
           </CardContent>
-          <CardFooter className="justify-end">
+          <CardFooter className="justify-end gap-1">
             {user?.id === review.user_id && (
               <Button size="sm" asChild>
                 <Link href={`/golf-courses/${slug}/reviews/create`}>
@@ -77,6 +78,7 @@ const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
                 </Link>
               </Button>
             )}
+            <ReviewDeleteAlert golfCourseReviewId={review.id} />
           </CardFooter>
         </Card>
       ))}

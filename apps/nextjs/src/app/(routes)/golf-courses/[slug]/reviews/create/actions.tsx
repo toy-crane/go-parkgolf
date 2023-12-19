@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import type { Tables } from "@/types/generated";
 import snakecaseKeys from "snakecase-keys";
@@ -23,4 +24,5 @@ export const createGolfCourseReview = async (
     { onConflict: "golf_course_id, user_id" },
   );
   if (response.error) throw response.error;
+  revalidatePath("/golf-courses/[slug]", "page");
 };
