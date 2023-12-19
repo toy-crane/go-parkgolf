@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -12,51 +11,17 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { useUserStore } from "@/libs/store/user";
-import createSupabaseBrowerClient from "@/libs/supabase/client";
-import type { Tables } from "@/types/generated";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import Balancer from "react-wrap-balancer";
 
 import ReviewContent from "./review-content";
 import ReviewRating from "./review-rating";
+import type { Review } from "./types";
 
-const supabase = createSupabaseBrowerClient();
-
-type Review = Tables<"golf_course_reviews"> & {
-  profiles?: Tables<"profiles"> | null;
-};
-
-const Reviews = ({
-  golfCourseId,
-  slug,
-}: {
-  golfCourseId: number;
-  slug: string;
-}) => {
-  const [loading, setLoading] = useState(true);
-  const [reviews, setReviews] = useState<Review[]>([]);
+const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
   const router = useRouter();
   const user = useUserStore((state) => state.user);
-
-  useEffect(() => {
-    getReviews();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  async function getReviews() {
-    const { data, error } = await supabase
-      .from("golf_course_reviews")
-      .select("*, profiles(*)")
-      .eq("golf_course_id", golfCourseId);
-    if (error) throw error;
-    setReviews(data);
-    setLoading(false);
-  }
-
-  if (loading) {
-    return null;
-  }
 
   return (
     <div>

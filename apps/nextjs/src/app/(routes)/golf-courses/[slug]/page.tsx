@@ -4,7 +4,7 @@ import BottomNav from "@/components/nav/bottom";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
-import { GetCourses } from "./action";
+import { GetCourses, GetReviews } from "./action";
 import CourseDetail from "./course-detail";
 import Nav from "./nav";
 
@@ -100,6 +100,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   if (currentCourse === undefined) return notFound();
 
+  const reviews = await GetReviews(currentCourse?.id);
+
   const nearCourses = allCoursesExcludeMe.filter((course) => {
     const courseLat = course.address[0]?.y ?? 0;
     const courseLng = course.address[0]?.x ?? 0;
@@ -116,7 +118,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <Nav course={currentCourse} />
-      <CourseDetail course={currentCourse} nearCourses={nearCourses} />
+      <CourseDetail
+        course={currentCourse}
+        nearCourses={nearCourses}
+        reviews={reviews}
+      />
       <BottomNav />
     </>
   );

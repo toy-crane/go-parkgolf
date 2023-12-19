@@ -13,6 +13,7 @@ import { ArrowLeft, Pencil, Share2 } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 import Reviews from "./reviews";
+import type { Review } from "./types";
 
 interface CardProps {
   title: string;
@@ -67,9 +68,11 @@ const InfoNeeded = ({ href }: { href: string }) => {
 const CourseDetail = ({
   course,
   nearCourses,
+  reviews,
 }: {
   course: Course;
   nearCourses: Course[];
+  reviews: Review[];
 }) => {
   const { track } = useAmplitude();
 
@@ -202,7 +205,7 @@ const CourseDetail = ({
           </div>
         </TabsContent>
         <TabsContent value="review" className="space-y-6">
-          <Reviews golfCourseId={course.id} slug={course.slug} />
+          <Reviews reviews={reviews} slug={course.slug} />
         </TabsContent>
         <TabsContent value="near" className="space-y-6">
           <div className="my-6">
