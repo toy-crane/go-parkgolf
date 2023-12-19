@@ -1,8 +1,9 @@
-"use client;";
+"use client";
 
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Balance from "react-wrap-balancer";
 
 const THRESHOLD_LENGTH = 100;
 
@@ -18,7 +19,7 @@ const ReviewContent = ({ text }: { text: string }) => {
   return (
     <div className="flex flex-col gap-1">
       <p
-        className={`line-clamp-2 text-sm ${
+        className={`line-clamp-2 break-words text-sm ${
           isExpanded ? "line-clamp-none" : ""
         }`}
         ref={textRef}
