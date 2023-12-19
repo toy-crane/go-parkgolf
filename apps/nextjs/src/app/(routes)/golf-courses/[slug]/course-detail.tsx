@@ -12,6 +12,8 @@ import type { Course } from "@/types";
 import { ArrowLeft, Pencil, Share2 } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
+import Reviews from "./reviews";
+
 interface CardProps {
   title: string;
   content: string | React.ReactNode;
@@ -103,7 +105,7 @@ const CourseDetail = ({
         />
       </section>
       <h1 className="text-foreground mb-4 text-3xl font-bold">{course.name}</h1>
-      <Tabs defaultValue="home" className="mb-20">
+      <Tabs defaultValue="home" className="mb-28 space-y-4">
         <TabsList className="flex">
           <TabsTrigger value="home" className="flex-1">
             홈
@@ -199,7 +201,9 @@ const CourseDetail = ({
             </div>
           </div>
         </TabsContent>
-        <TabsContent value="review">Change your password here.</TabsContent>
+        <TabsContent value="review" className="space-y-6">
+          <Reviews golfCourseId={course.id} slug={course.slug} />
+        </TabsContent>
         <TabsContent value="near" className="space-y-6">
           <div className="my-6">
             {nearCourses.length > 0 && (
