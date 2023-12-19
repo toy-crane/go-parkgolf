@@ -5,7 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { useUserStore } from "@/libs/store/user";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import type { Tables } from "@/types/generated";
@@ -65,7 +70,7 @@ const Reviews = ({
       ) : null}
       {reviews.map((review) => (
         <Card key={review.id}>
-          <CardHeader className="flex flex-row items-center justify-between">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <div className="flex items-center space-x-4">
               <Avatar>
                 <AvatarImage src="/avatars/01.png" alt="Image" />
@@ -76,27 +81,27 @@ const Reviews = ({
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-normal">
+              <span className="flex-1 text-xs font-normal">
                 {formatDistanceToNow(new Date(review.created_at), {
                   addSuffix: true,
                   locale: ko,
                 })}
               </span>
-              <div className="flex flex-col gap-2">
-                {user?.id === review.user_id && (
-                  <Button size="sm" asChild>
-                    <Link href={`/golf-courses/${slug}/reviews/create`}>
-                      수정
-                    </Link>
-                  </Button>
-                )}
-              </div>
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <ReviewRating review={review} />
             <ReviewContent text={review.text} />
           </CardContent>
+          <CardFooter className="justify-end">
+            {user?.id === review.user_id && (
+              <Button size="sm" asChild>
+                <Link href={`/golf-courses/${slug}/reviews/create`}>
+                  수정하기
+                </Link>
+              </Button>
+            )}
+          </CardFooter>
         </Card>
       ))}
     </div>
