@@ -1,5 +1,6 @@
 "use client";
 
+import type { ChangeEvent } from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -25,7 +26,8 @@ const DeleteAlert = ({
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const onSubmit = async () => {
+  const onSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setLoading(true);
     const supabase = createSupabaseBrowerClient();
     const response = await supabase
@@ -34,7 +36,7 @@ const DeleteAlert = ({
       .match({ id: golfCourseReviewId });
     setLoading(false);
     if (response.error) throw response.error;
-    router.push("/");
+    router.refresh();
   };
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>

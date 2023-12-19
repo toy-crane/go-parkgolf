@@ -72,13 +72,15 @@ const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
           </CardContent>
           <CardFooter className="justify-end gap-2">
             {user?.id === review.user_id && (
-              <Button size="sm" asChild>
-                <Link href={`/golf-courses/${slug}/reviews/create`}>
-                  수정하기
-                </Link>
-              </Button>
+              <>
+                <Button size="sm" asChild>
+                  <Link href={`/golf-courses/${slug}/reviews/create`}>
+                    수정하기
+                  </Link>
+                </Button>
+                <ReviewDeleteAlert golfCourseReviewId={review.id} />
+              </>
             )}
-            <ReviewDeleteAlert golfCourseReviewId={review.id} />
           </CardFooter>
         </Card>
       ))}
