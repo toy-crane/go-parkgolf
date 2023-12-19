@@ -16,6 +16,7 @@ import createSupabaseBrowerClient from "@/libs/supabase/client";
 import type { Tables } from "@/types/generated";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
+import Balancer from "react-wrap-balancer";
 
 import ReviewContent from "./review-content";
 import ReviewRating from "./review-rating";
@@ -60,10 +61,9 @@ const Reviews = ({
   return (
     <div>
       {reviews.length === 0 ? (
-        <div className="mt-20 flex flex-col items-center justify-center gap-4">
+        <div className="mt-12 flex flex-col items-center justify-center gap-4 md:mt-20">
           <span className="text-center text-lg font-semibold">
-            다른 파크골퍼들을 위해 <br />
-            리뷰를 등록해 주세요
+            <Balancer>소중한 파크골프가자의 첫 리뷰를 작성해주세요</Balancer>
           </span>
           <Button
             onClick={() => router.push(`/golf-courses/${slug}/reviews/create`)}
