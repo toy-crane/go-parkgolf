@@ -18,7 +18,7 @@ const ReviewContent = ({ text }: { text: string }) => {
   return (
     <div className="flex flex-col gap-1">
       <p
-        className={`line-clamp-2 break-words text-sm ${
+        className={`line-clamp-3 break-words text-sm ${
           isExpanded ? "line-clamp-none" : ""
         }`}
         ref={textRef}

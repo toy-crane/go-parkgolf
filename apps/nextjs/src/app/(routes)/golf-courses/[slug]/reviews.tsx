@@ -22,6 +22,10 @@ import ReviewRating from "./review-rating";
 
 const supabase = createSupabaseBrowerClient();
 
+type Review = Tables<"golf_course_reviews"> & {
+  profiles?: Tables<"profiles"> | null;
+};
+
 const Reviews = ({
   golfCourseId,
   slug,
@@ -30,7 +34,7 @@ const Reviews = ({
   slug: string;
 }) => {
   const [loading, setLoading] = useState(true);
-  const [reviews, setReviews] = useState<Tables<"golf_course_reviews">[]>([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const router = useRouter();
   const user = useUserStore((state) => state.user);
 
@@ -42,7 +46,7 @@ const Reviews = ({
   async function getReviews() {
     const { data, error } = await supabase
       .from("golf_course_reviews")
-      .select("*")
+      .select("*, profiles(*)")
       .eq("golf_course_id", golfCourseId);
     if (error) throw error;
     setReviews(data);
@@ -71,13 +75,20 @@ const Reviews = ({
       {reviews.map((review) => (
         <Card key={review.id}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="/avatars/01.png" alt="Image" />
-                <AvatarFallback>OM</AvatarFallback>
+            <div className="flex items-center space-x-2">
+              <Avatar className="h-7 w-7">
+                <AvatarImage
+                  src={`${review.profiles?.avatar_url}`}
+                  alt="Image"
+                />
+                <AvatarFallback>
+                  {review.profiles?.username.split(" ")[0]}
+                </AvatarFallback>
               </Avatar>
               <div>
-                <p className="text-sm font-medium leading-none">Sofia Davis</p>
+                <p className="text-sm font-semibold leading-none">
+                  {review.profiles?.username}
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -89,7 +100,7 @@ const Reviews = ({
               </span>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-2">
             <ReviewRating review={review} />
             <ReviewContent text={review.text} />
           </CardContent>

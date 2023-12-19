@@ -17,7 +17,7 @@ const ReviewRating = ({
       review.facilities_rating) /
     3;
   return (
-    <>
+    <div className="space-y-2">
       <button
         onClick={() => setOpen((open) => !open)}
         className="flex items-center"
@@ -33,7 +33,7 @@ const ReviewRating = ({
         )}
       </button>
       {open && (
-        <div className="flex flex-col gap-1 md:flex-row md:gap-4">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-2">
           <div className="flex items-center gap-1">
             <span className="text-xs">코스 난이도</span>
             <div className="flex">
@@ -69,7 +69,7 @@ const ReviewRating = ({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
