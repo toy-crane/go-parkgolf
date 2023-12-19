@@ -25,7 +25,6 @@ const Reviews = ({
   const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState<Tables<"golf_course_reviews">[]>([]);
   const router = useRouter();
-  console.log(reviews);
 
   useEffect(() => {
     getReviews();
