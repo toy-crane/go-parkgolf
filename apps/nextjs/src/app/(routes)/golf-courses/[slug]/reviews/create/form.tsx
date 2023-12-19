@@ -152,17 +152,15 @@ const ReviewForm = ({
             관리자에 의해 삭제될 수 있습니다.
           </p>
         </div>
-        <div className="bottom-cta content-grid">
-          <Button type="submit" size="lg" disabled={isPending}>
-            {isPending ? (
-              <Loader2 className="h-5 w-5 animate-spin" size={24} />
-            ) : review ? (
-              "수정"
-            ) : (
-              "등록"
-            )}
-          </Button>
-        </div>
+        <Button type="submit" size="lg" disabled={isPending} className="w-full">
+          {isPending ? (
+            <Loader2 className="h-5 w-5 animate-spin" size={24} />
+          ) : review ? (
+            "수정"
+          ) : (
+            "등록"
+          )}
+        </Button>
       </form>
     </Form>
   );
