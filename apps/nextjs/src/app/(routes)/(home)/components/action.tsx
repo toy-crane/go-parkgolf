@@ -12,3 +12,14 @@ export const getGolfCourses = async () => {
   if (result.error) throw result.error;
   return result.data;
 };
+
+export const getGolfCourseReviews = async (courseId?: number) => {
+  const supabase = await createSupabaseServerClientReadOnly();
+  if (!courseId) return [];
+  const result = await supabase
+    .from("golf_course_reviews")
+    .select("*")
+    .eq("golf_course_id", courseId);
+  if (result.error) throw result.error;
+  return result.data;
+};

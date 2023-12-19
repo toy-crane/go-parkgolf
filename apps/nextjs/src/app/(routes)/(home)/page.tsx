@@ -1,7 +1,7 @@
 import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
-import { getGolfCourses } from "./components/action";
+import { getGolfCourseReviews, getGolfCourses } from "./components/action";
 import CourseSheet from "./components/course-sheet";
 import Footer from "./components/footer";
 import MainMap from "./components/main-map";
@@ -28,6 +28,7 @@ const Home = async ({
   const selectedCourse = courses.find(
     (course) => course.id === selectedCourseId,
   );
+  const reviews = await getGolfCourseReviews(selectedCourseId);
 
   const selectedCourseLat = selectedCourse?.address[0]?.y;
   const selectedCourseLng = selectedCourse?.address[0]?.x;
@@ -60,7 +61,11 @@ const Home = async ({
         />
       </section>
       <Footer />
-      <CourseSheet selectedCourse={selectedCourse} open={modalOpen} />
+      <CourseSheet
+        selectedCourse={selectedCourse}
+        open={modalOpen}
+        reviews={reviews}
+      />
     </>
   );
 };

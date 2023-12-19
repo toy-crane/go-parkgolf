@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -17,6 +18,7 @@ import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
 import type { Course } from "@/types";
+import type { Tables } from "@/types/generated";
 import {
   AlarmClock,
   Clock,
@@ -28,6 +30,7 @@ import {
 
 interface CourseSheetProps {
   selectedCourse?: Course;
+  reviews: Tables<"golf_course_reviews">[];
   open: boolean;
 }
 
@@ -42,7 +45,7 @@ const InfoNeeded = ({ href }: { href: string }) => {
   );
 };
 
-const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
+const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
   const router = useRouter();
   const { track } = useAmplitude();
   const searchParams = useSearchParams();
@@ -112,8 +115,24 @@ const CourseSheet = ({ selectedCourse, open }: CourseSheetProps) => {
               </div>
             </div>
           </SheetTitle>
-          <SheetDescription className="text-lg">
-            {address?.address_name}
+          <SheetDescription className="flex flex-col">
+            <span className="text-lg">{address?.address_name}</span>
+            {reviews.length > 0 && (
+              <div className="flex">
+                <div
+                  className="flex cursor-pointer items-center"
+                  onClick={() =>
+                    router.push(`/golf-courses/${selectedCourse?.slug}`)
+                  }
+                >
+                  <Icons.starFilled className="mr-[2px] h-4 w-4" />
+                  <span className="mr-2">
+                    {reviews[0]?.course_condition_rating}
+                  </span>
+                  <span>리뷰 {reviews.length}</span>
+                </div>
+              </div>
+            )}
           </SheetDescription>
         </SheetHeader>
         <Separator className="mb-4 mt-6" />
