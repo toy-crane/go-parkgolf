@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import Balance from "react-wrap-balancer";
 
 const THRESHOLD_LENGTH = 100;
 

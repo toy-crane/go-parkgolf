@@ -7,6 +7,7 @@ import { Icons } from "@/components/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useUserStore } from "@/libs/store/user";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import type { Tables } from "@/types/generated";
 import { formatDistanceToNow } from "date-fns";
@@ -87,8 +88,11 @@ const Reviews = ({
                 <span className="text-xs">코스 난이도</span>
                 <div className="flex">
                   {[...Array(review.course_difficulty_rating).keys()].map(
-                    (_) => (
-                      <Icons.starFilled className="h-4 w-4" key={review.id} />
+                    (key) => (
+                      <Icons.starFilled
+                        className="h-4 w-4"
+                        key={`${review.id}-${key}`}
+                      />
                     ),
                   )}
                 </div>
@@ -97,8 +101,11 @@ const Reviews = ({
                 <span className="text-xs">코스 상태</span>
                 <div className="flex">
                   {[...Array(review.course_condition_rating).keys()].map(
-                    (_) => (
-                      <Icons.starFilled className="h-4 w-4" key={review.id} />
+                    (key) => (
+                      <Icons.starFilled
+                        className="h-4 w-4"
+                        key={`${review.id}-${key}`}
+                      />
                     ),
                   )}
                 </div>
@@ -106,8 +113,11 @@ const Reviews = ({
               <div className="flex items-center gap-1">
                 <span className="text-xs">편의시설</span>
                 <div className="flex">
-                  {[...Array(review.facilities_rating).keys()].map((_) => (
-                    <Icons.starFilled className="h-4 w-4" key={review.id} />
+                  {[...Array(review.facilities_rating).keys()].map((key) => (
+                    <Icons.starFilled
+                      className="h-4 w-4"
+                      key={`${review.id}-${key}`}
+                    />
                   ))}
                 </div>
               </div>
