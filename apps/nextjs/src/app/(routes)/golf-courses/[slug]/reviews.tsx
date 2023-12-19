@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Icons } from "@/components/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -12,9 +11,9 @@ import createSupabaseBrowerClient from "@/libs/supabase/client";
 import type { Tables } from "@/types/generated";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import { Pencil } from "lucide-react";
 
 import ReviewContent from "./review-content";
+import ReviewRating from "./review-rating";
 
 const supabase = createSupabaseBrowerClient();
 
@@ -95,45 +94,7 @@ const Reviews = ({
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex flex-col gap-1 md:flex-row md:gap-4">
-              <div className="flex items-center gap-1">
-                <span className="text-xs">코스 난이도</span>
-                <div className="flex">
-                  {[...Array(review.course_difficulty_rating).keys()].map(
-                    (key) => (
-                      <Icons.starFilled
-                        className="h-4 w-4"
-                        key={`${review.id}-${key}`}
-                      />
-                    ),
-                  )}
-                </div>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-xs">코스 상태</span>
-                <div className="flex">
-                  {[...Array(review.course_condition_rating).keys()].map(
-                    (key) => (
-                      <Icons.starFilled
-                        className="h-4 w-4"
-                        key={`${review.id}-${key}`}
-                      />
-                    ),
-                  )}
-                </div>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-xs">편의시설</span>
-                <div className="flex">
-                  {[...Array(review.facilities_rating).keys()].map((key) => (
-                    <Icons.starFilled
-                      className="h-4 w-4"
-                      key={`${review.id}-${key}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ReviewRating review={review} />
             <ReviewContent text={review.text} />
           </CardContent>
         </Card>
