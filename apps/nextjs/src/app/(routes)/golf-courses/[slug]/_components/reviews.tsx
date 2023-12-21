@@ -23,10 +23,9 @@ const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
             첫 리뷰 등록하기
           </Button>
         </div>
-      ) : null}
-      {reviews.map((review) => (
-        <ReviewCard review={review} key={review.id} />
-      ))}
+      ) : (
+        reviews.map((review) => <ReviewCard review={review} key={review.id} />)
+      )}
     </div>
   );
 };
