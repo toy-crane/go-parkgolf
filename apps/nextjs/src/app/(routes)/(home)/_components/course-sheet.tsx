@@ -117,27 +117,37 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
           </SheetTitle>
           <SheetDescription className="flex flex-col">
             <span className="text-lg">{address?.address_name}</span>
-            {reviews.length > 0 && (
-              <div className="flex">
-                <div
-                  className="flex cursor-pointer items-center"
-                  onClick={() =>
-                    router.push(
-                      `/golf-courses/${selectedCourse?.slug}?tab=review`,
-                    )
-                  }
-                >
-                  <Icons.starFilled className="mr-[2px] h-4 w-4" />
-                  <span className="mr-2">
-                    {reviews[0]?.course_condition_rating}
-                  </span>
-                  <span>리뷰 {reviews.length}</span>
-                </div>
-              </div>
+            {reviews.length > 0 ? (
+              <button
+                className="flex cursor-pointer items-center"
+                onClick={() =>
+                  router.push(
+                    `/golf-courses/${selectedCourse?.slug}?tab=review`,
+                  )
+                }
+              >
+                <Icons.starFilled className="mr-[2px] h-4 w-4" />
+                <span className="mr-2">
+                  {reviews[0]?.course_condition_rating}
+                </span>
+                <span>리뷰 {reviews.length}</span>
+              </button>
+            ) : (
+              <button
+                className="text-secondary-foreground flex items-center gap-1 font-semibold"
+                onClick={() =>
+                  router.push(
+                    `/golf-courses/${selectedCourse?.slug}/reviews/create`,
+                  )
+                }
+              >
+                <span>리뷰 작성하기</span>
+                <Pencil className="h-3 w-3" />
+              </button>
             )}
           </SheetDescription>
         </SheetHeader>
-        <Separator className="mb-4 mt-6" />
+        <Separator className="mb-4 mt-4" />
         <div className="grid w-full items-center">
           <div className="flex items-center gap-4">
             <FlagTriangleRight size={20} />
