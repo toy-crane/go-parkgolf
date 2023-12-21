@@ -191,7 +191,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
           </div>
           <Separator className="my-2" />
           <div className="mb-3 flex items-center gap-4">
-            <AlarmClock size={20} />
+            <AlarmClock size={20} className="shrink-0" />
             <div className="text-base">
               <div className="flex">
                 <div className="mr-2 flex-shrink-0">예약 방법 - </div>
