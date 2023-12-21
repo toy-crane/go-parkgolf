@@ -13,7 +13,7 @@ const BottomNav = () => {
   const isSettings = pathname === "/settings";
 
   return (
-    <header className="content-grid z-bottom-nav h-bottom-nav fixed bottom-0 w-full border-t bg-white">
+    <footer className="content-grid z-bottom-nav h-bottom-nav fixed bottom-0 w-full border-t bg-white">
       <nav className="flex items-center justify-around px-2">
         <Link
           href="/"
@@ -62,7 +62,7 @@ const BottomNav = () => {
           </span>
         </Link>
       </nav>
-    </header>
+    </footer>
   );
 };
 

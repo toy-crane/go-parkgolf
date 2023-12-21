@@ -16,11 +16,11 @@ const Footer = () => {
     !userAgent.match(exceptionRegex) && Boolean(userAgent.match(regex));
 
   return (
-    <footer>
+    <section>
       <nav className="z-header fixed bottom-[calc(var(--bottom-nav-height)+2px)] left-0 right-0 flex justify-end px-3 pb-3">
         <div className="flex flex-col gap-2">{!isInApp && <AppCTA />}</div>
       </nav>
-    </footer>
+    </section>
   );
 };
 
