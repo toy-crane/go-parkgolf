@@ -23,7 +23,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
   const isMine = user?.id === review.user_id;
   return (
     <Card key={review.id}>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 px-4 pb-2 pt-4">
         <div className="flex items-center space-x-2">
           <Avatar className="h-7 w-7">
             <AvatarImage src={`${review.profiles?.avatar_url}`} alt="Image" />
@@ -46,12 +46,12 @@ const ReviewCard = ({ review }: { review: Review }) => {
           </span>
         </div>
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-2 px-4 pb-2 pt-2">
         <ReviewRating review={review} />
         <ReviewContent text={review.text} />
       </CardContent>
       {isMine && (
-        <CardFooter className="justify-end gap-2">
+        <CardFooter className="justify-end gap-2 px-4 pb-4 pt-2">
           <Button size="sm" asChild>
             <Link
               href={`/golf-courses/${params.slug as string}/reviews/create`}
