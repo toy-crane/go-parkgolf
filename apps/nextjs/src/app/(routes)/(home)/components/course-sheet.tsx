@@ -122,7 +122,9 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                 <div
                   className="flex cursor-pointer items-center"
                   onClick={() =>
-                    router.push(`/golf-courses/${selectedCourse?.slug}`)
+                    router.push(
+                      `/golf-courses/${selectedCourse?.slug}?tab=review`,
+                    )
                   }
                 >
                   <Icons.starFilled className="mr-[2px] h-4 w-4" />
