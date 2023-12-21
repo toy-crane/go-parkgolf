@@ -29,6 +29,19 @@ const Page = async () => {
   const user = session?.user;
   const metaData = user?.user_metadata;
 
+  if (!user) throw new Error("user is not defined");
+
+  const supabase = await createSupabaseServerClient();
+
+  const { data: profile, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", session?.user?.id)
+    .limit(1)
+    .maybeSingle();
+
+  if (error) throw new Error("profile is not defined");
+
   const logout = async () => {
     "use server";
     const supabase = await createSupabaseServerClient();
@@ -48,10 +61,8 @@ const Page = async () => {
       </PageHeader>
       <div className="flex items-center">
         <Avatar className="h-9 w-9">
-          <AvatarImage src={metaData?.avatar_url} alt="Avatar" />
-          <AvatarFallback>
-            <User />
-          </AvatarFallback>
+          <AvatarImage src={profile?.avatar_url} alt="Avatar" />
+          <AvatarFallback>{profile?.username?.split(" ")[0]}</AvatarFallback>
         </Avatar>
         <div className="ml-3 space-y-1">
           <p className="text-sm font-medium leading-none">
