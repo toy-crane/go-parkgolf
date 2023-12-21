@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { PageHeader, PageHeaderHeading } from "@/components/page-header";
@@ -35,6 +36,8 @@ const Page = async () => {
     identify(new Identify(), {
       user_id: undefined,
     });
+    // client user 동기화를 위해서 validate를 다시 해준다.
+    revalidatePath("/");
     redirect("/");
   };
 

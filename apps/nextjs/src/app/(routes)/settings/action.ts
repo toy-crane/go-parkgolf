@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { Identify, identify } from "@amplitude/analytics-node";
@@ -11,5 +12,6 @@ export const deleteSelf = async () => {
   identify(new Identify(), {
     user_id: undefined,
   });
+  revalidatePath("/");
   redirect("/");
 };
