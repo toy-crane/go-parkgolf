@@ -1,15 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import type { Course } from "@/types";
-import { ArrowLeft, Pencil, Share2 } from "lucide-react";
+import { Pencil } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 import Reviews from "./reviews";
