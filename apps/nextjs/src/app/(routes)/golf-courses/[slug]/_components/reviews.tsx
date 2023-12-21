@@ -32,7 +32,7 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <Icons.starFilled className="mr-[2px] h-8 w-8" />
+              <Icons.starFilled className="mr-1 h-6 w-6" />
               <span className="mr-2 font-semibold">
                 {totalAverage.toFixed(1)}
               </span>
