@@ -1,10 +1,10 @@
 import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
-import { getGolfCourseReviews, getGolfCourses } from "./components/action";
-import CourseSheet from "./components/course-sheet";
-import Footer from "./components/footer";
-import MainMap from "./components/main-map";
+import { getGolfCourseReviews, getGolfCourses } from "./_components/action";
+import CourseSheet from "./_components/course-sheet";
+import Footer from "./_components/footer";
+import MainMap from "./_components/main-map";
 
 const Home = async ({
   searchParams,

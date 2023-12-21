@@ -1,4 +1,4 @@
-import CurrentPositionButton from "@/app/(routes)/(home)/components/current-position-button";
+import CurrentPositionButton from "@/app/(routes)/(home)/_components/current-position-button";
 
 import { CommandMenu } from "../command-menu";
 
