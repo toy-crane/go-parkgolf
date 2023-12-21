@@ -10,7 +10,11 @@ import {
 } from "../../../components/page-header";
 import KakaoForm from "../auth/components/kakao-form";
 
-const Page = async () => {
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: Record<string, string>;
+}) => {
   const session = await readUserSession();
 
   if (session) {
@@ -38,7 +42,7 @@ const Page = async () => {
       <p className="text-muted-foreground px-8 text-center text-sm">
         이미 계정이 있으신가요?{" "}
         <Link
-          href="/login"
+          href={`/login?${new URLSearchParams(searchParams).toString()}`}
           replace
           className="hover:text-primary text-black underline underline-offset-4"
         >
