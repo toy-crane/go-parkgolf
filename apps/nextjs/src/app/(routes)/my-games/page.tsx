@@ -28,11 +28,12 @@ const Page = async () => {
         {hasGames ? (
           <>{games?.map((game) => <GameCard game={game} key={game.id} />)}</>
         ) : (
-          <div className="flex h-[65vh] flex-col items-center justify-center gap-4">
-            <Balancer className="max-w-[300px] text-center text-lg font-bold md:text-xl">
+          <div className="flex h-[65vh] flex-col items-center justify-center gap-6">
+            <span className="max-w-[300px] text-center text-2xl font-bold">
               쉽고 빠르게 <br />
-              스코어를 등록해 보세요
-            </Balancer>
+              스코어를 등록하고 <br />
+              주변에 공유해 보세요
+            </span>
             <Button size="lg" asChild>
               <Link href="score-card/create/golf-course">
                 <Plus className="mr-2 h-5 w-5" size={24} />
