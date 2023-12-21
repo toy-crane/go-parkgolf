@@ -65,7 +65,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
       <SheetContent side={"bottom"} className="h-auto">
         <SheetHeader className="mb-2">
           <SheetTitle>
-            <div className="flex items-center gap-3 text-2xl">
+            <div className="flex items-center gap-1 text-2xl">
               <Link
                 href={`/golf-courses/${selectedCourse?.slug}`}
                 onClick={() => track("detail page link clicked")}
@@ -74,23 +74,6 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                 {selectedCourse?.name}
               </Link>
               <div className="flex items-center">
-                <Button
-                  variant={"ghost"}
-                  size="icon"
-                  asChild
-                  className="h-7 w-7"
-                  onClick={() => {
-                    track("sheet modify button clicked");
-                  }}
-                >
-                  <a
-                    href={generateFormUrl(selectedCourse?.name)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Pencil size={20} />
-                  </a>
-                </Button>
                 <Button
                   variant={"ghost"}
                   className="h-7 w-7"
@@ -123,6 +106,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                 onClick={() =>
                   router.push(
                     `/golf-courses/${selectedCourse?.slug}?tab=review`,
+                    { prefetch: true },
                   )
                 }
               >
@@ -138,6 +122,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                 onClick={() =>
                   router.push(
                     `/golf-courses/${selectedCourse?.slug}/reviews/create`,
+                    { prefetch: true },
                   )
                 }
               >
