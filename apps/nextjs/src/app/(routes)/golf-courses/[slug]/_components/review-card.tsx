@@ -20,6 +20,7 @@ import ReviewRating from "./review-rating";
 const ReviewCard = ({ review }: { review: Review }) => {
   const user = useUserStore((state) => state.user);
   const params = useParams();
+  const isMine = user?.id === review.user_id;
   return (
     <Card key={review.id}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0">
@@ -49,20 +50,18 @@ const ReviewCard = ({ review }: { review: Review }) => {
         <ReviewRating review={review} />
         <ReviewContent text={review.text} />
       </CardContent>
-      <CardFooter className="justify-end gap-2">
-        {user?.id === review.user_id && (
-          <>
-            <Button size="sm" asChild>
-              <Link
-                href={`/golf-courses/${params.slug as string}/reviews/create`}
-              >
-                수정하기
-              </Link>
-            </Button>
-            <ReviewDeleteAlert golfCourseReviewId={review.id} />
-          </>
-        )}
-      </CardFooter>
+      {isMine && (
+        <CardFooter className="justify-end gap-2">
+          <Button size="sm" asChild>
+            <Link
+              href={`/golf-courses/${params.slug as string}/reviews/create`}
+            >
+              수정하기
+            </Link>
+          </Button>
+          <ReviewDeleteAlert golfCourseReviewId={review.id} />
+        </CardFooter>
+      )}
     </Card>
   );
 };
