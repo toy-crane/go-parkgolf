@@ -8,7 +8,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "../../../components/page-header";
-import KakaoForm from "../auth/components/kakao-form";
+import KakaoForm from "../auth/_components/kakao-form";
 
 const Page = async ({
   searchParams,
