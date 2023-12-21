@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import Balancer from "react-wrap-balancer";
 
 import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import { getMyGames } from "./fetcher";
@@ -28,9 +29,10 @@ const Page = async () => {
           <>{games?.map((game) => <GameCard game={game} key={game.id} />)}</>
         ) : (
           <div className="flex h-[65vh] flex-col items-center justify-center gap-4">
-            <div className="text-lg font-bold md:text-xl">
-              게임 기록을 위해 신규 게임을 추가해주세요
-            </div>
+            <Balancer className="max-w-[300px] text-center text-lg font-bold md:text-xl">
+              쉽고 빠르게 <br />
+              스코어를 등록해 보세요
+            </Balancer>
             <Button size="lg" asChild>
               <Link href="score-card/create/golf-course">
                 <Plus className="mr-2 h-5 w-5" size={24} />
