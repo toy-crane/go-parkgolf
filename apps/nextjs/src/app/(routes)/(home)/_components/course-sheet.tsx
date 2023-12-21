@@ -53,6 +53,19 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
 
   const address = selectedCourse?.address[0];
   const operation = selectedCourse?.operation[0];
+
+  // TODO: 리뷰의 갯수가 많아지면 개선
+  const totalAverage =
+    reviews.reduce((acc, review) => {
+      return (
+        acc +
+        (review.course_condition_rating +
+          review.course_difficulty_rating +
+          review.facilities_rating) /
+          3
+      );
+    }, 0) / reviews.length;
+
   return (
     <Sheet
       open={open}
@@ -111,9 +124,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                 }
               >
                 <Icons.starFilled className="mr-[2px] h-4 w-4" />
-                <span className="mr-2">
-                  {reviews[0]?.course_condition_rating}
-                </span>
+                <span className="mr-2">{totalAverage}</span>
                 <span>리뷰 {reviews.length}</span>
               </button>
             ) : (

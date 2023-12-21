@@ -12,6 +12,18 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
   const router = useRouter();
   const params = useParams();
 
+  // TODO: 리뷰의 갯수가 많아지면 개선
+  const totalAverage =
+    reviews.reduce((acc, review) => {
+      return (
+        acc +
+        (review.course_condition_rating +
+          review.course_difficulty_rating +
+          review.facilities_rating) /
+          3
+      );
+    }, 0) / reviews.length;
+
   return (
     <div>
       {reviews.length === 0 ? (
@@ -22,7 +34,7 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
             <div className="flex items-center">
               <Icons.starFilled className="mr-[2px] h-8 w-8" />
               <span className="mr-2 font-semibold">
-                {reviews[0]?.course_condition_rating.toFixed(1)}
+                {totalAverage.toFixed(1)}
               </span>
               <span>리뷰 {reviews.length}</span>
             </div>
