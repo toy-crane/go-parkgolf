@@ -10,8 +10,8 @@ import type { Course } from "@/types";
 import { Pencil } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
+import type { Review } from "../types";
 import Reviews from "./reviews";
-import type { Review } from "./types";
 
 interface CardProps {
   title: string;

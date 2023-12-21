@@ -15,10 +15,10 @@ import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
 import Balancer from "react-wrap-balancer";
 
+import type { Review } from "../types";
 import ReviewContent from "./review-content";
 import ReviewDeleteAlert from "./review-delete-alert";
 import ReviewRating from "./review-rating";
-import type { Review } from "./types";
 
 const Reviews = ({ slug, reviews }: { reviews: Review[]; slug: string }) => {
   const router = useRouter();

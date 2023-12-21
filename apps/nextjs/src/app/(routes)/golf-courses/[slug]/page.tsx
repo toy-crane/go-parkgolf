@@ -4,8 +4,8 @@ import BottomNav from "@/components/nav/bottom";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
+import CourseDetail from "./_components/course-detail";
 import { GetCourses, GetReviews } from "./action";
-import CourseDetail from "./course-detail";
 import Nav from "./nav";
 
 interface Props {
