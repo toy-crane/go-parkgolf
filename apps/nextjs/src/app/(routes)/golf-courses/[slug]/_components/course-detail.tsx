@@ -217,7 +217,7 @@ const CourseDetail = ({
           </div>
         </TabsContent>
         <TabsContent value="review" className="space-y-6">
-          <Reviews reviews={reviews} slug={course.slug} />
+          <Reviews reviews={reviews} />
         </TabsContent>
         <TabsContent value="near" className="space-y-6">
           <div className="my-6">
