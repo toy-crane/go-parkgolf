@@ -10,6 +10,7 @@ import Nav from "./nav";
 
 interface Props {
   params: { slug: string };
+  searchParams: { tab?: string };
 }
 
 function haversineDistance(
@@ -92,7 +93,8 @@ export async function generateMetadata(
   }
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params, searchParams }: Props) {
+  const tab = searchParams?.tab ?? "home";
   const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
   const currentCourse = courses.find((course) => course.slug === slug);
@@ -122,6 +124,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         course={currentCourse}
         nearCourses={nearCourses}
         reviews={reviews}
+        selectedTab={tab}
       />
       <BottomNav />
     </>

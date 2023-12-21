@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAmplitude } from "@/libs/amplitude";
@@ -66,16 +67,26 @@ const CourseDetail = ({
   course,
   nearCourses,
   reviews,
+  selectedTab,
 }: {
   course: Course;
   nearCourses: Course[];
   reviews: Review[];
+  selectedTab: string;
 }) => {
   const { track } = useAmplitude();
 
   const address = course.address[0];
   const operation = course.operation[0];
   const contact = course.contact[0];
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const handleTabChange = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", String(value));
+    router.replace(`?${params.toString()}`);
+  };
 
   return (
     <div>
@@ -105,7 +116,11 @@ const CourseDetail = ({
         />
       </section>
       <h1 className="text-foreground mb-4 text-3xl font-bold">{course.name}</h1>
-      <Tabs defaultValue="home" className="mb-28 space-y-4">
+      <Tabs
+        defaultValue={selectedTab}
+        className="mb-28 space-y-4"
+        onValueChange={handleTabChange}
+      >
         <TabsList className="flex">
           <TabsTrigger value="home" className="flex-1">
             홈
