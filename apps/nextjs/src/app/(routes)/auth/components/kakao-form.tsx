@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname, useSearchParams } from "next/navigation";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { useUserAgentStore } from "@/libs/store/user-agent";
@@ -15,6 +16,12 @@ declare global {
 
 const KakaoForm = () => {
   const isMobileApp = useUserAgentStore((state) => state.isMobileApp);
+  const searchParams = useSearchParams();
+  const next = searchParams.get("next") ?? "";
+  const redirectBaseUrl = `${location.origin}/auth/callback`;
+  const redirectUrl = next
+    ? `${redirectBaseUrl}?next=${next}`
+    : redirectBaseUrl;
   const kakaoSignUp = async () => {
     if (isMobileApp) {
       window.ReactNativeWebView?.postMessage("kakaoSignUp");
@@ -23,7 +30,7 @@ const KakaoForm = () => {
       await supabase.auth.signInWithOAuth({
         provider: "kakao",
         options: {
-          redirectTo: `${location.origin}/auth/callback`,
+          redirectTo: redirectUrl,
         },
       });
     }

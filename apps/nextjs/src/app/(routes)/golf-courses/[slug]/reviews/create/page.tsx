@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
@@ -11,13 +12,14 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const session = await readUserSession();
   const user = session?.user;
   const supabase = await createSupabaseServerClient();
+
+  if (!user) throw new Error("User not found");
+
   const { data: course, error } = await supabase
     .from("golf_course")
     .select("*")
     .eq("slug", slug)
     .single();
-
-  if (!user) redirect("/login");
   if (error) throw error;
 
   const response = await supabase
