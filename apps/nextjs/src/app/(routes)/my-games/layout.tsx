@@ -7,7 +7,10 @@ const Layout = async (props: { children: React.ReactNode }) => {
   const session = await readUserSession();
 
   const pathname = headers().get("x-pathname") ?? "";
-  if (!session) return redirect(`/login?next=${pathname}`);
+  if (!session)
+    return redirect(
+      `/login?${new URLSearchParams({ next: pathname }).toString()}`,
+    );
 
   return (
     <>

@@ -6,9 +6,11 @@ import type { CookieOptions } from "@supabase/ssr";
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const { searchParams, origin } = requestUrl;
+  const nextParams = searchParams.get("next");
+
   const code = searchParams.get("code");
   // if "next" is in param, use it as the redirect URL
-  const next = searchParams.get("next") ?? "/";
+  const next = nextParams ? decodeURIComponent(nextParams) : "/";
 
   if (code) {
     const cookieStore = cookies();
