@@ -42,7 +42,11 @@ const Home = async ({
   };
 
   const selectOptions = courses.map((course) => ({
-    title: `${course.name} (${course.address[0]?.region_1depth_name} ${course.address[0]?.region_2depth_name})`,
+    title: `${course.name} (${course.address[0]?.region_1depth_name ?? ""}${
+      course.address[0]?.region_2depth_name
+        ? ` ${course.address[0]?.region_2depth_name}`
+        : ""
+    })`,
     href: `/?${new URLSearchParams({
       courseId: String(course.id),
       modal: String(true),
