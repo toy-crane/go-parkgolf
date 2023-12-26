@@ -271,27 +271,24 @@ export interface Database {
       }
       games: {
         Row: {
-          course_id: string | null
+          course_id: string
           created_at: string
-          golf_course_id: number | null
           id: string
           started_at: string
           status: Database["public"]["Enums"]["game_status"]
           user_id: string
         }
         Insert: {
-          course_id?: string | null
+          course_id: string
           created_at?: string
-          golf_course_id?: number | null
           id?: string
           started_at: string
           status?: Database["public"]["Enums"]["game_status"]
           user_id?: string
         }
         Update: {
-          course_id?: string | null
+          course_id?: string
           created_at?: string
-          golf_course_id?: number | null
           id?: string
           started_at?: string
           status?: Database["public"]["Enums"]["game_status"]
@@ -303,13 +300,6 @@ export interface Database {
             columns: ["course_id"]
             isOneToOne: false
             referencedRelation: "golf_courses"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "games_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_course"
             referencedColumns: ["id"]
           },
           {
