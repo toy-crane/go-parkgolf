@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
+import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
@@ -67,7 +67,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
     }, 0) / reviews.length;
 
   return (
-    <Sheet
+    <Drawer
       open={open}
       onOpenChange={(open) => {
         const params = new URLSearchParams(searchParams);
@@ -75,153 +75,154 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
         router.replace(`?${params.toString()}`);
       }}
     >
-      <SheetContent side={"bottom"} className="h-auto">
-        <SheetHeader className="mb-2">
-          <SheetTitle>
-            <div className="flex items-center gap-1 text-2xl">
-              <Link
-                href={`/golf-courses/${selectedCourse?.slug}`}
-                onClick={() => track("detail page link clicked")}
-                prefetch
-              >
-                {selectedCourse?.name}
-              </Link>
-              <div className="flex items-center">
-                <Button
-                  variant={"ghost"}
-                  className="h-7 w-7"
-                  size="icon"
-                  onClick={async () => {
-                    await navigator.clipboard.writeText(
-                      `${window.location.href}`,
-                    );
-                    toast({
-                      className: cn(
-                        "top-0 right-0 flex fixed md:max-w-[256px] md:top-4 md:right-4",
-                      ),
-                      title: "주소가 복사되었습니다",
-                      description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
-                      duration: 1000,
-                    });
-                    track("sheet share button clicked");
-                  }}
+      <DrawerContent className="h-auto">
+        <div className="mx-auto w-full max-w-sm px-4 pb-4">
+          <DrawerHeader className="px-0">
+            <DrawerTitle>
+              <div className="flex items-center gap-1 text-2xl">
+                <Link
+                  href={`/golf-courses/${selectedCourse?.slug}`}
+                  onClick={() => track("detail page link clicked")}
+                  prefetch
                 >
-                  <Share2 size={20} />
-                </Button>
-              </div>
-            </div>
-          </SheetTitle>
-          <SheetDescription className="flex flex-col">
-            <span className="text-lg">{address?.address_name}</span>
-            {reviews.length > 0 ? (
-              <button
-                className="flex cursor-pointer items-center"
-                onClick={() =>
-                  router.push(
-                    `/golf-courses/${selectedCourse?.slug}?tab=review`,
-                    { prefetch: true },
-                  )
-                }
-              >
-                <Icons.starFilled className="mr-[2px] h-4 w-4" />
-                <span className="mr-2">{totalAverage}</span>
-                <span>리뷰 {reviews.length}</span>
-              </button>
-            ) : (
-              <button
-                className="text-secondary-foreground flex items-center gap-1 font-semibold"
-                onClick={() =>
-                  router.push(
-                    `/golf-courses/${selectedCourse?.slug}/reviews/create`,
-                    { prefetch: true },
-                  )
-                }
-              >
-                <span>리뷰 작성하기</span>
-                <Pencil className="h-3 w-3" />
-              </button>
-            )}
-          </SheetDescription>
-        </SheetHeader>
-        <Separator className="mb-4 mt-4" />
-        <div className="grid w-full items-center">
-          <div className="flex items-center gap-4">
-            <FlagTriangleRight size={20} />
-            <div className="text-base">{selectedCourse?.hole_count}홀</div>
-          </div>
-          <Separator className="my-2" />
-          <div className="flex items-center gap-4">
-            <Phone size={20} />
-            <div className="text-base">
-              {selectedCourse?.contact[0]?.phone_number ? (
-                <Button
-                  variant="link"
-                  size="sm"
-                  asChild
-                  className="p-0 text-base text-blue-400"
-                  onClick={() => {
-                    track("phone number clicked", { ...selectedCourse });
-                  }}
-                >
-                  <a href={`tel:${selectedCourse?.contact[0]?.phone_number}`}>
-                    {selectedCourse?.contact[0]?.phone_number}
-                  </a>
-                </Button>
-              ) : (
-                InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })
-              )}
-            </div>
-          </div>
-          <Separator className="my-2" />
-          <div className="flex items-center gap-4">
-            <Clock size={20} />
-            <div className="text-base">
-              <div className="flex">
-                <div className="mr-2 flex-shrink-0">영업 시간 -</div>
-                {selectedCourse?.operation[0]?.opening_hours ??
-                  InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
-              </div>
-              {selectedCourse?.operation[0]?.regular_closed_days && (
-                <div className="flex">
-                  <div className="mr-2 flex-shrink-0">정기 휴무일 - </div>
-                  {selectedCourse?.operation[0]?.regular_closed_days}
+                  {selectedCourse?.name}
+                </Link>
+                <div className="flex items-center">
+                  <Button
+                    variant={"ghost"}
+                    className="h-7 w-7"
+                    size="icon"
+                    onClick={async () => {
+                      await navigator.clipboard.writeText(
+                        `${window.location.href}`,
+                      );
+                      toast({
+                        className: cn(
+                          "top-0 right-0 flex fixed md:max-w-[256px] md:top-4 md:right-4",
+                        ),
+                        title: "주소가 복사되었습니다",
+                        description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+                        duration: 1000,
+                      });
+                      track("sheet share button clicked");
+                    }}
+                  >
+                    <Share2 size={20} />
+                  </Button>
                 </div>
-              )}
-            </div>
-          </div>
-          <Separator className="my-2" />
-          <div className="mb-3 flex items-center gap-4">
-            <AlarmClock size={20} className="shrink-0" />
-            <div className="text-base">
-              <div className="flex">
-                <div className="mr-2 flex-shrink-0">예약 방법 - </div>
-                {operation?.registration_method ??
-                  InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
               </div>
-              <div>
-                {operation?.website ? (
+            </DrawerTitle>
+            <DrawerDescription className="flex flex-col items-start">
+              <span className="text-lg">{address?.address_name}</span>
+              {reviews.length > 0 ? (
+                <button
+                  className="flex cursor-pointer items-center"
+                  onClick={() =>
+                    router.push(
+                      `/golf-courses/${selectedCourse?.slug}?tab=review`,
+                      { prefetch: true },
+                    )
+                  }
+                >
+                  <Icons.starFilled className="mr-[2px] h-4 w-4" />
+                  <span className="mr-2">{totalAverage}</span>
+                  <span>리뷰 {reviews.length}</span>
+                </button>
+              ) : (
+                <button
+                  className="text-secondary-foreground flex items-center gap-1 font-semibold"
+                  onClick={() =>
+                    router.push(
+                      `/golf-courses/${selectedCourse?.slug}/reviews/create`,
+                      { prefetch: true },
+                    )
+                  }
+                >
+                  <span>리뷰 작성하기</span>
+                  <Pencil className="h-3 w-3" />
+                </button>
+              )}
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="grid w-full items-center">
+            <div className="flex items-center gap-4">
+              <FlagTriangleRight size={20} />
+              <div className="text-base">{selectedCourse?.hole_count}홀</div>
+            </div>
+            <Separator className="my-2" />
+            <div className="flex items-center gap-4">
+              <Phone size={20} />
+              <div className="text-base">
+                {selectedCourse?.contact[0]?.phone_number ? (
                   <Button
                     variant="link"
                     size="sm"
                     asChild
                     className="p-0 text-base text-blue-400"
-                    onClick={() => track("website detail clicked")}
+                    onClick={() => {
+                      track("phone number clicked", { ...selectedCourse });
+                    }}
                   >
-                    <a
-                      href={operation?.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      상세 정보 홈페이지
+                    <a href={`tel:${selectedCourse?.contact[0]?.phone_number}`}>
+                      {selectedCourse?.contact[0]?.phone_number}
                     </a>
                   </Button>
-                ) : null}
+                ) : (
+                  InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })
+                )}
+              </div>
+            </div>
+            <Separator className="my-2" />
+            <div className="flex items-center gap-4">
+              <Clock size={20} />
+              <div className="text-base">
+                <div className="flex">
+                  <div className="mr-2 flex-shrink-0">영업 시간 -</div>
+                  {selectedCourse?.operation[0]?.opening_hours ??
+                    InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
+                </div>
+                {selectedCourse?.operation[0]?.regular_closed_days && (
+                  <div className="flex">
+                    <div className="mr-2 flex-shrink-0">정기 휴무일 - </div>
+                    {selectedCourse?.operation[0]?.regular_closed_days}
+                  </div>
+                )}
+              </div>
+            </div>
+            <Separator className="my-2" />
+            <div className="mb-3 flex items-center gap-4">
+              <AlarmClock size={20} className="shrink-0" />
+              <div className="text-base">
+                <div className="flex">
+                  <div className="mr-2 flex-shrink-0">예약 방법 - </div>
+                  {operation?.registration_method ??
+                    InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
+                </div>
+                <div>
+                  {operation?.website ? (
+                    <Button
+                      variant="link"
+                      size="sm"
+                      asChild
+                      className="p-0 text-base text-blue-400"
+                      onClick={() => track("website detail clicked")}
+                    >
+                      <a
+                        href={operation?.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        상세 정보 홈페이지
+                      </a>
+                    </Button>
+                  ) : null}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </SheetContent>
-    </Sheet>
+      </DrawerContent>
+    </Drawer>
   );
 };
 
