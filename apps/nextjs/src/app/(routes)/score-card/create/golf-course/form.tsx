@@ -41,7 +41,7 @@ import { formSchema } from "./schema";
 type Inputs = z.infer<typeof formSchema>;
 
 interface FormProps {
-  courses: Tables<"golf_course">[];
+  courses: Tables<"golf_courses">[];
 }
 
 const CourseForm = ({ courses }: FormProps) => {

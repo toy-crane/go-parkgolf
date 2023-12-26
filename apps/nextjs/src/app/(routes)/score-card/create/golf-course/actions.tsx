@@ -13,7 +13,7 @@ export async function makeGame({ startedAt, golfCourseId }: Inputs) {
     .from("games")
     .insert({
       started_at: startedAt.toISOString(),
-      golf_course_id: golfCourseId,
+      course_id: golfCourseId,
     })
     .select()
     .single();

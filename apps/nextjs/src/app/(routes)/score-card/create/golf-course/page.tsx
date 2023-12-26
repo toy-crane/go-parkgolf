@@ -11,7 +11,7 @@ import CourseForm from "./form";
 
 const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const query = supabase.from("golf_course").select(`*`);
+  const query = supabase.from("golf_courses").select(`*`);
   const result = await query;
 
   if (!result.data) {
