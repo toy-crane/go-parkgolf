@@ -28,7 +28,7 @@ const Home = async ({
   const selectedCourse = courses.find(
     (course) => course.id === selectedCourseId,
   );
-  const reviews = await getGolfCourseReviews(selectedCourseId);
+  // const reviews = await getGolfCourseReviews(selectedCourseId);
 
   const position = {
     level: level,
@@ -65,7 +65,7 @@ const Home = async ({
       <CourseSheet
         selectedCourse={selectedCourse}
         open={modalOpen}
-        reviews={reviews}
+        reviews={[]}
       />
     </>
   );
