@@ -51,6 +51,9 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
           isMarked={selectedCourse?.name === course.name}
           onClick={() => {
             const params = new URLSearchParams(searchParams);
+            // 이미 모달이 닫히는 속도를 고려하여 열려있는 경우 무시
+            const modal = params.get("modal");
+            if (modal === "true") return;
             const selectedCourseLat = course.address[0]?.y;
             const selectedCourseLng = course.address[0]?.x;
             params.set("lng", String(selectedCourseLng));
