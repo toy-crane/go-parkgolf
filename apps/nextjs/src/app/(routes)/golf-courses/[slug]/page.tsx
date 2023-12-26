@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import type { GolfCourse } from "@/types";
 
 import CourseDetail from "./_components/course-detail";
 import { GetCourses, GetReviews } from "./action";
@@ -34,7 +35,7 @@ function haversineDistance(
 
 export async function generateStaticParams() {
   const supabase = createSupabaseBrowerClient();
-  const response = await supabase.from("golf_course").select(`slug`);
+  const response = await supabase.from("golf_courses").select(`slug`);
   if (response.error) throw response.error;
   return response.data;
 }
@@ -46,27 +47,27 @@ export async function generateMetadata(
   const supabase = await createSupabaseServerClientReadOnly();
   const slug = decodeURIComponent(params.slug);
   const query = supabase
-    .from("golf_course")
-    .select(`*, address(*), road_address(*), contact(*), operation(*)`)
+    .from("golf_courses")
+    .select(`*, contacts(*), operations(*)`)
     .eq("slug", slug)
+    .returns<GolfCourse[]>()
     .single();
   const result = await query;
   if (result.error) {
     throw Error(result.error.message);
   }
   const course = result.data;
-  const address = course.address[0];
-  const operation = course.operation[0];
-  const contact = course.contact[0];
+  const operation = course.operations;
+  const contact = course.contacts?.[0];
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (course) {
     const title = `${course.name} 예약 정보`;
-    const description = `위치 - ${address?.address_name} \n 영업시간 - ${
-      operation?.opening_hours ?? "정보 없음"
-    } \n 정기 휴무일 - ${
+    const description = `지번 주소 - ${course.lot_number_address_name} 
+    \n 도로명 주소 - ${course.road_address_name}
+    \n 영업시간 - ${operation?.opening_hours ?? "정보 없음"} \n 정기 휴무일 - ${
       operation?.regular_closed_days ?? "정보 없음"
     } \n 예약방법 - ${operation?.registration_method ?? "정보 없음"} 연락처 - ${
       contact?.phone_number ?? "정보 없음"
