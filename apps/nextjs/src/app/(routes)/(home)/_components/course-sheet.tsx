@@ -18,7 +18,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
-import type { Course, GolfCourse } from "@/types";
+import type { GolfCourse } from "@/types";
 import type { Tables } from "@/types/generated";
 import {
   AlarmClock,
