@@ -10,6 +10,7 @@ export const getCourses = async () => {
   const result = await supabase
     .from("golf_courses")
     .select(`*, contacts(*), operations(*), lot_number_addresses(*)`)
+    .eq("publish_status", "completed")
     .returns<GolfCourse[]>();
   if (result.error) throw result.error;
   return result.data;

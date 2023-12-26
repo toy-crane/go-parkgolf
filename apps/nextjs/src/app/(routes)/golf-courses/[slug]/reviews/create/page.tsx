@@ -19,6 +19,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     .from("golf_courses")
     .select("*")
     .eq("slug", slug)
+    .eq("publish_status", "completed")
     .single();
   if (error) throw error;
 

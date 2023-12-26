@@ -50,6 +50,7 @@ export async function generateMetadata(
     .from("golf_courses")
     .select(`*, contacts(*), operations(*)`)
     .eq("slug", slug)
+    .eq("publish_status", "completed")
     .returns<GolfCourse[]>()
     .single();
   const result = await query;
