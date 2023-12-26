@@ -41,8 +41,8 @@ const GameCard = ({
       <CardContent>
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap gap-1 gap-y-1 self-start">
-            {gameCourses.map(({ id, name }) => (
-              <Badge key={id} variant="secondary">
+            {gameCourses.map(({ id: gameCourseId, name }) => (
+              <Badge key={gameCourseId} variant="secondary">
                 <Link href={`/score-card/${id}?tab=${name}`}>{name} 코스</Link>
               </Badge>
             ))}
