@@ -20,7 +20,7 @@ export async function generateMetadata(
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("games")
-    .select(`*, golf_course(*), game_courses(*), game_players(*)`)
+    .select(`*, golf_courses(*), game_courses(*), game_players(*)`)
     .eq("id", params.id)
     .single();
   if (response.error) {
@@ -28,7 +28,7 @@ export async function generateMetadata(
     return {};
   }
   const data = response.data;
-  const golfCourseName = data.golf_course?.name;
+  const golfCourseName = data.golf_courses?.name;
   const startedAt = data.started_at;
   const courseNames = data.game_courses
     .map((course) => `${course.name} 코스`)

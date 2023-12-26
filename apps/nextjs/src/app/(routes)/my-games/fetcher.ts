@@ -6,7 +6,7 @@ export const getMyGames = async () => {
 
   const { data: response, error } = await supabase
     .from("games")
-    .select("*, golf_course(name), game_courses(*), game_players(*)")
+    .select("*, golf_courses(*), game_courses(*), game_players(*)")
     .in("status", ["in_progress", "completed"])
     .order("created_at", {
       ascending: false,

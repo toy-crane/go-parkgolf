@@ -10,6 +10,7 @@ import GameCard from "./game-card";
 const Page = async () => {
   const games = await getMyGames();
   const hasGames = games && games?.length > 0;
+  console.log(games);
 
   return (
     <section>

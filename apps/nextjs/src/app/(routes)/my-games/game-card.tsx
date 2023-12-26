@@ -18,7 +18,7 @@ import DeleteAlert from "./delete-alert";
 import type { Game } from "./type";
 
 const GameCard = ({
-  game: { id, golfCourse, gameCourses, gamePlayers, startedAt },
+  game: { id, golfCourses, gameCourses, gamePlayers, startedAt },
 }: {
   game: Game;
 }) => {
@@ -32,7 +32,7 @@ const GameCard = ({
     >
       <CardHeader>
         <CardTitle>
-          <Link href={`/score-card/${id}`}>{golfCourse?.name}</Link>
+          <Link href={`/score-card/${id}`}>{golfCourses?.name}</Link>
         </CardTitle>
         <CardDescription className="flex flex-col gap-1">
           {format(new Date(startedAt), "yyyy-MM-dd")}
