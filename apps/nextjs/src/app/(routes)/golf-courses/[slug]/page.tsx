@@ -126,7 +126,7 @@ export default async function Page({ params, searchParams }: Props) {
       <CourseDetail
         course={currentCourse}
         nearCourses={nearCourses}
-        reviews={[]}
+        reviews={reviews}
         selectedTab={tab}
       />
       <BottomNav />
