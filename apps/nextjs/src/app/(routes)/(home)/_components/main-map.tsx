@@ -4,12 +4,12 @@ import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Marker from "@/app/(routes)/(home)/_components/marker";
 import { useAmplitude } from "@/libs/amplitude";
-import type { Course, Position } from "@/types";
+import type { Course, GolfCourse, Position } from "@/types";
 import { Map } from "react-kakao-maps-sdk";
 
 interface Props {
-  courses: Course[];
-  selectedCourse?: Course;
+  courses: GolfCourse[];
+  selectedCourse?: GolfCourse;
   position: Position;
 }
 
@@ -54,8 +54,8 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
             // 이미 모달이 닫히는 속도를 고려하여 열려있는 경우 무시
             const modal = params.get("modal");
             if (modal === "true") return;
-            const selectedCourseLat = course.address[0]?.y;
-            const selectedCourseLng = course.address[0]?.x;
+            const selectedCourseLat = course.lat;
+            const selectedCourseLng = course.lng;
             params.set("lng", String(selectedCourseLng));
             params.set("lat", String(selectedCourseLat));
             params.set("courseId", String(course.id));

@@ -1,5 +1,5 @@
 import { cn } from "@/libs/tailwind";
-import type { Course } from "@/types";
+import type { GolfCourse } from "@/types";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 
 import CourseFillIcon from "../../../../../public/icons/course-fill.svg";
@@ -10,16 +10,14 @@ const Marker = ({
   onClick,
   isMarked,
 }: {
-  course: Course;
+  course: GolfCourse;
   isMarked: boolean;
   onClick: () => void;
 }) => {
-  const { address } = course;
-
   return (
     <>
       <CustomOverlayMap
-        position={{ lat: Number(address[0]?.y), lng: Number(address[0]?.x) }}
+        position={{ lat: Number(course.lat), lng: Number(course.lng) }}
         zIndex={10}
       >
         <Button

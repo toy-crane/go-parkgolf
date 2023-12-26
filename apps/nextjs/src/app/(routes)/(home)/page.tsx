@@ -1,7 +1,7 @@
 import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
-import { getGolfCourseReviews, getGolfCourses } from "./_components/action";
+import { getCourses, getGolfCourseReviews } from "./_components/action";
 import CourseSheet from "./_components/course-sheet";
 import Footer from "./_components/footer";
 import MainMap from "./_components/main-map";
@@ -17,18 +17,20 @@ const Home = async ({
     modal?: string;
   };
 }) => {
-  const selectedCourseId = Number(searchParams?.courseId) || undefined;
+  const selectedCourseId = searchParams?.courseId
+    ? String(searchParams.courseId)
+    : undefined;
   const level = Number(searchParams?.level) || DEFAULT_POSITION.level;
   const lat = Number(searchParams?.lat) || undefined;
   const lng = Number(searchParams?.lng) || undefined;
   const modalOpen = searchParams?.modal === "true";
 
-  const courses = await getGolfCourses();
+  const courses = await getCourses();
 
   const selectedCourse = courses.find(
     (course) => course.id === selectedCourseId,
   );
-  // const reviews = await getGolfCourseReviews(selectedCourseId);
+  const reviews = await getGolfCourseReviews(selectedCourseId);
 
   const position = {
     level: level,
@@ -39,9 +41,11 @@ const Home = async ({
   };
 
   const selectOptions = courses.map((course) => ({
-    title: `${course.name} (${course.address[0]?.region_1depth_name ?? ""}${
-      course.address[0]?.region_2depth_name
-        ? ` ${course.address[0]?.region_2depth_name}`
+    title: `${course.name} (${
+      course.lot_number_addresses?.region_1depth_name ?? ""
+    }${
+      course.lot_number_addresses?.region_2depth_name
+        ? ` ${course.lot_number_addresses?.region_2depth_name}`
         : ""
     })`,
     href: `/?${new URLSearchParams({
@@ -65,7 +69,7 @@ const Home = async ({
       <CourseSheet
         selectedCourse={selectedCourse}
         open={modalOpen}
-        reviews={[]}
+        reviews={reviews}
       />
     </>
   );

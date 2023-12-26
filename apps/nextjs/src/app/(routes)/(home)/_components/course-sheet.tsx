@@ -18,7 +18,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import { cn } from "@/libs/tailwind";
-import type { Course } from "@/types";
+import type { Course, GolfCourse } from "@/types";
 import type { Tables } from "@/types/generated";
 import {
   AlarmClock,
@@ -28,10 +28,9 @@ import {
   Phone,
   Share2,
 } from "lucide-react";
-import Balancer from "react-wrap-balancer";
 
 interface CourseSheetProps {
-  selectedCourse?: Course;
+  selectedCourse?: GolfCourse;
   reviews: Tables<"golf_course_reviews">[];
   open: boolean;
 }
@@ -53,8 +52,8 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
   const searchParams = useSearchParams();
   const { toast } = useToast();
 
-  const address = selectedCourse?.address[0];
-  const operation = selectedCourse?.operation[0];
+  const addressName = selectedCourse?.lot_number_address_name;
+  const operation = selectedCourse?.operations;
 
   // TODO: 리뷰의 갯수가 많아지면 개선
   const totalAverage =
@@ -119,7 +118,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
               </div>
             </DrawerTitle>
             <DrawerDescription className="flex flex-col items-start">
-              <span className="text-left text-lg">{address?.address_name}</span>
+              <span className="text-left text-lg">{addressName}</span>
               {reviews.length > 0 ? (
                 <button
                   className="flex cursor-pointer items-center"
@@ -159,7 +158,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
             <div className="flex items-center gap-4">
               <Phone size={20} />
               <div className="text-base">
-                {selectedCourse?.contact[0]?.phone_number ? (
+                {selectedCourse?.contacts?.[0]?.phone_number ? (
                   <Button
                     variant="link"
                     size="sm"
@@ -169,8 +168,10 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                       track("phone number clicked", { ...selectedCourse });
                     }}
                   >
-                    <a href={`tel:${selectedCourse?.contact[0]?.phone_number}`}>
-                      {selectedCourse?.contact[0]?.phone_number}
+                    <a
+                      href={`tel:${selectedCourse?.contacts[0]?.phone_number}`}
+                    >
+                      {selectedCourse?.contacts[0]?.phone_number}
                     </a>
                   </Button>
                 ) : (
@@ -184,13 +185,13 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
               <div className="text-base">
                 <div className="flex">
                   <div className="mr-2 flex-shrink-0">영업 시간 -</div>
-                  {selectedCourse?.operation[0]?.opening_hours ??
+                  {selectedCourse?.operations?.opening_hours ??
                     InfoNeeded({ href: generateFormUrl(selectedCourse?.name) })}
                 </div>
-                {selectedCourse?.operation[0]?.regular_closed_days && (
+                {selectedCourse?.operations?.regular_closed_days && (
                   <div className="flex">
                     <div className="mr-2 flex-shrink-0">정기 휴무일 - </div>
-                    {selectedCourse?.operation[0]?.regular_closed_days}
+                    {selectedCourse?.operations?.regular_closed_days}
                   </div>
                 )}
               </div>

@@ -2,6 +2,18 @@
 
 import { unstable_noStore } from "next/cache";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import type { GolfCourse } from "@/types";
+
+export const getCourses = async () => {
+  const supabase = await createSupabaseServerClientReadOnly();
+  unstable_noStore();
+  const result = await supabase
+    .from("golf_courses")
+    .select(`*, contacts(*), operations(*), lot_number_addresses(*)`)
+    .returns<GolfCourse[]>();
+  if (result.error) throw result.error;
+  return result.data;
+};
 
 export const getGolfCourses = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
@@ -13,7 +25,7 @@ export const getGolfCourses = async () => {
   return result.data;
 };
 
-export const getGolfCourseReviews = async (courseId?: number) => {
+export const getGolfCourseReviews = async (courseId?: string) => {
   const supabase = await createSupabaseServerClientReadOnly();
   if (!courseId) return [];
   const result = await supabase
