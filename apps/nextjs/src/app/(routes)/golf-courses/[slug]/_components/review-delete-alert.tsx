@@ -41,9 +41,7 @@ const DeleteAlert = ({
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button size="sm" variant="secondary">
-          삭제하기
-        </Button>
+        <div>삭제하기</div>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
