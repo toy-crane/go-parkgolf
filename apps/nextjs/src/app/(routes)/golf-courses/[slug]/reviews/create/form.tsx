@@ -79,7 +79,7 @@ const ReviewForm = ({
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       await createGolfCourseReview(course.id, data);
-      router.replace(`/golf-courses/${course.slug}`);
+      router.replace(`/golf-courses/${course.slug}?tab=review`);
     });
   }
 
