@@ -51,7 +51,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
-      console.log(values);
       const result = await createGamePlayer(gameId, values);
       if (result.success) {
         const params = new URLSearchParams();

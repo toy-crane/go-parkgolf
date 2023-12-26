@@ -66,7 +66,6 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
           3
       );
     }, 0) / reviews.length;
-  console.log(open, "open");
 
   return (
     <Drawer

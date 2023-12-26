@@ -24,7 +24,6 @@ export async function generateMetadata(
     .eq("id", params.id)
     .single();
   if (response.error) {
-    console.log(response.error.message);
     return {};
   }
   const data = response.data;

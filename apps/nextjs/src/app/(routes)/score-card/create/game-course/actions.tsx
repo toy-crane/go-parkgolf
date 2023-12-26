@@ -64,8 +64,6 @@ export const createGamePlayerScores = async (
     .select()
     .eq("game_id", gameId);
 
-  console.log("players", players);
-
   if (error) {
     throw new Error(error.message);
   }

@@ -102,7 +102,6 @@ export default async function Page({ params, searchParams }: Props) {
   const allCoursesExcludeMe = courses.filter((course) => course.slug !== slug);
 
   if (currentCourse === undefined) return notFound();
-  console.log("current Course", currentCourse);
 
   const reviews = await GetReviews(currentCourse?.id);
 
@@ -118,9 +117,6 @@ export default async function Page({ params, searchParams }: Props) {
       ) <= 20
     );
   });
-
-  console.log(courses);
-
   return (
     <>
       <Nav courseName={currentCourse.name} />
