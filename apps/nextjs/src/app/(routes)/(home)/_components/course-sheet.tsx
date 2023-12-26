@@ -73,7 +73,6 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
     <Drawer
       open={open}
       onOpenChange={(open) => {
-        console.log("hello", open);
         const params = new URLSearchParams(searchParams);
         params.set("modal", String(open));
         if (!open) {

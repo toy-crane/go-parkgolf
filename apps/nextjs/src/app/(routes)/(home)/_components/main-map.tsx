@@ -51,6 +51,10 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
           isMarked={selectedCourse?.name === course.name}
           onClick={() => {
             const params = new URLSearchParams(searchParams);
+            const selectedCourseLat = course.address[0]?.y;
+            const selectedCourseLng = course.address[0]?.x;
+            params.set("lng", String(selectedCourseLng));
+            params.set("lat", String(selectedCourseLat));
             params.set("courseId", String(course.id));
             params.set("modal", String(true));
             router.replace(`?${params.toString()}`);

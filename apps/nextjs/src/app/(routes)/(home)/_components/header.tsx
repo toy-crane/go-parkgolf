@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { CommandMenu } from "@/components/command-menu";
-import { Button } from "@/components/ui/button";
 import { DEFAULT_POSITION } from "@/config/map";
-import { useAmplitude } from "@/libs/amplitude";
 import type { Course } from "@/types";
-import { Loader2, LocateFixed } from "lucide-react";
 
 import CurrentPositionButton from "./current-position-button";
 

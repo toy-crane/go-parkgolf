@@ -30,14 +30,11 @@ const Home = async ({
   );
   const reviews = await getGolfCourseReviews(selectedCourseId);
 
-  const selectedCourseLat = selectedCourse?.address[0]?.y;
-  const selectedCourseLng = selectedCourse?.address[0]?.x;
-
   const position = {
     level: level,
     center: {
-      lat: selectedCourseLat ?? lat ?? DEFAULT_POSITION.center.lat,
-      lng: selectedCourseLng ?? lng ?? DEFAULT_POSITION.center.lng,
+      lat: lat ?? DEFAULT_POSITION.center.lat,
+      lng: lng ?? DEFAULT_POSITION.center.lng,
     },
   };
 
