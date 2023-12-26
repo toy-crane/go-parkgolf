@@ -5,10 +5,9 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
-import type { Course } from "@/types";
 import { ArrowLeft, Pencil, Share2 } from "lucide-react";
 
-const Nav = ({ course }: { course: Course }) => {
+const Nav = ({ courseName }: { courseName: string }) => {
   const router = useRouter();
   const { track } = useAmplitude();
   const { toast } = useToast();
@@ -27,7 +26,7 @@ const Nav = ({ course }: { course: Course }) => {
             onClick={() => track("modify button clicked")}
           >
             <a
-              href={generateFormUrl(course.name)}
+              href={generateFormUrl(courseName)}
               target="_blank"
               rel="noopener noreferrer"
             >

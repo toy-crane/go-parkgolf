@@ -60,7 +60,7 @@ const ReviewForm = ({
   course,
   review,
 }: {
-  course: Tables<"golf_course">;
+  course: Tables<"golf_courses">;
   review?: Inputs;
 }) => {
   const [isPending, startTransition] = useTransition();
@@ -78,7 +78,7 @@ const ReviewForm = ({
 
   function onSubmit(data: Inputs) {
     startTransition(async () => {
-      await createGolfCourseReview(course, data);
+      await createGolfCourseReview(course.id, data);
       router.replace(`/golf-courses/${course.slug}`);
     });
   }

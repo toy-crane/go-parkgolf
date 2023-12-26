@@ -16,7 +16,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   if (!user) throw new Error("User not found");
 
   const { data: course, error } = await supabase
-    .from("golf_course")
+    .from("golf_courses")
     .select("*")
     .eq("slug", slug)
     .single();

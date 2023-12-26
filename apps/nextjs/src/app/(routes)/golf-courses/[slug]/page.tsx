@@ -101,29 +101,32 @@ export default async function Page({ params, searchParams }: Props) {
   const allCoursesExcludeMe = courses.filter((course) => course.slug !== slug);
 
   if (currentCourse === undefined) return notFound();
+  console.log("current Course", currentCourse);
 
   const reviews = await GetReviews(currentCourse?.id);
 
   const nearCourses = allCoursesExcludeMe.filter((course) => {
-    const courseLat = course.address[0]?.y ?? 0;
-    const courseLng = course.address[0]?.x ?? 0;
+    const courseLat = course.lat ?? 0;
+    const courseLng = course.lng ?? 0;
     return (
       haversineDistance(
-        currentCourse.address[0]?.y ?? 0,
-        currentCourse.address[0]?.x ?? 0,
+        currentCourse.lat ?? 0,
+        currentCourse.lng ?? 0,
         courseLat,
         courseLng,
       ) <= 20
     );
   });
 
+  console.log(courses);
+
   return (
     <>
-      <Nav course={currentCourse} />
+      <Nav courseName={currentCourse.name} />
       <CourseDetail
         course={currentCourse}
         nearCourses={nearCourses}
-        reviews={reviews}
+        reviews={[]}
         selectedTab={tab}
       />
       <BottomNav />

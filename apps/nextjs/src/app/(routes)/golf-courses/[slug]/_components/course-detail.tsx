@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
-import type { Course } from "@/types";
+import type { GolfCourse } from "@/types";
 import { Pencil } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
@@ -69,16 +69,15 @@ const CourseDetail = ({
   reviews,
   selectedTab,
 }: {
-  course: Course;
-  nearCourses: Course[];
+  course: GolfCourse;
+  nearCourses: GolfCourse[];
   reviews: Review[];
   selectedTab: string;
 }) => {
   const { track } = useAmplitude();
 
-  const address = course.address[0];
-  const operation = course.operation[0];
-  const contact = course.contact[0];
+  const operation = course.operations;
+  const contacts = course.contacts;
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -96,16 +95,16 @@ const CourseDetail = ({
           marker={[
             {
               position: {
-                lat: Number(address?.y),
-                lng: Number(address?.x),
+                lat: Number(course.lat),
+                lng: Number(course.lng),
               },
               text: course.name,
             },
           ]}
           center={{
             // 지도의 중심좌표
-            lat: Number(address?.y),
-            lng: Number(address?.x),
+            lat: Number(course.lat),
+            lng: Number(course.lng),
           }}
           style={{
             // 지도의 크기
@@ -134,7 +133,7 @@ const CourseDetail = ({
         </TabsList>
         <TabsContent value="home" className="space-y-6">
           <div className="my-6 flex flex-col gap-1">
-            <Label title="위치" content={address?.address_name} />
+            <Label title="위치" content={course.lot_number_address_name} />
             <Label title="규모" content={`${course?.hole_count} 홀`} />
           </div>
           <Separator />
@@ -162,28 +161,31 @@ const CourseDetail = ({
             </div>
           </div>
           <Separator />
-          <div className="space-y-3">
-            <h2 className="text-foreground text-xl font-bold">연락처</h2>
-            <div className="flex flex-col gap-1">
-              <Label
-                title="담당자 전화번호"
-                content={
-                  contact?.phone_number ? (
-                    <a
-                      href={`tel:${contact?.phone_number}`}
-                      className="text-blue-400"
-                    >
-                      {contact?.phone_number}
-                    </a>
-                  ) : (
-                    InfoNeeded({
-                      href: generateFormUrl(course.name),
-                    })
-                  )
-                }
-              />
+          {contacts?.map((contact) => (
+            <div className="space-y-3" key={contact.id}>
+              <h2 className="text-foreground text-xl font-bold">연락처</h2>
+              <div className="flex flex-col gap-1">
+                <Label
+                  title="담당자 전화번호"
+                  content={
+                    contact?.phone_number ? (
+                      <a
+                        href={`tel:${contact?.phone_number}`}
+                        className="text-blue-400"
+                      >
+                        {contact?.phone_number}
+                      </a>
+                    ) : (
+                      InfoNeeded({
+                        href: generateFormUrl(course.name),
+                      })
+                    )
+                  }
+                />
+              </div>
             </div>
-          </div>
+          ))}
+
           <Separator />
           <div className="space-y-3">
             <h2 className="text-foreground mb-2 text-xl font-bold">

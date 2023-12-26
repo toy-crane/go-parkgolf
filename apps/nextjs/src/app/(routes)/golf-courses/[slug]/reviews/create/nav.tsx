@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import type { Tables } from "@/types/generated";
 import { ArrowLeft } from "lucide-react";
 
-const Nav = ({ course }: { course: Tables<"golf_course"> }) => {
+const Nav = ({ course }: { course: Tables<"golf_courses"> }) => {
   const router = useRouter();
 
   return (

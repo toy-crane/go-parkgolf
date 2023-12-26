@@ -1,17 +1,19 @@
 "use server;";
 
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import type { GolfCourse } from "@/types";
 
 export const GetCourses = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
-    .from("golf_course")
-    .select(`*, address(*), road_address(*), contact(*), operation(*)`);
+    .from("golf_courses")
+    .select("*,contacts(*), operations(*)")
+    .returns<GolfCourse[]>();
   if (response.error) throw response.error;
   return response.data;
 };
 
-export const GetReviews = async (golfCourseId: number) => {
+export const GetReviews = async (golfCourseId: string) => {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("golf_course_reviews")
