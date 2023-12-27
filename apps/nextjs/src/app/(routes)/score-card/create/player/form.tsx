@@ -63,60 +63,67 @@ const PlayerForm = ({ gameId }: FormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-4 pb-12"
+        className="flex flex-col space-y-12 pb-12"
       >
-        <div className="flex flex-col space-y-1">
-          <FormLabel className="flex-1">선수 이름</FormLabel>
-          <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
-        </div>
-        <div className="space-y-2">
-          {fields.map((_, index) => {
-            return (
-              <div key={index}>
-                <div className="flex gap-x-3">
-                  <FormField
-                    control={form.control}
-                    key={index}
-                    name={`players.${index}.nickname`}
-                    render={({ field }) => (
-                      <FormItem className="flex-1">
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button
-                    onClick={() => remove(index)}
-                    type="button"
-                    variant="ghost"
-                    tabIndex={-1}
-                  >
-                    <MinusCircledIcon className="h-4 w-4" />
-                  </Button>
+        <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-1">
+            <FormLabel className="flex-1">선수 이름</FormLabel>
+            <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
+          </div>
+          <div className="space-y-2">
+            {fields.map((_, index) => {
+              return (
+                <div key={index}>
+                  <div className="flex gap-x-3">
+                    <FormField
+                      control={form.control}
+                      key={index}
+                      name={`players.${index}.nickname`}
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <FormControl>
+                            <Input {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <Button
+                      onClick={() => remove(index)}
+                      type="button"
+                      variant="ghost"
+                      tabIndex={-1}
+                    >
+                      <MinusCircledIcon className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            disabled={fields.length >= 4}
+            onClick={() =>
+              append({
+                nickname: "",
+              })
+            }
+          >
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
+            선수 추가하기
+          </Button>
+          <FormMessage>{error?.message}</FormMessage>
         </div>
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          disabled={fields.length >= 4}
-          onClick={() =>
-            append({
-              nickname: "",
-            })
-          }
-        >
-          <PlusCircledIcon className="mr-1 h-4 w-4" />
-          선수 추가하기
-        </Button>
-        <FormMessage>{error?.message}</FormMessage>
-        <div className="bottom-cta content-grid">
-          <Button type="submit" size="lg" disabled={isPending}>
+        <div className="flex gap-2">
+          <Button
+            type="submit"
+            size="lg"
+            disabled={isPending}
+            className="w-full"
+          >
             {isPending ? (
               <Loader2 className="h-5 w-5 animate-spin" size={24} />
             ) : (
