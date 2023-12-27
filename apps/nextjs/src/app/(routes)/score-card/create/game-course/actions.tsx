@@ -41,7 +41,7 @@ export const createGameScores = async (
     par: number;
   }[];
 
-  if (courses) {
+  if (courses && courses?.length > 0) {
     game_scores = gameCourses.flatMap((course) => {
       const holes = courses.find((c) => c.name === course.name)?.holes;
       return (
