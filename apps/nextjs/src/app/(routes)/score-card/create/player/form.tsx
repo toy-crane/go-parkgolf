@@ -52,6 +52,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       event.preventDefault();
+      (event.currentTarget as HTMLInputElement).blur();
     }
   };
 
