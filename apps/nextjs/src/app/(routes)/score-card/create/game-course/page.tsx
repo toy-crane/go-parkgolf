@@ -5,10 +5,11 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import PlayerForm from "./form";
 
-const Page = ({
+const Page = async ({
   searchParams,
 }: {
   searchParams: {
@@ -16,6 +17,19 @@ const Page = ({
   };
 }) => {
   const gameId = searchParams?.gameId;
+
+  const supabase = await createSupabaseServerClient();
+  const response = await supabase
+    .from("games")
+    .select(`golf_courses(name, courses(*, holes(*)))`)
+    .eq("id", gameId)
+    .single();
+
+  if (response.error) {
+    throw response.error;
+  }
+
+  const courses = response.data?.golf_courses?.courses;
 
   if (!gameId) {
     notFound();
@@ -27,7 +41,7 @@ const Page = ({
         <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
         <PageHeaderDescription>코스를 설정해 주세요</PageHeaderDescription>
       </PageHeader>
-      <PlayerForm gameId={gameId} />
+      <PlayerForm gameId={gameId} courses={courses} />
     </div>
   );
 };

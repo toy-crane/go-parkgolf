@@ -7,6 +7,10 @@ export type GolfCourse = Tables<"golf_courses"> & {
   operations?: Tables<"operations">;
 };
 
+export type Course = Tables<"courses"> & {
+  holes?: Tables<"holes">[];
+};
+
 export interface Position {
   level: number;
   center: { lat: number; lng: number };

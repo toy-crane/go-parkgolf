@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { Loader2 } from "lucide-react";
@@ -31,9 +32,10 @@ type Inputs = z.infer<typeof formSchema>;
 
 interface FormProps {
   gameId: string;
+  courses?: Course[];
 }
 
-const GameCourseForm = ({ gameId }: FormProps) => {
+const GameCourseForm = ({ gameId, courses }: FormProps) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
@@ -42,7 +44,10 @@ const GameCourseForm = ({ gameId }: FormProps) => {
     mode: "onChange",
     resolver: zodResolver(formSchema),
     defaultValues: {
-      game_courses: [],
+      game_courses: courses?.map((course) => ({
+        name: course.name,
+        hole_count: course.holes?.length,
+      })),
     },
   });
 

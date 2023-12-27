@@ -13,91 +13,6 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      address: {
-        Row: {
-          address_name: string | null
-          b_code: string | null
-          golf_course_id: number
-          h_code: string | null
-          id: number
-          main_address_no: string | null
-          mountain_yn: string | null
-          region_1depth_name: string | null
-          region_2depth_name: string | null
-          region_3depth_h_name: string | null
-          region_3depth_name: string | null
-          sub_address_no: string | null
-          x: number | null
-          y: number | null
-        }
-        Insert: {
-          address_name?: string | null
-          b_code?: string | null
-          golf_course_id: number
-          h_code?: string | null
-          id?: number
-          main_address_no?: string | null
-          mountain_yn?: string | null
-          region_1depth_name?: string | null
-          region_2depth_name?: string | null
-          region_3depth_h_name?: string | null
-          region_3depth_name?: string | null
-          sub_address_no?: string | null
-          x?: number | null
-          y?: number | null
-        }
-        Update: {
-          address_name?: string | null
-          b_code?: string | null
-          golf_course_id?: number
-          h_code?: string | null
-          id?: number
-          main_address_no?: string | null
-          mountain_yn?: string | null
-          region_1depth_name?: string | null
-          region_2depth_name?: string | null
-          region_3depth_h_name?: string | null
-          region_3depth_name?: string | null
-          sub_address_no?: string | null
-          x?: number | null
-          y?: number | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "address_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_course"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      contact: {
-        Row: {
-          golf_course_id: number | null
-          id: number
-          phone_number: string | null
-        }
-        Insert: {
-          golf_course_id?: number | null
-          id?: number
-          phone_number?: string | null
-        }
-        Update: {
-          golf_course_id?: number | null
-          id?: number
-          phone_number?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "contact_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_course"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       contacts: {
         Row: {
           created_at: string
@@ -120,6 +35,38 @@ export interface Database {
         Relationships: [
           {
             foreignKeyName: "contacts_golf_course_id_fkey"
+            columns: ["golf_course_id"]
+            isOneToOne: false
+            referencedRelation: "golf_courses"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      courses: {
+        Row: {
+          created_at: string
+          description: string | null
+          golf_course_id: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          golf_course_id: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          golf_course_id?: string
+          id?: string
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "courses_golf_course_id_fkey"
             columns: ["golf_course_id"]
             isOneToOne: false
             referencedRelation: "golf_courses"
@@ -311,30 +258,6 @@ export interface Database {
           }
         ]
       }
-      golf_course: {
-        Row: {
-          hole_count: number
-          id: number
-          name: string
-          searchable_address: string
-          slug: string
-        }
-        Insert: {
-          hole_count: number
-          id?: number
-          name: string
-          searchable_address: string
-          slug: string
-        }
-        Update: {
-          hole_count?: number
-          id?: number
-          name?: string
-          searchable_address?: string
-          slug?: string
-        }
-        Relationships: []
-      }
       golf_course_reviews: {
         Row: {
           course_condition_rating: number
@@ -392,6 +315,7 @@ export interface Database {
           lng: number | null
           lot_number_address_name: string | null
           name: string
+          publish_status: Database["public"]["Enums"]["publish_status"]
           road_address_name: string | null
           slug: string
         }
@@ -403,6 +327,7 @@ export interface Database {
           lng?: number | null
           lot_number_address_name?: string | null
           name?: string
+          publish_status?: Database["public"]["Enums"]["publish_status"]
           road_address_name?: string | null
           slug: string
         }
@@ -414,10 +339,46 @@ export interface Database {
           lng?: number | null
           lot_number_address_name?: string | null
           name?: string
+          publish_status?: Database["public"]["Enums"]["publish_status"]
           road_address_name?: string | null
           slug?: string
         }
         Relationships: []
+      }
+      holes: {
+        Row: {
+          course_id: string
+          created_at: string
+          distance: number | null
+          hole_number: number
+          id: string
+          par: number
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          distance?: number | null
+          hole_number: number
+          id?: string
+          par: number
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          distance?: number | null
+          hole_number?: number
+          id?: string
+          par?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "holes_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       lot_number_addresses: {
         Row: {
@@ -471,44 +432,6 @@ export interface Database {
             columns: ["golf_course_id"]
             isOneToOne: true
             referencedRelation: "golf_courses"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      operation: {
-        Row: {
-          golf_course_id: number | null
-          id: number
-          opening_hours: string | null
-          reference: string | null
-          registration_method: string | null
-          regular_closed_days: string | null
-          website: string | null
-        }
-        Insert: {
-          golf_course_id?: number | null
-          id?: number
-          opening_hours?: string | null
-          reference?: string | null
-          registration_method?: string | null
-          regular_closed_days?: string | null
-          website?: string | null
-        }
-        Update: {
-          golf_course_id?: number | null
-          id?: number
-          opening_hours?: string | null
-          reference?: string | null
-          registration_method?: string | null
-          regular_closed_days?: string | null
-          website?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "operation_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_course"
             referencedColumns: ["id"]
           }
         ]
@@ -583,65 +506,6 @@ export interface Database {
           }
         ]
       }
-      road_address: {
-        Row: {
-          address_name: string | null
-          building_name: string | null
-          golf_course_id: number
-          id: number
-          main_building_no: string | null
-          region_1depth_name: string | null
-          region_2depth_name: string | null
-          region_3depth_name: string | null
-          road_name: string | null
-          sub_building_no: string | null
-          underground_yn: string | null
-          x: number | null
-          y: number | null
-          zone_no: string | null
-        }
-        Insert: {
-          address_name?: string | null
-          building_name?: string | null
-          golf_course_id: number
-          id?: number
-          main_building_no?: string | null
-          region_1depth_name?: string | null
-          region_2depth_name?: string | null
-          region_3depth_name?: string | null
-          road_name?: string | null
-          sub_building_no?: string | null
-          underground_yn?: string | null
-          x?: number | null
-          y?: number | null
-          zone_no?: string | null
-        }
-        Update: {
-          address_name?: string | null
-          building_name?: string | null
-          golf_course_id?: number
-          id?: number
-          main_building_no?: string | null
-          region_1depth_name?: string | null
-          region_2depth_name?: string | null
-          region_3depth_name?: string | null
-          road_name?: string | null
-          sub_building_no?: string | null
-          underground_yn?: string | null
-          x?: number | null
-          y?: number | null
-          zone_no?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "road_address_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_course"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       road_addresses: {
         Row: {
           address_name: string | null
@@ -710,6 +574,7 @@ export interface Database {
     }
     Enums: {
       game_status: "draft" | "in_progress" | "completed" | "deleted"
+      publish_status: "draft" | "completed"
     }
     CompositeTypes: {
       [_ in never]: never
