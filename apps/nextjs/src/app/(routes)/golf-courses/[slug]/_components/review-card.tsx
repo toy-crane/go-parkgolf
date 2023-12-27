@@ -72,7 +72,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <span className="flex-1 text-xs font-normal">
             {formatDistanceToNow(new Date(review.created_at), {
               addSuffix: true,
@@ -82,7 +82,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
           {isMine && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="smIcon">
                   <MoreHorizontal className="h-4 w-4" />
                   <span className="sr-only">More</span>
                 </Button>
