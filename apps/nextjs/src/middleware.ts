@@ -65,9 +65,27 @@ export async function middleware(request: NextRequest) {
     await supabase.auth.setSession({
       access_token: accessToken,
       refresh_token: refreshToken,
-    });
+    }).then((re) => {
+      if (re.data.session === null) {
+        response.cookies.delete("sb-nlclqihmkqqmdmflexer-auth-token");
+      }
+      return response;
+    })
+    .catch((err) => {
+      throw err;
+    });;
     return response;
   }
-  await supabase.auth.getSession();
+  await supabase.auth
+    .getSession()
+    .then((re) => {
+      if (re.data.session === null) {
+        response.cookies.delete("sb-nlclqihmkqqmdmflexer-auth-token");
+      }
+      return response;
+    })
+    .catch((err) => {
+      throw err;
+    });
   return response;
 }
