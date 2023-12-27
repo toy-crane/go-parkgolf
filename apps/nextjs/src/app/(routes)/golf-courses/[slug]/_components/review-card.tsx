@@ -64,9 +64,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
         <div className="flex items-center space-x-2">
           <Avatar className="h-7 w-7">
             <AvatarImage src={`${review.profiles?.avatar_url}`} alt="Image" />
-            <AvatarFallback>
-              {review.profiles?.username.split(" ")[0]}
-            </AvatarFallback>
+            <AvatarFallback>{review.profiles?.username[0]}</AvatarFallback>
           </Avatar>
           <div>
             <p className="text-sm font-semibold leading-none">
