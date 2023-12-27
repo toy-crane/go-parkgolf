@@ -69,7 +69,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
       const { data: gameCourses } = await createGameCourse(gameId, values);
-      const { data: gameScores } = await createGameScores(gameCourses);
+      const { data: gameScores } = await createGameScores(gameCourses, courses);
       const { data: _ } = await createGamePlayerScores(gameId, gameScores);
       await updateGameStatus(gameId);
       router.replace(`/score-card/${gameId}`);

@@ -1,6 +1,7 @@
 "use server";
 
 import { createSupabaseServerClient } from "@/libs/supabase/server";
+import type { Course } from "@/types";
 import type { Tables } from "@/types/generated";
 import type { z } from "zod";
 
@@ -30,17 +31,40 @@ export const createGameCourse = async (gameId: string, inputs: Inputs) => {
 
 export const createGameScores = async (
   gameCourses: Tables<"game_courses">[],
+  courses?: Course[],
 ) => {
   const supabase = await createSupabaseServerClient();
-  const game_scores = gameCourses.flatMap((course) => {
-    return Array.from({ length: course.hole_count }).map((_, index) => {
-      return {
-        game_course_id: course.id,
-        hole_number: index + 1,
-        par: 0,
-      };
+
+  let game_scores: {
+    game_course_id: string;
+    hole_number: number;
+    par: number;
+  }[];
+
+  if (courses) {
+    game_scores = gameCourses.flatMap((course) => {
+      const holes = courses.find((c) => c.name === course.name)?.holes;
+      return (
+        holes?.map((hole) => {
+          return {
+            game_course_id: course.id,
+            hole_number: hole.hole_number,
+            par: hole.par,
+          };
+        }) ?? []
+      );
     });
-  });
+  } else {
+    game_scores = gameCourses.flatMap((course) => {
+      return Array.from({ length: course.hole_count }).map((_, index) => {
+        return {
+          game_course_id: course.id,
+          hole_number: index + 1,
+          par: 0,
+        };
+      });
+    });
+  }
 
   const scoreMutation = supabase
     .from("game_scores")
