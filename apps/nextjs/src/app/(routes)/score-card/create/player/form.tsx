@@ -48,6 +48,13 @@ const PlayerForm = ({ gameId }: FormProps) => {
     control: form.control,
   });
 
+  // 키 다운 이벤트를 처리하는 함수
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
+
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
@@ -83,7 +90,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
                         render={({ field }) => (
                           <FormItem className="flex-1">
                             <FormControl>
-                              <Input {...field} />
+                              <Input {...field} onKeyDown={handleKeyDown} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
