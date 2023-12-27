@@ -61,7 +61,6 @@ const CourseForm = ({ courses }: FormProps) => {
   }));
 
   const form = useForm<Inputs>({
-    shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(formSchema),
     defaultValues: {
