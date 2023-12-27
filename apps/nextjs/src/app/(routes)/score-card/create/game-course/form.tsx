@@ -95,7 +95,7 @@ const GameCourseForm = ({ gameId }: FormProps) => {
                         render={({ field }) => (
                           <FormItem className="flex-1">
                             <FormControl>
-                              <Input {...field} />
+                              <Input {...field} onKeyDown={handleKeyDown} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
