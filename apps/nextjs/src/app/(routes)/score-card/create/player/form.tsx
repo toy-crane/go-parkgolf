@@ -50,7 +50,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
 
   // 키 다운 이벤트를 처리하는 함수
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !event.nativeEvent.isComposing) {
       event.preventDefault();
       (event.currentTarget as HTMLInputElement).blur();
     }
