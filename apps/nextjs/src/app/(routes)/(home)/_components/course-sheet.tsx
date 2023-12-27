@@ -129,7 +129,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
                   }
                 >
                   <Icons.starFilled className="mr-[2px] h-4 w-4" />
-                  <span className="mr-2">{totalAverage}</span>
+                  <span className="mr-2">{totalAverage.toFixed(1)}</span>
                   <span>리뷰 {reviews.length}</span>
                 </button>
               ) : (
