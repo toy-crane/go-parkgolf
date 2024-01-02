@@ -90,7 +90,7 @@ const CourseSheet = ({ selectedCourse, open, reviews }: CourseSheetProps) => {
         className="mx-auto h-auto w-full px-4 pb-4 md:px-48"
         side={"bottom"}
       >
-        <SheetHeader className="px-0 py-4">
+        <SheetHeader className="space-y-1 px-0 py-4">
           <SheetTitle>
             <div className="flex items-center gap-1 text-2xl">
               <Link
