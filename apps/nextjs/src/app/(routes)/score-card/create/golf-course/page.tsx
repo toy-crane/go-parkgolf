@@ -9,7 +9,13 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import CourseForm from "./form";
 
-const Page = async () => {
+const Page = async ({
+  searchParams: { golfCourseId },
+}: {
+  searchParams: {
+    golfCourseId?: string;
+  };
+}) => {
   const supabase = await createSupabaseServerClientReadOnly();
   const query = supabase.from("golf_courses").select(`*`);
   const result = await query;
@@ -26,7 +32,7 @@ const Page = async () => {
           골프장과 게임 시작 날짜를 입력해 주세요
         </PageHeaderDescription>
       </PageHeader>
-      <CourseForm courses={result.data} />
+      <CourseForm courses={result.data} golfCourseId={golfCourseId} />
     </>
   );
 };

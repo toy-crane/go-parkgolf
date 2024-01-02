@@ -120,7 +120,7 @@ export default async function Page({ params, searchParams }: Props) {
   });
   return (
     <>
-      <Nav courseName={currentCourse.name} />
+      <Nav courseId={currentCourse.id} />
       <CourseDetail
         course={currentCourse}
         nearCourses={nearCourses}

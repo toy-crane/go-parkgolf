@@ -42,9 +42,10 @@ type Inputs = z.infer<typeof formSchema>;
 
 interface FormProps {
   courses: Tables<"golf_courses">[];
+  golfCourseId?: string;
 }
 
-const CourseForm = ({ courses }: FormProps) => {
+const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -65,6 +66,7 @@ const CourseForm = ({ courses }: FormProps) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       startedAt: new Date(),
+      golfCourseId,
     },
   });
 
