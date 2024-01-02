@@ -137,56 +137,63 @@ const CourseDetail = ({
             <Label title="규모" content={`${course?.hole_count} 홀`} />
           </div>
           <Separator />
-          <div className="space-y-3">
-            <h2 className="text-foreground text-xl font-bold">운영 시간</h2>
-            <div className="flex flex-col gap-1">
-              <Label
-                title="영업시간"
-                content={
-                  operation?.opening_hours ??
-                  InfoNeeded({
-                    href: generateFormUrl(course.name),
-                  })
-                }
-              />
-              <Label
-                title="정기 휴무일"
-                content={
-                  operation?.regular_closed_days ??
-                  InfoNeeded({
-                    href: generateFormUrl(course.name),
-                  })
-                }
-              />
-            </div>
-          </div>
-          <Separator />
-          {contacts?.map((contact) => (
-            <div className="space-y-3" key={contact.id}>
-              <h2 className="text-foreground text-xl font-bold">연락처</h2>
-              <div className="flex flex-col gap-1">
-                <Label
-                  title="담당자 전화번호"
-                  content={
-                    contact?.phone_number ? (
-                      <a
-                        href={`tel:${contact?.phone_number}`}
-                        className="text-blue-400"
-                      >
-                        {contact?.phone_number}
-                      </a>
-                    ) : (
+          {operation && (
+            <>
+              <div className="space-y-3">
+                <h2 className="text-foreground text-xl font-bold">운영 시간</h2>
+                <div className="flex flex-col gap-1">
+                  <Label
+                    title="영업시간"
+                    content={
+                      operation?.opening_hours ??
                       InfoNeeded({
                         href: generateFormUrl(course.name),
                       })
-                    )
-                  }
-                />
+                    }
+                  />
+                  <Label
+                    title="정기 휴무일"
+                    content={
+                      operation?.regular_closed_days ??
+                      InfoNeeded({
+                        href: generateFormUrl(course.name),
+                      })
+                    }
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-
-          <Separator />
+              <Separator />
+            </>
+          )}
+          {contacts && contacts.length > 0 && (
+            <>
+              {contacts?.map((contact) => (
+                <div className="space-y-3" key={contact.id}>
+                  <h2 className="text-foreground text-xl font-bold">연락처</h2>
+                  <div className="flex flex-col gap-1">
+                    <Label
+                      title="담당자 전화번호"
+                      content={
+                        contact?.phone_number ? (
+                          <a
+                            href={`tel:${contact?.phone_number}`}
+                            className="text-blue-400"
+                          >
+                            {contact?.phone_number}
+                          </a>
+                        ) : (
+                          InfoNeeded({
+                            href: generateFormUrl(course.name),
+                          })
+                        )
+                      }
+                    />
+                  </div>
+                </div>
+              ))}
+              <Separator />
+            </>
+          )}
           <div className="space-y-3">
             <h2 className="text-foreground mb-2 text-xl font-bold">
               이용 방법
