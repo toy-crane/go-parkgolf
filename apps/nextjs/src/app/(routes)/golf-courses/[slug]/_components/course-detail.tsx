@@ -2,13 +2,16 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/components/ui/use-toast";
 import { useAmplitude } from "@/libs/amplitude";
 import { generateFormUrl } from "@/libs/google-form";
 import type { GolfCourse } from "@/types";
-import { Pencil } from "lucide-react";
+import { Pencil, Share2 } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
+import Balancer from "react-wrap-balancer";
 
 import type { Review } from "../types";
 import Reviews from "./reviews";
@@ -46,7 +49,7 @@ const MAJOR_REGIONS = [
 const Label = ({ title, content }: CardProps) => {
   return (
     <div className="flex items-center">
-      <h3 className="mr-4 text-base font-semibold">{title}</h3>
+      <h3 className="mr-4 shrink-0 text-base font-semibold">{title}</h3>
       <div className="text-muted-foreground text-base">{content}</div>
     </div>
   );
@@ -75,6 +78,7 @@ const CourseDetail = ({
   selectedTab: string;
 }) => {
   const { track } = useAmplitude();
+  const { toast } = useToast();
 
   const operation = course.operations;
   const contacts = course.contacts;
@@ -114,7 +118,26 @@ const CourseDetail = ({
           level={6} // 지도의 확대 레벨
         />
       </section>
-      <h1 className="text-foreground mb-4 text-3xl font-bold">{course.name}</h1>
+      <div className="mb-4 flex items-center justify-between gap-1">
+        <h1 className="text-foreground text-balance break-keep text-left text-3xl font-bold">
+          {course.name}
+        </h1>
+        <Button
+          variant={"ghost"}
+          size="icon"
+          onClick={async () => {
+            await navigator.clipboard.writeText(`${window.location.href}`);
+            toast({
+              title: "주소가 복사되었습니다",
+              description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+              duration: 1000,
+            });
+            track("share button clicked");
+          }}
+        >
+          <Share2 size={24} />
+        </Button>
+      </div>
       <Tabs
         defaultValue={selectedTab}
         className="mb-28 space-y-4"
@@ -172,7 +195,7 @@ const CourseDetail = ({
                   <h2 className="text-foreground text-xl font-bold">연락처</h2>
                   <div className="flex flex-col gap-1">
                     <Label
-                      title="담당자 전화번호"
+                      title="전화번호"
                       content={
                         contact?.phone_number ? (
                           <a
