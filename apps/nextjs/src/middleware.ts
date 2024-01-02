@@ -13,7 +13,10 @@ export async function middleware(request: NextRequest) {
 
   const requestHeaders = new Headers(request.headers);
   // x-pathname 헤더를 추가하여 요청 URL을 기록
-  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  requestHeaders.set(
+    "x-pathname",
+    request.nextUrl.pathname + request.nextUrl.search,
+  );
   // 사용한 accessToken과 refreshToken은 삭제
   requestHeaders.delete("X-Access-Token");
   requestHeaders.delete("X-Refresh-Token");
@@ -62,18 +65,20 @@ export async function middleware(request: NextRequest) {
 
   // 웹뷰 로그인 이후 token으로 로그인 처리
   if (pathname.startsWith("/") && accessToken && refreshToken) {
-    await supabase.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    }).then((re) => {
-      if (re.data.session === null) {
-        response.cookies.delete("sb-nlclqihmkqqmdmflexer-auth-token");
-      }
-      return response;
-    })
-    .catch((err) => {
-      throw err;
-    });;
+    await supabase.auth
+      .setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken,
+      })
+      .then((re) => {
+        if (re.data.session === null) {
+          response.cookies.delete("sb-nlclqihmkqqmdmflexer-auth-token");
+        }
+        return response;
+      })
+      .catch((err) => {
+        throw err;
+      });
     return response;
   }
   await supabase.auth
