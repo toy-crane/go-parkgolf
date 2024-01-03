@@ -40,9 +40,6 @@ const CourseDetailSheet = ({
       onOpenChange={(open) => {
         const params = new URLSearchParams(searchParams);
         params.set("modal", String(open));
-        if (!open) {
-          params.delete("courseId");
-        }
         router.replace(`?${params.toString()}`);
       }}
     >
