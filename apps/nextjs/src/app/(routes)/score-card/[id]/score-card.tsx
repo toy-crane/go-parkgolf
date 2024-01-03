@@ -85,7 +85,7 @@ export function ScoreCard({
           </TableRow>
         ))}
       </TableHeader>
-      <TableBody className="flex flex-1 flex-col">
+      <TableBody className="flex flex-1 flex-col text-base">
         {table.getRowModel().rows?.length
           ? table
               .getRowModel()
@@ -132,7 +132,7 @@ export function ScoreCard({
               ))
           : null}
       </TableBody>
-      <TableFooter>
+      <TableFooter className="text-base">
         <TableRow
           className={cn(
             "align-center grid",
@@ -146,6 +146,7 @@ export function ScoreCard({
                 key={key}
                 className={cn(
                   "flex items-center justify-center break-keep border px-0 py-0 text-center",
+                  key === "holeNumber" && "text-xs leading-4",
                 )}
               >
                 {key === "holeNumber"
@@ -166,6 +167,7 @@ export function ScoreCard({
             )}
           >
             {footerGroup.headers.map((footer) => {
+              console.log(footer);
               return (
                 <TableCell
                   key={footer.id}
