@@ -68,7 +68,7 @@ export function ScoreCard({
                 <TableHead
                   key={header.id}
                   className={cn(
-                    "flex h-auto items-center justify-center border px-0 py-2 text-center md:px-4",
+                    "flex h-auto items-center justify-center border px-0 py-2 text-center font-semibold text-black md:px-4",
                     header.column.id === "holeNumber" && "bg-lime-200",
                     header.column.id === "par" && "bg-lime-400",
                   )}
