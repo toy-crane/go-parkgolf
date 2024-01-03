@@ -128,7 +128,6 @@ export const ScoreTabs = ({
     );
     const result = scoreSchema.safeParse(changedScoresGroup);
     if (result.success === false) {
-      console.log(result.error);
       return;
     }
     if (result.success) {
