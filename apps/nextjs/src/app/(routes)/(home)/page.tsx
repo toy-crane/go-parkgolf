@@ -2,6 +2,7 @@ import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
 import { getCourses, getGolfCourseReviews } from "./_components/action";
+import CourseDetailSheet from "./_components/course-detail-sheet";
 import CourseSheet from "./_components/course-sheet";
 import Footer from "./_components/footer";
 import MainMap from "./_components/main-map";
@@ -66,7 +67,7 @@ const Home = async ({
         />
       </section>
       <Footer />
-      <CourseSheet
+      <CourseDetailSheet
         selectedCourse={selectedCourse}
         open={modalOpen}
         reviews={reviews}

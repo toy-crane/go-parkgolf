@@ -59,8 +59,8 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
             params.set("lng", String(selectedCourseLng));
             params.set("lat", String(selectedCourseLat));
             params.set("courseId", String(course.id));
+            params.set("modal", String(true));
             router.replace(`?${params.toString()}`);
-            router.push(`/golf-courses/${course.slug}`);
             track("course clicked", { ...course });
           }}
         />
