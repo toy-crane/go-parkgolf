@@ -199,8 +199,8 @@ const CourseDetailTab = ({
         <Reviews reviews={reviews} />
       </TabsContent>
       <TabsContent value="near" className="space-y-6">
-        <div className="my-6">
-          {nearCourses.length > 0 && (
+        {nearCourses.length > 0 && (
+          <div className="space-y-6">
             <div className="space-y-3">
               <h2 className="text-foreground text-xl font-bold">
                 주변 파크 골프장 둘러보기
@@ -217,9 +217,9 @@ const CourseDetailTab = ({
                 ))}
               </div>
             </div>
-          )}
-        </div>
-        <Separator />
+            <Separator />
+          </div>
+        )}
         <div className="space-y-3">
           <h2 className="text-foreground text-xl font-bold">
             전국의 다른 파크골프장 살펴보기
