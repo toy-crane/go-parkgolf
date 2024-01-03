@@ -94,7 +94,7 @@ const Page = async ({
       <ScoreTabs
         gameId={params.id}
         gameCourses={gameCourses}
-        selectedTab={searchParams.tab}
+        selectedTab={searchParams.tab ?? gameCourses[0]?.name!}
         playerCount={playerCount}
         isMyGame={isMyGame}
         startedAt={startedAt}

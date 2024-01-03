@@ -10,7 +10,7 @@ import { cn } from "@/libs/tailwind";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { format } from "date-fns";
-import { Loader2, Minus, Plus } from "lucide-react";
+import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
 import { saveScore } from "./actions";
@@ -85,7 +85,6 @@ export const ScoreTabs = ({
 
   const lastTabName = gameCourses[gameCourses.length - 1]?.name!;
 
-  const [tab, setTab] = useState(selectedTab ?? gameCourses[0]?.name!);
   const searchParams = useSearchParams();
   const router = useRouter();
   const columns = getColumnNames(gameCourses);
@@ -107,13 +106,12 @@ export const ScoreTabs = ({
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
     router.replace(`?${params.toString()}`);
-    setTab(value);
   };
 
   // 탭이 변경되면, 선택된 셀을 초기화한다.
   useEffect(() => {
     setSelectedCell(undefined);
-  }, [tab]);
+  }, [selectedTab]);
 
   const table = useReactTable({
     data: scoreCard,
@@ -183,7 +181,8 @@ export const ScoreTabs = ({
         {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
       </div>
       <Tabs
-        defaultValue={tab}
+        defaultValue={selectedTab}
+        value={selectedTab}
         onValueChange={handleTabChange}
         className="flex flex-col"
       >
@@ -245,7 +244,7 @@ export const ScoreTabs = ({
             >
               <Minus className="h-4 w-4" />
             </Button>
-            {lastTabName === tab && (
+            {lastTabName === selectedTab ? (
               <Button
                 onClick={handleSave}
                 variant="outline"
@@ -257,6 +256,23 @@ export const ScoreTabs = ({
                 ) : (
                   "완료"
                 )}
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                size="smIcon"
+                className="h-9 w-9"
+                onClick={() => {
+                  const params = new URLSearchParams(searchParams);
+                  const nextTabName =
+                    gameCourses[
+                      gameCourses.findIndex((gc) => gc.name === selectedTab) + 1
+                    ]?.name!;
+                  params.set("tab", nextTabName);
+                  router.push(`?${params.toString()}`);
+                }}
+              >
+                <ChevronRight />
               </Button>
             )}
           </div>

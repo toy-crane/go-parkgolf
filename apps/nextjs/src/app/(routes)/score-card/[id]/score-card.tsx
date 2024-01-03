@@ -167,7 +167,6 @@ export function ScoreCard({
             )}
           >
             {footerGroup.headers.map((footer) => {
-              console.log(footer);
               return (
                 <TableCell
                   key={footer.id}
