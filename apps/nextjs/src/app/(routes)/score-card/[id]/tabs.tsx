@@ -176,9 +176,13 @@ export const ScoreTabs = ({
         onValueChange={handleTabChange}
         className="flex flex-col"
       >
-        <TabsList>
+        <TabsList className="h-7">
           {gameCourses.map((gc) => (
-            <TabsTrigger value={gc.name} key={gc.id} className="flex-1">
+            <TabsTrigger
+              value={gc.name}
+              key={gc.id}
+              className="flex-1 py-0.5 text-xs"
+            >
               {gc.name} 코스
             </TabsTrigger>
           ))}
