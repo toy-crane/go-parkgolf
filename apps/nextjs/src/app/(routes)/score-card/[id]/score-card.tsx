@@ -145,11 +145,11 @@ export function ScoreCard({
               <TableCell
                 key={key}
                 className={cn(
-                  "flex items-center justify-center border px-0 text-center md:px-4",
+                  "flex items-center justify-center break-keep border px-0 py-0 text-center",
                 )}
               >
                 {key === "holeNumber"
-                  ? "CT"
+                  ? "코스 합계"
                   : Number(value) > 0 && key !== "par"
                   ? `+${value}`
                   : value}
@@ -169,7 +169,7 @@ export function ScoreCard({
               return (
                 <TableCell
                   key={footer.id}
-                  className="flex items-center justify-center border px-0 text-center md:px-4"
+                  className="flex items-center justify-center break-keep border px-0 py-0 text-center md:px-4"
                 >
                   {footer.isPlaceholder
                     ? null

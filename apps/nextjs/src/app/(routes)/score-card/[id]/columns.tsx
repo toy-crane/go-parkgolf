@@ -21,7 +21,7 @@ export const useGetColumns = (dynamicColumns: ColumnName[]) => {
       columnHelper.accessor("holeNumber", {
         cell: (info) => info.getValue(),
         header: "홀",
-        footer: "총합",
+        footer: "전체 합계",
       }),
       columnHelper.accessor("par", {
         cell: (info) => info.getValue(),
