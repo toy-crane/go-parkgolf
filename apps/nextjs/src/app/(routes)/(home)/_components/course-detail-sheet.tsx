@@ -10,6 +10,7 @@ import CourseDetail from "../../golf-courses/[slug]/_components/course-detail";
 
 interface CourseSheetProps {
   selectedCourse?: GolfCourse;
+  nearCourses: GolfCourse[];
   reviews: Tables<"golf_course_reviews">[];
   open: boolean;
 }
@@ -17,6 +18,7 @@ interface CourseSheetProps {
 const CourseDetailSheet = ({
   open,
   selectedCourse,
+  nearCourses,
   reviews,
 }: CourseSheetProps) => {
   const router = useRouter();
@@ -43,7 +45,7 @@ const CourseDetailSheet = ({
       >
         <CourseDetail
           course={selectedCourse}
-          nearCourses={[]}
+          nearCourses={nearCourses}
           reviews={reviews}
           selectedTab={"home"}
         />

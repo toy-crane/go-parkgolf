@@ -1,9 +1,9 @@
 import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
+import { haversineDistance } from "@/libs/map";
 
 import { getCourses, getGolfCourseReviews } from "./_components/action";
 import CourseDetailSheet from "./_components/course-detail-sheet";
-import CourseSheet from "./_components/course-sheet";
 import Footer from "./_components/footer";
 import MainMap from "./_components/main-map";
 
@@ -56,6 +56,23 @@ const Home = async ({
     }).toString()}`,
   }));
 
+  const allCoursesExcludeMe = courses.filter(
+    (course) => course.slug !== selectedCourse?.slug,
+  );
+
+  const nearCourses = allCoursesExcludeMe.filter((course) => {
+    const courseLat = course.lat ?? 0;
+    const courseLng = course.lng ?? 0;
+    return (
+      haversineDistance(
+        selectedCourse?.lat ?? 0,
+        selectedCourse?.lng ?? 0,
+        courseLat,
+        courseLng,
+      ) <= 20
+    );
+  });
+
   return (
     <>
       <HomeNav selectOptions={selectOptions} />
@@ -69,6 +86,7 @@ const Home = async ({
       <Footer />
       <CourseDetailSheet
         selectedCourse={selectedCourse}
+        nearCourses={nearCourses}
         open={modalOpen}
         reviews={reviews}
       />
