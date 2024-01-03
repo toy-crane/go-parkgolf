@@ -195,11 +195,12 @@ export const ScoreTabs = ({
           </TabsContent>
         ))}
       </Tabs>
-      <div className="h-bottom-nav">
+      <div>
         {isMyGame ? (
-          <div className="flex justify-evenly gap-2 pb-2 pt-4">
+          <div className="flex justify-evenly gap-2 pt-2">
             <Button
               className="flex-auto"
+              size="sm"
               disabled={isPending || !selectedCell}
               onClick={() => {
                 if (selectedCell) {
@@ -215,6 +216,7 @@ export const ScoreTabs = ({
             </Button>
             <Button
               className="flex-auto"
+              size="sm"
               disabled={isPending || !selectedCell}
               onClick={() => {
                 if (selectedCell) {
@@ -228,7 +230,12 @@ export const ScoreTabs = ({
             >
               <Minus className="h-4 w-4" />
             </Button>
-            <Button onClick={handleSave} variant="outline" disabled={isPending}>
+            <Button
+              onClick={handleSave}
+              variant="outline"
+              disabled={isPending}
+              size="sm"
+            >
               {isPending ? (
                 <Loader2 className="h-5 w-5 animate-spin" size={24} />
               ) : lastTabName === tab ? (
