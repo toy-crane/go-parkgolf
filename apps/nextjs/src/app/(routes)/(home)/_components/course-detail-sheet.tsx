@@ -23,6 +23,7 @@ const CourseDetailSheet = ({
 }: CourseSheetProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const tab = searchParams.get("tab") ?? "home";
 
   if (selectedCourse === undefined) return null;
 
@@ -47,7 +48,7 @@ const CourseDetailSheet = ({
           course={selectedCourse}
           nearCourses={nearCourses}
           reviews={reviews}
-          selectedTab={"home"}
+          selectedTab={tab}
         />
       </SheetContent>
     </Sheet>
