@@ -73,24 +73,38 @@ const CourseDetailSheet = ({
             level={6} // 지도의 확대 레벨
           />
         </section>
-        <div className="mb-4 flex items-center justify-between gap-1">
-          <h1 className="text-foreground text-balance break-keep text-left text-3xl font-bold">
-            {selectedCourse.name}
-          </h1>
+        <div className="mb-6 flex flex-col justify-between gap-2 md:flex-row md:items-center md:gap-1">
+          <div className="flex justify-between gap-1 md:items-center">
+            <h1 className="text-foreground text-balance break-keep text-left text-2xl font-bold">
+              {selectedCourse.name}
+            </h1>
+            <Button
+              variant={"ghost"}
+              size="smIcon"
+              onClick={async () => {
+                await navigator.clipboard.writeText(`${window.location.href}`);
+                toast({
+                  title: "주소가 복사되었습니다",
+                  description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+                  duration: 1000,
+                });
+                track("share button clicked");
+              }}
+            >
+              <Share2 size={24} />
+            </Button>
+          </div>
           <Button
-            variant={"ghost"}
-            size="icon"
-            onClick={async () => {
-              await navigator.clipboard.writeText(`${window.location.href}`);
-              toast({
-                title: "주소가 복사되었습니다",
-                description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
-                duration: 1000,
-              });
-              track("share button clicked");
+            size="sm"
+            className=""
+            onClick={() => {
+              router.push(
+                `/score-card/create/golf-course?golfCourseId=${selectedCourse.id}`,
+              );
+              track("create game button clicked");
             }}
           >
-            <Share2 size={24} />
+            스코어 기록하기
           </Button>
         </div>
         <CourseDetailTab
