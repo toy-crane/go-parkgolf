@@ -50,6 +50,6 @@ export async function saveScore(scores: Score[]) {
     throw new Error(scorePlayerResponse.error.message);
   }
 
-  revalidatePath("/score-card/[id]", "layout");
+  revalidatePath("/score-card/[id]", "page");
   return { success: true };
 }
