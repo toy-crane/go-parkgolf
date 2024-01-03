@@ -196,7 +196,7 @@ const CourseDetailTab = ({
         </div>
       </TabsContent>
       <TabsContent value="review" className="min-h-[25vh] space-y-6">
-        <Reviews reviews={reviews} />
+        <Reviews reviews={reviews} course={course} />
       </TabsContent>
       <TabsContent value="near" className="min-h-[25vh] space-y-6">
         {nearCourses.length > 0 && (

@@ -2,10 +2,10 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import type { GolfCourse } from "@/types";
 import Balancer from "react-wrap-balancer";
 
-const EmptyReview = () => {
-  const params = useParams();
+const EmptyReview = ({ course }: { course: GolfCourse }) => {
   const router = useRouter();
   return (
     <div className="mt-12 flex flex-col items-center justify-center gap-4 md:mt-20">
@@ -14,7 +14,7 @@ const EmptyReview = () => {
       </span>
       <Button
         onClick={() =>
-          router.push(`/golf-courses/${params.slug as string}/reviews/create`)
+          router.push(`/golf-courses/${course.slug}/reviews/create`)
         }
       >
         첫 리뷰 등록하기

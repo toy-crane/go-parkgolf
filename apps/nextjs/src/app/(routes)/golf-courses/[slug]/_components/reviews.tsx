@@ -2,15 +2,21 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { Icons } from "@/components/icons";
+import type { GolfCourse } from "@/types";
 import { Pencil } from "lucide-react";
 
 import type { Review } from "../types";
 import EmptyReview from "./empty-review";
 import ReviewCard from "./review-card";
 
-const Reviews = ({ reviews }: { reviews: Review[] }) => {
+const Reviews = ({
+  reviews,
+  course,
+}: {
+  reviews: Review[];
+  course: GolfCourse;
+}) => {
   const router = useRouter();
-  const params = useParams();
 
   // TODO: 리뷰의 갯수가 많아지면 개선
   const totalAverage =
@@ -27,7 +33,7 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
   return (
     <div>
       {reviews.length === 0 ? (
-        <EmptyReview />
+        <EmptyReview course={course} />
       ) : (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
@@ -41,9 +47,7 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
             <button
               className="flex items-center gap-1 text-sm font-semibold"
               onClick={() =>
-                router.push(
-                  `/golf-courses/${params.slug as string}/reviews/create`,
-                )
+                router.push(`/golf-courses/${course.slug}/reviews/create`)
               }
             >
               <span>리뷰 작성하기</span>
