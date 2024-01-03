@@ -233,20 +233,20 @@ export const ScoreTabs = ({
             >
               <Minus className="h-4 w-4" />
             </Button>
-            <Button
-              onClick={handleSave}
-              variant="outline"
-              disabled={isPending}
-              size="sm"
-            >
-              {isPending ? (
-                <Loader2 className="h-5 w-5 animate-spin" size={24} />
-              ) : lastTabName === tab ? (
-                "완료"
-              ) : (
-                "저장"
-              )}
-            </Button>
+            {lastTabName === tab && (
+              <Button
+                onClick={handleSave}
+                variant="outline"
+                disabled={isPending}
+                size="sm"
+              >
+                {isPending ? (
+                  <Loader2 className="h-5 w-5 animate-spin" size={24} />
+                ) : (
+                  "완료"
+                )}
+              </Button>
+            )}
           </div>
         ) : (
           <Button asChild className="mt-4 w-full">
