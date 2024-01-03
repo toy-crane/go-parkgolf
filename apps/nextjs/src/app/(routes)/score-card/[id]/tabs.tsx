@@ -260,8 +260,7 @@ export const ScoreTabs = ({
             ) : (
               <Button
                 variant="outline"
-                size="smIcon"
-                className="h-9 w-9"
+                size="sm"
                 onClick={() => {
                   const params = new URLSearchParams(searchParams);
                   const nextTabName =
@@ -272,7 +271,7 @@ export const ScoreTabs = ({
                   router.push(`?${params.toString()}`);
                 }}
               >
-                <ChevronRight />
+                다음
               </Button>
             )}
           </div>
