@@ -15,7 +15,7 @@ export default {
     },
     extend: {
       gridTemplateRows: {
-        "score-board": "auto 1fr auto",
+        "score-board": "auto auto 1fr auto",
       },
       gridTemplateColumns: {
         "16": "repeat(16, minmax(0, 1fr))",

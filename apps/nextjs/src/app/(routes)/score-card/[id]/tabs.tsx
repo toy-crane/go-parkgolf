@@ -6,8 +6,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useLocalStorage from "@/libs/hooks/local-storage";
+import { cn } from "@/libs/tailwind";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import { format } from "date-fns";
 import { Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
@@ -64,12 +66,14 @@ export const ScoreTabs = ({
   playerCount,
   isMyGame,
   gameId,
+  startedAt,
 }: {
   gameId: string;
   gameCourses: GameCourse[];
   selectedTab?: string;
   playerCount: number;
   isMyGame: boolean;
+  startedAt: string;
 }) => {
   useLockBodyScroll();
   const [isPending, startTransition] = useTransition();
@@ -173,6 +177,11 @@ export const ScoreTabs = ({
 
   return (
     <>
+      <div
+        className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
+      >
+        {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
+      </div>
       <Tabs
         defaultValue={tab}
         onValueChange={handleTabChange}

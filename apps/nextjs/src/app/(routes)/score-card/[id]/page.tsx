@@ -5,6 +5,7 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
+import BackButton from "./back-button";
 import { getGameCourses } from "./fetcher";
 import ShareButton from "./share-button";
 import { ScoreTabs } from "./tabs";
@@ -77,18 +78,16 @@ const Page = async ({
 
   return (
     <>
-      <div className="flex items-center justify-between py-2 pb-1">
-        <div className="flex flex-col gap-1">
+      <div className="flex items-center gap-1 pt-2">
+        <BackButton />
+        <div className="flex-auto">
           <h3
             className={cn(
-              "flex text-2xl font-semibold leading-none tracking-tight",
+              "flex break-keep text-lg font-semibold leading-5 tracking-tight",
             )}
           >
             {name ? name : null}
           </h3>
-          <p className={cn("text-muted-foreground flex text-sm")}>
-            {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
-          </p>
         </div>
         <ShareButton />
       </div>
@@ -98,6 +97,7 @@ const Page = async ({
         selectedTab={searchParams.tab}
         playerCount={playerCount}
         isMyGame={isMyGame}
+        startedAt={startedAt}
       />
     </>
   );
