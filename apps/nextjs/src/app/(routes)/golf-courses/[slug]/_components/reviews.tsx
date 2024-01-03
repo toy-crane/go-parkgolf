@@ -25,7 +25,7 @@ const Reviews = ({ reviews }: { reviews: Review[] }) => {
     }, 0) / reviews.length;
 
   return (
-    <div className="h-screen">
+    <div>
       {reviews.length === 0 ? (
         <EmptyReview />
       ) : (
