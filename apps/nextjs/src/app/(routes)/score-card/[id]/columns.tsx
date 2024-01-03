@@ -42,7 +42,7 @@ export const useGetColumns = (dynamicColumns: ColumnName[]) => {
       ...dynamicColumns.map((column) =>
         columnHelper.accessor(column.accessorKey, {
           cell: (info) => {
-            const value = info.getValue();
+            const value = info.getValue() as number;
             return <div>{value > 0 ? `+${value}` : value}</div>;
           },
           header: () => <div>{column.headerName}</div>,
