@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import useLocalStorage from "@/libs/hooks/local-storage";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { Loader2, Minus, Plus } from "lucide-react";
@@ -62,17 +63,20 @@ export const ScoreTabs = ({
   selectedTab,
   playerCount,
   isMyGame,
+  gameId,
 }: {
+  gameId: string;
   gameCourses: GameCourse[];
   selectedTab?: string;
   playerCount: number;
   isMyGame: boolean;
 }) => {
   useLockBodyScroll();
-
   const [isPending, startTransition] = useTransition();
-  // 변경된 Row만 기록
-  const [changedScoresGroup, setChangedScoresGroup] = useState<Score[]>([]);
+  const [changedScoresGroup, setChangedScoresGroup] = useLocalStorage<Score[]>(
+    `${gameId}-changed-scores`,
+    [],
+  );
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(undefined);
 
   const lastTabName = gameCourses[gameCourses.length - 1]?.name!;
@@ -134,9 +138,8 @@ export const ScoreTabs = ({
       startTransition(async () => {
         await saveScore(result.data as Score[]);
       });
-      if (lastTabName === tab) {
-        router.push(`/my-games`);
-      }
+      setChangedScoresGroup([]);
+      router.push(`/my-games`);
     }
   };
 

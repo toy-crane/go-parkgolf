@@ -93,6 +93,7 @@ const Page = async ({
         <ShareButton />
       </div>
       <ScoreTabs
+        gameId={params.id}
         gameCourses={gameCourses}
         selectedTab={searchParams.tab}
         playerCount={playerCount}
