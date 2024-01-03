@@ -260,7 +260,8 @@ export const ScoreTabs = ({
             ) : (
               <Button
                 variant="outline"
-                size="sm"
+                size="smIcon"
+                className="h-9 w-9"
                 onClick={() => {
                   const params = new URLSearchParams(searchParams);
                   const nextTabName =
@@ -268,10 +269,10 @@ export const ScoreTabs = ({
                       gameCourses.findIndex((gc) => gc.name === selectedTab) + 1
                     ]?.name!;
                   params.set("tab", nextTabName);
-                  router.push(`?${params.toString()}`);
+                  router.replace(`?${params.toString()}`);
                 }}
               >
-                다음
+                <ChevronRight />
               </Button>
             )}
           </div>
