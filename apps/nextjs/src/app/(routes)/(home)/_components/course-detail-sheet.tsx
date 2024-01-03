@@ -2,11 +2,16 @@
 
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useToast } from "@/components/ui/use-toast";
+import { useAmplitude } from "@/libs/amplitude";
 import type { GolfCourse } from "@/types";
 import type { Tables } from "@/types/generated";
+import { Share2 } from "lucide-react";
+import { StaticMap } from "react-kakao-maps-sdk";
 
-import CourseDetail from "../../golf-courses/[slug]/_components/course-detail";
+import CourseDetailTab from "../../golf-courses/[slug]/_components/course-detail-tab";
 
 interface CourseSheetProps {
   selectedCourse?: GolfCourse;
@@ -23,6 +28,8 @@ const CourseDetailSheet = ({
 }: CourseSheetProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { track } = useAmplitude();
+  const { toast } = useToast();
   const tab = searchParams.get("tab") ?? "home";
 
   if (selectedCourse === undefined) return null;
@@ -44,11 +51,56 @@ const CourseDetailSheet = ({
         side={"bottom"}
         scrollable
       >
-        <CourseDetail
+        <section className="mt-2">
+          <StaticMap // 지도를 표시할 Container
+            className="mb-8"
+            marker={[
+              {
+                position: {
+                  lat: Number(selectedCourse.lat),
+                  lng: Number(selectedCourse.lng),
+                },
+                text: selectedCourse.name,
+              },
+            ]}
+            center={{
+              // 지도의 중심좌표
+              lat: Number(selectedCourse.lat),
+              lng: Number(selectedCourse.lng),
+            }}
+            style={{
+              // 지도의 크기
+              width: "100%",
+              height: "280px",
+            }}
+            level={6} // 지도의 확대 레벨
+          />
+        </section>
+        <div className="mb-4 flex items-center justify-between gap-1">
+          <h1 className="text-foreground text-balance break-keep text-left text-3xl font-bold">
+            {selectedCourse.name}
+          </h1>
+          <Button
+            variant={"ghost"}
+            size="icon"
+            onClick={async () => {
+              await navigator.clipboard.writeText(`${window.location.href}`);
+              toast({
+                title: "주소가 복사되었습니다",
+                description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
+                duration: 1000,
+              });
+              track("share button clicked");
+            }}
+          >
+            <Share2 size={24} />
+          </Button>
+        </div>
+        <CourseDetailTab
           course={selectedCourse}
+          selectedTab={tab}
           nearCourses={nearCourses}
           reviews={reviews}
-          selectedTab={tab}
         />
       </SheetContent>
     </Sheet>
