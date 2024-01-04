@@ -90,7 +90,7 @@ const Page = async ({
             {name ? name : null}
           </h3>
         </div>
-        <div>
+        <div className="flex">
           {isMyGame && <DeleteAlert gameId={params.id} />}
           <ShareButton />
         </div>
