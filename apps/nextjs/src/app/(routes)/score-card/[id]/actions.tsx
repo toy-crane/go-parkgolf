@@ -61,6 +61,7 @@ export async function saveScore(gameId: string, scores: Score[]) {
   }
 
   revalidatePath("/score-card/[id]", "page");
+  revalidatePath("/my-games", "page");
   return { success: true };
 }
 
