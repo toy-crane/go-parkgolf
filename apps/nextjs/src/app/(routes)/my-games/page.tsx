@@ -24,9 +24,11 @@ const Page = async () => {
           )}
         </Button>
       </PageHeader>
-      <div className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div>
         {hasGames ? (
-          <>{games?.map((game) => <GameCard game={game} key={game.id} />)}</>
+          <div className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {games?.map((game) => <GameCard game={game} key={game.id} />)}
+          </div>
         ) : (
           <div className="flex h-[65vh] flex-col items-center justify-center gap-6">
             <span className="max-w-[300px] text-center text-2xl font-bold">
