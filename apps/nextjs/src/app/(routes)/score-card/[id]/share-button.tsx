@@ -10,8 +10,7 @@ const ShareButton = () => {
   return (
     <Button
       variant={"ghost"}
-      className="h-9 w-9"
-      size="icon"
+      size="smIcon"
       onClick={async () => {
         await navigator.clipboard.writeText(`${window.location.href}`);
         toast({

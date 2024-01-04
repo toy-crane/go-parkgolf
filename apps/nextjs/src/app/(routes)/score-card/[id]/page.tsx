@@ -6,6 +6,7 @@ import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
 import BackButton from "./back-button";
+import DeleteAlert from "./delete-alert";
 import { getGameCourses } from "./fetcher";
 import ShareButton from "./share-button";
 import { ScoreTabs } from "./tabs";
@@ -89,7 +90,10 @@ const Page = async ({
             {name ? name : null}
           </h3>
         </div>
-        <ShareButton />
+        <div>
+          {isMyGame && <DeleteAlert gameId={params.id} />}
+          <ShareButton />
+        </div>
       </div>
       <ScoreTabs
         gameId={params.id}

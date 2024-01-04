@@ -2,6 +2,8 @@
 
 import { useState, useTransition } from "react";
 import type { ChangeEvent } from "react";
+import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/navigation";
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -13,26 +15,28 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Loader2, Trash2 } from "lucide-react";
 
-import { deleteGame } from "./action";
+import { deleteGame } from "./actions";
 
 const DeleteAlert = ({ gameId }: { gameId: string }) => {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     startTransition(async () => {
       await deleteGame(gameId);
+      router.replace("/my-games");
       setOpen(false);
     });
   };
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button size="sm" variant="secondary">
-          삭제하기
+        <Button variant={"ghost"} size="smIcon">
+          <Trash2 />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
