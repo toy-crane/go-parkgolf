@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import Balancer from "react-wrap-balancer";
 
 import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import { getMyGames } from "./fetcher";
