@@ -76,10 +76,10 @@ const GameCard = ({
         >
           {STATUS_LABEL[status].text}
         </Badge>
-        <h2 className="text-md mb-1 font-medium">
-          {golfCourses?.name} {golfCourses?.holeCount}홀
-        </h2>
-        <div className="text-xs text-gray-500">{gameCourseNames} 코스</div>
+        <h2 className="text-md mb-1 font-medium">{golfCourses?.name}</h2>
+        <div className="text-xs text-gray-500">
+          {gameCourseNames} 코스 ﹒ {golfCourses?.holeCount}홀
+        </div>
         <div className="text-xs text-gray-500">{gamePlayerNames}</div>
       </CardContent>
     </Card>
