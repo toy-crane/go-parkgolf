@@ -5,7 +5,7 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
 
-export async function saveScore(scores: Score[]) {
+export async function saveScore(gameId: string, scores: Score[]) {
   const supabase = await createSupabaseServerClient();
   const scoreMutation = supabase
     .from("game_scores")
@@ -48,6 +48,16 @@ export async function saveScore(scores: Score[]) {
   const scorePlayerResponse = await scorePlayerMutation;
   if (scorePlayerResponse.error) {
     throw new Error(scorePlayerResponse.error.message);
+  }
+
+  const gameMutation = supabase
+    .from("games")
+    .update({ status: "completed" })
+    .eq("id", gameId)
+    .select();
+  const gameMutationResponse = await gameMutation;
+  if (gameMutationResponse.error) {
+    throw new Error(gameMutationResponse.error.message);
   }
 
   revalidatePath("/score-card/[id]", "page");

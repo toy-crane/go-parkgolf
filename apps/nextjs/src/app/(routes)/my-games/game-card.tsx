@@ -5,10 +5,10 @@ import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
+import { ko } from "date-fns/locale";
 import { ChevronRight } from "lucide-react";
 
 import type { Game } from "./type";
-import { ko } from "date-fns/locale";
 
 type Status = "in_progress" | "completed" | "deleted" | "draft";
 
@@ -23,7 +23,7 @@ const STATUS_LABEL: {
     variant: "default",
   },
   completed: {
-    text: "게임완료",
+    text: "게임 종료",
     variant: "secondary",
   },
   deleted: {

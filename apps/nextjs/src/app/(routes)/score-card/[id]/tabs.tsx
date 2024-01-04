@@ -138,7 +138,7 @@ export const ScoreTabs = ({
     }
     if (result.success) {
       startTransition(async () => {
-        await saveScore(result.data as Score[]);
+        await saveScore(gameId, result.data as Score[]);
       });
       setChangedScoresGroup([]);
       router.push(`/my-games`);
