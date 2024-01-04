@@ -73,7 +73,7 @@ const CourseDetailSheet = ({
             level={6} // 지도의 확대 레벨
           />
         </section>
-        <div className="mb-6 flex flex-col justify-between gap-2 md:flex-row md:items-center md:gap-1">
+        <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-center md:gap-1">
           <div className="flex justify-between gap-1 md:items-center">
             <h1 className="text-foreground text-balance break-keep text-left text-2xl font-bold">
               {selectedCourse.name}
@@ -104,7 +104,7 @@ const CourseDetailSheet = ({
               track("create game button clicked");
             }}
           >
-            스코어 기록하기
+            게임 스코어 기록하기
           </Button>
         </div>
         <CourseDetailTab
