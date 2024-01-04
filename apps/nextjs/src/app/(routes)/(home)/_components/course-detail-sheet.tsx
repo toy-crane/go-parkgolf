@@ -40,7 +40,7 @@ const CourseDetailSheet = ({
       onOpenChange={(open) => {
         const params = new URLSearchParams(searchParams);
         params.set("modal", String(open));
-        router.replace(`?${params.toString()}`);
+        router.push(`?${params.toString()}`);
       }}
     >
       <SheetContent
@@ -98,7 +98,7 @@ const CourseDetailSheet = ({
             size="sm"
             className=""
             onClick={() => {
-              router.push(
+              router.replace(
                 `/score-card/create/golf-course?golfCourseId=${selectedCourse.id}`,
               );
               track("create game button clicked");
