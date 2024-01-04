@@ -9,5 +9,12 @@ export const formSchema = z.object({
       { required_error: "게임 참여자를 입력해주세요." },
     )
     .min(1, { message: "게임 참여자 이름을 1명 이상 입력해주세요." })
-    .max(4, { message: "게임 참여자는 최대 4명까지 입력 가능합니다." }),
+    .max(4, { message: "게임 참여자는 최대 4명까지 입력 가능합니다." })
+    .refine(
+      (players) => {
+        const nicknames = players.map((player) => player.nickname);
+        return new Set(nicknames).size === nicknames.length;
+      },
+      { message: "동일한 이름이 존재합니다. 고유한 이름을 사용해주세요." },
+    ),
 });

@@ -41,7 +41,8 @@ const PlayerForm = ({ gameId }: FormProps) => {
     },
   });
 
-  const error = form.formState.errors.players;
+  const error =
+    form.formState.errors.players?.root ?? form.formState.errors.players;
 
   const { fields, append, remove } = useFieldArray({
     name: "players",
@@ -125,7 +126,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
             <PlusCircledIcon className="mr-1 h-4 w-4" />
             선수 추가하기
           </Button>
-          <FormMessage>{error?.message}</FormMessage>
+          <FormMessage className="mt-1">{error?.message}</FormMessage>
         </div>
         <div className="flex gap-2">
           <Button
