@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
+import { Skeleton } from "@/components/ui/skeleton";
 import { siteConfig } from "@/config/site";
 import { haversineDistance } from "@/libs/map";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
@@ -8,6 +10,7 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 
 import CourseDetail from "./_components/course-detail";
+import NaverReviews from "./_components/naver-review";
 import { GetCourses, GetReviews } from "./action";
 import Nav from "./nav";
 
@@ -110,6 +113,22 @@ export default async function Page({ params, searchParams }: Props) {
         reviews={reviews}
         selectedTab={tab}
       />
+      <Suspense
+        fallback={
+          <div className="mb-6">
+            <h2 className="text-foreground text-xl font-bold">
+              네이버 블로그 리뷰
+            </h2>
+            <div className="flex flex-col">
+              {[...Array(5).keys()].map((_, index) => (
+                <Skeleton key={index} className="h-[36px] w-full rounded-md" />
+              ))}
+            </div>
+          </div>
+        }
+      >
+        <NaverReviews courseName={currentCourse.name} />
+      </Suspense>
       <BottomNav />
     </>
   );

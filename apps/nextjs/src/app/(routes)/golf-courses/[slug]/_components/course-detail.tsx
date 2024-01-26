@@ -71,7 +71,6 @@ const CourseDetail = ({
           <Share2 size={24} />
         </Button>
       </div>
-      
       <CourseDetailTab
         course={course}
         selectedTab={selectedTab}
