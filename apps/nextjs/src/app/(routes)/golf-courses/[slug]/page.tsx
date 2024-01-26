@@ -1,6 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
+import { siteConfig } from "@/config/site";
 import { haversineDistance } from "@/libs/map";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
@@ -69,7 +70,7 @@ export async function generateMetadata(
         images: [...previousImages],
       },
       alternates: {
-        canonical: `/golf-courses/${course.slug}`,
+        canonical: `${siteConfig.url}/golf-courses/${course.slug}`,
       },
     };
   } else {
