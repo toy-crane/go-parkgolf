@@ -119,7 +119,6 @@ export default async function Page({ params, searchParams }: Props) {
       </section>
       <Title course={currentCourse} />
       <CourseDetailTab course={currentCourse} selectedTab={tab} />
-      
       <BottomNav />
     </>
   );
