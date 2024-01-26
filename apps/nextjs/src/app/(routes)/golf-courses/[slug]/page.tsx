@@ -7,7 +7,10 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 import { StaticMap } from "react-kakao-maps-sdk";
 
+import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailTab from "./_components/course-detail-tab";
+import NearCourseInfo from "./_components/near-course-info";
+import Reviews from "./_components/reviews";
 import Title from "./_components/title";
 import { GetCourses } from "./action";
 import Nav from "./nav";
@@ -114,7 +117,13 @@ export default async function Page({ params, searchParams }: Props) {
         />
       </section>
       <Title course={currentCourse} />
-      <CourseDetailTab course={currentCourse} selectedTab={tab} />
+      <CourseDetailTab
+        course={currentCourse}
+        selectedTab={tab}
+        courseCommonInfo={<CourseCommonInfo course={currentCourse} />}
+        nearCourseInfo={<NearCourseInfo course={currentCourse} />}
+        reviewInfo={<Reviews course={currentCourse} />}
+      />
       <BottomNav />
     </>
   );
