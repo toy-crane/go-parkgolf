@@ -8,10 +8,8 @@ import { haversineDistance } from "@/libs/map";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
-import { Button } from "react-day-picker";
 import { StaticMap } from "react-kakao-maps-sdk";
 
-import CourseDetail from "./_components/course-detail";
 import CourseDetailTab from "./_components/course-detail-tab";
 import NaverReviews from "./_components/naver-review";
 import Title from "./_components/title";
