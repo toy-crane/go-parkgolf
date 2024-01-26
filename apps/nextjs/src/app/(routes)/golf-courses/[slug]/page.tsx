@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
@@ -5,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
+import { Loader2 } from "lucide-react";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 import CourseCommonInfo from "./_components/course-common-info";
@@ -121,8 +123,36 @@ export default async function Page({ params, searchParams }: Props) {
         course={currentCourse}
         selectedTab={tab}
         courseCommonInfo={<CourseCommonInfo course={currentCourse} />}
-        nearCourseInfo={<NearCourseInfo course={currentCourse} />}
-        reviewInfo={<ReviewInfo course={currentCourse} />}
+        nearCourseInfo={
+          <Suspense
+            fallback={
+              <div className="flex min-h-[30vh] items-center justify-center">
+                <Loader2
+                  className="h-5 w-5 animate-spin"
+                  size={24}
+                  color={"#71717A"}
+                />
+              </div>
+            }
+          >
+            <NearCourseInfo course={currentCourse} />
+          </Suspense>
+        }
+        reviewInfo={
+          <Suspense
+            fallback={
+              <div className="flex min-h-[30vh] items-center justify-center">
+                <Loader2
+                  className="h-5 w-5 animate-spin"
+                  size={24}
+                  color={"#71717A"}
+                />
+              </div>
+            }
+          >
+            <ReviewInfo course={currentCourse} />
+          </Suspense>
+        }
       />
       <BottomNav />
     </>
