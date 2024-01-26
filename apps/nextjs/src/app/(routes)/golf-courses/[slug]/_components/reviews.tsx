@@ -4,6 +4,7 @@ import type { GolfCourse } from "@/types";
 import { GetReviews } from "../action";
 import CreateReviewButton from "./create-review-button";
 import EmptyReview from "./empty-review";
+import NaverReviews from "./naver-review";
 import ReviewCard from "./review-card";
 
 const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
@@ -21,7 +22,7 @@ const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
     }, 0) / reviews.length;
 
   return (
-    <div>
+    <section>
       {reviews.length === 0 ? (
         <EmptyReview course={course} />
       ) : (
@@ -41,7 +42,8 @@ const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
           ))}
         </div>
       )}
-    </div>
+      <NaverReviews courseName={course.name} />
+    </section>
   );
 };
 
