@@ -1,6 +1,5 @@
 import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
-import { haversineDistance } from "@/libs/map";
 
 import { getCourses } from "./_components/action";
 import Footer from "./_components/footer";
