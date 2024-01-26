@@ -8,12 +8,14 @@ import { haversineDistance } from "@/libs/map";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
+import { Button } from "react-day-picker";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 import CourseDetail from "./_components/course-detail";
 import NaverReviews from "./_components/naver-review";
 import { GetCourses, GetReviews } from "./action";
 import Nav from "./nav";
+import Title from "./_components/title";
 
 interface Props {
   params: { slug: string };
@@ -133,6 +135,7 @@ export default async function Page({ params, searchParams }: Props) {
           level={6} // 지도의 확대 레벨
         />
       </section>
+      <Title course={currentCourse} />
       <CourseDetail
         course={currentCourse}
         nearCourses={nearCourses}
