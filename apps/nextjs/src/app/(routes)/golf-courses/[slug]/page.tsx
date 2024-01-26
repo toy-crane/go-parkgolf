@@ -12,10 +12,11 @@ import { Button } from "react-day-picker";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 import CourseDetail from "./_components/course-detail";
+import CourseDetailTab from "./_components/course-detail-tab";
 import NaverReviews from "./_components/naver-review";
+import Title from "./_components/title";
 import { GetCourses, GetReviews } from "./action";
 import Nav from "./nav";
-import Title from "./_components/title";
 
 interface Props {
   params: { slug: string };
@@ -136,11 +137,11 @@ export default async function Page({ params, searchParams }: Props) {
         />
       </section>
       <Title course={currentCourse} />
-      <CourseDetail
+      <CourseDetailTab
         course={currentCourse}
+        selectedTab={tab}
         nearCourses={nearCourses}
         reviews={reviews}
-        selectedTab={tab}
       />
       <Suspense
         fallback={
