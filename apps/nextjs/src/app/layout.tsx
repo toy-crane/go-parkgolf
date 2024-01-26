@@ -8,10 +8,9 @@ import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
 import { readUserSession } from "@/libs/auth";
-import { useUserStore } from "@/libs/store/user";
-import { useUserAgentStore } from "@/libs/store/user-agent";
 import { cn } from "@/libs/tailwind";
 import { Identify, identify, init } from "@amplitude/analytics-node";
+import { Analytics } from "@vercel/analytics/react";
 
 import UserAgentStoreInitializer from "./user-agent-store-initializer";
 import UserStoreInitializer from "./user-store-initializer";
@@ -121,6 +120,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
           />
+          <Analytics />
         </body>
       </AmplitudeProvider>
     </html>
