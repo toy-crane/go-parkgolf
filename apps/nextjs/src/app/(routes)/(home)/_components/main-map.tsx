@@ -51,14 +51,10 @@ const MainMap = ({ courses, selectedCourse, position }: Props) => {
           isMarked={selectedCourse?.name === course.name}
           onClick={() => {
             const params = new URLSearchParams(searchParams);
-            // 이미 모달이 닫히는 속도를 고려하여 열려있는 경우 무시
-            const modal = params.get("modal");
-            if (modal === "true") return;
             const selectedCourseLat = course.lat;
             const selectedCourseLng = course.lng;
             params.set("lng", String(selectedCourseLng));
             params.set("lat", String(selectedCourseLat));
-            params.set("courseId", String(course.id));
             router.push(`/golf-courses/${course.slug}`);
             track("course clicked", { ...course });
           }}
