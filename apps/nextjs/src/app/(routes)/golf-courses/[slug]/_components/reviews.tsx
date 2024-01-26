@@ -1,18 +1,13 @@
 import { Icons } from "@/components/icons";
 import type { GolfCourse } from "@/types";
 
-import type { Review } from "../types";
+import { GetReviews } from "../action";
 import CreateReviewButton from "./create-review-button";
 import EmptyReview from "./empty-review";
 import ReviewCard from "./review-card";
 
-const Reviews = ({
-  reviews,
-  course,
-}: {
-  reviews: Review[];
-  course: GolfCourse;
-}) => {
+const Reviews = async ({ course }: { course: GolfCourse }) => {
+  const reviews = await GetReviews(course?.id);
   // TODO: 리뷰의 갯수가 많아지면 개선
   const totalAverage =
     reviews.reduce((acc, review) => {

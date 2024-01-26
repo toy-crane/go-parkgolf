@@ -89,7 +89,6 @@ export default async function Page({ params, searchParams }: Props) {
   const slug = decodeURIComponent(params.slug);
   const currentCourse = courses.find((course) => course.slug === slug);
   if (currentCourse === undefined) return notFound();
-  const reviews = await GetReviews(currentCourse?.id);
   return (
     <>
       <Nav courseId={currentCourse.id} />
@@ -119,11 +118,7 @@ export default async function Page({ params, searchParams }: Props) {
         />
       </section>
       <Title course={currentCourse} />
-      <CourseDetailTab
-        course={currentCourse}
-        selectedTab={tab}
-        reviews={reviews}
-      />
+      <CourseDetailTab course={currentCourse} selectedTab={tab} />
       <Suspense
         fallback={
           <div className="mb-6">

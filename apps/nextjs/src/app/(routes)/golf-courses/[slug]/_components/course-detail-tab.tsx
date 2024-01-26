@@ -8,7 +8,6 @@ import Reviews from "./reviews";
 
 const CourseDetailTab = ({
   course,
-  reviews,
   selectedTab,
 }: {
   course: GolfCourse;
@@ -32,7 +31,7 @@ const CourseDetailTab = ({
         <CourseCommonInfo course={course} />
       </TabsContent>
       <TabsContent value="review" className="min-h-[25vh] space-y-6">
-        <Reviews reviews={reviews} course={course} />
+        <Reviews course={course} />
       </TabsContent>
       <TabsContent value="near" className="min-h-[25vh] space-y-6">
         <NearCourseInfo course={course} />
