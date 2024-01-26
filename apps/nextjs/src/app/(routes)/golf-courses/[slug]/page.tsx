@@ -8,6 +8,7 @@ import { haversineDistance } from "@/libs/map";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
+import { StaticMap } from "react-kakao-maps-sdk";
 
 import CourseDetail from "./_components/course-detail";
 import NaverReviews from "./_components/naver-review";
@@ -107,6 +108,31 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <>
       <Nav courseId={currentCourse.id} />
+      <section className="mt-2">
+        <StaticMap // 지도를 표시할 Container
+          className="mb-8"
+          marker={[
+            {
+              position: {
+                lat: Number(currentCourse.lat),
+                lng: Number(currentCourse.lng),
+              },
+              text: currentCourse.name,
+            },
+          ]}
+          center={{
+            // 지도의 중심좌표
+            lat: Number(currentCourse.lat),
+            lng: Number(currentCourse.lng),
+          }}
+          style={{
+            // 지도의 크기
+            width: "100%",
+            height: "280px",
+          }}
+          level={6} // 지도의 확대 레벨
+        />
+      </section>
       <CourseDetail
         course={currentCourse}
         nearCourses={nearCourses}

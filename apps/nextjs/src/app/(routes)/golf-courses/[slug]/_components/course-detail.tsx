@@ -26,31 +26,6 @@ const CourseDetail = ({
 
   return (
     <div>
-      <section className="mt-2">
-        <StaticMap // 지도를 표시할 Container
-          className="mb-8"
-          marker={[
-            {
-              position: {
-                lat: Number(course.lat),
-                lng: Number(course.lng),
-              },
-              text: course.name,
-            },
-          ]}
-          center={{
-            // 지도의 중심좌표
-            lat: Number(course.lat),
-            lng: Number(course.lng),
-          }}
-          style={{
-            // 지도의 크기
-            width: "100%",
-            height: "280px",
-          }}
-          level={6} // 지도의 확대 레벨
-        />
-      </section>
       <div className="mb-4 flex items-center justify-between gap-1">
         <h1 className="text-foreground text-balance break-keep text-left text-3xl font-bold">
           {course.name}
