@@ -45,7 +45,7 @@ async function fetchReviews(query: string) {
 const NaverReviews = async ({ courseName }: { courseName: string }) => {
   const reviews = await fetchReviews(courseName);
   return (
-    <section className="mb-24 flex flex-col space-y-2">
+    <section className="flex flex-col space-y-2">
       <h2 className="text-foreground text-xl font-bold">네이버 블로그 리뷰</h2>
       <div className="flex flex-col">
         {reviews.map((review) => {

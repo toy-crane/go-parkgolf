@@ -22,7 +22,7 @@ const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
     }, 0) / reviews.length;
 
   return (
-    <section>
+    <section className="mb-8 space-y-8">
       {reviews.length === 0 ? (
         <EmptyReview course={course} />
       ) : (
