@@ -11,6 +11,8 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_URL: z.string(),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
     NEXT_PUBLIC_KAKAO_API_KEY: z.string(),
+    NEXT_PUBLIC_NAVER_CLIENT_ID: z.string(),
+    NEXT_PUBLIC_NAVER_CLIENT_SECRET: z.string(),
   },
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app isn't
@@ -37,6 +39,9 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_KAKAO_API_KEY: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
+    NEXT_PUBLIC_NAVER_CLIENT_ID: process.env.NEXT_PUBLIC_NAVER_CLIENT_ID,
+    NEXT_PUBLIC_NAVER_CLIENT_SECRET:
+      process.env.NEXT_PUBLIC_NAVER_CLIENT_SECRET,
   },
   skipValidation:
     !!process.env.CI ||
