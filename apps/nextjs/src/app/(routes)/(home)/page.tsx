@@ -45,11 +45,7 @@ const Home = async ({
         ? ` ${course.lot_number_addresses?.region_2depth_name}`
         : ""
     })`,
-    href: `/?${new URLSearchParams({
-      courseId: String(course.id),
-      modal: String(true),
-      level: String(9),
-    }).toString()}`,
+    href: `/golf-courses/${course.slug}`,
   }));
 
   return (
