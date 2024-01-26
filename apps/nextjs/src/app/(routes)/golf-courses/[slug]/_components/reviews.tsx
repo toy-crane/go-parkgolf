@@ -6,7 +6,7 @@ import CreateReviewButton from "./create-review-button";
 import EmptyReview from "./empty-review";
 import ReviewCard from "./review-card";
 
-const Reviews = async ({ course }: { course: GolfCourse }) => {
+const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
   const reviews = await GetReviews(course?.id);
   // TODO: 리뷰의 갯수가 많아지면 개선
   const totalAverage =
@@ -45,4 +45,4 @@ const Reviews = async ({ course }: { course: GolfCourse }) => {
   );
 };
 
-export default Reviews;
+export default ReviewInfo;
