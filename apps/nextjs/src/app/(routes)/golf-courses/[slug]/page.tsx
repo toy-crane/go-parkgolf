@@ -1,19 +1,15 @@
-import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
-import { Skeleton } from "@/components/ui/skeleton";
 import { siteConfig } from "@/config/site";
-import { haversineDistance } from "@/libs/map";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 import { StaticMap } from "react-kakao-maps-sdk";
 
 import CourseDetailTab from "./_components/course-detail-tab";
-import NaverReviews from "./_components/naver-review";
 import Title from "./_components/title";
-import { GetCourses, GetReviews } from "./action";
+import { GetCourses } from "./action";
 import Nav from "./nav";
 
 interface Props {
