@@ -88,24 +88,8 @@ export default async function Page({ params, searchParams }: Props) {
   const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
   const currentCourse = courses.find((course) => course.slug === slug);
-  const allCoursesExcludeMe = courses.filter((course) => course.slug !== slug);
-
   if (currentCourse === undefined) return notFound();
-
   const reviews = await GetReviews(currentCourse?.id);
-
-  const nearCourses = allCoursesExcludeMe.filter((course) => {
-    const courseLat = course.lat ?? 0;
-    const courseLng = course.lng ?? 0;
-    return (
-      haversineDistance(
-        currentCourse.lat ?? 0,
-        currentCourse.lng ?? 0,
-        courseLat,
-        courseLng,
-      ) <= 20
-    );
-  });
   return (
     <>
       <Nav courseId={currentCourse.id} />
@@ -138,7 +122,6 @@ export default async function Page({ params, searchParams }: Props) {
       <CourseDetailTab
         course={currentCourse}
         selectedTab={tab}
-        nearCourses={nearCourses}
         reviews={reviews}
       />
       <Suspense

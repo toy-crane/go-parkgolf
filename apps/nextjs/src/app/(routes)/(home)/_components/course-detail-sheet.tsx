@@ -23,7 +23,6 @@ interface CourseSheetProps {
 const CourseDetailSheet = ({
   open,
   selectedCourse,
-  nearCourses,
   reviews,
 }: CourseSheetProps) => {
   const router = useRouter();
@@ -110,7 +109,6 @@ const CourseDetailSheet = ({
         <CourseDetailTab
           course={selectedCourse}
           selectedTab={tab}
-          nearCourses={nearCourses}
           reviews={reviews}
         />
       </SheetContent>
