@@ -109,7 +109,6 @@ const CourseDetailSheet = ({
         <CourseDetailTab
           course={selectedCourse}
           selectedTab={tab}
-          reviews={reviews}
         />
       </SheetContent>
     </Sheet>
