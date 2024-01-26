@@ -11,7 +11,6 @@ const CourseDetailTab = ({
   selectedTab,
 }: {
   course: GolfCourse;
-  reviews: Review[];
   selectedTab: string;
 }) => {
   return (
