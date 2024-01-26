@@ -1,6 +1,6 @@
-"use client;";
+"use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import type { GolfCourse } from "@/types";
 import Balancer from "react-wrap-balancer";

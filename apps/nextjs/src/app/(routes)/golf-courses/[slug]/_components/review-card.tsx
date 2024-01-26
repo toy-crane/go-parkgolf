@@ -1,10 +1,11 @@
-import type { ChangeEvent, FormEvent } from "react";
+"use client";
+
+import type { FormEvent } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
