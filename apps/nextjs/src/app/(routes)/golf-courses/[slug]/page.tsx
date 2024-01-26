@@ -119,22 +119,7 @@ export default async function Page({ params, searchParams }: Props) {
       </section>
       <Title course={currentCourse} />
       <CourseDetailTab course={currentCourse} selectedTab={tab} />
-      <Suspense
-        fallback={
-          <div className="mb-6">
-            <h2 className="text-foreground text-xl font-bold">
-              네이버 블로그 리뷰
-            </h2>
-            <div className="flex flex-col">
-              {[...Array(5).keys()].map((_, index) => (
-                <Skeleton key={index} className="h-[36px] w-full rounded-md" />
-              ))}
-            </div>
-          </div>
-        }
-      >
-        <NaverReviews courseName={currentCourse.name} />
-      </Suspense>
+      
       <BottomNav />
     </>
   );

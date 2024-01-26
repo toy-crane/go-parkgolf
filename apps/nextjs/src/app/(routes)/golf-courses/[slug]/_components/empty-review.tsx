@@ -8,7 +8,7 @@ import Balancer from "react-wrap-balancer";
 const EmptyReview = ({ course }: { course: GolfCourse }) => {
   const router = useRouter();
   return (
-    <div className="mt-12 flex flex-col items-center justify-center gap-4 md:mt-20">
+    <div className="my-16 flex flex-col items-center justify-center gap-4 md:my-24">
       <span className="text-center text-lg font-semibold">
         <Balancer>소중한 파크골프가자의 첫 리뷰를 작성해주세요</Balancer>
       </span>
