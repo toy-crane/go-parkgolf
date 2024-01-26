@@ -1,21 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useAmplitude } from "@/libs/amplitude";
-import { generateFormUrl } from "@/libs/google-form";
 import type { GolfCourse } from "@/types";
-import { Pencil } from "lucide-react";
 
 import type { Review } from "../types";
+import CourseCommonInfo from "./course-common-info";
 import Reviews from "./reviews";
-
-interface CardProps {
-  title: string;
-  content: string | React.ReactNode;
-}
 
 const MAJOR_REGIONS = [
   {
@@ -42,26 +32,6 @@ const MAJOR_REGIONS = [
   { name: "제주", level: 11, lat: "33.364805", lng: "126.542671" },
 ];
 
-const Label = ({ title, content }: CardProps) => {
-  return (
-    <div className="flex items-center">
-      <h3 className="mr-4 shrink-0 text-base font-semibold">{title}</h3>
-      <div className="text-muted-foreground text-base">{content}</div>
-    </div>
-  );
-};
-
-const InfoNeeded = ({ href }: { href: string }) => {
-  return (
-    <div className="flex items-center">
-      <div className="mr-2">정보를 알려주세요.</div>
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        <Pencil size={16} />
-      </a>
-    </div>
-  );
-};
-
 const CourseDetailTab = ({
   course,
   nearCourses,
@@ -73,25 +43,8 @@ const CourseDetailTab = ({
   reviews: Review[];
   selectedTab: string;
 }) => {
-  const { track } = useAmplitude();
-
-  const operation = course.operations;
-  const contacts = course.contacts;
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const handleTabChange = (value: string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("tab", String(value));
-    router.replace(`?${params.toString()}`);
-  };
-
   return (
-    <Tabs
-      defaultValue={selectedTab}
-      className="mb-28 space-y-4"
-      onValueChange={handleTabChange}
-    >
+    <Tabs defaultValue={selectedTab} className="mb-28 space-y-4">
       <TabsList className="flex">
         <TabsTrigger value="home" className="flex-1">
           홈
@@ -104,96 +57,7 @@ const CourseDetailTab = ({
         </TabsTrigger>
       </TabsList>
       <TabsContent value="home" className="min-h-[25vh] space-y-6">
-        <div className="my-6 flex flex-col gap-1">
-          <Label title="위치" content={course.lot_number_address_name} />
-          <Label title="규모" content={`${course?.hole_count} 홀`} />
-        </div>
-        <Separator />
-        {operation && (
-          <>
-            <div className="space-y-3">
-              <h2 className="text-foreground text-xl font-bold">운영 시간</h2>
-              <div className="flex flex-col gap-1">
-                <Label
-                  title="영업시간"
-                  content={
-                    operation?.opening_hours ??
-                    InfoNeeded({
-                      href: generateFormUrl(course.name),
-                    })
-                  }
-                />
-                <Label
-                  title="정기 휴무일"
-                  content={
-                    operation?.regular_closed_days ??
-                    InfoNeeded({
-                      href: generateFormUrl(course.name),
-                    })
-                  }
-                />
-              </div>
-            </div>
-            <Separator />
-          </>
-        )}
-        {contacts && contacts.length > 0 && (
-          <>
-            {contacts?.map((contact) => (
-              <div className="space-y-3" key={contact.id}>
-                <h2 className="text-foreground text-xl font-bold">연락처</h2>
-                <div className="flex flex-col gap-1">
-                  <Label
-                    title="전화번호"
-                    content={
-                      contact?.phone_number ? (
-                        <a
-                          href={`tel:${contact?.phone_number}`}
-                          className="text-blue-400"
-                        >
-                          {contact?.phone_number}
-                        </a>
-                      ) : (
-                        InfoNeeded({
-                          href: generateFormUrl(course.name),
-                        })
-                      )
-                    }
-                  />
-                </div>
-              </div>
-            ))}
-            <Separator />
-          </>
-        )}
-        <div className="space-y-3">
-          <h2 className="text-foreground mb-2 text-xl font-bold">이용 방법</h2>
-          <div className="flex flex-col gap-1">
-            <Label
-              title="예약 방법"
-              content={
-                operation?.registration_method ??
-                InfoNeeded({
-                  href: generateFormUrl(course.name),
-                })
-              }
-            />
-            <Label
-              title="홈페이지"
-              content={
-                operation?.website ? (
-                  <a href={operation?.website} className="text-blue-400">
-                    상세 페이지 바로가기
-                  </a>
-                ) : (
-                  InfoNeeded({
-                    href: generateFormUrl(course.name),
-                  })
-                )
-              }
-            />
-          </div>
-        </div>
+        <CourseCommonInfo course={course} />
       </TabsContent>
       <TabsContent value="review" className="min-h-[25vh] space-y-6">
         <Reviews reviews={reviews} course={course} />
@@ -207,11 +71,7 @@ const CourseDetailTab = ({
               </h2>
               <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
                 {nearCourses.map((course) => (
-                  <Link
-                    href={`/golf-courses/${course.slug}`}
-                    key={course.name}
-                    onClick={() => track("near link clicked")}
-                  >
+                  <Link href={`/golf-courses/${course.slug}`} key={course.name}>
                     {course.name}
                   </Link>
                 ))}
@@ -233,7 +93,6 @@ const CourseDetailTab = ({
                   lat: region.lat,
                 }).toString()}`}
                 key={region.name}
-                onClick={() => track("region link clicked")}
               >
                 {region.name === "전국" ? region.name : `${region.name}`} 파크
                 골프장
