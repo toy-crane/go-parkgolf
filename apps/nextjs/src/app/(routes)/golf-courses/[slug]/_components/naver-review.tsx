@@ -44,6 +44,9 @@ async function fetchReviews(query: string) {
 
 const NaverReviews = async ({ courseName }: { courseName: string }) => {
   const reviews = await fetchReviews(courseName);
+
+  if (reviews.length === 0) return null;
+
   return (
     <section className="flex flex-col space-y-2">
       <h2 className="text-foreground text-xl font-bold">네이버 블로그 리뷰</h2>
