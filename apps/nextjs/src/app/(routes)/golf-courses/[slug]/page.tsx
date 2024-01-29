@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import KakaoMap from "@/components/map/kakao-map";
 import BottomNav from "@/components/nav/bottom";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
@@ -94,15 +95,15 @@ export default async function Page({ params, searchParams }: Props) {
     <>
       <Nav courseId={currentCourse.id} />
       <section className="mt-2">
-        <StaticMap // 지도를 표시할 Container
-          className="mb-8"
-          marker={[
+        <KakaoMap
+          markers={[
             {
               position: {
                 lat: Number(currentCourse.lat),
                 lng: Number(currentCourse.lng),
               },
               text: currentCourse.name,
+              to: "/golf-courses/1",
             },
           ]}
           center={{
@@ -110,12 +111,6 @@ export default async function Page({ params, searchParams }: Props) {
             lat: Number(currentCourse.lat),
             lng: Number(currentCourse.lng),
           }}
-          style={{
-            // 지도의 크기
-            width: "100%",
-            height: "280px",
-          }}
-          level={6} // 지도의 확대 레벨
         />
       </section>
       <Title course={currentCourse} />
