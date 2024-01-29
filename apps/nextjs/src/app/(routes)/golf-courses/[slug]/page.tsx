@@ -8,7 +8,6 @@ import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
-import { StaticMap } from "react-kakao-maps-sdk";
 
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailTab from "./_components/course-detail-tab";

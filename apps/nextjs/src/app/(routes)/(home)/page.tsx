@@ -4,7 +4,6 @@ import { DEFAULT_POSITION } from "@/config/map";
 
 import { getCourses } from "./_components/action";
 import Footer from "./_components/footer";
-import MainMap from "./_components/main-map";
 
 const Home = async ({
   searchParams,
