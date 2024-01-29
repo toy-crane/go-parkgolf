@@ -115,7 +115,7 @@ export default async function Page({ params, searchParams }: Props) {
           level={9}
         />
       </section>
-      <Title course={currentCourse} />
+      <Title course={currentCourse} className="py-2" />
       <CourseDetailTab
         course={currentCourse}
         selectedTab={tab}

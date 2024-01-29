@@ -28,7 +28,7 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   return (
     <Dialog {...props}>
       {/* 모바일에서는 Dialog 상단에서 나오도록 변경 */}
-      <DialogContent className="left-0 top-0 mt-3 translate-x-0 translate-y-0 overflow-hidden p-0 md:left-[50%] md:top-[50%] md:mt-0 md:translate-x-[-50%] md:translate-y-[-50%]">
+      <DialogContent className="top-0 mt-4 translate-y-0 overflow-hidden p-0 shadow-lg md:top-[50%] md:translate-y-[-50%]">
         <Command className="[&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
           {children}
         </Command>
