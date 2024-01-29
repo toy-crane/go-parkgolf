@@ -23,6 +23,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { siteConfig } from "@/config/site";
 import { useMediaQuery } from "@/libs/hooks/media-query";
 import type { Tables } from "@/types/generated";
+import { track } from "@vercel/analytics/react";
 import { Share, Share2 } from "lucide-react";
 
 interface Props {
@@ -80,7 +81,13 @@ export function ShareDrawer({ golfCourse }: Props) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="ghost">
+          <Button
+            variant="ghost"
+            onClick={() => {
+              track("share button clicked");
+              setOpen((open) => !open);
+            }}
+          >
             공유하기
             <Share2 className="ml-2" />
           </Button>
@@ -97,7 +104,14 @@ export function ShareDrawer({ golfCourse }: Props) {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => {
+            track("share button clicked");
+            setOpen((open) => !open);
+          }}
+        >
           <Share />
         </Button>
       </DrawerTrigger>
