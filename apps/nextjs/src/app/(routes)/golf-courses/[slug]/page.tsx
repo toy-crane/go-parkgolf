@@ -90,28 +90,30 @@ export default async function Page({ params, searchParams }: Props) {
   const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
   const currentCourse = courses.find((course) => course.slug === slug);
+
+  const markers = courses.map((course) => ({
+    position: {
+      lat: Number(course.lat),
+      lng: Number(course.lng),
+    },
+    text: course.name,
+    to: `/golf-courses/${course.slug}`,
+    selected: course.slug === slug,
+  }));
+
   if (currentCourse === undefined) return notFound();
   return (
     <>
       <Nav courseId={currentCourse.id} />
       <section className="mt-2">
         <KakaoMap
-          markers={[
-            {
-              position: {
-                lat: Number(currentCourse.lat),
-                lng: Number(currentCourse.lng),
-              },
-              text: currentCourse.name,
-              to: "/golf-courses/1",
-              selected: true,
-            },
-          ]}
+          markers={markers}
           center={{
             // 지도의 중심좌표
             lat: Number(currentCourse.lat),
             lng: Number(currentCourse.lng),
           }}
+          level={9}
         />
       </section>
       <Title course={currentCourse} />
