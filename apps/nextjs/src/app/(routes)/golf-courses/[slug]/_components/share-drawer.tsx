@@ -23,7 +23,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { siteConfig } from "@/config/site";
 import { useMediaQuery } from "@/libs/hooks/media-query";
 import type { Tables } from "@/types/generated";
-import { track } from "@vercel/analytics/react";
+import { track } from "@vercel/analytics";
 import { Share, Share2 } from "lucide-react";
 
 interface Props {
