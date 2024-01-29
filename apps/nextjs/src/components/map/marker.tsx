@@ -33,7 +33,7 @@ const Marker = ({
           >
             <Icons.pin
               className={cn(
-                "h-9 w-9  transition-transform duration-150 group-hover:scale-125 group-hover:fill-[#22DC48]",
+                "h-8 w-8  transition-transform duration-150 group-hover:scale-125 group-hover:fill-[#22DC48]",
                 selected ? "scale-125 fill-[#22DC48]" : "fill-[#16a34a]",
               )}
             />

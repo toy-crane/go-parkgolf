@@ -104,6 +104,7 @@ export default async function Page({ params, searchParams }: Props) {
               },
               text: currentCourse.name,
               to: "/golf-courses/1",
+              selected: true,
             },
           ]}
           center={{
