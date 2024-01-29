@@ -1,3 +1,4 @@
+import KakaoMap from "@/components/map/kakao-map";
 import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
@@ -48,14 +49,26 @@ const Home = async ({
     href: `/golf-courses/${course.slug}`,
   }));
 
+  const markers = courses.map((c) => ({
+    position: {
+      lat: Number(c.lat),
+      lng: Number(c.lng),
+    },
+    text: c.name,
+    to: `/golf-courses/${c.slug}`,
+    selected: c.slug === selectedCourse?.slug,
+  }));
+
   return (
     <>
       <HomeNav selectOptions={selectOptions} />
       <section>
-        <MainMap
-          courses={courses}
-          selectedCourse={selectedCourse}
-          position={position}
+        <KakaoMap
+          markers={markers}
+          center={position.center}
+          showCurrentPosition={true}
+          size={{ width: "100%", height: "100vh" }}
+          level={9}
         />
       </section>
       <Footer />

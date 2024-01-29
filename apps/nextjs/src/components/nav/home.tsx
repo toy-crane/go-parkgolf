@@ -1,6 +1,7 @@
-import CurrentPositionButton from "@/app/(routes)/(home)/_components/current-position-button";
+import Link from "next/link";
 
 import { CommandMenu } from "../command-menu";
+import { Icons } from "../icons";
 
 const HomeNav = ({
   selectOptions,
@@ -8,13 +9,13 @@ const HomeNav = ({
   selectOptions: { title: string; href: string }[];
 }) => {
   return (
-    <header className="content-grid z-header h-header fixed w-full">
-      <nav className="relative flex items-center justify-center gap-2">
-        <div className="flex-grow justify-center gap-2 md:flex-grow-0">
-          <CommandMenu options={selectOptions} />
-        </div>
-        <CurrentPositionButton />
-      </nav>
+    <header className="content-grid z-header h-header w-full">
+      <div className="flex flex-grow items-center justify-center gap-2 md:flex-grow-0">
+        <Link href="/">
+          <Icons.logoFilled className="mr-1 h-6 w-6" />
+        </Link>
+        <CommandMenu options={selectOptions} />
+      </div>
     </header>
   );
 };

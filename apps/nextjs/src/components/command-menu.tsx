@@ -33,7 +33,7 @@ export function CommandMenu({ options }: Props) {
       <Button
         variant="outline"
         className={cn(
-          "text-muted-foreground border-primary relative w-full rounded-lg border bg-white text-sm shadow sm:pr-12 md:w-96",
+          "text-muted-foreground relative h-8 w-full justify-start rounded-3xl bg-neutral-50 text-sm font-normal shadow-sm sm:pr-12",
         )}
         onClick={() => {
           track("search button clicked");
