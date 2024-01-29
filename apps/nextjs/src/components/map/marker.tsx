@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { cn } from "@/libs/tailwind";
-import { MapPin } from "lucide-react";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 
 import { Icons } from "../icons";
