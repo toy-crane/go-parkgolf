@@ -108,18 +108,27 @@ const QnACard = ({ qna }: { qna: QnA }) => {
                     </FormItem>
                   )}
                 />
-                <Button
-                  type="submit"
-                  size="xs"
-                  disabled={isPending}
-                  className="self-end"
-                >
-                  {isPending ? (
-                    <Loader2 className="h-5 w-5 animate-spin" size={24} />
-                  ) : (
-                    "등록"
-                  )}
-                </Button>
+                <div className="self-end">
+                  <Button
+                    type="submit"
+                    size="xs"
+                    disabled={isPending}
+                    className="mr-1"
+                  >
+                    {isPending ? (
+                      <Loader2 className="h-5 w-5 animate-spin" size={24} />
+                    ) : (
+                      "등록"
+                    )}
+                  </Button>
+                  <Button
+                    size="xs"
+                    variant="secondary"
+                    onClick={() => setShowInput(false)}
+                  >
+                    취소
+                  </Button>
+                </div>
               </form>
             </Form>
           </div>
