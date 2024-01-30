@@ -35,7 +35,7 @@ export const formSchema = z.object({
 
 type Inputs = z.infer<typeof formSchema>;
 
-const QnACard = ({ qna }: { qna: QnA }) => {
+const QnACard = ({ qna, replies }: { qna: QnA; replies: QnA[] }) => {
   const [isPending, startTransition] = useTransition();
   const [showInput, setShowInput] = useState(false);
   const router = useRouter();
@@ -84,6 +84,42 @@ const QnACard = ({ qna }: { qna: QnA }) => {
       </CardHeader>
       <CardContent className="flex flex-col space-y-2 px-4 pb-4 pt-2">
         <p className="text-bg-background text-sm">{qna.content}</p>
+        <div>
+          {replies.map((reply) => (
+            <div className="ml-4" key={reply.id}>
+              <div className="flex flex-row items-center justify-between space-y-0">
+                <div className="flex items-center">
+                  <Avatar className="h-7 w-7">
+                    <AvatarImage
+                      src={`${reply.profiles?.avatar_url}`}
+                      alt="Image"
+                    />
+                    <AvatarFallback>
+                      {reply.profiles?.username[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="text-sm leading-none">
+                      {reply.profiles?.username}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="flex-1 text-xs font-normal">
+                    {formatDistanceToNow(new Date(reply.created_at), {
+                      addSuffix: true,
+                      locale: ko,
+                    })}
+                  </span>
+                </div>
+              </div>
+              <div key={reply.id} className="text-bg-background text-sm">
+                {reply.content}
+              </div>
+            </div>
+          ))}
+        </div>
+
         {showInput ? (
           <div className="space-y-4">
             <Separator />

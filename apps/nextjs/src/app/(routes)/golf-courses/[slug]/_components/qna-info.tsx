@@ -22,9 +22,10 @@ const QnaInfo = async ({ course }: { course: GolfCourse }) => {
       <CreateQnAButton course={course} />
       {qnas
         .filter((qna) => qna.level === 0)
-        .map((qna) => (
-          <QnACard key={qna.id} qna={qna} />
-        ))}
+        .map((qna) => {
+          const replies = qnas.filter((q) => q.parent_id === qna.id);
+          return <QnACard key={qna.id} qna={qna} replies={replies} />;
+        })}
     </div>
   );
 };
