@@ -12,6 +12,7 @@ import { Loader2 } from "lucide-react";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailTab from "./_components/course-detail-tab";
 import NearCourseInfo from "./_components/near-course-info";
+import QnAInfo from "./_components/qna-info";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
 import { GetCourses } from "./action";
@@ -150,6 +151,7 @@ export default async function Page({ params, searchParams }: Props) {
             <ReviewInfo course={currentCourse} />
           </Suspense>
         }
+        qnaInfo={<QnAInfo course={currentCourse} />}
       />
       <BottomNav />
     </>
