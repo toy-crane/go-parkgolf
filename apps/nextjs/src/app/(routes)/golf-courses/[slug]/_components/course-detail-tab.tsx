@@ -16,20 +16,8 @@ const CourseDetailTab = ({
   reviewInfo: React.ReactNode;
   nearCourseInfo: React.ReactNode;
 }) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const handleTabChange = (value: string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("tab", String(value));
-    router.replace(`?${params.toString()}`);
-  };
-
   return (
-    <Tabs
-      defaultValue={selectedTab}
-      className="mb-28 space-y-4"
-      onValueChange={handleTabChange}
-    >
+    <Tabs defaultValue={selectedTab} className="mb-28 space-y-4">
       <TabsList className="flex">
         <TabsTrigger value="home" className="flex-1">
           홈
