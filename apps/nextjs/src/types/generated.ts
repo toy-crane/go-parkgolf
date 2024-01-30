@@ -258,6 +258,41 @@ export interface Database {
           }
         ]
       }
+      golf_course_qnas: {
+        Row: {
+          content: string
+          created_at: string
+          golf_course_id: string
+          id: string
+          level: number
+          parent_id: string | null
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          golf_course_id: string
+          id?: string
+          level?: number
+          parent_id?: string | null
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          golf_course_id?: string
+          id?: string
+          level?: number
+          parent_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "golf_course_qnas_golf_course_id_fkey"
+            columns: ["golf_course_id"]
+            isOneToOne: false
+            referencedRelation: "golf_courses"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       golf_course_reviews: {
         Row: {
           course_condition_rating: number
