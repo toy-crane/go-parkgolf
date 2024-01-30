@@ -1,6 +1,6 @@
 "use client";
 
-import type { Course, GolfCourse } from "@/types";
+import type { GolfCourse } from "@/types";
 
 import CreateQnAButton from "./create-qna-button";
 
