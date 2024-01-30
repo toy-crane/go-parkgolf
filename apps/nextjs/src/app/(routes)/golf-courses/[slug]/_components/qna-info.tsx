@@ -9,11 +9,13 @@ const QnaInfo = async ({ course }: { course: GolfCourse }) => {
   const response = await supabase
     .from("golf_course_qnas")
     .select("*, profiles(*)")
-    .eq("golf_course_id", course.id);
+    .eq("golf_course_id", course.id)
+    .order("created_at", {
+      ascending: false,
+    });
 
   if (response.error) throw response.error;
   const qnas = response.data;
-  console.log(qnas);
 
   return (
     <div className="flex flex-col space-y-2">
