@@ -8,7 +8,7 @@ const CreateQnAButton = ({ course }: { course: GolfCourse }) => {
   const router = useRouter();
   return (
     <button
-      className="flex items-center gap-1 text-sm font-semibold"
+      className="flex items-center gap-1 self-end text-sm font-semibold"
       onClick={() => router.push(`/golf-courses/${course.slug}/qna/create`)}
     >
       <span>질문하기</span>

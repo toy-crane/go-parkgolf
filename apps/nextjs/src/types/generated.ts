@@ -266,6 +266,7 @@ export interface Database {
           id: string
           level: number
           parent_id: string | null
+          user_id: string
         }
         Insert: {
           content: string
@@ -274,6 +275,7 @@ export interface Database {
           id?: string
           level?: number
           parent_id?: string | null
+          user_id?: string
         }
         Update: {
           content?: string
@@ -282,6 +284,7 @@ export interface Database {
           id?: string
           level?: number
           parent_id?: string | null
+          user_id?: string
         }
         Relationships: [
           {
@@ -289,6 +292,13 @@ export interface Database {
             columns: ["golf_course_id"]
             isOneToOne: false
             referencedRelation: "golf_courses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "golf_course_qnas_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           }
         ]
