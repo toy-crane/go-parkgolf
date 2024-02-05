@@ -151,7 +151,6 @@ export default async function Page({ params, searchParams }: Props) {
             <ReviewInfo course={currentCourse} />
           </Suspense>
         }
-        qnaInfo={<QnAInfo course={currentCourse} />}
       />
       <BottomNav />
     </>
