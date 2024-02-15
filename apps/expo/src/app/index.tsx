@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { BackHandler, Linking } from "react-native";
+import { BackHandler } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
 import { makeRedirectUri } from "expo-auth-session";
 import * as QueryParams from "expo-auth-session/build/QueryParams";
+import * as Linking from "expo-linking";
 import * as Location from "expo-location";
 import * as WebBrowser from "expo-web-browser";
 import type { Session } from "@supabase/supabase-js";
@@ -49,8 +50,10 @@ export default function Home() {
       const res = await WebBrowser.openAuthSessionAsync(
         data?.url ?? "",
         redirectTo,
+        {
+          createTask: false,
+        },
       );
-
       if (res.type === "success") {
         const { url } = res;
         const data = await createSessionFromUrl(url);
