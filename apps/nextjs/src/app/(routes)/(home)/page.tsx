@@ -61,7 +61,8 @@ const Home = async ({
   return (
     <>
       <HomeNav selectOptions={selectOptions} />
-      <section>
+      {/* homeNav 만큼 Padding 확보 */}
+      <section className="pt-12">
         <KakaoMap
           markers={markers}
           center={position.center}
