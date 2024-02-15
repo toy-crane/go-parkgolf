@@ -5,7 +5,7 @@ import { TrendingUp } from "lucide-react";
 
 import CourseCard from "./course-card";
 
-export const revalidate = 600;
+export const revalidate = 60;
 
 function transformToObjects(
   arr: (string | number)[],
