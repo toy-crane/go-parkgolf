@@ -111,6 +111,8 @@ export default function Home() {
           geolocationEnabled
           pullToRefreshEnabled
           onContentProcessDidTerminate={reloadWebView}
+          // android에서 이미지 나오도록 설정
+          mixedContentMode="compatibility"
           originWhitelist={originAllowList}
           textZoom={100}
           onShouldStartLoadWithRequest={(request) => {
