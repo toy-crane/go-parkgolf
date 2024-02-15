@@ -10,8 +10,8 @@ const Nav = ({ courseId }: { courseId: string }) => {
   const { track } = useAmplitude();
 
   return (
-    <header className="content-grid full h-header flex items-center border-b bg-white">
-      <nav className="flex flex-1 items-center justify-between">
+    <header className="content-grid h-header full border-b bg-white">
+      <nav className="md:content full flex flex-1 items-center justify-between">
         <Button variant="ghost" size="icon" onClick={() => router.back()}>
           <ArrowLeft size={24} />
         </Button>

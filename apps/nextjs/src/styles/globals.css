@@ -122,13 +122,15 @@
     grid-column: content;
   }
 
+  .content-grid > .content {
+    grid-column: content;
+  }
+
   .content-grid > .breakout {
     grid-column: breakout;
   }
 
   .content-grid > .full {
     grid-column: full;
-    display: grid;
-    grid-template-columns: inherit;
   }
 }
