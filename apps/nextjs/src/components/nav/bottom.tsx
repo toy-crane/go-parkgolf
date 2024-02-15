@@ -3,7 +3,13 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 import { cn } from "@/libs/tailwind";
-import { ClipboardEdit, Home, MoreHorizontal } from "lucide-react";
+import {
+  ClipboardEdit,
+  Home,
+  MoreHorizontal,
+  TrendingUp,
+  TrendingUpIcon,
+} from "lucide-react";
 
 const BottomNav = () => {
   const pathname = headers().get("x-pathname") ?? "";
@@ -11,6 +17,7 @@ const BottomNav = () => {
   const isMyGames =
     pathname.startsWith("/my-games") || pathname.startsWith("/score-card");
   const isSettings = pathname === "/settings";
+  const isTrending = pathname === "/trending";
 
   return (
     <footer className="content-grid z-bottom-nav h-bottom-nav fixed bottom-0 w-full border-t bg-white">
@@ -27,6 +34,22 @@ const BottomNav = () => {
             )}
           >
             홈
+          </span>
+        </Link>
+        <Link
+          href="/trending"
+          className="flex flex-1 flex-col items-center justify-center gap-1"
+        >
+          <TrendingUpIcon
+            className={cn("opacity-50", isTrending && "opacity-100")}
+          />
+          <span
+            className={cn(
+              "text-xs opacity-50",
+              isTrending && "font-bold opacity-100",
+            )}
+          >
+            인기 코스
           </span>
         </Link>
         <Link
