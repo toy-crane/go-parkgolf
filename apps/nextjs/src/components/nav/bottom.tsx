@@ -48,7 +48,7 @@ const BottomNav = () => {
               isTrending && "font-bold opacity-100",
             )}
           >
-            인기 코스
+            인기코스
           </span>
         </Link>
         <Link
@@ -64,7 +64,7 @@ const BottomNav = () => {
               isMyGames && "font-bold opacity-100",
             )}
           >
-            스코어 카드
+            스코어
           </span>
         </Link>
         <Link
