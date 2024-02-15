@@ -60,7 +60,7 @@ const Page = async () => {
         <TrendingUp className="ml-1 h-10 w-10" />
       </PageHeader>
       <section className="space-y-4">
-        <h2 className="mb-6 text-2xl font-semibold underline decoration-[#22DC48] decoration-4 underline-offset-8 md:text-3xl">
+        <h2 className="mb-6 text-xl font-semibold underline decoration-[#22DC48] decoration-4 underline-offset-8 md:text-3xl">
           검색량 많은 파크골프장
         </h2>
         <div className="mb-6 grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-1">
