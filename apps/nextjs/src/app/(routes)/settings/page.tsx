@@ -55,7 +55,7 @@ const Page = async () => {
   };
 
   return (
-    <section className="space-y-8">
+    <section className="mb-8 space-y-8">
       <PageHeader>
         <PageHeaderHeading>설정</PageHeaderHeading>
       </PageHeader>
