@@ -11,7 +11,7 @@ const Nav = ({ courseId }: { courseId: string }) => {
 
   return (
     <header className="content-grid h-header full border-b bg-white">
-      <nav className="md:content full flex flex-1 items-center justify-between">
+      <nav className="content flex flex-1 items-center justify-between">
         <Button variant="ghost" size="icon" onClick={() => router.back()}>
           <ArrowLeft size={24} />
         </Button>
