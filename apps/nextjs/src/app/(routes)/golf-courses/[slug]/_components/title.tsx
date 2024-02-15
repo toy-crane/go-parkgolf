@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
-import { useAmplitude } from "@/libs/amplitude";
 import { cn } from "@/libs/tailwind";
 import type { GolfCourse } from "@/types";
 
@@ -15,8 +12,6 @@ const Title = ({
   course: GolfCourse;
   className?: string;
 }) => {
-  const { toast } = useToast();
-  const { track } = useAmplitude();
   return (
     <div
       className={cn(className, "mb-4 flex items-center justify-between gap-1")}
