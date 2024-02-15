@@ -22,7 +22,7 @@ const Page = async ({
   }
 
   return (
-    <div className="h-dynamic-screen flex flex-col items-center justify-center">
+    <div className="flex h-screen flex-col items-center justify-center">
       <Image
         src="/logo.png"
         width={96}
