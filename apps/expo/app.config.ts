@@ -6,7 +6,7 @@ const defineConfig = (): ExpoConfig => ({
   name: IS_DEV ? "파크골프 가자(DEV)" : "파크골프 가자",
   slug: "goparkgolf",
   scheme: "goparkgolf",
-  version: "1.0.1",
+  version: "1.0.2",
   orientation: "portrait",
   icon: "./assets/images/icon.png",
   userInterfaceStyle: "light",
@@ -37,7 +37,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   android: {
     package: IS_DEV ? "app.goparkgolf.www.dev" : "app.goparkgolf.www",
-    versionCode: 4,
+    versionCode: 5,
     adaptiveIcon: {
       foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#1F104A",

@@ -37,6 +37,11 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./go-parkgolf-4638a85cbd3c.json",
+        "track": "internal"
+      }
+    }
   }
 }
