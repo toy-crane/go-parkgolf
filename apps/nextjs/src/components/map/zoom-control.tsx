@@ -15,7 +15,7 @@ const ZoomControl = ({ zoomIn, zoomOut }: Props) => {
       <Button
         onClick={() => zoomIn()}
         variant={"secondary"}
-        size={"icon"}
+        size="smIcon"
         className="rounded-b-none border border-b"
       >
         <PlusIcon />
@@ -23,7 +23,7 @@ const ZoomControl = ({ zoomIn, zoomOut }: Props) => {
       <Button
         onClick={() => zoomOut()}
         variant={"secondary"}
-        size={"icon"}
+        size="smIcon"
         className="rounded-t-none border"
       >
         <MinusIcon />

@@ -9,7 +9,7 @@ const HomeNav = ({
   selectOptions: { title: string; href: string }[];
 }) => {
   return (
-    <header className="content-grid z-header h-header w-full">
+    <header className="content-grid z-header h-header fixed w-full bg-white">
       <div className="flex flex-grow items-center justify-center gap-2 md:flex-grow-0">
         <Link href="/">
           <Icons.logoFilled className="mr-1 h-6 w-6" />

@@ -11,7 +11,7 @@ const CurrentPositionButton = () => {
   return (
     <Button
       variant="secondary"
-      size="icon"
+      size="smIcon"
       onClick={() => {
         setLoading(true);
         navigator.geolocation.getCurrentPosition(
