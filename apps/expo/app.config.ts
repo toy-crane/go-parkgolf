@@ -48,7 +48,7 @@ const defineConfig = (): ExpoConfig => ({
         autoVerify: true,
         data: [
           {
-            scheme: "auth-app",
+            scheme: "goparkgolf",
           },
         ],
         category: ["BROWSABLE", "DEFAULT"],
