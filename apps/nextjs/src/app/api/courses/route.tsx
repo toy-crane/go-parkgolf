@@ -1,8 +1,6 @@
-import { error } from "console";
 import { env } from "@/env.mjs";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import type { Tables } from "@/types/generated";
-import { createServerClient } from "@supabase/ssr";
 
 export const dynamic = "force-dynamic"; // defaults to force-static
 
