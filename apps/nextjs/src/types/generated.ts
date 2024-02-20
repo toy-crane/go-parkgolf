@@ -10,7 +10,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       contacts: {
@@ -614,6 +614,12 @@ export interface Database {
     Functions: {
       delete_user: {
         Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      insert_courses: {
+        Args: {
+          data: Json
+        }
         Returns: undefined
       }
     }
