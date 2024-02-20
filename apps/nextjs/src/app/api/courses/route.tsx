@@ -20,7 +20,6 @@ interface RequestBody {
 
 export async function POST(request: Request) {
   const authHeader = request.headers.get("authorization");
-  console.log(authHeader);
   if (authHeader !== `Bearer ${env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`) {
     return new Response("Unauthorized", {
       status: 401,
