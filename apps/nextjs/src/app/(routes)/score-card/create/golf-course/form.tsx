@@ -2,6 +2,7 @@
 
 import React, { useCallback, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -28,7 +29,12 @@ import {
 import { cn } from "@/libs/tailwind";
 import type { GolfCourse } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CalendarIcon, CaretSortIcon } from "@radix-ui/react-icons";
+import {
+  CalendarIcon,
+  CaretSortIcon,
+  PlusCircledIcon,
+} from "@radix-ui/react-icons";
+import { generateStorage } from "@toss/storage";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
 import { Loader2 } from "lucide-react";
@@ -45,11 +51,41 @@ interface FormProps {
   golfCourseId?: string;
 }
 
+const safeLocalStorage = generateStorage();
+
+function updateRecentGolfCourses(newGolfCourseId: string) {
+  const maxCourses = 3;
+  const recentGolfCourse = safeLocalStorage.get("recent_golf_course");
+  const recentGolfCourses = recentGolfCourse?.split(",") ?? [];
+
+  // 중복 제거: 새로운 골프 코스 ID가 이미 배열에 있다면 먼저 제거
+  const filteredGolfCourses = recentGolfCourses.filter(
+    (course) => course !== newGolfCourseId,
+  );
+
+  // 최신 5개 유지: 필터링된 배열에 새로운 ID를 추가하고, 마지막 3개 요소만 유지
+  const updatedRecentGolfCourses = [
+    ...filteredGolfCourses,
+    newGolfCourseId,
+  ].slice(-maxCourses);
+
+  safeLocalStorage.set(
+    "recent_golf_course",
+    updatedRecentGolfCourses.join(","),
+  );
+}
+
 const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const recentGolfCourse = safeLocalStorage.get("recent_golf_course");
+  const [recentGolfCourses, setRecentGolfCourses] = useState<string[]>([]);
+
+  React.useEffect(() => {
+    setRecentGolfCourses(recentGolfCourse?.split(",") ?? []);
+  }, []);
 
   const runCommand = useCallback((command: () => unknown) => {
     command();
@@ -83,6 +119,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
       if (result.success) {
         const params = new URLSearchParams();
         params.set("gameId", String(result.data.id));
+        updateRecentGolfCourses(values.golfCourseId);
         router.replace(`/score-card/create/player?${params.toString()}`);
       }
     });
@@ -96,6 +133,29 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
           render={({ field }) => (
             <FormItem className="flex flex-col">
               <FormLabel>파크 골프장 이름</FormLabel>
+              {recentGolfCourses.length !== 0 && (
+                <div className="mb-1">
+                  <div className="text-muted-foreground text-xs">
+                    최근 선택한 골프장
+                  </div>
+                  {recentGolfCourses.map((id) => (
+                    <Badge
+                      key={id}
+                      variant="secondary"
+                      className="mr-2 cursor-pointer"
+                      onClick={() => {
+                        form.setValue("golfCourseId", id);
+                        setRecentGolfCourses((prev) =>
+                          prev.filter((p) => p !== id),
+                        );
+                      }}
+                    >
+                      {courses.find((c) => c.id === id)?.name}
+                      <PlusCircledIcon className="ml-1 h-3 w-3" />
+                    </Badge>
+                  ))}
+                </div>
+              )}
               <FormControl>
                 <Button
                   variant="outline"
