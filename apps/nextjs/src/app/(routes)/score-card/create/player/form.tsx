@@ -128,7 +128,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
           {recentPlayers.length !== 0 && (
             <div className="mb-1">
               <div className="text-muted-foreground text-xs">
-                최근 함께한 선수들
+                최근 함께한 선수
               </div>
               {recentPlayers.map((name) => (
                 <Badge
