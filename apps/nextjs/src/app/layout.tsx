@@ -123,16 +123,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
           />
-          <Analytics
-            mode="production"
-            beforeSend={(event) => {
-              // 내 IP인 경우 vercel에 전송하지 않음
-              if (ip === "218.234.155.109") {
-                return null;
-              }
-              return event;
-            }}
-          />
+          <Analytics mode="production" />
         </body>
       </AmplitudeProvider>
     </html>
