@@ -26,7 +26,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/libs/tailwind";
-import type { Tables } from "@/types/generated";
+import type { GolfCourse } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarIcon, CaretSortIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
@@ -41,7 +41,7 @@ import { formSchema } from "./schema";
 type Inputs = z.infer<typeof formSchema>;
 
 interface FormProps {
-  courses: Tables<"golf_courses">[];
+  courses: GolfCourse[];
   golfCourseId?: string;
 }
 
@@ -57,7 +57,13 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   }, []);
 
   const courseOptions = courses.map((course) => ({
-    title: course.name,
+    title: `${course.name} (${
+      course.lot_number_addresses?.region_1depth_name ?? ""
+    }${
+      course.lot_number_addresses?.region_2depth_name
+        ? ` ${course.lot_number_addresses?.region_2depth_name}`
+        : ""
+    })`,
     value: course.id,
   }));
 

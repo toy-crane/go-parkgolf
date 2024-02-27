@@ -6,6 +6,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import type { GolfCourse } from "@/types";
 
 import CourseForm from "./form";
 
@@ -17,7 +18,10 @@ const Page = async ({
   };
 }) => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const query = supabase.from("golf_courses").select(`*`);
+  const query = supabase
+    .from("golf_courses")
+    .select(`*, lot_number_addresses(*)`)
+    .returns<GolfCourse[]>();
   const result = await query;
 
   if (!result.data) {
