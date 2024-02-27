@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import { track } from "@vercel/analytics/server";
 import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
@@ -74,6 +75,9 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
       const { data: gameScores } = await createGameScores(gameCourses, courses);
       const { data: _ } = await createGamePlayerScores(gameId, gameScores);
       await updateGameStatus(gameId);
+      await track("game created", {
+        golfCourseName: values.game_courses[0]?.name ?? "none",
+      });
       router.replace(`/score-card/${gameId}`);
     });
   }
