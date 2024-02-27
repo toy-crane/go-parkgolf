@@ -10,6 +10,7 @@ import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
 import CourseCommonInfo from "./_components/course-common-info";
+import CourseDetailInfo from "./_components/course-detail-info";
 import CourseDetailTab from "./_components/course-detail-tab";
 import NearCourseInfo from "./_components/near-course-info";
 import QnAInfo from "./_components/qna-info";
@@ -86,7 +87,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params, searchParams }: Props) {
-  const tab = searchParams?.tab ?? "home";
+  const tab = searchParams?.tab ?? "course";
   const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
   const currentCourse = courses.find((course) => course.slug === slug);
@@ -149,6 +150,21 @@ export default async function Page({ params, searchParams }: Props) {
             }
           >
             <ReviewInfo course={currentCourse} />
+          </Suspense>
+        }
+        courseDetailInfo={
+          <Suspense
+            fallback={
+              <div className="flex min-h-[30vh] items-center justify-center">
+                <Loader2
+                  className="h-5 w-5 animate-spin"
+                  size={24}
+                  color={"#71717A"}
+                />
+              </div>
+            }
+          >
+            <CourseDetailInfo golfCourseId={currentCourse.id} />
           </Suspense>
         }
       />
