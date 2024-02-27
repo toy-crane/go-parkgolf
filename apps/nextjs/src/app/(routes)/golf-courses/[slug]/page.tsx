@@ -87,7 +87,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params, searchParams }: Props) {
-  const tab = searchParams?.tab ?? "course";
+  const tab = searchParams?.tab ?? "home";
   const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
   const currentCourse = courses.find((course) => course.slug === slug);
