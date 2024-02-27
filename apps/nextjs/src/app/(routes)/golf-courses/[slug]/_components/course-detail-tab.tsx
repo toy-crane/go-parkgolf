@@ -3,6 +3,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { GolfCourse } from "@/types";
+import { track } from "@vercel/analytics";
 
 const CourseDetailTab = ({
   selectedTab,
@@ -19,7 +20,11 @@ const CourseDetailTab = ({
   courseDetailInfo: React.ReactNode;
 }) => {
   return (
-    <Tabs defaultValue={selectedTab} className="mb-28 space-y-4">
+    <Tabs
+      defaultValue={selectedTab}
+      className="mb-28 space-y-4"
+      onValueChange={(value) => track(`golf-course-${value}-tab-clicked`)}
+    >
       <TabsList className="flex">
         <TabsTrigger value="home" className="flex-1">
           홈
