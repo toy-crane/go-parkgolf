@@ -2,6 +2,7 @@
 
 import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import { generateStorage } from "@toss/storage";
 import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
@@ -28,10 +30,11 @@ interface FormProps {
   gameId: string;
 }
 
+const safeLocalStorage = generateStorage();
+
 const PlayerForm = ({ gameId }: FormProps) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
-
   const form = useForm<Inputs>({
     shouldUnregister: false,
     mode: "onChange",
@@ -40,6 +43,12 @@ const PlayerForm = ({ gameId }: FormProps) => {
       players: [],
     },
   });
+
+  const [recentPlayers, setRecentPlayers] = React.useState<string[]>([]);
+
+  React.useEffect(() => {
+    setRecentPlayers(safeLocalStorage.get("recent_players")?.split(",") ?? []);
+  }, []);
 
   const error =
     form.formState.errors.players?.root ?? form.formState.errors.players;
@@ -66,6 +75,10 @@ const PlayerForm = ({ gameId }: FormProps) => {
         params.set("gameId", gameId);
         router.replace(`/score-card/create/game-course?${params.toString()}`);
       }
+      safeLocalStorage.set(
+        "recent_players",
+        values.players.map((p) => p.nickname).join(","),
+      );
     });
   }
   return (
@@ -110,6 +123,28 @@ const PlayerForm = ({ gameId }: FormProps) => {
                   </div>
                 );
               })}
+            </div>
+          )}
+          {recentPlayers.length !== 0 && (
+            <div className="mb-1">
+              <div className="text-muted-foreground text-xs">
+                최근 함께한 선수들
+              </div>
+              {recentPlayers.map((name) => (
+                <Badge
+                  key={name}
+                  variant="secondary"
+                  className="mr-2 cursor-pointer"
+                  onClick={() => {
+                    append({
+                      nickname: name,
+                    });
+                    setRecentPlayers((prev) => prev.filter((p) => p !== name));
+                  }}
+                >
+                  {name} <PlusCircledIcon className="ml-1 h-3 w-3" />
+                </Badge>
+              ))}
             </div>
           )}
           <Button
