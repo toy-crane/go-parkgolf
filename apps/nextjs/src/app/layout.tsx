@@ -94,6 +94,9 @@ export const metadata: Metadata = {
 
 export default async function Layout(props: { children: React.ReactNode }) {
   const session = await readUserSession();
+  const header = headers();
+  const ip = (header.get("x-forwarded-for") ?? "127.0.0.1").split(",")[0];
+  console.log(ip);
 
   // 로그인 시에 amplitude에 user_id를 전송
   if (session?.user) {
@@ -120,7 +123,16 @@ export default async function Layout(props: { children: React.ReactNode }) {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
           />
-          <Analytics mode="production" />
+          <Analytics
+            mode="production"
+            beforeSend={(event) => {
+              // 내 IP인 경우 vercel에 전송하지 않음
+              if (ip === "218.234.155.109") {
+                return null;
+              }
+              return event;
+            }}
+          />
         </body>
       </AmplitudeProvider>
     </html>
