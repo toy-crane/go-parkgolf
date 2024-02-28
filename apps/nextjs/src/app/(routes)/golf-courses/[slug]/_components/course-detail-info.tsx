@@ -53,12 +53,12 @@ const CourseDetailInfo = async ({
       <div className="space-y-3">
         <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
         <Tabs defaultValue={defaultValue} className="mb-28 space-y-4">
-          <TabsList className="flex">
+          <TabsList className="flex flex-nowrap justify-start overflow-x-scroll">
             {courses.map((course) => (
               <TabsTrigger
                 value={course.name}
-                className="flex-1"
                 key={course.id}
+                className="flex-1"
               >
                 {course.name} 코스
               </TabsTrigger>
