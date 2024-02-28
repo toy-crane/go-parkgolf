@@ -22,6 +22,10 @@ const CourseDetailInfo = async ({
   const response = await supabase
     .from("courses")
     .select("*, holes(*)")
+    .order("hole_number", {
+      foreignTable: "holes",
+      ascending: true,
+    })
     .eq("golf_course_id", golfCourseId);
   if (response.error) throw response.error;
   const courses = response.data;
