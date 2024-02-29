@@ -92,8 +92,7 @@ const CourseDetailInfo = async ({
               <div className="flex items-center">
                 <h3 className="mr-4 shrink-0 text-base font-semibold">코스</h3>
                 <div className="text-muted-foreground text-base">
-                  {courses.length}개 코스 ({" "}
-                  {courses.map((course) => course.name).join(", ")})
+                  {courses.length}개 코스 ({courses.map((course) => course.name).join(", ")})
                 </div>
               </div>
             </>
