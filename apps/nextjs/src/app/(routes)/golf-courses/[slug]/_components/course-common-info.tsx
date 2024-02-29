@@ -35,7 +35,6 @@ const CourseCommonInfo = ({ course }: { course: GolfCourse }) => {
     <>
       <div className="my-6 flex flex-col gap-1">
         <Label title="위치" content={course.lot_number_address_name} />
-        <Label title="규모" content={`${course?.hole_count} 홀`} />
       </div>
       <Separator />
       {operation && (

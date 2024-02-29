@@ -70,7 +70,7 @@ const CourseDetailInfo = async ({
     );
   const defaultValue = courses[0]?.name!;
   return (
-    <div className="space-y-7">
+    <div className="mt-6 space-y-7">
       <div className="space-y-3">
         <div className="space-y-1">
           <div className="flex items-center">
