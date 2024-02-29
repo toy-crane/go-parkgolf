@@ -108,7 +108,7 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <>
       <Nav />
-      <section className="mt-14">
+      <section className="mt-14 md:mb-2 md:mt-16">
         <KakaoMap
           markers={markers}
           center={{
@@ -116,6 +116,7 @@ export default async function Page({ params, searchParams }: Props) {
             lat: Number(currentCourse.lat),
             lng: Number(currentCourse.lng),
           }}
+          size={{ width: "100%", height: "280px" }}
           level={9}
         />
       </section>
