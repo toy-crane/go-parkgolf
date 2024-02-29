@@ -10,7 +10,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import { Tables } from "@/types/generated";
 import { Pencil } from "lucide-react";
 
 const CourseDetailInfo = async ({
@@ -21,19 +20,20 @@ const CourseDetailInfo = async ({
   courseName: string;
 }) => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const golfCouseResponse = await supabase
-    .from("golf_courses")
-    .select("*")
-    .eq("id", golfCourseId)
-    .single();
-  const response = await supabase
-    .from("courses")
-    .select("*, holes(*)")
-    .order("hole_number", {
-      foreignTable: "holes",
-      ascending: true,
-    })
-    .eq("golf_course_id", golfCourseId);
+
+  // Promise.all을 사용하여 두 비동기 요청을 병렬로 실행
+  const [golfCouseResponse, response] = await Promise.all([
+    supabase.from("golf_courses").select("*").eq("id", golfCourseId).single(),
+    supabase
+      .from("courses")
+      .select("*, holes(*)")
+      .order("hole_number", {
+        foreignTable: "holes",
+        ascending: true,
+      })
+      .eq("golf_course_id", golfCourseId),
+  ]);
+
   if (response.error ?? golfCouseResponse.error) throw response.error;
   const courses = response.data;
   const golfCourse = golfCouseResponse.data;
