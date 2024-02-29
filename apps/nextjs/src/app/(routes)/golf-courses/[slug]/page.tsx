@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import KakaoMap from "@/components/map/kakao-map";
 import BottomNav from "@/components/nav/bottom";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
@@ -104,8 +106,8 @@ export default async function Page({ params, searchParams }: Props) {
   if (currentCourse === undefined) return notFound();
   return (
     <>
-      <Nav courseId={currentCourse.id} />
-      <section className="mt-2">
+      <Nav />
+      <section className="mt-14">
         <KakaoMap
           markers={markers}
           center={{
@@ -170,6 +172,17 @@ export default async function Page({ params, searchParams }: Props) {
           </Suspense>
         }
       />
+      <div className="z-bottom-nav content-grid fixed bottom-[80px] w-full justify-center">
+        <div className="md:content full flex justify-center">
+          <Button className="w-[360px]" asChild>
+            <Link
+              href={`/score-card/create/golf-course?golfCourseId=${currentCourse.id}`}
+            >
+              {currentCourse.name} 스코어 기록하기
+            </Link>
+          </Button>
+        </div>
+      </div>
       <BottomNav />
     </>
   );

@@ -22,7 +22,7 @@ const CourseDetailTab = ({
   return (
     <Tabs
       defaultValue={selectedTab}
-      className="mb-28 space-y-4"
+      className="mb-36 space-y-4"
       onValueChange={(value) => track(`golf-course-${value}-tab-clicked`)}
     >
       <TabsList className="flex">

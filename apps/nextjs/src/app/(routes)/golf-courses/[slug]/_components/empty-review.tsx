@@ -13,6 +13,7 @@ const EmptyReview = ({ course }: { course: GolfCourse }) => {
         <Balancer>소중한 파크골프가자의 첫 리뷰를 작성해주세요</Balancer>
       </span>
       <Button
+        variant="outline"
         onClick={() =>
           router.push(`/golf-courses/${course.slug}/reviews/create`)
         }
