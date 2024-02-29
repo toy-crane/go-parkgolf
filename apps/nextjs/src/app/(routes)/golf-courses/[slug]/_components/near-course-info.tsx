@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { haversineDistance } from "@/libs/map";
 import type { GolfCourse } from "@/types";
@@ -53,39 +54,28 @@ const NearCourseInfo = async ({ course }: { course: GolfCourse }) => {
         <div className="space-y-6">
           <div className="space-y-3">
             <h2 className="text-foreground text-xl font-bold">
-              주변 파크 골프장 둘러보기
+              가까운 파크 골프장
             </h2>
-            <div className="grid grid-cols-2 gap-y-3 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2">
               {nearCourses.map((course) => (
-                <Link href={`/golf-courses/${course.slug}`} key={course.name}>
-                  {course.name}
-                </Link>
+                <Card key={course.id} className="w-full hover:bg-neutral-50">
+                  <Link href={`/golf-courses/${course.slug}`}>
+                    <CardContent className="space-y-2 px-2 py-3">
+                      <div>
+                        <div className="text-lg font-bold">{course.name}</div>
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {course.hole_count}홀 <span> · </span>{" "}
+                        {course.lot_number_address_name}
+                      </div>
+                    </CardContent>
+                  </Link>
+                </Card>
               ))}
             </div>
           </div>
-          <Separator />
         </div>
       )}
-      <div className="space-y-3">
-        <h2 className="text-foreground text-xl font-bold">
-          전국의 다른 파크골프장 살펴보기
-        </h2>
-        <div className="mb-16 grid grid-cols-2 gap-y-3 md:grid-cols-3">
-          {MAJOR_REGIONS.map((region) => (
-            <Link
-              href={`/?${new URLSearchParams({
-                level: String(region.level),
-                lng: region.lng,
-                lat: region.lat,
-              }).toString()}`}
-              key={region.name}
-            >
-              {region.name === "전국" ? region.name : `${region.name}`} 파크
-              골프장
-            </Link>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };
