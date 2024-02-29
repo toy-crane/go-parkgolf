@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   Table,
@@ -11,6 +12,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { Pencil } from "lucide-react";
+
+const EmptyCourse = ({ courseName }: { courseName: string }) => {
+  return (
+    <div className="flex min-h-[30vh] items-center justify-center">
+      <div className="space-y-4 text-center">
+        <div className="text-xl font-bold">
+          아직 등록된 코스 정보가 없습니다.
+        </div>
+        <Button variant="outline" asChild>
+          <a
+            href={generateFormUrl(courseName)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2"
+          >
+            빠른 등록 요청하기 <Pencil size={16} className="ml-2" />
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 const CourseDetailInfo = async ({
   golfCourseId,
@@ -46,28 +69,7 @@ const CourseDetailInfo = async ({
       ),
     0,
   );
-  if (courses.length === 0)
-    return (
-      <div className="flex min-h-[30vh] items-center justify-center">
-        <div className="text-center">
-          <span className="text-xl font-bold">
-            아직 등록된 코스 정보가 없습니다.
-          </span>
-          <br />
-          <span className="inline-flex items-center text-sm">
-            빠른 등록 요청하기
-            <a
-              href={generateFormUrl(courseName)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2"
-            >
-              <Pencil size={16} />
-            </a>
-          </span>
-        </div>
-      </div>
-    );
+  const hasCourses = courses.length > 0;
   const defaultValue = courses[0]?.name!;
   return (
     <div className="mt-6 space-y-7">
@@ -79,78 +81,86 @@ const CourseDetailInfo = async ({
               {golfCourse.hole_count} 홀
             </div>
           </div>
-          <div className="flex items-center">
-            <h3 className="mr-4 shrink-0 text-base font-semibold">거리</h3>
-            <div className="text-muted-foreground text-base">
-              {totalDistance.toLocaleString()} M
-            </div>
-          </div>
-          <div className="flex items-center">
-            <h3 className="mr-4 shrink-0 text-base font-semibold">코스</h3>
-            <div className="text-muted-foreground text-base">
-              {courses.length}개 코스 ({" "}
-              {courses.map((course) => course.name).join(", ")})
-            </div>
-          </div>
+          {hasCourses && (
+            <>
+              <div className="flex items-center">
+                <h3 className="mr-4 shrink-0 text-base font-semibold">거리</h3>
+                <div className="text-muted-foreground text-base">
+                  {totalDistance.toLocaleString()} M
+                </div>
+              </div>
+              <div className="flex items-center">
+                <h3 className="mr-4 shrink-0 text-base font-semibold">코스</h3>
+                <div className="text-muted-foreground text-base">
+                  {courses.length}개 코스 ({" "}
+                  {courses.map((course) => course.name).join(", ")})
+                </div>
+              </div>
+            </>
+          )}
         </div>
         <Separator />
       </div>
       <div className="space-y-3">
         <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
-        <Tabs defaultValue={defaultValue} className="mb-28 space-y-4">
-          <TabsList className="flex flex-nowrap justify-start overflow-x-scroll">
+        {hasCourses ? (
+          <Tabs defaultValue={defaultValue} className="mb-28 space-y-4">
+            <TabsList className="flex flex-nowrap justify-start overflow-x-scroll">
+              {courses.map((course) => (
+                <TabsTrigger
+                  value={course.name}
+                  key={course.id}
+                  className="flex-1"
+                >
+                  {course.name} 코스
+                </TabsTrigger>
+              ))}
+            </TabsList>
             {courses.map((course) => (
-              <TabsTrigger
+              <TabsContent
                 value={course.name}
+                className="min-h-[25vh] space-y-6"
                 key={course.id}
-                className="flex-1"
               >
-                {course.name} 코스
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {courses.map((course) => (
-            <TabsContent
-              value={course.name}
-              className="min-h-[25vh] space-y-6"
-              key={course.id}
-            >
-              <Table className="flex flex-col">
-                <TableHeader className="flex">
-                  <TableRow className="grid-cols-course-detail grid flex-1">
-                    <TableHead className="flex w-[100px] items-center justify-center bg-zinc-100 font-semibold">
-                      홀
-                    </TableHead>
-                    <TableHead className="flex items-center justify-center text-center font-semibold">
-                      파
-                    </TableHead>
-                    <TableHead className="flex items-center justify-center text-center font-semibold">
-                      거리
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody className="flex flex-col">
-                  {course.holes.map((hole) => (
-                    <TableRow
-                      key={hole.id}
-                      className="grid-cols-course-detail grid flex-1"
-                    >
-                      <TableCell className="flex w-[100px] items-center justify-center bg-zinc-100 text-center">
-                        {hole.hole_number} 홀
-                      </TableCell>
-                      <TableCell className="flex items-center justify-center text-center">
-                        {hole.par}
-                      </TableCell>
-                      <TableCell className="flex items-center justify-center text-center">
-                        {hole.distance} M
-                      </TableCell>
+                <Table className="flex flex-col">
+                  <TableHeader className="flex">
+                    <TableRow className="grid-cols-course-detail grid flex-1">
+                      <TableHead className="flex w-[100px] items-center justify-center bg-zinc-100 font-semibold">
+                        홀
+                      </TableHead>
+                      <TableHead className="flex items-center justify-center text-center font-semibold">
+                        파
+                      </TableHead>
+                      <TableHead className="flex items-center justify-center text-center font-semibold">
+                        거리
+                      </TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TabsContent>
-          ))}
-        </Tabs>
+                  </TableHeader>
+                  <TableBody className="flex flex-col">
+                    {course.holes.map((hole) => (
+                      <TableRow
+                        key={hole.id}
+                        className="grid-cols-course-detail grid flex-1"
+                      >
+                        <TableCell className="flex w-[100px] items-center justify-center bg-zinc-100 text-center">
+                          {hole.hole_number} 홀
+                        </TableCell>
+                        <TableCell className="flex items-center justify-center text-center">
+                          {hole.par}
+                        </TableCell>
+                        <TableCell className="flex items-center justify-center text-center">
+                          {hole.distance} M
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TabsContent>
+            ))}
+          </Tabs>
+        ) : (
+          <EmptyCourse courseName={courseName} />
+        )}
       </div>
     </div>
   );
