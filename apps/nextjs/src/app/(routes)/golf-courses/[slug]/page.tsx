@@ -175,7 +175,7 @@ export default async function Page({ params, searchParams }: Props) {
       />
       <div className="z-bottom-nav content-grid fixed bottom-[80px] w-full justify-center">
         <div className="md:content full flex justify-center">
-          <CTA courseName={currentCourse.name} courseId={currentCourse.id} />
+          <CTA courseId={currentCourse.id} />
         </div>
       </div>
       <BottomNav />

@@ -4,20 +4,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { track } from "@vercel/analytics/react";
 
-const CTA = ({
-  courseName,
-  courseId,
-}: {
-  courseName: string;
-  courseId: string;
-}) => {
+const CTA = ({ courseId }: { courseId: string }) => {
   return (
-    <Button className="w-[360px]" asChild>
+    <Button className="min-w-[280px]" asChild>
       <Link
         href={`/score-card/create/golf-course?golfCourseId=${courseId}`}
         onClick={() => track("create game CTA clicked")}
       >
-        {courseName} 스코어 기록하기
+        파크골프 스코어 기록하기
       </Link>
     </Button>
   );
