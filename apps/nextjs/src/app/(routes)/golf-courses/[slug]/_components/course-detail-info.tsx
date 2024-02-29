@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import {
   Table,
   TableBody,
@@ -9,6 +10,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import { Tables } from "@/types/generated";
 import { Pencil } from "lucide-react";
 
 const CourseDetailInfo = async ({
@@ -19,6 +21,11 @@ const CourseDetailInfo = async ({
   courseName: string;
 }) => {
   const supabase = await createSupabaseServerClientReadOnly();
+  const golfCouseResponse = await supabase
+    .from("golf_courses")
+    .select("*")
+    .eq("id", golfCourseId)
+    .single();
   const response = await supabase
     .from("courses")
     .select("*, holes(*)")
@@ -27,8 +34,18 @@ const CourseDetailInfo = async ({
       ascending: true,
     })
     .eq("golf_course_id", golfCourseId);
-  if (response.error) throw response.error;
+  if (response.error ?? golfCouseResponse.error) throw response.error;
   const courses = response.data;
+  const golfCourse = golfCouseResponse.data;
+  const totalDistance = courses.reduce(
+    (acc: number, course) =>
+      acc +
+      course.holes.reduce(
+        (acc: number, hole) => acc + (hole.distance ? hole.distance : 0),
+        0,
+      ),
+    0,
+  );
   if (courses.length === 0)
     return (
       <div className="flex min-h-[30vh] items-center justify-center">
@@ -53,7 +70,31 @@ const CourseDetailInfo = async ({
     );
   const defaultValue = courses[0]?.name!;
   return (
-    <>
+    <div className="space-y-7">
+      <div className="space-y-3">
+        <div className="space-y-1">
+          <div className="flex items-center">
+            <h3 className="mr-4 shrink-0 text-base font-semibold">규모</h3>
+            <div className="text-muted-foreground text-base">
+              {golfCourse.hole_count} 홀
+            </div>
+          </div>
+          <div className="flex items-center">
+            <h3 className="mr-4 shrink-0 text-base font-semibold">거리</h3>
+            <div className="text-muted-foreground text-base">
+              {totalDistance.toLocaleString()} M
+            </div>
+          </div>
+          <div className="flex items-center">
+            <h3 className="mr-4 shrink-0 text-base font-semibold">코스</h3>
+            <div className="text-muted-foreground text-base">
+              {courses.length}개 코스 ({" "}
+              {courses.map((course) => course.name).join(", ")})
+            </div>
+          </div>
+        </div>
+        <Separator />
+      </div>
       <div className="space-y-3">
         <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
         <Tabs defaultValue={defaultValue} className="mb-28 space-y-4">
@@ -111,7 +152,7 @@ const CourseDetailInfo = async ({
           ))}
         </Tabs>
       </div>
-    </>
+    </div>
   );
 };
 
