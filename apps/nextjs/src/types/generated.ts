@@ -356,8 +356,9 @@ export type Database = {
           created_at: string
           hole_count: number
           id: string
-          lat: number | null
-          lng: number | null
+          lat: number
+          lng: number
+          location: unknown | null
           lot_number_address_name: string | null
           name: string
           publish_status: Database["public"]["Enums"]["publish_status"]
@@ -368,8 +369,9 @@ export type Database = {
           created_at?: string
           hole_count: number
           id?: string
-          lat?: number | null
-          lng?: number | null
+          lat: number
+          lng: number
+          location?: unknown | null
           lot_number_address_name?: string | null
           name?: string
           publish_status?: Database["public"]["Enums"]["publish_status"]
@@ -380,8 +382,9 @@ export type Database = {
           created_at?: string
           hole_count?: number
           id?: string
-          lat?: number | null
-          lng?: number | null
+          lat?: number
+          lng?: number
+          location?: unknown | null
           lot_number_address_name?: string | null
           name?: string
           publish_status?: Database["public"]["Enums"]["publish_status"]
@@ -621,6 +624,27 @@ export type Database = {
           data: Json
         }
         Returns: undefined
+      }
+      nearby_golf_courses: {
+        Args: {
+          latitude: number
+          longitude: number
+          max_results: number
+        }
+        Returns: {
+          id: string
+          created_at: string
+          name: string
+          hole_count: number
+          slug: string
+          lot_number_address_name: string
+          road_address_name: string
+          lng: number
+          lat: number
+          publish_status: Database["public"]["Enums"]["publish_status"]
+          location: unknown
+          dist_meters: number
+        }[]
       }
     }
     Enums: {
