@@ -29,7 +29,8 @@ const BottomNav = () => {
           <span
             className={cn(
               "text-xs opacity-50",
-              isHome && "font-bold opacity-100",
+              isHome &&
+                "font-bold underline decoration-[#22DC48] decoration-2 underline-offset-4 opacity-100",
             )}
           >
             홈
@@ -45,7 +46,8 @@ const BottomNav = () => {
           <span
             className={cn(
               "text-xs opacity-50",
-              isTrending && "font-bold opacity-100",
+              isTrending &&
+                "font-bold underline decoration-[#22DC48] decoration-2 underline-offset-4 opacity-100",
             )}
           >
             인기코스
@@ -61,7 +63,8 @@ const BottomNav = () => {
           <span
             className={cn(
               "text-xs opacity-50",
-              isMyGames && "font-bold opacity-100",
+              isMyGames &&
+                "font-bold underline decoration-[#22DC48] decoration-2 underline-offset-4 opacity-100",
             )}
           >
             스코어
@@ -77,77 +80,14 @@ const BottomNav = () => {
           <span
             className={cn(
               "text-xs opacity-50",
-              isSettings && "font-bold opacity-100",
+              isSettings &&
+                "font-bold underline decoration-[#22DC48] decoration-2 underline-offset-4 opacity-100",
             )}
           >
             설정
           </span>
         </Link>
       </nav>
-      {/* <nav className="flex items-center justify-around px-2">
-        <Link
-          href="/"
-          className="flex flex-1 flex-col items-center justify-center gap-1"
-        >
-          <Home className={cn("opacity-50", isHome && "opacity-100")} />
-          <span
-            className={cn(
-              "text-xs opacity-50",
-              isHome && "font-bold opacity-100",
-            )}
-          >
-            홈
-          </span>
-        </Link>
-        <Link
-          href="/trending"
-          className="flex flex-1 flex-col items-center justify-center gap-1"
-        >
-          <TrendingUpIcon
-            className={cn("opacity-50", isTrending && "opacity-100")}
-          />
-          <span
-            className={cn(
-              "text-xs opacity-50",
-              isTrending && "font-bold opacity-100",
-            )}
-          >
-            인기 코스
-          </span>
-        </Link>
-        <Link
-          href="/my-games"
-          className="flex flex-1 flex-col items-center justify-center gap-1"
-        >
-          <ClipboardEdit
-            className={cn("opacity-50", isMyGames && "opacity-100")}
-          />
-          <span
-            className={cn(
-              "text-xs opacity-50",
-              isMyGames && "font-bold opacity-100",
-            )}
-          >
-            스코어 카드
-          </span>
-        </Link>
-        <Link
-          href="/settings"
-          className="flex flex-1 flex-col items-center justify-center gap-1"
-        >
-          <MoreHorizontal
-            className={cn("opacity-50", isSettings && "opacity-100")}
-          />
-          <span
-            className={cn(
-              "text-xs opacity-50",
-              isSettings && "font-bold opacity-100",
-            )}
-          >
-            설정
-          </span>
-        </Link>
-      </nav> */}
     </footer>
   );
 };
