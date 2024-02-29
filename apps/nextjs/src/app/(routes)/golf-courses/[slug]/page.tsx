@@ -116,7 +116,7 @@ export default async function Page({ params, searchParams }: Props) {
             lat: Number(currentCourse.lat),
             lng: Number(currentCourse.lng),
           }}
-          size={{ width: "100%", height: "280px" }}
+          size={{ width: "100%", height: "320px" }}
           level={9}
         />
       </section>

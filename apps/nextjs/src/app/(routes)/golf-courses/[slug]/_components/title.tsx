@@ -13,7 +13,10 @@ const Title = ({
 }) => {
   return (
     <div
-      className={cn(className, "mb-4 flex items-center justify-between gap-1")}
+      className={cn(
+        className,
+        "mb-2 flex items-center justify-between gap-1 md:mb-4",
+      )}
     >
       <div>
         <h1 className="text-foreground text-balance break-keep text-left text-3xl font-bold">
