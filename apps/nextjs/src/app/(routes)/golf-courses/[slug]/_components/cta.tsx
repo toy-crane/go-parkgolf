@@ -6,7 +6,7 @@ import { track } from "@vercel/analytics/react";
 
 const CTA = ({ courseId }: { courseId: string }) => {
   return (
-    <Button className="min-w-[280px]" asChild>
+    <Button className="min-w-[320px]" asChild>
       <Link
         href={`/score-card/create/golf-course?golfCourseId=${courseId}`}
         onClick={() => track("create game CTA clicked")}
