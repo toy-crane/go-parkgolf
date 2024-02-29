@@ -14,6 +14,7 @@ import { Loader2 } from "lucide-react";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
 import CourseDetailTab from "./_components/course-detail-tab";
+import CTA from "./_components/cta";
 import NearCourseInfo from "./_components/near-course-info";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
@@ -174,13 +175,7 @@ export default async function Page({ params, searchParams }: Props) {
       />
       <div className="z-bottom-nav content-grid fixed bottom-[80px] w-full justify-center">
         <div className="md:content full flex justify-center">
-          <Button className="w-[360px]" asChild>
-            <Link
-              href={`/score-card/create/golf-course?golfCourseId=${currentCourse.id}`}
-            >
-              {currentCourse.name} 스코어 기록하기
-            </Link>
-          </Button>
+          <CTA courseName={currentCourse.name} courseId={currentCourse.id} />
         </div>
       </div>
       <BottomNav />
