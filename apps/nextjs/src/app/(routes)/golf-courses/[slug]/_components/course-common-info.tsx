@@ -19,12 +19,15 @@ const Label = ({ title, content }: CardProps) => {
 
 const InfoNeeded = ({ href }: { href: string }) => {
   return (
-    <div className="flex items-center">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center"
+    >
       <div className="mr-2">정보를 알려주세요.</div>
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        <Pencil size={16} />
-      </a>
-    </div>
+      <Pencil size={16} />
+    </a>
   );
 };
 
