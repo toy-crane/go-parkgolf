@@ -117,7 +117,7 @@ export default async function Page({ params, searchParams }: Props) {
             lng: Number(currentCourse.lng),
           }}
           size={{ width: "100%", height: "320px" }}
-          level={9}
+          level={4}
         />
       </section>
       <Title course={currentCourse} className="py-2" />
