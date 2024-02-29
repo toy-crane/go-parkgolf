@@ -173,7 +173,7 @@ export default async function Page({ params, searchParams }: Props) {
           </Suspense>
         }
       />
-      <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-70% to-transparent pb-4">
+      <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-4">
         <div className="md:content full flex justify-center pt-5">
           <CTA courseId={currentCourse.id} />
         </div>
