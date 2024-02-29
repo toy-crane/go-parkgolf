@@ -68,7 +68,7 @@ const KakaoMap = ({
   return (
     <div>
       <div className="content-grid relative">
-        <div className="z-header absolute right-0 top-4">
+        <div className="z-map absolute right-0 top-4">
           <div className="flex flex-col gap-4">
             {showCurrentPosition && <CurrentPositionButton />}
             <ZoomControl zoomIn={zoomIn} zoomOut={zoomOut} />

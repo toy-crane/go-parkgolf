@@ -9,6 +9,7 @@
     --bottom-nav-height: 64px;
 
     /* z-index */
+    --map-z-index: 5;
     --header-z-index: 10;
     --bottom-nav-z-index: 10;
     --sheet-z-index: 15;

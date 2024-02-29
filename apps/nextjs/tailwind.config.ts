@@ -81,6 +81,7 @@ export default {
       },
       zIndex: {
         header: "var(--header-z-index)",
+        map: "var(--map-z-index)",
         "bottom-nav": "var(--bottom-nav-z-index)",
         sheet: "var(--sheet-z-index)",
       },
