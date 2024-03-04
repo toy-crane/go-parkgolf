@@ -7,7 +7,7 @@ import { track } from "@vercel/analytics/react";
 
 const CTA = () => {
   return isApp(navigator.userAgent) ? (
-    <Button>스코어 기록하기</Button>
+    <Button className="w-full">스코어 기록하기</Button>
   ) : (
     <Button className="w-full font-bold" asChild size="sm" variant="secondary">
       <a
