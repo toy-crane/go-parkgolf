@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { isApp } from "@/libs/user-agent";
 import { track } from "@vercel/analytics/react";
 
 const CTA = () => {
   return isApp(navigator.userAgent) ? (
-    <Button className="w-full">스코어 기록하기</Button>
+    <Button className="w-full" asChild>
+      <Link href="/score-card/create">스코어 기록하기</Link>
+    </Button>
   ) : (
     <Button className="w-full font-bold" asChild size="sm" variant="secondary">
       <a
