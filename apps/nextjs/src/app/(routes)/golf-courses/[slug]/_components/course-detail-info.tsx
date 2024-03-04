@@ -17,7 +17,7 @@ const EmptyCourse = ({ courseName }: { courseName: string }) => {
   return (
     <div className="flex min-h-[30vh] items-center justify-center">
       <div className="space-y-4 text-center">
-        <div className="text-xl font-bold">
+        <div className="text-lg font-bold">
           아직 등록된 코스 정보가 없습니다.
         </div>
         <Button variant="outline" asChild>
@@ -92,7 +92,8 @@ const CourseDetailInfo = async ({
               <div className="flex items-center">
                 <h3 className="mr-4 shrink-0 text-base font-semibold">코스</h3>
                 <div className="text-muted-foreground text-base">
-                  {courses.length}개 코스 ({courses.map((course) => course.name).join(", ")})
+                  {courses.length}개 코스 (
+                  {courses.map((course) => course.name).join(", ")})
                 </div>
               </div>
             </>
