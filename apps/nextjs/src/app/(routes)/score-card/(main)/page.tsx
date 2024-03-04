@@ -90,6 +90,22 @@ const Page = () => {
                   </a>
                 </AccordionContent>
               </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger>아이폰 앱은 없나요?</AccordionTrigger>
+                <AccordionContent>
+                  아쉽지만, 현재는 안드로이드에서만 지원이 가능합니다. 아래
+                  링크를 통해서 아이폰 앱 개발 요청을 주시면 우선순위를 반영하여
+                  최대한 빠르게 개발을 진행하도록 하겠습니다.
+                  <a
+                    href="https://forms.gle/xC2Y9LtjrD1Uhj5r9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-1 inline-flex items-center text-gray-500 underline"
+                  >
+                    링크
+                  </a>
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
           </div>
         </div>
