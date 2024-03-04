@@ -87,14 +87,14 @@
 @layer components {
   .bottom-cta {
     position: fixed;
-    bottom: 1rem;
+    bottom: 0;
+    padding-bottom: 1rem;
     left: 0;
     right: 0;
     z-index: var(--bottom-nav-z-index);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: var(--bottom-nav-height);
   }
 
   .content-grid {
