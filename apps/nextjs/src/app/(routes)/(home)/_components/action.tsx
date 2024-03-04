@@ -1,12 +1,10 @@
 "use server";
 
-import { unstable_noStore } from "next/cache";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 
 export const getCourses = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
-  unstable_noStore();
   const result = await supabase
     .from("golf_courses")
     .select(`*, contacts(*), operations(*), lot_number_addresses(*)`)
