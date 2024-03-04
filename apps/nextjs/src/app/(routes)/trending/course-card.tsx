@@ -15,7 +15,9 @@ const CourseCard = ({
         <CardContent className="space-y-2 px-2 py-3">
           <div>
             <div className="text-lg font-bold">{name}</div>
-            <div className="text-xs">누적 조회수 {pageview}</div>
+            <div className="text-xs">
+              누적 조회수 {pageview.toLocaleString()}
+            </div>
           </div>
           <div className="text-xs text-gray-500">
             {hole_count}홀 <span> · </span> {lot_number_address_name}

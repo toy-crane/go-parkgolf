@@ -9,7 +9,7 @@ import { track } from "@vercel/analytics/react";
 const CTA = () => {
   return isApp(navigator.userAgent) ? (
     <Button className="w-full" asChild>
-      <Link href="/score-card/create">스코어 기록하기</Link>
+      <Link href="/score-card/create/golf-course">스코어 기록하기</Link>
     </Button>
   ) : (
     <Button className="w-full font-bold" asChild size="sm" variant="secondary">
