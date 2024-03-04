@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import Image from "next/image";
 import {
   Accordion,
@@ -7,8 +8,11 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { isApp } from "@/libs/user-agent";
 
 const Page = () => {
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent")!;
   return (
     <div>
       <section className="w-full pb-12 pt-20 md:pb-28 md:pt-24 lg:pb-28 lg:pt-24">
@@ -42,7 +46,7 @@ const Page = () => {
             </div>
             <div className="inline-flex items-center">
               <span className="mr-3">⛳</span>
-              전국 70여개의 파크골프장 코스 자동 입력
+              전국 100여개의 파크골프장 코스 자동 입력
             </div>
           </div>
           <Separator />
@@ -60,10 +64,9 @@ const Page = () => {
               <AccordionItem value="item-2">
                 <AccordionTrigger>코스가 등록되어 있지 않아요</AccordionTrigger>
                 <AccordionContent>
-                  현재 등록되어 있는 코스는 전국 70여개의 파크골프장 코스가
-                  등록되어 있습니다. 계속해서 코스를 추가하고 있는 중입니다.
-                  빠르게 추가되었으면 하는 코스가 있다면, 아래 링크로
-                  요청해주세요.
+                  현재 전국 100여개의 파크골프장 코스가 등록되어 있습니다.
+                  계속해서 코스를 추가하고 있는 중입니다. 빠르게 추가되었으면
+                  하는 코스가 있다면, 아래 링크로 요청해주세요.
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSefrWOE4gGzpWu-6MkRTsIYKUYCyWt1eoaplQb_huGJ7zfkqg/viewform?usp=pp_url"
                     target="_blank"
@@ -95,27 +98,31 @@ const Page = () => {
       </section>
       <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
         <div className="content pt-5">
-          <Button
-            className="w-full font-bold"
-            asChild
-            size="sm"
-            variant="secondary"
-          >
-            <a
-              href="https://play.google.com/store/apps/details?id=app.goparkgolf.www"
-              target="_blank"
-              rel="noopener noreferrer"
+          {isApp(userAgent) ? (
+            <Button>Hello</Button>
+          ) : (
+            <Button
+              className="w-full font-bold"
+              asChild
+              size="sm"
+              variant="secondary"
             >
-              <Image
-                width={16}
-                height={16}
-                className="mr-2"
-                src={"/icons/google-play.svg"}
-                alt="google play icon"
-              />
-              안드로이드 앱 설치
-            </a>
-          </Button>
+              <a
+                href="https://play.google.com/store/apps/details?id=app.goparkgolf.www"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  width={16}
+                  height={16}
+                  className="mr-2"
+                  src={"/icons/google-play.svg"}
+                  alt="google play icon"
+                />
+                안드로이드 앱 설치
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </div>
