@@ -16,6 +16,7 @@ import CourseDetailInfo from "./_components/course-detail-info";
 import CourseDetailTab from "./_components/course-detail-tab";
 import CTA from "./_components/cta";
 import NearCourseInfo from "./_components/near-course-info";
+import NearCourseMap from "./_components/near-course-map";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
 import { GetCourses } from "./action";
@@ -90,35 +91,34 @@ export async function generateMetadata(
 
 export default async function Page({ params, searchParams }: Props) {
   const tab = searchParams?.tab ?? "home";
-  const courses = await GetCourses();
   const slug = decodeURIComponent(params.slug);
-  const currentCourse = courses.find((course) => course.slug === slug);
-
-  const markers = courses.map((course) => ({
-    position: {
-      lat: Number(course.lat),
-      lng: Number(course.lng),
-    },
-    text: course.name,
-    to: `/golf-courses/${course.slug}`,
-    selected: course.slug === slug,
-  }));
-
+  const supabase = await createSupabaseServerClientReadOnly();
+  const response = await supabase
+    .from("golf_courses")
+    .select("*")
+    .eq("publish_status", "completed")
+    .eq("slug", slug)
+    .single();
+  if (response.error) throw response.error;
+  const currentCourse = response.data;
   if (currentCourse === undefined) return notFound();
   return (
     <>
       <Nav />
       <section className="mt-14 md:mb-2 md:mt-16">
-        <KakaoMap
-          markers={markers}
-          center={{
-            // 지도의 중심좌표
-            lat: Number(currentCourse.lat),
-            lng: Number(currentCourse.lng),
-          }}
-          size={{ width: "100%", height: "320px" }}
-          level={4}
-        />
+        <Suspense
+          fallback={
+            <div className="flex min-h-[320px] items-center justify-center">
+              <Loader2
+                className="h-5 w-5 animate-spin"
+                size={24}
+                color={"#71717A"}
+              />
+            </div>
+          }
+        >
+          <NearCourseMap currentCourse={currentCourse} />
+        </Suspense>
       </section>
       <Title course={currentCourse} className="py-2" />
       <CourseDetailTab
