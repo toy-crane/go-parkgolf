@@ -11,13 +11,12 @@ import { Separator } from "@/components/ui/separator";
 import CTA from "./_components/cta";
 
 const Page = () => {
-  const headersList = headers();
   return (
     <div>
       <section className="w-full pb-12 pt-20 md:pb-28 md:pt-24 lg:pb-28 lg:pt-24">
         <div className="grid items-center gap-7 px-4 md:px-6">
           <div className="space-y-2 text-center">
-            <h1 className="text-2xl font-bold tracking-tighter sm:text-5xl">
+            <h1 className="break-keep text-3xl font-bold tracking-tighter sm:text-5xl">
               파크골프 스코어 카드
             </h1>
             <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed">
