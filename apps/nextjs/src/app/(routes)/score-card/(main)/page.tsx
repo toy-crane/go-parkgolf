@@ -11,6 +11,8 @@ import { Separator } from "@/components/ui/separator";
 import { isApp } from "@/libs/user-agent";
 import { track } from "@vercel/analytics";
 
+import CTA from "./_components/cta";
+
 const Page = () => {
   const headersList = headers();
   const userAgent = headersList.get("user-agent")!;
@@ -99,32 +101,7 @@ const Page = () => {
       </section>
       <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
         <div className="content pt-5">
-          {isApp(userAgent) ? (
-            <Button>Hello</Button>
-          ) : (
-            <Button
-              className="w-full font-bold"
-              asChild
-              size="sm"
-              variant="secondary"
-            >
-              <a
-                href="https://play.google.com/store/apps/details?id=app.goparkgolf.www"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track("android app install button clicked")}
-              >
-                <Image
-                  width={16}
-                  height={16}
-                  className="mr-2"
-                  src={"/icons/google-play.svg"}
-                  alt="google play icon"
-                />
-                안드로이드 앱 설치
-              </a>
-            </Button>
-          )}
+          <CTA />
         </div>
       </div>
     </div>
