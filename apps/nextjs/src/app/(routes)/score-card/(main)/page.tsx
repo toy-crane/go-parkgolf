@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { isApp } from "@/libs/user-agent";
+import { track } from "@vercel/analytics";
 
 const Page = () => {
   const headersList = headers();
@@ -111,6 +112,7 @@ const Page = () => {
                 href="https://play.google.com/store/apps/details?id=app.goparkgolf.www"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("android app install button clicked")}
               >
                 <Image
                   width={16}
