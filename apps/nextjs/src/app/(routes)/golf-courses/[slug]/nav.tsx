@@ -1,19 +1,36 @@
-"use client";
+import { CommandMenu } from "@/components/command-menu";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import type { GolfCourse } from "@/types";
 
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import BackButton from "./_components/back-button";
 
-const Nav = () => {
-  const router = useRouter();
-
+const Nav = async () => {
+  const supabase = await createSupabaseServerClientReadOnly();
+  const result = await supabase
+    .from("golf_courses")
+    .select(`*, contacts(*), operations(*), lot_number_addresses(*)`)
+    .eq("publish_status", "completed")
+    .returns<GolfCourse[]>();
+  if (result.error) throw result.error;
+  const courses = result.data;
+  const selectOptions = courses.map((course) => ({
+    title: `${course.name} (${
+      course.lot_number_addresses?.region_1depth_name ?? ""
+    }${
+      course.lot_number_addresses?.region_2depth_name
+        ? ` ${course.lot_number_addresses?.region_2depth_name}`
+        : ""
+    })`,
+    href: `/golf-courses/${course.slug}`,
+  }));
   return (
     <header className="content-grid h-header z-header fixed top-0 w-full border-b bg-white">
-      <nav className="md:content full flex w-full flex-1 items-center justify-between">
-        <Button variant="ghost" size="icon" onClick={() => router.back()}>
-          <ArrowLeft size={24} />
-        </Button>
-      </nav>
+      <div className="content flex items-center gap-2">
+        <nav className="md:content full flex w-full flex-1 items-center justify-between">
+          <BackButton />
+        </nav>
+        <CommandMenu options={selectOptions} />
+      </div>
     </header>
   );
 };
