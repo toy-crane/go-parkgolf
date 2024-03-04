@@ -6,9 +6,7 @@ import { isApp } from "@/libs/user-agent";
 import { track } from "@vercel/analytics/react";
 
 const CTA = ({ courseId }: { courseId: string }) => {
-  const routeUrl = isApp(navigator.userAgent)
-    ? `/score-card/create/golf-course?golfCourseId=${courseId}`
-    : "/score-card";
+  const routeUrl = "/score-card";
   return (
     <Button className="min-w-[320px]" asChild>
       <Link href={routeUrl} onClick={() => track("create game CTA clicked")}>
