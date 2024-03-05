@@ -2,7 +2,6 @@ import { Separator } from "@/components/ui/separator";
 import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
-import { th } from "date-fns/locale";
 import { Pencil } from "lucide-react";
 
 interface CardProps {

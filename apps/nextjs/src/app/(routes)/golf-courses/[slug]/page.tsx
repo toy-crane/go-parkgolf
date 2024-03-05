@@ -1,10 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import KakaoMap from "@/components/map/kakao-map";
 import BottomNav from "@/components/nav/bottom";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
@@ -19,7 +16,6 @@ import NearCourseInfo from "./_components/near-course-info";
 import NearCourseMap from "./_components/near-course-map";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
-import { GetCourses } from "./action";
 import Nav from "./nav";
 
 interface Props {
