@@ -1,6 +1,8 @@
 import { Separator } from "@/components/ui/separator";
 import { generateFormUrl } from "@/libs/google-form";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
+import { th } from "date-fns/locale";
 import { Pencil } from "lucide-react";
 
 interface CardProps {
@@ -31,7 +33,17 @@ const InfoNeeded = ({ href }: { href: string }) => {
   );
 };
 
-const CourseCommonInfo = ({ course }: { course: GolfCourse }) => {
+const CourseCommonInfo = async ({ courseId }: { courseId: string }) => {
+  const supabase = await createSupabaseServerClientReadOnly();
+  const response = await supabase
+    .from("golf_courses")
+    .select("*, operations(*), contacts(*)")
+    .eq("publish_status", "completed")
+    .eq("id", courseId)
+    .returns<GolfCourse[]>()
+    .single();
+  if (response.error) throw Error(response.error.message);
+  const course = response.data;
   const operation = course.operations;
   const contacts = course.contacts;
   return (
