@@ -77,7 +77,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
       const { data: _ } = await createGamePlayerScores(gameId, gameScores);
       await updateGameStatus(gameId);
       await alertDiscord(
-        `신규 게임이 생성되었습니다 URL: https://www.goparkgolf.app/score-card/${gameId}`,
+        `new game created. URL: https://www.goparkgolf.app/score-card/${gameId}`,
       );
       track("game created");
       router.replace(`/score-card/${gameId}`);
