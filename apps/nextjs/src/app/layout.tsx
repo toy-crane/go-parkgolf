@@ -94,7 +94,6 @@ export const metadata: Metadata = {
 
 export default async function Layout(props: { children: React.ReactNode }) {
   const session = await readUserSession();
-  const header = headers();
 
   // 로그인 시에 amplitude에 user_id를 전송
   if (session?.user) {
