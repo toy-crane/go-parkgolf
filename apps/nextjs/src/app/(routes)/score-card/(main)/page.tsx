@@ -30,6 +30,7 @@ const Page = () => {
                 className="rounded-md border border-gray-200 p-2"
                 width="480"
                 height="480"
+                placeholder="blur"
               />
             </div>
           </div>
