@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { alertDiscord } from "@/libs/discord";
 import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
@@ -75,6 +76,9 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
       const { data: gameScores } = await createGameScores(gameCourses, courses);
       const { data: _ } = await createGamePlayerScores(gameId, gameScores);
       await updateGameStatus(gameId);
+      await alertDiscord(
+        `신규 게임이 생성되었습니다 URL: https://www.goparkgolf.app/score-card/${gameId}`,
+      );
       track("game created");
       router.replace(`/score-card/${gameId}`);
     });
