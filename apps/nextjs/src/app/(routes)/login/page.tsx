@@ -29,6 +29,8 @@ const Page = async ({
         height={96}
         alt="Logo"
         className="py-4 align-middle"
+        placeholder="blur"
+        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
       />
       <PageHeader className="items-center pb-12 pt-8 text-center">
         <PageHeaderHeading>파크 골프장의 모든 것</PageHeaderHeading>
