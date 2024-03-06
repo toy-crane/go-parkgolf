@@ -26,11 +26,13 @@ const Page = () => {
             <div className="mx-auto grid max-w-4xl items-center justify-center gap-4">
               <Image
                 alt="score-card"
-                src="/landing/score-card.png"
+                src={"/landing/score-card.png"}
                 className="rounded-md border border-gray-200 p-2"
                 width="480"
                 height="480"
                 placeholder="blur"
+                blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAcAAA0ACbYD1v4AAAAASUVORK5CYII=
+                "
               />
             </div>
           </div>
