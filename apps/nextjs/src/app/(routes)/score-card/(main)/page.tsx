@@ -13,7 +13,7 @@ const Page = () => {
   return (
     <div>
       <section className="w-full pb-12 pt-20 md:pb-28 md:pt-24 lg:pb-28 lg:pt-24">
-        <div className="grid items-center gap-7 px-4 md:px-6">
+        <div className="grid items-center gap-8 px-4 md:px-6">
           <div className="space-y-4">
             <div className="space-y-2 text-center">
               <h1 className="break-keep text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -33,7 +33,6 @@ const Page = () => {
               />
             </div>
           </div>
-
           <div className="flex flex-col justify-center gap-2 text-base font-semibold md:items-center md:gap-5 md:text-lg">
             <div className="inline-flex items-center">
               <span className="mr-3">💾</span> 실력 향상을 위한 기록 관리를 내
