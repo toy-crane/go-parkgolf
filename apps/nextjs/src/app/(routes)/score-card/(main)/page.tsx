@@ -36,7 +36,7 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-center gap-2 text-base font-semibold md:items-center md:gap-5 md:text-lg">
+          <div className="flex flex-col justify-center gap-3 text-base font-semibold md:items-center md:gap-5 md:text-lg">
             <div className="inline-flex items-center">
               <span className="mr-3">💾</span> 실력 향상을 위한 기록 관리를 내
               핸드폰에서
