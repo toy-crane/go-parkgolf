@@ -20,6 +20,7 @@ export const env = createEnv({
    */
   server: {
     DISCORD_ALERT_WEBHOOK_URL: z.string(),
+    INDEX_NOW_KEY: z.string(),
   },
   /**
    * Specify your client-side environment variables schema here.
@@ -45,6 +46,7 @@ export const env = createEnv({
     NEXT_PUBLIC_NAVER_CLIENT_ID: process.env.NEXT_PUBLIC_NAVER_CLIENT_ID,
     NEXT_PUBLIC_NAVER_CLIENT_SECRET:
       process.env.NEXT_PUBLIC_NAVER_CLIENT_SECRET,
+    INDEX_NOW_KEY: process.env.INDEX_NOW_KEY,
   },
   skipValidation:
     !!process.env.CI ||
