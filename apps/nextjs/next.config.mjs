@@ -8,7 +8,7 @@ const config = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   images: {
-    domains: ["k.kakaocdn.net"],
+    domains: ["k.kakaocdn.net", "ads-partners.coupang.com"],
   },
   logging: {
     fetches: {

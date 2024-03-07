@@ -51,6 +51,7 @@ const CourseDetailTab = ({
       <TabsContent value="near" className="min-h-[25vh] space-y-6">
         {nearCourseInfo}
       </TabsContent>
+   
     </Tabs>
   );
 };

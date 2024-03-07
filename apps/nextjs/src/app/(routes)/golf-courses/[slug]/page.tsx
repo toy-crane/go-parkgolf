@@ -2,12 +2,14 @@ import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
+import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
+import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
 import CourseDetailTab from "./_components/course-detail-tab";
@@ -116,7 +118,8 @@ export default async function Page({ params, searchParams }: Props) {
           <NearCourseMap currentCourse={currentCourse} />
         </Suspense>
       </section>
-      <Title course={currentCourse} className="py-2" />
+      <Title course={currentCourse} className="pt-2" />
+      <AdBanner className="flex justify-center px-2 py-2 md:pb-4" />
       <CourseDetailTab
         course={currentCourse}
         selectedTab={tab}
@@ -170,6 +173,7 @@ export default async function Page({ params, searchParams }: Props) {
           </Suspense>
         }
       />
+    
       <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-3">
         <div className="md:content full flex justify-center pt-5">
           <CTA courseId={currentCourse.id} courseName={currentCourse.name} />
