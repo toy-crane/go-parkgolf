@@ -3,7 +3,17 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 export const dynamic = "force-dynamic"; // defaults to force-static
 
+interface RequestBody {
+  org: "naver" | "bing";
+}
+
 export async function POST(request: Request) {
+  const params = (await request.json()) as RequestBody;
+  const org = params.org;
+  const hostName =
+    org === "naver"
+      ? "https://searchadvisor.naver.com/indexnow"
+      : "https://api.indexnow.org/IndexNow";
   const supabase = await createSupabaseServerClient();
   const golfCourseResponse = await supabase.from("golf_courses").select("slug");
   if (golfCourseResponse.error) {
@@ -14,7 +24,7 @@ export async function POST(request: Request) {
     (course) => `https://www.goparkgolf.app/golf-courses/${course.slug}`,
   );
 
-  const response = await fetch("https://api.indexnow.org/IndexNow", {
+  const response = await fetch(hostName, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
