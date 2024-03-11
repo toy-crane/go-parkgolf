@@ -26,7 +26,7 @@ const Page = () => {
                 스마트폰으로 쉽고 간편하게! <br /> 스코어 카드를 작성해보세요.
               </p>
             </div>
-            <div className="border-6 relative mx-auto aspect-[16/9] w-full">
+            <div className="border-6 relative mx-auto aspect-[16/14] w-full">
               <Player
                 url="https://youtube.com/shorts/CGD6_TVc_HQ?si=7peKckwEZLw1yIP-"
                 playing={true}
