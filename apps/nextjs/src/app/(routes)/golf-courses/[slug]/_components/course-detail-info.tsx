@@ -50,6 +50,7 @@ const CourseDetailInfo = async ({
     supabase
       .from("courses")
       .select("*, holes(*)")
+      .order("name")
       .order("hole_number", {
         foreignTable: "holes",
         ascending: true,
