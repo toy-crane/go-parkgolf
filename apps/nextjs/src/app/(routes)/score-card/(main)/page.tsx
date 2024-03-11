@@ -1,4 +1,7 @@
+import React from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import { Player } from "@/components/player";
 import {
   Accordion,
   AccordionContent,
@@ -14,25 +17,24 @@ const Page = () => {
     <div>
       <section className="w-full pb-12 pt-20 md:pb-28 md:pt-24 lg:pb-28 lg:pt-24">
         <div className="grid items-center gap-8">
-          <div className="space-y-4">
-            <div className="space-y-2 text-center">
-              <h1 className="break-keep text-3xl font-bold tracking-tighter sm:text-5xl">
+          <div className="space-y-4 md:space-y-5">
+            <div className="space-y-4 text-center md:space-y-5">
+              <h1 className="decoration-6 break-keep text-3xl font-bold tracking-tighter underline decoration-[#22DC48] underline-offset-8 md:text-6xl md:tracking-tight">
                 파크골프 스코어 카드
               </h1>
               <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed">
                 스마트폰으로 쉽고 간편하게! <br /> 스코어 카드를 작성해보세요.
               </p>
             </div>
-            <div className="mx-auto grid max-w-4xl items-center justify-center gap-4">
-              <Image
-                alt="score-card"
-                src={"/landing/score-card.png"}
-                className="rounded-md border border-gray-200 p-2"
-                width="480"
-                height="480"
-                placeholder="blur"
-                blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAcAAA0ACbYD1v4AAAAASUVORK5CYII=
-                "
+            <div className="border-6 relative mx-auto aspect-[16/9] w-full">
+              <Player
+                url="https://youtube.com/shorts/CGD6_TVc_HQ?si=7peKckwEZLw1yIP-"
+                playing={true}
+                loop={true}
+                muted={true}
+                width="100%"
+                height="100%"
+                className="absolute left-0 top-0 rounded-md"
               />
             </div>
           </div>
