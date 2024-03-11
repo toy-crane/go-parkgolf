@@ -68,8 +68,11 @@ export async function saveScore(gameId: string, scores: Score[]) {
 
 export const deleteGame = async (gameId: string) => {
   const supabase = await createSupabaseServerClient();
-
-  const response = await supabase.from("games").delete().match({ id: gameId });
+  const response = await supabase
+    .from("games")
+    .update({ status: "deleted" })
+    .eq("id", gameId)
+    .select();
   await alertDiscord(
     `game delted. URL: https://www.goparkgolf.app/score-card/${gameId}`,
   );
