@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { alertDiscord } from "@/libs/discord";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
@@ -67,7 +68,11 @@ export async function saveScore(gameId: string, scores: Score[]) {
 
 export const deleteGame = async (gameId: string) => {
   const supabase = await createSupabaseServerClient();
+
   const response = await supabase.from("games").delete().match({ id: gameId });
+  await alertDiscord(
+    `game delted. URL: https://www.goparkgolf.app/score-card/${gameId}`,
+  );
   if (response.error) throw response.error;
   revalidatePath("/my-games", "page");
   return { success: true };
