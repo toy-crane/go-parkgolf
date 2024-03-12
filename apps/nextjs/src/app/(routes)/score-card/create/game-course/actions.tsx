@@ -35,36 +35,24 @@ export const createGameScores = async (
 ) => {
   const supabase = await createSupabaseServerClient();
 
-  let game_scores: {
-    game_course_id: string;
-    hole_number: number;
-    par: number;
-  }[];
-
-  if (courses && courses?.length > 0) {
-    game_scores = gameCourses.flatMap((course) => {
-      const holes = courses.find((c) => c.name === course.name)?.holes;
-      return (
-        holes?.map((hole) => {
-          return {
-            game_course_id: course.id,
-            hole_number: hole.hole_number,
-            par: hole.par,
-          };
-        }) ?? []
-      );
-    });
-  } else {
-    game_scores = gameCourses.flatMap((course) => {
-      return Array.from({ length: course.hole_count }).map((_, index) => {
+  const game_scores = gameCourses.flatMap((course) => {
+    // DB에 course 정보가 있는지 확인
+    const holes = courses?.find((c) => course.name.startsWith(c.name))?.holes;
+    return (
+      holes?.map((hole) => {
         return {
           game_course_id: course.id,
-          hole_number: index + 1,
-          par: 0,
+          hole_number: hole.hole_number,
+          par: hole.par,
         };
-      });
-    });
-  }
+      }) ??
+      Array.from({ length: course.hole_count }).map((_, index) => ({
+        game_course_id: course.id,
+        hole_number: index + 1,
+        par: 0,
+      }))
+    );
+  });
 
   const scoreMutation = supabase
     .from("game_scores")

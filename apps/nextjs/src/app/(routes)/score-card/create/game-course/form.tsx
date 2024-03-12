@@ -2,6 +2,7 @@
 
 import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -45,12 +46,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     shouldUnregister: true,
     mode: "onChange",
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      game_courses: courses?.map((course) => ({
-        name: course.name,
-        hole_count: course.holes?.length,
-      })),
-    },
+    defaultValues: {},
   });
 
   const error =
@@ -61,6 +57,11 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     name: "game_courses",
     control: form.control,
   });
+
+  // 각 이름이 몇 번 등장했는지 확인하는 함수
+  const countNameOccurrences = (name: string) => {
+    return fields.filter((field) => field.name === name).length;
+  };
 
   // 키 다운 이벤트를 처리하는 함수
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -95,6 +96,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             <FormLabel className="flex-1">홀 수</FormLabel>
             <div className="w-4"></div>
           </div>
+
           {fields.length !== 0 && (
             <div className="mb-8 flex flex-col gap-2">
               {fields.map((_, index) => {
@@ -142,6 +144,34 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
               })}
             </div>
           )}
+          {courses && courses.length > 0 && (
+            <div className="mb-1">
+              <div className="text-muted-foreground text-xs">
+                정규 코스 추가
+              </div>
+              {courses.map(({ name, holes }) => (
+                <Badge
+                  key={name}
+                  variant="secondary"
+                  className="mr-2 cursor-pointer"
+                  onClick={() => {
+                    const newName = fields.some((field) => field.name === name)
+                      ? `${name}-${
+                          fields.filter((field) => field.name.startsWith(name))
+                            .length
+                        }`
+                      : name;
+                    append({
+                      name: newName,
+                      hole_count: holes?.length ?? 0,
+                    });
+                  }}
+                >
+                  {name} 코스 <PlusCircledIcon className="ml-1 h-3 w-3" />
+                </Badge>
+              ))}
+            </div>
+          )}
           <div className="flex flex-col gap-2">
             <Button
               type="button"
@@ -151,13 +181,13 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
               disabled={fields.length >= 4}
               onClick={() =>
                 append({
-                  name: ["A", "B", "C", "D"][fields.length]!,
+                  name: "",
                   hole_count: 9,
                 })
               }
             >
               <PlusCircledIcon className="mr-1 h-4 w-4" />
-              코스 추가하기
+              나만의 코스 추가하기
             </Button>
             <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
             <FormMessage>{error?.message}</FormMessage>
