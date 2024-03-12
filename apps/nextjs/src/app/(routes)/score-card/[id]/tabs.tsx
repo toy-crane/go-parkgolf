@@ -141,7 +141,7 @@ export const ScoreTabs = ({
         await saveScore(gameId, result.data as Score[]);
       });
       setChangedScoresGroup([]);
-      router.push(`/my-games`);
+      router.push(`/score-card/${gameId}/completed`);
     }
   };
 
