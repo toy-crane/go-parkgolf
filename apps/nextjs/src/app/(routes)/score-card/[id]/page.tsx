@@ -5,7 +5,7 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
-import BackButton from "./back-button";
+import BackButton from "../../../../components/nav/back-button";
 import DeleteAlert from "./delete-alert";
 import { getGameCourses } from "./fetcher";
 import ShareButton from "./share-button";
