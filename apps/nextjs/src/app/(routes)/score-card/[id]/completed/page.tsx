@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
@@ -16,18 +15,6 @@ interface GameSummary {
   game_course: string;
   total_score: number;
 }
-
-type StarProps = {
-  active: boolean;
-} & React.HTMLAttributes<SVGElement>;
-
-const Star = ({ active, ...props }: StarProps) => {
-  return active ? (
-    <Icons.starFilled {...props} />
-  ) : (
-    <Icons.starOutline {...props} />
-  );
-};
 
 function convertData(data: GameSummary[]): ScoreResult[] {
   return data.reduce(
