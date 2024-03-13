@@ -89,11 +89,11 @@ const Page = async ({ params }: { params: { id: string } }) => {
             게임을 완료했어요!
           </h1>
         </div>
-        <div className="w-full md:w-[512px]">
+        <div className="w-full md:w-[600px]">
           <ResultTable result={result} columnNames={columnNames} />
         </div>
         <div className="mb-4 flex flex-col items-center gap-2">
-          <Separator className="mb-2 w-full md:w-[512px]" />
+          <Separator className="mb-4 w-full md:w-[600px]" />
           <span className="text-lg font-semibold">오늘 게임 어떠셨나요?</span>
           <div className="flex gap-2">
             <Button variant="outline">
@@ -113,9 +113,13 @@ const Page = async ({ params }: { params: { id: string } }) => {
             </Button>
           </div>
         </div>
-        <Button className="w-full md:w-[560px]" asChild>
-          <Link href="/my-games">나의 스코어 카드로 이동</Link>
-        </Button>
+        <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
+          <div className="content pt-5">
+            <Button className="w-full" asChild>
+              <Link href="/my-games">나의 스코어 카드로 이동</Link>
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );
