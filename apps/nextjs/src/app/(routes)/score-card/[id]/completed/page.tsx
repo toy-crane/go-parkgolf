@@ -1,6 +1,11 @@
+import Link from "next/link";
+import { Icons } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
+import { Frown, Laugh, Meh, Smile, SmilePlus } from "lucide-react";
 
 import type { ScoreResult } from "../type";
 import ResultTable from "./_components/result-table";
@@ -11,6 +16,18 @@ interface GameSummary {
   game_course: string;
   total_score: number;
 }
+
+type StarProps = {
+  active: boolean;
+} & React.HTMLAttributes<SVGElement>;
+
+const Star = ({ active, ...props }: StarProps) => {
+  return active ? (
+    <Icons.starFilled {...props} />
+  ) : (
+    <Icons.starOutline {...props} />
+  );
+};
 
 function convertData(data: GameSummary[]): ScoreResult[] {
   return data.reduce(
@@ -56,10 +73,10 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-8">
-        <div className="mt-6 space-y-3 text-center">
+      <div className="flex flex-col items-center gap-4 pb-24 md:gap-9">
+        <div className="mt-4 space-y-1 text-center md:mt-6 md:space-y-3">
           <div>
-            <h1 className="text-muted-foreground text-2xl font-semibold">
+            <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
               {golfCourse?.name}
             </h1>
             <h2 className="text-muted-foreground text-xs">
@@ -75,6 +92,30 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <div className="w-full md:w-[512px]">
           <ResultTable result={result} columnNames={columnNames} />
         </div>
+        <div className="mb-4 flex flex-col items-center gap-2">
+          <Separator className="mb-2 w-full md:w-[512px]" />
+          <span className="text-lg font-semibold">오늘 게임 어떠셨나요?</span>
+          <div className="flex gap-2">
+            <Button variant="outline">
+              <Frown />
+            </Button>
+            <Button variant="outline">
+              <Meh />
+            </Button>
+            <Button variant="outline">
+              <Smile />
+            </Button>
+            <Button variant="outline">
+              <Laugh />
+            </Button>
+            <Button variant="outline">
+              <SmilePlus />
+            </Button>
+          </div>
+        </div>
+        <Button className="w-full md:w-[560px]" asChild>
+          <Link href="/my-games">나의 스코어 카드로 이동</Link>
+        </Button>
       </div>
     </>
   );
