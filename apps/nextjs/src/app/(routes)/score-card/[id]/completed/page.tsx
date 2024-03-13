@@ -4,9 +4,9 @@ import { Separator } from "@/components/ui/separator";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
-import { Frown, Laugh, Meh, Smile, SmilePlus } from "lucide-react";
 
 import type { ScoreResult } from "../type";
+import Feedback from "./_components/feedback";
 import ResultTable from "./_components/result-table";
 
 interface GameSummary {
@@ -79,29 +79,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <div className="w-full md:w-[600px]">
           <ResultTable result={result} columnNames={columnNames} />
         </div>
-        <div className="mb-4 flex flex-col items-center gap-2">
-          <Separator className="mb-4 w-full md:w-[600px]" />
-          <span className="text-base font-semibold">
-            {golfCourse?.name} 어떠셨나요?
-          </span>
-          <div className="flex gap-2">
-            <Button variant="outline">
-              <Frown />
-            </Button>
-            <Button variant="outline">
-              <Meh />
-            </Button>
-            <Button variant="outline">
-              <Smile />
-            </Button>
-            <Button variant="outline">
-              <Laugh />
-            </Button>
-            <Button variant="outline">
-              <SmilePlus />
-            </Button>
-          </div>
-        </div>
+        <Separator className=" w-full md:w-[600px]" />
+        <Feedback label={`${golfCourse?.name} 어떠셨나요?`} />
         <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
           <div className="content pt-5">
             <Button className="w-full" asChild>
