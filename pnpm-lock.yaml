@@ -183,6 +183,9 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.3.2
         version: 3.3.2(react-hook-form@7.48.2)
+      '@neoconfetti/react':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@radix-ui/react-accordion':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.2.7)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
@@ -2764,6 +2767,10 @@ packages:
       globby: 11.1.0
       jju: 1.4.0
       read-yaml-file: 1.1.0
+    dev: false
+
+  /@neoconfetti/react@0.1.1:
+    resolution: {integrity: sha512-OqKn/QZYkrCaMBg/a1JTjG1Th0n7YPopIHctqgBi3C34bTV2wbrKJPCIDuNSltsaEpVWjQPbhLYwRpNUMnqhnQ==}
     dev: false
 
   /@next/env@14.0.3:
