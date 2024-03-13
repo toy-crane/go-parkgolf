@@ -59,9 +59,11 @@ type Inputs = z.infer<typeof formSchema>;
 const ReviewForm = ({
   course,
   review,
+  courseConditionRating,
 }: {
   course: Tables<"golf_courses">;
   review?: Inputs;
+  courseConditionRating?: number;
 }) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -71,7 +73,8 @@ const ReviewForm = ({
     defaultValues: {
       text: review?.text ?? "",
       facilitiesRating: review?.facilitiesRating ?? 0,
-      courseConditionRating: review?.courseConditionRating ?? 0,
+      courseConditionRating:
+        courseConditionRating ?? review?.courseConditionRating ?? 0,
       courseDifficultyRating: review?.courseDifficultyRating ?? 0,
     },
   });

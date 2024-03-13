@@ -5,7 +5,15 @@ import camelcaseKeys from "camelcase-keys";
 import Form from "./form";
 import Nav from "./nav";
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const Page = async ({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: {
+    courseConditionRating?: number;
+  };
+}) => {
   const slug = decodeURIComponent(params.slug);
   const session = await readUserSession();
   const user = session?.user;
@@ -31,11 +39,16 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   if (response.error) throw error;
 
   const review = response.data ? camelcaseKeys(response.data) : undefined;
+  const courseConditionRating = Number(searchParams.courseConditionRating);
 
   return (
     <div>
       <Nav course={course} />
-      <Form course={course} review={review} />
+      <Form
+        course={course}
+        review={review}
+        courseConditionRating={courseConditionRating}
+      />
     </div>
   );
 };
