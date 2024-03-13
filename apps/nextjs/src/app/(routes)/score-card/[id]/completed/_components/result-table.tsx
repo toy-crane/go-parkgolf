@@ -27,7 +27,7 @@ const useGetColumns = (dynamicColumns: ColumnName[]) => {
       columnHelper.accessor("courseName", {
         cell: (info) => info.getValue(),
         header: "코스",
-        footer: () => <div>최종 스코어</div>,
+        footer: () => <div>스코어</div>,
       }),
       ...dynamicColumns.map((column) =>
         columnHelper.accessor(column.accessorKey, {
