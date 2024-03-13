@@ -37,7 +37,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   const [golfCouseResponse, response] = await Promise.all([
     supabase
       .from("games")
-      .select("golf_courses(name), started_at")
+      .select("golf_courses(name, slug), started_at")
       .eq("id", params.id)
       .single(),
     supabase.rpc("get_game_summary", {
@@ -55,7 +55,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       accessorKey: key,
     }));
   const gameResult = golfCouseResponse.data;
-  const golfCourse = gameResult.golf_courses;
+  const golfCourse = gameResult.golf_courses as { name: string; slug: string };
   const gameStartedAt = gameResult.started_at;
 
   return (
@@ -80,7 +80,10 @@ const Page = async ({ params }: { params: { id: string } }) => {
           <ResultTable result={result} columnNames={columnNames} />
         </div>
         <Separator className=" w-full md:w-[600px]" />
-        <Feedback label={`${golfCourse?.name} 어떠셨나요?`} />
+        <Feedback
+          label={`${golfCourse?.name} 어떠셨나요?`}
+          golfCourseSlug={golfCourse?.slug}
+        />
         <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
           <div className="content pt-5">
             <Button className="w-full" asChild>
