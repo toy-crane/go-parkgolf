@@ -619,6 +619,17 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: undefined
       }
+      get_game_summary: {
+        Args: {
+          input_game_id: string
+        }
+        Returns: {
+          game_player_id: string
+          player_name: string
+          game_course: string
+          total_score: number
+        }[]
+      }
       insert_courses: {
         Args: {
           data: Json

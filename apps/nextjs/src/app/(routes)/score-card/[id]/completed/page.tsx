@@ -1,8 +1,15 @@
-"use client";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import ResultTable from "./_components/result-table";
 
-const Page = () => {
+const Page = async ({ params }: { params: { id: string } }) => {
+  const supabase = await createSupabaseServerClientReadOnly();
+  const response = await supabase.rpc("get_game_summary", {
+    input_game_id: params.id,
+  });
+  if (response.error) throw response.error;
+  console.log(response.data);
+
   return (
     <>
       <div className="flex flex-col items-center gap-8">
