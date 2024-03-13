@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { cn } from "@/libs/tailwind";
 import {
   createColumnHelper,
   flexRender,
@@ -27,7 +28,7 @@ const useGetColumns = (dynamicColumns: ColumnName[]) => {
       columnHelper.accessor("courseName", {
         cell: (info) => info.getValue(),
         header: "코스",
-        footer: () => <div>스코어</div>,
+        footer: () => <div>결과</div>,
       }),
       ...dynamicColumns.map((column) =>
         columnHelper.accessor(column.accessorKey, {
@@ -54,6 +55,13 @@ const useGetColumns = (dynamicColumns: ColumnName[]) => {
   return columns;
 };
 
+const gridColumns = {
+  "1": "grid-cols-score-result-1",
+  "2": "grid-cols-score-result-2",
+  "3": "grid-cols-score-result-3",
+  "4": "grid-cols-score-result-4",
+};
+
 const ResultTable = ({
   result,
   columnNames,
@@ -66,14 +74,26 @@ const ResultTable = ({
     columns: useGetColumns(columnNames),
     getCoreRowModel: getCoreRowModel(),
   });
+
+  const gridClass =
+    gridColumns[String(columnNames.length) as keyof typeof gridColumns];
+  const rowClassName = cn("grid align-center", gridClass);
+
   return (
     <Table>
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow key={headerGroup.id}>
+          <TableRow key={headerGroup.id} className={rowClassName}>
             {headerGroup.headers.map((header) => {
               return (
-                <TableHead key={header.id}>
+                <TableHead
+                  key={header.id}
+                  className={cn(
+                    "flex items-center justify-center px-0",
+                    header.column.id === "courseName" &&
+                      "bg-lime-400 text-white",
+                  )}
+                >
                   {flexRender(
                     header.column.columnDef.header,
                     header.getContext(),
@@ -86,9 +106,15 @@ const ResultTable = ({
       </TableHeader>
       <TableBody>
         {table.getRowModel().rows.map((row) => (
-          <TableRow key={row.id}>
+          <TableRow key={row.id} className={rowClassName}>
             {row.getVisibleCells().map((cell) => (
-              <TableCell key={cell.id}>
+              <TableCell
+                key={cell.id}
+                className={cn(
+                  "flex items-center justify-center px-0",
+                  cell.column.id === "courseName" && "bg-lime-400 text-white",
+                )}
+              >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </TableCell>
             ))}
@@ -97,10 +123,13 @@ const ResultTable = ({
       </TableBody>
       <TableFooter>
         {table.getFooterGroups().map((footerGroup) => (
-          <TableRow key={footerGroup.id}>
+          <TableRow key={footerGroup.id} className={rowClassName}>
             {footerGroup.headers.map((footer) => {
               return (
-                <TableCell key={footer.id}>
+                <TableCell
+                  key={footer.id}
+                  className={cn("flex items-center justify-center px-0")}
+                >
                   {flexRender(
                     footer.column.columnDef.footer,
                     footer.getContext(),

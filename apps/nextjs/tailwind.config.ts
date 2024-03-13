@@ -23,6 +23,10 @@ export default {
         "score-card-2": "50px 50px repeat(2,minmax(0,1fr))",
         "score-card-3": "50px 50px repeat(3,minmax(0,1fr))",
         "score-card-4": "50px 50px repeat(4,minmax(0,1fr))",
+        "score-result-1": "48px repeat(1,minmax(0,1fr))",
+        "score-result-2": "48px repeat(2,minmax(0,1fr))",
+        "score-result-3": "48px repeat(3,minmax(0,1fr))",
+        "score-result-4": "48px repeat(4,minmax(0,1fr))",
         "course-detail": "100px repeat(2,minmax(0,1fr))",
       },
       colors: {

@@ -61,7 +61,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             게임을 완료했어요!
           </h1>
         </div>
-        <div>
+        <div className="w-full md:w-[512px]">
           <ResultTable result={result} columnNames={columnNames} />
         </div>
       </div>
