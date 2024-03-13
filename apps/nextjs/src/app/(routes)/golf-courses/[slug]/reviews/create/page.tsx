@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import camelcaseKeys from "camelcase-keys";
