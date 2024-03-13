@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import {
   Table,
   TableBody,
@@ -16,21 +17,21 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-interface Person {
-  A: number;
-  B: number;
-  C: number;
-  D: number;
+export interface ScoreResult {
+  courseName: string;
+  [key: string]: number | string;
 }
 
-const defaultData: Person[] = [
+const defaultData: ScoreResult[] = [
   {
+    courseName: "A",
     A: 45,
     B: 45,
     C: 45,
     D: 45,
   },
   {
+    courseName: "B",
     A: 40,
     B: 40,
     C: 40,
@@ -38,31 +39,67 @@ const defaultData: Person[] = [
   },
 ];
 
-const columnHelper = createColumnHelper<Person>();
+const columnHelper = createColumnHelper<ScoreResult>();
 
-const columns = [
-  columnHelper.accessor("A", {
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("B", {
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("C", {
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("D", {
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-];
+export interface ColumnName {
+  headerName: string;
+  accessorKey: string;
+}
+
+const useGetColumns = (dynamicColumns: ColumnName[]) => {
+  const columns = useMemo(
+    () => [
+      columnHelper.accessor("courseName", {
+        cell: (info) => info.getValue(),
+        header: "코스",
+        footer: () => <div>최종 스코어</div>,
+      }),
+      ...dynamicColumns.map((column) =>
+        columnHelper.accessor(column.accessorKey, {
+          cell: (info) => {
+            const value = info.getValue() as number;
+            return <div>{value > 0 ? `+${value}` : value}</div>;
+          },
+          header: () => <div>{column.headerName}</div>,
+          footer: (info) => {
+            const value = info.table
+              .getFilteredRowModel()
+              .rows.reduce(
+                (total, row) =>
+                  total + Number(row.getValue(column.accessorKey)),
+                0,
+              );
+            return <div>{value > 0 ? `+${value}` : value}</div>;
+          },
+        }),
+      ),
+    ],
+    [dynamicColumns],
+  );
+  return columns;
+};
 
 const ResultTable = () => {
   const table = useReactTable({
     data: defaultData,
-    columns: columns,
+    columns: useGetColumns([
+      {
+        accessorKey: "A",
+        headerName: "A",
+      },
+      {
+        accessorKey: "B",
+        headerName: "B",
+      },
+      {
+        accessorKey: "C",
+        headerName: "C",
+      },
+      {
+        accessorKey: "D",
+        headerName: "D",
+      },
+    ]),
     getCoreRowModel: getCoreRowModel(),
   });
   return (
@@ -94,7 +131,22 @@ const ResultTable = () => {
           </TableRow>
         ))}
       </TableBody>
-      <TableFooter className="text-base"></TableFooter>
+      <TableFooter>
+        {table.getFooterGroups().map((footerGroup) => (
+          <TableRow key={footerGroup.id}>
+            {footerGroup.headers.map((footer) => {
+              return (
+                <TableCell key={footer.id}>
+                  {flexRender(
+                    footer.column.columnDef.footer,
+                    footer.getContext(),
+                  )}
+                </TableCell>
+              );
+            })}
+          </TableRow>
+        ))}
+      </TableFooter>
     </Table>
   );
 };
