@@ -17,34 +17,9 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-export interface ScoreResult {
-  courseName: string;
-  [key: string]: number | string;
-}
-
-const defaultData: ScoreResult[] = [
-  {
-    courseName: "A",
-    A: 45,
-    B: 45,
-    C: 45,
-    D: 45,
-  },
-  {
-    courseName: "B",
-    A: 40,
-    B: 40,
-    C: 40,
-    D: 40,
-  },
-];
+import type { ColumnName, ScoreResult } from "../../type";
 
 const columnHelper = createColumnHelper<ScoreResult>();
-
-export interface ColumnName {
-  headerName: string;
-  accessorKey: string;
-}
 
 const useGetColumns = (dynamicColumns: ColumnName[]) => {
   const columns = useMemo(
@@ -79,27 +54,16 @@ const useGetColumns = (dynamicColumns: ColumnName[]) => {
   return columns;
 };
 
-const ResultTable = () => {
+const ResultTable = ({
+  result,
+  columnNames,
+}: {
+  result: ScoreResult[];
+  columnNames: ColumnName[];
+}) => {
   const table = useReactTable({
-    data: defaultData,
-    columns: useGetColumns([
-      {
-        accessorKey: "A",
-        headerName: "A",
-      },
-      {
-        accessorKey: "B",
-        headerName: "B",
-      },
-      {
-        accessorKey: "C",
-        headerName: "C",
-      },
-      {
-        accessorKey: "D",
-        headerName: "D",
-      },
-    ]),
+    data: result,
+    columns: useGetColumns(columnNames),
     getCoreRowModel: getCoreRowModel(),
   });
   return (

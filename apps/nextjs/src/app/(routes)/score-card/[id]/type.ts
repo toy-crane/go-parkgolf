@@ -9,7 +9,6 @@ export interface Score {
 }
 
 export type GameCourse = Tables<"game_courses"> & {
-  
   game_scores: (Tables<"game_scores"> & {
     game_player_scores: (Tables<"game_player_scores"> & {
       game_players: Tables<"game_players"> | null;
@@ -20,4 +19,14 @@ export type GameCourse = Tables<"game_courses"> & {
 export interface Cell {
   row: string;
   colName: string;
+}
+
+export interface ScoreResult {
+  courseName: string;
+  [key: string]: number | string;
+}
+
+export interface ColumnName {
+  headerName: string;
+  accessorKey: string;
 }

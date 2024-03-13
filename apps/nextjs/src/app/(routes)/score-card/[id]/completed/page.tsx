@@ -1,6 +1,30 @@
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
+import type { ScoreResult } from "../type";
 import ResultTable from "./_components/result-table";
+
+interface GameSummary {
+  game_player_id: string;
+  player_name: string;
+  game_course: string;
+  total_score: number;
+}
+
+function convertData(data: GameSummary[]): ScoreResult[] {
+  return data.reduce(
+    (acc: ScoreResult[], { player_name, game_course, total_score }) => {
+      const course = acc.find((c) => c.courseName === game_course);
+      if (course) {
+        course[player_name] =
+          ((course[player_name] as number) || 0) + total_score;
+      } else {
+        acc.push({ courseName: game_course, [player_name]: total_score });
+      }
+      return acc;
+    },
+    [],
+  );
+}
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const supabase = await createSupabaseServerClientReadOnly();
@@ -8,7 +32,14 @@ const Page = async ({ params }: { params: { id: string } }) => {
     input_game_id: params.id,
   });
   if (response.error) throw response.error;
-  console.log(response.data);
+  if (response.data.length === 0) throw Error("게임 정보가 정확하지 않습니다.");
+  const result = convertData(response.data);
+  const columnNames = Object.keys(result[0]!)
+    .filter((key) => key !== "courseName")
+    .map((key) => ({
+      headerName: key,
+      accessorKey: key,
+    }));
 
   return (
     <>
@@ -22,7 +53,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           </h1>
         </div>
         <div>
-          <ResultTable />
+          <ResultTable result={result} columnNames={columnNames} />
         </div>
       </div>
     </>
