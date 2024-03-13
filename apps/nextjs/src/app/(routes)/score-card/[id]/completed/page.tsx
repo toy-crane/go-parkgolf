@@ -81,7 +81,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
         </div>
         <div className="mb-4 flex flex-col items-center gap-2">
           <Separator className="mb-4 w-full md:w-[600px]" />
-          <span className="text-lg font-semibold">오늘 게임 어떠셨나요?</span>
+          <span className="text-base font-semibold">
+            {golfCourse?.name} 어떠셨나요?
+          </span>
           <div className="flex gap-2">
             <Button variant="outline">
               <Frown />
