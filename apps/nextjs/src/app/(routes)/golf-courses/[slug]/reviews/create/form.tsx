@@ -79,6 +79,9 @@ const ReviewForm = ({
     },
   });
 
+  const isValid = form.formState.isValid;
+  console.log("is Vlaid", isValid);
+
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       await createGolfCourseReview(course.id, data);
@@ -155,7 +158,12 @@ const ReviewForm = ({
             관리자에 의해 삭제될 수 있습니다.
           </p>
         </div>
-        <Button type="submit" size="lg" disabled={isPending} className="w-full">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={isPending || !isValid}
+          className="w-full"
+        >
           {isPending ? (
             <Loader2 className="h-5 w-5 animate-spin" size={24} />
           ) : review ? (

@@ -15,6 +15,6 @@ export const formSchema = z.object({
     .max(5), // 편의시설: 1에서 5까지의 숫자
   text: z
     .string()
-    .min(20, { message: "최소 20자 이상 작성해주세요." })
+    .min(10, { message: "최소 10자 이상 작성해주세요." })
     .max(500, { message: "최대 500자까지만 입력이 가능합니다." }), // 리뷰 텍스트: 최소 1자에서 최대 1000자
 });
