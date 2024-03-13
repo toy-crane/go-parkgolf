@@ -1,4 +1,6 @@
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+import { format } from "date-fns";
+import { ko } from "date-fns/locale";
 
 import type { ScoreResult } from "../type";
 import ResultTable from "./_components/result-table";
@@ -31,9 +33,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
   const [golfCouseResponse, response] = await Promise.all([
     supabase
       .from("games")
-      .select("golf_courses(name)")
+      .select("golf_courses(name), started_at")
       .eq("id", params.id)
-      .returns<{ golf_courses: { name: string } }[]>(),
+      .single(),
     supabase.rpc("get_game_summary", {
       input_game_id: params.id,
     }),
@@ -48,15 +50,24 @@ const Page = async ({ params }: { params: { id: string } }) => {
       headerName: key,
       accessorKey: key,
     }));
-  const golfCourse = golfCouseResponse.data[0]?.golf_courses;
+  const gameResult = golfCouseResponse.data;
+  const golfCourse = gameResult.golf_courses;
+  const gameStartedAt = gameResult.started_at;
 
   return (
     <>
       <div className="flex flex-col items-center gap-8">
-        <div className="mt-6 space-y-2 text-center">
-          <h1 className="text-2xl font-semibold text-gray-500">
-            {golfCourse?.name}
-          </h1>
+        <div className="mt-6 space-y-3 text-center">
+          <div>
+            <h1 className="text-muted-foreground text-2xl font-semibold">
+              {golfCourse?.name}
+            </h1>
+            <h2 className="text-muted-foreground text-xs">
+              {format(new Date(gameStartedAt), "yyyy-MM-dd (eee) HH:mm", {
+                locale: ko,
+              })}
+            </h2>
+          </div>
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
             게임을 완료했어요!
           </h1>
