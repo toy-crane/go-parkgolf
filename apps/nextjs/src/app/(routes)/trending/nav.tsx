@@ -28,7 +28,7 @@ export function TrendingNav({ className, ...props }: TrendingNavProps) {
             href={route.href}
             key={route.href}
             className={cn(
-              "flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:font-bold",
+              "flex h-7 items-center justify-center rounded-full px-3 text-center text-sm transition-colors hover:font-bold",
               pathname?.startsWith(route.href) ||
                 (index === 0 && pathname === "/")
                 ? "bg-muted font-bold text-black"
