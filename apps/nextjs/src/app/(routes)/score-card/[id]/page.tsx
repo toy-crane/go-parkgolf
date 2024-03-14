@@ -8,7 +8,6 @@ import { format } from "date-fns";
 import BackButton from "../../../../components/nav/back-button";
 import DeleteAlert from "./delete-alert";
 import { getGameCourses } from "./fetcher";
-import ShareButton from "./share-button";
 import { ScoreTabs } from "./tabs";
 
 interface Props {
