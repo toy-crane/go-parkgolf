@@ -3,6 +3,7 @@ import { PageHeader, PageHeaderHeading } from "@/components/page-header";
 import { TrendingUp } from "lucide-react";
 
 import { TrendingNav } from "./nav";
+import Products from "./products";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (
@@ -15,10 +16,11 @@ const Layout = (props: { children: React.ReactNode }) => {
             </PageHeaderHeading>
             <TrendingUp className="ml-1 h-10 w-10" />
           </PageHeader>
-          <section className="space-y-4">
+          <section className="mb-8 space-y-4">
             <TrendingNav />
             {props.children}
           </section>
+          <Products />
         </div>
       </main>
       <BottomNav />
