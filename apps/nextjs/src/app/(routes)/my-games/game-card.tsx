@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
@@ -48,27 +49,18 @@ const GameCard = ({
     .map((gamePlayer) => gamePlayer.nickname)
     .join(" | ");
   return (
-    <Card
-      key={id}
-      className="w-full"
-      onClick={() => {
-        redirect(`/score-card/${id}`);
-      }}
-    >
-      <Link href={`/score-card/${id}`}>
+    <Card key={id} className="w-full">
+      <Link href={`/score-card/${id}/completed`}>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 border-b p-2 px-2">
           <CardTitle className="flex items-center justify-between text-xs">
             {format(new Date(startedAt), "yyyy-MM-dd (eee) HH:mm", {
               locale: ko,
             })}
           </CardTitle>
-          <Link
-            href={`/score-card/${id}`}
-            className="inline-flex h-6 items-center rounded-md px-2 text-xs font-medium text-neutral-600"
-          >
+          <div className="inline-flex h-6 items-center rounded-md px-2 text-xs font-medium text-neutral-600">
             상세보기
             <ChevronRight className="ml-0.5 h-3 w-3" />
-          </Link>
+          </div>
         </CardHeader>
         <CardContent className="px-2 py-4 pt-2">
           <Badge
