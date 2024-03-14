@@ -109,7 +109,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             </Link>
           </Button>
         </div>
-        {!hasReview && (
+        {user && !hasReview && (
           <div>
             <Separator className=" mb-6 w-full md:w-[600px]" />
             <Feedback
@@ -121,7 +121,11 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
           <div className="content pt-5">
             <Button className="w-full" asChild>
-              <Link href="/my-games">나의 스코어 카드로 이동</Link>
+              {user ? (
+                <Link href="/my-games">나의 스코어 카드로 이동</Link>
+              ) : (
+                <Link href="/">파크골프 가자 둘러보기</Link>
+              )}
             </Button>
           </div>
         </div>
