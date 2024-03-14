@@ -52,7 +52,7 @@ const Page = async () => {
   }
   const courses = response.data;
   return (
-    <div className="mb-6 grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-1">
+    <div className="mb-6 grid grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-1">
       {popularCourses.map((course) => {
         const currentCourse = courses?.find((c) => c.id === course.id);
         if (!currentCourse) return null;
