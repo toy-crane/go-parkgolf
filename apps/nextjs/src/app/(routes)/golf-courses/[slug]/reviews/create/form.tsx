@@ -69,7 +69,7 @@ const ReviewForm = ({
   const router = useRouter();
   const form = useForm<Inputs>({
     resolver: zodResolver(formSchema),
-    mode: "onSubmit",
+    mode: "onBlur",
     defaultValues: {
       text: review?.text ?? "",
       facilitiesRating: review?.facilitiesRating ?? 0,
@@ -80,7 +80,6 @@ const ReviewForm = ({
   });
 
   const isValid = form.formState.isValid;
-  console.log("is Vlaid", isValid);
 
   function onSubmit(data: Inputs) {
     startTransition(async () => {
@@ -93,9 +92,9 @@ const ReviewForm = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-10 pb-12 pt-8"
+        className="space-y-2 pb-12 pt-4"
       >
-        <div className="space-y-4">
+        <div className="space-y-1">
           {RatingItems.map((item) => (
             <FormField
               key={item.name}
@@ -103,28 +102,26 @@ const ReviewForm = ({
               name={item.name}
               render={({ field: { onChange, value } }) => (
                 <>
-                  <div className="space-y-2">
-                    <div
-                      className="flex items-center justify-center gap-3"
-                      key={value}
-                    >
-                      <span className="w-24 text-lg font-semibold">
-                        {item.label}
-                      </span>
-                      <div className="flex gap-2">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <Star
-                            active={i <= value}
-                            key={i}
-                            className="h-6 w-6 cursor-pointer transition-all"
-                            onClick={() => onChange(i)}
-                          />
-                        ))}
-                      </div>
+                  <div
+                    className="flex items-center justify-center gap-3"
+                    key={value}
+                  >
+                    <span className="w-24 text-lg font-semibold">
+                      {item.label}
+                    </span>
+                    <div className="flex gap-2">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star
+                          active={i <= value}
+                          key={i}
+                          className="h-6 w-6 cursor-pointer transition-all"
+                          onClick={() => onChange(i)}
+                        />
+                      ))}
                     </div>
-                    <div className="flex justify-center">
-                      <FormMessage />
-                    </div>
+                  </div>
+                  <div className="flex justify-center">
+                    <FormMessage />
                   </div>
                 </>
               )}
@@ -140,7 +137,7 @@ const ReviewForm = ({
               <FormControl>
                 <Textarea
                   placeholder="파크 골퍼들에게 도움이 되는 따뜻한 리뷰를 작성해 주세요."
-                  className="h-48 resize-none"
+                  className="h-24 resize-none"
                   {...field}
                 />
               </FormControl>
@@ -153,25 +150,29 @@ const ReviewForm = ({
         />
         <div>
           <Label htmlFor="message-3">파크골프가자 리뷰정책</Label>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-xs">
             파크 골프장과 무관한 내용이나 허위 및 과장, 비방이 포함된 내용은
             관리자에 의해 삭제될 수 있습니다.
           </p>
         </div>
-        <Button
-          type="submit"
-          size="lg"
-          disabled={isPending || !isValid}
-          className="w-full"
-        >
-          {isPending ? (
-            <Loader2 className="h-5 w-5 animate-spin" size={24} />
-          ) : review ? (
-            "수정"
-          ) : (
-            "등록"
-          )}
-        </Button>
+        <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
+          <div className="content pt-5">
+            <Button
+              type="submit"
+              size="lg"
+              disabled={isPending || !isValid}
+              className="w-full"
+            >
+              {isPending ? (
+                <Loader2 className="h-5 w-5 animate-spin" size={24} />
+              ) : review ? (
+                "수정"
+              ) : (
+                "등록"
+              )}
+            </Button>
+          </div>
+        </div>
       </form>
     </Form>
   );
