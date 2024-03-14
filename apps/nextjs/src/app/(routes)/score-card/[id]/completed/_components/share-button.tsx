@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/libs/tailwind";
+import { track } from "@vercel/analytics/react";
 import { Share2 } from "lucide-react";
 
 const ShareButton = () => {
@@ -21,6 +22,7 @@ const ShareButton = () => {
           description: "원하는 곳에 붙여넣기(Ctrl+V)해주세요.",
           duration: 1000,
         });
+        track("score card shared");
       }}
     >
       공유하기
