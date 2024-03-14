@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
@@ -34,11 +35,13 @@ function convertData(data: GameSummary[]): ScoreResult[] {
 }
 
 const Page = async ({ params }: { params: { id: string } }) => {
+  const session = await readUserSession();
+  const user = session?.user;
   const supabase = await createSupabaseServerClientReadOnly();
   const [golfCouseResponse, response] = await Promise.all([
     supabase
       .from("games")
-      .select("golf_courses(name, slug), started_at")
+      .select("golf_courses(name, slug, id), started_at")
       .eq("id", params.id)
       .single(),
     supabase.rpc("get_game_summary", {
@@ -56,13 +59,29 @@ const Page = async ({ params }: { params: { id: string } }) => {
       accessorKey: key,
     }));
   const gameResult = golfCouseResponse.data;
-  const golfCourse = gameResult.golf_courses as { name: string; slug: string };
+  const golfCourse = gameResult.golf_courses as {
+    name: string;
+    slug: string;
+    id: string;
+  };
+  let hasReview = false;
+  if (user) {
+    const ReviewResponse = await supabase
+      .from("golf_course_reviews")
+      .select("*")
+      .eq("golf_course_id", golfCourse.id)
+      .eq("user_id", user.id)
+      .maybeSingle();
+    if (ReviewResponse.error) throw ReviewResponse.error;
+    hasReview = ReviewResponse.data ? true : false;
+  }
+
   const gameStartedAt = gameResult.started_at;
 
   return (
     <>
-      <div className="flex flex-col items-center gap-4 pb-24 md:gap-9">
-        <div className="mt-4 space-y-1 text-center md:mt-6 md:space-y-3">
+      <div className="flex flex-col items-center pb-8">
+        <div className="mb-4 mt-4 space-y-1 text-center md:mb-9 md:mt-6 md:space-y-3">
           <div>
             <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
               {golfCourse?.name}
@@ -89,12 +108,16 @@ const Page = async ({ params }: { params: { id: string } }) => {
               전체 기록보기 <ChevronRight className="ml-2" />
             </Link>
           </Button>
-          <Separator className=" w-full md:w-[600px]" />
         </div>
-        <Feedback
-          label={`${golfCourse?.name} 어떠셨나요?`}
-          golfCourseSlug={golfCourse?.slug}
-        />
+        {!hasReview && (
+          <div>
+            <Separator className=" mb-6 w-full md:w-[600px]" />
+            <Feedback
+              label={`${golfCourse?.name} 어떠셨나요?`}
+              golfCourseSlug={golfCourse?.slug}
+            />
+          </div>
+        )}
         <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
           <div className="content pt-5">
             <Button className="w-full" asChild>
