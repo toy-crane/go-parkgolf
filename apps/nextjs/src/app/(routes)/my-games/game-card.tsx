@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
