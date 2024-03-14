@@ -16,7 +16,7 @@ const BottomNav = () => {
   const isMyGames =
     pathname.startsWith("/my-games") || pathname.startsWith("/score-card");
   const isSettings = pathname === "/settings";
-  const isTrending = pathname === "/trending";
+  const isTrending = pathname.startsWith("/trending");
 
   return (
     <footer className="content-grid z-bottom-nav h-bottom-nav fixed bottom-0 w-full border-t bg-white">
@@ -37,7 +37,7 @@ const BottomNav = () => {
           </span>
         </Link>
         <Link
-          href="/trending"
+          href="/trending/hot"
           className="flex flex-1 flex-col items-center justify-center gap-1"
         >
           <TrendingUpIcon
