@@ -20,6 +20,7 @@ export async function saveScore(gameId: string, scores: Score[]) {
     )
     .select();
   const scoreResponse = await scoreMutation;
+  revalidatePath("/score-card/[id]", "page");
   if (scoreResponse.error) {
     throw new Error(scoreResponse.error.message);
   }

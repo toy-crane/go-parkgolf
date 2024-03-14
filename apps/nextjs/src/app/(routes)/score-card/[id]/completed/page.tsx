@@ -23,6 +23,8 @@ interface Props {
   params: { id: string };
 }
 
+export const revalidate = 3600;
+
 function convertData(data: GameSummary[]): ScoreResult[] {
   return data.reduce(
     (acc: ScoreResult[], { player_name, game_course, total_score }) => {
