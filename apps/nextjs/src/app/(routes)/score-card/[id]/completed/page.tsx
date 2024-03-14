@@ -135,7 +135,7 @@ const Page = async ({ params }: Props) => {
 
   return (
     <>
-      <div className="flex flex-col items-center pb-8">
+      <div className="flex flex-col items-center pb-28">
         <div className="mb-4 mt-4 space-y-1 text-center md:mb-9 md:mt-6 md:space-y-3">
           <div>
             <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
