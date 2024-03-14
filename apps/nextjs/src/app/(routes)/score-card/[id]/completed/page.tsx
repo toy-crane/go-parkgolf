@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
+import { ChevronRight } from "lucide-react";
 
 import type { ScoreResult } from "../type";
 import Feedback from "./_components/feedback";
@@ -76,10 +77,20 @@ const Page = async ({ params }: { params: { id: string } }) => {
             게임을 완료했어요!
           </h1>
         </div>
-        <div className="w-full md:w-[600px]">
+        <div className="flex w-full flex-col md:w-[600px]">
           <ResultTable result={result} columnNames={columnNames} />
+          <Button
+            size="sm"
+            variant="ghost"
+            className="mb-3 flex self-end hover:bg-white"
+            asChild
+          >
+            <Link href={`/score-card/${params.id}`}>
+              전체 기록보기 <ChevronRight className="ml-2" />
+            </Link>
+          </Button>
+          <Separator className=" w-full md:w-[600px]" />
         </div>
-        <Separator className=" w-full md:w-[600px]" />
         <Feedback
           label={`${golfCourse?.name} 어떠셨나요?`}
           golfCourseSlug={golfCourse?.slug}
