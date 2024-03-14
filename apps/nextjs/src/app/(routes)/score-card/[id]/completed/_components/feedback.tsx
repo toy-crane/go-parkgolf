@@ -13,35 +13,35 @@ const Feedback = ({
     <div className="mb-4 flex flex-col items-center gap-2">
       <span className="text-base font-semibold">{label}</span>
       <div className="flex gap-2">
-        <Button variant="outline" asChild>
+        <Button variant="outline" asChild className="px-3">
           <Link
             href={`/golf-courses/${golfCourseSlug}/reviews/create?courseConditionRating=1`}
           >
             <Frown />
           </Link>
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" asChild className="px-3">
           <Link
             href={`/golf-courses/${golfCourseSlug}/reviews/create?courseConditionRating=2`}
           >
             <Meh />
           </Link>
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" asChild className="px-3">
           <Link
             href={`/golf-courses/${golfCourseSlug}/reviews/create?courseConditionRating=3`}
           >
             <Smile />
           </Link>
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" asChild className="px-3">
           <Link
             href={`/golf-courses/${golfCourseSlug}/reviews/create?courseConditionRating=4`}
           >
             <Laugh />
           </Link>
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" asChild className="px-3">
           <Link
             href={`/golf-courses/${golfCourseSlug}/reviews/create?courseConditionRating=5`}
           >
