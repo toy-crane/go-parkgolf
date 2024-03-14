@@ -92,7 +92,6 @@ const Page = async ({
         </div>
         <div className="flex">
           {isMyGame && <DeleteAlert gameId={params.id} />}
-          <ShareButton />
         </div>
       </div>
       <ScoreTabs
