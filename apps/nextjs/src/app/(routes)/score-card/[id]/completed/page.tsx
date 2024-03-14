@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
+import Feedback from "@/components/feedback";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { readUserSession } from "@/libs/auth";
@@ -9,7 +10,6 @@ import { ko } from "date-fns/locale";
 import { ChevronRight } from "lucide-react";
 
 import type { ScoreResult } from "../type";
-import Feedback from "./_components/feedback";
 import ResultTable from "./_components/result-table";
 
 interface GameSummary {
