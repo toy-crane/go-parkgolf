@@ -1,5 +1,3 @@
-import BackButton from "@/components/nav/back-button";
-
 import ShareButton from "./_components/share-button";
 
 const Layout = (props: { children: React.ReactNode }) => {
