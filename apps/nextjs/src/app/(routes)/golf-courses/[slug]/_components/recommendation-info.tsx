@@ -11,7 +11,7 @@ const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
   const response = await supabase.rpc("nearby_golf_courses", {
     latitude: course.lat,
     longitude: course.lng,
-    max_results: 7,
+    max_results: 6,
   });
   if (response.error) throw Error;
   const courses = response.data as GolfCouseWithDistance[];
@@ -25,7 +25,7 @@ const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
           <h2 className="text-foreground text-xl font-bold">
             주변 가까운 파크 골프장
           </h2>
-          <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2">
             {nearCourses.map((course) => (
               <Card key={course.id} className="w-full hover:bg-neutral-50">
                 <Link href={`/golf-courses/${course.slug}`}>
