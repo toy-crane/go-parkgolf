@@ -5,7 +5,7 @@ import type { GolfCourse } from "@/types";
 
 type GolfCouseWithDistance = GolfCourse & { dist_meters: number };
 
-const NearCourseInfo = async ({ course }: { course: GolfCourse }) => {
+const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase.rpc("nearby_golf_courses", {
     latitude: course.lat,
@@ -49,4 +49,4 @@ const NearCourseInfo = async ({ course }: { course: GolfCourse }) => {
   );
 };
 
-export default NearCourseInfo;
+export default RecommendationInfo;
