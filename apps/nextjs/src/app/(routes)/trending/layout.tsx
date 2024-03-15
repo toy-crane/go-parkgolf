@@ -3,7 +3,7 @@ import { PageHeader, PageHeaderHeading } from "@/components/page-header";
 import { TrendingUp } from "lucide-react";
 
 import { TrendingNav } from "./nav";
-import Products from "./products";
+import Products from "../../../components/ad/products";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (
