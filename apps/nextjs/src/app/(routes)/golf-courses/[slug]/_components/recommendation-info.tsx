@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Products from "@/components/ad/products";
 import { Card, CardContent } from "@/components/ui/card";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
@@ -18,7 +19,8 @@ const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
 
   return (
     <section className="space-y-6">
-      <div className="space-y-6">
+      <div className="space-y-10">
+        <Products />
         <div className="space-y-3">
           <h2 className="text-foreground text-xl font-bold">
             주변 가까운 파크 골프장

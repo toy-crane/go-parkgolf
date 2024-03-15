@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Products = () => {
   return (
-    <section className="flex flex-col gap-2 pb-16">
+    <section className="flex flex-col gap-2">
       <div className="flex flex-col">
         <h2 className="text-foreground text-xl font-bold">
           베스트 아이템 TOP 5 🏆
