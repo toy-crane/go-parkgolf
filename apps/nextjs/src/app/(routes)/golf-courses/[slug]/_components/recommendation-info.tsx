@@ -10,7 +10,7 @@ const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
   const response = await supabase.rpc("nearby_golf_courses", {
     latitude: course.lat,
     longitude: course.lng,
-    max_results: 11,
+    max_results: 7,
   });
   if (response.error) throw Error;
   const courses = response.data as GolfCouseWithDistance[];
