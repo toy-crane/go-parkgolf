@@ -53,6 +53,7 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
   const error =
     form.formState.errors.game_courses?.root ??
     form.formState.errors.game_courses;
+  const isValid = form.formState.isValid;
 
   const { fields, append, remove } = useFieldArray({
     name: "game_courses",
@@ -194,7 +195,7 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
           <Button
             type="submit"
             size="lg"
-            disabled={isPending}
+            disabled={isPending || !isValid}
             className="w-full"
           >
             {isPending ? (

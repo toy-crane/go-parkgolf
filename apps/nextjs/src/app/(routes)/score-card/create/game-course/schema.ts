@@ -4,7 +4,7 @@ export const formSchema = z.object({
   game_courses: z
     .array(
       z.object({
-        name: z.string(),
+        name: z.string().nonempty("코스 이름을 입력해주세요."),
         hole_count: z.coerce.number(),
       }),
     )
