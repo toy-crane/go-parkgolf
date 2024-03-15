@@ -36,9 +36,10 @@ type Inputs = z.infer<typeof formSchema>;
 interface FormProps {
   gameId: string;
   courses?: Course[];
+  courseName: string;
 }
 
-const GameCourseForm = ({ gameId, courses }: FormProps) => {
+const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
@@ -57,11 +58,6 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     name: "game_courses",
     control: form.control,
   });
-
-  // 각 이름이 몇 번 등장했는지 확인하는 함수
-  const countNameOccurrences = (name: string) => {
-    return fields.filter((field) => field.name === name).length;
-  };
 
   // 키 다운 이벤트를 처리하는 함수
   const handleKeyDown = (event: React.KeyboardEvent) => {

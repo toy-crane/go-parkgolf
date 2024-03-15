@@ -30,6 +30,7 @@ const Page = async ({
   }
 
   const courses = response.data?.golf_courses?.courses;
+  const courseName = response.data?.golf_courses?.name!;
 
   if (!gameId) {
     notFound();
@@ -41,7 +42,7 @@ const Page = async ({
         <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
         <PageHeaderDescription>코스를 설정해 주세요</PageHeaderDescription>
       </PageHeader>
-      <PlayerForm gameId={gameId} courses={courses} />
+      <PlayerForm gameId={gameId} courses={courses} courseName={courseName} />
     </div>
   );
 };
