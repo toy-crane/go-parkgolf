@@ -4,7 +4,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const Products = () => {
   return (
     <section className="flex flex-col gap-2 pb-16">
-      <h2 className="text-foreground text-xl font-bold">추천 TOP 5 🏆</h2>
+      <div className="flex flex-col">
+        <h2 className="text-foreground text-xl font-bold">
+          베스트 아이템 TOP 5 🏆
+        </h2>
+        <span className="text-xs text-gray-500">
+          파크골프 가자에서 엄선한 최고의 상품들만 모았습니다!
+        </span>
+      </div>
+
       <Tabs defaultValue="club">
         <TabsList className="flex justify-start gap-0 bg-white">
           <TabsTrigger
