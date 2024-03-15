@@ -1,3 +1,4 @@
+import Products from "@/components/ad/products";
 import { Separator } from "@/components/ui/separator";
 import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
@@ -135,6 +136,10 @@ const CourseCommonInfo = async ({ courseId }: { courseId: string }) => {
             }
           />
         </div>
+      </div>
+      <Separator />
+      <div className="space-y-3">
+        <Products />
       </div>
     </>
   );
