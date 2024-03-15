@@ -8,7 +8,7 @@ import { track } from "@vercel/analytics";
 const CourseDetailTab = ({
   selectedTab,
   courseCommonInfo,
-  recommendationInfo,
+  nearCourseInfo,
   reviewInfo,
   courseDetailInfo,
 }: {
@@ -16,7 +16,7 @@ const CourseDetailTab = ({
   selectedTab: string;
   courseCommonInfo: React.ReactNode;
   reviewInfo: React.ReactNode;
-  recommendationInfo: React.ReactNode;
+  nearCourseInfo: React.ReactNode;
   courseDetailInfo: React.ReactNode;
 }) => {
   return (
@@ -35,8 +35,8 @@ const CourseDetailTab = ({
         <TabsTrigger value="review" className="flex-1">
           리뷰
         </TabsTrigger>
-        <TabsTrigger value="recommendation" className="flex-1">
-          추천
+        <TabsTrigger value="nearCourse" className="flex-1">
+          주변
         </TabsTrigger>
       </TabsList>
       <TabsContent value="home" className="min-h-[25vh] space-y-6">
@@ -48,8 +48,8 @@ const CourseDetailTab = ({
       <TabsContent value="review" className="min-h-[25vh] space-y-12">
         {reviewInfo}
       </TabsContent>
-      <TabsContent value="recommendation" className="min-h-[25vh] space-y-6">
-        {recommendationInfo}
+      <TabsContent value="nearCourse" className="min-h-[25vh] space-y-6">
+        {nearCourseInfo}
       </TabsContent>
     </Tabs>
   );

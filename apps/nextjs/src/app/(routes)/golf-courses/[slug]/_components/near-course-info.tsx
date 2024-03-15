@@ -6,12 +6,12 @@ import type { GolfCourse } from "@/types";
 
 type GolfCouseWithDistance = GolfCourse & { dist_meters: number };
 
-const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
+const NearCourseInfo = async ({ course }: { course: GolfCourse }) => {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase.rpc("nearby_golf_courses", {
     latitude: course.lat,
     longitude: course.lng,
-    max_results: 6,
+    max_results: 11,
   });
   if (response.error) throw Error;
   const courses = response.data as GolfCouseWithDistance[];
@@ -20,7 +20,6 @@ const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
   return (
     <section className="space-y-6">
       <div className="space-y-10">
-        <Products />
         <div className="space-y-3">
           <h2 className="text-foreground text-xl font-bold">
             주변 가까운 파크 골프장
@@ -51,4 +50,4 @@ const RecommendationInfo = async ({ course }: { course: GolfCourse }) => {
   );
 };
 
-export default RecommendationInfo;
+export default NearCourseInfo;
