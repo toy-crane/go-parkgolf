@@ -1,5 +1,8 @@
+"use client";
+
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { track } from "@vercel/analytics/react";
 
 const Products = () => {
   return (
@@ -13,7 +16,10 @@ const Products = () => {
         </span>
       </div>
 
-      <Tabs defaultValue="club">
+      <Tabs
+        defaultValue="club"
+        onValueChange={(value) => track(`${value}-products-clicked`)}
+      >
         <TabsList className="flex justify-start gap-0 bg-white">
           <TabsTrigger
             value="club"
