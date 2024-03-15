@@ -32,6 +32,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
       changeFrequency: "daily",
     },
+    {
+      url: addPathToBaseURL("/trending/hot"),
+      lastModified: new Date(),
+      priority: 1,
+      changeFrequency: "daily",
+    },
+    {
+      url: addPathToBaseURL("/trending/largest"),
+      lastModified: new Date(),
+      priority: 1,
+      changeFrequency: "daily",
+    },
     ...courses,
   ];
 }
