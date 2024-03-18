@@ -10,7 +10,9 @@ const BackButton = () => {
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => router.replace("/my-games")}
+      onClick={() => {
+        router.replace("/my-games");
+      }}
     >
       <ArrowLeft size={24} />
     </Button>

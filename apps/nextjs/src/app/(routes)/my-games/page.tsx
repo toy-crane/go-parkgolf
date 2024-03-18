@@ -6,6 +6,8 @@ import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import { getMyGames } from "./fetcher";
 import GameCard from "./game-card";
 
+const revaildate = 0;
+
 const Page = async () => {
   const games = await getMyGames();
   const hasGames = games && games?.length > 0;
