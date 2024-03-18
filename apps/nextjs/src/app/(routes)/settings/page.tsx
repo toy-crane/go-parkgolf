@@ -45,6 +45,7 @@ const Page = async () => {
   const logout = async () => {
     "use server";
     const supabase = await createSupabaseServerClient();
+    // 현재 기기에서만 로그아웃되도록 scope를 local로 설정
     await supabase.auth.signOut({ scope: "local" });
     identify(new Identify(), {
       user_id: undefined,
