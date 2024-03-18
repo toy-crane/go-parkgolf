@@ -152,7 +152,7 @@ const Products = () => {
         defaultValue="mask"
         onValueChange={(value) => track(`${value}-products-clicked`)}
       >
-        <TabsList className="flex justify-start gap-0 bg-white">
+        <TabsList className="flex flex-nowrap justify-start gap-0 overflow-x-scroll bg-white">
           <TabsTrigger
             value="mask"
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
