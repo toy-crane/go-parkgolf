@@ -13,12 +13,13 @@ const Page = async () => {
   return (
     <section>
       <PageHeader className="relative flex flex-row items-center justify-between pb-4 md:pb-8">
-        <PageHeaderHeading>나의 스코어 카드</PageHeaderHeading>
+        <PageHeaderHeading>스코어 카드</PageHeaderHeading>
         <Button size="sm" asChild>
           {hasGames && (
             <Link href="score-card/create/golf-course">
-              <Plus className="h-5 w-5" size={24} />
-              게임 추가하기
+              <Plus className="mr-1 h-4 w-4 md:h-5 md:w-5" />
+              <span className="hidden md:block">게임 추가하기</span>
+              <span className="md:hidden">추가하기</span>
             </Link>
           )}
         </Button>
