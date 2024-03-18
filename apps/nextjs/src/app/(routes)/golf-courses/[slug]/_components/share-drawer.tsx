@@ -45,7 +45,7 @@ const ShareButtons = ({ golfCourse }: Props) => {
           });
         }}
       >
-        경로 복사하기
+        주소 복사하기
       </Button>
       <Button asChild variant="ghost">
         <Link
