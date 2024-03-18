@@ -10,9 +10,11 @@ const Page = async ({
   params: { id: string };
   searchParams: { tab?: string };
 }) => {
+  const gameId = params.id;
+
   return (
     <>
-      <Header gameId={params.id} />
+      <Header gameId={gameId} />
     </>
   );
 };
