@@ -38,6 +38,56 @@ const CoupangProducts: CoupangProduct[] = [
     url: "https://coupa.ng/ce93xm",
     category: "ball",
   },
+  {
+    name: "휠라골프 극세사 양손용 골프장갑, 화이트",
+    url: "https://coupa.ng/ce93yD",
+    category: "globe",
+  },
+  {
+    name: "지맥스 1+1 파크골프장갑 PLUS 양손 2세트",
+    url: "https://coupa.ng/ce93zk",
+    category: "globe",
+  },
+  {
+    name: "땀골프 여성용 논슬립 골프장갑 양손용, 혼합색상",
+    url: "https://coupa.ng/ce93zD",
+    category: "globe",
+  },
+  {
+    name: "여성용 GH 쿨메쉬 실리콘 골프 양손용, 핑크",
+    url: "https://coupa.ng/ce93zQ",
+    category: "globe",
+  },
+  {
+    name: "지맥스 남성용 뉴 울트라 파크골프 골프장갑 양손착용, 화이트",
+    url: "https://coupa.ng/ce93Af",
+    category: "globe",
+  },
+  {
+    name: "프라임 국산4스타 파크골프채 프리미엄 채만, 여성용(520g)",
+    url: "https://coupa.ng/ce92OO",
+    category: "club",
+  },
+  {
+    name: "데이비드골프 여성용 파크골프채 3종 세트, DP101",
+    url: "https://coupa.ng/ce92Ut",
+    category: "club",
+  },
+  {
+    name: "알바트로스 A3 파크 골프채 그린",
+    url: "https://coupa.ng/ce92Ve",
+    category: "club",
+  },
+  {
+    name: "히토미 혼마 여성용 4STAR 감나무헤드 파크골프 클럽 블랙에디션 83cm, R, 90도",
+    url: "https://coupa.ng/ce92Wq",
+    category: "club",
+  },
+  {
+    name: "라운드파크 여성용 P나인 파크 골프채 네이비 83cm, R, 90도",
+    url: "https://coupa.ng/ce92WB",
+    category: "club",
+  },
 ];
 
 const Products = () => {
@@ -87,51 +137,11 @@ const Products = () => {
         <TabsContent value="club">
           <ScrollArea className="max-w-[600px] lg:max-w-none">
             <div className="flex gap-1 pb-2">
-              <iframe
-                className="w-full min-w-[120px]"
-                src="https://coupa.ng/ce92OO"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce92Ut"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce92Ve"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce92Wq"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce92WB"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
+              {CoupangProducts.filter((pr) => pr.category === "club").map(
+                (pr) => (
+                  <Product key={pr.url} title={pr.name} url={pr.url} />
+                ),
+              )}
             </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
@@ -139,51 +149,11 @@ const Products = () => {
         <TabsContent value="globe">
           <ScrollArea className="max-w-[600px] lg:max-w-none">
             <div className="flex gap-1 pb-2">
-              <iframe
-                src="https://coupa.ng/ce93yD"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93zk"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93zD"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93zQ"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93Af"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
+              {CoupangProducts.filter((pr) => pr.category === "globe").map(
+                (pr) => (
+                  <Product key={pr.url} title={pr.name} url={pr.url} />
+                ),
+              )}
             </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
