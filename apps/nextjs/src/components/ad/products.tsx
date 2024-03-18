@@ -13,15 +13,15 @@ const Products = () => {
         </h2>
       </div>
       <Tabs
-        defaultValue="club"
+        defaultValue="globe"
         onValueChange={(value) => track(`${value}-products-clicked`)}
       >
         <TabsList className="flex justify-start gap-0 bg-white">
           <TabsTrigger
-            value="club"
+            value="globe"
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
           >
-            파크골프채
+            파크골프 장갑
           </TabsTrigger>
           <TabsTrigger
             value="ball"
@@ -30,10 +30,10 @@ const Products = () => {
             파크골프공
           </TabsTrigger>
           <TabsTrigger
-            value="globe"
+            value="club"
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
           >
-            파크골프 장갑
+            파크골프채
           </TabsTrigger>
         </TabsList>
         <TabsContent value="ball">
