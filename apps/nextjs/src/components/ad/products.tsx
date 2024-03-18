@@ -9,7 +9,7 @@ import Product from "./product";
 interface CoupangProduct {
   name: string;
   url: string;
-  category: "globe" | "ball" | "club" | "pouch";
+  category: "globe" | "ball" | "club" | "pouch" | "mask";
 }
 
 const CoupangProducts: CoupangProduct[] = [
@@ -113,6 +113,31 @@ const CoupangProducts: CoupangProduct[] = [
     url: "https://coupa.ng/cfbiWd",
     category: "pouch",
   },
+  {
+    name: "르플렉스 자외선 차단 스포츠 골프 마스크, 스킨, 1개",
+    url: "https://coupa.ng/cfbiYx",
+    category: "mask",
+  },
+  {
+    name: "1+1 주요커머스 자외선차단 메쉬 골프마스크 얼굴 햇빛가리개 안면마스크",
+    url: "https://coupa.ng/cfbiZG",
+    category: "mask",
+  },
+  {
+    name: "PGA투어 귀고리 쿨링 마스크 2p, 화이트",
+    url: "https://coupa.ng/cfbi0q",
+    category: "mask",
+  },
+  {
+    name: "수이골프 큐빅 UV+ 분리형 골프 마스크 자외선 햇빛 차단 얼굴가리개 골프마스크 국내생산",
+    url: "https://coupa.ng/cfbi0Z",
+    category: "mask",
+  },
+  {
+    name: "슈퍼리치 UV 자외선 차단 쿨소재 스포츠 골프 프리미엄 마스크, 화이트",
+    url: "https://coupa.ng/cfbi2t",
+    category: "mask",
+  },
 ];
 
 const Products = () => {
@@ -124,10 +149,16 @@ const Products = () => {
         </h2>
       </div>
       <Tabs
-        defaultValue="globe"
+        defaultValue="mask"
         onValueChange={(value) => track(`${value}-products-clicked`)}
       >
         <TabsList className="flex justify-start gap-0 bg-white">
+          <TabsTrigger
+            value="mask"
+            className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
+          >
+            골프 마스크
+          </TabsTrigger>
           <TabsTrigger
             value="globe"
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
@@ -135,17 +166,18 @@ const Products = () => {
             파크골프 장갑
           </TabsTrigger>
           <TabsTrigger
-            value="pouch"
-            className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
-          >
-            파크골프 파우치
-          </TabsTrigger>
-          <TabsTrigger
             value="ball"
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
           >
             파크골프공
           </TabsTrigger>
+          <TabsTrigger
+            value="pouch"
+            className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
+          >
+            파크골프 파우치
+          </TabsTrigger>
+
           <TabsTrigger
             value="club"
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
@@ -193,6 +225,18 @@ const Products = () => {
           <ScrollArea className="max-w-[600px] lg:max-w-none">
             <div className="flex gap-1 pb-2">
               {CoupangProducts.filter((pr) => pr.category === "pouch").map(
+                (pr) => (
+                  <Product key={pr.url} title={pr.name} url={pr.url} />
+                ),
+              )}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </TabsContent>
+        <TabsContent value="mask">
+          <ScrollArea className="max-w-[600px] lg:max-w-none">
+            <div className="flex gap-1 pb-2">
+              {CoupangProducts.filter((pr) => pr.category === "mask").map(
                 (pr) => (
                   <Product key={pr.url} title={pr.name} url={pr.url} />
                 ),
