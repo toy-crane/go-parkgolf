@@ -9,7 +9,7 @@ import Product from "./product";
 interface CoupangProduct {
   name: string;
   url: string;
-  category: "globe" | "ball" | "club";
+  category: "globe" | "ball" | "club" | "pouch";
 }
 
 const CoupangProducts: CoupangProduct[] = [
@@ -88,6 +88,31 @@ const CoupangProducts: CoupangProduct[] = [
     url: "https://coupa.ng/ce92WB",
     category: "club",
   },
+  {
+    name: "노스웨이 파크골프 파우치, 남색체크, 1개",
+    url: "https://coupa.ng/cfbiRg",
+    category: "pouch",
+  },
+  {
+    name: "초경량 파크골프 파우치 그라운드 허리색, 블랙레드",
+    url: "https://coupa.ng/cfbiSR",
+    category: "pouch",
+  },
+  {
+    name: "데이비드골프 파크골프 파우치, 블랙",
+    url: "https://coupa.ng/cfbiVD",
+    category: "pouch",
+  },
+  {
+    name: "파크골프 파우치 가방 허리색 볼 주머니 홀더 허리 경량파우치 힙색, 파크골프 허리파우치_그",
+    url: "https://coupa.ng/cfbiTV",
+    category: "pouch",
+  },
+  {
+    name: "데이비드골프 파크골프 파우치, 레드",
+    url: "https://coupa.ng/cfbiWd",
+    category: "pouch",
+  },
 ];
 
 const Products = () => {
@@ -108,6 +133,12 @@ const Products = () => {
             className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
           >
             파크골프 장갑
+          </TabsTrigger>
+          <TabsTrigger
+            value="pouch"
+            className="text-muted-foreground data-[state=active]:bg-muted flex h-7 items-center justify-center rounded-full px-3 px-3 text-center text-sm transition-colors hover:font-bold data-[state=active]:font-bold data-[state=active]:text-black"
+          >
+            파크골프 파우치
           </TabsTrigger>
           <TabsTrigger
             value="ball"
@@ -150,6 +181,18 @@ const Products = () => {
           <ScrollArea className="max-w-[600px] lg:max-w-none">
             <div className="flex gap-1 pb-2">
               {CoupangProducts.filter((pr) => pr.category === "globe").map(
+                (pr) => (
+                  <Product key={pr.url} title={pr.name} url={pr.url} />
+                ),
+              )}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </TabsContent>
+        <TabsContent value="pouch">
+          <ScrollArea className="max-w-[600px] lg:max-w-none">
+            <div className="flex gap-1 pb-2">
+              {CoupangProducts.filter((pr) => pr.category === "pouch").map(
                 (pr) => (
                   <Product key={pr.url} title={pr.name} url={pr.url} />
                 ),
