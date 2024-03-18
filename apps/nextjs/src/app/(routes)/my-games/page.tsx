@@ -6,6 +6,7 @@ import { PageHeader, PageHeaderHeading } from "../../../components/page-header";
 import { getMyGames } from "./fetcher";
 import GameCard from "./game-card";
 
+// 스코어 카드에서 뒤로 가기 시에 refresh를 하기위해 revalidate를 0으로 설정
 const revaildate = 0;
 
 const Page = async () => {
