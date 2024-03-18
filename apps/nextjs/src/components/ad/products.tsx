@@ -4,6 +4,42 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { track } from "@vercel/analytics/react";
 
+import Product from "./product";
+
+interface CoupangProduct {
+  name: string;
+  url: string;
+  category: "globe" | "ball" | "club";
+}
+
+const CoupangProducts: CoupangProduct[] = [
+  {
+    name: "볼빅 콤비 크리스탈 로스트볼 S급 12개 소량입고, 1개",
+    url: "https://coupa.ng/ce93uk",
+    category: "ball",
+  },
+  {
+    name: "아식스 파크골프 공 이도류 4피스 3283A102, 옐로우, 1개, 1개",
+    url: "https://coupa.ng/ce93vG",
+    category: "ball",
+  },
+  {
+    name: "부쿠로혼마 대한파크골프협회 인증 골프용품 골프공 인증공 파크골프공, 네온, 1개입, 1개",
+    url: "https://coupa.ng/ce93ws",
+    category: "ball",
+  },
+  {
+    name: "하타치 SHINE 파크 골프공 볼 2피스 6cm PH3400, 빨간색, 1개입, 1개",
+    url: "https://coupa.ng/ce93w8",
+    category: "ball",
+  },
+  {
+    name: "하타치 SHINE 파크 골프공 볼 2피스 6cm PH3400, 형광색, 1개입, 1개",
+    url: "https://coupa.ng/ce93xm",
+    category: "ball",
+  },
+];
+
 const Products = () => {
   return (
     <section className="flex flex-col gap-2">
@@ -39,52 +75,11 @@ const Products = () => {
         <TabsContent value="ball">
           <ScrollArea className="max-w-[600px] lg:max-w-none">
             <div className="flex gap-1 pb-2">
-              <iframe
-                src="https://coupa.ng/ce93uk"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93vG"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93ws"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-
-              <iframe
-                src="https://coupa.ng/ce93w8"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
-              <iframe
-                src="https://coupa.ng/ce93xm"
-                className="w-full min-w-[120px]"
-                width="120"
-                height="240"
-                frameBorder="0"
-                scrolling="no"
-                referrerPolicy="unsafe-url"
-              ></iframe>
+              {CoupangProducts.filter(
+                (product) => product.category === "ball",
+              ).map((pr) => (
+                <Product key={pr.url} title={pr.name} url={pr.url} />
+              ))}
             </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
