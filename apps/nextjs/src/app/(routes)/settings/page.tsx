@@ -45,7 +45,7 @@ const Page = async () => {
   const logout = async () => {
     "use server";
     const supabase = await createSupabaseServerClient();
-    await supabase.auth.signOut();
+    await supabase.auth.signOut({ scope: "local" });
     identify(new Identify(), {
       user_id: undefined,
     });
