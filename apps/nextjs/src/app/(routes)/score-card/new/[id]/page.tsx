@@ -1,5 +1,4 @@
 import React from "react";
-import { readUserSession } from "@/libs/auth";
 
 import Header from "./_components/header";
 
