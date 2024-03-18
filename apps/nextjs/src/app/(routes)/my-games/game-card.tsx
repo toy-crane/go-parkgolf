@@ -48,7 +48,13 @@ const GameCard = ({
     .join(" | ");
   return (
     <Card key={id} className="w-full">
-      <Link href={`/score-card/${id}/completed`}>
+      <Link
+        href={
+          status === "completed"
+            ? `/score-card/${id}/completed`
+            : `/score-card/${id}`
+        }
+      >
         <CardHeader className="flex flex-row items-center justify-between space-y-0 border-b p-2 px-2">
           <CardTitle className="flex items-center justify-between text-xs">
             {format(new Date(startedAt), "yyyy-MM-dd (eee) HH:mm", {
