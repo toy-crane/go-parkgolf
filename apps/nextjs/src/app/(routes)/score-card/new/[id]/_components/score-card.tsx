@@ -10,6 +10,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
+import { pl } from "date-fns/locale";
+import _ from "lodash";
+
+import type { GameCourse } from "../type";
 
 const gridColumns = {
   "1": "grid-cols-score-card-1",
@@ -93,6 +97,59 @@ const ScoreCardHead = ({
   );
 };
 
+const calculateParByCourse = (gameCourses: GameCourse[]) => {
+  return gameCourses.reduce(
+    (acc, course) => {
+      // 각 코스에 대한 총 par 값을 초기화
+      acc[course.name] =
+        course.game_scores?.reduce((totalPar, gameScore) => {
+          // 각 게임 스코어의 par 값을 합산
+          return totalPar + gameScore.par;
+        }, 0) ?? 0; // game_scores가 undefined인 경우를 위해 기본값으로 0을 설정
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
+};
+
+const calculateUserScoresByCourse = (gameCourses: GameCourse[]) =>
+  gameCourses.reduce(
+    (acc, course) => {
+      const playerScores = course.game_scores?.reduce(
+        (accScores, gameScore) => {
+          gameScore.game_player_scores.forEach(({ game_player_id, score }) => {
+            accScores[game_player_id] =
+              (accScores[game_player_id] ?? 0) + score;
+          });
+          return accScores;
+        },
+        {} as Record<string, number>,
+      );
+      if (playerScores) {
+        acc[course.name] = playerScores;
+      }
+      return acc;
+    },
+    {} as Record<string, Record<string, number>>,
+  );
+
+const calculateTotalUserScore = (gameCourses: GameCourse[]) => {
+  return gameCourses.reduce(
+    (accCourses, course) => {
+      course.game_scores?.forEach((gameScore) => {
+        gameScore.game_player_scores.forEach(({ game_player_id, score }) => {
+          if (!accCourses[game_player_id]) {
+            accCourses[game_player_id] = 0;
+          }
+          accCourses[game_player_id] += score;
+        });
+      });
+      return accCourses;
+    },
+    {} as Record<string, number>,
+  );
+};
+
 const ScoreCard = async ({ gameId }: { gameId: string }) => {
   const supabase = await createSupabaseServerClient();
   const response = await supabase
@@ -108,6 +165,10 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
     game_courses: gameCourses,
     game_players: players,
   } = response.data;
+  const userScoreByCourse = calculateUserScoresByCourse(gameCourses);
+  const totalUserScore = calculateTotalUserScore(gameCourses);
+  const parByCourse = calculateParByCourse(gameCourses);
+  const totalPar = _.sum(Object.values(parByCourse));
 
   return (
     <>
@@ -163,6 +224,30 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
                       ),
                     ),
                   )}
+                <ScoreCardRow columnCount={players.length}>
+                  <ScoreCardCell className="flex cursor-default items-center justify-center break-keep border px-0 py-0 text-center text-xs leading-4 md:px-4">
+                    코스 합계
+                  </ScoreCardCell>
+                  <ScoreCardCell>
+                    {parByCourse[currentCourse.name]}
+                  </ScoreCardCell>
+                  {players.map((player) => (
+                    <ScoreCardCell key={player.id}>
+                      {userScoreByCourse[currentCourse.name]?.[player.id]}
+                    </ScoreCardCell>
+                  ))}
+                </ScoreCardRow>
+                <ScoreCardRow columnCount={players.length}>
+                  <ScoreCardCell className="flex cursor-default items-center justify-center break-keep border px-0 py-0 text-center text-xs leading-4 md:px-4">
+                    전체 합계
+                  </ScoreCardCell>
+                  <ScoreCardCell>{totalPar}</ScoreCardCell>
+                  {players.map((player) => (
+                    <ScoreCardCell key={player.id}>
+                      {totalUserScore[player.id]}
+                    </ScoreCardCell>
+                  ))}
+                </ScoreCardRow>
               </TableBody>
             </Table>
           </TabsContent>
