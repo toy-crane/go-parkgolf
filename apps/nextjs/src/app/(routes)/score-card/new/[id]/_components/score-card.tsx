@@ -1,6 +1,7 @@
 import {
   Table,
   TableBody,
+  TableCell,
   TableHead,
   TableHeader,
   TableRow,
@@ -77,7 +78,9 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
   const supabase = await createSupabaseServerClient();
   const response = await supabase
     .from("games")
-    .select("started_at, game_courses(*), game_players(id, nickname)")
+    .select(
+      "started_at, game_courses(*, game_scores(*)), game_players(id, nickname)",
+    )
     .eq("id", gameId)
     .single();
   if (response.error) throw response.error;
@@ -106,10 +109,38 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
             </TabsTrigger>
           ))}
         </TabsList>
-        {gameCourses.map((gc) => (
-          <TabsContent value={gc.name} key={gc.id} className="flex-1">
+        {gameCourses.map((currentCourse) => (
+          <TabsContent
+            value={currentCourse.name}
+            key={currentCourse.id}
+            className="flex-1"
+          >
             <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
               <ScoreCardHeader players={players} />
+              <TableBody className="flex flex-1 flex-col text-base">
+                {gameCourses
+                  .filter((gc) => gc.name === currentCourse.name)
+                  .map(({ game_scores: holes }) =>
+                    holes.map((hole) => (
+                      <ScoreCardRow columnCount={players.length} key={hole.id}>
+                        <TableCell
+                          className={cn(
+                            "flex cursor-pointer items-center justify-center border p-0",
+                          )}
+                        >
+                          {hole.hole_number}
+                        </TableCell>
+                        <TableCell
+                          className={cn(
+                            "flex cursor-pointer items-center justify-center border p-0",
+                          )}
+                        >
+                          {hole.par}
+                        </TableCell>
+                      </ScoreCardRow>
+                    )),
+                  )}
+              </TableBody>
             </Table>
           </TabsContent>
         ))}
