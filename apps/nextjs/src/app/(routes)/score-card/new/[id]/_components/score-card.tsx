@@ -47,7 +47,7 @@ const ScoreCardRow = ({
   return (
     <TableRow
       className={cn(
-        "grid",
+        "grid flex-1",
         gridColumns[String(columnCount) as keyof typeof gridColumns],
       )}
     >
@@ -110,7 +110,7 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
   } = response.data;
 
   return (
-    <section>
+    <>
       <div
         className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
       >
@@ -151,11 +151,13 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
                           <ScoreCardCell className="cursor-default bg-lime-200">
                             {hole_number}
                           </ScoreCardCell>
-                          <ScoreCardCell className="cursor-default bg-lime-400">
+                          <ScoreCardCell className="cursor-pointer bg-lime-400">
                             {par}
                           </ScoreCardCell>
                           {scores.map(({ id, score }) => (
-                            <ScoreCardCell key={id}>{score}</ScoreCardCell>
+                            <ScoreCardCell key={id} className="cursor-pointer">
+                              {score}
+                            </ScoreCardCell>
                           ))}
                         </ScoreCardRow>
                       ),
@@ -166,7 +168,7 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
           </TabsContent>
         ))}
       </Tabs>
-    </section>
+    </>
   );
 };
 
