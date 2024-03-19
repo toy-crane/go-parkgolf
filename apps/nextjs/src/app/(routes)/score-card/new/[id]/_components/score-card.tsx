@@ -98,7 +98,7 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
   const response = await supabase
     .from("games")
     .select(
-      "started_at, game_courses(*, game_scores(*)), game_players(id, nickname)",
+      "started_at, game_courses(*, game_scores(*, game_player_scores(*))), game_players(id, nickname)",
     )
     .eq("id", gameId)
     .single();
@@ -140,16 +140,26 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
                 {gameCourses
                   .filter((gc) => gc.name === currentCourse.name)
                   .map(({ game_scores: holes }) =>
-                    holes.map((hole) => (
-                      <ScoreCardRow columnCount={players.length} key={hole.id}>
-                        <ScoreCardCell className="cursor-default bg-lime-200">
-                          {hole.hole_number}
-                        </ScoreCardCell>
-                        <ScoreCardCell className="cursor-default bg-lime-400">
-                          {hole.par}
-                        </ScoreCardCell>
-                      </ScoreCardRow>
-                    )),
+                    holes.map(
+                      ({
+                        hole_number,
+                        id,
+                        par,
+                        game_player_scores: scores,
+                      }) => (
+                        <ScoreCardRow columnCount={players.length} key={id}>
+                          <ScoreCardCell className="cursor-default bg-lime-200">
+                            {hole_number}
+                          </ScoreCardCell>
+                          <ScoreCardCell className="cursor-default bg-lime-400">
+                            {par}
+                          </ScoreCardCell>
+                          {scores.map(({ id, score }) => (
+                            <ScoreCardCell key={id}>{score}</ScoreCardCell>
+                          ))}
+                        </ScoreCardRow>
+                      ),
+                    ),
                   )}
               </TableBody>
             </Table>
