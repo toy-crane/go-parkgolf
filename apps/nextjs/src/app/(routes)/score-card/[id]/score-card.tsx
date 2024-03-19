@@ -10,7 +10,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type { Column, Table as TableType } from "@tanstack/react-table";
+import type {
+  Column,
+  HeaderGroup,
+  Row,
+  Table as TableType,
+} from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
 
 import type { Cell, Score } from "./type";
@@ -83,24 +88,26 @@ const gridColumns = {
 };
 
 export function ScoreCard({
-  selectedCourseId,
-  table,
   selectedCell,
   onSelectedCell,
   columns,
+  rows,
   playerCount,
+  headers,
+  footers,
 }: {
   selectedCourseId: string;
   table: TableType<Score>;
   playerCount: number;
   columns: Column<Score>[];
+  rows: Row<Score>[];
+  headers: HeaderGroup<Score>[];
+  footers: HeaderGroup<Score>[];
   onSelectedCell: (cell: Cell) => void;
   selectedCell?: Cell;
 }) {
   const columnOrder = columns.map((col) => col.id);
-  const sumOfCourseValues = table
-    .getRowModel()
-    .rows.filter((row) => row.original.gameCourseId === selectedCourseId)
+  const sumOfCourseValues = rows
     .flatMap((row) => {
       const { id, gameCourseId, holeNumber, ...rest } = row.original;
       return rest;
@@ -117,7 +124,7 @@ export function ScoreCard({
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
       <TableHeader className="flex-0">
-        {table.getHeaderGroups().map((headerGroup) => (
+        {headers.map((headerGroup) => (
           <ScoreCardRow key={headerGroup.id} columnCount={playerCount}>
             {headerGroup.headers.map((header) => {
               return (
@@ -141,41 +148,33 @@ export function ScoreCard({
         ))}
       </TableHeader>
       <TableBody className="flex flex-1 flex-col text-base">
-        {table.getRowModel().rows?.length
-          ? table
-              .getRowModel()
-              .rows.filter((row) => {
-                return row.original.gameCourseId === selectedCourseId;
-              })
-              .map((row) => (
-                <ScoreCardRow key={row.id} columnCount={playerCount}>
-                  {row.getVisibleCells().map((cell) => (
-                    <ScoreCardCell
-                      key={cell.id}
-                      onClick={() => {
-                        if (cell.column.id === "holeNumber") return;
-                        onSelectedCell({
-                          row: cell.row.id,
-                          colName: cell.column.id,
-                        });
-                      }}
-                      className={cn(
-                        cell.column.id === "holeNumber" &&
-                          "cursor-default bg-lime-200",
-                        cell.column.id === "par" && "bg-lime-400",
-                        selectedCell?.row === cell.row.id &&
-                          selectedCell?.colName === cell.column.id &&
-                          "bg-green-500",
-                      )}
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </ScoreCardCell>
-                  ))}
-                </ScoreCardRow>
-              ))
+        {rows?.length
+          ? rows.map((row) => (
+              <ScoreCardRow key={row.id} columnCount={playerCount}>
+                {row.getVisibleCells().map((cell) => (
+                  <ScoreCardCell
+                    key={cell.id}
+                    onClick={() => {
+                      if (cell.column.id === "holeNumber") return;
+                      onSelectedCell({
+                        row: cell.row.id,
+                        colName: cell.column.id,
+                      });
+                    }}
+                    className={cn(
+                      cell.column.id === "holeNumber" &&
+                        "cursor-default bg-lime-200",
+                      cell.column.id === "par" && "bg-lime-400",
+                      selectedCell?.row === cell.row.id &&
+                        selectedCell?.colName === cell.column.id &&
+                        "bg-green-500",
+                    )}
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </ScoreCardCell>
+                ))}
+              </ScoreCardRow>
+            ))
           : null}
       </TableBody>
       <TableFooter className="text-base">
@@ -199,7 +198,7 @@ export function ScoreCard({
             );
           })}
         </ScoreCardRow>
-        {table.getFooterGroups().map((footerGroup) => (
+        {footers.map((footerGroup) => (
           <ScoreCardRow key={footerGroup.id} columnCount={playerCount}>
             {footerGroup.headers.map((footer) => {
               return (

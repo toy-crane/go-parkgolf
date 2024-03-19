@@ -206,6 +206,11 @@ export const ScoreTabs = ({
               selectedCell={selectedCell}
               playerCount={playerCount}
               columns={table.getAllColumns()}
+              rows={table
+                .getRowModel()
+                .rows.filter((row) => row.original.gameCourseId === gc.id)}
+              headers={table.getHeaderGroups()}
+              footers={table.getFooterGroups()}
             />
           </TabsContent>
         ))}
