@@ -11,6 +11,29 @@ const gridColumns = {
   "4": "grid-cols-score-card-4",
 };
 
+const ScoreCardHeader = ({
+  players,
+}: {
+  players: { nickname: string; id: string }[];
+}) => {
+  return (
+    <TableHeader className="flex-0">
+      <TableRow
+        className={cn(
+          "align-center grid",
+          gridColumns[String(players.length) as keyof typeof gridColumns],
+        )}
+      >
+        <ScoreCardHead label="홀" className="bg-lime-200" />
+        <ScoreCardHead label="파" className="bg-lime-400" />
+        {players.map((player) => (
+          <ScoreCardHead key={player.id} label={player.nickname} />
+        ))}
+      </TableRow>
+    </TableHeader>
+  );
+};
+
 const ScoreCardHead = ({
   label,
   className,
@@ -66,22 +89,7 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
-              <TableHeader className="flex-0">
-                <TableRow
-                  className={cn(
-                    "align-center grid",
-                    gridColumns[
-                      String(players.length) as keyof typeof gridColumns
-                    ],
-                  )}
-                >
-                  <ScoreCardHead label="홀" className="bg-lime-200" />
-                  <ScoreCardHead label="파" className="bg-lime-400" />
-                  {players.map((player) => (
-                    <ScoreCardHead key={player.id} label={player.nickname} />
-                  ))}
-                </TableRow>
-              </TableHeader>
+              <ScoreCardHeader players={players} />
             </Table>
           </TabsContent>
         ))}
