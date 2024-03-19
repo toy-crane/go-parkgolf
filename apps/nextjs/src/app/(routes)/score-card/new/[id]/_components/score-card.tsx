@@ -18,6 +18,25 @@ const gridColumns = {
   "4": "grid-cols-score-card-4",
 };
 
+const ScoreCardCell = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <TableCell
+      className={cn(
+        "flex cursor-pointer items-center justify-center border p-0",
+        className,
+      )}
+    >
+      {children}
+    </TableCell>
+  );
+};
+
 const ScoreCardRow = ({
   columnCount,
   children,
@@ -123,20 +142,12 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
                   .map(({ game_scores: holes }) =>
                     holes.map((hole) => (
                       <ScoreCardRow columnCount={players.length} key={hole.id}>
-                        <TableCell
-                          className={cn(
-                            "flex cursor-pointer items-center justify-center border p-0",
-                          )}
-                        >
+                        <ScoreCardCell className="cursor-default bg-lime-200">
                           {hole.hole_number}
-                        </TableCell>
-                        <TableCell
-                          className={cn(
-                            "flex cursor-pointer items-center justify-center border p-0",
-                          )}
-                        >
+                        </ScoreCardCell>
+                        <ScoreCardCell className="cursor-default bg-lime-400">
                           {hole.par}
-                        </TableCell>
+                        </ScoreCardCell>
                       </ScoreCardRow>
                     )),
                   )}
