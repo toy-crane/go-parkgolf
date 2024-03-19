@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import BackButton from "./back-button";
 import DeleteAlert from "./delete-alert";
 import { getGameCourses } from "./fetcher";
+import Header from "./header";
 import { ScoreTabs } from "./tabs";
 
 interface Props {
@@ -70,28 +71,14 @@ const Page = async ({
   searchParams: { tab?: string };
 }) => {
   const session = await readUserSession();
-  const { gameCourses, name, startedAt, userId } = await getGameCourses({
+  const { gameCourses, startedAt, userId } = await getGameCourses({
     gameId: params.id,
   });
   const isMyGame = session?.user?.id === userId;
 
   return (
     <>
-      <div className="flex items-center gap-1 pt-2">
-        <BackButton />
-        <div className="flex-auto">
-          <h3
-            className={cn(
-              "flex break-keep text-lg font-semibold leading-5 tracking-tight",
-            )}
-          >
-            {name ? name : null}
-          </h3>
-        </div>
-        <div className="flex">
-          {isMyGame && <DeleteAlert gameId={params.id} />}
-        </div>
-      </div>
+      <Header gameId={params.id} />
       <ScoreTabs
         gameId={params.id}
         gameCourses={gameCourses}
