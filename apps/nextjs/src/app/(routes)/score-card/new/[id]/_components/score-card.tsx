@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
