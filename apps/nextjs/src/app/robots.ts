@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/api/", "/settings/", "/register/", "/login/", "/auth/"],
     },
     sitemap: "https://www.goparkgolf.app/sitemap.xml",
   };
