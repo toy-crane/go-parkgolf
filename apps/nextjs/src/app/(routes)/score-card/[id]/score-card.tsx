@@ -83,13 +83,13 @@ const gridColumns = {
 };
 
 export function ScoreCard({
-  gameCourseId,
+  selectedCourseId,
   table,
   selectedCell,
   onSelectedCell,
   playerCount,
 }: {
-  gameCourseId: string;
+  selectedCourseId: string;
   table: TableType<Score>;
   selectedCell?: Cell;
   playerCount: number;
@@ -98,7 +98,7 @@ export function ScoreCard({
   const columnOrder = table.getAllColumns().map((col) => col.id);
   const sumOfCourseValues = table
     .getRowModel()
-    .rows.filter((row) => row.original.gameCourseId === gameCourseId)
+    .rows.filter((row) => row.original.gameCourseId === selectedCourseId)
     .flatMap((row) => {
       const { id, gameCourseId, holeNumber, ...rest } = row.original;
       return rest;
@@ -143,7 +143,7 @@ export function ScoreCard({
           ? table
               .getRowModel()
               .rows.filter((row) => {
-                return row.original.gameCourseId === gameCourseId;
+                return row.original.gameCourseId === selectedCourseId;
               })
               .map((row) => (
                 <ScoreCardRow key={row.id} columnCount={playerCount}>

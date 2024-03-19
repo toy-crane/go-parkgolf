@@ -200,7 +200,7 @@ export const ScoreTabs = ({
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <ScoreCard
-              gameCourseId={gc.id}
+              selectedCourseId={gc.id}
               table={table}
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
