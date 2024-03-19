@@ -95,7 +95,6 @@ export function ScoreCard({
   headers,
   footers,
 }: {
-  selectedCourseId: string;
   columns: Column<Score>[];
   rows: Row<Score>[];
   headers: HeaderGroup<Score>[];

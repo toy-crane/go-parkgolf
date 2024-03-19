@@ -198,7 +198,6 @@ export const ScoreTabs = ({
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <ScoreCard
-              selectedCourseId={gc.id}
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
               columns={table.getAllColumns()}
