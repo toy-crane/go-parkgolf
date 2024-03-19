@@ -53,6 +53,28 @@ const ScoreCardHead = ({
   );
 };
 
+const ScoreCardCell = ({
+  children,
+  className,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+}) => {
+  return (
+    <TableCell
+      className={cn(
+        "flex cursor-pointer items-center justify-center border p-0",
+        className,
+      )}
+      onClick={onClick}
+    >
+      {children}
+    </TableCell>
+  );
+};
+
 const gridColumns = {
   "1": "grid-cols-score-card-1",
   "2": "grid-cols-score-card-2",
@@ -124,17 +146,9 @@ export function ScoreCard({
                 return row.original.gameCourseId === gameCourseId;
               })
               .map((row) => (
-                <TableRow
-                  key={row.id}
-                  className={cn(
-                    "grid flex-1",
-                    gridColumns[
-                      String(playerCount) as keyof typeof gridColumns
-                    ],
-                  )}
-                >
+                <ScoreCardRow key={row.id} columnCount={playerCount}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell
+                    <ScoreCardCell
                       key={cell.id}
                       onClick={() => {
                         if (cell.column.id === "holeNumber") return;
@@ -144,7 +158,6 @@ export function ScoreCard({
                         });
                       }}
                       className={cn(
-                        "flex cursor-pointer items-center justify-center border p-0",
                         cell.column.id === "holeNumber" &&
                           "cursor-default bg-lime-200",
                         cell.column.id === "par" && "bg-lime-400",
@@ -157,9 +170,9 @@ export function ScoreCard({
                         cell.column.columnDef.cell,
                         cell.getContext(),
                       )}
-                    </TableCell>
+                    </ScoreCardCell>
                   ))}
-                </TableRow>
+                </ScoreCardRow>
               ))
           : null}
       </TableBody>
