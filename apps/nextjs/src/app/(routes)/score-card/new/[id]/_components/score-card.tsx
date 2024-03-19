@@ -1,4 +1,10 @@
-import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
@@ -11,6 +17,25 @@ const gridColumns = {
   "4": "grid-cols-score-card-4",
 };
 
+const ScoreCardRow = ({
+  columnCount,
+  children,
+}: {
+  columnCount: number;
+  children: React.ReactNode;
+}) => {
+  return (
+    <TableRow
+      className={cn(
+        "grid",
+        gridColumns[String(columnCount) as keyof typeof gridColumns],
+      )}
+    >
+      {children}
+    </TableRow>
+  );
+};
+
 const ScoreCardHeader = ({
   players,
 }: {
@@ -18,18 +43,13 @@ const ScoreCardHeader = ({
 }) => {
   return (
     <TableHeader className="flex-0">
-      <TableRow
-        className={cn(
-          "align-center grid",
-          gridColumns[String(players.length) as keyof typeof gridColumns],
-        )}
-      >
+      <ScoreCardRow columnCount={players.length}>
         <ScoreCardHead label="홀" className="bg-lime-200" />
         <ScoreCardHead label="파" className="bg-lime-400" />
         {players.map((player) => (
           <ScoreCardHead key={player.id} label={player.nickname} />
         ))}
-      </TableRow>
+      </ScoreCardRow>
     </TableHeader>
   );
 };
