@@ -15,6 +15,44 @@ import { flexRender } from "@tanstack/react-table";
 
 import type { Cell, Score } from "./type";
 
+const ScoreCardRow = ({
+  columnCount,
+  children,
+}: {
+  columnCount: number;
+  children: React.ReactNode;
+}) => {
+  return (
+    <TableRow
+      className={cn(
+        "grid flex-1",
+        gridColumns[String(columnCount) as keyof typeof gridColumns],
+      )}
+    >
+      {children}
+    </TableRow>
+  );
+};
+
+const ScoreCardHead = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <TableHead
+      className={cn(
+        "flex h-auto items-center justify-center border px-0 py-2 text-center font-semibold text-black md:px-4",
+        className,
+      )}
+    >
+      {children}
+    </TableHead>
+  );
+};
+
 const gridColumns = {
   "1": "grid-cols-score-card-1",
   "2": "grid-cols-score-card-2",
@@ -56,19 +94,12 @@ export function ScoreCard({
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
       <TableHeader className="flex-0">
         {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow
-            key={headerGroup.id}
-            className={cn(
-              "align-center grid",
-              gridColumns[String(playerCount) as keyof typeof gridColumns],
-            )}
-          >
+          <ScoreCardRow key={headerGroup.id} columnCount={playerCount}>
             {headerGroup.headers.map((header) => {
               return (
-                <TableHead
+                <ScoreCardHead
                   key={header.id}
                   className={cn(
-                    "flex h-auto items-center justify-center border px-0 py-2 text-center font-semibold text-black md:px-4",
                     header.column.id === "holeNumber" && "bg-lime-200",
                     header.column.id === "par" && "bg-lime-400",
                   )}
@@ -79,10 +110,10 @@ export function ScoreCard({
                         header.column.columnDef.header,
                         header.getContext(),
                       )}
-                </TableHead>
+                </ScoreCardHead>
               );
             })}
-          </TableRow>
+          </ScoreCardRow>
         ))}
       </TableHeader>
       <TableBody className="flex flex-1 flex-col text-base">
