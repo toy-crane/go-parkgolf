@@ -97,7 +97,6 @@ export function ScoreCard({
   footers,
 }: {
   selectedCourseId: string;
-  table: TableType<Score>;
   playerCount: number;
   columns: Column<Score>[];
   rows: Row<Score>[];
