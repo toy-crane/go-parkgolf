@@ -63,7 +63,6 @@ const getFormattedData = (gameCourses: GameCourse[]): Score[] => {
 export const ScoreTabs = ({
   gameCourses,
   selectedTab,
-  playerCount,
   isMyGame,
   gameId,
   startedAt,
@@ -71,7 +70,6 @@ export const ScoreTabs = ({
   gameId: string;
   gameCourses: GameCourse[];
   selectedTab?: string;
-  playerCount: number;
   isMyGame: boolean;
   startedAt: string;
 }) => {
@@ -203,7 +201,6 @@ export const ScoreTabs = ({
               selectedCourseId={gc.id}
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
-              playerCount={playerCount}
               columns={table.getAllColumns()}
               rows={table
                 .getRowModel()

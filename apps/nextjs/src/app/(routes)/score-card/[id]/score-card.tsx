@@ -92,12 +92,10 @@ export function ScoreCard({
   onSelectedCell,
   columns,
   rows,
-  playerCount,
   headers,
   footers,
 }: {
   selectedCourseId: string;
-  playerCount: number;
   columns: Column<Score>[];
   rows: Row<Score>[];
   headers: HeaderGroup<Score>[];
@@ -106,6 +104,7 @@ export function ScoreCard({
   selectedCell?: Cell;
 }) {
   const columnOrder = columns.map((col) => col.id);
+  const playerCount = columns.length - 2;
   const sumOfCourseValues = rows
     .flatMap((row) => {
       const { id, gameCourseId, holeNumber, ...rest } = row.original;

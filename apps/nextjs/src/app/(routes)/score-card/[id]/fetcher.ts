@@ -28,6 +28,5 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
     startedAt: started_at,
     name: golf_courses?.name,
     userId: user_id,
-    playerCount: game_players?.length,
   };
 };
