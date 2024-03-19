@@ -4,13 +4,7 @@ import { Loader2 } from "lucide-react";
 import Header from "./_components/header";
 import ScoreCard from "./_components/score-card";
 
-const Page = ({
-  params,
-  searchParams,
-}: {
-  params: { id: string };
-  searchParams: { tab?: string };
-}) => {
+const Page = ({ params }: { params: { id: string } }) => {
   const gameId = params.id;
 
   return (
