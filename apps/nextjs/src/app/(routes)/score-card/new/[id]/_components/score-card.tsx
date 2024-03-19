@@ -2,6 +2,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -224,6 +225,8 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
                       ),
                     ),
                   )}
+              </TableBody>
+              <TableFooter className="text-base">
                 <ScoreCardRow columnCount={players.length}>
                   <ScoreCardCell className="flex cursor-default items-center justify-center break-keep border px-0 py-0 text-center text-xs leading-4 md:px-4">
                     코스 합계
@@ -248,7 +251,7 @@ const ScoreCard = async ({ gameId }: { gameId: string }) => {
                     </ScoreCardCell>
                   ))}
                 </ScoreCardRow>
-              </TableBody>
+              </TableFooter>
             </Table>
           </TabsContent>
         ))}
