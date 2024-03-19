@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type { Table as TableType } from "@tanstack/react-table";
+import type { Column, Table as TableType } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
 
 import type { Cell, Score } from "./type";
@@ -87,15 +87,17 @@ export function ScoreCard({
   table,
   selectedCell,
   onSelectedCell,
+  columns,
   playerCount,
 }: {
   selectedCourseId: string;
   table: TableType<Score>;
-  selectedCell?: Cell;
   playerCount: number;
+  columns: Column<Score>[];
   onSelectedCell: (cell: Cell) => void;
+  selectedCell?: Cell;
 }) {
-  const columnOrder = table.getAllColumns().map((col) => col.id);
+  const columnOrder = columns.map((col) => col.id);
   const sumOfCourseValues = table
     .getRowModel()
     .rows.filter((row) => row.original.gameCourseId === selectedCourseId)

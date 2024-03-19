@@ -205,6 +205,7 @@ export const ScoreTabs = ({
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
               playerCount={playerCount}
+              columns={table.getAllColumns()}
             />
           </TabsContent>
         ))}
