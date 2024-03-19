@@ -177,19 +177,14 @@ export function ScoreCard({
           : null}
       </TableBody>
       <TableFooter className="text-base">
-        <TableRow
-          className={cn(
-            "align-center grid",
-            gridColumns[String(playerCount) as keyof typeof gridColumns],
-          )}
-        >
+        <ScoreCardRow columnCount={playerCount}>
           {columnOrder.map((key) => {
             const value = sumOfCourseValues[key];
             return (
-              <TableCell
+              <ScoreCardCell
                 key={key}
                 className={cn(
-                  "flex items-center justify-center break-keep border px-0 py-0 text-center",
+                  "break-keep text-center",
                   key === "holeNumber" && "text-xs leading-4",
                 )}
               >
@@ -198,23 +193,17 @@ export function ScoreCard({
                   : Number(value) > 0 && key !== "par"
                   ? `+${value}`
                   : value}
-              </TableCell>
+              </ScoreCardCell>
             );
           })}
-        </TableRow>
+        </ScoreCardRow>
         {table.getFooterGroups().map((footerGroup) => (
-          <TableRow
-            key={footerGroup.id}
-            className={cn(
-              "align-center grid",
-              gridColumns[String(playerCount) as keyof typeof gridColumns],
-            )}
-          >
+          <ScoreCardRow key={footerGroup.id} columnCount={playerCount}>
             {footerGroup.headers.map((footer) => {
               return (
-                <TableCell
+                <ScoreCardCell
                   key={footer.id}
-                  className="flex items-center justify-center break-keep border px-0 py-0 text-center md:px-4"
+                  className="break-keep text-center"
                 >
                   {footer.isPlaceholder
                     ? null
@@ -222,10 +211,10 @@ export function ScoreCard({
                         footer.column.columnDef.footer,
                         footer.getContext(),
                       )}
-                </TableCell>
+                </ScoreCardCell>
               );
             })}
-          </TableRow>
+          </ScoreCardRow>
         ))}
       </TableFooter>
     </Table>
