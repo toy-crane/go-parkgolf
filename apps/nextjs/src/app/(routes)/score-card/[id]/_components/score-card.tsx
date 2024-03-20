@@ -12,8 +12,8 @@ import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
 import { saveScore } from "../actions";
-import { useGetColumns } from "../columns";
-import type { ColumnName } from "../columns";
+import { useGetColumns } from "../use-columns";
+import type { ColumnName } from "../use-columns";
 import { createSchema } from "../schema";
 import type { Cell, GameCourse, Score } from "../type";
 import { ScoreTable } from "./score-table";
