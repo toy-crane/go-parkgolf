@@ -1,4 +1,3 @@
-import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
