@@ -6,10 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useLocalStorage from "@/libs/hooks/local-storage";
-import { cn } from "@/libs/tailwind";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-import { format } from "date-fns";
 import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
@@ -79,7 +77,7 @@ export const ScoreTabs = ({
   );
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(undefined);
 
-  const lastTabName = gameCourses[gameCourses.length - 1]?.name!;
+  const lastTabName = gameCourses[gameCourses.length - 1]?.name;
 
   const searchParams = useSearchParams();
   const router = useRouter();
