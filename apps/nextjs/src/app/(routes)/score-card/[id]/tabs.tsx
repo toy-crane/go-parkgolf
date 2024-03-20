@@ -11,11 +11,11 @@ import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
+import { ScoreTable } from "./_components/score-table";
 import { saveScore } from "./actions";
 import { useGetColumns } from "./columns";
 import type { ColumnName } from "./columns";
 import { createSchema } from "./schema";
-import { ScoreCard } from "./score-card";
 import type { Cell, GameCourse, Score } from "./type";
 
 const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
@@ -188,7 +188,7 @@ export const ScoreTabs = ({
         </TabsList>
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
-            <ScoreCard
+            <ScoreTable
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
               columns={table.getAllColumns()}

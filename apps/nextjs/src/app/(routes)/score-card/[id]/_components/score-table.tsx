@@ -10,15 +10,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type {
-  Column,
-  HeaderGroup,
-  Row,
-  Table as TableType,
-} from "@tanstack/react-table";
+import type { Column, HeaderGroup, Row } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
 
-import type { Cell, Score } from "./type";
+import type { Cell, Score } from "../type";
 
 const ScoreCardRow = ({
   columnCount,
@@ -87,7 +82,7 @@ const gridColumns = {
   "4": "grid-cols-score-card-4",
 };
 
-export function ScoreCard({
+export function ScoreTable({
   selectedCell,
   onSelectedCell,
   columns,
