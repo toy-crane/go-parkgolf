@@ -42,6 +42,8 @@ export async function saveScore(gameId: string, scores: Score[]) {
     })
     .flat();
 
+  console.log(player_scores, scores);
+
   const scorePlayerMutation = supabase
     .from("game_player_scores")
     .upsert(player_scores, { onConflict: "game_score_id, game_player_id" })

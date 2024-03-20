@@ -3,16 +3,18 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
 import BackButton from "./back-button";
+import SaveButton from "./save-button";
 
 const Header = async ({ gameId }: { gameId: string }) => {
   const supabase = await createSupabaseServerClient();
   const response = await supabase
     .from("games")
-    .select("golf_courses(name),user_id")
+    .select("golf_courses(name),user_id, game_players(id)")
     .eq("id", gameId)
     .single();
   if (response.error) throw response.error;
   const courseName = response.data.golf_courses?.name;
+  const playerIds = response.data.game_players.map((p) => p.id);
   return (
     <>
       <div className="flex items-center gap-1 py-2">
@@ -30,9 +32,7 @@ const Header = async ({ gameId }: { gameId: string }) => {
           <Button size="sm" variant="secondary" className="h-8 px-2">
             임시 저장
           </Button>
-          <Button size="sm" className="h-8 px-2">
-            게임 종료
-          </Button>
+          <SaveButton gameId={gameId} playerIds={playerIds} />
         </div>
       </div>
     </>
