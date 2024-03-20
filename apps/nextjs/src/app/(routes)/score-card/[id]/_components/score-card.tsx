@@ -77,10 +77,12 @@ export const ScoreCard = ({
     [],
   );
   const columns = getColumnNames(gameCourses);
-  const [selectedCell, setSelectedCell] = useState<Cell | undefined>({
-    row: "0",
-    colName: columns[0]?.accessorKey!,
-  });
+  const defaultSelectedCell = isMyGame
+    ? { row: "0", colName: columns[0]?.accessorKey! }
+    : undefined;
+  const [selectedCell, setSelectedCell] = useState<Cell | undefined>(
+    defaultSelectedCell,
+  );
 
   const lastTabName = gameCourses[gameCourses.length - 1]?.name;
 
@@ -202,35 +204,37 @@ export const ScoreCard = ({
           </Button>
         </div>
       )}
-      <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
-        <DrawerContent>
-          <div className="content-grid my-4">
-            <div className="mb-3 text-center text-lg font-semibold">
-              타수를 입력해 주세요
+      {isMyGame && (
+        <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
+          <DrawerContent>
+            <div className="content-grid my-4">
+              <div className="mb-3 text-center text-lg font-semibold">
+                타수를 입력해 주세요
+              </div>
+              <div className="mb-2 grid grid-cols-3 gap-2">
+                {[...Array(9).keys()].map((score, index) => (
+                  <Button
+                    key={index}
+                    variant={"secondary"}
+                    onClick={() => {
+                      if (selectedCell) {
+                        handleClick(
+                          selectedCell.row,
+                          selectedCell.colName,
+                          score + 1,
+                        );
+                      }
+                      setHandlerOpen(false);
+                    }}
+                  >
+                    {score + 1}
+                  </Button>
+                ))}
+              </div>
             </div>
-            <div className="mb-2 grid grid-cols-3 gap-2">
-              {[...Array(9).keys()].map((score, index) => (
-                <Button
-                  key={index}
-                  variant={"secondary"}
-                  onClick={() => {
-                    if (selectedCell) {
-                      handleClick(
-                        selectedCell.row,
-                        selectedCell.colName,
-                        score + 1,
-                      );
-                    }
-                    setHandlerOpen(false);
-                  }}
-                >
-                  {score + 1}
-                </Button>
-              ))}
-            </div>
-          </div>
-        </DrawerContent>
-      </Drawer>
+          </DrawerContent>
+        </Drawer>
+      )}
     </>
   );
 };
