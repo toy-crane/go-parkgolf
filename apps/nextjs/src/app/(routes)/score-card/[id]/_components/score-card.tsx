@@ -6,12 +6,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 import type { Cell, GameCourse, Score } from "../type";
-import { useGetColumns } from "../use-columns";
 import type { ColumnName } from "../use-columns";
 import { ScoreTable } from "./score-table";
 
@@ -29,6 +27,14 @@ const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
 
 const safeLocalStorage = generateStorage();
 
+const MergeScores = (scores: Score[], localScores: Score[]) => {
+  const newScores = scores.map((s) => {
+    const localScore = localScores.find((ls) => ls.id === s.id);
+    return localScore ?? s;
+  });
+  return newScores;
+};
+
 export const ScoreCard = ({
   gameCourses,
   selectedTab,
@@ -45,7 +51,13 @@ export const ScoreCard = ({
   useLockBodyScroll();
   const [handlerOpen, setHandlerOpen] = useState(true);
   const columns = getColumnNames(gameCourses);
-  const [scores, setScores] = useState<Score[]>(data);
+  const initialScores = MergeScores(
+    data,
+    JSON.parse(
+      safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
+    ) as Score[],
+  );
+  const [scores, setScores] = useState<Score[]>(initialScores);
   const defaultSelectedCell = isMyGame
     ? { row: "0", colName: columns[0]?.accessorKey! }
     : undefined;
@@ -61,20 +73,6 @@ export const ScoreCard = ({
     params.set("tab", String(value));
     router.replace(`?${params.toString()}`);
   };
-
-  // 최초 렌더링 시, 로컬 스토리지에 저장된 점수를 불러온다.
-  useEffect(() => {
-    const localScores = JSON.parse(
-      safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
-    ) as Score[];
-    setScores((origin) => {
-      const newScores = origin.map((s) => {
-        const localScore = localScores.find((ls) => ls.id === s.id);
-        return localScore ?? s;
-      });
-      return newScores;
-    });
-  }, []);
 
   const handleClick = (row: string, colName: string, score: number) => {
     const currentScores = scores.find((_, index) => index === Number(row));
