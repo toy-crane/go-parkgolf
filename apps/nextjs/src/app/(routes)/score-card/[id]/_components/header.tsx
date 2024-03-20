@@ -29,9 +29,7 @@ const Header = async ({ gameId }: { gameId: string }) => {
           </h3>
         </div>
         <div className="flex gap-2">
-          <Button size="sm" variant="secondary" className="h-8 px-2">
-            임시 저장
-          </Button>
+          <SaveButton gameId={gameId} playerIds={playerIds} temporary={true} />
           <SaveButton gameId={gameId} playerIds={playerIds} />
         </div>
       </div>

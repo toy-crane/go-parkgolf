@@ -5,10 +5,9 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { generateStorage } from "@toss/storage";
 import { Loader2 } from "lucide-react";
-import { z } from "zod";
 
 import { saveScore } from "../actions";
-import { createSchema } from "../schema";
+import { createScoreSchema } from "../schema";
 import type { Score } from "../type";
 
 const safeLocalStorage = generateStorage();
@@ -16,25 +15,16 @@ const safeLocalStorage = generateStorage();
 const SaveButton = ({
   gameId,
   playerIds,
+  temporary = false,
 }: {
   gameId: string;
   playerIds: string[];
+  temporary?: boolean;
 }) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const scoreSchema = createScoreSchema(playerIds);
   const handleSave = () => {
-    const scoreSchema = z.array(
-      createSchema({
-        id: z.string(),
-        gameCourseId: z.string(),
-        holeNumber: z.number(),
-        par: z.number(),
-        ...playerIds.reduce((acc: Record<string, z.ZodType<any>>, id) => {
-          acc[id] = z.number();
-          return acc;
-        }, {}),
-      }),
-    );
     const changedScoresGroup = JSON.parse(
       safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
     ) as Score[];
@@ -47,7 +37,7 @@ const SaveButton = ({
         await saveScore(gameId, result.data as Score[]);
       });
       safeLocalStorage.remove(`${gameId}-changed-scores`);
-      router.replace(`/score-card/${gameId}/completed`);
+      if (!temporary) router.replace(`/score-card/${gameId}/completed`);
     }
   };
   return (
@@ -56,9 +46,12 @@ const SaveButton = ({
       className="h-8 px-2"
       onClick={handleSave}
       disabled={isPending}
+      variant={temporary ? "secondary" : "default"}
     >
       {isPending ? (
         <Loader2 className="h-5 w-5 animate-spin" size={24} />
+      ) : temporary ? (
+        "임시 저장"
       ) : (
         "게임 종료"
       )}
