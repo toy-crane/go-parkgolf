@@ -173,11 +173,6 @@ export const ScoreTabs = ({
 
   return (
     <>
-      <div
-        className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
-      >
-        {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
-      </div>
       <Tabs
         defaultValue={selectedTab}
         value={selectedTab}

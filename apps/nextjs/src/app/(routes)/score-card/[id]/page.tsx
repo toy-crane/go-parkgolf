@@ -79,6 +79,11 @@ const Page = async ({
   return (
     <>
       <Header gameId={params.id} />
+      <div
+        className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
+      >
+        {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
+      </div>
       <ScoreTabs
         gameId={params.id}
         gameCourses={gameCourses}
