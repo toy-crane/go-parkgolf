@@ -65,13 +65,11 @@ export const ScoreTabs = ({
   selectedTab,
   isMyGame,
   gameId,
-  startedAt,
 }: {
   gameId: string;
   gameCourses: GameCourse[];
   selectedTab?: string;
   isMyGame: boolean;
-  startedAt: string;
 }) => {
   useLockBodyScroll();
   const [isPending, startTransition] = useTransition();
