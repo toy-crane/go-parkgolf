@@ -2,8 +2,8 @@ import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
-import BackButton from "../new/[id]/_components/back-button";
-import DeleteAlert from "../new/[id]/_components/delete-alert";
+import BackButton from "./_components/back-button";
+import DeleteAlert from "./_components/delete-alert";
 
 const Header = async ({ gameId }: { gameId: string }) => {
   const session = await readUserSession();

@@ -5,9 +5,9 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
+import BackButton from "./_components/back-button";
+import DeleteAlert from "./_components/delete-alert";
 import { ScoreCard } from "./_components/score-card";
-import BackButton from "./back-button";
-import DeleteAlert from "./delete-alert";
 import { getGameCourses } from "./fetcher";
 import Header from "./header";
 
