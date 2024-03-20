@@ -4,18 +4,29 @@ import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useLocalStorage from "@/libs/hooks/local-storage";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import { set } from "lodash";
 import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
 import { saveScore } from "../actions";
-import { useGetColumns } from "../use-columns";
-import type { ColumnName } from "../use-columns";
 import { createSchema } from "../schema";
 import type { Cell, GameCourse, Score } from "../type";
+import { useGetColumns } from "../use-columns";
+import type { ColumnName } from "../use-columns";
 import { ScoreTable } from "./score-table";
 
 const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
@@ -70,6 +81,7 @@ export const ScoreCard = ({
   isMyGame: boolean;
 }) => {
   useLockBodyScroll();
+  const [handlerOpen, setHandlerOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [changedScoresGroup, setChangedScoresGroup] = useLocalStorage<Score[]>(
     `${gameId}-changed-scores`,
@@ -139,18 +151,12 @@ export const ScoreCard = ({
     }
   };
 
-  const handleScore = (
-    row: string,
-    colName: string,
-    type: "increase" | "decrease",
-  ) => {
-    const increment = type === "increase" ? 1 : -1;
+  const handleClick = (row: string, colName: string, score: number) => {
     const currentScores = scoreCard.find((_, index) => index === Number(row));
     if (!currentScores) return;
-    const currentScore = currentScores[colName] as number;
     const updatedScores = {
       ...currentScores,
-      [colName]: currentScore + increment,
+      [colName]: score,
     };
     setChangedScoresGroup((origin) => {
       const updated = origin.map((s) =>
@@ -165,6 +171,7 @@ export const ScoreCard = ({
 
   const handleSelectedCell = (cell: Cell) => {
     setSelectedCell(cell);
+    setHandlerOpen(true);
   };
 
   return (
@@ -201,79 +208,42 @@ export const ScoreCard = ({
           </TabsContent>
         ))}
       </Tabs>
-      <div>
-        {isMyGame ? (
-          <div className="flex justify-evenly gap-2 pt-2">
-            <Button
-              className="flex-auto"
-              size="sm"
-              disabled={isPending || !selectedCell}
-              onClick={() => {
-                if (selectedCell) {
-                  handleScore(
-                    selectedCell.row,
-                    selectedCell.colName,
-                    "increase",
-                  );
-                }
-              }}
-            >
-              <Plus className="h-4 w-4" />
-            </Button>
-            <Button
-              className="flex-auto"
-              size="sm"
-              disabled={isPending || !selectedCell}
-              onClick={() => {
-                if (selectedCell) {
-                  handleScore(
-                    selectedCell.row,
-                    selectedCell.colName,
-                    "decrease",
-                  );
-                }
-              }}
-            >
-              <Minus className="h-4 w-4" />
-            </Button>
-            {lastTabName === selectedTab ? (
-              <Button
-                onClick={handleSave}
-                variant="outline"
-                disabled={isPending}
-                size="sm"
-              >
-                {isPending ? (
-                  <Loader2 className="h-5 w-5 animate-spin" size={24} />
-                ) : (
-                  "완료"
-                )}
-              </Button>
-            ) : (
-              <Button
-                variant="outline"
-                size="smIcon"
-                className="h-9 w-9"
-                onClick={() => {
-                  const params = new URLSearchParams(searchParams);
-                  const nextTabName =
-                    gameCourses[
-                      gameCourses.findIndex((gc) => gc.name === selectedTab) + 1
-                    ]?.name!;
-                  params.set("tab", nextTabName);
-                  router.replace(`?${params.toString()}`);
-                }}
-              >
-                <ChevronRight />
-              </Button>
-            )}
-          </div>
-        ) : (
+      {!isMyGame && (
+        <div>
           <Button asChild className="mt-4 w-full">
             <Link href="/">다른 파크골프장 둘러보기</Link>
           </Button>
-        )}
-      </div>
+        </div>
+      )}
+      <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
+        <DrawerContent>
+          <div className="content-grid my-4">
+            <div className="mb-3 text-center text-lg font-semibold">
+              타수를 입력해 주세요
+            </div>
+            <div className="mb-2 grid grid-cols-3 gap-2">
+              {[...Array(9).keys()].map((score, index) => (
+                <Button
+                  key={index}
+                  variant={"secondary"}
+                  onClick={() => {
+                    if (selectedCell) {
+                      handleClick(
+                        selectedCell.row,
+                        selectedCell.colName,
+                        score + 1,
+                      );
+                    }
+                    setHandlerOpen(false);
+                  }}
+                >
+                  {score + 1}
+                </Button>
+              ))}
+            </div>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };
