@@ -106,11 +106,6 @@ export const ScoreCard = ({
     router.replace(`?${params.toString()}`);
   };
 
-  // // 탭이 변경되면, 선택된 셀을 초기화한다.
-  // useEffect(() => {
-  //   setSelectedCell(undefined);
-  // }, [selectedTab]);
-
   const table = useReactTable({
     data: scoreCard,
     columns: useGetColumns(columns),
