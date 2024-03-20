@@ -3,10 +3,8 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
 import BackButton from "./back-button";
-import DeleteAlert from "./delete-alert";
 
 const Header = async ({ gameId }: { gameId: string }) => {
-  const session = await readUserSession();
   const supabase = await createSupabaseServerClient();
   const response = await supabase
     .from("games")
@@ -14,8 +12,6 @@ const Header = async ({ gameId }: { gameId: string }) => {
     .eq("id", gameId)
     .single();
   if (response.error) throw response.error;
-  const { user_id } = response.data;
-  const isMyGame = session?.user?.id === user_id;
   const courseName = response.data.golf_courses?.name;
   return (
     <>
@@ -29,9 +25,6 @@ const Header = async ({ gameId }: { gameId: string }) => {
           >
             {courseName ? courseName : null}
           </h3>
-        </div>
-        <div className="flex">
-          {isMyGame && <DeleteAlert gameId={gameId} />}
         </div>
       </div>
     </>
