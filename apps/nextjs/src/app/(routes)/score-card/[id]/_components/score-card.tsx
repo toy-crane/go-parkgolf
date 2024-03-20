@@ -4,22 +4,11 @@ import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useLocalStorage from "@/libs/hooks/local-storage";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-import { set } from "lodash";
-import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
 import { saveScore } from "../actions";
