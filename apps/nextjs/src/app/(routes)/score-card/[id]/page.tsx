@@ -4,14 +4,44 @@ import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
+import { get } from "lodash";
 
 import Header from "./_components/header";
 import { ScoreCard } from "./_components/score-card";
 import { getGameCourses } from "./fetcher";
+import type { GameCourse, Score } from "./type";
 
 interface Props {
   params: { id: string };
 }
+
+const createScores = (gameCourses: GameCourse[]): Score[] => {
+  const data = gameCourses
+    .map((gc) =>
+      gc.game_scores.map((score) => {
+        const playerScore = score.game_player_scores;
+        const playerScoreMap = playerScore.reduce(
+          (acc: Record<string, number>, curr) => {
+            const participantId = String(curr.game_players?.id);
+            if (participantId) {
+              acc[participantId] = curr.score ?? 0;
+            }
+            return acc;
+          },
+          {},
+        );
+        return {
+          id: score.id,
+          gameCourseId: score.game_course_id,
+          holeNumber: score.hole_number,
+          par: score.par,
+          ...playerScoreMap,
+        };
+      }),
+    )
+    .flat();
+  return data;
+};
 
 export async function generateMetadata(
   { params }: Props,
@@ -84,6 +114,7 @@ const Page = async ({
       </div>
       <ScoreCard
         gameId={params.id}
+        data={createScores(gameCourses)}
         gameCourses={gameCourses}
         selectedTab={searchParams.tab ?? gameCourses[0]?.name}
         isMyGame={isMyGame}

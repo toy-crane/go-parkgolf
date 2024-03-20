@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -8,11 +8,9 @@ import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useLocalStorage from "@/libs/hooks/local-storage";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-import { z } from "zod";
 
-import { saveScore } from "../actions";
-import { createSchema } from "../schema";
 import type { Cell, GameCourse, Score } from "../type";
 import { useGetColumns } from "../use-columns";
 import type { ColumnName } from "../use-columns";
@@ -30,53 +28,25 @@ const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
   return columns;
 };
 
-const getFormattedData = (gameCourses: GameCourse[]): Score[] => {
-  const data = gameCourses
-    .map((gc) =>
-      gc.game_scores.map((score) => {
-        const playerScore = score.game_player_scores;
-        const playerScoreMap = playerScore.reduce(
-          (acc: Record<string, number>, curr) => {
-            const participantId = String(curr.game_players?.id);
-            if (participantId) {
-              acc[participantId] = curr.score ?? 0;
-            }
-            return acc;
-          },
-          {},
-        );
-        return {
-          id: score.id,
-          gameCourseId: score.game_course_id,
-          holeNumber: score.hole_number,
-          par: score.par,
-          ...playerScoreMap,
-        };
-      }),
-    )
-    .flat();
-  return data;
-};
+const safeLocalStorage = generateStorage();
 
 export const ScoreCard = ({
   gameCourses,
   selectedTab,
   isMyGame,
+  data,
   gameId,
 }: {
   gameId: string;
+  data: Score[];
   gameCourses: GameCourse[];
   selectedTab?: string;
   isMyGame: boolean;
 }) => {
   useLockBodyScroll();
   const [handlerOpen, setHandlerOpen] = useState(true);
-  const [isPending, startTransition] = useTransition();
-  const [changedScoresGroup, setChangedScoresGroup] = useLocalStorage<Score[]>(
-    `${gameId}-changed-scores`,
-    [],
-  );
   const columns = getColumnNames(gameCourses);
+  const [scores, setScores] = useState<Score[]>(data);
   const defaultSelectedCell = isMyGame
     ? { row: "0", colName: columns[0]?.accessorKey! }
     : undefined;
@@ -84,23 +54,8 @@ export const ScoreCard = ({
     defaultSelectedCell,
   );
 
-  const lastTabName = gameCourses[gameCourses.length - 1]?.name;
-
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  // 변경된 row와 기존 데이터를 합친다.
-  const scoreCard = useMemo(
-    () =>
-      getFormattedData(gameCourses).map((score) => {
-        const changedScore = changedScoresGroup.find((s) => s.id === score.id);
-        if (changedScore) {
-          return changedScore;
-        }
-        return score;
-      }),
-    [changedScoresGroup, gameCourses],
-  );
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -109,53 +64,32 @@ export const ScoreCard = ({
   };
 
   const table = useReactTable({
-    data: scoreCard,
+    data: scores,
     columns: useGetColumns(columns),
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const handleSave = () => {
-    const scoreSchema = z.array(
-      createSchema({
-        id: z.string(),
-        gameCourseId: z.string(),
-        holeNumber: z.number(),
-        par: z.number(),
-        ...columns.reduce((acc: Record<string, z.ZodType<any>>, h) => {
-          acc[h.accessorKey] = z.number();
-          return acc;
-        }, {}),
-      }),
-    );
-    const result = scoreSchema.safeParse(changedScoresGroup);
-    if (result.success === false) {
-      return;
-    }
-    if (result.success) {
-      startTransition(async () => {
-        await saveScore(gameId, result.data as Score[]);
-      });
-      setChangedScoresGroup([]);
-      router.replace(`/score-card/${gameId}/completed`);
-    }
-  };
-
   const handleClick = (row: string, colName: string, score: number) => {
-    const currentScores = scoreCard.find((_, index) => index === Number(row));
+    const currentScores = scores.find((_, index) => index === Number(row));
     if (!currentScores) return;
     const updatedScores = {
       ...currentScores,
       [colName]: score,
     };
-    setChangedScoresGroup((origin) => {
-      const updated = origin.map((s) =>
-        s.id === updatedScores.id ? updatedScores : s,
-      );
-      if (!updated.find((s) => s === updatedScores)) {
-        updated.push(updatedScores);
-      }
-      return updated;
-    });
+    setScores((origin) =>
+      origin.map((s) => (s.id === updatedScores.id ? updatedScores : s)),
+    );
+    const localScores = JSON.parse(
+      safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
+    ) as Score[];
+    const newLocalScores = [
+      ...localScores.filter((s) => s.id !== updatedScores.id),
+      updatedScores,
+    ];
+    safeLocalStorage.set(
+      `${gameId}-changed-scores`,
+      JSON.stringify(newLocalScores),
+    );
   };
 
   const handleSelectedCell = (cell: Cell) => {
