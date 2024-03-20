@@ -11,12 +11,12 @@ import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { ChevronRight, Loader2, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 
-import { ScoreTable } from "./_components/score-table";
-import { saveScore } from "./actions";
-import { useGetColumns } from "./columns";
-import type { ColumnName } from "./columns";
-import { createSchema } from "./schema";
-import type { Cell, GameCourse, Score } from "./type";
+import { saveScore } from "../actions";
+import { useGetColumns } from "../columns";
+import type { ColumnName } from "../columns";
+import { createSchema } from "../schema";
+import type { Cell, GameCourse, Score } from "../type";
+import { ScoreTable } from "./score-table";
 
 const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
   const players =
@@ -58,7 +58,7 @@ const getFormattedData = (gameCourses: GameCourse[]): Score[] => {
   return data;
 };
 
-export const ScoreTabs = ({
+export const ScoreCard = ({
   gameCourses,
   selectedTab,
   isMyGame,

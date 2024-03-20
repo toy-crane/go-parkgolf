@@ -5,11 +5,11 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
+import { ScoreCard } from "./_components/score-card";
 import BackButton from "./back-button";
 import DeleteAlert from "./delete-alert";
 import { getGameCourses } from "./fetcher";
 import Header from "./header";
-import { ScoreTabs } from "./tabs";
 
 interface Props {
   params: { id: string };
@@ -84,7 +84,7 @@ const Page = async ({
       >
         {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
       </div>
-      <ScoreTabs
+      <ScoreCard
         gameId={params.id}
         gameCourses={gameCourses}
         selectedTab={searchParams.tab ?? gameCourses[0]?.name}
