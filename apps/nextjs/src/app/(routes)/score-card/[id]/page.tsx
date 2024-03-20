@@ -4,7 +4,6 @@ import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
-import { get } from "lodash";
 
 import Header from "./_components/header";
 import { ScoreCard } from "./_components/score-card";

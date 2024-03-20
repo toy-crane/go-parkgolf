@@ -42,8 +42,6 @@ export async function saveScore(gameId: string, scores: Score[]) {
     })
     .flat();
 
-  console.log(player_scores, scores);
-
   const scorePlayerMutation = supabase
     .from("game_player_scores")
     .upsert(player_scores, { onConflict: "game_score_id, game_player_id" })
@@ -64,8 +62,8 @@ export async function saveScore(gameId: string, scores: Score[]) {
     throw new Error(gameMutationResponse.error.message);
   }
 
-  revalidatePath("/score-card/[id]", "page");
-  revalidatePath("/my-games", "page");
+  revalidatePath(`/score-card/${gameId}`, "page");
+  revalidatePath("/my-games");
   return { success: true };
 }
 
