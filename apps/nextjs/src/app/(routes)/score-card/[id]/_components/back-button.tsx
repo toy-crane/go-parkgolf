@@ -10,6 +10,7 @@ const BackButton = () => {
     <Button
       variant="ghost"
       size="icon"
+      className="w-7"
       onClick={() => {
         router.replace("/my-games");
       }}
