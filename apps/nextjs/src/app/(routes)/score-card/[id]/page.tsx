@@ -7,9 +7,9 @@ import { format } from "date-fns";
 
 import BackButton from "./_components/back-button";
 import DeleteAlert from "./_components/delete-alert";
+import Header from "./_components/header";
 import { ScoreCard } from "./_components/score-card";
 import { getGameCourses } from "./fetcher";
-import Header from "./header";
 
 interface Props {
   params: { id: string };

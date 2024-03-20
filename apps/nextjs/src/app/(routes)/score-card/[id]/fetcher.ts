@@ -20,7 +20,6 @@ export const getGameCourses = async ({ gameId }: { gameId: string }) => {
     game_courses: gameCourses,
     started_at,
     golf_courses,
-    game_players,
     user_id,
   } = response;
   return {

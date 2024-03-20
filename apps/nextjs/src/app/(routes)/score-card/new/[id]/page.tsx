@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 
-import Header from "../../[id]/header";
+import Header from "../../[id]/_components/header";
 import ScoreCard from "./_components/score-card";
 
 const Page = ({ params }: { params: { id: string } }) => {
