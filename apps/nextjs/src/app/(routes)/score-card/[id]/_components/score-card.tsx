@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import useLocalStorage from "@/libs/hooks/local-storage";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
@@ -63,11 +62,19 @@ export const ScoreCard = ({
     router.replace(`?${params.toString()}`);
   };
 
-  const table = useReactTable({
-    data: scores,
-    columns: useGetColumns(columns),
-    getCoreRowModel: getCoreRowModel(),
-  });
+  // 최초 렌더링 시, 로컬 스토리지에 저장된 점수를 불러온다.
+  useEffect(() => {
+    const localScores = JSON.parse(
+      safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
+    ) as Score[];
+    setScores((origin) => {
+      const newScores = origin.map((s) => {
+        const localScore = localScores.find((ls) => ls.id === s.id);
+        return localScore ?? s;
+      });
+      return newScores;
+    });
+  }, []);
 
   const handleClick = (row: string, colName: string, score: number) => {
     const currentScores = scores.find((_, index) => index === Number(row));
@@ -121,12 +128,9 @@ export const ScoreCard = ({
             <ScoreTable
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
-              columns={table.getAllColumns()}
-              rows={table
-                .getRowModel()
-                .rows.filter((row) => row.original.gameCourseId === gc.id)}
-              headers={table.getHeaderGroups()}
-              footers={table.getFooterGroups()}
+              scores={scores}
+              gameCourseId={gc.id}
+              columns={columns}
             />
           </TabsContent>
         ))}

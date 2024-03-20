@@ -10,10 +10,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
-import type { Column, HeaderGroup, Row } from "@tanstack/react-table";
-import { flexRender } from "@tanstack/react-table";
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 
-import type { Cell, Score } from "../type";
+import type { Cell, ColumnName, Score } from "../type";
+import { useGetColumns } from "../use-columns";
 
 const ScoreCardRow = ({
   columnCount,
@@ -86,19 +90,27 @@ export function ScoreTable({
   selectedCell,
   onSelectedCell,
   columns,
-  rows,
-  headers,
-  footers,
+  scores,
+  gameCourseId,
 }: {
-  columns: Column<Score>[];
-  rows: Row<Score>[];
-  headers: HeaderGroup<Score>[];
-  footers: HeaderGroup<Score>[];
+  gameCourseId: string;
+  scores: Score[];
+  columns: ColumnName[];
   onSelectedCell: (cell: Cell) => void;
   selectedCell?: Cell;
 }) {
-  const columnOrder = columns.map((col) => col.id);
-  const playerCount = columns.length - 2;
+  const table = useReactTable({
+    data: scores,
+    columns: useGetColumns(columns),
+    getCoreRowModel: getCoreRowModel(),
+  });
+  const rows = table
+    .getRowModel()
+    .rows.filter((row) => row.original.gameCourseId === gameCourseId);
+  console.log(rows, scores, useGetColumns(columns), columns);
+
+  const columnOrder = columns.map((col) => col.accessorKey);
+  const playerCount = columns.length;
   const sumOfCourseValues = rows
     .flatMap((row) => {
       const { id, gameCourseId, holeNumber, ...rest } = row.original;
@@ -116,7 +128,7 @@ export function ScoreTable({
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
       <TableHeader className="flex-0">
-        {headers.map((headerGroup) => (
+        {table.getHeaderGroups().map((headerGroup) => (
           <ScoreCardRow key={headerGroup.id} columnCount={playerCount}>
             {headerGroup.headers.map((header) => {
               return (
@@ -190,7 +202,7 @@ export function ScoreTable({
             );
           })}
         </ScoreCardRow>
-        {footers.map((footerGroup) => (
+        {table.getFooterGroups().map((footerGroup) => (
           <ScoreCardRow key={footerGroup.id} columnCount={playerCount}>
             {footerGroup.headers.map((footer) => {
               return (
