@@ -70,19 +70,22 @@ export const ScoreCard = ({
   isMyGame: boolean;
 }) => {
   useLockBodyScroll();
-  const [handlerOpen, setHandlerOpen] = useState(false);
+  const [handlerOpen, setHandlerOpen] = useState(true);
   const [isPending, startTransition] = useTransition();
   const [changedScoresGroup, setChangedScoresGroup] = useLocalStorage<Score[]>(
     `${gameId}-changed-scores`,
     [],
   );
-  const [selectedCell, setSelectedCell] = useState<Cell | undefined>(undefined);
+  const columns = getColumnNames(gameCourses);
+  const [selectedCell, setSelectedCell] = useState<Cell | undefined>({
+    row: "0",
+    colName: columns[0]?.accessorKey!,
+  });
 
   const lastTabName = gameCourses[gameCourses.length - 1]?.name;
 
   const searchParams = useSearchParams();
   const router = useRouter();
-  const columns = getColumnNames(gameCourses);
 
   // 변경된 row와 기존 데이터를 합친다.
   const scoreCard = useMemo(
@@ -103,10 +106,10 @@ export const ScoreCard = ({
     router.replace(`?${params.toString()}`);
   };
 
-  // 탭이 변경되면, 선택된 셀을 초기화한다.
-  useEffect(() => {
-    setSelectedCell(undefined);
-  }, [selectedTab]);
+  // // 탭이 변경되면, 선택된 셀을 초기화한다.
+  // useEffect(() => {
+  //   setSelectedCell(undefined);
+  // }, [selectedTab]);
 
   const table = useReactTable({
     data: scoreCard,
