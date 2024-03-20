@@ -1,6 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { generateStorage } from "@toss/storage";
 import { Loader2 } from "lucide-react";
@@ -20,6 +21,7 @@ const SaveButton = ({
   playerIds: string[];
 }) => {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
   const handleSave = () => {
     const scoreSchema = z.array(
       createSchema({
@@ -45,6 +47,7 @@ const SaveButton = ({
         await saveScore(gameId, result.data as Score[]);
       });
       safeLocalStorage.remove(`${gameId}-changed-scores`);
+      router.replace(`/score-card/${gameId}/completed`);
     }
   };
   return (
