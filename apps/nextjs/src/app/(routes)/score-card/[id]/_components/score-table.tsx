@@ -125,7 +125,12 @@ export function ScoreTable({
   const playerCount = gamePlayers.length;
   const sumOfCourseValues = rows
     .flatMap((row) => {
-      const { id, gameCourseId, holeNumber, ...rest } = row.original;
+      const {
+        id: _,
+        gameCourseId: __,
+        holeNumber: ___,
+        ...rest
+      } = row.original;
       return rest;
     })
     .reduce((accumulator: Record<string, number>, currentRow) => {
