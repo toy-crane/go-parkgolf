@@ -60,9 +60,13 @@ const completedGame = async (
   status: Tables<"games">["status"],
 ) => {
   const supabase = await createSupabaseServerClient();
+  console.log(status, gameId);
   const gameMutation = supabase
     .from("games")
-    .update({ status })
+    .update({
+      status,
+      finished_at: status === "completed" ? new Date().toISOString() : null,
+    })
     .eq("id", gameId)
     .select();
   const gameMutationResponse = await gameMutation;

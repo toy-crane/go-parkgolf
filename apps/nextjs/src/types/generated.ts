@@ -219,6 +219,7 @@ export type Database = {
       games: {
         Row: {
           created_at: string
+          finished_at: string | null
           golf_course_id: string
           id: string
           started_at: string
@@ -227,6 +228,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          finished_at?: string | null
           golf_course_id: string
           id?: string
           started_at?: string
@@ -235,6 +237,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          finished_at?: string | null
           golf_course_id?: string
           id?: string
           started_at?: string
