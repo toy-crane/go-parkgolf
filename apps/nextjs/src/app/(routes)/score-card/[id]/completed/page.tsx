@@ -159,7 +159,7 @@ const Page = async ({ params }: Props) => {
             className="mb-3 flex self-end hover:bg-white"
             asChild
           >
-            <Link href={`/score-card/${params.id}`}>
+            <Link href={`/score-card/${params.id}?type=readonly`}>
               전체 기록보기 <ChevronRight className="ml-2" />
             </Link>
           </Button>
