@@ -58,6 +58,8 @@ const PlayerForm = ({ gameId }: FormProps) => {
     control: form.control,
   });
 
+  const isValid = form.formState.isValid;
+
   // 키 다운 이벤트를 처리하는 함수
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter" && !event.nativeEvent.isComposing) {
@@ -167,7 +169,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
           <Button
             type="submit"
             size="lg"
-            disabled={isPending}
+            disabled={isPending || !isValid}
             className="w-full"
           >
             {isPending ? (
