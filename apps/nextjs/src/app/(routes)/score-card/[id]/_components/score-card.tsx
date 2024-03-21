@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
@@ -55,9 +55,23 @@ export const ScoreCard = ({
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  useEffect(() => {
+    if (selectedCell) {
+      setHandlerOpen(true);
+    }
+  }, [selectedCell]);
+
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
+    const courseId = gameCourses.find((gc) => gc.name === value)?.id;
+    const rowNum = scores.findIndex((s) => s.gameCourseId === courseId);
+    if (rowNum !== undefined) {
+      setSelectedCell({
+        row: String(rowNum),
+        colName: gamePlayers[0]?.id!,
+      });
+    }
     router.replace(`?${params.toString()}`);
   };
 
@@ -86,7 +100,6 @@ export const ScoreCard = ({
 
   const handleSelectedCell = (cell: Cell) => {
     setSelectedCell(cell);
-    setHandlerOpen(true);
   };
 
   return (
