@@ -28,6 +28,7 @@ import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { makeGame } from "./actions";
 import { formSchema } from "./schema";
@@ -114,7 +115,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-12">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-20">
         <FormField
           control={form.control}
           name="golfCourseId"
@@ -126,7 +127,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                   <div className="text-muted-foreground mb-0.5 text-xs">
                     최근 선택한 골프장
                   </div>
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-2">
                     {recentGolfCourses.map((id) => (
                       <RecentBadge
                         key={id}
@@ -190,15 +191,11 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
             </FormItem>
           )}
         />
-        <div className="bottom-cta content-grid">
-          <Button type="submit" size="lg" disabled={isPending || !isValid}>
-            {isPending ? (
-              <Loader2 className="h-5 w-5 animate-spin" size={24} />
-            ) : (
-              "다음 단계로"
-            )}
-          </Button>
-        </div>
+        <BottomCTA
+          label="다음 단계로"
+          disabled={isPending || !isValid}
+          loading={isPending}
+        />
       </form>
     </Form>
   );

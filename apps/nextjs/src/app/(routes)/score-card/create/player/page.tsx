@@ -6,6 +6,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 
+import FormHeader from "../_components/form-header";
 import PlayerForm from "./form";
 
 const Page = ({
@@ -22,12 +23,10 @@ const Page = ({
 
   return (
     <div>
-      <PageHeader className="relative pb-4 md:pb-8">
-        <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
-        <PageHeaderDescription>
-          플레이어들의 이름을 입력해 주세요
-        </PageHeaderDescription>
-      </PageHeader>
+      <FormHeader
+        title="신규 게임 생성하기"
+        description="플레이어들의 이름을 입력해 주세요"
+      />
       <PlayerForm gameId={gameId} />
     </div>
   );

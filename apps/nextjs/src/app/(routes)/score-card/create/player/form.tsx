@@ -20,6 +20,7 @@ import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { createGamePlayer } from "./actions";
 import { formSchema } from "./schema";
@@ -87,7 +88,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-12 pb-12"
+        className="flex flex-col space-y-12 pb-20"
       >
         <div className="flex flex-col">
           <div className="mb-4 flex flex-col space-y-1">
@@ -95,7 +96,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
             <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
           </div>
           {fields.length !== 0 && (
-            <div className="mb-8 space-y-2">
+            <div className="mb-3 space-y-2">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
@@ -128,18 +129,23 @@ const PlayerForm = ({ gameId }: FormProps) => {
             </div>
           )}
           {recentPlayers.length !== 0 && (
-            <div className="mb-1">
+            <div className="mb-2">
               <div className="text-muted-foreground mb-0.5 text-xs">
                 최근 함께한 선수
               </div>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-2">
                 {recentPlayers.map((name) => (
                   <RecentBadge
                     key={name}
                     onClick={() => {
-                      append({
-                        nickname: name,
-                      });
+                      append(
+                        {
+                          nickname: name,
+                        },
+                        {
+                          shouldFocus: false,
+                        },
+                      );
                       setRecentPlayers((prev) =>
                         prev.filter((p) => p !== name),
                       );
@@ -167,20 +173,11 @@ const PlayerForm = ({ gameId }: FormProps) => {
           </Button>
           <FormMessage className="mt-1">{error?.message}</FormMessage>
         </div>
-        <div className="flex gap-2">
-          <Button
-            type="submit"
-            size="lg"
-            disabled={isPending || !isValid}
-            className="w-full"
-          >
-            {isPending ? (
-              <Loader2 className="h-5 w-5 animate-spin" size={24} />
-            ) : (
-              "다음 단계로"
-            )}
-          </Button>
-        </div>
+        <BottomCTA
+          label="다음 단계로"
+          disabled={isPending || !isValid}
+          loading={isPending}
+        />
       </form>
     </Form>
   );
