@@ -11,7 +11,7 @@ const ShareButton = () => {
   return (
     <Button
       variant={"ghost"}
-      size="sm"
+      size="smIcon"
       onClick={async () => {
         await navigator.clipboard.writeText(`${window.location.href}`);
         toast({
@@ -25,8 +25,7 @@ const ShareButton = () => {
         track("score card shared");
       }}
     >
-      공유하기
-      <Share2 className="ml-2" />
+      <Share2 />
     </Button>
   );
 };
