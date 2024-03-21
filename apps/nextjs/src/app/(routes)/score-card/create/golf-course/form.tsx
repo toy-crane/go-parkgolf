@@ -2,7 +2,6 @@
 
 import React, { useCallback, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   CommandDialog,
@@ -29,6 +28,7 @@ import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import RecentBadge from "../_components/recent-badge";
 import { makeGame } from "./actions";
 import { formSchema } from "./schema";
 
@@ -123,14 +123,12 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
               <FormLabel>파크 골프장 이름</FormLabel>
               {recentGolfCourses.length !== 0 && (
                 <div className="mb-1">
-                  <div className="text-muted-foreground text-xs">
+                  <div className="text-muted-foreground mb-0.5 text-xs">
                     최근 선택한 골프장
                   </div>
                   {recentGolfCourses.map((id) => (
-                    <Badge
+                    <RecentBadge
                       key={id}
-                      variant="secondary"
-                      className="mr-2 cursor-pointer"
                       onClick={() => {
                         form.setValue("golfCourseId", id, {
                           shouldValidate: true,
@@ -142,7 +140,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                     >
                       {courses.find((c) => c.id === id)?.name}
                       <PlusCircledIcon className="ml-1 h-3 w-3" />
-                    </Badge>
+                    </RecentBadge>
                   ))}
                 </div>
               )}

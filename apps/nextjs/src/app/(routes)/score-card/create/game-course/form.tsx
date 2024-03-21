@@ -2,7 +2,6 @@
 
 import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -23,6 +22,7 @@ import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import RecentBadge from "../_components/recent-badge";
 import {
   createGameCourse,
   createGamePlayerScores,
@@ -148,10 +148,8 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
                 정규 코스 추가
               </div>
               {courses.map(({ name, holes }) => (
-                <Badge
+                <RecentBadge
                   key={name}
-                  variant="secondary"
-                  className="mr-2 cursor-pointer"
                   onClick={() => {
                     const newName = fields.some((field) => field.name === name)
                       ? `${name}-${
@@ -166,7 +164,7 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
                   }}
                 >
                   {name} 코스 <PlusCircledIcon className="ml-1 h-3 w-3" />
-                </Badge>
+                </RecentBadge>
               ))}
             </div>
           )}

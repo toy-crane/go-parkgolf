@@ -2,7 +2,6 @@
 
 import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -21,6 +20,7 @@ import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import RecentBadge from "../_components/recent-badge";
 import { createGamePlayer } from "./actions";
 import { formSchema } from "./schema";
 
@@ -133,10 +133,8 @@ const PlayerForm = ({ gameId }: FormProps) => {
                 최근 함께한 선수
               </div>
               {recentPlayers.map((name) => (
-                <Badge
+                <RecentBadge
                   key={name}
-                  variant="secondary"
-                  className="mr-2 cursor-pointer"
                   onClick={() => {
                     append({
                       nickname: name,
@@ -145,7 +143,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
                   }}
                 >
                   {name} <PlusCircledIcon className="ml-1 h-3 w-3" />
-                </Badge>
+                </RecentBadge>
               ))}
             </div>
           )}
