@@ -49,7 +49,7 @@ const SaveButton = ({
       variant={temporary ? "secondary" : "default"}
     >
       {isPending ? (
-        <Loader2 className="h-5 w-5 animate-spin" size={24} />
+        <Loader2 className="h-5 w-12 animate-spin" size={24} />
       ) : temporary ? (
         "임시 저장"
       ) : (
