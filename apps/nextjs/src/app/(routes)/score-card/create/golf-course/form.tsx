@@ -126,7 +126,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                   <div className="text-muted-foreground mb-0.5 text-xs">
                     최근 선택한 골프장
                   </div>
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-2">
                     {recentGolfCourses.map((id) => (
                       <RecentBadge
                         key={id}

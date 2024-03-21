@@ -143,7 +143,7 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
             </div>
           )}
           {courses && courses.length > 0 && (
-            <div className="mb-1">
+            <div>
               <div className="text-muted-foreground mb-0.5 text-xs">
                 정규 코스 추가
               </div>
