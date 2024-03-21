@@ -91,12 +91,14 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   }));
 
   const form = useForm<Inputs>({
-    mode: "onChange",
     resolver: zodResolver(formSchema),
+    mode: "onChange",
     defaultValues: {
       golfCourseId,
     },
   });
+
+  const isValid = form.formState.isValid;
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -130,7 +132,9 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                       variant="secondary"
                       className="mr-2 cursor-pointer"
                       onClick={() => {
-                        form.setValue("golfCourseId", id);
+                        form.setValue("golfCourseId", id, {
+                          shouldValidate: true,
+                        });
                         setRecentGolfCourses((prev) =>
                           prev.filter((p) => p !== id),
                         );
@@ -170,7 +174,9 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                         value={title}
                         onSelect={() => {
                           runCommand(() =>
-                            form.setValue("golfCourseId", value),
+                            form.setValue("golfCourseId", value, {
+                              shouldValidate: true,
+                            }),
                           );
                         }}
                       >
@@ -185,7 +191,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
           )}
         />
         <div className="bottom-cta content-grid">
-          <Button type="submit" size="lg" disabled={isPending}>
+          <Button type="submit" size="lg" disabled={isPending || !isValid}>
             {isPending ? (
               <Loader2 className="h-5 w-5 animate-spin" size={24} />
             ) : (
