@@ -12,6 +12,7 @@ export const deleteGame = async (gameId: string) => {
     .eq("id", gameId)
     .select();
   await alertDiscord(
+    "https://discord.com/api/webhooks/1220250085560946788/pcl_NCPpZOUTEJ2jt3gpAN4ovmoAskXEKF-XrBrq5OnrnpOtP1TKOPDzotr_RSHylpiq",
     `game delted. URL: https://www.goparkgolf.app/score-card/${gameId}`,
   );
   if (response.error) throw response.error;

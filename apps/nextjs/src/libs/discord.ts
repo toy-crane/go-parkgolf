@@ -1,9 +1,7 @@
 "use server";
 
-import { env } from "@/env.mjs";
-
-async function alertDiscord(message: string): Promise<void> {
-  await fetch(env.DISCORD_ALERT_WEBHOOK_URL, {
+async function alertDiscord(hooksURL: string, message: string): Promise<void> {
+  await fetch(hooksURL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

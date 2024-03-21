@@ -25,6 +25,7 @@ const SaveButton = ({
   const router = useRouter();
   const scoreSchema = createScoreSchema(playerIds);
   const handleSave = () => {
+    // 현재 페이지를 revalidate하는 것이 안됨
     const changedScoresGroup = JSON.parse(
       safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
     ) as Score[];
