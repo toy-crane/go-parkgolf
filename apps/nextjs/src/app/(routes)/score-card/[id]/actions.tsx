@@ -68,8 +68,7 @@ const completedGame = async (gameId: string) => {
 };
 
 export async function saveScore(gameId: string, scores: Score[]) {
-  await updateHoles(scores);
-  await updatePlayersScore(scores);
+  await Promise.all([updateHoles(scores), updatePlayersScore(scores)]);
   await completedGame(gameId);
 
   revalidatePath(`/score-card/${gameId}`, "page");
