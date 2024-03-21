@@ -229,7 +229,7 @@ export type Database = {
           created_at?: string
           golf_course_id: string
           id?: string
-          started_at: string
+          started_at?: string
           status?: Database["public"]["Enums"]["game_status"]
           user_id?: string
         }

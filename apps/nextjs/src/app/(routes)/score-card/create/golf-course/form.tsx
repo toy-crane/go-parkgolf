@@ -4,7 +4,6 @@ import React, { useCallback, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import {
   CommandDialog,
   CommandEmpty,
@@ -21,22 +20,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { cn } from "@/libs/tailwind";
 import type { GolfCourse } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  CalendarIcon,
-  CaretSortIcon,
-  PlusCircledIcon,
-} from "@radix-ui/react-icons";
+import { CaretSortIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
-import { format } from "date-fns";
-import { ko } from "date-fns/locale";
 import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import type * as z from "zod";
@@ -77,7 +65,6 @@ function updateRecentGolfCourses(newGolfCourseId: string) {
 
 const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   const [openSearch, setOpenSearch] = useState(false);
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const recentGolfCourse = safeLocalStorage.get("recent_golf_course");
@@ -107,7 +94,6 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
     mode: "onChange",
     resolver: zodResolver(formSchema),
     defaultValues: {
-      startedAt: new Date(),
       golfCourseId,
     },
   });
@@ -194,49 +180,6 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                   </CommandGroup>
                 </CommandList>
               </CommandDialog>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="startedAt"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>게임 날짜</FormLabel>
-              <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-full pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground",
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP p", { locale: ko })
-                      ) : (
-                        <span>날짜 선택</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    locale={ko}
-                    selected={field.value}
-                    onSelect={(e) => {
-                      field.onChange(e);
-                      setIsCalendarOpen(false);
-                    }}
-                    disabled={(date) => date < new Date("1900-01-01")}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
               <FormMessage />
             </FormItem>
           )}

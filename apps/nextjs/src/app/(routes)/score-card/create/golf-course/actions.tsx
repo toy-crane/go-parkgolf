@@ -7,12 +7,11 @@ import type { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
 
-export async function makeGame({ startedAt, golfCourseId }: Inputs) {
+export async function makeGame({ golfCourseId }: Inputs) {
   const supabase = await createSupabaseServerClient();
   const gameMutation = supabase
     .from("games")
     .insert({
-      started_at: startedAt.toISOString(),
       golf_course_id: golfCourseId,
     })
     .select()
