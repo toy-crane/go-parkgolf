@@ -97,7 +97,9 @@ const Page = async ({ params }: Props) => {
   const [golfCouseResponse, response] = await Promise.all([
     supabase
       .from("games")
-      .select("golf_courses(name, slug, id), started_at, user_id, id")
+      .select(
+        "golf_courses(name, slug, id), started_at, user_id, id, finished_at",
+      )
       .eq("id", params.id)
       .single(),
     supabase.rpc("get_game_summary", {
@@ -134,6 +136,7 @@ const Page = async ({ params }: Props) => {
   const isMyGame = session?.user?.id === gameResult.user_id;
 
   const gameStartedAt = gameResult.started_at;
+  const gameFinishedAt = gameResult.finished_at;
 
   return (
     <>
@@ -144,11 +147,15 @@ const Page = async ({ params }: Props) => {
             <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
               {golfCourse?.name}
             </h1>
-            <h2 className="text-muted-foreground text-xs">
+            <div className="text-muted-foreground flex items-center justify-center text-xs">
               {format(new Date(gameStartedAt), "yyyy-MM-dd (eee) HH:mm", {
                 locale: ko,
+              })}{" "}
+              ~{" "}
+              {gameFinishedAt && format(new Date(gameFinishedAt), "HH:mm", {
+                locale: ko,
               })}
-            </h2>
+            </div>
           </div>
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
             게임을 완료했어요!
