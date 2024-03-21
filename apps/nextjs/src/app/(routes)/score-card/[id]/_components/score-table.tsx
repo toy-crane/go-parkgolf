@@ -109,7 +109,7 @@ export function ScoreTable({
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
-  onSelectedCell: (cell: Cell) => void;
+  onSelectedCell?: (cell: Cell) => void;
   selectedCell?: Cell;
 }) {
   const table = useReactTable({
@@ -177,10 +177,12 @@ export function ScoreTable({
                     key={cell.id}
                     onClick={() => {
                       if (cell.column.id === "holeNumber") return;
-                      onSelectedCell({
-                        row: cell.row.id,
-                        colName: cell.column.id,
-                      });
+                      if (onSelectedCell) {
+                        onSelectedCell({
+                          row: cell.row.id,
+                          colName: cell.column.id,
+                        });
+                      }
                     }}
                     className={cn(
                       cell.column.id === "holeNumber" &&

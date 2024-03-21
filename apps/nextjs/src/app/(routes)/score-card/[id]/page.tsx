@@ -6,6 +6,7 @@ import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
 import Header from "./_components/header";
+import { ReadOnlyScoreCard } from "./_components/readonly-score-card";
 import { ScoreCard } from "./_components/score-card";
 import { getGameCourses } from "./fetcher";
 import type { GameCourse, Score } from "./type";
@@ -95,13 +96,14 @@ const Page = async ({
   searchParams,
 }: {
   params: { id: string };
-  searchParams: { tab?: string };
+  searchParams: { tab?: string; type: string };
 }) => {
   const session = await readUserSession();
   const { gameCourses, startedAt, userId, gamePlayers } = await getGameCourses({
     gameId: params.id,
   });
   const isMyGame = session?.user?.id === userId;
+  const isReadOnly = searchParams.type === "readonly";
 
   return (
     <>
@@ -111,14 +113,24 @@ const Page = async ({
       >
         {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
       </div>
-      <ScoreCard
-        gameId={params.id}
-        data={createScores(gameCourses)}
-        gameCourses={gameCourses}
-        selectedTab={searchParams.tab ?? gameCourses[0]?.name}
-        gamePlayers={gamePlayers}
-        isMyGame={isMyGame}
-      />
+      {isReadOnly ? (
+        <ReadOnlyScoreCard
+          gameCourses={gameCourses}
+          selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+          gamePlayers={gamePlayers}
+          data={createScores(gameCourses)}
+          isMyGame={isMyGame}
+        />
+      ) : (
+        <ScoreCard
+          gameId={params.id}
+          data={createScores(gameCourses)}
+          gameCourses={gameCourses}
+          selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+          gamePlayers={gamePlayers}
+          isMyGame={isMyGame}
+        />
+      )}
     </>
   );
 };
