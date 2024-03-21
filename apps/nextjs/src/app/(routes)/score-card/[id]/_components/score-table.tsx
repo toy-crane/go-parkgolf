@@ -109,7 +109,7 @@ export function ScoreTable({
     .rows.filter((row) => row.original.gameCourseId === gameCourseId);
   console.log(rows, scores, useGetColumns(columns), columns);
 
-  const columnOrder = columns.map((col) => col.accessorKey);
+  const columnOrder = table.getAllColumns().map((col) => col.id);
   const playerCount = columns.length;
   const sumOfCourseValues = rows
     .flatMap((row) => {
