@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
@@ -121,67 +120,58 @@ export const ScoreCard = ({
           </TabsContent>
         ))}
       </Tabs>
-      {!isMyGame && (
-        <div>
-          <Button asChild className="mt-4 w-full">
-            <Link href="/">다른 파크골프장 둘러보기</Link>
-          </Button>
-        </div>
-      )}
-      {isMyGame && (
-        <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
-          <DrawerContent>
-            <div className="content-grid my-4">
-              <div className="mb-3 text-center text-lg font-semibold">
-                {selectedCell?.colName === "par" ? "홀의 정규 타수" : "타수"}를
-                입력해 주세요
-              </div>
-              {selectedCell?.colName === "par" ? (
-                <div className="mb-4 grid grid-cols-3 gap-2">
-                  {[3, 4, 5].map((score, index) => (
-                    <Button
-                      key={index}
-                      onClick={() => {
-                        if (selectedCell) {
-                          handleClick(
-                            selectedCell.row,
-                            selectedCell.colName,
-                            score,
-                          );
-                        }
-                        setHandlerOpen(false);
-                      }}
-                    >
-                      {score} 타
-                    </Button>
-                  ))}
-                </div>
-              ) : (
-                <div className="mb-2 grid grid-cols-3 gap-2">
-                  {[...Array(9).keys()].map((score, index) => (
-                    <Button
-                      key={index}
-                      variant={"secondary"}
-                      onClick={() => {
-                        if (selectedCell) {
-                          handleClick(
-                            selectedCell.row,
-                            selectedCell.colName,
-                            score + 1,
-                          );
-                        }
-                        setHandlerOpen(false);
-                      }}
-                    >
-                      {score + 1}
-                    </Button>
-                  ))}
-                </div>
-              )}
+      <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
+        <DrawerContent>
+          <div className="content-grid my-4">
+            <div className="mb-3 text-center text-lg font-semibold">
+              {selectedCell?.colName === "par" ? "홀의 정규 타수" : "타수"}를
+              입력해 주세요
             </div>
-          </DrawerContent>
-        </Drawer>
-      )}
+            {selectedCell?.colName === "par" ? (
+              <div className="mb-4 grid grid-cols-3 gap-2">
+                {[3, 4, 5].map((score, index) => (
+                  <Button
+                    key={index}
+                    onClick={() => {
+                      if (selectedCell) {
+                        handleClick(
+                          selectedCell.row,
+                          selectedCell.colName,
+                          score,
+                        );
+                      }
+                      setHandlerOpen(false);
+                    }}
+                  >
+                    {score} 타
+                  </Button>
+                ))}
+              </div>
+            ) : (
+              <div className="mb-2 grid grid-cols-3 gap-2">
+                {[...Array(9).keys()].map((score, index) => (
+                  <Button
+                    key={index}
+                    variant={"secondary"}
+                    onClick={() => {
+                      if (selectedCell) {
+                        handleClick(
+                          selectedCell.row,
+                          selectedCell.colName,
+                          score + 1,
+                        );
+                      }
+                      setHandlerOpen(false);
+                    }}
+                  >
+                    {score + 1}
+                  </Button>
+                ))}
+              </div>
+            )}
+          </div>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };
