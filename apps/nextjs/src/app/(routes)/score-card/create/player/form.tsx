@@ -95,7 +95,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
             <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
           </div>
           {fields.length !== 0 && (
-            <div className="mb-8 space-y-2">
+            <div className="mb-3 space-y-2">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
