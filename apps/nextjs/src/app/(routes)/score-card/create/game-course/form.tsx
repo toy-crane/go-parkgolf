@@ -75,7 +75,7 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
       const { data: _ } = await createGamePlayerScores(gameId, gameScores);
       await updateGameStatus(gameId);
       await alertDiscord(
-        "https://discord.com/api/webhooks/1220250074819596348/O1WbSyzlNkRUhBM6Y5QPF3Ut3EVoH2IBmMlG7hkXHxtl9E9CUGLcxuJYIAK4iaxxdjMX",
+        "https://discord.com/api/webhooks/1214862790557302855/VswlUCBgVgoZq1nrRLWNh6x-XFaWIXMty9wSfegDYF7IwxBbDwK_h5kmq-B3eXJPBRSy",
         `new game created. URL: https://www.goparkgolf.app/score-card/${gameId}`,
       );
       track("game created");

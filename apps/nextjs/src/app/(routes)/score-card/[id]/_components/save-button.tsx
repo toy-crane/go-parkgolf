@@ -3,6 +3,7 @@
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { alertDiscord } from "@/libs/discord";
 import { generateStorage } from "@toss/storage";
 import { Loader2 } from "lucide-react";
 
@@ -36,6 +37,10 @@ const SaveButton = ({
     if (result.success) {
       startTransition(async () => {
         await saveScore(gameId, result.data as Score[]);
+        await alertDiscord(
+          "https://discord.com/api/webhooks/1220252481578209310/lkCY71F5jSjdC_BijOL1-XX8-8RaNiMzb37MxI6OUSOMg6x6gO3LgNFm_lZQBAyaeQo6",
+          `게임이 종료되었습니다. URL: https://www.goparkgolf.app/score-card/${gameId}/completed`,
+        );
       });
       safeLocalStorage.remove(`${gameId}-changed-scores`);
       if (!temporary) router.replace(`/score-card/${gameId}/completed`);
