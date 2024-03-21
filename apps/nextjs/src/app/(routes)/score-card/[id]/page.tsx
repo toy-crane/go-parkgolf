@@ -1,18 +1,48 @@
 import React from "react";
 import type { Metadata, ResolvingMetadata } from "next";
+import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { format } from "date-fns";
 
-import BackButton from "./back-button";
-import DeleteAlert from "./delete-alert";
+import Header from "./_components/header";
+import { ReadOnlyScoreCard } from "./_components/readonly-score-card";
+import { ScoreCard } from "./_components/score-card";
 import { getGameCourses } from "./fetcher";
-import { ScoreTabs } from "./tabs";
+import type { GameCourse, Score } from "./type";
 
 interface Props {
   params: { id: string };
 }
+
+const createScores = (gameCourses: GameCourse[]): Score[] => {
+  const data = gameCourses
+    .map((gc) =>
+      gc.game_scores.map((score) => {
+        const playerScore = score.game_player_scores;
+        const playerScoreMap = playerScore.reduce(
+          (acc: Record<string, number>, curr) => {
+            const participantId = String(curr.game_players?.id);
+            if (participantId) {
+              acc[participantId] = curr.score ?? 0;
+            }
+            return acc;
+          },
+          {},
+        );
+        return {
+          id: score.id,
+          gameCourseId: score.game_course_id,
+          holeNumber: score.hole_number,
+          par: score.par,
+          ...playerScoreMap,
+        };
+      }),
+    )
+    .flat();
+  return data;
+};
 
 export async function generateMetadata(
   { params }: Props,
@@ -67,40 +97,45 @@ const Page = async ({
   searchParams,
 }: {
   params: { id: string };
-  searchParams: { tab?: string };
+  searchParams: { tab?: string; type: string };
 }) => {
   const session = await readUserSession();
-  const { gameCourses, name, startedAt, playerCount, userId } =
-    await getGameCourses({
-      gameId: params.id,
-    });
+  const { gameCourses, startedAt, userId, gamePlayers } = await getGameCourses({
+    gameId: params.id,
+  });
   const isMyGame = session?.user?.id === userId;
+  const isReadOnly = searchParams.type === "readonly";
+
+  if (!isMyGame && !isReadOnly) {
+    redirect(`/score-card/${params.id}?type=readonly`);
+  }
 
   return (
     <>
-      <div className="flex items-center gap-1 pt-2">
-        <BackButton />
-        <div className="flex-auto">
-          <h3
-            className={cn(
-              "flex break-keep text-lg font-semibold leading-5 tracking-tight",
-            )}
-          >
-            {name ? name : null}
-          </h3>
-        </div>
-        <div className="flex">
-          {isMyGame && <DeleteAlert gameId={params.id} />}
-        </div>
+      <Header gameId={params.id} isReadOnly={isReadOnly} isMyGame={isMyGame} />
+      <div
+        className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
+      >
+        {startedAt && format(new Date(startedAt), "yyyy-MM-dd")}
       </div>
-      <ScoreTabs
-        gameId={params.id}
-        gameCourses={gameCourses}
-        selectedTab={searchParams.tab ?? gameCourses[0]?.name!}
-        playerCount={playerCount}
-        isMyGame={isMyGame}
-        startedAt={startedAt}
-      />
+      {isReadOnly ? (
+        <ReadOnlyScoreCard
+          gameCourses={gameCourses}
+          selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+          gamePlayers={gamePlayers}
+          data={createScores(gameCourses)}
+          isMyGame={isMyGame}
+        />
+      ) : (
+        <ScoreCard
+          gameId={params.id}
+          data={createScores(gameCourses)}
+          gameCourses={gameCourses}
+          selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+          gamePlayers={gamePlayers}
+          isMyGame={isMyGame}
+        />
+      )}
     </>
   );
 };

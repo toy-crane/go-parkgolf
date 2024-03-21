@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Loader2, Trash2 } from "lucide-react";
 
-import { deleteGame } from "./actions";
+import { deleteGame } from "../actions";
 
 const DeleteAlert = ({ gameId }: { gameId: string }) => {
   const [open, setOpen] = useState(false);

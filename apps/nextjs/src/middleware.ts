@@ -17,6 +17,9 @@ export async function middleware(request: NextRequest) {
     "x-pathname",
     request.nextUrl.pathname + request.nextUrl.search,
   );
+  // x-url 헤더를 추가하여 요청 URL을 기록
+  requestHeaders.set("x-url", request.url);
+
   // 사용한 accessToken과 refreshToken은 삭제
   requestHeaders.delete("X-Access-Token");
   requestHeaders.delete("X-Refresh-Token");

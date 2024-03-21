@@ -10,6 +10,7 @@ import { ko } from "date-fns/locale";
 import { ChevronRight } from "lucide-react";
 
 import type { ScoreResult } from "../type";
+import Header from "./_components/header";
 import ResultTable from "./_components/result-table";
 
 interface GameSummary {
@@ -96,7 +97,7 @@ const Page = async ({ params }: Props) => {
   const [golfCouseResponse, response] = await Promise.all([
     supabase
       .from("games")
-      .select("golf_courses(name, slug, id), started_at")
+      .select("golf_courses(name, slug, id), started_at, user_id, id")
       .eq("id", params.id)
       .single(),
     supabase.rpc("get_game_summary", {
@@ -130,11 +131,13 @@ const Page = async ({ params }: Props) => {
     if (ReviewResponse.error) throw ReviewResponse.error;
     hasReview = ReviewResponse.data ? true : false;
   }
+  const isMyGame = session?.user?.id === gameResult.user_id;
 
   const gameStartedAt = gameResult.started_at;
 
   return (
     <>
+      <Header isMyGame={isMyGame} gameId={gameResult.id} />
       <div className="flex flex-col items-center pb-28">
         <div className="mb-4 mt-4 space-y-1 text-center md:mb-9 md:mt-6 md:space-y-3">
           <div>
@@ -159,7 +162,7 @@ const Page = async ({ params }: Props) => {
             className="mb-3 flex self-end hover:bg-white"
             asChild
           >
-            <Link href={`/score-card/${params.id}`}>
+            <Link href={`/score-card/${params.id}?type=readonly`}>
               전체 기록보기 <ChevronRight className="ml-2" />
             </Link>
           </Button>
