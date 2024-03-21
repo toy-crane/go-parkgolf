@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata, ResolvingMetadata } from "next";
+import { redirect } from "next/navigation";
 import { readUserSession } from "@/libs/auth";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
@@ -104,6 +105,10 @@ const Page = async ({
   });
   const isMyGame = session?.user?.id === userId;
   const isReadOnly = searchParams.type === "readonly";
+
+  if (!isMyGame && !isReadOnly) {
+    redirect(`/score-card/${params.id}?type=readonly`);
+  }
 
   return (
     <>
