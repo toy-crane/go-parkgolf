@@ -172,13 +172,8 @@ const PlayerForm = ({ gameId }: FormProps) => {
           </Button>
           <FormMessage className="mt-1">{error?.message}</FormMessage>
         </div>
-        <div className="flex gap-2">
-          <Button
-            type="submit"
-            size="lg"
-            disabled={isPending || !isValid}
-            className="w-full"
-          >
+        <div className="bottom-cta content-grid">
+          <Button type="submit" size="lg" disabled={isPending || !isValid}>
             {isPending ? (
               <Loader2 className="h-5 w-5 animate-spin" size={24} />
             ) : (

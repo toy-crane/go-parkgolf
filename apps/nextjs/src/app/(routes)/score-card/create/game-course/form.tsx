@@ -200,13 +200,8 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
           </div>
         </div>
 
-        <div className="flex">
-          <Button
-            type="submit"
-            size="lg"
-            disabled={isPending || !isValid}
-            className="w-full"
-          >
+        <div className="bottom-cta content-grid">
+          <Button type="submit" size="lg" disabled={isPending || !isValid}>
             {isPending ? (
               <Loader2 className="h-5 w-5 animate-spin" size={24} />
             ) : (
