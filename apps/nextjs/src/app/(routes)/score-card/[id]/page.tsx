@@ -107,7 +107,7 @@ const Page = async ({
 
   return (
     <>
-      <Header gameId={params.id} />
+      <Header gameId={params.id} isReadOnly={isReadOnly} isMyGame={isMyGame} />
       <div
         className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
       >

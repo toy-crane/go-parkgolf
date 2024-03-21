@@ -1,10 +1,20 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
 import BackButton from "./back-button";
 import SaveButton from "./save-button";
 
-const Header = async ({ gameId }: { gameId: string }) => {
+const Header = async ({
+  gameId,
+  isReadOnly,
+  isMyGame,
+}: {
+  gameId: string;
+  isReadOnly: boolean;
+  isMyGame: boolean;
+}) => {
   const supabase = await createSupabaseServerClient();
   const response = await supabase
     .from("games")
@@ -27,10 +37,22 @@ const Header = async ({ gameId }: { gameId: string }) => {
             {courseName ? courseName : null}
           </h3>
         </div>
-        <div className="flex gap-2">
-          <SaveButton gameId={gameId} playerIds={playerIds} temporary={true} />
-          <SaveButton gameId={gameId} playerIds={playerIds} />
-        </div>
+        {isMyGame ? (
+          isReadOnly ? (
+            <Button asChild size="sm" className="h-8 px-2">
+              <Link href={`/score-card/${gameId}`}>수정하기</Link>
+            </Button>
+          ) : (
+            <div className="flex gap-2">
+              <SaveButton
+                gameId={gameId}
+                playerIds={playerIds}
+                temporary={true}
+              />
+              <SaveButton gameId={gameId} playerIds={playerIds} />
+            </div>
+          )
+        ) : null}
       </div>
     </>
   );
