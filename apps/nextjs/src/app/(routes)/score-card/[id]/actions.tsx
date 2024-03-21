@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
+import type { Tables } from "@/types/generated";
 
 import type { Score } from "./type";
 
@@ -54,11 +55,14 @@ const updatePlayersScore = async (scores: Score[]) => {
   }
 };
 
-const completedGame = async (gameId: string) => {
+const completedGame = async (
+  gameId: string,
+  status: Tables<"games">["status"],
+) => {
   const supabase = await createSupabaseServerClient();
   const gameMutation = supabase
     .from("games")
-    .update({ status: "completed" })
+    .update({ status })
     .eq("id", gameId)
     .select();
   const gameMutationResponse = await gameMutation;
@@ -67,9 +71,13 @@ const completedGame = async (gameId: string) => {
   }
 };
 
-export async function saveScore(gameId: string, scores: Score[]) {
+export async function saveScore(
+  gameId: string,
+  scores: Score[],
+  status: Tables<"games">["status"],
+) {
   await Promise.all([updateHoles(scores), updatePlayersScore(scores)]);
-  await completedGame(gameId);
+  await completedGame(gameId, status);
 
   revalidatePath(`/score-card/${gameId}`, "page");
   revalidatePath(`/score-card/${gameId}/completed`, "page");

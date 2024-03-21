@@ -36,7 +36,11 @@ const SaveButton = ({
     }
     if (result.success) {
       startTransition(async () => {
-        await saveScore(gameId, result.data as Score[]);
+        await saveScore(
+          gameId,
+          result.data as Score[],
+          temporary ? "in_progress" : "completed",
+        );
         if (!temporary) {
           await alertDiscord(
             "https://discord.com/api/webhooks/1220252481578209310/lkCY71F5jSjdC_BijOL1-XX8-8RaNiMzb37MxI6OUSOMg6x6gO3LgNFm_lZQBAyaeQo6",
