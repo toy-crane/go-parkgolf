@@ -87,7 +87,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-12 pb-12"
+        className="flex flex-col space-y-12 pb-20"
       >
         <div className="flex flex-col">
           <div className="mb-4 flex flex-col space-y-1">

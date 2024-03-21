@@ -114,7 +114,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-12">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-20">
         <FormField
           control={form.control}
           name="golfCourseId"
