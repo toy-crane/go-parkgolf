@@ -5,7 +5,7 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
 
-export async function saveScore(gameId: string, scores: Score[]) {
+async function updateHoles(gameId: string, scores: Score[]) {
   const supabase = await createSupabaseServerClient();
   const scoreMutation = supabase
     .from("game_scores")
@@ -19,10 +19,16 @@ export async function saveScore(gameId: string, scores: Score[]) {
     )
     .select();
   const scoreResponse = await scoreMutation;
-  revalidatePath("/score-card/[id]", "page");
   if (scoreResponse.error) {
     throw new Error(scoreResponse.error.message);
   }
+}
+
+export async function saveScore(gameId: string, scores: Score[]) {
+  const supabase = await createSupabaseServerClient();
+
+  await updateHoles(gameId, scores);
+  revalidatePath("/score-card/[id]", "page");
 
   const player_scores = scores
     .map((score) => {
