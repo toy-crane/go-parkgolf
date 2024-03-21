@@ -98,7 +98,7 @@ const Page = async ({
   searchParams: { tab?: string };
 }) => {
   const session = await readUserSession();
-  const { gameCourses, startedAt, userId } = await getGameCourses({
+  const { gameCourses, startedAt, userId, gamePlayers } = await getGameCourses({
     gameId: params.id,
   });
   const isMyGame = session?.user?.id === userId;
@@ -116,6 +116,7 @@ const Page = async ({
         data={createScores(gameCourses)}
         gameCourses={gameCourses}
         selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+        gamePlayers={gamePlayers}
         isMyGame={isMyGame}
       />
     </>

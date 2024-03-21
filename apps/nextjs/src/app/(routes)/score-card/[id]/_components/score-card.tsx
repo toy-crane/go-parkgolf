@@ -13,11 +13,12 @@ import type { Cell, GameCourse, Score } from "../type";
 import type { ColumnName } from "../use-columns";
 import { ScoreTable } from "./score-table";
 
-const getColumnNames = (gameCourses: GameCourse[]): ColumnName[] => {
-  const players =
-    gameCourses[0]?.game_scores[0]?.game_player_scores.map(
-      (p) => p.game_players,
-    ) ?? [];
+interface GamePlayer {
+  id: string;
+  nickname: string;
+}
+
+const getColumnNames = (players: GamePlayer[]): ColumnName[] => {
   const columns = players?.map((p) => ({
     accessorKey: p?.id ?? "unknown",
     headerName: p?.nickname ?? "이름 없음",
@@ -41,16 +42,18 @@ export const ScoreCard = ({
   isMyGame,
   data,
   gameId,
+  gamePlayers,
 }: {
   gameId: string;
   data: Score[];
   gameCourses: GameCourse[];
   selectedTab?: string;
   isMyGame: boolean;
+  gamePlayers: { id: string; nickname: string }[];
 }) => {
   useLockBodyScroll();
   const [handlerOpen, setHandlerOpen] = useState(true);
-  const columns = getColumnNames(gameCourses);
+  const columns = getColumnNames(gamePlayers);
   const initialScores = MergeScores(
     data,
     JSON.parse(
