@@ -96,7 +96,7 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
           </div>
 
           {fields.length !== 0 && (
-            <div className="mb-8 flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
