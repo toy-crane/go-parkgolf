@@ -28,6 +28,7 @@ import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { makeGame } from "./actions";
 import { formSchema } from "./schema";
@@ -190,15 +191,11 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
             </FormItem>
           )}
         />
-        <div className="bottom-cta content-grid">
-          <Button type="submit" size="lg" disabled={isPending || !isValid}>
-            {isPending ? (
-              <Loader2 className="h-5 w-5 animate-spin" size={24} />
-            ) : (
-              "다음 단계로"
-            )}
-          </Button>
-        </div>
+        <BottomCTA
+          label="다음 단계로"
+          disabled={isPending || !isValid}
+          loading={isPending}
+        />
       </form>
     </Form>
   );
