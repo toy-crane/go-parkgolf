@@ -24,12 +24,8 @@ async function updateHoles(scores: Score[]) {
   }
 }
 
-export async function saveScore(gameId: string, scores: Score[]) {
+const updatePlayersScore = async (scores: Score[]) => {
   const supabase = await createSupabaseServerClient();
-
-  await updateHoles(scores);
-  revalidatePath("/score-card/[id]", "page");
-
   const player_scores = scores
     .map((score) => {
       const keys = Object.keys(score) as (keyof typeof score)[];
@@ -56,7 +52,10 @@ export async function saveScore(gameId: string, scores: Score[]) {
   if (scorePlayerResponse.error) {
     throw new Error(scorePlayerResponse.error.message);
   }
+};
 
+const completedGame = async (gameId: string) => {
+  const supabase = await createSupabaseServerClient();
   const gameMutation = supabase
     .from("games")
     .update({ status: "completed" })
@@ -66,8 +65,15 @@ export async function saveScore(gameId: string, scores: Score[]) {
   if (gameMutationResponse.error) {
     throw new Error(gameMutationResponse.error.message);
   }
+};
+
+export async function saveScore(gameId: string, scores: Score[]) {
+  await updateHoles(scores);
+  await updatePlayersScore(scores);
+  await completedGame(gameId);
 
   revalidatePath(`/score-card/${gameId}`, "page");
+  revalidatePath(`/score-card/${gameId}/completed`, "page");
   revalidatePath("/my-games");
   return { success: true };
 }
