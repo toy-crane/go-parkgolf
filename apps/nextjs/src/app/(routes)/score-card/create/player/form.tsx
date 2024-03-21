@@ -132,19 +132,23 @@ const PlayerForm = ({ gameId }: FormProps) => {
               <div className="text-muted-foreground text-xs">
                 최근 함께한 선수
               </div>
-              {recentPlayers.map((name) => (
-                <RecentBadge
-                  key={name}
-                  onClick={() => {
-                    append({
-                      nickname: name,
-                    });
-                    setRecentPlayers((prev) => prev.filter((p) => p !== name));
-                  }}
-                >
-                  {name} <PlusCircledIcon className="ml-1 h-3 w-3" />
-                </RecentBadge>
-              ))}
+              <div className="flex flex-wrap gap-1">
+                {recentPlayers.map((name) => (
+                  <RecentBadge
+                    key={name}
+                    onClick={() => {
+                      append({
+                        nickname: name,
+                      });
+                      setRecentPlayers((prev) =>
+                        prev.filter((p) => p !== name),
+                      );
+                    }}
+                  >
+                    {name} <PlusCircledIcon className="ml-1 h-3 w-3" />
+                  </RecentBadge>
+                ))}
+              </div>
             </div>
           )}
           <Button

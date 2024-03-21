@@ -126,22 +126,24 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                   <div className="text-muted-foreground mb-0.5 text-xs">
                     최근 선택한 골프장
                   </div>
-                  {recentGolfCourses.map((id) => (
-                    <RecentBadge
-                      key={id}
-                      onClick={() => {
-                        form.setValue("golfCourseId", id, {
-                          shouldValidate: true,
-                        });
-                        setRecentGolfCourses((prev) =>
-                          prev.filter((p) => p !== id),
-                        );
-                      }}
-                    >
-                      {courses.find((c) => c.id === id)?.name}
-                      <PlusCircledIcon className="ml-1 h-3 w-3" />
-                    </RecentBadge>
-                  ))}
+                  <div className="flex flex-wrap gap-1">
+                    {recentGolfCourses.map((id) => (
+                      <RecentBadge
+                        key={id}
+                        onClick={() => {
+                          form.setValue("golfCourseId", id, {
+                            shouldValidate: true,
+                          });
+                          setRecentGolfCourses((prev) =>
+                            prev.filter((p) => p !== id),
+                          );
+                        }}
+                      >
+                        {courses.find((c) => c.id === id)?.name}
+                        <PlusCircledIcon className="ml-1 h-3 w-3" />
+                      </RecentBadge>
+                    ))}
+                  </div>
                 </div>
               )}
               <FormControl>

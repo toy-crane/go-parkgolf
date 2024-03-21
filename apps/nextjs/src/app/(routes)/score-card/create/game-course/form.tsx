@@ -147,25 +147,30 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
               <div className="text-muted-foreground text-xs">
                 정규 코스 추가
               </div>
-              {courses.map(({ name, holes }) => (
-                <RecentBadge
-                  key={name}
-                  onClick={() => {
-                    const newName = fields.some((field) => field.name === name)
-                      ? `${name}-${
-                          fields.filter((field) => field.name.startsWith(name))
-                            .length
-                        }`
-                      : name;
-                    append({
-                      name: newName,
-                      hole_count: holes?.length ?? 0,
-                    });
-                  }}
-                >
-                  {name} 코스 <PlusCircledIcon className="ml-1 h-3 w-3" />
-                </RecentBadge>
-              ))}
+              <div className="flex flex-wrap gap-1">
+                {courses.map(({ name, holes }) => (
+                  <RecentBadge
+                    key={name}
+                    onClick={() => {
+                      const newName = fields.some(
+                        (field) => field.name === name,
+                      )
+                        ? `${name}-${
+                            fields.filter((field) =>
+                              field.name.startsWith(name),
+                            ).length
+                          }`
+                        : name;
+                      append({
+                        name: newName,
+                        hole_count: holes?.length ?? 0,
+                      });
+                    }}
+                  >
+                    {name} 코스 <PlusCircledIcon className="ml-1 h-3 w-3" />
+                  </RecentBadge>
+                ))}
+              </div>
             </div>
           )}
           <div className="flex flex-col gap-2">

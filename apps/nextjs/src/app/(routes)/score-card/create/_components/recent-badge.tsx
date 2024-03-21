@@ -9,7 +9,7 @@ const RecentBadge = ({ onClick, children }: Props) => {
   return (
     <Badge
       variant="secondary"
-      className="mr-2 cursor-pointer py-1"
+      className="cursor-pointer py-1"
       onClick={onClick}
     >
       {children}
