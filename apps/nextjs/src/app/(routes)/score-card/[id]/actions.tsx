@@ -5,7 +5,7 @@ import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 import type { Score } from "./type";
 
-async function updateHoles(gameId: string, scores: Score[]) {
+async function updateHoles(scores: Score[]) {
   const supabase = await createSupabaseServerClient();
   const scoreMutation = supabase
     .from("game_scores")
