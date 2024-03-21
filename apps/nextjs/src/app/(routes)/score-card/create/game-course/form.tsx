@@ -161,10 +161,15 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
                             ).length
                           }`
                         : name;
-                      append({
-                        name: newName,
-                        hole_count: holes?.length ?? 0,
-                      });
+                      append(
+                        {
+                          name: newName,
+                          hole_count: holes?.length ?? 0,
+                        },
+                        {
+                          shouldFocus: false,
+                        },
+                      );
                     }}
                   >
                     {name} 코스 <PlusCircledIcon className="ml-1 h-3 w-3" />

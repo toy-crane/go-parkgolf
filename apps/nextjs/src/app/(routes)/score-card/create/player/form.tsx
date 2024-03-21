@@ -137,9 +137,14 @@ const PlayerForm = ({ gameId }: FormProps) => {
                   <RecentBadge
                     key={name}
                     onClick={() => {
-                      append({
-                        nickname: name,
-                      });
+                      append(
+                        {
+                          nickname: name,
+                        },
+                        {
+                          shouldFocus: false,
+                        },
+                      );
                       setRecentPlayers((prev) =>
                         prev.filter((p) => p !== name),
                       );
