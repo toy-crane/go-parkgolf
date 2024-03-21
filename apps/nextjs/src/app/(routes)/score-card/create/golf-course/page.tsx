@@ -1,13 +1,9 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 
+import FormHeader from "../_components/form-header";
 import CourseForm from "./form";
 
 const Page = async ({
@@ -30,12 +26,10 @@ const Page = async ({
 
   return (
     <>
-      <PageHeader className="relative pb-4 md:pb-8">
-        <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
-        <PageHeaderDescription>
-          골프장과 게임 시작 날짜를 입력해 주세요
-        </PageHeaderDescription>
-      </PageHeader>
+      <FormHeader
+        title="신규 게임 생성하기"
+        description="골프장을 선택해 주세요"
+      />
       <CourseForm courses={result.data} golfCourseId={golfCourseId} />
     </>
   );

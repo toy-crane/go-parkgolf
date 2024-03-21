@@ -7,6 +7,7 @@ import {
 } from "@/components/page-header";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 
+import FormHeader from "../_components/form-header";
 import PlayerForm from "./form";
 
 const Page = async ({
@@ -38,10 +39,10 @@ const Page = async ({
 
   return (
     <div>
-      <PageHeader className="relative pb-4 md:pb-8">
-        <PageHeaderHeading>신규 게임 생성하기</PageHeaderHeading>
-        <PageHeaderDescription>코스를 설정해 주세요</PageHeaderDescription>
-      </PageHeader>
+      <FormHeader
+        title="신규 게임 생성하기"
+        description="코스를 설정해 주세요"
+      />
       <PlayerForm gameId={gameId} courses={courses} courseName={courseName} />
     </div>
   );
