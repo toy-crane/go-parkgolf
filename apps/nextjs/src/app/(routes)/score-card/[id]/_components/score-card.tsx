@@ -10,21 +10,7 @@ import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 import type { Cell, GameCourse, Score } from "../type";
-import type { ColumnName } from "../use-columns";
 import { ScoreTable } from "./score-table";
-
-interface GamePlayer {
-  id: string;
-  nickname: string;
-}
-
-const getColumnNames = (players: GamePlayer[]): ColumnName[] => {
-  const columns = players?.map((p) => ({
-    accessorKey: p?.id ?? "unknown",
-    headerName: p?.nickname ?? "이름 없음",
-  }));
-  return columns;
-};
 
 const safeLocalStorage = generateStorage();
 
@@ -53,7 +39,6 @@ export const ScoreCard = ({
 }) => {
   useLockBodyScroll();
   const [handlerOpen, setHandlerOpen] = useState(true);
-  const columns = getColumnNames(gamePlayers);
   const initialScores = MergeScores(
     data,
     JSON.parse(
@@ -62,7 +47,7 @@ export const ScoreCard = ({
   );
   const [scores, setScores] = useState<Score[]>(initialScores);
   const defaultSelectedCell = isMyGame
-    ? { row: "0", colName: columns[0]?.accessorKey! }
+    ? { row: "0", colName: gamePlayers[0]?.id! }
     : undefined;
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(
     defaultSelectedCell,
@@ -131,7 +116,7 @@ export const ScoreCard = ({
               selectedCell={selectedCell}
               scores={scores}
               gameCourseId={gc.id}
-              columns={columns}
+              gamePlayers={gamePlayers}
             />
           </TabsContent>
         ))}

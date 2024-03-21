@@ -19,6 +19,19 @@ import {
 import type { Cell, ColumnName, Score } from "../type";
 import { useGetColumns } from "../use-columns";
 
+interface GamePlayer {
+  id: string;
+  nickname: string;
+}
+
+const getColumnNames = (players: GamePlayer[]): ColumnName[] => {
+  const columns = players?.map((p) => ({
+    accessorKey: p?.id ?? "unknown",
+    headerName: p?.nickname ?? "이름 없음",
+  }));
+  return columns;
+};
+
 const ScoreCardRow = ({
   columnCount,
   children,
@@ -89,28 +102,27 @@ const gridColumns = {
 export function ScoreTable({
   selectedCell,
   onSelectedCell,
-  columns,
   scores,
   gameCourseId,
+  gamePlayers,
 }: {
   gameCourseId: string;
+  gamePlayers: GamePlayer[];
   scores: Score[];
-  columns: ColumnName[];
   onSelectedCell: (cell: Cell) => void;
   selectedCell?: Cell;
 }) {
   const table = useReactTable({
     data: scores,
-    columns: useGetColumns(columns),
+    columns: useGetColumns(getColumnNames(gamePlayers)),
     getCoreRowModel: getCoreRowModel(),
   });
   const rows = table
     .getRowModel()
     .rows.filter((row) => row.original.gameCourseId === gameCourseId);
-  console.log(rows, scores, useGetColumns(columns), columns);
 
   const columnOrder = table.getAllColumns().map((col) => col.id);
-  const playerCount = columns.length;
+  const playerCount = gamePlayers.length;
   const sumOfCourseValues = rows
     .flatMap((row) => {
       const { id, gameCourseId, holeNumber, ...rest } = row.original;
