@@ -27,7 +27,7 @@ async function updateHoles(scores: Score[]) {
 export async function saveScore(gameId: string, scores: Score[]) {
   const supabase = await createSupabaseServerClient();
 
-  await updateHoles(gameId, scores);
+  await updateHoles(scores);
   revalidatePath("/score-card/[id]", "page");
 
   const player_scores = scores
