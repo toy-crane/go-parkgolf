@@ -129,7 +129,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
           )}
           {recentPlayers.length !== 0 && (
             <div className="mb-1">
-              <div className="text-muted-foreground text-xs">
+              <div className="text-muted-foreground mb-0.5 text-xs">
                 최근 함께한 선수
               </div>
               <div className="flex flex-wrap gap-1">
