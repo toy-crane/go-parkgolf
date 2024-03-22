@@ -1,8 +1,15 @@
+import { Metadata } from "next";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import CourseCard from "../course-card";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/trending/largest",
+  },
+};
 
 const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();

@@ -38,6 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
       changeFrequency: "daily",
     },
+    {
+      url: addPathToBaseURL("/score-card"),
+      lastModified: new Date(),
+      priority: 1,
+      changeFrequency: "monthly",
+    },
     ...courses,
   ];
 }

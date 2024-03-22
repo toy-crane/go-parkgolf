@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { kv } from "@vercel/kv";
 
@@ -19,6 +21,12 @@ function transformToObjects(
 
   return result;
 }
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/trending/hot",
+  },
+};
 
 async function getPopularCourses(limit: number) {
   try {
