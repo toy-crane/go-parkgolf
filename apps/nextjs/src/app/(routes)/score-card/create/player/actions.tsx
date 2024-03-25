@@ -1,6 +1,7 @@
 "use server";
 
 import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { addMilliseconds } from "date-fns";
 import type { z } from "zod";
 
 import type { formSchema } from "./schema";
@@ -13,13 +14,14 @@ export async function createGamePlayer(gameId: string, inputs: Inputs) {
   const response = await supabase
     .from("game_players")
     .insert(
-      players.map((p) => ({
+      players.map((p, index) => ({
         game_id: gameId,
         nickname: p.nickname,
+        // 밀리초 단위로 created_at 값에 차이를 줌
+        created_at: addMilliseconds(new Date(), index).toISOString(),
       })),
     )
     .select();
-
   if (response.error) {
     throw new Error(response.error.message);
   }
