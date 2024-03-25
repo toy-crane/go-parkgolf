@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { Row } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 
@@ -50,6 +51,9 @@ export const ScoreCard = ({
     : undefined;
   const [selectedCell, setSelectedCell] = useState<Cell | undefined>(
     defaultSelectedCell,
+  );
+  const [selectedRow, setSelectedRow] = useState<Row<Score> | undefined>(
+    undefined,
   );
 
   const searchParams = useSearchParams();
@@ -102,6 +106,10 @@ export const ScoreCard = ({
     setSelectedCell(cell);
   };
 
+  const handleSelectedRow = (row?: Row<Score>) => {
+    setSelectedRow(row);
+  };
+
   return (
     <>
       <Tabs
@@ -126,6 +134,8 @@ export const ScoreCard = ({
             <ScoreTable
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
+              selectedRow={selectedRow}
+              onSelectedRow={handleSelectedRow}
               scores={scores}
               gameCourseId={gc.id}
               gamePlayers={gamePlayers}

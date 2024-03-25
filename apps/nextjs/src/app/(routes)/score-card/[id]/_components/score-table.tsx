@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
+import type { Row } from "@tanstack/react-table";
 import {
   flexRender,
   getCoreRowModel,
@@ -105,12 +106,16 @@ export function ScoreTable({
   scores,
   gameCourseId,
   gamePlayers,
+  selectedRow,
+  onSelectedRow,
 }: {
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
   onSelectedCell?: (cell: Cell) => void;
   selectedCell?: Cell;
+  selectedRow?: Row<Score>;
+  onSelectedRow?: (row?: Row<Score>) => void;
 }) {
   const table = useReactTable({
     data: scores,
@@ -141,6 +146,8 @@ export function ScoreTable({
       });
       return accumulator;
     }, {});
+
+  console.log(selectedRow);
 
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
@@ -177,19 +184,23 @@ export function ScoreTable({
                     key={cell.id}
                     onClick={() => {
                       if (cell.column.id === "holeNumber") return;
-                      if (onSelectedCell) {
+                      if (cell.column.id === "par" && onSelectedCell) {
                         onSelectedCell({
                           row: cell.row.id,
                           colName: cell.column.id,
                         });
+                        onSelectedRow?.(undefined);
+                      }
+                      if (cell.column.id !== "par" && onSelectedRow) {
+                        onSelectedRow(row);
                       }
                     }}
                     className={cn(
                       cell.column.id === "holeNumber" &&
                         "cursor-default bg-lime-200",
                       cell.column.id === "par" && "bg-lime-400",
-                      selectedCell?.row === cell.row.id &&
-                        selectedCell?.colName === cell.column.id &&
+                      selectedRow?.id === cell.row.id &&
+                        !["holeNumber", "par"].includes(cell.column.id) &&
                         "bg-green-500",
                     )}
                   >
