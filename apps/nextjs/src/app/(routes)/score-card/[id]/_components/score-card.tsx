@@ -57,6 +57,17 @@ export const ScoreCard = ({
     undefined,
   );
 
+  console.log(
+    selectedRow
+      ?.getAllCells()
+      .filter((cell) => !cell.id.includes("par") && !cell.id.includes("hole"))
+      .map((cell) => cell.getValue()),
+  );
+  const selectedRowScores = selectedRow
+    ?.getAllCells()
+    .filter((cell) => !cell.id.includes("par") && !cell.id.includes("hole"))
+    .map((cell) => String(cell.getValue()));
+
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -97,7 +108,6 @@ export const ScoreCard = ({
       },
       {},
     );
-    console.log("scoreMapp", scoreMapping);
     const updateScores = {
       ...scores[selectedRow.index]!,
       ...scoreMapping,
@@ -234,6 +244,7 @@ export const ScoreCard = ({
           </div> */}
           <div className="content-grid my-4">
             <ScoresInput
+              defaultScores={selectedRowScores}
               inputLength={gamePlayers.length}
               onSubmit={(inputScores) => {
                 setHandlerOpen(false);

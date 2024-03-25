@@ -1,28 +1,34 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/libs/tailwind";
 
 const ScoresInput = ({
   inputLength,
   onSubmit,
+  defaultScores,
 }: {
+  defaultScores?: string[];
   inputLength: number;
   onSubmit: (scores: string[]) => void;
 }) => {
   const [scores, setScores] = useState<string[]>(
-    new Array(inputLength).fill(""),
+    defaultScores ?? Array(inputLength).fill(""),
   );
 
+  const [currentIndex, setCurrentIndex] = useState(0); // 현재 입력 위치를 추적하는 상태
+
   const handleClick = (number: number) => {
-    // 현재 입력된 OTP의 길이를 찾고, 그 위치에 숫자를 입력합니다.
-    const nextIndex = scores.findIndex((value) => value === "");
-    if (nextIndex !== -1) {
-      const newScores = [...scores];
-      newScores[nextIndex] = number.toString();
-      setScores(newScores);
-      // 모든 OTP 숫자가 입력되면, 여기에서 추가적인 동작을 수행할 수 있습니다.
-      if (newScores.every((num) => num !== "")) {
-        onSubmit(newScores);
-      }
+    const newScores = [...scores];
+    newScores[currentIndex] = number.toString(); // 현재 위치에 숫자 할당
+    setScores(newScores);
+
+    const nextIndex = currentIndex + 1; // 다음 위치 계산
+    if (nextIndex >= inputLength) {
+      // 마지막 인덱스를 초과하는 경우
+      onSubmit(newScores); // 모든 입력이 완료되었으므로 onSubmit 호출
+      setCurrentIndex(0); // 인덱스를 다시 처음으로 설정
+    } else {
+      setCurrentIndex(nextIndex); // 아니라면 현재 입력 위치 업데이트
     }
   };
 
@@ -30,7 +36,15 @@ const ScoresInput = ({
     <div>
       <div className="flex justify-center gap-4 pb-4">
         {scores.map((value, index) => (
-          <span key={index}>{value || "_"}</span>
+          <button
+            key={index}
+            className={cn(
+              index === currentIndex && "underline underline-offset-4",
+            )}
+            onClick={() => setCurrentIndex(index)}
+          >
+            {value || "_"}
+          </button>
         ))}
       </div>
       <div className="mb-2 grid grid-cols-3 gap-2">
