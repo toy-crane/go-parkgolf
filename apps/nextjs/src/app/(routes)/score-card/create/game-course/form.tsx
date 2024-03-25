@@ -22,6 +22,7 @@ import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
+import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import {
   createGameCourse,
@@ -30,7 +31,6 @@ import {
   updateGameStatus,
 } from "./actions";
 import { formSchema } from "./schema";
-import BottomCTA from "../_components/bottom-cta";
 
 type Inputs = z.infer<typeof formSchema>;
 
@@ -148,33 +148,36 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
                 정규 코스 추가
               </div>
               <div className="flex flex-wrap gap-1">
-                {courses.map(({ name, holes }) => (
-                  <RecentBadge
-                    key={name}
-                    onClick={() => {
-                      const newName = fields.some(
-                        (field) => field.name === name,
-                      )
-                        ? `${name}-${
-                            fields.filter((field) =>
-                              field.name.startsWith(name),
-                            ).length
-                          }`
-                        : name;
-                      append(
-                        {
-                          name: newName,
-                          hole_count: holes?.length ?? 0,
-                        },
-                        {
-                          shouldFocus: false,
-                        },
-                      );
-                    }}
-                  >
-                    {name} 코스 <PlusCircledIcon className="ml-1 h-3 w-3" />
-                  </RecentBadge>
-                ))}
+                {courses.map(({ name, holes }) => {
+                  const isDuplicate = fields.some(
+                    (field) => field.name === name,
+                  );
+                  const newName = isDuplicate
+                    ? `${name}-${
+                        fields.filter((field) => field.name.startsWith(name))
+                          .length + 1
+                      }`
+                    : name;
+                  return (
+                    <RecentBadge
+                      key={name}
+                      onClick={() => {
+                        append(
+                          {
+                            name: newName,
+                            hole_count: holes?.length ?? 0,
+                          },
+                          {
+                            shouldFocus: false,
+                          },
+                        );
+                      }}
+                    >
+                      {newName} 코스
+                      <PlusCircledIcon className="ml-1 h-3 w-3" />
+                    </RecentBadge>
+                  );
+                })}
               </div>
             </div>
           )}
