@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Row } from "@tanstack/react-table";
@@ -83,7 +82,6 @@ export const ScoreCard = ({
 
   const handleSubmit = (inputScores: string[]) => {
     if (selectedRow === undefined) return;
-    console.log("hello", scores[selectedRow.index]);
     console.log(
       gamePlayers,
       gamePlayers.map((gp) => gp.id),
@@ -238,7 +236,6 @@ export const ScoreCard = ({
             <ScoresInput
               inputLength={gamePlayers.length}
               onSubmit={(inputScores) => {
-                console.log(gamePlayers);
                 setHandlerOpen(false);
                 handleSubmit(inputScores);
               }}
