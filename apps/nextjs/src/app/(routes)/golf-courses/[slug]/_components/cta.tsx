@@ -12,7 +12,7 @@ const CTA = ({
   courseId: string;
   courseName: string;
 }) => {
-  const isMobileApp = useUserAgentStore((state) => state.isMobileApp);
+  const isMobileApp = useUserAgentStore((state) => state.isWebview);
   const route = isMobileApp
     ? `/score-card/create/golf-course?golfCourseId=${courseId}`
     : "/score-card";

@@ -9,6 +9,7 @@ import { env } from "@/env.mjs";
 import { AmplitudeProvider } from "@/libs/amplitude";
 import { readUserSession } from "@/libs/auth";
 import { cn } from "@/libs/tailwind";
+import { isApp } from "@/libs/user-agent";
 import { Identify, identify, init } from "@amplitude/analytics-node";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -102,6 +103,11 @@ export default async function Layout(props: { children: React.ReactNode }) {
     });
   }
 
+  // TODO: isWebview와 isMobileApp 통합이 필요함
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent")!;
+  const isWebView = isApp(userAgent);
+
   // 모든 최초 webview request에만 custom header가 있기에, 요청이 한 번 왔을 때 해당 브라우저를 webview로 인식
   const isMobileApp = headers().get("X-Is-Mobile-App") === "true";
 
@@ -111,7 +117,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
         apiKey={env.NEXT_PUBLIC_AMPLITUDE_API_KEY}
         user={session?.user}
       >
-        <UserAgentStoreInitializer isMobileApp={isMobileApp} />
+        <UserAgentStoreInitializer
+          isMobileApp={isMobileApp}
+          isWebview={isWebView}
+        />
         <UserStoreInitializer user={session?.user} />
         <body className={cn("bg-backgroundfont-sans antialiased")}>
           {props.children}

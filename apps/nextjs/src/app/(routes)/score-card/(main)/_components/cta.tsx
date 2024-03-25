@@ -7,7 +7,7 @@ import { useUserAgentStore } from "@/libs/store/user-agent";
 import { track } from "@vercel/analytics/react";
 
 const CTA = () => {
-  const isMobileApp = useUserAgentStore((state) => state.isMobileApp);
+  const isMobileApp = useUserAgentStore((state) => state.isWebview);
   return (
     <>
       {isMobileApp ? (
