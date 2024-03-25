@@ -3,14 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useUserAgentStore } from "@/libs/store/user-agent";
 import { track } from "@vercel/analytics/react";
 
-const CTA = () => {
-  const isMobileApp = useUserAgentStore((state) => state.isWebview);
+const CTA = ({ isApp }: { isApp: boolean }) => {
   return (
     <>
-      {isMobileApp ? (
+      {isApp ? (
         <Button asChild className="w-full">
           <Link
             href={`/score-card/create/golf-course`}

@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useUserAgentStore } from "@/libs/store/user-agent";
 import { track } from "@vercel/analytics/react";
 
 const CTA = ({
   courseId,
   courseName,
+  isApp,
 }: {
   courseId: string;
   courseName: string;
+  isApp: boolean;
 }) => {
-  const isMobileApp = useUserAgentStore((state) => state.isWebview);
-  const route = isMobileApp
+  const route = isApp
     ? `/score-card/create/golf-course?golfCourseId=${courseId}`
     : "/score-card";
   return (

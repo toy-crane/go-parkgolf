@@ -1,6 +1,5 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import Image from "next/image";
+import { headers } from "next/headers";
 import { Player } from "@/components/player";
 import {
   Accordion,
@@ -9,10 +8,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
+import { isApp } from "@/libs/user-agent";
 
 import CTA from "./_components/cta";
 
 const Page = () => {
+  // TODO: isWebview와 isMobileApp 통합이 필요함
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent")!;
   return (
     <div>
       <section className="w-full pb-12 pt-20 md:pb-28 md:pt-24 lg:pb-28 lg:pt-24">
@@ -117,7 +120,7 @@ const Page = () => {
       </section>
       <div className="bottom-cta content-grid bg-gradient-to-t from-white from-80% to-transparent">
         <div className="content pt-5">
-          <CTA />
+          <CTA isApp={isApp(userAgent)} />
         </div>
       </div>
     </div>

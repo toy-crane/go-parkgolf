@@ -4,11 +4,12 @@ import { useRef } from "react";
 import type { UserAgentState } from "@/libs/store/user-agent";
 import { useUserAgentStore } from "@/libs/store/user-agent";
 
-function UserAgentStoreInitializer({ isMobileApp }: UserAgentState) {
+function UserAgentStoreInitializer({ isMobileApp, isWebview }: UserAgentState) {
   const initialized = useRef(false);
+  console.log(isMobileApp, isWebview, "world");
   if (!initialized.current) {
     if (isMobileApp) {
-      useUserAgentStore.setState({ isMobileApp });
+      useUserAgentStore.setState({ isMobileApp, isWebview });
     }
     initialized.current = true;
   }
