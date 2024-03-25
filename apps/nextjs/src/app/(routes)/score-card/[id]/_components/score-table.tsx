@@ -147,8 +147,6 @@ export function ScoreTable({
       return accumulator;
     }, {});
 
-  console.log(selectedRow);
-
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
       <TableHeader className="flex-0">

@@ -8,9 +8,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Row } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import { pl } from "date-fns/locale";
 
 import type { Cell, GameCourse, Score } from "../type";
 import { ScoreTable } from "./score-table";
+import ScoresInput from "./scores-input";
 
 const safeLocalStorage = generateStorage();
 
@@ -60,10 +62,10 @@ export const ScoreCard = ({
   const router = useRouter();
 
   useEffect(() => {
-    if (selectedCell) {
+    if (selectedCell ?? selectedRow) {
       setHandlerOpen(true);
     }
-  }, [selectedCell]);
+  }, [selectedRow, selectedCell]);
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -77,6 +79,45 @@ export const ScoreCard = ({
       });
     }
     router.replace(`?${params.toString()}`);
+  };
+
+  const handleSubmit = (inputScores: string[]) => {
+    if (selectedRow === undefined) return;
+    console.log("hello", scores[selectedRow.index]);
+    console.log(
+      gamePlayers,
+      gamePlayers.map((gp) => gp.id),
+    );
+    // gamePlayers의 각 요소에 대해 inputScores의 값을 매핑하여 객체를 생성합니다.
+    const scoreMapping = gamePlayers.reduce<Record<string, number>>(
+      (acc, player, index) => {
+        // inputScores 배열의 길이를 넘지 않는 인덱스에 대해서만 값을 매핑합니다.
+        if (index < inputScores.length) {
+          acc[player.id] = Number(inputScores[index]!);
+        }
+        return acc;
+      },
+      {},
+    );
+    console.log("scoreMapp", scoreMapping);
+    const updateScores = {
+      ...scores[selectedRow.index]!,
+      ...scoreMapping,
+    };
+    setScores((origin) =>
+      origin.map((s) => (s.id === updateScores.id ? updateScores : s)),
+    );
+    const localScores = JSON.parse(
+      safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
+    ) as Score[];
+    const newLocalScores = [
+      ...localScores.filter((s) => s.id !== updateScores.id),
+      updateScores,
+    ];
+    safeLocalStorage.set(
+      `${gameId}-changed-scores`,
+      JSON.stringify(newLocalScores),
+    );
   };
 
   const handleClick = (row: string, colName: string, score: number) => {
@@ -145,7 +186,7 @@ export const ScoreCard = ({
       </Tabs>
       <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
         <DrawerContent>
-          <div className="content-grid my-4">
+          {/* <div className="content-grid my-4">
             <div className="mb-3 text-center text-lg font-semibold">
               {selectedCell?.colName === "par" ? "홀의 정규 타수" : "타수"}를
               입력해 주세요
@@ -192,6 +233,16 @@ export const ScoreCard = ({
                 ))}
               </div>
             )}
+          </div> */}
+          <div className="content-grid my-4">
+            <ScoresInput
+              inputLength={gamePlayers.length}
+              onSubmit={(inputScores) => {
+                console.log(gamePlayers);
+                setHandlerOpen(false);
+                handleSubmit(inputScores);
+              }}
+            />
           </div>
         </DrawerContent>
       </Drawer>
