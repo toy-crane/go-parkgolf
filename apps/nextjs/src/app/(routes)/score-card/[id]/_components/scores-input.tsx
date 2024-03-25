@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/libs/tailwind";
+import { LucideArrowLeft } from "lucide-react";
 
 const ScoresInput = ({
   inputLength,
@@ -31,6 +32,30 @@ const ScoresInput = ({
       setCurrentIndex(nextIndex); // 아니라면 현재 입력 위치 업데이트
     }
   };
+  const handleReset = () => {
+    const newScores = [...scores];
+    if (newScores[currentIndex] !== "0") {
+      // 현재 인덱스의 값이 비어있지 않다면 해당 값을 지웁니다.
+      newScores[currentIndex] = "0";
+    } else if (currentIndex > 0) {
+      // 현재 인덱스의 값이 비어있고, 현재 인덱스가 0보다 크다면 이전 인덱스의 값을 지웁니다.
+      newScores[currentIndex - 1] = "0";
+      setCurrentIndex(currentIndex - 1); // 인덱스를 이전 위치로 업데이트합니다.
+    }
+    setScores(newScores);
+
+    // 모든 값이 "0"이 되었다면 onSubmit 호출
+    if (newScores.every((value) => value === "0")) {
+      onSubmit(newScores);
+    }
+  };
+
+  // defaultScores 변경 시 모든 값이 '0'이 아니면 currentIndex를 마지막으로 설정
+  useEffect(() => {
+    if (defaultScores && defaultScores.every((value) => value !== "0")) {
+      setCurrentIndex(defaultScores.length - 1); // 맨 끝 인덱스로 설정
+    }
+  }, [defaultScores]);
 
   return (
     <div>
@@ -43,10 +68,12 @@ const ScoresInput = ({
             )}
             onClick={() => setCurrentIndex(index)}
           >
-            {value || "_"}
+            {value}
           </button>
         ))}
       </div>
+
+      {/* 백 버튼 추가 */}
       <div className="mb-2 grid grid-cols-3 gap-2">
         {[...Array(9).keys()].map((score, index) => (
           <Button
@@ -57,6 +84,13 @@ const ScoresInput = ({
             {score + 1}
           </Button>
         ))}
+        <div className="col-span-1"></div> {/* 첫 번째 빈 셀 */}
+        <div className="col-span-1"></div> {/* 두 번째 빈 셀 */}
+        <div className="col-span-1">
+          <Button variant="secondary" onClick={handleReset} className="w-full">
+            <LucideArrowLeft className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
     </div>
   );
