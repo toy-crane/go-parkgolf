@@ -59,26 +59,30 @@ const ScoresInput = ({
 
   return (
     <div>
-      <div className="flex justify-center gap-4 pb-4">
-        {scores.map((value, index) => (
-          <button
-            key={index}
-            className={cn(
-              index === currentIndex && "underline underline-offset-4",
-            )}
-            onClick={() => setCurrentIndex(index)}
-          >
-            {value}
-          </button>
-        ))}
+      <div className="flex flex-col items-center justify-center pb-4">
+        <span className="text-lg font-bold">5홀</span>
+        <div className="flex justify-center gap-4">
+          {scores.map((value, index) => (
+            <button
+              key={index}
+              className={cn(
+                index === currentIndex && "underline underline-offset-4",
+              )}
+              onClick={() => setCurrentIndex(index)}
+            >
+              {value}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* 백 버튼 추가 */}
-      <div className="mb-2 grid grid-cols-3 gap-2">
+      <div className="mb-2 grid grid-cols-3 gap-1">
         {[...Array(9).keys()].map((score, index) => (
           <Button
             key={index}
             variant={"secondary"}
+            size="xs"
             onClick={() => handleClick(score + 1)}
           >
             {score + 1}
@@ -87,7 +91,12 @@ const ScoresInput = ({
         <div className="col-span-1"></div> {/* 첫 번째 빈 셀 */}
         <div className="col-span-1"></div> {/* 두 번째 빈 셀 */}
         <div className="col-span-1">
-          <Button variant="secondary" onClick={handleReset} className="w-full">
+          <Button
+            variant="secondary"
+            onClick={handleReset}
+            className="w-full"
+            size="xs"
+          >
             <LucideArrowLeft className="h-4 w-4" />
           </Button>
         </div>

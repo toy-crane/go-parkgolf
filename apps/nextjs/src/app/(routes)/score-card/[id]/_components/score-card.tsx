@@ -242,7 +242,7 @@ export const ScoreCard = ({
               </div>
             )}
           </div> */}
-          <div className="content-grid my-4">
+          <div className="content-grid my-2">
             <ScoresInput
               defaultScores={selectedRowScores}
               inputLength={gamePlayers.length}
