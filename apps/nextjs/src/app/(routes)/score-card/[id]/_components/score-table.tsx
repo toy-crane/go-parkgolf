@@ -10,13 +10,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/libs/tailwind";
+import type { Row } from "@tanstack/react-table";
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
-import type { Cell, ColumnName, Score } from "../type";
+import type { ColumnName, Score } from "../type";
 import { useGetColumns } from "../use-columns";
 
 interface GamePlayer {
@@ -100,17 +101,17 @@ const gridColumns = {
 };
 
 export function ScoreTable({
-  selectedCell,
-  onSelectedCell,
   scores,
   gameCourseId,
   gamePlayers,
+  onSelectedRow,
+  selectedScore,
 }: {
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
-  onSelectedCell?: (cell: Cell) => void;
-  selectedCell?: Cell;
+  selectedScore?: Score;
+  onSelectedRow?: (row?: Row<Score>) => void;
 }) {
   const table = useReactTable({
     data: scores,
@@ -141,6 +142,8 @@ export function ScoreTable({
       });
       return accumulator;
     }, {});
+
+  const selectedRow = rows.find((row) => row.original.id === selectedScore?.id);
 
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
@@ -177,19 +180,19 @@ export function ScoreTable({
                     key={cell.id}
                     onClick={() => {
                       if (cell.column.id === "holeNumber") return;
-                      if (onSelectedCell) {
-                        onSelectedCell({
-                          row: cell.row.id,
-                          colName: cell.column.id,
-                        });
+                      if (cell.column.id === "par") {
+                        onSelectedRow?.(undefined);
+                      }
+                      if (cell.column.id !== "par" && onSelectedRow) {
+                        onSelectedRow(row);
                       }
                     }}
                     className={cn(
                       cell.column.id === "holeNumber" &&
                         "cursor-default bg-lime-200",
                       cell.column.id === "par" && "bg-lime-400",
-                      selectedCell?.row === cell.row.id &&
-                        selectedCell?.colName === cell.column.id &&
+                      selectedRow?.id === cell.row.id &&
+                        !["holeNumber", "par"].includes(cell.column.id) &&
                         "bg-green-500",
                     )}
                   >
@@ -215,7 +218,7 @@ export function ScoreTable({
                 {key === "holeNumber"
                   ? "코스 합계"
                   : Number(value) > 0 && key !== "par"
-                  ? `+${value}`
+                  ? `${value}`
                   : value}
               </ScoreCardCell>
             );

@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { Row } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 
-import type { Cell, GameCourse, Score } from "../type";
+import type { GameCourse, Score } from "../type";
 import { ScoreTable } from "./score-table";
+import ScoresInput from "./scores-input";
 
 const safeLocalStorage = generateStorage();
 
@@ -19,6 +20,33 @@ const MergeScores = (scores: Score[], localScores: Score[]) => {
     return localScore ?? s;
   });
   return newScores;
+};
+
+const getScores = (playerOrder: string[], score?: Score) => {
+  if (!score) {
+    return [];
+  }
+
+  // 제외하고자 하는 속성 목록
+  const excludeProperties = new Set([
+    "id",
+    "gameCourseId",
+    "holeNumber",
+    "par",
+  ]);
+
+  // 순서대로 속성 값을 배열에 저장
+  const values = playerOrder.reduce<string[]>((acc, key) => {
+    if (
+      !excludeProperties.has(key) &&
+      Object.prototype.hasOwnProperty.call(score, key)
+    ) {
+      acc.push(String(score[key]));
+    }
+    return acc;
+  }, []);
+
+  return values;
 };
 
 export const ScoreCard = ({
@@ -44,53 +72,66 @@ export const ScoreCard = ({
       safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
     ) as Score[],
   );
+
   const [scores, setScores] = useState<Score[]>(initialScores);
-  const defaultSelectedCell = isMyGame
-    ? { row: "0", colName: gamePlayers[0]?.id! }
-    : undefined;
-  const [selectedCell, setSelectedCell] = useState<Cell | undefined>(
-    defaultSelectedCell,
+
+  const currentCourseId = gameCourses.find((gc) => gc.name === selectedTab)?.id;
+  const defaultScore = scores.find((s) => s.gameCourseId === currentCourseId);
+
+  const [selectedScore, setSelectedScore] = useState<Score | undefined>(
+    isMyGame ? defaultScore : undefined,
   );
 
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
-    if (selectedCell) {
+    if (selectedScore) {
       setHandlerOpen(true);
     }
-  }, [selectedCell]);
+  }, [selectedScore]);
+
+  useEffect(() => {
+    if (!handlerOpen) setSelectedScore(undefined);
+  }, [handlerOpen]);
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
     const courseId = gameCourses.find((gc) => gc.name === value)?.id;
-    const rowNum = scores.findIndex((s) => s.gameCourseId === courseId);
-    if (rowNum !== undefined) {
-      setSelectedCell({
-        row: String(rowNum),
-        colName: gamePlayers[0]?.id!,
-      });
+    const score = scores.find((s) => s.gameCourseId === courseId);
+    if (score !== undefined) {
+      setSelectedScore(score);
     }
     router.replace(`?${params.toString()}`);
   };
 
-  const handleClick = (row: string, colName: string, score: number) => {
-    const currentScores = scores.find((_, index) => index === Number(row));
-    if (!currentScores) return;
-    const updatedScores = {
-      ...currentScores,
-      [colName]: score,
+  const handleSubmit = (inputScores: string[]) => {
+    if (selectedScore === undefined) return;
+    // gamePlayers의 각 요소에 대해 inputScores의 값을 매핑하여 객체를 생성합니다.
+    const scoreMapping = gamePlayers.reduce<Record<string, number>>(
+      (acc, player, index) => {
+        // inputScores 배열의 길이를 넘지 않는 인덱스에 대해서만 값을 매핑합니다.
+        if (index < inputScores.length) {
+          acc[player.id] = Number(inputScores[index]!);
+        }
+        return acc;
+      },
+      {},
+    );
+    const updateScores = {
+      ...selectedScore,
+      ...scoreMapping,
     };
     setScores((origin) =>
-      origin.map((s) => (s.id === updatedScores.id ? updatedScores : s)),
+      origin.map((s) => (s.id === updateScores.id ? updateScores : s)),
     );
     const localScores = JSON.parse(
       safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
     ) as Score[];
     const newLocalScores = [
-      ...localScores.filter((s) => s.id !== updatedScores.id),
-      updatedScores,
+      ...localScores.filter((s) => s.id !== updateScores.id),
+      updateScores,
     ];
     safeLocalStorage.set(
       `${gameId}-changed-scores`,
@@ -98,9 +139,14 @@ export const ScoreCard = ({
     );
   };
 
-  const handleSelectedCell = (cell: Cell) => {
-    setSelectedCell(cell);
+  const handleSelectedRow = (row?: Row<Score>) => {
+    setSelectedScore(row?.original);
   };
+
+  const selectedPlayerScores = getScores(
+    gamePlayers.map((gp) => gp.id),
+    selectedScore,
+  );
 
   return (
     <>
@@ -124,8 +170,8 @@ export const ScoreCard = ({
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <ScoreTable
-              onSelectedCell={handleSelectedCell}
-              selectedCell={selectedCell}
+              onSelectedRow={handleSelectedRow}
+              selectedScore={selectedScore}
               scores={scores}
               gameCourseId={gc.id}
               gamePlayers={gamePlayers}
@@ -135,52 +181,17 @@ export const ScoreCard = ({
       </Tabs>
       <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
         <DrawerContent>
-          <div className="content-grid my-4">
-            <div className="mb-3 text-center text-lg font-semibold">
-              {selectedCell?.colName === "par" ? "홀의 정규 타수" : "타수"}를
-              입력해 주세요
-            </div>
-            {selectedCell?.colName === "par" ? (
-              <div className="mb-4 grid grid-cols-3 gap-2">
-                {[3, 4, 5].map((score, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => {
-                      if (selectedCell) {
-                        handleClick(
-                          selectedCell.row,
-                          selectedCell.colName,
-                          score,
-                        );
-                      }
-                      setHandlerOpen(false);
-                    }}
-                  >
-                    {score} 타
-                  </Button>
-                ))}
-              </div>
-            ) : (
-              <div className="mb-2 grid grid-cols-3 gap-2">
-                {[...Array(9).keys()].map((score, index) => (
-                  <Button
-                    key={index}
-                    variant={"secondary"}
-                    onClick={() => {
-                      if (selectedCell) {
-                        handleClick(
-                          selectedCell.row,
-                          selectedCell.colName,
-                          score + 1,
-                        );
-                      }
-                      setHandlerOpen(false);
-                    }}
-                  >
-                    {score + 1}
-                  </Button>
-                ))}
-              </div>
+          <div className="content-grid my-2">
+            {selectedScore && (
+              <ScoresInput
+                label={`${selectedScore.holeNumber}홀 스코어를 입력하세요`}
+                defaultScores={selectedPlayerScores}
+                inputLength={gamePlayers.length}
+                onSubmit={(inputScores) => {
+                  handleSubmit(inputScores);
+                  setHandlerOpen(false);
+                }}
+              />
             )}
           </div>
         </DrawerContent>
