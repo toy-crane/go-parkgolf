@@ -218,7 +218,7 @@ export function ScoreTable({
                 {key === "holeNumber"
                   ? "코스 합계"
                   : Number(value) > 0 && key !== "par"
-                  ? `+${value}`
+                  ? `${value}`
                   : value}
               </ScoreCardCell>
             );
