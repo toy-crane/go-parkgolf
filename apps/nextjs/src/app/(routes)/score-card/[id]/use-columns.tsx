@@ -43,7 +43,17 @@ export const useGetColumns = (dynamicColumns: ColumnName[]) => {
         columnHelper.accessor(column.accessorKey, {
           cell: (info) => {
             const value = info.getValue() as number;
-            return <div>{value === 0 ? "_" : value}</div>;
+            return (
+              <div>
+                {value === 0 ? (
+                  <span className="text-muted-foreground text-xs font-thin">
+                    입력
+                  </span>
+                ) : (
+                  value
+                )}
+              </div>
+            );
           },
           header: () => <div>{column.headerName}</div>,
           footer: (info) => {
