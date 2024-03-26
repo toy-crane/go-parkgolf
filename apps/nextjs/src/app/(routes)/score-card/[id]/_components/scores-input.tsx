@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/libs/tailwind";
-import { LucideArrowLeft } from "lucide-react";
+import { Delete, LucideArrowLeft } from "lucide-react";
 
 const ScoresInput = ({
   inputLength,
@@ -93,7 +93,7 @@ const ScoresInput = ({
         </div>{" "}
         <div className="col-span-1">
           <Button onClick={handleBack} className="w-full">
-            <LucideArrowLeft className="h-4 w-4" />
+            <Delete className="h-5 w-5" />
           </Button>
         </div>
       </div>
