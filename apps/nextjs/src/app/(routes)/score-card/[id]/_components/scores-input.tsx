@@ -33,6 +33,10 @@ const ScoresInput = ({
     }
   };
   const handleBack = () => {
+    // 현재 모든 값이 "0"이 되었다면 onSubmit 호출
+    if (scores.every((value) => value === "0")) {
+      onSubmit(scores);
+    }
     const newScores = [...scores];
     if (newScores[currentIndex] !== "0") {
       // 현재 인덱스의 값이 비어있지 않다면 해당 값을 지웁니다.
@@ -43,11 +47,6 @@ const ScoresInput = ({
       setCurrentIndex(currentIndex - 1); // 인덱스를 이전 위치로 업데이트합니다.
     }
     setScores(newScores);
-
-    // 모든 값이 "0"이 되었다면 onSubmit 호출
-    if (newScores.every((value) => value === "0")) {
-      onSubmit(newScores);
-    }
   };
 
   return (
