@@ -82,7 +82,6 @@ const ScoresInput = ({
           <Button
             key={index}
             variant={"secondary"}
-            size="xs"
             onClick={() => handleClick(score + 1)}
           >
             {score + 1}
@@ -91,12 +90,7 @@ const ScoresInput = ({
         <div className="col-span-1"></div> {/* 첫 번째 빈 셀 */}
         <div className="col-span-1"></div> {/* 두 번째 빈 셀 */}
         <div className="col-span-1">
-          <Button
-            variant="secondary"
-            onClick={handleReset}
-            className="w-full"
-            size="xs"
-          >
+          <Button variant="secondary" onClick={handleReset} className="w-full">
             <LucideArrowLeft className="h-4 w-4" />
           </Button>
         </div>

@@ -221,8 +221,8 @@ export const ScoreCard = ({
               defaultScores={selectedPlayerScores}
               inputLength={gamePlayers.length}
               onSubmit={(inputScores) => {
-                setHandlerOpen(false);
                 handleSubmit(inputScores);
+                setHandlerOpen(false);
               }}
             />
           </div>
