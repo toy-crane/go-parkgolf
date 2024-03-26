@@ -101,7 +101,6 @@ const gridColumns = {
 };
 
 export function ScoreTable({
-  onSelectedCell,
   scores,
   gameCourseId,
   gamePlayers,
@@ -111,8 +110,6 @@ export function ScoreTable({
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
-  onSelectedCell?: (cell: Cell) => void;
-  selectedCell?: Cell;
   selectedHoleId?: string;
   onSelectedRow?: (row?: Row<Score>) => void;
 }) {
@@ -183,11 +180,7 @@ export function ScoreTable({
                     key={cell.id}
                     onClick={() => {
                       if (cell.column.id === "holeNumber") return;
-                      if (cell.column.id === "par" && onSelectedCell) {
-                        onSelectedCell({
-                          row: cell.row.id,
-                          colName: cell.column.id,
-                        });
+                      if (cell.column.id === "par") {
                         onSelectedRow?.(undefined);
                       }
                       if (cell.column.id !== "par" && onSelectedRow) {

@@ -7,9 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Row } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-import { pl } from "date-fns/locale";
 
-import type { Cell, GameCourse, Score } from "../type";
+import type { GameCourse, Score } from "../type";
 import { ScoreTable } from "./score-table";
 import ScoresInput from "./scores-input";
 
@@ -46,22 +45,16 @@ export const ScoreCard = ({
       safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
     ) as Score[],
   );
-  console.log(data);
+
   const [scores, setScores] = useState<Score[]>(initialScores);
-  const defaultSelectedCell = isMyGame
-    ? { row: "0", colName: gamePlayers[0]?.id! }
-    : undefined;
-  const [selectedCell, setSelectedCell] = useState<Cell | undefined>(
-    defaultSelectedCell,
-  );
+
   const [selectedRow, setSelectedRow] = useState<Row<Score> | undefined>(
     undefined,
   );
   // 최초 선택할 HoleID를 관리합니다.
   const [selectedHoleId, setSelectedHoleId] = useState<string | undefined>(
-    scores[0]?.id,
+    isMyGame ? scores[0]?.id : undefined,
   );
-  console.log("최초 선택된 HoleId", selectedHoleId);
 
   const selectedRowScores = selectedRow
     ?.getAllCells()
@@ -72,22 +65,14 @@ export const ScoreCard = ({
   const router = useRouter();
 
   useEffect(() => {
-    if (selectedCell ?? selectedRow) {
+    if (selectedRow) {
       setHandlerOpen(true);
     }
-  }, [selectedRow, selectedCell]);
+  }, [selectedRow]);
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
-    const courseId = gameCourses.find((gc) => gc.name === value)?.id;
-    const rowNum = scores.findIndex((s) => s.gameCourseId === courseId);
-    if (rowNum !== undefined) {
-      setSelectedCell({
-        row: String(rowNum),
-        colName: gamePlayers[0]?.id!,
-      });
-    }
     router.replace(`?${params.toString()}`);
   };
 
@@ -128,33 +113,6 @@ export const ScoreCard = ({
     );
   };
 
-  const handleClick = (row: string, colName: string, score: number) => {
-    const currentScores = scores.find((_, index) => index === Number(row));
-    if (!currentScores) return;
-    const updatedScores = {
-      ...currentScores,
-      [colName]: score,
-    };
-    setScores((origin) =>
-      origin.map((s) => (s.id === updatedScores.id ? updatedScores : s)),
-    );
-    const localScores = JSON.parse(
-      safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
-    ) as Score[];
-    const newLocalScores = [
-      ...localScores.filter((s) => s.id !== updatedScores.id),
-      updatedScores,
-    ];
-    safeLocalStorage.set(
-      `${gameId}-changed-scores`,
-      JSON.stringify(newLocalScores),
-    );
-  };
-
-  const handleSelectedCell = (cell: Cell) => {
-    setSelectedCell(cell);
-  };
-
   const handleSelectedRow = (row?: Row<Score>) => {
     setSelectedRow(row);
     setSelectedHoleId(row?.original.id);
@@ -182,8 +140,6 @@ export const ScoreCard = ({
         {gameCourses.map((gc) => (
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <ScoreTable
-              onSelectedCell={handleSelectedCell}
-              selectedCell={selectedCell}
               onSelectedRow={handleSelectedRow}
               selectedHoleId={selectedHoleId}
               scores={scores}
