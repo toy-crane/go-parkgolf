@@ -6,7 +6,6 @@ import { useUserAgentStore } from "@/libs/store/user-agent";
 
 function UserAgentStoreInitializer({ isMobileApp, isWebview }: UserAgentState) {
   const initialized = useRef(false);
-  console.log(isMobileApp, isWebview, "world");
   if (!initialized.current) {
     if (isMobileApp) {
       useUserAgentStore.setState({ isMobileApp, isWebview });
