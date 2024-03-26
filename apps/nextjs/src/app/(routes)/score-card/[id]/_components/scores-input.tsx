@@ -3,18 +3,20 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/libs/tailwind";
 import { LucideArrowLeft } from "lucide-react";
 
+// 점수 입력 컴포넌트
+// 요구사항
+// index는 항상 맨 앞에 제일 앞에 위치한다.
+
 const ScoresInput = ({
   inputLength,
   onSubmit,
   defaultScores,
 }: {
-  defaultScores?: string[];
+  defaultScores: string[];
   inputLength: number;
   onSubmit: (scores: string[]) => void;
 }) => {
-  const [scores, setScores] = useState<string[]>(
-    defaultScores ?? Array(inputLength).fill(""),
-  );
+  const [scores, setScores] = useState<string[]>(defaultScores);
 
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 입력 위치를 추적하는 상태
 
@@ -49,13 +51,6 @@ const ScoresInput = ({
       onSubmit(newScores);
     }
   };
-
-  // defaultScores 변경 시 모든 값이 '0'이 아니면 currentIndex를 마지막으로 설정
-  useEffect(() => {
-    if (defaultScores && defaultScores.every((value) => value !== "0")) {
-      setCurrentIndex(defaultScores.length - 1); // 맨 끝 인덱스로 설정
-    }
-  }, [defaultScores]);
 
   return (
     <div>
