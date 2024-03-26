@@ -74,8 +74,12 @@ export const ScoreCard = ({
   );
 
   const [scores, setScores] = useState<Score[]>(initialScores);
+
+  const currentCourseId = gameCourses.find((gc) => gc.name === selectedTab)?.id;
+  const defaultScore = scores.find((s) => s.gameCourseId === currentCourseId);
+
   const [selectedScore, setSelectedScore] = useState<Score | undefined>(
-    isMyGame ? scores[0] : undefined,
+    isMyGame ? defaultScore : undefined,
   );
 
   const searchParams = useSearchParams();
