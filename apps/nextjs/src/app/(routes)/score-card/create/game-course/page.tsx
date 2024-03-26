@@ -1,11 +1,6 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 
 import FormHeader from "../_components/form-header";
 import PlayerForm from "./form";
@@ -19,7 +14,7 @@ const Page = async ({
 }) => {
   const gameId = searchParams?.gameId;
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("games")
     .select(`golf_courses(name, courses(*, holes(*)))`)

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 
 import BackButton from "./back-button";
@@ -15,7 +15,7 @@ const Header = async ({
   isReadOnly: boolean;
   isMyGame: boolean;
 }) => {
-  const supabase = await createSupabaseServerClient();
+  const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("games")
     .select("golf_courses(name),user_id, game_players(id)")

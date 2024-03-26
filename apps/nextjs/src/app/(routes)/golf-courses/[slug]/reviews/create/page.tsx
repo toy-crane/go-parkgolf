@@ -1,5 +1,5 @@
 import { readUserSession } from "@/libs/auth";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import camelcaseKeys from "camelcase-keys";
 
 import Form from "./form";
@@ -17,7 +17,7 @@ const Page = async ({
   const slug = decodeURIComponent(params.slug);
   const session = await readUserSession();
   const user = session?.user;
-  const supabase = await createSupabaseServerClient();
+  const supabase = await createSupabaseServerClientReadOnly();
 
   if (!user) throw new Error("User not found");
 

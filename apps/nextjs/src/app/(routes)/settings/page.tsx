@@ -6,7 +6,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { readUserSession } from "@/libs/auth";
-import { createSupabaseServerClient } from "@/libs/supabase/server";
+import {
+  createSupabaseServerClient,
+  createSupabaseServerClientReadOnly,
+} from "@/libs/supabase/server";
 import { cn } from "@/libs/tailwind";
 import { Identify, identify } from "@amplitude/analytics-node";
 import { User } from "lucide-react";
@@ -31,7 +34,7 @@ const Page = async () => {
 
   if (!user) throw new Error("user is not defined");
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = await createSupabaseServerClientReadOnly();
 
   const { data: profile, error } = await supabase
     .from("profiles")
