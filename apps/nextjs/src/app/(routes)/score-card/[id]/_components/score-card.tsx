@@ -22,6 +22,33 @@ const MergeScores = (scores: Score[], localScores: Score[]) => {
   return newScores;
 };
 
+const getScores = (playerOrder: string[], score?: Score) => {
+  if (!score) {
+    return [];
+  }
+
+  // 제외하고자 하는 속성 목록
+  const excludeProperties = new Set([
+    "id",
+    "gameCourseId",
+    "holeNumber",
+    "par",
+  ]);
+
+  // 순서대로 속성 값을 배열에 저장
+  const values = playerOrder.reduce<string[]>((acc, key) => {
+    if (
+      !excludeProperties.has(key) &&
+      Object.prototype.hasOwnProperty.call(score, key)
+    ) {
+      acc.push(String(score[key]));
+    }
+    return acc;
+  }, []);
+
+  return values;
+};
+
 export const ScoreCard = ({
   gameCourses,
   selectedTab,
@@ -50,23 +77,15 @@ export const ScoreCard = ({
   const [selectedScore, setSelectedScore] = useState<Score | undefined>(
     isMyGame ? scores[0] : undefined,
   );
-  const [selectedRow, setSelectedRow] = useState<Row<Score> | undefined>(
-    undefined,
-  );
-
-  const selectedRowScores = selectedRow
-    ?.getAllCells()
-    .filter((cell) => !cell.id.includes("par") && !cell.id.includes("hole"))
-    .map((cell) => String(cell.getValue()));
 
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
-    if (selectedRow) {
+    if (selectedScore) {
       setHandlerOpen(true);
     }
-  }, [selectedRow]);
+  }, [selectedScore]);
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -75,11 +94,7 @@ export const ScoreCard = ({
   };
 
   const handleSubmit = (inputScores: string[]) => {
-    if (selectedRow === undefined) return;
-    console.log(
-      gamePlayers,
-      gamePlayers.map((gp) => gp.id),
-    );
+    if (selectedScore === undefined) return;
     // gamePlayers의 각 요소에 대해 inputScores의 값을 매핑하여 객체를 생성합니다.
     const scoreMapping = gamePlayers.reduce<Record<string, number>>(
       (acc, player, index) => {
@@ -92,7 +107,7 @@ export const ScoreCard = ({
       {},
     );
     const updateScores = {
-      ...scores[selectedRow.index]!,
+      ...selectedScore,
       ...scoreMapping,
     };
     setScores((origin) =>
@@ -112,11 +127,13 @@ export const ScoreCard = ({
   };
 
   const handleSelectedRow = (row?: Row<Score>) => {
-    setSelectedRow(row);
     setSelectedScore(row?.original);
   };
 
-  console.log(selectedScore, "selectedScore");
+  const selectedPlayerScores = getScores(
+    gamePlayers.map((gp) => gp.id),
+    selectedScore,
+  );
 
   return (
     <>
@@ -201,7 +218,7 @@ export const ScoreCard = ({
           </div> */}
           <div className="content-grid my-2">
             <ScoresInput
-              defaultScores={selectedRowScores}
+              defaultScores={selectedPlayerScores}
               inputLength={gamePlayers.length}
               onSubmit={(inputScores) => {
                 setHandlerOpen(false);
