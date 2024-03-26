@@ -46,6 +46,7 @@ export const ScoreCard = ({
       safeLocalStorage.get(`${gameId}-changed-scores`) ?? "[]",
     ) as Score[],
   );
+  console.log(data);
   const [scores, setScores] = useState<Score[]>(initialScores);
   const defaultSelectedCell = isMyGame
     ? { row: "0", colName: gamePlayers[0]?.id! }
@@ -56,13 +57,12 @@ export const ScoreCard = ({
   const [selectedRow, setSelectedRow] = useState<Row<Score> | undefined>(
     undefined,
   );
-
-  console.log(
-    selectedRow
-      ?.getAllCells()
-      .filter((cell) => !cell.id.includes("par") && !cell.id.includes("hole"))
-      .map((cell) => cell.getValue()),
+  // 최초 선택할 HoleID를 관리합니다.
+  const [selectedHoleId, setSelectedHoleId] = useState<string | undefined>(
+    scores[0]?.id,
   );
+  console.log("최초 선택된 HoleId", selectedHoleId);
+
   const selectedRowScores = selectedRow
     ?.getAllCells()
     .filter((cell) => !cell.id.includes("par") && !cell.id.includes("hole"))
@@ -157,6 +157,7 @@ export const ScoreCard = ({
 
   const handleSelectedRow = (row?: Row<Score>) => {
     setSelectedRow(row);
+    setSelectedHoleId(row?.original.id);
   };
 
   return (
@@ -185,6 +186,7 @@ export const ScoreCard = ({
               selectedCell={selectedCell}
               selectedRow={selectedRow}
               onSelectedRow={handleSelectedRow}
+              selectedHoleId={selectedHoleId}
               scores={scores}
               gameCourseId={gc.id}
               gamePlayers={gamePlayers}

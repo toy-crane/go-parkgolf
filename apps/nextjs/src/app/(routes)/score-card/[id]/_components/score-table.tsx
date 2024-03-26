@@ -101,20 +101,19 @@ const gridColumns = {
 };
 
 export function ScoreTable({
-  selectedCell,
   onSelectedCell,
   scores,
   gameCourseId,
   gamePlayers,
-  selectedRow,
   onSelectedRow,
+  selectedHoleId,
 }: {
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
   onSelectedCell?: (cell: Cell) => void;
   selectedCell?: Cell;
-  selectedRow?: Row<Score>;
+  selectedHoleId?: string;
   onSelectedRow?: (row?: Row<Score>) => void;
 }) {
   const table = useReactTable({
@@ -146,6 +145,8 @@ export function ScoreTable({
       });
       return accumulator;
     }, {});
+
+  const selectedRow = rows.find((row) => row.original.id === selectedHoleId);
 
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">
