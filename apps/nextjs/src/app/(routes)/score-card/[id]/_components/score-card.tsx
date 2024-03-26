@@ -90,6 +90,11 @@ export const ScoreCard = ({
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
+    const courseId = gameCourses.find((gc) => gc.name === value)?.id;
+    const score = scores.find((s) => s.gameCourseId === courseId);
+    if (score !== undefined) {
+      setSelectedScore(score);
+    }
     router.replace(`?${params.toString()}`);
   };
 
