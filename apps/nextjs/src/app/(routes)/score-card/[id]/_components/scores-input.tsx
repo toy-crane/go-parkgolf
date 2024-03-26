@@ -49,6 +49,10 @@ const ScoresInput = ({
     setScores(newScores);
   };
 
+  const handleComplete = () => {
+    onSubmit(scores);
+  };
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center pb-4">
@@ -72,7 +76,7 @@ const ScoresInput = ({
       </div>
 
       {/* 백 버튼 추가 */}
-      <div className="mb-2 grid grid-cols-3 gap-1">
+      <div className="mb-2 grid grid-cols-3 gap-1 gap-y-1.5">
         {[...Array(9).keys()].map((score, index) => (
           <Button
             key={index}
@@ -82,11 +86,14 @@ const ScoresInput = ({
             {score + 1}
           </Button>
         ))}
-        <div className="col-span-1"></div> {/* 첫 번째 빈 셀 */}
-        <div className="col-span-1"></div> {/* 두 번째 빈 셀 */}
+        <div className="col-span-2">
+          <Button onClick={handleComplete} className="w-full">
+            완료
+          </Button>
+        </div>{" "}
         <div className="col-span-1">
-          <Button variant="secondary" onClick={handleBack} className="w-full">
-            <LucideArrowLeft className="h-4 w-4" />
+          <Button onClick={handleBack} className="w-full">
+            이전
           </Button>
         </div>
       </div>
