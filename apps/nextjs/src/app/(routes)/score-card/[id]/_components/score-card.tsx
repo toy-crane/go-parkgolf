@@ -184,7 +184,6 @@ export const ScoreCard = ({
             <ScoreTable
               onSelectedCell={handleSelectedCell}
               selectedCell={selectedCell}
-              selectedRow={selectedRow}
               onSelectedRow={handleSelectedRow}
               selectedHoleId={selectedHoleId}
               scores={scores}
