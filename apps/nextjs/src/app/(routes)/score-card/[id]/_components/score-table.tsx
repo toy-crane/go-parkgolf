@@ -17,7 +17,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-import type { Cell, ColumnName, Score } from "../type";
+import type { ColumnName, Score } from "../type";
 import { useGetColumns } from "../use-columns";
 
 interface GamePlayer {
