@@ -105,12 +105,12 @@ export function ScoreTable({
   gameCourseId,
   gamePlayers,
   onSelectedRow,
-  selectedHoleId,
+  selectedScore,
 }: {
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
-  selectedHoleId?: string;
+  selectedScore?: Score;
   onSelectedRow?: (row?: Row<Score>) => void;
 }) {
   const table = useReactTable({
@@ -143,7 +143,7 @@ export function ScoreTable({
       return accumulator;
     }, {});
 
-  const selectedRow = rows.find((row) => row.original.id === selectedHoleId);
+  const selectedRow = rows.find((row) => row.original.id === selectedScore?.id);
 
   return (
     <Table className="flex h-full flex-1 flex-col text-xs md:text-sm">

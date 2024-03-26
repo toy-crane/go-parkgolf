@@ -47,13 +47,11 @@ export const ScoreCard = ({
   );
 
   const [scores, setScores] = useState<Score[]>(initialScores);
-
+  const [selectedScore, setSelectedScore] = useState<Score | undefined>(
+    isMyGame ? scores[0] : undefined,
+  );
   const [selectedRow, setSelectedRow] = useState<Row<Score> | undefined>(
     undefined,
-  );
-  // 최초 선택할 HoleID를 관리합니다.
-  const [selectedHoleId, setSelectedHoleId] = useState<string | undefined>(
-    isMyGame ? scores[0]?.id : undefined,
   );
 
   const selectedRowScores = selectedRow
@@ -115,8 +113,10 @@ export const ScoreCard = ({
 
   const handleSelectedRow = (row?: Row<Score>) => {
     setSelectedRow(row);
-    setSelectedHoleId(row?.original.id);
+    setSelectedScore(row?.original);
   };
+
+  console.log(selectedScore, "selectedScore");
 
   return (
     <>
@@ -141,7 +141,7 @@ export const ScoreCard = ({
           <TabsContent value={gc.name} key={gc.id} className="flex-1">
             <ScoreTable
               onSelectedRow={handleSelectedRow}
-              selectedHoleId={selectedHoleId}
+              selectedScore={selectedScore}
               scores={scores}
               gameCourseId={gc.id}
               gamePlayers={gamePlayers}
