@@ -59,7 +59,8 @@ const ScoresInput = ({
             <button
               key={index}
               className={cn(
-                index === currentIndex && "underline underline-offset-4",
+                index === currentIndex &&
+                  "after:animate-blink after:block after:h-[2px] after:w-full after:bg-current after:content-['']",
               )}
               onClick={() => setCurrentIndex(index)}
             >
