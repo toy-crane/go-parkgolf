@@ -63,7 +63,7 @@ const ScoresInput = ({
               key={index}
               className={cn(
                 "relative flex h-5 w-5 items-center justify-center px-1 text-lg",
-                "after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:bg-current after:content-['']",
+                "after:bg-muted-foreground/40 after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:content-['']",
                 index === currentIndex &&
                   "after:animate-blink after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:bg-lime-500 after:content-['']",
               )}
