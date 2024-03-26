@@ -93,7 +93,7 @@ const ScoresInput = ({
         </div>{" "}
         <div className="col-span-1">
           <Button onClick={handleBack} className="w-full">
-            이전
+            <LucideArrowLeft className="h-4 w-4" />
           </Button>
         </div>
       </div>
