@@ -34,7 +34,7 @@ const ScoresInput = ({
       setCurrentIndex(nextIndex); // 아니라면 현재 입력 위치 업데이트
     }
   };
-  const handleReset = () => {
+  const handleBack = () => {
     const newScores = [...scores];
     if (newScores[currentIndex] !== "0") {
       // 현재 인덱스의 값이 비어있지 않다면 해당 값을 지웁니다.
@@ -85,7 +85,7 @@ const ScoresInput = ({
         <div className="col-span-1"></div> {/* 첫 번째 빈 셀 */}
         <div className="col-span-1"></div> {/* 두 번째 빈 셀 */}
         <div className="col-span-1">
-          <Button variant="secondary" onClick={handleReset} className="w-full">
+          <Button variant="secondary" onClick={handleBack} className="w-full">
             <LucideArrowLeft className="h-4 w-4" />
           </Button>
         </div>
