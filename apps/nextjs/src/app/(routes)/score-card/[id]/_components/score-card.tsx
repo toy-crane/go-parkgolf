@@ -87,6 +87,10 @@ export const ScoreCard = ({
     }
   }, [selectedScore]);
 
+  useEffect(() => {
+    if (!handlerOpen) setSelectedScore(undefined);
+  }, [handlerOpen]);
+
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
