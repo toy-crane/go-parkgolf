@@ -106,16 +106,18 @@ export function ScoreTable({
   gamePlayers,
   onSelectedRow,
   selectedScore,
+  readonly = false,
 }: {
   gameCourseId: string;
   gamePlayers: GamePlayer[];
   scores: Score[];
+  readonly?: boolean;
   selectedScore?: Score;
   onSelectedRow?: (row?: Row<Score>) => void;
 }) {
   const table = useReactTable({
     data: scores,
-    columns: useGetColumns(getColumnNames(gamePlayers)),
+    columns: useGetColumns(getColumnNames(gamePlayers), readonly),
     getCoreRowModel: getCoreRowModel(),
   });
   const rows = table

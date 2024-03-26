@@ -54,6 +54,7 @@ export const ReadOnlyScoreCard = ({
               scores={data}
               gameCourseId={gc.id}
               gamePlayers={gamePlayers}
+              readonly={true}
             />
           </TabsContent>
         ))}

@@ -15,7 +15,10 @@ const columnHelper = createColumnHelper<Score>();
 
 export type ScoreColumn = ColumnDef<Score>;
 
-export const useGetColumns = (dynamicColumns: ColumnName[]) => {
+export const useGetColumns = (
+  dynamicColumns: ColumnName[],
+  readonly?: boolean,
+) => {
   const columns = useMemo(
     () => [
       columnHelper.accessor("holeNumber", {
@@ -46,9 +49,13 @@ export const useGetColumns = (dynamicColumns: ColumnName[]) => {
             return (
               <div>
                 {value === 0 ? (
-                  <span className="text-muted-foreground text-xs font-thin">
-                    입력
-                  </span>
+                  readonly ? (
+                    " "
+                  ) : (
+                    <span className="text-muted-foreground text-xs font-thin">
+                      입력
+                    </span>
+                  )
                 ) : (
                   value
                 )}
