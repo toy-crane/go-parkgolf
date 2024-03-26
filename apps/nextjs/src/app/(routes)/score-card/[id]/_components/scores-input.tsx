@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/libs/tailwind";
 import { LucideArrowLeft } from "lucide-react";
-
-// 점수 입력 컴포넌트
-// 요구사항
-// index는 항상 맨 앞에 제일 앞에 위치한다.
 
 const ScoresInput = ({
   inputLength,
   onSubmit,
   defaultScores,
+  label,
 }: {
+  label: string;
   defaultScores: string[];
   inputLength: number;
   onSubmit: (scores: string[]) => void;
@@ -55,7 +53,7 @@ const ScoresInput = ({
   return (
     <div>
       <div className="flex flex-col items-center justify-center pb-4">
-        <span className="text-lg font-bold">5홀</span>
+        <span className="text-lg font-bold">{label}</span>
         <div className="flex justify-center gap-4">
           {scores.map((value, index) => (
             <button

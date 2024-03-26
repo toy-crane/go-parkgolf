@@ -217,14 +217,17 @@ export const ScoreCard = ({
             )}
           </div> */}
           <div className="content-grid my-2">
-            <ScoresInput
-              defaultScores={selectedPlayerScores}
-              inputLength={gamePlayers.length}
-              onSubmit={(inputScores) => {
-                handleSubmit(inputScores);
-                setHandlerOpen(false);
-              }}
-            />
+            {selectedScore && (
+              <ScoresInput
+                label={`${selectedScore.holeNumber} 홀`}
+                defaultScores={selectedPlayerScores}
+                inputLength={gamePlayers.length}
+                onSubmit={(inputScores) => {
+                  handleSubmit(inputScores);
+                  setHandlerOpen(false);
+                }}
+              />
+            )}
           </div>
         </DrawerContent>
       </Drawer>
