@@ -80,7 +80,7 @@ export default {
         },
         blink: {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
+          "50%": { opacity: "0.2" },
         },
       },
       animation: {
