@@ -228,7 +228,7 @@ export const ScoreCard = ({
           <div className="content-grid my-2">
             {selectedScore && (
               <ScoresInput
-                label={`${selectedScore.holeNumber} 홀`}
+                label={`${selectedScore.holeNumber}홀 스코어를 입력하세요`}
                 defaultScores={selectedPlayerScores}
                 inputLength={gamePlayers.length}
                 onSubmit={(inputScores) => {
