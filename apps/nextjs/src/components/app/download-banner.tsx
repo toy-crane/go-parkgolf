@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useUserAgentStore } from "@/libs/store/user-agent";
 import { generateSessionStorage } from "@toss/storage";
 import { track } from "@vercel/analytics/react";
 import { X } from "lucide-react";
@@ -11,10 +12,11 @@ import { Button } from "../ui/button";
 const safeLocalStorage = generateSessionStorage();
 
 const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
+  const isMobileApp = useUserAgentStore((state) => state.isMobileApp);
   const [showInstallBanner, setShowInstallBanner] = useState(
     safeLocalStorage.get("show-install-banner") ? false : true,
   );
-  if (!showInstallBanner || isApp) return null;
+  if (!showInstallBanner || isMobileApp) return null;
   return (
     <div className="bg-muted content-grid z-header sticky top-0">
       <div className="content flex items-center justify-between py-2">
