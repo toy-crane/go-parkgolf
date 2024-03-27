@@ -24,7 +24,7 @@ const Nav = async () => {
     href: `/golf-courses/${course.slug}`,
   }));
   return (
-    <header className="content-grid h-header z-header fixed top-0 w-full border-b bg-white">
+    <header className="content-grid h-header z-header fixed w-full border-b bg-white">
       <div className="content flex items-center gap-2">
         <nav className="md:content full flex w-full flex-1 items-center justify-between">
           <BackButton />

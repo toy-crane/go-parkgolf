@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
+import dynamic from "next/dynamic";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import BottomNav from "@/components/nav/bottom";
@@ -88,6 +89,13 @@ export async function generateMetadata(
   }
 }
 
+const DownloadBanner = dynamic(
+  () => import("@/components/app/download-banner"),
+  {
+    ssr: false,
+  },
+);
+
 export default async function Page({ params, searchParams }: Props) {
   const tab = searchParams?.tab ?? "home";
   const slug = decodeURIComponent(params.slug);
@@ -108,78 +116,80 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <>
+      <DownloadBanner isApp={isApp(userAgent)} />
       <Nav />
-      <section className="mt-14 md:mb-2 md:mt-16">
-        <Suspense
-          fallback={
-            <div className="flex min-h-[320px] items-center justify-center">
-              <Loader2
-                className="h-5 w-5 animate-spin"
-                size={24}
-                color={"#71717A"}
-              />
-            </div>
+      <div className="content-grid">
+        <section className="mt-14 md:mb-2 md:mt-16">
+          <Suspense
+            fallback={
+              <div className="flex min-h-[320px] items-center justify-center">
+                <Loader2
+                  className="h-5 w-5 animate-spin"
+                  size={24}
+                  color={"#71717A"}
+                />
+              </div>
+            }
+          >
+            <NearCourseMap currentCourse={currentCourse} />
+          </Suspense>
+        </section>
+        <Title course={currentCourse} className="pt-2" />
+        <AdBanner className="flex justify-center px-2 py-2 md:pb-4" />
+        <CourseDetailTab
+          course={currentCourse}
+          selectedTab={tab}
+          courseCommonInfo={<CourseCommonInfo courseId={currentCourse.id} />}
+          nearCourseInfo={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[30vh] items-center justify-center">
+                  <Loader2
+                    className="h-5 w-5 animate-spin"
+                    size={24}
+                    color={"#71717A"}
+                  />
+                </div>
+              }
+            >
+              <NearCourseInfo course={currentCourse} />
+            </Suspense>
           }
-        >
-          <NearCourseMap currentCourse={currentCourse} />
-        </Suspense>
-      </section>
-      <Title course={currentCourse} className="pt-2" />
-      <AdBanner className="flex justify-center px-2 py-2 md:pb-4" />
-      <CourseDetailTab
-        course={currentCourse}
-        selectedTab={tab}
-        courseCommonInfo={<CourseCommonInfo courseId={currentCourse.id} />}
-        nearCourseInfo={
-          <Suspense
-            fallback={
-              <div className="flex min-h-[30vh] items-center justify-center">
-                <Loader2
-                  className="h-5 w-5 animate-spin"
-                  size={24}
-                  color={"#71717A"}
-                />
-              </div>
-            }
-          >
-            <NearCourseInfo course={currentCourse} />
-          </Suspense>
-        }
-        reviewInfo={
-          <Suspense
-            fallback={
-              <div className="flex min-h-[30vh] items-center justify-center">
-                <Loader2
-                  className="h-5 w-5 animate-spin"
-                  size={24}
-                  color={"#71717A"}
-                />
-              </div>
-            }
-          >
-            <ReviewInfo course={currentCourse} />
-          </Suspense>
-        }
-        courseDetailInfo={
-          <Suspense
-            fallback={
-              <div className="flex min-h-[30vh] items-center justify-center">
-                <Loader2
-                  className="h-5 w-5 animate-spin"
-                  size={24}
-                  color={"#71717A"}
-                />
-              </div>
-            }
-          >
-            <CourseDetailInfo
-              golfCourseId={currentCourse.id}
-              courseName={currentCourse.name}
-            />
-          </Suspense>
-        }
-      />
-
+          reviewInfo={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[30vh] items-center justify-center">
+                  <Loader2
+                    className="h-5 w-5 animate-spin"
+                    size={24}
+                    color={"#71717A"}
+                  />
+                </div>
+              }
+            >
+              <ReviewInfo course={currentCourse} />
+            </Suspense>
+          }
+          courseDetailInfo={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[30vh] items-center justify-center">
+                  <Loader2
+                    className="h-5 w-5 animate-spin"
+                    size={24}
+                    color={"#71717A"}
+                  />
+                </div>
+              }
+            >
+              <CourseDetailInfo
+                golfCourseId={currentCourse.id}
+                courseName={currentCourse.name}
+              />
+            </Suspense>
+          }
+        />
+      </div>
       <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-3">
         <div className="md:content full flex justify-center pt-5">
           <CTA

@@ -1,7 +1,7 @@
 const Layout = (props: { children: React.ReactNode }) => {
   return (
     <>
-      <div className="content-grid">{props.children}</div>
+      <div>{props.children}</div>
     </>
   );
 };
