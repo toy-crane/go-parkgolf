@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { generateStorage } from "@toss/storage";
+import { track } from "@vercel/analytics/react";
 import { X } from "lucide-react";
 
 import { Button } from "../ui/button";
@@ -33,6 +34,7 @@ const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="ml-1 underline underline-offset-2"
+              onClick={() => track("download-banner-click")}
             >
               앱 다운로드
             </a>
