@@ -88,7 +88,7 @@
   .bottom-cta {
     position: fixed;
     bottom: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     left: 0;
     right: 0;
     z-index: var(--bottom-nav-z-index);
