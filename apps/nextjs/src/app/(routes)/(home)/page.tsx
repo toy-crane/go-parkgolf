@@ -71,7 +71,6 @@ const Home = async ({
           level={9}
         />
       </section>
-      <Footer />
     </>
   );
 };
