@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useUserAgentStore } from "@/libs/store/user-agent";
 import { generateSessionStorage } from "@toss/storage";
 import { track } from "@vercel/analytics/react";
 import { X } from "lucide-react";
