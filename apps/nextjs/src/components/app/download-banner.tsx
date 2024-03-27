@@ -16,7 +16,7 @@ const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
   );
   if (!installBannerVisibility || isApp) return null;
   return (
-    <div className="bg-muted content-grid sticky top-0 z-10">
+    <div className="bg-muted content-grid z-header sticky top-0">
       <div className="content flex items-center justify-between py-2">
         <div className="flex items-center gap-4">
           <Image
