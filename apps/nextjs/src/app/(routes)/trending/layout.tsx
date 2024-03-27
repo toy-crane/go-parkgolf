@@ -13,7 +13,7 @@ const Layout = (props: { children: React.ReactNode }) => {
   const userAgent = headersList.get("user-agent")!;
   return (
     <>
-      {/* <DownloadBanner isApp={isApp(userAgent)} /> */}
+      <DownloadBanner isApp={isApp(userAgent)} />
       <main className="content-grid pb-[var(--bottom-nav-height)]">
         <div className="pb-28">
           <PageHeader className="relative flex flex-row items-center pb-4 md:pb-6">
