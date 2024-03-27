@@ -40,15 +40,15 @@ const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
             </a>
           </div>
         </div>
-        <Button variant={"ghost"} size="smIcon">
-          <X
-            className="bg-muted h-4 w-4"
-            color="#BBB"
-            onClick={() => {
-              safeLocalStorage.set("install-banner-visibility", "false");
-              setInstallBannerVisibility(false);
-            }}
-          />
+        <Button
+          variant={"ghost"}
+          size="smIcon"
+          onClick={() => {
+            safeLocalStorage.set("install-banner-visibility", "false");
+            setInstallBannerVisibility(false);
+          }}
+        >
+          <X className="bg-muted h-4 w-4" color="#BBB" />
         </Button>
       </div>
     </div>
