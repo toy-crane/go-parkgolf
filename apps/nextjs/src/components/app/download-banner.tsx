@@ -12,11 +12,10 @@ import { Button } from "../ui/button";
 const safeLocalStorage = generateSessionStorage();
 
 const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
-  const isMobileApp = useUserAgentStore((state) => state.isMobileApp);
   const [showInstallBanner, setShowInstallBanner] = useState(
     safeLocalStorage.get("show-install-banner") ? false : true,
   );
-  if (!showInstallBanner || isMobileApp) return null;
+  if (!showInstallBanner || isApp) return null;
   return (
     <div className="bg-muted content-grid z-header sticky top-0">
       <div className="content flex items-center justify-between py-2">
