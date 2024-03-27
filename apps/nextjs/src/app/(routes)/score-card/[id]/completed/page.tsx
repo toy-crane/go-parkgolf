@@ -142,7 +142,7 @@ const Page = async ({ params }: Props) => {
     <>
       <Header isMyGame={isMyGame} gameId={gameResult.id} />
       <div className="flex flex-col items-center pb-28">
-        <div className="mb-4 mt-4 space-y-1 text-center md:mb-9 md:mt-6 md:space-y-3">
+        <div className="my-2 space-y-1 text-center md:my-4 md:space-y-3">
           <div>
             <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
               {golfCourse?.name}
@@ -152,9 +152,10 @@ const Page = async ({ params }: Props) => {
                 locale: ko,
               })}{" "}
               ~{" "}
-              {gameFinishedAt && format(new Date(gameFinishedAt), "HH:mm", {
-                locale: ko,
-              })}
+              {gameFinishedAt &&
+                format(new Date(gameFinishedAt), "HH:mm", {
+                  locale: ko,
+                })}
             </div>
           </div>
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
