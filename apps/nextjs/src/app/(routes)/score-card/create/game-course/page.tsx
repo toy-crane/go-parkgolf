@@ -38,7 +38,7 @@ const Page = async ({
         title="신규 게임 생성하기"
         description="코스를 설정해 주세요"
       />
-      <PlayerForm gameId={gameId} courses={courses} courseName={courseName} />
+      <PlayerForm gameId={gameId} courses={courses} />
     </div>
   );
 };

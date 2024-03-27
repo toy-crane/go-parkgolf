@@ -19,7 +19,6 @@ import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { track } from "@vercel/analytics";
-import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -38,10 +37,9 @@ type Inputs = z.infer<typeof formSchema>;
 interface FormProps {
   gameId: string;
   courses?: Course[];
-  courseName: string;
 }
 
-const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
+const GameCourseForm = ({ gameId, courses }: FormProps) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
