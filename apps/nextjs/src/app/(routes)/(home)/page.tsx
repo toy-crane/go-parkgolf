@@ -3,7 +3,6 @@ import HomeNav from "@/components/nav/home";
 import { DEFAULT_POSITION } from "@/config/map";
 
 import { getCourses } from "./_components/action";
-import Footer from "./_components/footer";
 
 const Home = async ({
   searchParams,
