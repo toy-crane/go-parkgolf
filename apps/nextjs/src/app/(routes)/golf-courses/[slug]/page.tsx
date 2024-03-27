@@ -116,10 +116,10 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <>
-      {/* <DownloadBanner isApp={isApp(userAgent)} /> */}
+      <DownloadBanner isApp={isApp(userAgent)} />
       <Nav />
       <div className="content-grid">
-        <section className="mt-14 md:mb-2 md:mt-16">
+        <section className="mt-2 md:mb-2 md:mt-16">
           <Suspense
             fallback={
               <div className="flex min-h-[320px] items-center justify-center">

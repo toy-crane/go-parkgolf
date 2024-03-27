@@ -2,21 +2,21 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { generateStorage } from "@toss/storage";
+import { generateSessionStorage } from "@toss/storage";
 import { track } from "@vercel/analytics/react";
 import { X } from "lucide-react";
 
 import { Button } from "../ui/button";
 
-const safeLocalStorage = generateStorage();
+const safeLocalStorage = generateSessionStorage();
 
 const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
-  const [installBannerVisibility, setInstallBannerVisibility] = useState(
-    safeLocalStorage.get("install-banner-visibility") ? false : true,
+  const [showInstallBanner, setShowInstallBanner] = useState(
+    safeLocalStorage.get("show-install-banner") ? false : true,
   );
-  if (!installBannerVisibility || isApp) return null;
+  if (!showInstallBanner || isApp) return null;
   return (
-    <div className="bg-muted content-grid sticky top-0 z-10">
+    <div className="bg-muted content-grid z-header sticky top-0">
       <div className="content flex items-center justify-between py-2">
         <div className="flex items-center gap-4">
           <Image
@@ -40,15 +40,15 @@ const DownloadBanner = ({ isApp }: { isApp: boolean }) => {
             </a>
           </div>
         </div>
-        <Button variant={"ghost"} size="smIcon">
-          <X
-            className="bg-muted h-4 w-4"
-            color="#BBB"
-            onClick={() => {
-              safeLocalStorage.set("install-banner-visibility", "false");
-              setInstallBannerVisibility(false);
-            }}
-          />
+        <Button
+          variant={"ghost"}
+          size="smIcon"
+          onClick={() => {
+            setShowInstallBanner(false);
+            safeLocalStorage.set("show-install-banner", "false");
+          }}
+        >
+          <X className="bg-muted h-4 w-4" color="#BBB" />
         </Button>
       </div>
     </div>

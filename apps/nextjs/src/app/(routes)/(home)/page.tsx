@@ -71,10 +71,10 @@ const Home = async ({
 
   return (
     <>
-      {/* <DownloadBanner isApp={isApp(userAgent)} /> */}
+      <DownloadBanner isApp={isApp(userAgent)} />
       <HomeNav selectOptions={selectOptions} />
       {/* homeNav 만큼 Padding 확보 */}
-      <section className="pt-12">
+      <section>
         <KakaoMap
           markers={markers}
           center={position.center}
