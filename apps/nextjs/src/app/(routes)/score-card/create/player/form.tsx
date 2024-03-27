@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
@@ -91,6 +92,22 @@ const PlayerForm = ({ gameId }: FormProps) => {
         className="flex flex-col space-y-12 pb-20"
       >
         <div className="flex flex-col">
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            disabled={fields.length >= 4}
+            className="justify-start pl-0 hover:bg-white"
+            onClick={() =>
+              append({
+                nickname: "",
+              })
+            }
+          >
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
+            새로운 선수 추가하기
+          </Button>
+          <Separator className="mb-4 mt-1" />
           <div className="mb-4 flex flex-col space-y-1">
             <FormLabel className="flex-1">선수 이름</FormLabel>
             <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
@@ -157,20 +174,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
               </div>
             </div>
           )}
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            disabled={fields.length >= 4}
-            onClick={() =>
-              append({
-                nickname: "",
-              })
-            }
-          >
-            <PlusCircledIcon className="mr-1 h-4 w-4" />
-            선수 추가하기
-          </Button>
+
           <FormMessage className="mt-1">{error?.message}</FormMessage>
         </div>
         <BottomCTA
