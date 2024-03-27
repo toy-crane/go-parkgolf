@@ -11,7 +11,7 @@ const Feedback = ({
 }) => {
   return (
     <div className="mb-4 flex flex-col items-center gap-2">
-      <span className="text-base font-semibold">{label}</span>
+      <span className="text-sm font-semibold md:text-base">{label}</span>
       <div className="flex gap-2">
         <Button variant="outline" asChild className="px-3">
           <Link

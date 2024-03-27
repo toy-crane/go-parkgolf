@@ -142,7 +142,7 @@ const Page = async ({ params }: Props) => {
     <>
       <Header isMyGame={isMyGame} gameId={gameResult.id} />
       <div className="flex flex-col items-center pb-28">
-        <div className="my-2 space-y-1 text-center md:my-4 md:space-y-3">
+        <div className="my-3 space-y-1 text-center md:my-4 md:space-y-3">
           <div>
             <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
               {golfCourse?.name}
@@ -165,19 +165,19 @@ const Page = async ({ params }: Props) => {
         <div className="flex w-full flex-col md:w-[600px]">
           <ResultTable result={result} columnNames={columnNames} />
           <Button
-            size="sm"
+            size="xs"
             variant="ghost"
-            className="mb-3 flex self-end hover:bg-white"
+            className="text-muted-foreground flex h-5 self-end hover:bg-white"
             asChild
           >
             <Link href={`/score-card/${params.id}?type=readonly`}>
-              전체 기록보기 <ChevronRight className="ml-2" />
+              전체 기록보기 <ChevronRight className="ml-0.5 h-4 w-4" />
             </Link>
           </Button>
         </div>
         {user && !hasReview && (
-          <div>
-            <Separator className=" mb-6 w-full md:w-[600px]" />
+          <div className="mt-2">
+            <Separator className="mb-3 w-full md:w-[600px]" />
             <Feedback
               label={`${golfCourse?.name} 어떠셨나요?`}
               golfCourseSlug={golfCourse?.slug}

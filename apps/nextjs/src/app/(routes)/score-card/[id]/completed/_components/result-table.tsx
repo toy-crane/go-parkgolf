@@ -89,7 +89,7 @@ const ResultTable = ({
                 <TableHead
                   key={header.id}
                   className={cn(
-                    "flex items-center justify-center px-0",
+                    "flex h-8 items-center justify-center px-0 md:h-12",
                     header.column.id === "courseName" &&
                       "bg-lime-400 text-white",
                   )}
@@ -111,7 +111,7 @@ const ResultTable = ({
               <TableCell
                 key={cell.id}
                 className={cn(
-                  "flex items-center justify-center px-0",
+                  "flex h-8 items-center justify-center px-0  md:h-12",
                   cell.column.id === "courseName" && "bg-lime-400 text-white",
                 )}
               >
@@ -128,7 +128,9 @@ const ResultTable = ({
               return (
                 <TableCell
                   key={footer.id}
-                  className={cn("flex items-center justify-center px-0")}
+                  className={cn(
+                    "flex h-8 items-center justify-center px-0 md:h-12",
+                  )}
                 >
                   {flexRender(
                     footer.column.columnDef.footer,
