@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { headers } from "next/headers";
 import KakaoMap from "@/components/map/kakao-map";
 import HomeNav from "@/components/nav/home";
@@ -5,7 +6,6 @@ import { DEFAULT_POSITION } from "@/config/map";
 import { isApp } from "@/libs/user-agent";
 
 import { getCourses } from "./_components/action";
-import dynamic from "next/dynamic";
 
 const DownloadBanner = dynamic(
   () => import("@/components/app/download-banner"),
@@ -71,7 +71,7 @@ const Home = async ({
 
   return (
     <>
-      <DownloadBanner isApp={isApp(userAgent)} />
+      {/* <DownloadBanner isApp={isApp(userAgent)} /> */}
       <HomeNav selectOptions={selectOptions} />
       {/* homeNav 만큼 Padding 확보 */}
       <section className="pt-12">

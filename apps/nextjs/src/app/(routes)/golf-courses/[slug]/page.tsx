@@ -116,7 +116,7 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <>
-      <DownloadBanner isApp={isApp(userAgent)} />
+      {/* <DownloadBanner isApp={isApp(userAgent)} /> */}
       <Nav />
       <div className="content-grid">
         <section className="mt-14 md:mb-2 md:mt-16">
