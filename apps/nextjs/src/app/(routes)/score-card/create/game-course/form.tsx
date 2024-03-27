@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { alertDiscord } from "@/libs/discord";
 import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -87,16 +88,37 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-8 pb-20"
+        className="flex flex-col pb-20"
       >
-        <div className="flex flex-col gap-2">
-          <div className="flex gap-x-3">
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className="justify-start pl-0 hover:bg-white"
+          disabled={fields.length >= 4}
+          onClick={() =>
+            append({
+              name: "",
+              hole_count: 9,
+            })
+          }
+        >
+          <PlusCircledIcon className="mr-1 h-4 w-4" />
+          나만의 코스 추가하기
+        </Button>
+        <Separator className="mb-4 mt-1" />
+        <div className="flex flex-col">
+          <div className="mb-0.5 flex gap-x-3">
             <FormLabel className="flex-1">코스 이름</FormLabel>
             <FormLabel className="flex-1">홀 수</FormLabel>
             <div className="w-4"></div>
           </div>
+          <div className="mb-3 flex flex-col gap-2">
+            <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
+            <FormMessage>{error?.message}</FormMessage>
+          </div>
           {fields.length !== 0 && (
-            <div className="mb-2 flex flex-col gap-2">
+            <div className="mb-3 flex flex-col gap-2">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
@@ -181,26 +203,6 @@ const GameCourseForm = ({ gameId, courses, courseName }: FormProps) => {
               </div>
             </div>
           )}
-          <div className="flex flex-col gap-2">
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              className="mt-2"
-              disabled={fields.length >= 4}
-              onClick={() =>
-                append({
-                  name: "",
-                  hole_count: 9,
-                })
-              }
-            >
-              <PlusCircledIcon className="mr-1 h-4 w-4" />
-              나만의 코스 추가하기
-            </Button>
-            <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
-            <FormMessage>{error?.message}</FormMessage>
-          </div>
         </div>
 
         <BottomCTA
