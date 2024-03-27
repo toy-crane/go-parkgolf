@@ -36,7 +36,7 @@ export const createGameScores = async (
   const supabase = await createSupabaseServerClient();
 
   const game_scores = gameCourses.flatMap((course) => {
-    // DB에 course 정보가 있는지 확인
+    // DB에 저장된 course 정보와 맵핑. 없는 경우, hole_count만큼 0으로 채움
     const holes = courses?.find((c) => course.name.startsWith(c.name))?.holes;
     return (
       holes?.map((hole) => {
