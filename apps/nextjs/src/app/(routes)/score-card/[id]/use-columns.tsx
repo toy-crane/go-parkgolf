@@ -50,7 +50,7 @@ export const useGetColumns = (
               <div>
                 {value === 0 ? (
                   readonly ? (
-                    " "
+                    value
                   ) : (
                     <span className="text-muted-foreground text-xs font-thin">
                       입력
