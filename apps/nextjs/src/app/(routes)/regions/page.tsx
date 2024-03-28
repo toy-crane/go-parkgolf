@@ -16,6 +16,9 @@ const Page = async () => {
   if (response.error) throw response.error;
   if (golfCourse.error) throw golfCourse.error;
 
+  const count = golfCourse.count;
+  const regions = response.data;
+
   return (
     <div>
       <BreadcrumbNav
