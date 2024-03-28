@@ -6,19 +6,15 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import type { GolfCourse } from "@/types";
 
 const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const golfCourse = await supabase
-    .from("golf_courses")
-    .select("*", { count: "exact", head: true });
-  const response = await supabase.rpc("get_region_1depth_count").select("*");
+  const [golfCourse, response] = await Promise.all([
+    supabase.from("golf_courses").select("*", { count: "exact", head: true }),
+    supabase.rpc("get_region_1depth_count").select("*"),
+  ]);
   if (response.error) throw response.error;
   if (golfCourse.error) throw golfCourse.error;
-  const count = golfCourse.count;
-  console.log(count);
-  const regions = response.data;
 
   return (
     <div>
