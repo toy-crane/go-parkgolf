@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Products from "@/components/ad/products";
 import { Card, CardContent } from "@/components/ui/card";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";

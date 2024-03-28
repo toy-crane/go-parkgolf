@@ -4,8 +4,16 @@ import type { GolfCourse } from "@/types";
 
 const NearCourseMap = async ({
   currentCourse,
+  level = 4,
+  height = "320px",
 }: {
-  currentCourse: GolfCourse;
+  level?: number;
+  height?: string;
+  currentCourse: {
+    slug: string;
+    lat: number;
+    lng: number;
+  };
 }) => {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
@@ -32,8 +40,8 @@ const NearCourseMap = async ({
         lat: Number(currentCourse.lat),
         lng: Number(currentCourse.lng),
       }}
-      size={{ width: "100%", height: "320px" }}
-      level={4}
+      size={{ width: "100%", height }}
+      level={level}
     />
   );
 };

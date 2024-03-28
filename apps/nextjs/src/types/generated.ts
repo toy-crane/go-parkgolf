@@ -439,7 +439,7 @@ export type Database = {
           h_code: string | null
           main_address_no: string | null
           mountain_yn: string | null
-          region_1depth_name: string | null
+          region_1depth_name: string
           region_2depth_name: string | null
           region_3depth_h_name: string | null
           region_3depth_name: string | null
@@ -454,7 +454,7 @@ export type Database = {
           h_code?: string | null
           main_address_no?: string | null
           mountain_yn?: string | null
-          region_1depth_name?: string | null
+          region_1depth_name: string
           region_2depth_name?: string | null
           region_3depth_h_name?: string | null
           region_3depth_name?: string | null
@@ -469,7 +469,7 @@ export type Database = {
           h_code?: string | null
           main_address_no?: string | null
           mountain_yn?: string | null
-          region_1depth_name?: string | null
+          region_1depth_name?: string
           region_2depth_name?: string | null
           region_3depth_h_name?: string | null
           region_3depth_name?: string | null
@@ -631,6 +631,31 @@ export type Database = {
           player_name: string
           game_course: string
           total_score: number
+        }[]
+      }
+      get_region_1depth_count: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          region_1depth_name: string
+          count: number
+        }[]
+      }
+      get_region_2depth_count: {
+        Args: {
+          region_1depth_name: string
+        }
+        Returns: {
+          region_2depth_name: string
+          count: number
+        }[]
+      }
+      get_region_2depth_counts: {
+        Args: {
+          region_1depth_name: string
+        }
+        Returns: {
+          region_2depth_name: string
+          count: number
         }[]
       }
       insert_courses: {

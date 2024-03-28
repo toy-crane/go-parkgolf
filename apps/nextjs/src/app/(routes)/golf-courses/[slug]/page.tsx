@@ -11,6 +11,8 @@ import { isApp } from "@/libs/user-agent";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
+import BreadcrumbNav from "../../../../components/nav/breadcrumb-nav";
+import Nav from "../../gc/nav";
 import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
@@ -20,7 +22,6 @@ import NearCourseInfo from "./_components/near-course-info";
 import NearCourseMap from "./_components/near-course-map";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
-import Nav from "./nav";
 
 interface Props {
   params: { slug: string };
@@ -102,12 +103,14 @@ export default async function Page({ params, searchParams }: Props) {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("golf_courses")
-    .select("*")
+    .select("*, lot_number_addresses(region_1depth_name, region_2depth_name)")
     .eq("publish_status", "completed")
     .eq("slug", slug)
+    .returns<GolfCourse[]>()
     .single();
   if (response.error) throw response.error;
   const currentCourse = response.data;
+  const address = currentCourse.lot_number_addresses;
   if (currentCourse === undefined) return notFound();
 
   // TODO: isWebview와 isMobileApp 통합이 필요함
@@ -119,7 +122,27 @@ export default async function Page({ params, searchParams }: Props) {
       <DownloadBanner isApp={isApp(userAgent)} />
       <Nav />
       <div className="content-grid">
-        <section className="mt-2 md:mb-2 md:mt-4">
+        <BreadcrumbNav
+          className="mb-1.5 mt-2"
+          trail={[
+            { title: "전국", link: "/gc" },
+            {
+              title: address.region_1depth_name,
+              link: `/gc/${address.region_1depth_name}`,
+            },
+            address.region_2depth_name
+              ? {
+                  title: address.region_2depth_name,
+                  link: `/gc/${address.region_1depth_name}/${address.region_2depth_name}`,
+                }
+              : undefined,
+            {
+              title: currentCourse.name,
+              link: `/golf-courses/${currentCourse.slug}`,
+            },
+          ].flatMap((trail) => (trail ? trail : []))}
+        />
+        <section className="md:mb-2">
           <Suspense
             fallback={
               <div className="flex min-h-[320px] items-center justify-center">
