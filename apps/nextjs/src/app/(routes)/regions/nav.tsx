@@ -1,8 +1,7 @@
 import { CommandMenu } from "@/components/command-menu";
+import BackButton from "@/components/nav/back-button";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
-
-import BackButton from "./_components/back-button";
 
 const Nav = async () => {
   const supabase = await createSupabaseServerClientReadOnly();

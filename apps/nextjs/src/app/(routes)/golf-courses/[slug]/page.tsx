@@ -12,6 +12,7 @@ import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
 import BreadcrumbNav from "../../../../components/nav/breadcrumb-nav";
+import Nav from "../../regions/nav";
 import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
@@ -21,7 +22,6 @@ import NearCourseInfo from "./_components/near-course-info";
 import NearCourseMap from "./_components/near-course-map";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
-import Nav from "./nav";
 
 interface Props {
   params: { slug: string };
