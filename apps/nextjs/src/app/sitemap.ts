@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allCourses = courseResponse.data;
 
   const regionsUrls = regions.map((region) => ({
-    url: addPathToBaseURL(`/regions/${encodeURIComponent(region)}`),
+    url: addPathToBaseURL(`/gc/${encodeURIComponent(region)}`),
     lastModified: new Date(),
     priority: 0.8,
     changeFrequency: "monthly" as const,
@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const districtsUrls = districts.map((district) => ({
     url: addPathToBaseURL(
-      `/regions/${encodeURIComponent(district.region)}/${encodeURIComponent(
+      `/gc/${encodeURIComponent(district.region)}/${encodeURIComponent(
         district.district,
       )}`,
     ),

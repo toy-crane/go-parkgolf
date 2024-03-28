@@ -29,7 +29,7 @@ export async function generateMetadata(
       보다 자세한 정보가 궁금하다면? 파크골프가자 홈페이지에서 확인하세요.
       전국 모든 파크 골프장 검색 및 주변 정보, 스코어 기록까지 가능합니다.
     `;
-    const url = `${siteConfig.url}/regions`;
+    const url = `${siteConfig.url}/gc`;
     return {
       title,
       description,
@@ -69,7 +69,7 @@ const Page = async () => {
     <div>
       <BreadcrumbNav
         className="mb-1 mt-2"
-        trail={[{ title: "전국", link: "/regions" }]}
+        trail={[{ title: "전국", link: "/gc" }]}
       />
       <PageHeader className="flex flex-col pb-2 pt-2 md:pb-4">
         <PageHeaderHeading className="underline decoration-[#22DC48] decoration-4 underline-offset-[10px]">
@@ -81,7 +81,7 @@ const Page = async () => {
         <div className="grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2">
           {regions.map((region) => (
             <Link
-              href={`/regions/${region.region_1depth_name}`}
+              href={`/gc/${region.region_1depth_name}`}
               className="flex cursor-pointer items-center justify-between space-x-4 rounded-md px-2 py-4 hover:bg-stone-50"
               key={region.region_1depth_name}
             >

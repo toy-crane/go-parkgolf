@@ -41,7 +41,7 @@ export async function generateMetadata(
       보다 자세한 정보가 궁금하다면? 파크골프가자 홈페이지에서 확인하세요.
       전국 모든 파크 골프장 검색 및 주변 정보, 스코어 기록까지 가능합니다.
     `;
-    const url = `${siteConfig.url}/regions/${z_code}/${zs_code}`;
+    const url = `${siteConfig.url}/gc/${z_code}/${zs_code}`;
     return {
       title,
       description,
@@ -83,11 +83,11 @@ const Page = async ({ params }: Props) => {
       <BreadcrumbNav
         className="mb-1 mt-2"
         trail={[
-          { title: "전국", link: "/regions" },
-          { title: regionName, link: `/regions/${params.z_code}` },
+          { title: "전국", link: "/gc" },
+          { title: regionName, link: `/gc/${params.z_code}` },
           {
             title: districtName,
-            link: `/regions/${params.z_code}/${params.zs_code}`,
+            link: `/gc/${params.z_code}/${params.zs_code}`,
           },
         ]}
       />

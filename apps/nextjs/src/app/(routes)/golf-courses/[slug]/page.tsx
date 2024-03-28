@@ -125,15 +125,15 @@ export default async function Page({ params, searchParams }: Props) {
         <BreadcrumbNav
           className="mb-1 mt-2"
           trail={[
-            { title: "전국", link: "/regions" },
+            { title: "전국", link: "/gc" },
             {
               title: address.region_1depth_name,
-              link: `/regions/${address.region_1depth_name}`,
+              link: `/gc/${address.region_1depth_name}`,
             },
             address.region_2depth_name
               ? {
                   title: address.region_2depth_name,
-                  link: `/regions/${address.region_1depth_name}/${address.region_2depth_name}`,
+                  link: `/gc/${address.region_1depth_name}/${address.region_2depth_name}`,
                 }
               : undefined,
             {
