@@ -123,7 +123,7 @@ export default async function Page({ params, searchParams }: Props) {
       <Nav />
       <div className="content-grid">
         <BreadcrumbNav
-          className="mb-1 mt-2"
+          className="mb-1.5 mt-2"
           trail={[
             { title: "전국", link: "/gc" },
             {
