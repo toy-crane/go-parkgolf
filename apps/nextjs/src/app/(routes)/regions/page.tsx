@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import BreadcrumbNav from "@/components/nav/breadcrumb-nav";
 import {
@@ -5,7 +6,52 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
+import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
+
+export async function generateMetadata(
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const supabase = await createSupabaseServerClientReadOnly();
+  const golfCourse = await supabase
+    .from("golf_courses")
+    .select("*", { count: "exact", head: true });
+  if (golfCourse.error) throw golfCourse.error;
+  const count = golfCourse.count;
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images ?? [];
+
+  if (count) {
+    const title = `전국 모든 파크골프장 리스트`;
+    const description = `
+      전국에는 ${count.toLocaleString()}개의 파크골프장이 있습니다. 
+      보다 자세한 정보가 궁금하다면? 파크골프가자 홈페이지에서 확인하세요.
+      전국 모든 파크 골프장 검색 및 주변 정보, 스코어 기록까지 가능합니다.
+    `;
+    const url = `${siteConfig.url}/regions`;
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url,
+        images: [...previousImages],
+      },
+      twitter: {
+        title,
+        description,
+        images: [...previousImages],
+      },
+      alternates: {
+        canonical: url,
+      },
+    };
+  } else {
+    return {};
+  }
+}
 
 const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
