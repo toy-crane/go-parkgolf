@@ -122,7 +122,7 @@ const Page = async ({ params }: Props) => {
               <Link href={`/golf-courses/${course.slug}`}>
                 <CardContent className="space-y-2 px-2 py-3">
                   <div>
-                    <div className="text-lg font-bold">{course.name}</div>
+                    <h2 className="text-lg font-bold">{course.name}</h2>
                   </div>
                   <div className="text-xs text-gray-500">
                     {course.hole_count}홀 <span> · </span>{" "}
