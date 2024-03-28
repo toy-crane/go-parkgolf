@@ -633,6 +633,13 @@ export type Database = {
           total_score: number
         }[]
       }
+      get_region_1depth_count: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          region_1depth_name: string
+          count: number
+        }[]
+      }
       insert_courses: {
         Args: {
           data: Json
