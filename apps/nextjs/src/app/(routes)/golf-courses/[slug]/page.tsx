@@ -11,6 +11,7 @@ import { isApp } from "@/libs/user-agent";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
+import BreadcrumbNav from "../../../../components/nav/breadcrumb-nav";
 import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
@@ -18,7 +19,6 @@ import CourseDetailTab from "./_components/course-detail-tab";
 import CTA from "./_components/cta";
 import NearCourseInfo from "./_components/near-course-info";
 import NearCourseMap from "./_components/near-course-map";
-import RegionBreadcrumb from "./_components/region-breadcrumb";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
 import Nav from "./nav";
@@ -120,7 +120,24 @@ export default async function Page({ params, searchParams }: Props) {
       <DownloadBanner isApp={isApp(userAgent)} />
       <Nav />
       <div className="content-grid">
-        <RegionBreadcrumb className="mb-1 mt-2" />
+        <BreadcrumbNav
+          className="mb-1 mt-2"
+          trail={[
+            { title: "전국", link: "/regions" },
+            {
+              title: "강원도",
+              link: `/regions/1`,
+            },
+            {
+              title: "태백시",
+              link: `/regions/1/2`,
+            },
+            {
+              title: currentCourse.name,
+              link: `/golf-courses/${currentCourse.slug}`,
+            },
+          ]}
+        />
         <section className="md:mb-2">
           <Suspense
             fallback={
