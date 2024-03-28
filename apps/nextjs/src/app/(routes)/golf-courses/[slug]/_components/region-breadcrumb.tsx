@@ -16,11 +16,11 @@ const RegionBreadcrumb = ({ className }: { className?: string }) => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/components">강원도</BreadcrumbLink>
+          <BreadcrumbLink href="/regions/123">강원도</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/components">태백시</BreadcrumbLink>
+          <BreadcrumbLink href="/regions/123/123">태백시</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
