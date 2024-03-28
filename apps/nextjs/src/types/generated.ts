@@ -439,7 +439,7 @@ export type Database = {
           h_code: string | null
           main_address_no: string | null
           mountain_yn: string | null
-          region_1depth_name: string | null
+          region_1depth_name: string
           region_2depth_name: string | null
           region_3depth_h_name: string | null
           region_3depth_name: string | null
@@ -454,7 +454,7 @@ export type Database = {
           h_code?: string | null
           main_address_no?: string | null
           mountain_yn?: string | null
-          region_1depth_name?: string | null
+          region_1depth_name: string
           region_2depth_name?: string | null
           region_3depth_h_name?: string | null
           region_3depth_name?: string | null
@@ -469,7 +469,7 @@ export type Database = {
           h_code?: string | null
           main_address_no?: string | null
           mountain_yn?: string | null
-          region_1depth_name?: string | null
+          region_1depth_name?: string
           region_2depth_name?: string | null
           region_3depth_h_name?: string | null
           region_3depth_name?: string | null

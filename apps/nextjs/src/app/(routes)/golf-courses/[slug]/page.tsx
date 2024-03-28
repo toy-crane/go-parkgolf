@@ -103,12 +103,14 @@ export default async function Page({ params, searchParams }: Props) {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("golf_courses")
-    .select("*")
+    .select("*, lot_number_addresses(region_1depth_name, region_2depth_name)")
     .eq("publish_status", "completed")
     .eq("slug", slug)
+    .returns<GolfCourse[]>()
     .single();
   if (response.error) throw response.error;
   const currentCourse = response.data;
+  const address = currentCourse.lot_number_addresses;
   if (currentCourse === undefined) return notFound();
 
   // TODO: isWebview와 isMobileApp 통합이 필요함
@@ -125,18 +127,20 @@ export default async function Page({ params, searchParams }: Props) {
           trail={[
             { title: "전국", link: "/regions" },
             {
-              title: "강원도",
-              link: `/regions/1`,
+              title: address.region_1depth_name,
+              link: `/regions/${address.region_1depth_name}`,
             },
-            {
-              title: "태백시",
-              link: `/regions/1/2`,
-            },
+            address.region_2depth_name
+              ? {
+                  title: address.region_2depth_name,
+                  link: `/regions/${address.region_1depth_name}/${address.region_2depth_name}`,
+                }
+              : undefined,
             {
               title: currentCourse.name,
               link: `/golf-courses/${currentCourse.slug}`,
             },
-          ]}
+          ].flatMap((trail) => (trail ? trail : []))}
         />
         <section className="md:mb-2">
           <Suspense
