@@ -640,6 +640,24 @@ export type Database = {
           count: number
         }[]
       }
+      get_region_2depth_count: {
+        Args: {
+          region_1depth_name: string
+        }
+        Returns: {
+          region_2depth_name: string
+          count: number
+        }[]
+      }
+      get_region_2depth_counts: {
+        Args: {
+          region_1depth_name: string
+        }
+        Returns: {
+          region_2depth_name: string
+          count: number
+        }[]
+      }
       insert_courses: {
         Args: {
           data: Json
