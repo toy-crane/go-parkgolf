@@ -18,6 +18,7 @@ import CourseDetailTab from "./_components/course-detail-tab";
 import CTA from "./_components/cta";
 import NearCourseInfo from "./_components/near-course-info";
 import NearCourseMap from "./_components/near-course-map";
+import RegionBreadcrumb from "./_components/region-breadcrumb";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
 import Nav from "./nav";
@@ -119,7 +120,8 @@ export default async function Page({ params, searchParams }: Props) {
       <DownloadBanner isApp={isApp(userAgent)} />
       <Nav />
       <div className="content-grid">
-        <section className="mt-2 md:mb-2 md:mt-4">
+        <RegionBreadcrumb className="mb-1 mt-2" />
+        <section className="md:mb-2">
           <Suspense
             fallback={
               <div className="flex min-h-[320px] items-center justify-center">
