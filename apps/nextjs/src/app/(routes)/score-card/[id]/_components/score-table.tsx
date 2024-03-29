@@ -1,5 +1,6 @@
 "use client";
 
+import { Icons } from "@/components/icons";
 import {
   Popover,
   PopoverAnchor,
@@ -43,11 +44,32 @@ const getColumnNames = (players: GamePlayer[]): ColumnName[] => {
 const ScoreCardRow = ({
   columnCount,
   children,
+  addTooltip,
 }: {
   columnCount: number;
+  addTooltip?: boolean;
   children: React.ReactNode;
 }) => {
-  return (
+  return addTooltip ? (
+    <Popover defaultOpen={true}>
+      <PopoverTrigger asChild>
+        <TableRow
+          className={cn(
+            "grid flex-1",
+            gridColumns[String(columnCount) as keyof typeof gridColumns],
+          )}
+        >
+          {children}
+        </TableRow>
+      </PopoverTrigger>
+      <PopoverContent className="relative right-[-48px] top-[-16px] flex w-36 items-center gap-2 p-1 text-center text-xs font-semibold md:top-[-24px] md:w-40 md:p-2">
+        <Icons.handFinger className="h-6 w-6" />
+        <span>
+          스코어를 입력하려면 <br />이 곳을 터치하세요
+        </span>
+      </PopoverContent>
+    </Popover>
+  ) : (
     <TableRow
       className={cn(
         "grid flex-1",
@@ -82,32 +104,12 @@ const ScoreCardCell = ({
   children,
   className,
   onClick,
-  addTooltip = false,
 }: {
   children: React.ReactNode;
-  addTooltip?: boolean;
   onClick?: () => void;
   className?: string;
 }) => {
-  return addTooltip ? (
-    <Popover defaultOpen={true}>
-      <PopoverTrigger asChild>
-        <TableCell
-          className={cn(
-            "flex cursor-pointer items-center justify-center border p-0",
-            className,
-          )}
-          onClick={onClick}
-        >
-          {children}
-        </TableCell>
-      </PopoverTrigger>
-      <PopoverContent className="w-42 bg-muted relative top-[-16px] border-0 p-1 text-xs md:top-[-24px]">
-        입력 칸을 선택해 주세요.
-        <PopoverArrow className="fill-muted" />
-      </PopoverContent>
-    </Popover>
-  ) : (
+  return (
     <TableCell
       className={cn(
         "flex cursor-pointer items-center justify-center border p-0",
@@ -203,16 +205,19 @@ export default function ScoreTable({
       <TableBody className="flex flex-1 flex-col text-base">
         {rows?.length
           ? rows.map((row, rowIndex) => (
-              <ScoreCardRow key={row.id} columnCount={playerCount}>
-                {row.getVisibleCells().map((cell, cellIndex) => (
+              <ScoreCardRow
+                key={row.id}
+                columnCount={playerCount}
+                addTooltip={
+                  rowIndex === 0 &&
+                  !readonly &&
+                  !selectedRow &&
+                  !rows[0]?.getVisibleCells()[2]?.getValue()
+                }
+              >
+                {row.getVisibleCells().map((cell) => (
                   <ScoreCardCell
                     key={cell.id}
-                    addTooltip={
-                      rowIndex === 0 &&
-                      cellIndex === 2 &&
-                      !cell.getValue() &&
-                      !readonly
-                    }
                     onClick={() => {
                       if (cell.column.id === "holeNumber") return;
                       if (cell.column.id === "par") {

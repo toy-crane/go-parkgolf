@@ -5,11 +5,17 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Loader2 } from "lucide-react";
 
 import type { GameCourse, Score } from "../type";
 
 const ScoreTable = dynamic(() => import("../_components/score-table"), {
   ssr: false,
+  loading: () => (
+    <div className="flex min-h-[80vh] items-center justify-center">
+      <Loader2 className="h-5 w-5 animate-spin" size={24} color={"#71717A"} />
+    </div>
+  ),
 });
 
 export const ReadOnlyScoreCard = ({
