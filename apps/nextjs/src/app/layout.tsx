@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Script from "next/script";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
@@ -125,6 +126,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
         <body className={cn("bg-backgroundfont-sans antialiased")}>
           {props.children}
           <Toaster />
+          <Sonner />
           <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
