@@ -1,12 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import type { GameCourse, Score } from "../type";
-import { ScoreTable } from "./score-table";
+
+const ScoreTable = dynamic(() => import("../_components/score-table"), {
+  ssr: false,
+});
 
 export const ReadOnlyScoreCard = ({
   gameCourses,

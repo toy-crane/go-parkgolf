@@ -208,7 +208,10 @@ export default function ScoreTable({
                   <ScoreCardCell
                     key={cell.id}
                     addTooltip={
-                      rowIndex === 0 && cellIndex === 2 && !cell.getValue()
+                      rowIndex === 0 &&
+                      cellIndex === 2 &&
+                      !cell.getValue() &&
+                      !readonly
                     }
                     onClick={() => {
                       if (cell.column.id === "holeNumber") return;
