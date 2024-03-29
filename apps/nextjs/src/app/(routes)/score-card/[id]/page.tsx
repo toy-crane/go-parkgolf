@@ -133,7 +133,6 @@ const Page = async ({
           gameCourses={gameCourses}
           selectedTab={searchParams.tab ?? gameCourses[0]?.name}
           gamePlayers={gamePlayers}
-          isMyGame={isMyGame}
         />
       )}
     </>

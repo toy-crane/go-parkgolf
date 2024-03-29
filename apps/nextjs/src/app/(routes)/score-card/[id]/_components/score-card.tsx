@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -9,8 +10,11 @@ import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 import type { GameCourse, Score } from "../type";
-import { ScoreTable } from "./score-table";
 import ScoresInput from "./scores-input";
+
+const ScoreTable = dynamic(() => import("../_components/score-table"), {
+  ssr: false,
+});
 
 const safeLocalStorage = generateStorage();
 
@@ -52,7 +56,6 @@ const getScores = (playerOrder: string[], score?: Score) => {
 export const ScoreCard = ({
   gameCourses,
   selectedTab,
-  isMyGame,
   data,
   gameId,
   gamePlayers,
@@ -61,11 +64,10 @@ export const ScoreCard = ({
   data: Score[];
   gameCourses: GameCourse[];
   selectedTab?: string;
-  isMyGame: boolean;
   gamePlayers: { id: string; nickname: string }[];
 }) => {
   useLockBodyScroll();
-  const [handlerOpen, setHandlerOpen] = useState(true);
+  const [handlerOpen, setHandlerOpen] = useState(false);
   const initialScores = MergeScores(
     data,
     JSON.parse(
@@ -74,13 +76,7 @@ export const ScoreCard = ({
   );
 
   const [scores, setScores] = useState<Score[]>(initialScores);
-
-  const currentCourseId = gameCourses.find((gc) => gc.name === selectedTab)?.id;
-  const defaultScore = scores.find((s) => s.gameCourseId === currentCourseId);
-
-  const [selectedScore, setSelectedScore] = useState<Score | undefined>(
-    isMyGame ? defaultScore : undefined,
-  );
+  const [selectedScore, setSelectedScore] = useState<Score | undefined>();
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -98,11 +94,6 @@ export const ScoreCard = ({
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", String(value));
-    const courseId = gameCourses.find((gc) => gc.name === value)?.id;
-    const score = scores.find((s) => s.gameCourseId === courseId);
-    if (score !== undefined) {
-      setSelectedScore(score);
-    }
     router.replace(`?${params.toString()}`);
   };
 
