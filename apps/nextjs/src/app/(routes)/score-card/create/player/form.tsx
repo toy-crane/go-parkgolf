@@ -200,12 +200,26 @@ const PlayerForm = ({ gameId }: FormProps) => {
             </DrawerHeader>
             <div className="content-grid mb-4">
               <div className="content">
-                <Input />
+                <div className="mb-4 flex flex-col space-y-2">
+                  <FormLabel className="flex-1">선수 이름</FormLabel>
+                  <FormField
+                    control={form.control}
+                    name={`players.1.nickname`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <FormControl>
+                          <Input {...field} onKeyDown={handleKeyDown} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
               </div>
             </div>
             <DrawerFooter className="content-grid grid gap-0 p-0 py-2">
               <div className="content flex gap-2">
-                <Button className="w-full">선수 추가</Button>
+                <Button className="w-full">플레이어 추가</Button>
                 <DrawerClose>
                   <Button variant="outline" className="w-full">
                     취소
