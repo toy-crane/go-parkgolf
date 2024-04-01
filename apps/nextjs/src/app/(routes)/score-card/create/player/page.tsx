@@ -1,10 +1,5 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header";
 
 import FormHeader from "../_components/form-header";
 import PlayerForm from "./form";

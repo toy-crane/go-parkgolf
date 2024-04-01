@@ -4,16 +4,6 @@ import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import {
   Form,
   FormControl,
   FormDescription,
@@ -27,13 +17,13 @@ import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
-import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
 import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { createGamePlayer } from "./actions";
+import PlayerFormDrawer from "./player-form-drawer";
 import { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -110,9 +100,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
             disabled={fields.length >= 4}
             className="justify-start pl-0 hover:bg-white"
             onClick={() => {
-              append({
-                nickname: "",
-              });
               setOpen((prev) => !prev);
             }}
           >
@@ -137,7 +124,11 @@ const PlayerForm = ({ gameId }: FormProps) => {
                         render={({ field }) => (
                           <FormItem className="flex-1">
                             <FormControl>
-                              <Input {...field} onKeyDown={handleKeyDown} />
+                              <Input
+                                {...field}
+                                onKeyDown={handleKeyDown}
+                                disabled
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -194,52 +185,12 @@ const PlayerForm = ({ gameId }: FormProps) => {
           disabled={isPending || !isValid}
           loading={isPending}
         />
-        <Drawer open={open} onOpenChange={setOpen}>
-          <DrawerContent className="h-full max-h-[90%]">
-            <DrawerHeader className="content-grid grid">
-              <DrawerTitle>새로운 플레이어 등록</DrawerTitle>
-              <DrawerDescription>
-                게임을 같이 할 플레이어를 추가해 보세요.
-              </DrawerDescription>
-            </DrawerHeader>
-            <div className="content-grid mb-4">
-              <div className="content">
-                <div className="mb-4 flex flex-col space-y-2">
-                  <FormLabel className="flex-1">선수 이름</FormLabel>
-                  <FormField
-                    control={form.control}
-                    name={`players.${fields.length - 1}.nickname`}
-                    render={({ field }) => (
-                      <FormItem className="flex-1">
-                        <FormControl>
-                          <Input {...field} onKeyDown={handleKeyDown} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-              </div>
-            </div>
-            <DrawerFooter className="content-grid grid gap-0 p-0 py-2 pb-5">
-              <div className="content flex gap-2">
-                <DrawerClose asChild>
-                  <Button className="w-full">플레이어 추가</Button>
-                </DrawerClose>
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    remove(fields.length - 1);
-                    setOpen((prev) => !prev);
-                  }}
-                >
-                  취소
-                </Button>
-              </div>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
       </form>
+      <PlayerFormDrawer
+        open={open}
+        onOpenChange={setOpen}
+        onSubmit={(values) => append(values)}
+      />
     </Form>
   );
 };

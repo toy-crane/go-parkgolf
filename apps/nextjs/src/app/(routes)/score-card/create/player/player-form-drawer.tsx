@@ -1,0 +1,123 @@
+"use client";
+
+import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import type { z } from "zod";
+
+import { playerSchema } from "./schema";
+
+type Inputs = z.infer<typeof playerSchema>;
+
+const PlayerFormDrawer = ({
+  open,
+  onOpenChange,
+  onSubmit,
+}: {
+  open: boolean;
+  onOpenChange?: (open: boolean) => void;
+  onSubmit: (values: z.infer<typeof playerSchema>) => void;
+}) => {
+  const form = useForm<Inputs>({
+    shouldUnregister: false,
+    mode: "onChange",
+    resolver: zodResolver(playerSchema),
+    defaultValues: {},
+  });
+
+  function handleSubmit(values: z.infer<typeof playerSchema>) {
+    onSubmit(values);
+    form.reset({
+      nickname: "",
+    });
+  }
+
+  // TODO: 무슨 이유인지 안됨
+  useEffect(() => {
+    if (open) {
+      form.setFocus("nickname");
+    }
+  }, [form, form.setFocus, open]);
+
+  const isValid = form.formState.isValid;
+
+  // 키 다운 이벤트를 처리하는 함수
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" && !event.nativeEvent.isComposing) {
+      event.preventDefault();
+      (event.currentTarget as HTMLInputElement).blur();
+    }
+  };
+
+  return (
+    <Drawer open={open} onOpenChange={onOpenChange}>
+      <DrawerContent className="h-full max-h-[90%]">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(handleSubmit)}
+            className="flex h-full flex-col"
+          >
+            <DrawerHeader className="content-grid grid">
+              <DrawerTitle>새로운 플레이어 등록</DrawerTitle>
+              <DrawerDescription>
+                게임을 같이 할 플레이어를 추가해 보세요.
+              </DrawerDescription>
+            </DrawerHeader>
+            <div className="content-grid mb-4 flex-1">
+              <div className="content">
+                <div className="mb-4 flex flex-col space-y-2">
+                  <FormLabel className="flex-1">선수 이름</FormLabel>
+                  <FormField
+                    control={form.control}
+                    name={"nickname"}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <FormControl>
+                          <Input {...field} onKeyDown={handleKeyDown} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+            </div>
+            <DrawerFooter className="content-grid grid gap-0 p-0 py-2 pb-5">
+              <div className="content flex gap-2">
+                <DrawerClose asChild>
+                  <Button className="w-full" disabled={!isValid} type="submit">
+                    플레이어 추가
+                  </Button>
+                </DrawerClose>
+                <DrawerClose asChild>
+                  <Button variant="outline">취소</Button>
+                </DrawerClose>
+              </div>
+            </DrawerFooter>
+          </form>
+        </Form>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
+export default PlayerFormDrawer;
