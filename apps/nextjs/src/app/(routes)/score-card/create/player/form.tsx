@@ -24,6 +24,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
@@ -194,7 +202,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
         />
       </form>
       <Drawer>
-        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerTrigger>Drawer</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Are you absolutely sure?</DrawerTitle>
@@ -210,6 +218,19 @@ const PlayerForm = ({ gameId }: FormProps) => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+      <Sheet>
+        <SheetTrigger>Sheet</SheetTrigger>
+        <SheetContent side="right" className="w-full">
+          <SheetHeader>
+            <SheetTitle>Are you absolutely sure?</SheetTitle>
+            <SheetDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+              <Input />
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
     </Form>
   );
 };
