@@ -4,6 +4,16 @@ import React, { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import {
   Form,
   FormControl,
   FormDescription,
@@ -183,6 +193,23 @@ const PlayerForm = ({ gameId }: FormProps) => {
           loading={isPending}
         />
       </form>
+      <Drawer>
+        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+            <DrawerDescription>
+              <Input />
+            </DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button>저장</Button>
+            <DrawerClose>
+              <Button variant="outline">취소</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </Form>
   );
 };
