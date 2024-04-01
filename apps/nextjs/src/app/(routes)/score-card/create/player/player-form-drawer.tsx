@@ -20,6 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { reset } from "@amplitude/analytics-browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
@@ -41,14 +42,12 @@ const PlayerFormDrawer = ({
     shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(playerSchema),
-    defaultValues: {},
   });
 
   function handleSubmit(values: z.infer<typeof playerSchema>) {
+    console.log("forms", values);
     onSubmit(values);
-    form.reset({
-      nickname: "",
-    });
+    form.reset();
   }
 
   // TODO: 무슨 이유인지 안됨

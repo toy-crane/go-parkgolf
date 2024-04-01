@@ -189,7 +189,10 @@ const PlayerForm = ({ gameId }: FormProps) => {
       <PlayerFormDrawer
         open={open}
         onOpenChange={setOpen}
-        onSubmit={(values) => append(values)}
+        onSubmit={(values) => {
+          console.log("values", values);
+          append(values);
+        }}
       />
     </Form>
   );
