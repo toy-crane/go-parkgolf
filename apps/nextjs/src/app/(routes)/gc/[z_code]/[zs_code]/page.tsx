@@ -4,6 +4,7 @@ import Link from "next/link";
 import NearCourseMap from "@/app/(routes)/golf-courses/[slug]/_components/near-course-map";
 import BreadcrumbNav from "@/components/nav/breadcrumb-nav";
 import { PageHeader, PageHeaderHeading } from "@/components/page-header";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
@@ -115,7 +116,7 @@ const Page = async ({ params }: Props) => {
           />
         </Suspense>
       </section>
-      <section className="mb-14 flex flex-col">
+      <section className="mb-14 flex flex-col gap-6">
         <div className="grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2">
           {golfCourses.map((course) => (
             <Card key={course.id} className="w-full hover:bg-neutral-50">
@@ -132,6 +133,11 @@ const Page = async ({ params }: Props) => {
               </Link>
             </Card>
           ))}
+        </div>
+        <div className="flex justify-center">
+          <Button className="w-full" asChild>
+            <Link href="/">더 많은 파크골프장 알아보기</Link>
+          </Button>
         </div>
       </section>
     </div>
