@@ -24,14 +24,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
@@ -53,6 +45,7 @@ interface FormProps {
 const safeLocalStorage = generateStorage();
 
 const PlayerForm = ({ gameId }: FormProps) => {
+  const [open, setOpen] = React.useState(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const form = useForm<Inputs>({
@@ -77,6 +70,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
     name: "players",
     control: form.control,
   });
+  const lastIndex = fields.length - 1;
 
   const isValid = form.formState.isValid;
 
@@ -116,11 +110,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
             size="sm"
             disabled={fields.length >= 4}
             className="justify-start pl-0 hover:bg-white"
-            onClick={() =>
-              append({
-                nickname: "",
-              })
-            }
+            onClick={() => setOpen((prev) => !prev)}
           >
             <PlusCircledIcon className="mr-1 h-4 w-4" />
             새로운 선수 추가하기
@@ -200,37 +190,32 @@ const PlayerForm = ({ gameId }: FormProps) => {
           disabled={isPending || !isValid}
           loading={isPending}
         />
+        <Drawer open={open} onOpenChange={setOpen}>
+          <DrawerContent className="h-full max-h-[90%]">
+            <DrawerHeader className="content-grid grid">
+              <DrawerTitle>새로운 플레이어 등록</DrawerTitle>
+              <DrawerDescription>
+                게임을 같이 할 플레이어를 추가해 보세요.
+              </DrawerDescription>
+            </DrawerHeader>
+            <div className="content-grid mb-4">
+              <div className="content">
+                <Input />
+              </div>
+            </div>
+            <DrawerFooter className="content-grid grid gap-0 p-0 py-2">
+              <div className="content flex gap-2">
+                <Button className="w-full">선수 추가</Button>
+                <DrawerClose>
+                  <Button variant="outline" className="w-full">
+                    취소
+                  </Button>
+                </DrawerClose>
+              </div>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
       </form>
-      <Drawer>
-        <DrawerTrigger>Drawer</DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-            <DrawerDescription>
-              <Input />
-            </DrawerDescription>
-          </DrawerHeader>
-          <DrawerFooter>
-            <Button>저장</Button>
-            <DrawerClose>
-              <Button variant="outline">취소</Button>
-            </DrawerClose>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-      <Sheet>
-        <SheetTrigger>Sheet</SheetTrigger>
-        <SheetContent side="right" className="w-full">
-          <SheetHeader>
-            <SheetTitle>Are you absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-              <Input />
-            </SheetDescription>
-          </SheetHeader>
-        </SheetContent>
-      </Sheet>
     </Form>
   );
 };
