@@ -221,7 +221,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
                 </div>
               </div>
             </div>
-            <DrawerFooter className="content-grid grid gap-0 p-0 py-2">
+            <DrawerFooter className="content-grid grid gap-0 p-0 py-2 pb-4">
               <div className="content flex gap-2">
                 <DrawerClose asChild>
                   <Button className="w-full">플레이어 추가</Button>
