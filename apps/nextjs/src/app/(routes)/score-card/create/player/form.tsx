@@ -70,7 +70,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
     name: "players",
     control: form.control,
   });
-  const lastIndex = fields.length - 1;
 
   const isValid = form.formState.isValid;
 
@@ -110,7 +109,12 @@ const PlayerForm = ({ gameId }: FormProps) => {
             size="sm"
             disabled={fields.length >= 4}
             className="justify-start pl-0 hover:bg-white"
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={() => {
+              append({
+                nickname: "",
+              });
+              setOpen((prev) => !prev);
+            }}
           >
             <PlusCircledIcon className="mr-1 h-4 w-4" />
             새로운 선수 추가하기
@@ -204,7 +208,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
                   <FormLabel className="flex-1">선수 이름</FormLabel>
                   <FormField
                     control={form.control}
-                    name={`players.1.nickname`}
+                    name={`players.${fields.length - 1}.nickname`}
                     render={({ field }) => (
                       <FormItem className="flex-1">
                         <FormControl>
@@ -219,12 +223,18 @@ const PlayerForm = ({ gameId }: FormProps) => {
             </div>
             <DrawerFooter className="content-grid grid gap-0 p-0 py-2">
               <div className="content flex gap-2">
-                <Button className="w-full">플레이어 추가</Button>
-                <DrawerClose>
-                  <Button variant="outline" className="w-full">
-                    취소
-                  </Button>
+                <DrawerClose asChild>
+                  <Button className="w-full">플레이어 추가</Button>
                 </DrawerClose>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    remove(fields.length - 1);
+                    setOpen((prev) => !prev);
+                  }}
+                >
+                  취소
+                </Button>
               </div>
             </DrawerFooter>
           </DrawerContent>
