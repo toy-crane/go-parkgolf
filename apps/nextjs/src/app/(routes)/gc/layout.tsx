@@ -9,9 +9,6 @@ const DownloadBanner = dynamic(
   () => import("@/components/app/download-banner"),
   {
     ssr: false,
-    loading: () => (
-      <div className="bg-muted content-grid z-header sticky top-0 h-[60px]"></div>
-    ),
   },
 );
 
