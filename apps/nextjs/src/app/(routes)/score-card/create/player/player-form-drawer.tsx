@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -20,7 +20,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { reset } from "@amplitude/analytics-browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
@@ -45,19 +44,30 @@ const PlayerFormDrawer = ({
   });
 
   function handleSubmit(values: z.infer<typeof playerSchema>) {
-    console.log("forms", values);
     onSubmit(values);
-    form.reset();
   }
 
-  // TODO: 무슨 이유인지 안됨
+  const isValid = form.formState.isValid;
+  const isSubmitSucessful = form.formState.isSubmitSuccessful;
+
+  // Input에 대한 ref 생성
+  const inputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     if (open) {
-      form.setFocus("nickname");
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      }, 100); // 100ms 후에 실행
     }
-  }, [form, form.setFocus, open]);
+  }, [open]);
 
-  const isValid = form.formState.isValid;
+  useEffect(() => {
+    if (isSubmitSucessful) {
+      form.reset({ nickname: "" });
+    }
+  }, [form, isSubmitSucessful]);
 
   // 키 다운 이벤트를 처리하는 함수
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -91,7 +101,11 @@ const PlayerFormDrawer = ({
                     render={({ field }) => (
                       <FormItem className="flex-1">
                         <FormControl>
-                          <Input {...field} onKeyDown={handleKeyDown} />
+                          <Input
+                            {...field}
+                            onKeyDown={handleKeyDown}
+                            ref={inputRef}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
