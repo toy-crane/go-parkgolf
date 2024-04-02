@@ -46,7 +46,7 @@ const GameCourseFormDrawer = ({
     values,
     defaultValues: {
       name: "",
-      hole_count: 0,
+      hole_count: 9,
     },
   });
 

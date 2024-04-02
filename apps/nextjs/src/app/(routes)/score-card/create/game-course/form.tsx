@@ -203,7 +203,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             ? fields[selectedCourseId]
             : {
                 name: "",
-                hole_count: 0,
+                hole_count: 9,
               }
         }
         onSubmit={(values) => {
