@@ -111,7 +111,7 @@ const Page = async ({
   }
 
   return (
-    <>
+    <div className="content-grid h-short-screen grid-rows-score-board grid">
       <Header gameId={params.id} isReadOnly={isReadOnly} isMyGame={isMyGame} />
       <div
         className={cn("text-muted-foreground flex justify-end pb-1 text-xs")}
@@ -135,7 +135,7 @@ const Page = async ({
           gamePlayers={gamePlayers}
         />
       )}
-    </>
+    </div>
   );
 };
 
