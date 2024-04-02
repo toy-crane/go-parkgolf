@@ -1,5 +1,6 @@
 "use client";
 
+import { on } from "events";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -45,6 +46,7 @@ const PlayerFormDrawer = ({
 
   function handleSubmit(values: z.infer<typeof playerSchema>) {
     onSubmit(values);
+    onOpenChange?.(false);
   }
 
   const isValid = form.formState.isValid;
@@ -78,7 +80,15 @@ const PlayerFormDrawer = ({
   };
 
   return (
-    <Drawer open={open} onOpenChange={onOpenChange}>
+    <Drawer
+      open={open}
+      onOpenChange={onOpenChange}
+      onClose={() => {
+        setTimeout(() => {
+          form.reset({ nickname: "" });
+        }, 100); // 100ms 후에 실행
+      }}
+    >
       <DrawerContent className="h-full max-h-[90%]">
         <Form {...form}>
           <form
@@ -116,11 +126,9 @@ const PlayerFormDrawer = ({
             </div>
             <DrawerFooter className="content-grid grid gap-0 p-0 py-2 pb-5">
               <div className="content flex gap-2">
-                <DrawerClose asChild>
-                  <Button className="w-full" disabled={!isValid} type="submit">
-                    플레이어 추가
-                  </Button>
-                </DrawerClose>
+                <Button className="w-full" disabled={!isValid} type="submit">
+                  플레이어 추가
+                </Button>
                 <DrawerClose asChild>
                   <Button variant="outline">취소</Button>
                 </DrawerClose>
