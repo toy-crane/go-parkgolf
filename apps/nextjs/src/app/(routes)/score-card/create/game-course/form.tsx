@@ -59,7 +59,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     form.formState.errors.game_courses;
   const isValid = form.formState.isValid;
 
-  const { fields, append, remove, replace } = useFieldArray({
+  const { fields, append, replace } = useFieldArray({
     name: "game_courses",
     control: form.control,
   });
@@ -116,7 +116,9 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                         </div>
                       </Button>
                       <Button
-                        onClick={() => remove(index)}
+                        onClick={() => {
+                          replace(fields.filter((_, i) => i !== index));
+                        }}
                         type="button"
                         variant="ghost"
                         tabIndex={-1}
