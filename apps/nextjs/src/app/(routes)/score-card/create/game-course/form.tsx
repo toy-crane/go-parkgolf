@@ -46,6 +46,12 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     shouldUnregister: true,
     mode: "onChange",
     resolver: zodResolver(formSchema),
+    values: {
+      game_courses: courses?.map(({ name, holes }) => ({
+        name,
+        hole_count: holes?.length ?? 0,
+      })) ?? [{ name: "A", hole_count: 9 }],
+    },
   });
 
   const error =
@@ -57,7 +63,8 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     name: "game_courses",
     control: form.control,
   });
-  console.log("fields", fields.length, fields);
+
+  console.log("fields", fields);
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -141,7 +148,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             <PlusCircledIcon className="mr-1 h-4 w-4" />
             나만의 코스 추가하기
           </Button>
-          {courses && courses.length > 0 && (
+          {/* {courses && courses.length > 0 && (
             <div>
               <div className="text-muted-foreground mb-1 text-xs">
                 정규 코스 추가
@@ -179,7 +186,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                 })}
               </div>
             </div>
-          )}
+          )} */}
         </div>
 
         <BottomCTA
