@@ -15,7 +15,6 @@ import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { track } from "@vercel/analytics";
-import { fi } from "date-fns/locale";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
