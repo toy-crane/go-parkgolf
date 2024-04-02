@@ -5,21 +5,16 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
   FormDescription,
-  FormField,
-  FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { alertDiscord } from "@/libs/discord";
 import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { track } from "@vercel/analytics";
-import { fi } from "date-fns/locale";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -31,6 +26,7 @@ import {
   createGameScores,
   updateGameStatus,
 } from "./actions";
+import GameCourseFormDrawer from "./game-course-form-drawer";
 import { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -42,6 +38,7 @@ interface FormProps {
 
 const GameCourseForm = ({ gameId, courses }: FormProps) => {
   const [isPending, startTransition] = useTransition();
+  const [open, setOpen] = React.useState(false);
   const router = useRouter();
 
   const form = useForm<Inputs>({
@@ -66,13 +63,6 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     control: form.control,
   });
 
-  // 키 다운 이벤트를 처리하는 함수
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter" && !event.nativeEvent.isComposing) {
-      event.preventDefault();
-      (event.currentTarget as HTMLInputElement).blur();
-    }
-  };
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
@@ -142,6 +132,9 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             variant="secondary"
             disabled={fields.length >= 4}
             className="mb-2"
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
             type="button"
           >
             <PlusCircledIcon className="mr-1 h-4 w-4" />
@@ -194,6 +187,14 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
           loading={isPending}
         />
       </form>
+      <GameCourseFormDrawer
+        open={open}
+        onOpenChange={setOpen}
+        onSubmit={(values) => {
+          console.log("values", values);
+          append(values);
+        }}
+      />
     </Form>
   );
 };

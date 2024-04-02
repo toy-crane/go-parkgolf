@@ -1,13 +1,13 @@
 import * as z from "zod";
 
+export const gameCourseSchema = z.object({
+  name: z.string().nonempty("코스 이름을 입력해주세요."),
+  hole_count: z.coerce.number(),
+});
+
 export const formSchema = z.object({
   game_courses: z
-    .array(
-      z.object({
-        name: z.string().nonempty("코스 이름을 입력해주세요."),
-        hole_count: z.coerce.number(),
-      }),
-    )
+    .array(gameCourseSchema)
     .min(1, { message: "코스를 최소 1개 이상 입력해주세요." })
     .max(4, { message: "코스는 최대 4개까지 입력 가능합니다." })
     .refine(
