@@ -46,7 +46,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     mode: "all",
     resolver: zodResolver(formSchema),
     values: {
-      game_courses: courses?.map(({ name, holes }) => ({
+      game_courses: courses?.slice(0, 4).map(({ name, holes }) => ({
         name,
         hole_count: holes?.length ?? 0,
       })) ?? [{ name: "A", hole_count: 9 }],
