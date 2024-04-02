@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,11 +12,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import type { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
+import { set } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -24,6 +25,7 @@ import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { createGamePlayer } from "./actions";
 import PlayerFormDrawer from "./player-form-drawer";
+import type { playerSchema } from "./schema";
 import { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -36,6 +38,7 @@ const safeLocalStorage = generateStorage();
 
 const PlayerForm = ({ gameId }: FormProps) => {
   const [open, setOpen] = React.useState(false);
+  const [selectedPlayerId, setSelectedPlayerId] = useState<number>();
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const form = useForm<Inputs>({
@@ -56,7 +59,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
   const error =
     form.formState.errors.players?.root ?? form.formState.errors.players;
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, update } = useFieldArray({
     name: "players",
     control: form.control,
   });
@@ -99,6 +102,10 @@ const PlayerForm = ({ gameId }: FormProps) => {
                         variant="ghost"
                         className="w-full justify-start pl-0"
                         type="button"
+                        onClick={() => {
+                          setSelectedPlayerId(index);
+                          setOpen(true);
+                        }}
                       >
                         {fields[index]?.nickname}
                       </Button>
@@ -172,8 +179,11 @@ const PlayerForm = ({ gameId }: FormProps) => {
         open={open}
         onOpenChange={setOpen}
         onSubmit={(values) => {
-          console.log("values", values);
-          append(values);
+          if (selectedPlayerId !== undefined) {
+            update(selectedPlayerId, values);
+          } else {
+            append(values);
+          }
         }}
       />
     </Form>
