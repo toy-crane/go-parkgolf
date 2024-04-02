@@ -86,15 +86,7 @@ const PlayerFormDrawer = ({
   };
 
   return (
-    <Drawer
-      open={open}
-      onOpenChange={onOpenChange}
-      onClose={() => {
-        // setTimeout(() => {
-        //   form.reset({ nickname: "" });
-        // }, 100); // 100ms 후에 실행
-      }}
-    >
+    <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="h-full max-h-[90%]">
         <Form {...form}>
           <form
@@ -102,9 +94,9 @@ const PlayerFormDrawer = ({
             className="flex h-full flex-col"
           >
             <DrawerHeader className="content-grid grid">
-              <DrawerTitle>새로운 플레이어 등록</DrawerTitle>
+              <DrawerTitle>새로운 선수 등록</DrawerTitle>
               <DrawerDescription>
-                게임을 같이 할 플레이어를 추가해 보세요.
+                게임을 같이 할 선수를 추가해 보세요.
               </DrawerDescription>
             </DrawerHeader>
             <div className="content-grid mb-4 flex-1">
