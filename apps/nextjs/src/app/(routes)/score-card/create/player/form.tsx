@@ -93,20 +93,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
         className="flex flex-col space-y-12 pb-20"
       >
         <div className="flex flex-col">
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            disabled={fields.length >= 4}
-            className="justify-start pl-0 hover:bg-white"
-            onClick={() => {
-              setOpen((prev) => !prev);
-            }}
-          >
-            <PlusCircledIcon className="mr-1 h-4 w-4" />
-            새로운 선수 추가하기
-          </Button>
-          <Separator className="mb-4 mt-1" />
           <div className="mb-4 flex flex-col space-y-1">
             <FormLabel className="flex-1">선수 이름</FormLabel>
             <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
@@ -148,9 +134,24 @@ const PlayerForm = ({ gameId }: FormProps) => {
               })}
             </div>
           )}
+          <div className="mb-2 space-y-2">
+            <Separator />
+            <FormMessage>{error?.message}</FormMessage>
+          </div>
+          <Button
+            variant="secondary"
+            disabled={fields.length >= 4}
+            className="mb-2"
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+          >
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
+            새로운 선수 추가하기
+          </Button>
           {recentPlayers.length !== 0 && (
             <div className="mb-2">
-              <div className="text-muted-foreground mb-0.5 text-xs">
+              <div className="text-muted-foreground mb-1 text-xs">
                 최근 함께한 선수
               </div>
               <div className="flex flex-wrap gap-2">
@@ -177,8 +178,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
               </div>
             </div>
           )}
-
-          <FormMessage className="mt-1">{error?.message}</FormMessage>
         </div>
         <BottomCTA
           label="다음 단계로"
