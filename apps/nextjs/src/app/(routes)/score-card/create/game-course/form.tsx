@@ -19,6 +19,7 @@ import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { track } from "@vercel/analytics";
+import { fi } from "date-fns/locale";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -96,54 +97,37 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
         <div className="flex flex-col">
           <div className="mb-0.5 flex gap-x-3">
             <FormLabel className="flex-1">코스 이름</FormLabel>
-            <FormLabel className="flex-1">홀 수</FormLabel>
-            <div className="w-4"></div>
           </div>
-          <div className="mb-3 flex flex-col gap-2">
+          <div className="mb-4 flex flex-col gap-2">
             <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
-            <FormMessage>{error?.message}</FormMessage>
           </div>
           {fields.length !== 0 && (
             <div className="mb-3 flex flex-col gap-2">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex gap-x-3">
-                      <FormField
-                        control={form.control}
-                        key={index}
-                        name={`game_courses.${index}.name`}
-                        render={({ field }) => (
-                          <FormItem className="flex-1">
-                            <FormControl>
-                              <Input {...field} onKeyDown={handleKeyDown} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        key={index + 1}
-                        name={`game_courses.${index}.hole_count`}
-                        render={({ field }) => (
-                          <FormItem className="flex-1">
-                            <FormControl>
-                              <Input
-                                {...field}
-                                type="number"
-                                pattern="[0-9]*"
-                                inputMode="numeric"
-                                onKeyDown={handleKeyDown}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <button onClick={() => remove(index)} type="button">
+                    <div className="flex gap-x-1">
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-start pl-0"
+                        type="button"
+                      >
+                        <div className="flex flex-1 gap-2">
+                          <div>{fields[index]?.name} 코스</div>
+                          <span className="text-secondary-foreground opacity-20">
+                            |
+                          </span>
+                          <div>{fields[index]?.hole_count} 홀</div>
+                        </div>
+                      </Button>
+                      <Button
+                        onClick={() => remove(index)}
+                        type="button"
+                        variant="ghost"
+                        tabIndex={-1}
+                      >
                         <MinusCircledIcon className="h-4 w-4" />
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 );
