@@ -134,6 +134,8 @@ const GameCourseFormDrawer = ({
                               {...field}
                               onKeyDown={handleKeyDown}
                               type="number"
+                              min={1}
+                              max={9}
                             />
                           </FormControl>
                           <FormMessage />
