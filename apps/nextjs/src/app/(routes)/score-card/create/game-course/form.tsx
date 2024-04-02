@@ -93,23 +93,6 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col pb-20"
       >
-        <Button
-          type="button"
-          variant="ghost"
-          size="sm"
-          className="justify-start pl-0 hover:bg-white"
-          disabled={fields.length >= 4}
-          onClick={() =>
-            append({
-              name: "",
-              hole_count: 9,
-            })
-          }
-        >
-          <PlusCircledIcon className="mr-1 h-4 w-4" />
-          나만의 코스 추가하기
-        </Button>
-        <Separator className="mb-4 mt-1" />
         <div className="flex flex-col">
           <div className="mb-0.5 flex gap-x-3">
             <FormLabel className="flex-1">코스 이름</FormLabel>
@@ -167,9 +150,22 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
               })}
             </div>
           )}
+          <div className="mb-2 space-y-2">
+            <Separator />
+            <FormMessage>{error?.message}</FormMessage>
+          </div>
+          <Button
+            variant="secondary"
+            disabled={fields.length >= 4}
+            className="mb-2"
+            type="button"
+          >
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
+            나만의 코스 추가하기
+          </Button>
           {courses && courses.length > 0 && (
             <div>
-              <div className="text-muted-foreground mb-0.5 text-xs">
+              <div className="text-muted-foreground mb-1 text-xs">
                 정규 코스 추가
               </div>
               <div className="flex flex-wrap gap-1">
