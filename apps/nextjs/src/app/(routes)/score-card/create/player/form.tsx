@@ -5,19 +5,14 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
   FormDescription,
-  FormField,
-  FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import type { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
-import { set } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -25,7 +20,6 @@ import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { createGamePlayer } from "./actions";
 import PlayerFormDrawer from "./player-form-drawer";
-import type { playerSchema } from "./schema";
 import { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
