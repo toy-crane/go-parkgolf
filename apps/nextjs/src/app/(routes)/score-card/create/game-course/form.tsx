@@ -15,6 +15,7 @@ import type { Course } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { track } from "@vercel/analytics";
+import { fi } from "date-fns/locale";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
@@ -59,12 +60,10 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     form.formState.errors.game_courses;
   const isValid = form.formState.isValid;
 
-  const { fields, append, remove, update } = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     name: "game_courses",
     control: form.control,
   });
-
-  console.log("fields", fields);
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -208,7 +207,11 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
         }
         onSubmit={(values) => {
           if (selectedCourseId !== undefined) {
-            update(selectedCourseId, values);
+            replace([
+              ...fields.slice(0, selectedCourseId),
+              { ...fields[selectedCourseId], ...values },
+              ...fields.slice(selectedCourseId + 1),
+            ]);
             setSelectedCourseId(undefined);
           } else {
             append(values);
