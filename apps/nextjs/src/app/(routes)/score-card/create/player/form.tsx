@@ -127,6 +127,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
             className="mb-2"
             type="button"
             onClick={() => {
+              setSelectedPlayerId(undefined);
               setOpen((prev) => !prev);
             }}
           >
@@ -171,9 +172,15 @@ const PlayerForm = ({ gameId }: FormProps) => {
       </form>
       <PlayerFormDrawer
         open={open}
-        onOpenChange={setOpen}
+        onOpenChange={(open) => {
+          setOpen(open);
+        }}
         values={
-          selectedPlayerId !== undefined ? fields[selectedPlayerId] : undefined
+          selectedPlayerId !== undefined
+            ? fields[selectedPlayerId]
+            : {
+                nickname: "",
+              }
         }
         onSubmit={(values) => {
           if (selectedPlayerId !== undefined) {

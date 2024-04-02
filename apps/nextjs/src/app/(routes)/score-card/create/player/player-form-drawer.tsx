@@ -45,6 +45,9 @@ const PlayerFormDrawer = ({
     mode: "onChange",
     resolver: zodResolver(playerSchema),
     values,
+    defaultValues: {
+      nickname: "",
+    },
   });
 
   function handleSubmit(values: z.infer<typeof playerSchema>) {
@@ -87,9 +90,9 @@ const PlayerFormDrawer = ({
       open={open}
       onOpenChange={onOpenChange}
       onClose={() => {
-        setTimeout(() => {
-          form.reset({ nickname: "" });
-        }, 100); // 100ms 후에 실행
+        // setTimeout(() => {
+        //   form.reset({ nickname: "" });
+        // }, 100); // 100ms 후에 실행
       }}
     >
       <DrawerContent className="h-full max-h-[90%]">
