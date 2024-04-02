@@ -26,11 +26,12 @@ type Inputs = z.infer<typeof formSchema>;
 
 interface FormProps {
   gameId: string;
+  myName?: string;
 }
 
 const safeLocalStorage = generateStorage();
 
-const PlayerForm = ({ gameId }: FormProps) => {
+const PlayerForm = ({ gameId, myName }: FormProps) => {
   const [open, setOpen] = React.useState(false);
   const [selectedPlayerId, setSelectedPlayerId] = useState<number>();
   const [isPending, startTransition] = useTransition();
@@ -40,7 +41,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
     mode: "onChange",
     resolver: zodResolver(formSchema),
     defaultValues: {
-      players: [],
+      players: myName ? [{ nickname: myName }] : [],
     },
   });
 
