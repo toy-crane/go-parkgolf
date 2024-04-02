@@ -32,8 +32,10 @@ const GameCourseFormDrawer = ({
   open,
   onOpenChange,
   onSubmit,
+  values,
 }: {
   open: boolean;
+  values?: Inputs;
   onOpenChange?: (open: boolean) => void;
   onSubmit: (values: z.infer<typeof gameCourseSchema>) => void;
 }) => {
@@ -41,6 +43,11 @@ const GameCourseFormDrawer = ({
     shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(gameCourseSchema),
+    values,
+    defaultValues: {
+      name: "",
+      hole_count: 0,
+    },
   });
 
   function handleSubmit(values: z.infer<typeof gameCourseSchema>) {
@@ -79,15 +86,7 @@ const GameCourseFormDrawer = ({
   };
 
   return (
-    <Drawer
-      open={open}
-      onOpenChange={onOpenChange}
-      onClose={() => {
-        setTimeout(() => {
-          form.reset({ name: "" });
-        }, 100); // 100ms 후에 실행
-      }}
-    >
+    <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="h-full max-h-[90%]">
         <Form {...form}>
           <form

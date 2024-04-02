@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +37,7 @@ interface FormProps {
 }
 
 const GameCourseForm = ({ gameId, courses }: FormProps) => {
+  const [selectedCourseId, setSelectedCourseId] = useState<number>();
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
@@ -45,12 +46,6 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     shouldUnregister: true,
     mode: "onChange",
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      game_courses: courses?.slice(0, 4).map(({ name, holes }) => ({
-        name,
-        hole_count: holes?.length ?? 0,
-      })),
-    },
   });
 
   const error =
@@ -58,10 +53,11 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     form.formState.errors.game_courses;
   const isValid = form.formState.isValid;
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, update } = useFieldArray({
     name: "game_courses",
     control: form.control,
   });
+  console.log("fields", fields.length, fields);
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -101,6 +97,10 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                         variant="ghost"
                         className="w-full justify-start pl-0"
                         type="button"
+                        onClick={() => {
+                          setSelectedCourseId(index);
+                          setOpen(true);
+                        }}
                       >
                         <div className="flex flex-1 gap-2">
                           <div>{fields[index]?.name} 코스</div>
@@ -133,6 +133,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             disabled={fields.length >= 4}
             className="mb-2"
             onClick={() => {
+              setSelectedCourseId(undefined);
               setOpen((prev) => !prev);
             }}
             type="button"
@@ -190,9 +191,22 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
       <GameCourseFormDrawer
         open={open}
         onOpenChange={setOpen}
+        values={
+          selectedCourseId !== undefined
+            ? fields[selectedCourseId]
+            : {
+                name: "",
+                hole_count: 0,
+              }
+        }
         onSubmit={(values) => {
-          console.log("values", values);
-          append(values);
+          if (selectedCourseId !== undefined) {
+            console.log(selectedCourseId, "selectedCourseId", values);
+            update(selectedCourseId, values);
+            setSelectedCourseId(undefined);
+          } else {
+            append(values);
+          }
         }}
       />
     </Form>
