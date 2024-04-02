@@ -63,14 +63,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
 
   const isValid = form.formState.isValid;
 
-  // 키 다운 이벤트를 처리하는 함수
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter" && !event.nativeEvent.isComposing) {
-      event.preventDefault();
-      (event.currentTarget as HTMLInputElement).blur();
-    }
-  };
-
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
