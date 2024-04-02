@@ -43,8 +43,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
   const router = useRouter();
 
   const form = useForm<Inputs>({
-    shouldUnregister: true,
-    mode: "onChange",
+    mode: "all",
     resolver: zodResolver(formSchema),
     values: {
       game_courses: courses?.map(({ name, holes }) => ({
