@@ -95,38 +95,59 @@ const GameCourseFormDrawer = ({
             className="flex h-full flex-col"
           >
             <DrawerHeader className="content-grid grid">
-              <DrawerTitle>새로운 플레이어 등록</DrawerTitle>
+              <DrawerTitle>나만의 코스 등록</DrawerTitle>
               <DrawerDescription>
-                게임을 같이 할 플레이어를 추가해 보세요.
+                코스 이름과 홀 수를 입력해 주세요
               </DrawerDescription>
             </DrawerHeader>
             <div className="content-grid mb-4 flex-1">
               <div className="content">
-                <div className="mb-4 flex flex-col space-y-2">
-                  <FormLabel className="flex-1">선수 이름</FormLabel>
-                  <FormField
-                    control={form.control}
-                    name={"name"}
-                    render={({ field }) => (
-                      <FormItem className="flex-1">
-                        <FormControl>
-                          <Input
-                            {...field}
-                            onKeyDown={handleKeyDown}
-                            ref={inputRef}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <div className="mb-4 flex gap-4">
+                  <div className="flex-1">
+                    <FormLabel>코스 이름</FormLabel>
+                    <FormField
+                      control={form.control}
+                      name={"name"}
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <FormControl>
+                            <Input
+                              {...field}
+                              onKeyDown={handleKeyDown}
+                              ref={inputRef}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <FormLabel>홀 수</FormLabel>
+                    <FormField
+                      control={form.control}
+                      name={"hole_count"}
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <FormControl>
+                            <Input
+                              {...field}
+                              onKeyDown={handleKeyDown}
+                              type="number"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <DrawerFooter className="content-grid grid gap-0 p-0 py-2 pb-5">
               <div className="content flex gap-2">
                 <Button className="w-full" disabled={!isValid} type="submit">
-                  플레이어 추가
+                  코스 추가
                 </Button>
                 <DrawerClose asChild>
                   <Button variant="outline">취소</Button>
