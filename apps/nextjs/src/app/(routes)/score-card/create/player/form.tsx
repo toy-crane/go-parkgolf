@@ -102,24 +102,14 @@ const PlayerForm = ({ gameId }: FormProps) => {
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex gap-x-3">
-                      <FormField
-                        control={form.control}
-                        key={index}
-                        name={`players.${index}.nickname`}
-                        render={({ field }) => (
-                          <FormItem className="flex-1">
-                            <FormControl>
-                              <Input
-                                {...field}
-                                onKeyDown={handleKeyDown}
-                                disabled
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                    <div className="flex gap-x-1">
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-start pl-0"
+                        type="button"
+                      >
+                        {fields[index]?.nickname}
+                      </Button>
                       <Button
                         onClick={() => remove(index)}
                         type="button"
@@ -142,6 +132,7 @@ const PlayerForm = ({ gameId }: FormProps) => {
             variant="secondary"
             disabled={fields.length >= 4}
             className="mb-2"
+            type="button"
             onClick={() => {
               setOpen((prev) => !prev);
             }}
