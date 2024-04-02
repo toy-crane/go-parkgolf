@@ -32,9 +32,11 @@ type Inputs = z.infer<typeof playerSchema>;
 const PlayerFormDrawer = ({
   open,
   onOpenChange,
+  values,
   onSubmit,
 }: {
   open: boolean;
+  values?: Inputs;
   onOpenChange?: (open: boolean) => void;
   onSubmit: (values: z.infer<typeof playerSchema>) => void;
 }) => {
@@ -42,6 +44,7 @@ const PlayerFormDrawer = ({
     shouldUnregister: false,
     mode: "onChange",
     resolver: zodResolver(playerSchema),
+    values,
   });
 
   function handleSubmit(values: z.infer<typeof playerSchema>) {

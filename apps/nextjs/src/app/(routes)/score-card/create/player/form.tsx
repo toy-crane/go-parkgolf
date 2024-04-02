@@ -178,6 +178,9 @@ const PlayerForm = ({ gameId }: FormProps) => {
       <PlayerFormDrawer
         open={open}
         onOpenChange={setOpen}
+        values={
+          selectedPlayerId !== undefined ? fields[selectedPlayerId] : undefined
+        }
         onSubmit={(values) => {
           if (selectedPlayerId !== undefined) {
             update(selectedPlayerId, values);
