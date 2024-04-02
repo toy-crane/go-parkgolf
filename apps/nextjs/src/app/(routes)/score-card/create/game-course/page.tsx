@@ -26,7 +26,6 @@ const Page = async ({
   }
 
   const courses = response.data?.golf_courses?.courses;
-  const courseName = response.data?.golf_courses?.name!;
 
   if (!gameId) {
     notFound();

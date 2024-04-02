@@ -14,6 +14,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -115,38 +116,18 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-20">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="pb-20">
         <FormField
           control={form.control}
           name="golfCourseId"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>파크 골프장 이름</FormLabel>
-              {recentGolfCourses.length !== 0 && (
-                <div className="mb-1">
-                  <div className="text-muted-foreground mb-0.5 text-xs">
-                    최근 선택한 골프장
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {recentGolfCourses.map((id) => (
-                      <RecentBadge
-                        key={id}
-                        onClick={() => {
-                          form.setValue("golfCourseId", id, {
-                            shouldValidate: true,
-                          });
-                          setRecentGolfCourses((prev) =>
-                            prev.filter((p) => p !== id),
-                          );
-                        }}
-                      >
-                        {courses.find((c) => c.id === id)?.name}
-                        <PlusCircledIcon className="ml-1 h-3 w-3" />
-                      </RecentBadge>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div>
+                <FormLabel>파크 골프장 이름</FormLabel>
+                <FormDescription>
+                  경기를 진행할 파크골프장을 선택해 주세요
+                </FormDescription>
+              </div>
               <FormControl>
                 <Button
                   variant="outline"
@@ -164,6 +145,7 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
                   <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </FormControl>
+
               <CommandDialog open={openSearch} onOpenChange={setOpenSearch}>
                 <CommandInput placeholder="주소 또는 이름을 입력해주세요." />
                 <CommandList>
@@ -191,6 +173,31 @@ const CourseForm = ({ courses, golfCourseId }: FormProps) => {
             </FormItem>
           )}
         />
+        {recentGolfCourses.length !== 0 && (
+          <div className="mb-1 mt-5">
+            <div className="text-muted-foreground mb-1 text-xs">
+              최근 선택한 골프장
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {recentGolfCourses.map((id) => (
+                <RecentBadge
+                  key={id}
+                  onClick={() => {
+                    form.setValue("golfCourseId", id, {
+                      shouldValidate: true,
+                    });
+                    setRecentGolfCourses((prev) =>
+                      prev.filter((p) => p !== id),
+                    );
+                  }}
+                >
+                  {courses.find((c) => c.id === id)?.name}
+                  <PlusCircledIcon className="ml-1 h-3 w-3" />
+                </RecentBadge>
+              ))}
+            </div>
+          </div>
+        )}
         <BottomCTA
           label="다음 단계로"
           disabled={isPending || !isValid}

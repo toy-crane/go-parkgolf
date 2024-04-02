@@ -1,18 +1,14 @@
 "use client";
 
-import React, { useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
   FormDescription,
-  FormField,
-  FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { alertDiscord } from "@/libs/discord";
 import type { Course } from "@/types";
@@ -30,6 +26,7 @@ import {
   createGameScores,
   updateGameStatus,
 } from "./actions";
+import GameCourseFormDrawer from "./game-course-form-drawer";
 import { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -40,18 +37,20 @@ interface FormProps {
 }
 
 const GameCourseForm = ({ gameId, courses }: FormProps) => {
+  const [selectedCourseId, setSelectedCourseId] = useState<number>();
   const [isPending, startTransition] = useTransition();
+  const [open, setOpen] = React.useState(false);
   const router = useRouter();
 
   const form = useForm<Inputs>({
     shouldUnregister: true,
     mode: "onChange",
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      game_courses: courses?.slice(0, 4).map(({ name, holes }) => ({
+    values: {
+      game_courses: courses?.map(({ name, holes }) => ({
         name,
         hole_count: holes?.length ?? 0,
-      })),
+      })) ?? [{ name: "A", hole_count: 9 }],
     },
   });
 
@@ -60,18 +59,11 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     form.formState.errors.game_courses;
   const isValid = form.formState.isValid;
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, replace } = useFieldArray({
     name: "game_courses",
     control: form.control,
   });
 
-  // 키 다운 이벤트를 처리하는 함수
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter" && !event.nativeEvent.isComposing) {
-      event.preventDefault();
-      (event.currentTarget as HTMLInputElement).blur();
-    }
-  };
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
@@ -93,83 +85,72 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col pb-20"
       >
-        <Button
-          type="button"
-          variant="ghost"
-          size="sm"
-          className="justify-start pl-0 hover:bg-white"
-          disabled={fields.length >= 4}
-          onClick={() =>
-            append({
-              name: "",
-              hole_count: 9,
-            })
-          }
-        >
-          <PlusCircledIcon className="mr-1 h-4 w-4" />
-          나만의 코스 추가하기
-        </Button>
-        <Separator className="mb-4 mt-1" />
         <div className="flex flex-col">
           <div className="mb-0.5 flex gap-x-3">
             <FormLabel className="flex-1">코스 이름</FormLabel>
-            <FormLabel className="flex-1">홀 수</FormLabel>
-            <div className="w-4"></div>
           </div>
-          <div className="mb-3 flex flex-col gap-2">
+          <div className="mb-4 flex flex-col gap-2">
             <FormDescription>최대 4개 코스까지 입력 가능합니다</FormDescription>
-            <FormMessage>{error?.message}</FormMessage>
           </div>
           {fields.length !== 0 && (
             <div className="mb-3 flex flex-col gap-2">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex gap-x-3">
-                      <FormField
-                        control={form.control}
-                        key={index}
-                        name={`game_courses.${index}.name`}
-                        render={({ field }) => (
-                          <FormItem className="flex-1">
-                            <FormControl>
-                              <Input {...field} onKeyDown={handleKeyDown} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        key={index + 1}
-                        name={`game_courses.${index}.hole_count`}
-                        render={({ field }) => (
-                          <FormItem className="flex-1">
-                            <FormControl>
-                              <Input
-                                {...field}
-                                type="number"
-                                pattern="[0-9]*"
-                                inputMode="numeric"
-                                onKeyDown={handleKeyDown}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <button onClick={() => remove(index)} type="button">
+                    <div className="flex gap-x-1">
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-start pl-0"
+                        type="button"
+                        onClick={() => {
+                          setSelectedCourseId(index);
+                          setOpen(true);
+                        }}
+                      >
+                        <div className="flex flex-1 gap-2">
+                          <div>{fields[index]?.name} 코스</div>
+                          <span className="text-secondary-foreground opacity-20">
+                            |
+                          </span>
+                          <div>{fields[index]?.hole_count} 홀</div>
+                        </div>
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          replace(fields.filter((_, i) => i !== index));
+                        }}
+                        type="button"
+                        variant="ghost"
+                        tabIndex={-1}
+                      >
                         <MinusCircledIcon className="h-4 w-4" />
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 );
               })}
             </div>
           )}
+          <div className="mb-2 space-y-2">
+            <Separator />
+            <FormMessage>{error?.message}</FormMessage>
+          </div>
+          <Button
+            variant="secondary"
+            disabled={fields.length >= 4}
+            className="mb-2"
+            onClick={() => {
+              setSelectedCourseId(undefined);
+              setOpen((prev) => !prev);
+            }}
+            type="button"
+          >
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
+            나만의 코스 추가하기
+          </Button>
           {courses && courses.length > 0 && (
             <div>
-              <div className="text-muted-foreground mb-0.5 text-xs">
+              <div className="text-muted-foreground mb-1 text-xs">
                 정규 코스 추가
               </div>
               <div className="flex flex-wrap gap-1">
@@ -214,6 +195,30 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
           loading={isPending}
         />
       </form>
+      <GameCourseFormDrawer
+        open={open}
+        onOpenChange={setOpen}
+        values={
+          selectedCourseId !== undefined
+            ? fields[selectedCourseId]
+            : {
+                name: "",
+                hole_count: 9,
+              }
+        }
+        onSubmit={(values) => {
+          if (selectedCourseId !== undefined) {
+            replace([
+              ...fields.slice(0, selectedCourseId),
+              { ...fields[selectedCourseId], ...values },
+              ...fields.slice(selectedCourseId + 1),
+            ]);
+            setSelectedCourseId(undefined);
+          } else {
+            append(values);
+          }
+        }}
+      />
     </Form>
   );
 };

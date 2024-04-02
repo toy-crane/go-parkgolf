@@ -1,29 +1,25 @@
 "use client";
 
-import React, { useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
   FormDescription,
-  FormField,
-  FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { generateStorage } from "@toss/storage";
-import { Loader2 } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import type * as z from "zod";
 
 import BottomCTA from "../_components/bottom-cta";
 import RecentBadge from "../_components/recent-badge";
 import { createGamePlayer } from "./actions";
+import PlayerFormDrawer from "./player-form-drawer";
 import { formSchema } from "./schema";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -35,6 +31,8 @@ interface FormProps {
 const safeLocalStorage = generateStorage();
 
 const PlayerForm = ({ gameId }: FormProps) => {
+  const [open, setOpen] = React.useState(false);
+  const [selectedPlayerId, setSelectedPlayerId] = useState<number>();
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const form = useForm<Inputs>({
@@ -55,20 +53,12 @@ const PlayerForm = ({ gameId }: FormProps) => {
   const error =
     form.formState.errors.players?.root ?? form.formState.errors.players;
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, update } = useFieldArray({
     name: "players",
     control: form.control,
   });
 
   const isValid = form.formState.isValid;
-
-  // 키 다운 이벤트를 처리하는 함수
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter" && !event.nativeEvent.isComposing) {
-      event.preventDefault();
-      (event.currentTarget as HTMLInputElement).blur();
-    }
-  };
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -92,45 +82,27 @@ const PlayerForm = ({ gameId }: FormProps) => {
         className="flex flex-col space-y-12 pb-20"
       >
         <div className="flex flex-col">
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            disabled={fields.length >= 4}
-            className="justify-start pl-0 hover:bg-white"
-            onClick={() =>
-              append({
-                nickname: "",
-              })
-            }
-          >
-            <PlusCircledIcon className="mr-1 h-4 w-4" />
-            새로운 선수 추가하기
-          </Button>
-          <Separator className="mb-4 mt-1" />
           <div className="mb-4 flex flex-col space-y-1">
             <FormLabel className="flex-1">선수 이름</FormLabel>
             <FormDescription>최대 4명까지 입력 가능합니다</FormDescription>
           </div>
           {fields.length !== 0 && (
-            <div className="mb-3 space-y-2">
+            <div className="mb-1 space-y-1">
               {fields.map((_, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex gap-x-3">
-                      <FormField
-                        control={form.control}
-                        key={index}
-                        name={`players.${index}.nickname`}
-                        render={({ field }) => (
-                          <FormItem className="flex-1">
-                            <FormControl>
-                              <Input {...field} onKeyDown={handleKeyDown} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                    <div className="flex gap-x-1">
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-start pl-0"
+                        type="button"
+                        onClick={() => {
+                          setSelectedPlayerId(index);
+                          setOpen(true);
+                        }}
+                      >
+                        {fields[index]?.nickname}
+                      </Button>
                       <Button
                         onClick={() => remove(index)}
                         type="button"
@@ -145,9 +117,26 @@ const PlayerForm = ({ gameId }: FormProps) => {
               })}
             </div>
           )}
+          <div className="mb-2 space-y-2">
+            <Separator />
+            <FormMessage>{error?.message}</FormMessage>
+          </div>
+          <Button
+            variant="secondary"
+            disabled={fields.length >= 4}
+            className="mb-2"
+            type="button"
+            onClick={() => {
+              setSelectedPlayerId(undefined);
+              setOpen((prev) => !prev);
+            }}
+          >
+            <PlusCircledIcon className="mr-1 h-4 w-4" />
+            새로운 선수 추가하기
+          </Button>
           {recentPlayers.length !== 0 && (
             <div className="mb-2">
-              <div className="text-muted-foreground mb-0.5 text-xs">
+              <div className="text-muted-foreground mb-1 text-xs">
                 최근 함께한 선수
               </div>
               <div className="flex flex-wrap gap-2">
@@ -174,8 +163,6 @@ const PlayerForm = ({ gameId }: FormProps) => {
               </div>
             </div>
           )}
-
-          <FormMessage className="mt-1">{error?.message}</FormMessage>
         </div>
         <BottomCTA
           label="다음 단계로"
@@ -183,6 +170,26 @@ const PlayerForm = ({ gameId }: FormProps) => {
           loading={isPending}
         />
       </form>
+      <PlayerFormDrawer
+        open={open}
+        onOpenChange={(open) => {
+          setOpen(open);
+        }}
+        values={
+          selectedPlayerId !== undefined
+            ? fields[selectedPlayerId]
+            : {
+                nickname: "",
+              }
+        }
+        onSubmit={(values) => {
+          if (selectedPlayerId !== undefined) {
+            update(selectedPlayerId, values);
+          } else {
+            append(values);
+          }
+        }}
+      />
     </Form>
   );
 };
