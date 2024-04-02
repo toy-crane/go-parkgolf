@@ -148,7 +148,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             <PlusCircledIcon className="mr-1 h-4 w-4" />
             나만의 코스 추가하기
           </Button>
-          {/* {courses && courses.length > 0 && (
+          {courses && courses.length > 0 && (
             <div>
               <div className="text-muted-foreground mb-1 text-xs">
                 정규 코스 추가
@@ -186,7 +186,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                 })}
               </div>
             </div>
-          )} */}
+          )}
         </div>
 
         <BottomCTA
