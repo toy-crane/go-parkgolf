@@ -58,7 +58,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     form.formState.errors.game_courses;
   const isValid = form.formState.isValid;
 
-  const { fields, replace } = useFieldArray({
+  const { fields, update, append, remove } = useFieldArray({
     name: "game_courses",
     control: form.control,
   });
@@ -116,7 +116,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                       </Button>
                       <Button
                         onClick={() => {
-                          replace(fields.filter((_, i) => i !== index));
+                          remove(index);
                         }}
                         type="button"
                         variant="ghost"
@@ -167,13 +167,10 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                     <RecentBadge
                       key={name}
                       onClick={() => {
-                        replace([
-                          ...fields,
-                          {
-                            name: newName,
-                            hole_count: holes?.length ?? 0,
-                          },
-                        ]);
+                        append({
+                          name: newName,
+                          hole_count: holes?.length ?? 0,
+                        });
                       }}
                     >
                       {newName} 코스
@@ -205,14 +202,10 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
         }
         onSubmit={(values) => {
           if (selectedCourseId !== undefined) {
-            replace([
-              ...fields.slice(0, selectedCourseId),
-              { ...fields[selectedCourseId], ...values },
-              ...fields.slice(selectedCourseId + 1),
-            ]);
+            update(selectedCourseId, values);
             setSelectedCourseId(undefined);
           } else {
-            replace([...fields, values]);
+            append(values);
           }
         }}
       />
