@@ -201,7 +201,6 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
         }
         onSubmit={(values) => {
           if (selectedCourseId !== undefined) {
-            console.log(selectedCourseId, "selectedCourseId", values);
             update(selectedCourseId, values);
             setSelectedCourseId(undefined);
           } else {
