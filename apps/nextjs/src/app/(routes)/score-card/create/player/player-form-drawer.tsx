@@ -125,7 +125,7 @@ const PlayerFormDrawer = ({
             <DrawerFooter className="content-grid grid gap-0 p-0 py-2 pb-5">
               <div className="content flex gap-2">
                 <Button className="w-full" disabled={!isValid} type="submit">
-                  플레이어 추가
+                  선수 추가
                 </Button>
                 <DrawerClose asChild>
                   <Button variant="outline">취소</Button>
