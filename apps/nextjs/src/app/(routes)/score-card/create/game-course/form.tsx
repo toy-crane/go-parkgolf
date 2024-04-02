@@ -168,15 +168,13 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
                     <RecentBadge
                       key={name}
                       onClick={() => {
-                        append(
+                        replace([
+                          ...fields,
                           {
                             name: newName,
                             hole_count: holes?.length ?? 0,
                           },
-                          {
-                            shouldFocus: false,
-                          },
-                        );
+                        ]);
                       }}
                     >
                       {newName} 코스
@@ -215,7 +213,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
             ]);
             setSelectedCourseId(undefined);
           } else {
-            append(values);
+            replace([...fields, values]);
           }
         }}
       />
