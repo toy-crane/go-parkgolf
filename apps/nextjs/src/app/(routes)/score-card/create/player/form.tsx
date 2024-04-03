@@ -141,26 +141,28 @@ const PlayerForm = ({ gameId, myName }: FormProps) => {
                 최근 함께한 선수
               </div>
               <div className="flex flex-wrap gap-2">
-                {recentPlayers.map((name) => (
-                  <RecentBadge
-                    key={name}
-                    onClick={() => {
-                      append(
-                        {
-                          nickname: name,
-                        },
-                        {
-                          shouldFocus: false,
-                        },
-                      );
-                      setRecentPlayers((prev) =>
-                        prev.filter((p) => p !== name),
-                      );
-                    }}
-                  >
-                    {name} <PlusCircledIcon className="ml-1 h-3 w-3" />
-                  </RecentBadge>
-                ))}
+                {recentPlayers
+                  .filter((pl) => pl !== myName)
+                  .map((name) => (
+                    <RecentBadge
+                      key={name}
+                      onClick={() => {
+                        append(
+                          {
+                            nickname: name,
+                          },
+                          {
+                            shouldFocus: false,
+                          },
+                        );
+                        setRecentPlayers((prev) =>
+                          prev.filter((p) => p !== name),
+                        );
+                      }}
+                    >
+                      {name} <PlusCircledIcon className="ml-1 h-3 w-3" />
+                    </RecentBadge>
+                  ))}
               </div>
             </div>
           )}
