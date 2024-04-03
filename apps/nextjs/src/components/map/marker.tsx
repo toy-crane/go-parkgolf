@@ -37,17 +37,17 @@ const Marker = ({
                 selected ? "scale-125 fill-[#22DC48]" : "fill-[#16a34a]",
               )}
             />
+            <span
+              className={cn(
+                "block select-none bg-slate-50 p-1 text-xs text-slate-700",
+                "absolute left-[50%] top-[50%] mt-5 translate-x-[-50%]",
+                "group-hover:font-extrabold",
+                selected && "block text-sm font-bold",
+              )}
+            >
+              {text}
+            </span>
           </Button>
-          <span
-            className={cn(
-              "block select-none bg-slate-50 p-1 text-xs text-slate-700",
-              "absolute left-[50%] top-[50%] mt-5 translate-x-[-50%]",
-              "group-hover:font-extrabold",
-              selected && "block text-sm font-bold",
-            )}
-          >
-            {text}
-          </span>
         </div>
       </CustomOverlayMap>
     </>
