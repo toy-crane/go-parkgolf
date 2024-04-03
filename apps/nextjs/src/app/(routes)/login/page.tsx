@@ -22,31 +22,33 @@ const Page = async ({
   }
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
+    <div className="mt-10 flex flex-col justify-center md:mt-20">
       <Image
         src="/logo.png"
         width={96}
         height={96}
         alt="Logo"
-        className="py-4 align-middle"
+        className="self-items-center self-center pt-4"
         placeholder="blur"
         blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
       />
-      <PageHeader className="items-center pb-12 pt-8 text-center">
-        <PageHeaderHeading>파크 골프장의 모든 것</PageHeaderHeading>
-        <PageHeaderDescription>
-          전국의 모든 파크골프장의 정보를 손쉽게 찾아보세요
+      <PageHeader className="pb-6 md:pb-12">
+        <PageHeaderHeading className="self-center">
+          파크골프 가자
+        </PageHeaderHeading>
+        <PageHeaderDescription className="self-center text-center leading-tight">
+          파크 골프장 검색,
+          <br className="md:hidden" /> 스코어 기록까지 한번에!
         </PageHeaderDescription>
       </PageHeader>
-      <div className="mb-6 flex flex-col gap-4">
-        <KakaoForm />
+      <div className="mb-2 flex flex-col gap-4">
+        <KakaoForm label="카카오로 3초만에 시작하기" />
       </div>
       <p className="text-muted-foreground px-8 text-center text-sm">
-        아직 파크골프가자 회원이 아니신가요?{" "}
         <Link
           href={`/register?${new URLSearchParams(searchParams).toString()}`}
           replace
-          className="hover:text-primary text-black underline underline-offset-4"
+          className="hover:text-primary text-muted-foreground text-xs underline underline-offset-4"
         >
           회원가입
         </Link>

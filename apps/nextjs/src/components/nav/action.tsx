@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 const ActionNav = () => {
   const router = useRouter();
   return (
-    <header className="content-grid z-header h-header fixed w-full border-b bg-white">
+    <header className="content-grid z-header h-header sticky w-full border-b bg-white">
       <nav className="flex items-center justify-between">
         <Button onClick={() => router.back()} variant="ghost" size="icon">
           <ChevronLeft />

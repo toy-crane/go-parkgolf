@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-const KakaoForm = () => {
+const KakaoForm = ({ label }: { label?: string }) => {
   const isMobileApp = useUserAgentStore((state) => state.isMobileApp);
   const searchParams = useSearchParams();
   const next = searchParams.get("next") ?? "";
@@ -38,12 +38,12 @@ const KakaoForm = () => {
 
   return (
     <Button
-      className="w-full bg-[#faea05] text-black hover:bg-[#faea05]/80"
+      className="w-full bg-[#faea05] text-black hover:bg-[#faea05]/80 md:w-[360px] md:self-center"
       size="lg"
       onClick={kakaoSignUp}
     >
-      <Icons.kakao className="mr-2" />
-      카카오톡으로 시작하기
+      <Icons.kakao className="mr-1 h-5 w-5" />
+      {label ? label : "카카오톡으로 시작하기"}
     </Button>
   );
 };

@@ -27,7 +27,7 @@ function PageHeaderHeading({
     // eslint-disable-next-line jsx-a11y/heading-has-content
     <h1
       className={cn(
-        "text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]",
+        "text-4xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]",
         className,
       )}
       {...props}
