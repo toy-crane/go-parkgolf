@@ -62,7 +62,6 @@ export async function generateMetadata(
   if (course) {
     const title = `${course.name} 코스 및 예약 정보`;
     const description = `지번 주소 - ${course.lot_number_address_name} 
-    \n 도로명 주소 - ${course.road_address_name ?? "정보 없음"}
     \n 영업시간 - ${operation?.opening_hours ?? "정보 없음"} \n 정기 휴무일 - ${
       operation?.regular_closed_days ?? "정보 없음"
     } \n 예약방법 - ${operation?.registration_method ?? "정보 없음"} 연락처 - ${
