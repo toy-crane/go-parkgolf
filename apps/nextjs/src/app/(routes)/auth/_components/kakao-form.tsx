@@ -38,7 +38,7 @@ const KakaoForm = ({ label }: { label?: string }) => {
 
   return (
     <Button
-      className="w-full bg-[#faea05] text-black hover:bg-[#faea05]/80 md:w-[360px] md:self-center"
+      className="w-full bg-[#faea05] text-black hover:bg-[#faea05]/60 md:w-[360px] md:self-center"
       size="lg"
       onClick={kakaoSignUp}
     >
