@@ -119,7 +119,13 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <>
       <DownloadBanner isApp={isApp(userAgent)} />
-      <Nav />
+      <Suspense
+        fallback={
+          <header className="content-grid h-header z-header sticky top-0 w-full border-b bg-white" />
+        }
+      >
+        <Nav />
+      </Suspense>
       <div className="content-grid">
         <BreadcrumbNav
           className="mb-1.5 mt-2"
