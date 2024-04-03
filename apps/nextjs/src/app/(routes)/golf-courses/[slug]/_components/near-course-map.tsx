@@ -18,7 +18,7 @@ const NearCourseMap = async ({
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("golf_courses")
-    .select("*,contacts(*), operations(*)")
+    .select("lat, lng, slug, name")
     .eq("publish_status", "completed")
     .returns<GolfCourse[]>();
   if (response.error) throw response.error;
