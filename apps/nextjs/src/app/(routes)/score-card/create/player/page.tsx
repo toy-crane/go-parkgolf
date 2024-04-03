@@ -36,7 +36,7 @@ const Page = async ({
   return (
     <div>
       <FormHeader
-        title="신규 게임 생성하기"
+        title="게임 시작하기"
         description="선수들의 이름을 입력해 주세요"
       />
       <PlayerForm gameId={gameId} myName={myName} />

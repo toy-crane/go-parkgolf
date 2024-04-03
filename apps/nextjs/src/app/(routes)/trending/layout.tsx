@@ -27,7 +27,6 @@ const Layout = (props: { children: React.ReactNode }) => {
             <PageHeaderHeading className="underline decoration-[#22DC48] decoration-4 underline-offset-[10px]">
               파크골프 트렌드
             </PageHeaderHeading>
-            <TrendingUp className="ml-1 h-10 w-10" />
           </PageHeader>
           <section className="mb-8 space-y-4">
             <TrendingNav />

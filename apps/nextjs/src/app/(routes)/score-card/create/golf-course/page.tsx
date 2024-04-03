@@ -26,10 +26,7 @@ const Page = async ({
 
   return (
     <>
-      <FormHeader
-        title="신규 게임 생성하기"
-        description="골프장을 선택해 주세요"
-      />
+      <FormHeader title="게임 시작하기" description="골프장을 선택해 주세요" />
       <CourseForm courses={result.data} golfCourseId={golfCourseId} />
     </>
   );
