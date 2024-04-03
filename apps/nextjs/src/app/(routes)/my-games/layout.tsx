@@ -14,7 +14,12 @@ const DownloadBanner = dynamic(
 
 const Layout = async (props: { children: React.ReactNode }) => {
   const session = await readUserSession();
-  if (!session) return redirect("/score-card");
+  const pathname = headers().get("x-pathname") ?? "";
+  if (!session)
+    return redirect(
+      `/login?${new URLSearchParams({ next: pathname }).toString()}`,
+    );
+
   const headersList = headers();
   const userAgent = headersList.get("user-agent")!;
 
