@@ -34,23 +34,18 @@ const Page = async ({
         <PageHeaderHeading className="self-center">
           파크골프 가자
         </PageHeaderHeading>
-        <PageHeaderDescription className="self-center text-center leading-tight">
-          파크 골프장 검색,
-          <br className="md:hidden" /> 스코어 기록까지 한번에!
+        <PageHeaderDescription className="self-center text-center text-xl tracking-tight">
+          지금 가입하면 <br />
+          스코어 기록 무제한!
+          <br />
+          <span className="text-xs">
+            파크골프 가자 회원만의 혜택을 누려보세요
+          </span>
         </PageHeaderDescription>
       </PageHeader>
       <div className="mb-2 flex flex-col gap-4">
         <KakaoForm label="카카오로 3초만에 시작하기" />
       </div>
-      <p className="text-muted-foreground px-8 text-center text-sm">
-        <Link
-          href={`/login?${new URLSearchParams(searchParams).toString()}`}
-          replace
-          className="hover:text-primary text-muted-foreground text-xs underline underline-offset-4"
-        >
-          로그인
-        </Link>
-      </p>
     </div>
   );
 };
