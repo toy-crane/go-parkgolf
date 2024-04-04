@@ -6,8 +6,6 @@ import BottomNav from "@/components/nav/bottom";
 import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { isApp } from "@/libs/user-agent";
-import type { GolfCourse } from "@/types";
-import { get } from "lodash";
 
 import { getCourse } from "./fetcher";
 
