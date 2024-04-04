@@ -36,7 +36,7 @@ const Page = async ({
         </PageHeaderHeading>
         <PageHeaderDescription className="self-center text-center text-xl tracking-tight">
           지금 가입하면 <br />
-          스코어 기록 무제한!
+          스코어 기록이 무제한!
           <br />
           <span className="text-xs">
             파크골프 가자 회원만의 혜택을 누려보세요
