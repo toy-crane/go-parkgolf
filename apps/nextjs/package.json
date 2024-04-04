@@ -62,7 +62,7 @@
     "headless-stepper": "^1.9.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.279.0",
-    "next": "^14.0.3",
+    "next": "^14.1.4",
     "next-themes": "^0.3.0",
     "react": "18.2.0",
     "react-day-picker": "^8.9.1",

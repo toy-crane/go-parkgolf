@@ -10,7 +10,7 @@ import {
   TrendingUpIcon,
 } from "lucide-react";
 
-const BottomNav = () => {
+const BottomNav = async () => {
   const pathname = headers().get("x-pathname") ?? "";
   const isHome = pathname === "/";
   const isMyGames =
