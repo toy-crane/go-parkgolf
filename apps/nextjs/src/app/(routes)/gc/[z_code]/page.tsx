@@ -33,7 +33,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (totalCount) {
-    const title = `${regionName}의 모든 파크골프장 리스트`;
+    const title = `${regionName}의 모든 파크골프장 목록`;
     const description = `
       ${regionName}에는 ${totalCount.toLocaleString()}개의 파크골프장이 있습니다. 
       보다 자세한 정보가 궁금하다면? 파크골프가자 홈페이지에서 확인하세요.

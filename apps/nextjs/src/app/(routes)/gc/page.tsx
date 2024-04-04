@@ -23,7 +23,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images ?? [];
 
   if (count) {
-    const title = `전국 모든 파크골프장 리스트`;
+    const title = `전국 모든 파크골프장 목록`;
     const description = `
       전국에는 ${count.toLocaleString()}개의 파크골프장이 있습니다. 
       보다 자세한 정보가 궁금하다면? 파크골프가자 홈페이지에서 확인하세요.
