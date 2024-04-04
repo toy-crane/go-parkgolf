@@ -9,7 +9,7 @@ const CreateReviewButton = ({ course }: { course: GolfCourse }) => {
   return (
     <button
       className="flex items-center gap-1 text-sm font-semibold"
-      onClick={() => router.push(`/golf-courses/${course.slug}/reviews/create`)}
+      onClick={() => router.push(`/golf-courses/review/create?id=${course.id}`)}
     >
       <span>리뷰 작성하기</span>
       <Pencil className="h-3 w-3" />

@@ -24,7 +24,7 @@ const ReviewInfo = async ({ params }: { params: { slug: string } }) => {
             <CreateReviewButton course={course} />
           </div>
           {reviews.map((review) => (
-            <ReviewCard review={review} key={review.id} />
+            <ReviewCard review={review} key={review.id} courseId={course.id} />
           ))}
         </div>
       )}

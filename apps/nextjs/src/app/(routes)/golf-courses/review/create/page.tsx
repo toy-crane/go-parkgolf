@@ -6,16 +6,18 @@ import Form from "./form";
 import Nav from "./nav";
 
 const Page = async ({
-  params,
   searchParams,
 }: {
-  params: { slug: string };
   searchParams: {
     courseConditionRating?: number;
+    id?: string;
   };
 }) => {
-  const slug = decodeURIComponent(params.slug);
+  if (!searchParams.id) {
+    throw new Error("Course id not found");
+  }
   const session = await readUserSession();
+  const courseId = searchParams.id;
   const user = session?.user;
   const supabase = await createSupabaseServerClientReadOnly();
 
@@ -24,7 +26,7 @@ const Page = async ({
   const { data: course, error } = await supabase
     .from("golf_courses")
     .select("*")
-    .eq("slug", slug)
+    .eq("id", courseId)
     .eq("publish_status", "completed")
     .single();
   if (error) throw error;

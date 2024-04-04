@@ -23,7 +23,7 @@ const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
             <CreateReviewButton course={course} />
           </div>
           {reviews.map((review) => (
-            <ReviewCard review={review} key={review.id} />
+            <ReviewCard review={review} key={review.id} courseId={course.id} />
           ))}
         </div>
       )}
