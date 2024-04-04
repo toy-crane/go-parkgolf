@@ -89,13 +89,6 @@ export async function generateMetadata(
   }
 }
 
-const DownloadBanner = dynamic(
-  () => import("@/components/app/download-banner"),
-  {
-    ssr: false,
-  },
-);
-
 export default async function Page({ params, searchParams }: Props) {
   const tab = searchParams?.tab ?? "home";
   const slug = decodeURIComponent(params.slug);
@@ -112,13 +105,8 @@ export default async function Page({ params, searchParams }: Props) {
   const address = currentCourse.lot_number_addresses;
   if (currentCourse === undefined) return notFound();
 
-  // TODO: isWebview와 isMobileApp 통합이 필요함
-  const headersList = headers();
-  const userAgent = headersList.get("user-agent")!;
-
   return (
     <>
-      <DownloadBanner isApp={isApp(userAgent)} />
       <Suspense
         fallback={
           <header className="content-grid h-header z-header sticky top-0 w-full border-b bg-white" />
