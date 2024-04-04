@@ -32,17 +32,22 @@ export function DetailsNav({ className, ...props }: DetailsNavProps) {
 
   return (
     <div className={className}>
-      <div className={"mb-4 flex items-center"} {...props}>
+      <div
+        className={
+          "bg-muted text-muted-foreground inline-flex h-10 items-center justify-center rounded-md p-1"
+        }
+        {...props}
+      >
         {routes.map((route, index) => (
           <Link
             href={`/golf-courses/${params.slug}${route.href}`}
             key={route.href}
             className={cn(
-              "hover:text-primary flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors",
+              "ring-offset-background focus-visible:ring-ring inline-flex flex-1 items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
               pathname?.includes(route.href) ||
                 (index === 0 &&
                   pathname === path.join("/golf-courses", params.slug))
-                ? "text-primary font-medium"
+                ? "bg-background text-foreground"
                 : "text-muted-foreground",
             )}
           >
