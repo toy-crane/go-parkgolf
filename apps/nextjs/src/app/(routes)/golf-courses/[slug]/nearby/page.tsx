@@ -3,19 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 
+import { getCourse } from "../fetcher";
+
 type GolfCouseWithDistance = GolfCourse & { dist_meters: number };
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const slug = decodeURIComponent(params.slug);
-  const response = await supabase
-    .from("golf_courses")
-    .select("*")
-    .eq("slug", slug)
-    .returns<GolfCourse[]>()
-    .single();
-  if (response.error) throw response.error;
-  const course = response.data;
+  const course = await getCourse(params.slug);
   const nearbyResponse = await supabase.rpc("nearby_golf_courses", {
     latitude: course.lat,
     longitude: course.lng,

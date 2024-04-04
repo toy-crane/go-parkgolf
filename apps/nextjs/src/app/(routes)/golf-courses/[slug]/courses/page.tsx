@@ -13,6 +13,8 @@ import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { Pencil } from "lucide-react";
 
+import { getCourse } from "../fetcher";
+
 const EmptyCourse = ({ courseName }: { courseName: string }) => {
   return (
     <div className="flex min-h-[30vh] items-center justify-center">
@@ -37,15 +39,7 @@ const EmptyCourse = ({ courseName }: { courseName: string }) => {
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const slug = decodeURIComponent(params.slug);
-  const response = await supabase
-    .from("golf_courses")
-    .select("*")
-    .eq("slug", slug)
-    .single();
-  if (response.error) throw response.error;
-  const golfCourse = response.data;
-
+  const golfCourse = await getCourse(params.slug);
   const courseResponse = await supabase
     .from("courses")
     .select("*, holes(*)")
@@ -56,7 +50,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     })
     .eq("golf_course_id", golfCourse.id);
 
-  if (courseResponse.error) throw response.error;
+  if (courseResponse.error) throw courseResponse.error;
   const courses = courseResponse.data;
 
   const totalDistance = courses.reduce(

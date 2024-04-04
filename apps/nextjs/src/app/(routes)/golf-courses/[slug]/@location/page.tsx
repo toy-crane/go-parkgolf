@@ -1,11 +1,10 @@
 import { notFound } from "next/navigation";
 import BreadcrumbNav from "@/components/nav/breadcrumb-nav";
-import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import type { GolfCourse } from "@/types";
 
 import AdBanner from "../_components/ad-banner";
 import NearCourseMap from "../_components/near-course-map";
 import Title from "../_components/title";
+import { getCourse } from "../fetcher";
 
 interface Props {
   params: { slug: string };
@@ -13,17 +12,7 @@ interface Props {
 }
 
 const Page = async ({ params }: Props) => {
-  const slug = decodeURIComponent(params.slug);
-  const supabase = await createSupabaseServerClientReadOnly();
-  const response = await supabase
-    .from("golf_courses")
-    .select("*, lot_number_addresses(region_1depth_name, region_2depth_name)")
-    .eq("publish_status", "completed")
-    .eq("slug", slug)
-    .returns<GolfCourse[]>()
-    .single();
-  if (response.error) throw response.error;
-  const currentCourse = response.data;
+  const currentCourse = await getCourse(params.slug);
   const address = currentCourse.lot_number_addresses;
   if (currentCourse === undefined) return notFound();
 
