@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { isApp } from "@/libs/user-agent";
 
+import ScoreCardCTA from "./_components/create-score-cta";
 import { DetailsNav } from "./_components/details-nav";
 import { getCourse } from "./fetcher";
 
@@ -80,7 +81,8 @@ const Layout = (props: {
       <div>{props.search}</div>
       <div>{props.location}</div>
       <DetailsNav className="content-grid mb-6" />
-      <section className="content-grid pb-24">{props.children}</section>
+      <section className="content-grid pb-36">{props.children}</section>
+      <ScoreCardCTA slug={props.params.slug} />
       <BottomNav />
     </>
   );
