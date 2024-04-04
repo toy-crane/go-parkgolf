@@ -1,16 +1,11 @@
-import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
-import { Loader2 } from "lucide-react";
 
-import CourseDetailTab from "./_components/course-detail-tab";
 import CTA from "./_components/cta";
-import NearCourseInfo from "./_components/near-course-info";
-import ReviewInfo from "./_components/reviews";
 
 interface Props {
   params: { slug: string };
@@ -78,13 +73,12 @@ export async function generateMetadata(
   }
 }
 
-export default async function Page({ params, searchParams }: Props) {
-  const tab = searchParams?.tab ?? "home";
+export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(params.slug);
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("golf_courses")
-    .select("*, lot_number_addresses(region_1depth_name, region_2depth_name)")
+    .select("*")
     .eq("publish_status", "completed")
     .eq("slug", slug)
     .returns<GolfCourse[]>()
@@ -96,29 +90,10 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <>
       <div className="content-grid">
-        <CourseDetailTab
-          course={currentCourse}
-          selectedTab={tab}
-          nearCourseInfo={
-            <Suspense
-              fallback={
-                <div className="flex min-h-[30vh] items-center justify-center">
-                  <Loader2
-                    className="h-5 w-5 animate-spin"
-                    size={24}
-                    color={"#71717A"}
-                  />
-                </div>
-              }
-            >
-              <NearCourseInfo course={currentCourse} />
-            </Suspense>
-          }
-        />
-      </div>
-      <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-3">
-        <div className="md:content full flex justify-center pt-5">
-          <CTA courseId={currentCourse.id} courseName={currentCourse.name} />
+        <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-3">
+          <div className="md:content full flex justify-center pt-5">
+            <CTA courseId={currentCourse.id} courseName={currentCourse.name} />
+          </div>
         </div>
       </div>
     </>
