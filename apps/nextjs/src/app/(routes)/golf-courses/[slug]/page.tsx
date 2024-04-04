@@ -9,7 +9,6 @@ import CTA from "./_components/cta";
 
 interface Props {
   params: { slug: string };
-  searchParams: { tab?: string };
 }
 
 export async function generateStaticParams() {
