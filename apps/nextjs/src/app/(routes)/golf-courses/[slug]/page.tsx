@@ -1,11 +1,10 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import HomePage from "@/app/(routes)/golf-courses/[slug]/home/page";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
-
-import CTA from "./_components/cta";
 
 interface Props {
   params: { slug: string };
@@ -88,13 +87,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <div className="content-grid">
-        <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-3">
-          <div className="md:content full flex justify-center pt-5">
-            <CTA courseId={currentCourse.id} courseName={currentCourse.name} />
-          </div>
-        </div>
-      </div>
+      <HomePage params={params} />
     </>
   );
 }
