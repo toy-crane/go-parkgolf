@@ -114,21 +114,6 @@ export default async function Page({ params, searchParams }: Props) {
               <NearCourseInfo course={currentCourse} />
             </Suspense>
           }
-          reviewInfo={
-            <Suspense
-              fallback={
-                <div className="flex min-h-[30vh] items-center justify-center">
-                  <Loader2
-                    className="h-5 w-5 animate-spin"
-                    size={24}
-                    color={"#71717A"}
-                  />
-                </div>
-              }
-            >
-              <ReviewInfo course={currentCourse} />
-            </Suspense>
-          }
         />
       </div>
       <div className="z-bottom-nav content-grid fixed bottom-[var(--bottom-nav-height)] w-full justify-center bg-gradient-to-t from-white from-80% to-transparent pb-3">
