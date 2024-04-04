@@ -13,7 +13,7 @@ const DownloadBanner = dynamic(
 const Layout = (props: {
   children: React.ReactNode;
   search: React.ReactNode;
-  map: React.ReactNode;
+  location: React.ReactNode;
 }) => {
   // TODO: isWebview와 isMobileApp 통합이 필요함
   const headersList = headers();
@@ -23,7 +23,7 @@ const Layout = (props: {
     <>
       <DownloadBanner isApp={isApp(userAgent)} />
       <div>{props.search}</div>
-      <div>{props.map}</div>
+      <div>{props.location}</div>
       <div>{props.children}</div>
       <BottomNav />
     </>
