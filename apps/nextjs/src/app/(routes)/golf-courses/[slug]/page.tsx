@@ -7,14 +7,12 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
-import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
 import CourseDetailTab from "./_components/course-detail-tab";
 import CTA from "./_components/cta";
 import NearCourseInfo from "./_components/near-course-info";
 import ReviewInfo from "./_components/reviews";
-import Title from "./_components/title";
 
 interface Props {
   params: { slug: string };
@@ -100,8 +98,6 @@ export default async function Page({ params, searchParams }: Props) {
   return (
     <>
       <div className="content-grid">
-        <Title course={currentCourse} className="pt-2" />
-        <AdBanner className="flex justify-center px-2 py-2 md:pb-4" />
         <CourseDetailTab
           course={currentCourse}
           selectedTab={tab}

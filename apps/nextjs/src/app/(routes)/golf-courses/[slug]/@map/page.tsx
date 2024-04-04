@@ -3,7 +3,9 @@ import BreadcrumbNav from "@/components/nav/breadcrumb-nav";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 
+import AdBanner from "../_components/ad-banner";
 import NearCourseMap from "../_components/near-course-map";
+import Title from "../_components/title";
 
 interface Props {
   params: { slug: string };
@@ -50,6 +52,8 @@ const Page = async ({ params }: Props) => {
       <div className="md:mb-2">
         <NearCourseMap currentCourse={currentCourse} />
       </div>
+      <Title course={currentCourse} className="pt-2" />
+      <AdBanner className="flex justify-center px-2 py-2 md:pb-4" />
     </section>
   );
 };
