@@ -6,7 +6,7 @@ import NearCourseMap from "../_components/near-course-map";
 import Title from "../_components/title";
 import { getCourse } from "../fetcher";
 
-interface Props {
+export interface Props {
   params: { slug: string };
   searchParams: { tab?: string };
 }
