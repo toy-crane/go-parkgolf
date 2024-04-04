@@ -1,13 +1,9 @@
 import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
-import dynamic from "next/dynamic";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
-import BottomNav from "@/components/nav/bottom";
 import { siteConfig } from "@/config/site";
 import createSupabaseBrowerClient from "@/libs/supabase/client";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import { isApp } from "@/libs/user-agent";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
@@ -211,7 +207,6 @@ export default async function Page({ params, searchParams }: Props) {
           <CTA courseId={currentCourse.id} courseName={currentCourse.name} />
         </div>
       </div>
-      <BottomNav />
     </>
   );
 }

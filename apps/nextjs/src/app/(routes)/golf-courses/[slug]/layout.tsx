@@ -1,6 +1,7 @@
-import { isApp } from "@/libs/user-agent";
 import dynamic from "next/dynamic";
 import { headers } from "next/headers";
+import BottomNav from "@/components/nav/bottom";
+import { isApp } from "@/libs/user-agent";
 
 const DownloadBanner = dynamic(
   () => import("@/components/app/download-banner"),
@@ -18,6 +19,7 @@ const Layout = (props: { children: React.ReactNode }) => {
     <>
       <DownloadBanner isApp={isApp(userAgent)} />
       <div>{props.children}</div>
+      <BottomNav />
     </>
   );
 };
