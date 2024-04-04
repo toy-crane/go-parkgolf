@@ -6,7 +6,7 @@ const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
   const result = await supabase
     .from("golf_courses")
-    .select(`*, lot_number_address_name`)
+    .select(`*`)
     .eq("publish_status", "completed");
   if (result.error) throw result.error;
   const courses = result.data;
