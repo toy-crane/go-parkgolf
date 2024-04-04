@@ -27,7 +27,7 @@ const Layout = (props: {
       <DownloadBanner isApp={isApp(userAgent)} />
       <div>{props.search}</div>
       <div>{props.location}</div>
-      <section className="content-grid">
+      <section className="content-grid mb-6">
         <nav className="flex justify-between gap-2 px-4">
           <Link href={`/golf-courses/${props.params.slug}/home`}>홈</Link>
           <Link href={`/golf-courses/${props.params.slug}/courses`}>코스</Link>
