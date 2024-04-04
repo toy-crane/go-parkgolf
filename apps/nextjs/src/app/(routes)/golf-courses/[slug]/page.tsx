@@ -8,7 +8,6 @@ import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
 import BreadcrumbNav from "../../../../components/nav/breadcrumb-nav";
-import Nav from "../../gc/nav";
 import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
@@ -103,13 +102,6 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <>
-      <Suspense
-        fallback={
-          <header className="content-grid h-header z-header sticky top-0 w-full border-b bg-white" />
-        }
-      >
-        <Nav />
-      </Suspense>
       <div className="content-grid">
         <BreadcrumbNav
           className="mb-1.5 mt-2"
