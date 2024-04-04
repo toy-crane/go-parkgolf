@@ -27,12 +27,14 @@ const Layout = (props: {
       <DownloadBanner isApp={isApp(userAgent)} />
       <div>{props.search}</div>
       <div>{props.location}</div>
-      <nav className="flex gap-2">
-        <Link href={`/golf-courses/${props.params.slug}/home`}>홈</Link>
-        <Link href={`/golf-courses/${props.params.slug}/courses`}>코스</Link>
-        <Link href={`/golf-courses/${props.params.slug}/reviews`}>리뷰</Link>
-        <Link href={`/golf-courses/${props.params.slug}/nearby`}>주변</Link>
-      </nav>
+      <section className="content-grid">
+        <nav className="flex justify-between gap-2 px-4">
+          <Link href={`/golf-courses/${props.params.slug}/home`}>홈</Link>
+          <Link href={`/golf-courses/${props.params.slug}/courses`}>코스</Link>
+          <Link href={`/golf-courses/${props.params.slug}/reviews`}>리뷰</Link>
+          <Link href={`/golf-courses/${props.params.slug}/nearby`}>주변</Link>
+        </nav>
+      </section>
       <div>{props.children}</div>
       <BottomNav />
     </>
