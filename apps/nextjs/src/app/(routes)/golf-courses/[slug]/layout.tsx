@@ -30,7 +30,7 @@ const Layout = (props: {
       <nav className="flex gap-2">
         <Link href={`/golf-courses/${props.params.slug}/home`}>홈</Link>
         <Link href={`/golf-courses/${props.params.slug}/courses`}>코스</Link>
-        <Link href={`/golf-courses/${props.params.slug}/review`}>리뷰</Link>
+        <Link href={`/golf-courses/${props.params.slug}/reviews`}>리뷰</Link>
         <Link href={`/golf-courses/${props.params.slug}/nearby`}>주변</Link>
       </nav>
       <div>{props.children}</div>
