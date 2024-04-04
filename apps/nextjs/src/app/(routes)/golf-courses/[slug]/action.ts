@@ -4,7 +4,6 @@ import {
   createSupabaseServerClient,
   createSupabaseServerClientReadOnly,
 } from "@/libs/supabase/server";
-import type { GolfCourse } from "@/types";
 
 export const GetReviews = async (golfCourseId: string) => {
   const supabase = await createSupabaseServerClientReadOnly();
