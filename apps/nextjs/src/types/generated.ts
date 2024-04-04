@@ -362,7 +362,7 @@ export type Database = {
           lat: number
           lng: number
           location: unknown | null
-          lot_number_address_name: string | null
+          lot_number_address_name: string
           name: string
           publish_status: Database["public"]["Enums"]["publish_status"]
           road_address_name: string | null
@@ -375,7 +375,7 @@ export type Database = {
           lat: number
           lng: number
           location?: unknown | null
-          lot_number_address_name?: string | null
+          lot_number_address_name: string
           name?: string
           publish_status?: Database["public"]["Enums"]["publish_status"]
           road_address_name?: string | null
@@ -388,7 +388,7 @@ export type Database = {
           lat?: number
           lng?: number
           location?: unknown | null
-          lot_number_address_name?: string | null
+          lot_number_address_name?: string
           name?: string
           publish_status?: Database["public"]["Enums"]["publish_status"]
           road_address_name?: string | null

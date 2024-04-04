@@ -180,7 +180,7 @@ const Page = async ({ params }: Props) => {
             <Separator className="mb-3 w-full md:w-[600px]" />
             <Feedback
               label={`${golfCourse?.name} 어떠셨나요?`}
-              golfCourseSlug={golfCourse?.slug}
+              golfCourseId={golfCourse?.id}
             />
           </div>
         )}

@@ -38,9 +38,14 @@ import type { Review } from "../types";
 import ReviewContent from "./review-content";
 import ReviewRating from "./review-rating";
 
-const ReviewCard = ({ review }: { review: Review }) => {
+const ReviewCard = ({
+  review,
+  courseId,
+}: {
+  review: Review;
+  courseId: string;
+}) => {
   const user = useUserStore((state) => state.user);
-  const params = useParams();
   const isMine = user?.id === review.user_id;
 
   const [loading, setLoading] = useState(false);
@@ -90,11 +95,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
-                  <Link
-                    href={`/golf-courses/${
-                      params.slug as string
-                    }/reviews/create`}
-                  >
+                  <Link href={`/golf-courses/review/create?id=${courseId}`}>
                     수정하기
                   </Link>
                 </DropdownMenuItem>

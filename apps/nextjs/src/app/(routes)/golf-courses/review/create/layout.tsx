@@ -10,7 +10,7 @@ const Layout = async (props: { children: React.ReactNode }) => {
       `/login?${new URLSearchParams({ next: pathname }).toString()}`,
     );
 
-  return <div>{props.children}</div>;
+  return <div className="content-grid">{props.children}</div>;
 };
 
 export default Layout;

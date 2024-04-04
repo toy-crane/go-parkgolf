@@ -1,16 +1,17 @@
 import { Icons } from "@/components/icons";
-import type { GolfCourse } from "@/types";
 
+import CreateReviewButton from "../_components/create-review-button";
+import EmptyReview from "../_components/empty-review";
+import NaverReviews from "../_components/naver-review";
+import ReviewCard from "../_components/review-card";
 import { GetReviews } from "../action";
-import CreateReviewButton from "./create-review-button";
-import EmptyReview from "./empty-review";
-import NaverReviews from "./naver-review";
-import ReviewCard from "./review-card";
+import { getCourse } from "../fetcher";
 
-const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
-  const reviews = await GetReviews(course?.id);
+const ReviewInfo = async ({ params }: { params: { slug: string } }) => {
+  const course = await getCourse(params.slug);
+  const reviews = await GetReviews(course.id);
   return (
-    <section className="mb-8 space-y-8">
+    <div className="min-h-[25vh] space-y-6">
       {reviews.length === 0 ? (
         <EmptyReview course={course} />
       ) : (
@@ -28,7 +29,7 @@ const ReviewInfo = async ({ course }: { course: GolfCourse }) => {
         </div>
       )}
       <NaverReviews courseName={course.name} />
-    </section>
+    </div>
   );
 };
 

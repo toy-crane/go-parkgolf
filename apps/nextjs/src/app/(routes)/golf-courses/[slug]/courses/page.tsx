@@ -13,6 +13,8 @@ import { generateFormUrl } from "@/libs/google-form";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { Pencil } from "lucide-react";
 
+import { getCourse } from "../fetcher";
+
 const EmptyCourse = ({ courseName }: { courseName: string }) => {
   return (
     <div className="flex min-h-[30vh] items-center justify-center">
@@ -35,32 +37,22 @@ const EmptyCourse = ({ courseName }: { courseName: string }) => {
   );
 };
 
-const CourseDetailInfo = async ({
-  golfCourseId,
-  courseName,
-}: {
-  golfCourseId: string;
-  courseName: string;
-}) => {
+const Page = async ({ params }: { params: { slug: string } }) => {
   const supabase = await createSupabaseServerClientReadOnly();
+  const golfCourse = await getCourse(params.slug);
+  const courseResponse = await supabase
+    .from("courses")
+    .select("*, holes(*)")
+    .order("name")
+    .order("hole_number", {
+      foreignTable: "holes",
+      ascending: true,
+    })
+    .eq("golf_course_id", golfCourse.id);
 
-  // Promise.all을 사용하여 두 비동기 요청을 병렬로 실행
-  const [golfCouseResponse, response] = await Promise.all([
-    supabase.from("golf_courses").select("*").eq("id", golfCourseId).single(),
-    supabase
-      .from("courses")
-      .select("*, holes(*)")
-      .order("name")
-      .order("hole_number", {
-        foreignTable: "holes",
-        ascending: true,
-      })
-      .eq("golf_course_id", golfCourseId),
-  ]);
+  if (courseResponse.error) throw courseResponse.error;
+  const courses = courseResponse.data;
 
-  if (response.error ?? golfCouseResponse.error) throw response.error;
-  const courses = response.data;
-  const golfCourse = golfCouseResponse.data;
   const totalDistance = courses.reduce(
     (acc: number, course) =>
       acc +
@@ -73,7 +65,7 @@ const CourseDetailInfo = async ({
   const hasCourses = courses.length > 0;
   const defaultValue = courses[0]?.name!;
   return (
-    <div className="mt-6 space-y-7">
+    <div className="min-h-[25vh] space-y-6">
       <div className="space-y-3">
         <div className="space-y-1">
           <div className="flex items-center">
@@ -160,11 +152,11 @@ const CourseDetailInfo = async ({
             ))}
           </Tabs>
         ) : (
-          <EmptyCourse courseName={courseName} />
+          <EmptyCourse courseName={golfCourse.name} />
         )}
       </div>
     </div>
   );
 };
 
-export default CourseDetailInfo;
+export default Page;

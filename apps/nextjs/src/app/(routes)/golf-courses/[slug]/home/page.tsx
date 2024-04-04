@@ -1,9 +1,9 @@
 import Products from "@/components/ad/products";
 import { Separator } from "@/components/ui/separator";
 import { generateFormUrl } from "@/libs/google-form";
-import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import type { GolfCourse } from "@/types";
 import { Pencil } from "lucide-react";
+
+import { getCourse } from "../fetcher";
 
 interface CardProps {
   title: string;
@@ -33,22 +33,13 @@ const InfoNeeded = ({ href }: { href: string }) => {
   );
 };
 
-const CourseCommonInfo = async ({ courseId }: { courseId: string }) => {
-  const supabase = await createSupabaseServerClientReadOnly();
-  const response = await supabase
-    .from("golf_courses")
-    .select("*, operations(*), contacts(*)")
-    .eq("publish_status", "completed")
-    .eq("id", courseId)
-    .returns<GolfCourse[]>()
-    .single();
-  if (response.error) throw Error(response.error.message);
-  const course = response.data;
+const Page = async ({ params }: { params: { slug: string } }) => {
+  const course = await getCourse(params.slug);
   const operation = course.operations;
   const contacts = course.contacts;
   return (
-    <>
-      <div className="my-6 flex flex-col gap-1">
+    <div className="min-h-[25vh] space-y-6">
+      <div className="flex flex-col gap-1">
         <Label title="위치" content={course.lot_number_address_name} />
       </div>
       <Separator />
@@ -141,8 +132,8 @@ const CourseCommonInfo = async ({ courseId }: { courseId: string }) => {
       <div className="space-y-3">
         <Products />
       </div>
-    </>
+    </div>
   );
 };
 
-export default CourseCommonInfo;
+export default Page;

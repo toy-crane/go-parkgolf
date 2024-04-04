@@ -3,21 +3,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 
+import { getCourse } from "../fetcher";
+
 type GolfCouseWithDistance = GolfCourse & { dist_meters: number };
 
-const NearCourseInfo = async ({ course }: { course: GolfCourse }) => {
+const Page = async ({ params }: { params: { slug: string } }) => {
   const supabase = await createSupabaseServerClientReadOnly();
-  const response = await supabase.rpc("nearby_golf_courses", {
+  const course = await getCourse(params.slug);
+  const nearbyResponse = await supabase.rpc("nearby_golf_courses", {
     latitude: course.lat,
     longitude: course.lng,
     max_results: 11,
   });
-  if (response.error) throw Error;
-  const courses = response.data as GolfCouseWithDistance[];
+  if (nearbyResponse.error) throw Error;
+  const courses = nearbyResponse.data as GolfCouseWithDistance[];
   const nearCourses = courses.filter((c) => c.id !== course.id);
 
   return (
-    <section className="space-y-6">
+    <section className="min-h-[25vh] space-y-6">
       <div className="space-y-10">
         <div className="space-y-3">
           <h2 className="text-foreground text-xl font-bold">
@@ -49,4 +52,4 @@ const NearCourseInfo = async ({ course }: { course: GolfCourse }) => {
   );
 };
 
-export default NearCourseInfo;
+export default Page;
