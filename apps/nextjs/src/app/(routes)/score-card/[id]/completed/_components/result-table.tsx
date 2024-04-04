@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { Icons } from "@/components/icons";
 import {
   Table,
   TableBody,
@@ -23,8 +24,8 @@ import type { ColumnName, ScoreResult } from "../../type";
 const columnHelper = createColumnHelper<ScoreResult>();
 
 const useGetColumns = (dynamicColumns: ColumnName[]) => {
-  const columns = useMemo(
-    () => [
+  const columns = useMemo(() => {
+    return [
       columnHelper.accessor("courseName", {
         cell: (info) => info.getValue(),
         header: "코스",
@@ -45,13 +46,41 @@ const useGetColumns = (dynamicColumns: ColumnName[]) => {
                   total + Number(row.getValue(column.accessorKey)),
                 0,
               );
-            return <div>{value}</div>;
+
+            // 각 컬럼별 총합 계산
+            const totalSums = dynamicColumns.reduce(
+              (acc, dynamicColumn) => {
+                const sum = info.table
+                  .getFilteredRowModel()
+                  .rows.reduce((total, row) => {
+                    const rowValue = row.getValue(dynamicColumn.accessorKey); // 타입 단언 추가
+                    return total + ((rowValue as number) ?? 0); // undefined를 처리하는 로직 추가
+                  }, 0);
+                acc[dynamicColumn.accessorKey] = sum;
+                return acc;
+              },
+              {} as Record<string, number>,
+            );
+
+            // 총합을 기준으로 순위 결정
+            const sortedSums = Object.values(totalSums).sort((a, b) => a - b);
+            const rank = sortedSums.indexOf(totalSums[column.accessorKey]!) + 1;
+
+            return (
+              <div className="flex">
+                <span className="relative">
+                  {value}
+                  {rank === 1 && (
+                    <Icons.crown className="absolute right-[18px] top-[-9px] h-5 w-5" />
+                  )}
+                </span>
+              </div>
+            );
           },
         }),
       ),
-    ],
-    [dynamicColumns],
-  );
+    ];
+  }, [dynamicColumns]);
   return columns;
 };
 
@@ -123,7 +152,13 @@ const ResultTable = ({
       </TableBody>
       <TableFooter>
         {table.getFooterGroups().map((footerGroup) => (
-          <TableRow key={footerGroup.id} className={rowClassName}>
+          <TableRow
+            key={footerGroup.id}
+            className={cn(
+              rowClassName,
+              "min-h-[64px] items-center font-semibold",
+            )}
+          >
             {footerGroup.headers.map((footer) => {
               return (
                 <TableCell
