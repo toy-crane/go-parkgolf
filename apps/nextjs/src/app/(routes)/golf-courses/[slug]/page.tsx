@@ -7,14 +7,12 @@ import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import type { GolfCourse } from "@/types";
 import { Loader2 } from "lucide-react";
 
-import BreadcrumbNav from "../../../../components/nav/breadcrumb-nav";
 import AdBanner from "./_components/ad-banner";
 import CourseCommonInfo from "./_components/course-common-info";
 import CourseDetailInfo from "./_components/course-detail-info";
 import CourseDetailTab from "./_components/course-detail-tab";
 import CTA from "./_components/cta";
 import NearCourseInfo from "./_components/near-course-info";
-import NearCourseMap from "./_components/near-course-map";
 import ReviewInfo from "./_components/reviews";
 import Title from "./_components/title";
 
@@ -97,47 +95,11 @@ export default async function Page({ params, searchParams }: Props) {
     .single();
   if (response.error) throw response.error;
   const currentCourse = response.data;
-  const address = currentCourse.lot_number_addresses;
   if (currentCourse === undefined) return notFound();
 
   return (
     <>
       <div className="content-grid">
-        <BreadcrumbNav
-          className="mb-1.5 mt-2"
-          trail={[
-            { title: "전국", link: "/gc" },
-            {
-              title: address.region_1depth_name,
-              link: `/gc/${address.region_1depth_name}`,
-            },
-            address.region_2depth_name
-              ? {
-                  title: address.region_2depth_name,
-                  link: `/gc/${address.region_1depth_name}/${address.region_2depth_name}`,
-                }
-              : undefined,
-            {
-              title: currentCourse.name,
-              link: `/golf-courses/${currentCourse.slug}`,
-            },
-          ].flatMap((trail) => (trail ? trail : []))}
-        />
-        <section className="md:mb-2">
-          <Suspense
-            fallback={
-              <div className="flex min-h-[320px] items-center justify-center">
-                <Loader2
-                  className="h-5 w-5 animate-spin"
-                  size={24}
-                  color={"#71717A"}
-                />
-              </div>
-            }
-          >
-            <NearCourseMap currentCourse={currentCourse} />
-          </Suspense>
-        </section>
         <Title course={currentCourse} className="pt-2" />
         <AdBanner className="flex justify-center px-2 py-2 md:pb-4" />
         <CourseDetailTab
