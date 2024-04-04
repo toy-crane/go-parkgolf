@@ -2,11 +2,14 @@ import type { Metadata, ResolvingMetadata } from "next";
 import dynamic from "next/dynamic";
 import { headers } from "next/headers";
 import Link from "next/link";
+import BottomNav from "@/components/nav/bottom";
 import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { isApp } from "@/libs/user-agent";
 import type { GolfCourse } from "@/types";
-import BottomNav from "@/components/nav/bottom";
+import { get } from "lodash";
+
+import { getCourse } from "./fetcher";
 
 interface Props {
   params: { slug: string };
@@ -24,19 +27,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const supabase = await createSupabaseServerClientReadOnly();
-  const slug = decodeURIComponent(params.slug);
-  const query = supabase
-    .from("golf_courses")
-    .select(`*, contacts(*), operations(*)`)
-    .eq("slug", slug)
-    .eq("publish_status", "completed")
-    .returns<GolfCourse[]>()
-    .single();
-  const result = await query;
-  if (result.error) {
-    throw Error(result.error.message);
-  }
-  const course = result.data;
+  const course = await getCourse(params.slug);
   const operation = course.operations;
   const contact = course.contacts?.[0];
 
