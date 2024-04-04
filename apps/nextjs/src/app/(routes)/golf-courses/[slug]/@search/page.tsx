@@ -1,24 +1,18 @@
 import { CommandMenu } from "@/components/command-menu";
 import BackButton from "@/components/nav/back-button";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
-import type { GolfCourse } from "@/types";
 
 const Page = async () => {
   const supabase = await createSupabaseServerClientReadOnly();
   const result = await supabase
     .from("golf_courses")
-    .select(`*, lot_number_addresses(region_1depth_name, region_2depth_name)`)
-    .eq("publish_status", "completed")
-    .returns<GolfCourse[]>();
+    .select(`*, lot_number_address_name`)
+    .eq("publish_status", "completed");
   if (result.error) throw result.error;
   const courses = result.data;
   const selectOptions = courses.map((course) => ({
     title: `${course.name} (${
-      course.lot_number_addresses?.region_1depth_name ?? ""
-    }${
-      course.lot_number_addresses?.region_2depth_name
-        ? ` ${course.lot_number_addresses?.region_2depth_name}`
-        : ""
+      course.lot_number_address_name.split(" ").splice(0, 2).join(" ") ?? ""
     })`,
     href: `/golf-courses/${course.slug}`,
   }));
