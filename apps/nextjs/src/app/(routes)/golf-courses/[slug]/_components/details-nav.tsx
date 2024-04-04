@@ -12,7 +12,7 @@ const routes = [
   },
   {
     href: "/courses",
-    name: "정보",
+    name: "코스",
   },
   {
     href: "/reviews",
