@@ -9,13 +9,11 @@ const CourseDetailTab = ({
   selectedTab,
   nearCourseInfo,
   reviewInfo,
-  courseDetailInfo,
 }: {
   course: GolfCourse;
   selectedTab: string;
   reviewInfo: React.ReactNode;
   nearCourseInfo: React.ReactNode;
-  courseDetailInfo: React.ReactNode;
 }) => {
   return (
     <Tabs
@@ -34,9 +32,6 @@ const CourseDetailTab = ({
           주변
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="course" className="min-h-[25vh] space-y-6">
-        {courseDetailInfo}
-      </TabsContent>
       <TabsContent value="review" className="min-h-[25vh] space-y-12">
         {reviewInfo}
       </TabsContent>
