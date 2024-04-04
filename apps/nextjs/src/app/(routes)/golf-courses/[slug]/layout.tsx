@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { isApp } from "@/libs/user-agent";
 
+import { DetailsNav } from "./_components/details-nav";
 import { getCourse } from "./fetcher";
 
 interface Props {
@@ -78,14 +79,7 @@ const Layout = (props: {
       <DownloadBanner isApp={isApp(userAgent)} />
       <div>{props.search}</div>
       <div>{props.location}</div>
-      <section className="content-grid mb-6">
-        <nav className="flex justify-between gap-2 px-4">
-          <Link href={`/golf-courses/${props.params.slug}/home`}>홈</Link>
-          <Link href={`/golf-courses/${props.params.slug}/courses`}>코스</Link>
-          <Link href={`/golf-courses/${props.params.slug}/reviews`}>리뷰</Link>
-          <Link href={`/golf-courses/${props.params.slug}/nearby`}>주변</Link>
-        </nav>
-      </section>
+      <DetailsNav className="content-grid mb-6" />
       <section className="content-grid pb-24">{props.children}</section>
       <BottomNav />
     </>
