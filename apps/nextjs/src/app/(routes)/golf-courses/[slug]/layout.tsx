@@ -35,7 +35,7 @@ const Layout = (props: {
           <Link href={`/golf-courses/${props.params.slug}/nearby`}>주변</Link>
         </nav>
       </section>
-      <div>{props.children}</div>
+      <section className="content-grid pb-24">{props.children}</section>
       <BottomNav />
     </>
   );

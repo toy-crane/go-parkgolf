@@ -48,7 +48,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const operation = course.operations;
   const contacts = course.contacts;
   return (
-    <section className="content-grid min-h-[25vh] space-y-6">
+    <div className="min-h-[25vh] space-y-6">
       <div className="flex flex-col gap-1">
         <Label title="위치" content={course.lot_number_address_name} />
       </div>
@@ -142,7 +142,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       <div className="space-y-3">
         <Products />
       </div>
-    </section>
+    </div>
   );
 };
 
