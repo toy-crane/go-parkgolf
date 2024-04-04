@@ -7,14 +7,12 @@ import { track } from "@vercel/analytics";
 
 const CourseDetailTab = ({
   selectedTab,
-  courseCommonInfo,
   nearCourseInfo,
   reviewInfo,
   courseDetailInfo,
 }: {
   course: GolfCourse;
   selectedTab: string;
-  courseCommonInfo: React.ReactNode;
   reviewInfo: React.ReactNode;
   nearCourseInfo: React.ReactNode;
   courseDetailInfo: React.ReactNode;
@@ -26,9 +24,6 @@ const CourseDetailTab = ({
       onValueChange={(value) => track(`golf-course-${value}-tab-clicked`)}
     >
       <TabsList className="flex">
-        <TabsTrigger value="home" className="flex-1">
-          홈
-        </TabsTrigger>
         <TabsTrigger value="course" className="flex-1">
           코스
         </TabsTrigger>
@@ -39,9 +34,6 @@ const CourseDetailTab = ({
           주변
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="home" className="min-h-[25vh] space-y-6">
-        {courseCommonInfo}
-      </TabsContent>
       <TabsContent value="course" className="min-h-[25vh] space-y-6">
         {courseDetailInfo}
       </TabsContent>

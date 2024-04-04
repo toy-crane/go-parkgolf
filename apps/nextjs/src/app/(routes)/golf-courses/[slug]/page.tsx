@@ -101,7 +101,6 @@ export default async function Page({ params, searchParams }: Props) {
         <CourseDetailTab
           course={currentCourse}
           selectedTab={tab}
-          courseCommonInfo={<CourseCommonInfo courseId={currentCourse.id} />}
           nearCourseInfo={
             <Suspense
               fallback={
