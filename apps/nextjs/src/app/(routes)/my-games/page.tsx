@@ -33,10 +33,10 @@ const Page = async () => {
             {games?.map((game) => <GameCard game={game} key={game.id} />)}
           </div>
         ) : (
-          <div className="flex h-[65vh] flex-col items-center justify-center gap-6">
-            <span className="max-w-[300px] text-center text-2xl font-bold">
+          <div className="mt-20 flex flex-col items-center justify-center gap-6 md:mt-24">
+            <span className="text-center text-3xl font-bold leading-snug md:text-5xl">
               쉽고 빠르게 <br />
-              스코어를 등록하고 <br />
+              스코어를 기록하고 <br />
               주변에 공유해 보세요
             </span>
             <Button size="lg" asChild>
