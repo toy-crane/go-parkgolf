@@ -202,6 +202,7 @@ export const ScoreCard = ({
                 defaultScores={selectedPlayerScores}
                 inputLength={gamePlayers.length}
                 onSubmit={(inputScores) => {
+                  // TODO: 리팩토링 필요
                   handleSubmit(inputScores);
                   setHandlerOpen(false);
                 }}
