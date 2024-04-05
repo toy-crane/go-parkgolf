@@ -34,7 +34,7 @@ const Page = async () => {
           </div>
         ) : (
           <div className="mt-20 flex flex-col items-center justify-center gap-6 md:mt-24">
-            <span className="text-center text-3xl font-bold leading-snug md:text-5xl">
+            <span className="text-center text-3xl font-bold leading-snug md:text-5xl md:leading-snug">
               쉽고 빠르게 <br />
               스코어를 기록하고 <br />
               주변에 공유해 보세요
