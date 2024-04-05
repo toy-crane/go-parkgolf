@@ -121,7 +121,7 @@ async function CourseTable({
                         key={hole.id}
                         className="grid-cols-course-detail grid flex-1"
                       >
-                        <TableCell className="bg-muted flex h-10 w-[100px] items-center justify-center text-center">
+                        <TableCell className="bg-muted flex h-6 w-[100px] items-center justify-center text-center">
                           {hole.hole_number} 홀
                         </TableCell>
                         <TableCell className="flex h-6 items-center justify-center text-center">
@@ -137,7 +137,6 @@ async function CourseTable({
               </TabsContent>
             ))}
           </Tabs>
-
           {!session && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/70">
               <Card className="w-[256px]">
