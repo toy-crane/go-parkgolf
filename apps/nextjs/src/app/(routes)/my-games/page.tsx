@@ -16,7 +16,9 @@ const Page = async () => {
   return (
     <section>
       <PageHeader className="relative flex flex-row items-center justify-between pb-4 md:pb-8">
-        <PageHeaderHeading>스코어 카드</PageHeaderHeading>
+        <PageHeaderHeading className="underline decoration-[#22DC48] decoration-4 underline-offset-[10px]">
+          스코어 카드
+        </PageHeaderHeading>
         <Button size="sm" asChild>
           {hasGames && (
             <Link href="score-card/create/golf-course">
