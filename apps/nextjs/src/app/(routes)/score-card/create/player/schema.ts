@@ -5,7 +5,7 @@ export const playerSchema = z.object({
     .string()
     .nonempty("이름을 입력해주세요.")
     .regex(/^[가-힣a-zA-Z]+$/, {
-      message: "사용할 수 없는 문자가 포함되어 있습니다",
+      message: "사용할 수 없는 문자 혹은 공백이 포함되어 있습니다",
     }),
 });
 
