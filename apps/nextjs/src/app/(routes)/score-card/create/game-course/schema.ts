@@ -1,7 +1,12 @@
 import * as z from "zod";
 
 export const gameCourseSchema = z.object({
-  name: z.string().nonempty("코스 이름을 입력해주세요."),
+  name: z
+    .string()
+    .nonempty("코스 이름을 입력해주세요.")
+    .regex(/^[가-힣a-zA-Z]+$/, {
+      message: "사용할 수 없는 문자가 포함되어 있습니다",
+    }),
   hole_count: z.coerce
     .number()
     .min(1, { message: "홀 수는 최소 1이상 입력해주세요." })
