@@ -74,7 +74,7 @@ async function CourseTable({
   const hasCourses = courses.length > 0;
   const defaultValue = courses[0]?.name!;
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" id="course-table">
       <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
       {hasCourses ? (
         <div className="relative">
@@ -142,7 +142,7 @@ async function CourseTable({
                   <Button size="xs" variant="outline" asChild>
                     <Link
                       href={`/login?${new URLSearchParams({
-                        next: pathname,
+                        next: `${pathname}#course-table`,
                       }).toString()}`}
                     >
                       로그인
