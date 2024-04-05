@@ -67,24 +67,23 @@ const ScoresInput = ({
         <span className="mb-1 text-base font-bold">{label}</span>
         <div className="flex justify-center gap-4">
           {scoreSet.map((set, index) => (
-            <button
-              key={index}
-              className={cn(
-                "relative flex h-5 min-w-[36px] items-center justify-center px-1 text-lg",
-                "after:bg-muted-foreground/40 after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:content-['']",
-                index === currentIndex &&
-                  "after:animate-blink after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:bg-lime-500 after:content-['']",
-              )}
-              onClick={() => setCurrentIndex(index)}
-            >
-              {set.score === "0" ? (
-                <span className="text-muted-foreground/50 text-[12px]">
-                  {set.nickname}
-                </span>
-              ) : (
-                set.score
-              )}
-            </button>
+            <div className="flex flex-col gap-1">
+              <button
+                key={index}
+                className={cn(
+                  "relative flex h-5 min-w-[36px] items-center justify-center px-1 text-lg",
+                  "after:bg-muted-foreground/40 after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:content-['']",
+                  index === currentIndex &&
+                    "after:animate-blink after:absolute after:bottom-[-4px] after:h-[3px] after:w-full after:bg-lime-500 after:content-['']",
+                )}
+                onClick={() => setCurrentIndex(index)}
+              >
+                {set.score === "0" ? "" : set.score}
+              </button>
+              <span className="text-muted-foreground/50 text-center text-[12px]">
+                {set.nickname}
+              </span>
+            </div>
           ))}
         </div>
       </div>
@@ -97,12 +96,12 @@ const ScoresInput = ({
             variant={"secondary"}
             onClick={() => handleClick(score + 1)}
           >
-            {score + 1} 타수
+            {score + 1} 타
           </Button>
         ))}
         <div className="col-span-2">
           <Button onClick={handleComplete} className="w-full">
-            완료
+            입력 완료
           </Button>
         </div>{" "}
         <div className="col-span-1">
