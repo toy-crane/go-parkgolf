@@ -160,8 +160,6 @@ export const ScoreCard = ({
     selectedScore,
   );
 
-  console.log(selectedPlayerScores);
-
   return (
     <>
       <Tabs

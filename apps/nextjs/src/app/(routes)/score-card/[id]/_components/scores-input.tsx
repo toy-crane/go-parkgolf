@@ -67,7 +67,7 @@ const ScoresInput = ({
         <span className="mb-1 text-base font-bold">{label}</span>
         <div className="flex justify-center gap-4">
           {scoreSet.map((set, index) => (
-            <div className="flex flex-col gap-1">
+            <div className="flex w-9 flex-col gap-1 overflow-hidden">
               <button
                 key={index}
                 className={cn(
@@ -80,7 +80,7 @@ const ScoresInput = ({
               >
                 {set.score === "0" ? "" : set.score}
               </button>
-              <span className="text-muted-foreground/50 text-center text-[12px]">
+              <span className="text-muted-foreground/50 truncate text-center text-[12px]">
                 {set.nickname}
               </span>
             </div>
