@@ -77,7 +77,10 @@ async function CourseTable({
   const defaultValue = courses[0]?.name!;
   return (
     <div className="space-y-3" id="course-table">
-      <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
+        {session && <CTA courseId={golfCourse.id} />}
+      </div>
       {hasCourses ? (
         <div className="relative mb-28">
           <Tabs defaultValue={defaultValue} className="mb-6 space-y-3">
@@ -134,9 +137,7 @@ async function CourseTable({
               </TabsContent>
             ))}
           </Tabs>
-          {session && (
-            <CTA courseId={golfCourse.id} courseName={golfCourse.name} />
-          )}
+
           {!session && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/70">
               <Card className="w-[256px]">
