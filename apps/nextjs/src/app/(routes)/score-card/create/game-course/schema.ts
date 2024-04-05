@@ -4,7 +4,7 @@ export const gameCourseSchema = z.object({
   name: z
     .string()
     .nonempty("코스 이름을 입력해주세요.")
-    .regex(/^[가-힣a-zA-Z]+$/, {
+    .regex(/^[가-힣a-zA-Z0-9\s-]+$/, {
       message: "사용할 수 없는 문자가 포함되어 있습니다",
     }),
   hole_count: z.coerce

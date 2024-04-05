@@ -57,6 +57,7 @@ const GameCourseForm = ({ gameId, courses }: FormProps) => {
     form.formState.errors.game_courses?.root ??
     form.formState.errors.game_courses;
   const isValid = form.formState.isValid;
+  console.log(error, isValid, form.formState.errors);
 
   const { fields, update, append, remove } = useFieldArray({
     name: "game_courses",
