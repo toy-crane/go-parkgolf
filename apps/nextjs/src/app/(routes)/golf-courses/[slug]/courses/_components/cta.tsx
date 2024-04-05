@@ -12,7 +12,7 @@ const CTA = ({
   courseName: string;
 }) => {
   return (
-    <Button className="mx-2 w-full" asChild>
+    <Button className="w-full" asChild>
       <Link
         href={`/score-card/create/golf-course?golfCourseId=${courseId}`}
         onClick={() => track("create game CTA clicked")}
