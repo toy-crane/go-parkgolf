@@ -13,6 +13,11 @@ import { Loader2 } from "lucide-react";
 import type { GameCourse, Score } from "../type";
 import ScoresInput from "./scores-input";
 
+interface GamePlayer {
+  id: string;
+  nickname: string;
+}
+
 const ScoreTable = dynamic(() => import("../_components/score-table"), {
   ssr: false,
   loading: () => (
@@ -32,7 +37,11 @@ const MergeScores = (scores: Score[], localScores: Score[]) => {
   return newScores;
 };
 
-const getScores = (playerOrder: string[], score?: Score) => {
+const getScores = (
+  playerOrder: string[],
+  gamePlayers: GamePlayer[],
+  score?: Score,
+) => {
   if (!score) {
     return [];
   }
@@ -44,14 +53,19 @@ const getScores = (playerOrder: string[], score?: Score) => {
     "holeNumber",
     "par",
   ]);
-
   // 순서대로 속성 값을 배열에 저장
-  const values = playerOrder.reduce<string[]>((acc, key) => {
+  const values = playerOrder.reduce<
+    { nickname: string; score: string; id: string }[]
+  >((acc, key) => {
     if (
       !excludeProperties.has(key) &&
       Object.prototype.hasOwnProperty.call(score, key)
     ) {
-      acc.push(String(score[key]));
+      acc.push({
+        score: String(score[key]),
+        id: key,
+        nickname: gamePlayers.find((gp) => gp.id === key)?.nickname ?? "",
+      });
     }
     return acc;
   }, []);
@@ -142,8 +156,11 @@ export const ScoreCard = ({
 
   const selectedPlayerScores = getScores(
     gamePlayers.map((gp) => gp.id),
+    gamePlayers,
     selectedScore,
   );
+
+  console.log(selectedPlayerScores);
 
   return (
     <>
