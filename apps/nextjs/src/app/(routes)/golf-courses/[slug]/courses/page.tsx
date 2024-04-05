@@ -97,7 +97,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       <div className="space-y-3">
         <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
         {hasCourses ? (
-          <Tabs defaultValue={defaultValue} className="mb-28 space-y-4">
+          <Tabs defaultValue={defaultValue} className="mb-28 space-y-3">
             <TabsList className="flex flex-nowrap justify-start overflow-x-scroll">
               {courses.map((course) => (
                 <TabsTrigger
@@ -112,19 +112,19 @@ const Page = async ({ params }: { params: { slug: string } }) => {
             {courses.map((course) => (
               <TabsContent
                 value={course.name}
-                className="min-h-[25vh] space-y-6"
+                className="min-h-[25vh]"
                 key={course.id}
               >
                 <Table className="flex flex-col">
                   <TableHeader className="flex">
                     <TableRow className="grid-cols-course-detail grid flex-1">
-                      <TableHead className="flex w-[100px] items-center justify-center bg-zinc-100 font-semibold">
+                      <TableHead className="bg-muted flex h-8 w-[100px] items-center justify-center font-semibold">
                         홀
                       </TableHead>
-                      <TableHead className="flex items-center justify-center text-center font-semibold">
+                      <TableHead className="flex h-8 items-center justify-center text-center font-semibold">
                         파
                       </TableHead>
-                      <TableHead className="flex items-center justify-center text-center font-semibold">
+                      <TableHead className="flex h-8 items-center justify-center text-center font-semibold">
                         거리
                       </TableHead>
                     </TableRow>
@@ -135,13 +135,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
                         key={hole.id}
                         className="grid-cols-course-detail grid flex-1"
                       >
-                        <TableCell className="flex w-[100px] items-center justify-center bg-zinc-100 text-center">
+                        <TableCell className="bg-muted flex h-6 w-[100px] items-center justify-center text-center">
                           {hole.hole_number} 홀
                         </TableCell>
-                        <TableCell className="flex items-center justify-center text-center">
+                        <TableCell className="flex h-6 items-center justify-center text-center">
                           {hole.par}
                         </TableCell>
-                        <TableCell className="flex items-center justify-center text-center">
+                        <TableCell className="flex h-6 items-center justify-center text-center">
                           {hole.distance} M
                         </TableCell>
                       </TableRow>
