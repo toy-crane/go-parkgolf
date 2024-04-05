@@ -1,7 +1,12 @@
 import * as z from "zod";
 
 export const playerSchema = z.object({
-  nickname: z.string().nonempty("이름을 입력해주세요."),
+  nickname: z
+    .string()
+    .regex(/^[가-힣a-zA-Z]+$/, {
+      message: "사용할 수 없는 문자가 포함되어 있습니다",
+    })
+    .nonempty("이름을 입력해주세요."),
 });
 
 export const formSchema = z.object({
