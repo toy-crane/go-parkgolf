@@ -1,15 +1,7 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -23,8 +15,6 @@ import { readUserSession } from "@/libs/auth";
 import { generateFormUrl } from "@/libs/google-form";
 import { GolfCourse } from "@/types";
 import { Pencil } from "lucide-react";
-
-import CTA from "./cta";
 
 type Course = {
   created_at: string;
@@ -79,7 +69,6 @@ async function CourseTable({
     <div className="space-y-3" id="course-table">
       <div className="flex items-center justify-between">
         <h2 className="text-foreground text-xl font-bold">코스 상세</h2>
-        {session && <CTA courseId={golfCourse.id} />}
       </div>
       {hasCourses ? (
         <div className="relative mb-28">
