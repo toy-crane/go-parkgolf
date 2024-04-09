@@ -75,12 +75,38 @@ const ShareButtons = ({ golfCourse }: Props) => {
 
 export function ShareDrawer({ golfCourse }: Props) {
   const [open, setOpen] = React.useState(false);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  if (isDesktop) {
+    return (
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              track("share button clicked");
+              setOpen((open) => !open);
+            }}
+          >
+            공유하기
+            <Share2 className="ml-2" />
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>공유하기</DialogTitle>
+            <ShareButtons golfCourse={golfCourse} />
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    );
+  }
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button
           variant="ghost"
-          size="smIcon"
+          size="icon"
           onClick={() => {
             track("share button clicked");
             setOpen((open) => !open);
