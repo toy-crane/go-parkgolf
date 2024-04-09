@@ -67,7 +67,7 @@ const BottomNav = async () => {
                 "font-bold underline decoration-[#22DC48] decoration-2 underline-offset-4 opacity-100",
             )}
           >
-            스코어
+            스코어 카드
           </span>
         </Link>
         <Link
