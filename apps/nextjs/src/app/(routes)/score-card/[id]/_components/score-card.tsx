@@ -199,9 +199,10 @@ export const ScoreCard = ({
                 label={`${selectedScore.holeNumber}홀 스코어를 입력하세요`}
                 defaultScores={selectedPlayerScores}
                 inputLength={gamePlayers.length}
-                onSubmit={(inputScores) => {
-                  // TODO: 리팩토링 필요
-                  handleSubmit(inputScores);
+                onChange={(scores) => {
+                  handleSubmit(scores);
+                }}
+                onSubmit={() => {
                   setHandlerOpen(false);
                 }}
               />

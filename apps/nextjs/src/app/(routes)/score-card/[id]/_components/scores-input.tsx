@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/libs/tailwind";
 import { Delete } from "lucide-react";
 
 const ScoresInput = ({
   inputLength,
   onSubmit,
+  onChange,
   defaultScores,
   label,
 }: {
   label: string;
   defaultScores: { id: string; score: string; nickname: string }[];
   inputLength: number;
-  onSubmit: (scores: string[]) => void;
+  onChange: (scores: string[]) => void;
+  onSubmit: () => void;
 }) => {
   const [scoreSet, setScoreSet] =
     useState<{ id: string; score: string; nickname: string }[]>(defaultScores);
@@ -28,11 +29,12 @@ const ScoresInput = ({
       return score;
     });
     setScoreSet(newScoreSet);
+    onChange(newScoreSet.flatMap((set) => set.score));
 
     const nextIndex = currentIndex + 1; // 다음 위치 계산
     if (nextIndex >= inputLength) {
       // 마지막 인덱스를 초과하는 경우
-      onSubmit(newScoreSet.flatMap((set) => set.score)); // 모든 입력이 완료되었으므로 onSubmit 호출
+      onSubmit(); // 모든 입력이 완료되었으므로 onSubmit 호출
       setCurrentIndex(0); // 인덱스를 다시 처음으로 설정
     } else {
       setCurrentIndex(nextIndex); // 아니라면 현재 입력 위치 업데이트
@@ -41,7 +43,7 @@ const ScoresInput = ({
   const handleBack = () => {
     // 현재 모든 값이 "0"이 되었다면 onSubmit 호출
     if (scoreSet.flatMap((set) => set.score).every((value) => value === "0")) {
-      onSubmit(scoreSet.flatMap((set) => set.score));
+      onSubmit();
     }
     const newScoreSet = [...scoreSet];
     const currentScoreSet = newScoreSet[currentIndex]!;
@@ -56,10 +58,11 @@ const ScoresInput = ({
       setCurrentIndex(currentIndex - 1); // 인덱스를 이전 위치로 업데이트합니다.
     }
     setScoreSet(newScoreSet);
+    onChange(newScoreSet.flatMap((set) => set.score));
   };
 
   const handleComplete = () => {
-    onSubmit(scoreSet.flatMap((set) => set.score));
+    onSubmit();
   };
   return (
     <div>

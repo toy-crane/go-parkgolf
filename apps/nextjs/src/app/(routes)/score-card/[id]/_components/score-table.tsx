@@ -233,7 +233,7 @@ export default function ScoreTable({
                       cell.column.id === "par" && "bg-lime-400",
                       selectedRow?.id === cell.row.id &&
                         !["holeNumber", "par"].includes(cell.column.id) &&
-                        "bg-green-500",
+                        "bg-green-500 text-lg font-bold text-white",
                     )}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
