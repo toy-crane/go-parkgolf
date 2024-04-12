@@ -1,11 +1,8 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { PathParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 import dynamic from "next/dynamic";
 import { headers } from "next/headers";
-import Link from "next/link";
 import BottomNav from "@/components/nav/bottom";
 import { siteConfig } from "@/config/site";
-import { createSupabaseServerClientReadOnly } from "@/libs/supabase/server";
 import { isApp } from "@/libs/user-agent";
 
 import ScoreCardCTA from "./_components/create-score-cta";
