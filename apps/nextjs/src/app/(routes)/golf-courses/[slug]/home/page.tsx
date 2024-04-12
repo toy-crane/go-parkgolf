@@ -35,7 +35,6 @@ const InfoNeeded = ({ href }: { href: string }) => {
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const course = await getCourse(params.slug);
-  const operation = course.operations;
   const phoneNumber = course.phone_number;
   return (
     <div className="min-h-[25vh] space-y-6">
@@ -43,34 +42,32 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         <Label title="위치" content={course.lot_number_address_name} />
       </div>
       <Separator />
-      {operation && (
-        <>
-          <div className="space-y-3">
-            <h2 className="text-foreground text-xl font-bold">운영 시간</h2>
-            <div className="flex flex-col gap-1">
-              <Label
-                title="영업시간"
-                content={
-                  operation?.opening_hours ??
-                  InfoNeeded({
-                    href: generateFormUrl(course.name),
-                  })
-                }
-              />
-              <Label
-                title="정기 휴무일"
-                content={
-                  operation?.regular_closed_days ??
-                  InfoNeeded({
-                    href: generateFormUrl(course.name),
-                  })
-                }
-              />
-            </div>
+      <>
+        <div className="space-y-3">
+          <h2 className="text-foreground text-xl font-bold">운영 시간</h2>
+          <div className="flex flex-col gap-1">
+            <Label
+              title="영업시간"
+              content={
+                course?.opening_hours ??
+                InfoNeeded({
+                  href: generateFormUrl(course.name),
+                })
+              }
+            />
+            <Label
+              title="정기 휴무일"
+              content={
+                course?.regular_closed_days ??
+                InfoNeeded({
+                  href: generateFormUrl(course.name),
+                })
+              }
+            />
           </div>
-          <Separator />
-        </>
-      )}
+        </div>
+        <Separator />
+      </>
       {phoneNumber && (
         <>
           <div className="space-y-3">
@@ -101,7 +98,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <Label
             title="예약 방법"
             content={
-              operation?.registration_method ??
+              course?.registration_method ??
               InfoNeeded({
                 href: generateFormUrl(course.name),
               })
@@ -110,8 +107,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <Label
             title="홈페이지"
             content={
-              operation?.website ? (
-                <a href={operation?.website} className="text-blue-400">
+              course?.website ? (
+                <a href={course?.website} className="text-blue-400">
                   상세 페이지 바로가기
                 </a>
               ) : (

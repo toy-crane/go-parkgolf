@@ -159,20 +159,6 @@ export function GolfCourseForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="reference"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>참고한 링크</FormLabel>
-              <FormControl>
-                <Input placeholder="참고 했던 링크를 입력해주세요" {...field} />
-              </FormControl>
-              <FormMessage />
-              <FormDescription>예시: 전체 URL 입력해주세요.</FormDescription>
-            </FormItem>
-          )}
-        />
         <Button type="submit" disabled={isPending}>
           저장
         </Button>

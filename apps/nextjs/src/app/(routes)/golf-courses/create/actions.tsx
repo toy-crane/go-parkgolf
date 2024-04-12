@@ -13,7 +13,6 @@ export async function createGolfCourse(inputs: Inputs) {
     address,
     name,
     hole_count,
-    reference,
     registration_method,
     regular_closed_days,
     website,
@@ -57,6 +56,10 @@ export async function createGolfCourse(inputs: Inputs) {
       lat: y,
       phone_number,
       location: `POINT(${x} ${y})`,
+      regular_closed_days,
+      opening_hours,
+      website,
+      registration_method,
     })
     .select()
     .single();
@@ -85,23 +88,6 @@ export async function createGolfCourse(inputs: Inputs) {
     if (roadAddressError) {
       throw new Error(roadAddressError.message);
     }
-  }
-
-  const operationParams = {
-    regular_closed_days,
-    opening_hours,
-    website,
-    registration_method,
-    reference,
-    golf_course_id: golfCourse.id,
-  };
-
-  const { error: operationError } = await supabase.from("operations").insert({
-    ...operationParams,
-  });
-
-  if (operationError) {
-    throw Error(operationError.message);
   }
 
   return { success: true, golfCourseSlug: golfCourse.slug };

@@ -13,35 +13,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      contacts: {
-        Row: {
-          created_at: string
-          golf_course_id: string
-          id: string
-          phone_number: string
-        }
-        Insert: {
-          created_at?: string
-          golf_course_id: string
-          id?: string
-          phone_number: string
-        }
-        Update: {
-          created_at?: string
-          golf_course_id?: string
-          id?: string
-          phone_number?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "contacts_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: false
-            referencedRelation: "golf_courses"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       courses: {
         Row: {
           created_at: string
@@ -364,10 +335,14 @@ export type Database = {
           location: unknown | null
           lot_number_address_name: string
           name: string
+          opening_hours: string | null
           phone_number: string | null
           publish_status: Database["public"]["Enums"]["publish_status"]
+          registration_method: string | null
+          regular_closed_days: string | null
           road_address_name: string | null
           slug: string
+          website: string | null
         }
         Insert: {
           created_at?: string
@@ -378,10 +353,14 @@ export type Database = {
           location?: unknown | null
           lot_number_address_name: string
           name?: string
+          opening_hours?: string | null
           phone_number?: string | null
           publish_status?: Database["public"]["Enums"]["publish_status"]
+          registration_method?: string | null
+          regular_closed_days?: string | null
           road_address_name?: string | null
           slug: string
+          website?: string | null
         }
         Update: {
           created_at?: string
@@ -392,10 +371,14 @@ export type Database = {
           location?: unknown | null
           lot_number_address_name?: string
           name?: string
+          opening_hours?: string | null
           phone_number?: string | null
           publish_status?: Database["public"]["Enums"]["publish_status"]
+          registration_method?: string | null
+          regular_closed_days?: string | null
           road_address_name?: string | null
           slug?: string
+          website?: string | null
         }
         Relationships: []
       }

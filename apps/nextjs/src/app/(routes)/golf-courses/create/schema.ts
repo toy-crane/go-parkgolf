@@ -8,6 +8,5 @@ export const formSchema = z.object({
   regular_closed_days: z.string().optional(),
   website: z.string().optional(),
   registration_method: z.string().optional(),
-  reference: z.string().optional(),
   phone_number: z.string().optional(),
 });
