@@ -5,7 +5,7 @@ const getCourse = async (slug: string) => {
   const supabase = await createSupabaseServerClientReadOnly();
   const response = await supabase
     .from("golf_courses")
-    .select("*, operations(*), contacts(*), lot_number_addresses(*)")
+    .select("*, operations(*), lot_number_addresses(*)")
     .eq("publish_status", "completed")
     .eq("slug", decodeURIComponent(slug))
     .returns<GolfCourse[]>()

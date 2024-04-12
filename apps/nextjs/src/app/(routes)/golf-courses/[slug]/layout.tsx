@@ -27,10 +27,9 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const supabase = await createSupabaseServerClientReadOnly();
   const course = await getCourse(params.slug);
   const operation = course.operations;
-  const contact = course.contacts?.[0];
+  const phoneNumber = course.phone_number;
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
@@ -41,7 +40,7 @@ export async function generateMetadata(
     \n 영업시간 - ${operation?.opening_hours ?? "정보 없음"} \n 정기 휴무일 - ${
       operation?.regular_closed_days ?? "정보 없음"
     } \n 예약방법 - ${operation?.registration_method ?? "정보 없음"} 연락처 - ${
-      contact?.phone_number ?? "정보 없음"
+      phoneNumber ?? "정보 없음"
     } 이외에도 파크골프가자에서 상세 코스, 예약 정보와 더불어 후기 등 골프장 관련 다양한 정보를 확인하세요.`;
     return {
       title,

@@ -36,7 +36,7 @@ const InfoNeeded = ({ href }: { href: string }) => {
 const Page = async ({ params }: { params: { slug: string } }) => {
   const course = await getCourse(params.slug);
   const operation = course.operations;
-  const contacts = course.contacts;
+  const phoneNumber = course.phone_number;
   return (
     <div className="min-h-[25vh] space-y-6">
       <div className="flex flex-col gap-1">
@@ -71,32 +71,27 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <Separator />
         </>
       )}
-      {contacts && contacts.length > 0 && (
+      {phoneNumber && (
         <>
-          {contacts?.map((contact) => (
-            <div className="space-y-3" key={contact.id}>
-              <h2 className="text-foreground text-xl font-bold">연락처</h2>
-              <div className="flex flex-col gap-1">
-                <Label
-                  title="전화번호"
-                  content={
-                    contact?.phone_number ? (
-                      <a
-                        href={`tel:${contact?.phone_number}`}
-                        className="text-blue-400"
-                      >
-                        {contact?.phone_number}
-                      </a>
-                    ) : (
-                      InfoNeeded({
-                        href: generateFormUrl(course.name),
-                      })
-                    )
-                  }
-                />
-              </div>
+          <div className="space-y-3">
+            <h2 className="text-foreground text-xl font-bold">연락처</h2>
+            <div className="flex flex-col gap-1">
+              <Label
+                title="전화번호"
+                content={
+                  phoneNumber ? (
+                    <a href={`tel:${phoneNumber}`} className="text-blue-400">
+                      {phoneNumber}
+                    </a>
+                  ) : (
+                    InfoNeeded({
+                      href: generateFormUrl(course.name),
+                    })
+                  )
+                }
+              />
             </div>
-          ))}
+          </div>
           <Separator />
         </>
       )}
