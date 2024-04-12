@@ -117,7 +117,7 @@ export function GolfCourseForm() {
         />
         <FormField
           control={form.control}
-          name="regular_close_days"
+          name="regular_closed_days"
           render={({ field }) => (
             <FormItem>
               <FormLabel>정기 휴장 기간</FormLabel>
