@@ -364,6 +364,7 @@ export type Database = {
           location: unknown | null
           lot_number_address_name: string
           name: string
+          phone_number: string | null
           publish_status: Database["public"]["Enums"]["publish_status"]
           road_address_name: string | null
           slug: string
@@ -377,6 +378,7 @@ export type Database = {
           location?: unknown | null
           lot_number_address_name: string
           name?: string
+          phone_number?: string | null
           publish_status?: Database["public"]["Enums"]["publish_status"]
           road_address_name?: string | null
           slug: string
@@ -390,6 +392,7 @@ export type Database = {
           location?: unknown | null
           lot_number_address_name?: string
           name?: string
+          phone_number?: string | null
           publish_status?: Database["public"]["Enums"]["publish_status"]
           road_address_name?: string | null
           slug?: string
@@ -608,6 +611,68 @@ export type Database = {
             foreignKeyName: "road_addresses_golf_course_id_fkey"
             columns: ["golf_course_id"]
             isOneToOne: true
+            referencedRelation: "golf_courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tournaments: {
+        Row: {
+          created_at: string
+          eligibility_criteria: string | null
+          end_date: string
+          golf_course_id: string
+          host: string
+          id: string
+          name: string
+          number_of_participants: number
+          organizer: string
+          recruitment_detail_url: string
+          registration_end_date: string | null
+          registration_fee: string | null
+          registration_start_date: string | null
+          sponsor: string
+          start_date: string
+        }
+        Insert: {
+          created_at?: string
+          eligibility_criteria?: string | null
+          end_date: string
+          golf_course_id: string
+          host: string
+          id?: string
+          name: string
+          number_of_participants: number
+          organizer: string
+          recruitment_detail_url: string
+          registration_end_date?: string | null
+          registration_fee?: string | null
+          registration_start_date?: string | null
+          sponsor: string
+          start_date: string
+        }
+        Update: {
+          created_at?: string
+          eligibility_criteria?: string | null
+          end_date?: string
+          golf_course_id?: string
+          host?: string
+          id?: string
+          name?: string
+          number_of_participants?: number
+          organizer?: string
+          recruitment_detail_url?: string
+          registration_end_date?: string | null
+          registration_fee?: string | null
+          registration_start_date?: string | null
+          sponsor?: string
+          start_date?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_tournaments_golf_course_id_fkey"
+            columns: ["golf_course_id"]
+            isOneToOne: false
             referencedRelation: "golf_courses"
             referencedColumns: ["id"]
           },

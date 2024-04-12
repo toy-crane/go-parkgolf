@@ -55,6 +55,7 @@ export async function createGolfCourse(inputs: Inputs) {
       lot_number_address_name: address_name,
       lng: x,
       lat: y,
+      phone_number,
       location: `POINT(${x} ${y})`,
     })
     .select()
@@ -101,17 +102,6 @@ export async function createGolfCourse(inputs: Inputs) {
 
   if (operationError) {
     throw Error(operationError.message);
-  }
-
-  if (phone_number) {
-    const { error: contactError } = await supabase.from("contacts").insert({
-      phone_number,
-      golf_course_id: golfCourse.id,
-    });
-
-    if (contactError) {
-      throw Error(contactError.message);
-    }
   }
 
   return { success: true, golfCourseSlug: golfCourse.slug };
