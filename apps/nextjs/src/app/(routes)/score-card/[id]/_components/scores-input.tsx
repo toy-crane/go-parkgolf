@@ -88,7 +88,7 @@ const ScoresInput = ({
               <span
                 className={cn(
                   "text-muted-foreground/25 truncate text-center text-[12px]",
-                  index === currentIndex && "text-foreground/80 font-semibold",
+                  index === currentIndex && "text-foreground font-extrabold",
                 )}
               >
                 {set.nickname}
