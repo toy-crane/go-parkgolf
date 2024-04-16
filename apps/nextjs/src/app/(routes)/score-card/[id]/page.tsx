@@ -121,7 +121,7 @@ const Page = async ({
       {isReadOnly ? (
         <ReadOnlyScoreCard
           gameCourses={gameCourses}
-          selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+          selectedTab={searchParams.tab ?? gameCourses[0]?.name!}
           gamePlayers={gamePlayers}
           data={createScores(gameCourses)}
           isMyGame={isMyGame}
@@ -131,7 +131,7 @@ const Page = async ({
           gameId={params.id}
           data={createScores(gameCourses)}
           gameCourses={gameCourses}
-          selectedTab={searchParams.tab ?? gameCourses[0]?.name}
+          selectedTab={searchParams.tab ?? gameCourses[0]?.name!}
           gamePlayers={gamePlayers}
         />
       )}

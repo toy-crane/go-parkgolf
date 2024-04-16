@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Row } from "@tanstack/react-table";
 import { generateStorage } from "@toss/storage";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import { set } from "lodash";
 import { Loader2 } from "lucide-react";
 
 import type { GameCourse, Score } from "../type";
@@ -73,6 +74,28 @@ const getScores = (
   return values;
 };
 
+const findInitialSelectScore = (
+  scores: Score[],
+  gameCourseId: string,
+): Score | undefined => {
+  // UUID 패턴에 해당하는 키만 검사
+  const uuidPattern =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+  return scores.find((score) => {
+    if (score.gameCourseId !== gameCourseId) {
+      return false;
+    }
+    for (const key in score) {
+      if (uuidPattern.test(key)) {
+        if (score[key] !== 0) {
+          return false;
+        }
+      }
+    }
+    return true;
+  });
+};
+
 export const ScoreCard = ({
   gameCourses,
   selectedTab,
@@ -83,7 +106,7 @@ export const ScoreCard = ({
   gameId: string;
   data: Score[];
   gameCourses: GameCourse[];
-  selectedTab?: string;
+  selectedTab: string;
   gamePlayers: { id: string; nickname: string }[];
 }) => {
   useLockBodyScroll();
@@ -95,8 +118,18 @@ export const ScoreCard = ({
     ) as Score[],
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+  const currentGameCourseId = gameCourses.find((gc) => gc.name === selectedTab)
+    ?.id!;
+  const initialScore = findInitialSelectScore(
+    initialScores,
+    currentGameCourseId,
+  );
+
   const [scores, setScores] = useState<Score[]>(initialScores);
-  const [selectedScore, setSelectedScore] = useState<Score | undefined>();
+  const [selectedScore, setSelectedScore] = useState<Score | undefined>(
+    initialScore,
+  );
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -106,10 +139,6 @@ export const ScoreCard = ({
       setHandlerOpen(true);
     }
   }, [selectedScore]);
-
-  useEffect(() => {
-    if (!handlerOpen) setSelectedScore(undefined);
-  }, [handlerOpen]);
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -191,7 +220,11 @@ export const ScoreCard = ({
           </TabsContent>
         ))}
       </Tabs>
-      <Drawer open={handlerOpen} onOpenChange={setHandlerOpen}>
+      <Drawer
+        open={handlerOpen}
+        onOpenChange={setHandlerOpen}
+        onClose={() => setSelectedScore(undefined)}
+      >
         <DrawerContent>
           <div className="content-grid my-2">
             {selectedScore && (
