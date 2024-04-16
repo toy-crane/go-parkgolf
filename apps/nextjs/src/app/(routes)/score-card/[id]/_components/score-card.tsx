@@ -229,7 +229,14 @@ export const ScoreCard = ({
           <div className="content-grid my-2">
             {selectedScore && (
               <ScoresInput
-                label={`${selectedScore.holeNumber}홀 스코어를 입력하세요`}
+                label={
+                  <div className="flex flex-col items-center">
+                    <div>
+                      {selectedTab}코스 - {selectedScore.holeNumber}홀
+                    </div>
+                    <div>스코어를 입력하세요</div>
+                  </div>
+                }
                 defaultScores={selectedPlayerScores}
                 inputLength={gamePlayers.length}
                 onChange={(scores) => {

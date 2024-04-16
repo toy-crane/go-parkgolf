@@ -10,7 +10,7 @@ const ScoresInput = ({
   defaultScores,
   label,
 }: {
-  label: string;
+  label: React.ReactNode;
   defaultScores: { id: string; score: string; nickname: string }[];
   inputLength: number;
   onChange: (scores: string[]) => void;
@@ -67,7 +67,7 @@ const ScoresInput = ({
   return (
     <div>
       <div className="flex flex-col items-center justify-center pb-4">
-        <span className="mb-1 text-base font-bold">{label}</span>
+        <span className="mb-1 text-base font-bold tracking-wide">{label}</span>
         <div className="flex justify-center gap-4">
           {scoreSet.map((set, index) => (
             <div
