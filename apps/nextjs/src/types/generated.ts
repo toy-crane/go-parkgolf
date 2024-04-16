@@ -473,44 +473,6 @@ export type Database = {
           },
         ]
       }
-      operations: {
-        Row: {
-          created_at: string
-          golf_course_id: string
-          opening_hours: string | null
-          reference: string | null
-          registration_method: string | null
-          regular_closed_days: string | null
-          website: string | null
-        }
-        Insert: {
-          created_at?: string
-          golf_course_id: string
-          opening_hours?: string | null
-          reference?: string | null
-          registration_method?: string | null
-          regular_closed_days?: string | null
-          website?: string | null
-        }
-        Update: {
-          created_at?: string
-          golf_course_id?: string
-          opening_hours?: string | null
-          reference?: string | null
-          registration_method?: string | null
-          regular_closed_days?: string | null
-          website?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "operations_golf_course_id_fkey"
-            columns: ["golf_course_id"]
-            isOneToOne: true
-            referencedRelation: "golf_courses"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       profiles: {
         Row: {
           avatar_url: string
@@ -598,6 +560,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      scraped_golf_courses: {
+        Row: {
+          address: string
+          created_at: string
+          hole_count: number
+          id: number
+          name: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          hole_count: number
+          id?: number
+          name: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          hole_count?: number
+          id?: number
+          name?: string
+        }
+        Relationships: []
       }
       tournaments: {
         Row: {
