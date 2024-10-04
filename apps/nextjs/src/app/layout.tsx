@@ -131,11 +131,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
           />
-          <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8400392513417741"
-            crossOrigin="anonymous"
-          />
+
           <Analytics />
         </body>
       </AmplitudeProvider>

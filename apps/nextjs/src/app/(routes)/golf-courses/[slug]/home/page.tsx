@@ -1,3 +1,4 @@
+import DynamicBanner from "@/components/ad/dynamic-banner";
 import Products from "@/components/ad/products";
 import { Separator } from "@/components/ui/separator";
 import { generateFormUrl } from "@/libs/google-form";
@@ -122,7 +123,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       </div>
       <Separator />
       <div className="space-y-3">
-        <Products />
+        <DynamicBanner />
       </div>
     </div>
   );
