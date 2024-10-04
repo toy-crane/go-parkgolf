@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { headers } from "next/headers";
+import DynamicBanner from "@/components/ad/dynamic-banner";
 import BottomNav from "@/components/nav/bottom";
 import { PageHeader, PageHeaderHeading } from "@/components/page-header";
 import { isApp } from "@/libs/user-agent";
@@ -28,11 +29,11 @@ const Layout = (props: { children: React.ReactNode }) => {
               파크골프 트렌드
             </PageHeaderHeading>
           </PageHeader>
-          <section className="mb-8 space-y-4">
+          <section className="mb-12 space-y-4">
             <TrendingNav />
             {props.children}
           </section>
-          <Products />
+          <DynamicBanner />
         </div>
       </main>
       <BottomNav />
